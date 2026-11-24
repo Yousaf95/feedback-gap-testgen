@@ -1,0 +1,217 @@
+[ERROR] Tests run: 54, Failures: 9, Errors: 4, Skipped: 0, Time elapsed: 0.267 s <<< FAILURE! -- in org.apache.commons.lang3.Validate_GenTest
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testIsAssignableFromThrowsException(String)[1] -- Time elapsed: 0.051 s <<< ERROR!
+java.lang.RuntimeException: java.lang.ClassNotFoundException: String
+	at org.apache.commons.lang3.Validate_GenTest.testIsAssignableFromThrowsException(Validate_GenTest.java:180)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ClassNotFoundException: String
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:377)
+	at org.apache.commons.lang3.Validate_GenTest.testIsAssignableFromThrowsException(Validate_GenTest.java:178)
+	... 5 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testIsAssignableFromThrowsException(String)[2] -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.RuntimeException: java.lang.ClassNotFoundException: Object
+	at org.apache.commons.lang3.Validate_GenTest.testIsAssignableFromThrowsException(Validate_GenTest.java:180)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ClassNotFoundException: Object
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:377)
+	at org.apache.commons.lang3.Validate_GenTest.testIsAssignableFromThrowsException(Validate_GenTest.java:178)
+	... 5 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenThrowsException(String)[1] -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenThrowsException(Validate_GenTest.java:117)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenThrowsException(String)[2] -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenThrowsException(Validate_GenTest.java:117)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenDoubleThrowsException(double)[2] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenDoubleThrowsException(Validate_GenTest.java:161)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testIsInstanceOfThrowsException(String)[1] -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.RuntimeException: java.lang.ClassNotFoundException: String
+	at org.apache.commons.lang3.Validate_GenTest.testIsInstanceOfThrowsException(Validate_GenTest.java:203)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ClassNotFoundException: String
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:377)
+	at org.apache.commons.lang3.Validate_GenTest.testIsInstanceOfThrowsException(Validate_GenTest.java:201)
+	... 5 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testIsInstanceOfThrowsException(String)[2] -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.RuntimeException: java.lang.ClassNotFoundException: Object
+	at org.apache.commons.lang3.Validate_GenTest.testIsInstanceOfThrowsException(Validate_GenTest.java:203)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ClassNotFoundException: Object
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:377)
+	at org.apache.commons.lang3.Validate_GenTest.testIsInstanceOfThrowsException(Validate_GenTest.java:201)
+	... 5 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testIsValidStateThrowsException(String)[1] -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IllegalStateException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testIsValidStateThrowsException(Validate_GenTest.java:225)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalStateException: The validated state is false
+	at org.apache.commons.lang3.Validate.validState(Validate.java:1225)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testIsValidStateThrowsException$19(Validate_GenTest.java:225)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testNotNaNThrowsException(double)[2] -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testNotNaNThrowsException(Validate_GenTest.java:282)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testIsAssignableFrom -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.IllegalArgumentException: Cannot assign a java.lang.Object to a java.lang.String
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:84)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:53)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:36)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3168)
+	at org.apache.commons.lang3.Validate_GenTest.testIsAssignableFrom(Validate_GenTest.java:169)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalArgumentException: Cannot assign a java.lang.Object to a java.lang.String
+	at org.apache.commons.lang3.Validate.isAssignableFrom(Validate.java:405)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testIsAssignableFrom$14(Validate_GenTest.java:169)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:49)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testMatchesPatternThrowsException(String)[1] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testMatchesPatternThrowsException(Validate_GenTest.java:242)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testExclusiveBetweenThrowsException(double)[3] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testExclusiveBetweenThrowsException(Validate_GenTest.java:33)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenLongThrowsException(long)[2] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testInclusiveBetweenLongThrowsException(Validate_GenTest.java:139)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   Validate_GenTest.testExclusiveBetweenThrowsException:33 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   Validate_GenTest.testInclusiveBetweenDoubleThrowsException:161 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   Validate_GenTest.testInclusiveBetweenLongThrowsException:139 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   Validate_GenTest.testInclusiveBetweenThrowsException:117 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   Validate_GenTest.testInclusiveBetweenThrowsException:117 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   Validate_GenTest.testIsAssignableFrom:169 Unexpected exception thrown: java.lang.IllegalArgumentException: Cannot assign a java.lang.Object to a java.lang.String
+[ERROR]   Validate_GenTest.testIsValidStateThrowsException:225 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IllegalStateException>
+[ERROR]   Validate_GenTest.testMatchesPatternThrowsException:242 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR]   Validate_GenTest.testNotNaNThrowsException:282 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR] Errors: 
+[ERROR]   Validate_GenTest.testIsAssignableFromThrowsException:180 Runtime java.lang.ClassNotFoundException: String
+[ERROR]   Validate_GenTest.testIsAssignableFromThrowsException:180 Runtime java.lang.ClassNotFoundException: Object
+[ERROR]   Validate_GenTest.testIsInstanceOfThrowsException:203 Runtime java.lang.ClassNotFoundException: String
+[ERROR]   Validate_GenTest.testIsInstanceOfThrowsException:203 Runtime java.lang.ClassNotFoundException: Object
+[ERROR] Tests run: 54, Failures: 9, Errors: 4, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w10/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

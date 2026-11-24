@@ -1,0 +1,59 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_SingleCharacterMatch() {
+        assertTrue(CharSetUtils.containsAny("abc", "b"));
+    }
+
+    @Test
+    public void testContainsAny_MultipleCharactersMatch() {
+        assertTrue(CharSetUtils.containsAny("hello world", "helo"));
+    }
+
+    @Test
+    public void testCount_SingleCharacterMatch() {
+        assertEquals(1, CharSetUtils.count("abc", "b"));
+    }
+
+    @Test
+    public void testCount_MultipleCharactersMatch() {
+        assertEquals(3, CharSetUtils.count("hello world", "l"));
+    }
+
+    @Test
+    public void testDelete_SingleCharacterMatch() {
+        assertEquals("ac", CharSetUtils.delete("abc", "b"));
+    }
+
+    @Test
+    public void testDelete_MultipleCharactersMatch() {
+        assertEquals("heo wor", CharSetUtils.delete("hello world", "l"));
+    }
+
+    @Test
+    public void testKeep_SingleCharacterMatch() {
+        assertEquals("b", CharSetUtils.keep("abc", "b"));
+    }
+
+    @Test
+    public void testKeep_MultipleCharactersMatch() {
+        assertEquals("heo wor", CharSetUtils.keep("hello world", "l"));
+    }
+
+    @Test
+    public void testSqueeze_SingleCharacterRepetition() {
+        assertEquals("a", CharSetUtils.squeeze("aa", "a"));
+    }
+
+    @Test
+    public void testSqueeze_MultipleCharactersRepetition() {
+        assertEquals("heo wor", CharSetUtils.squeeze("hello world", "l"));
+    }
+}
+```

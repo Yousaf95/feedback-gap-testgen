@@ -1,0 +1,49 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetDefaultCauseMethodNames() {
+        String[] expected = {"getCause", "getNextException", "getTargetException", "getException", "getSourceException", "getRootCause", "getCausedByException", "getNested", "getLinkedException", "getNestedException", "getLinkedCause", "getThrowable"};
+        assertArrayEquals(expected, ExceptionUtils.getDefaultCauseMethodNames());
+    }
+
+    @Test
+    public void testGetMessage() {
+        Throwable throwable = new IllegalArgumentException("Invalid argument");
+        assertEquals("IllegalArgumentException: Invalid argument", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    public void testGetStackFrames() {
+        Throwable throwable = new RuntimeException("Runtime exception");
+        String[] stackFrames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(stackFrames.length > 0);
+    }
+
+    @Test
+    public void testGetStackTrace() {
+        Throwable throwable = new NullPointerException("Null pointer");
+        String stackTrace = ExceptionUtils.getStackTrace(throwable);
+        assertTrue(!stackTrace.isEmpty());
+    }
+
+    @Test
+    public void testIsUnchecked() {
+        Throwable checkedException = new IOException("Checked exception");
+        Throwable uncheckedException = new RuntimeException("Unchecked exception");
+        assertFalse(ExceptionUtils.isUnchecked(checkedException));
+        assertTrue(ExceptionUtils.isUnchecked(uncheckedException));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTrace() {
+        Throwable throwable = new Exception("Root cause exception");
+        assertThrows(SecurityException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, System.err));
+    }
+}
+```

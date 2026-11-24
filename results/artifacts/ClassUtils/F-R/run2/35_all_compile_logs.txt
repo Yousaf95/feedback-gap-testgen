@@ -1,0 +1,140 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[13,9] cannot find symbol
+  symbol:   class Comparator
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[45,69] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[46,42] cannot find symbol
+  symbol:   class AbstractList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[63,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[81,9] cannot find symbol
+  symbol:   class Method
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[13,9] cannot find symbol
+[ERROR]   symbol:   class Comparator
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[45,69] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[46,42] cannot find symbol
+[ERROR]   symbol:   class AbstractList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[63,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[81,9] cannot find symbol
+[ERROR]   symbol:   class Method
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[48,42] cannot find symbol
+  symbol:   class AbstractList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[65,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[83,9] cannot find symbol
+  symbol:   class Method
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[48,42] cannot find symbol
+[ERROR]   symbol:   class AbstractList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[65,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[83,9] cannot find symbol
+[ERROR]   symbol:   class Method
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[65,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[83,9] cannot find symbol
+  symbol:   class Method
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[65,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[83,9] cannot find symbol
+[ERROR]   symbol:   class Method
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[65,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[83,9] cannot find symbol
+  symbol:   class Method
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[65,49] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.String[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.String[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[83,9] cannot find symbol
+[ERROR]   symbol:   class Method
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

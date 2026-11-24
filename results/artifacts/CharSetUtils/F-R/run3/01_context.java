@@ -1,0 +1,89 @@
+package org.apache.commons.lang3;
+import org.apache.commons.lang3.stream.Streams;
+
+/** Operations on {@link CharSet} instances. */
+public class CharSetUtils {
+    /** Takes an argument in set-syntax, see evaluateSet, and identifies whether any of the characters are present in the specified string. */
+    public static boolean containsAny(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return false;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and returns the number of characters present in the specified string. */
+    public static int count(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return 0;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        int count = 0;
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and deletes any of characters present in the specified string. */
+    public static String delete(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        return modify(str, set, false);
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and keeps any of characters present in the specified string. */
+    public static String keep(final String str, final String... set) {
+        if (str == null) {
+            return null;
+        }
+        if (str.isEmpty() || deepEmpty(set)) {
+            return StringUtils.EMPTY;
+        }
+        return modify(str, set, true);
+    }
+    /** Squeezes any repetitions of a character that is mentioned in the supplied set. */
+    public static String squeeze(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        final StringBuilder buffer = new StringBuilder(str.length());
+        final char[] chrs = str.toCharArray();
+        final int sz = chrs.length;
+        char lastChar = chrs[0];
+        char ch;
+        Character inChars = null;
+        Character notInChars = null;
+        buffer.append(lastChar);
+        for (int i = 1; i < sz; i++) {
+            ch = chrs[i];
+            if (ch == lastChar) {
+                if (inChars != null && ch == inChars) {
+                    continue;
+                }
+                if (notInChars == null || ch != notInChars) {
+                    if (chars.contains(ch)) {
+                        inChars = ch;
+                        continue;
+                    }
+                    notInChars = ch;
+                }
+            }
+            buffer.append(ch);
+            lastChar = ch;
+        }
+        return buffer.toString();
+    }
+    /** CharSetUtils instances should NOT be constructed in standard programming. */
+    public CharSetUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static boolean deepEmpty(final String[] strings);
+    private static String modify(final String str, final String[] set, final boolean expect);
+}

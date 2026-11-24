@@ -1,0 +1,144 @@
+[ERROR] Tests run: 44, Failures: 7, Errors: 2, Skipped: 0, Time elapsed: 0.261 s <<< FAILURE! -- in org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLanguageCountryVariant_3 -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <en_US> but was: <en_US_WIN>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLanguageCountryVariant_3(LocaleUtils_GenTest.java:205)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLanguageCountryVariant_4 -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <en_US> but was: <en_US_POSIX>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLanguageCountryVariant_4(LocaleUtils_GenTest.java:258)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_missingCountry_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: Invalid locale format: en_
+	at org.apache.commons.lang3.LocaleUtils.parseLocale(LocaleUtils.java:269)
+	at org.apache.commons.lang3.LocaleUtils.toLocale(LocaleUtils.java:351)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_missingCountry_2(LocaleUtils_GenTest.java:210)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_missingCountry_3 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: Invalid locale format: en_
+	at org.apache.commons.lang3.LocaleUtils.parseLocale(LocaleUtils.java:269)
+	at org.apache.commons.lang3.LocaleUtils.toLocale(LocaleUtils.java:351)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_missingCountry_3(LocaleUtils_GenTest.java:263)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testLanguagesByCountry_emptyCountryCode -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testLanguagesByCountry_emptyCountryCode(LocaleUtils_GenTest.java:199)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_nullLocale_3 -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:31)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:231)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_nullLocale_3(LocaleUtils_GenTest.java:228)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_nullLocale_4 -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:31)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:231)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_nullLocale_4(LocaleUtils_GenTest.java:281)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_validLocale_3 -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_validLocale_3(LocaleUtils_GenTest.java:223)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_validLocale_4 -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testIsLanguageUndetermined_validLocale_4(LocaleUtils_GenTest.java:276)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   LocaleUtils_GenTest.testIsLanguageUndetermined_nullLocale_3:228 expected: <false> but was: <true>
+[ERROR]   LocaleUtils_GenTest.testIsLanguageUndetermined_nullLocale_4:281 expected: <false> but was: <true>
+[ERROR]   LocaleUtils_GenTest.testIsLanguageUndetermined_validLocale_3:223 expected: <true> but was: <false>
+[ERROR]   LocaleUtils_GenTest.testIsLanguageUndetermined_validLocale_4:276 expected: <true> but was: <false>
+[ERROR]   LocaleUtils_GenTest.testLanguagesByCountry_emptyCountryCode:199 expected: <true> but was: <false>
+[ERROR]   LocaleUtils_GenTest.testToLocale_validLanguageCountryVariant_3:205 expected: <en_US> but was: <en_US_WIN>
+[ERROR]   LocaleUtils_GenTest.testToLocale_validLanguageCountryVariant_4:258 expected: <en_US> but was: <en_US_POSIX>
+[ERROR] Errors: 
+[ERROR]   LocaleUtils_GenTest.testToLocale_missingCountry_2:210 » IllegalArgument Invalid locale format: en_
+[ERROR]   LocaleUtils_GenTest.testToLocale_missingCountry_3:263 » IllegalArgument Invalid locale format: en_
+[ERROR] Tests run: 44, Failures: 7, Errors: 2, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w1/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,59 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[301,46] method getFirstNonNull in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: java.util.function.Supplier<T>[]
+  found:    java.lang.String,int,<nulltype>
+  reason: cannot infer type-variable(s) T
+    (varargs mismatch; java.lang.String cannot be converted to java.util.function.Supplier<T>)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[302,42] method getFirstNonNull in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: java.util.function.Supplier<T>[]
+  found:    java.lang.Object,int,java.lang.String
+  reason: cannot infer type-variable(s) T
+    (varargs mismatch; java.lang.Object cannot be converted to java.util.function.Supplier<T>)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[323,46] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[329,48] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[330,48] cannot find symbol
+  symbol:   class HashSet
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[336,52] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[337,52] cannot find symbol
+  symbol:   class HashSet
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[301,46] method getFirstNonNull in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: java.util.function.Supplier<T>[]
+[ERROR]   found:    java.lang.String,int,<nulltype>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (varargs mismatch; java.lang.String cannot be converted to java.util.function.Supplier<T>)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[302,42] method getFirstNonNull in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: java.util.function.Supplier<T>[]
+[ERROR]   found:    java.lang.Object,int,java.lang.String
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (varargs mismatch; java.lang.Object cannot be converted to java.util.function.Supplier<T>)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[323,46] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[329,48] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[330,48] cannot find symbol
+[ERROR]   symbol:   class HashSet
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[336,52] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[337,52] cannot find symbol
+[ERROR]   symbol:   class HashSet
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

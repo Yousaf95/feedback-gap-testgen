@@ -1,0 +1,121 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[108,85] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[122,113] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[127,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->1,()->null,()->3
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[128,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->"a",()->"b",()->null
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[129,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->true,()->false,()->true
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,96] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[141,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    int,()->2
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[142,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    java.lang.String,()->"b"
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[143,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    boolean,()->false
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[150,42] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[224,73] cannot find symbol
+  symbol:   variable Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[252,73] cannot find symbol
+  symbol:   variable Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[266,76] cannot find symbol
+  symbol:   variable Collectors
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[266,98] cannot find symbol
+  symbol:   variable Function
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[266,119] cannot find symbol
+  symbol:   variable Collectors
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[281,23] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[108,85] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[122,113] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[127,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->1,()->null,()->3
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[128,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->"a",()->"b",()->null
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[129,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->true,()->false,()->true
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,96] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[141,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    int,()->2
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[142,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    java.lang.String,()->"b"
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[143,13] method of in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    boolean,()->false
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[150,42] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[224,73] cannot find symbol
+[ERROR]   symbol:   variable Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[252,73] cannot find symbol
+[ERROR]   symbol:   variable Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[266,76] cannot find symbol
+[ERROR]   symbol:   variable Collectors
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[266,98] cannot find symbol
+[ERROR]   symbol:   variable Function
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[266,119] cannot find symbol
+[ERROR]   symbol:   variable Collectors
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[281,23] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

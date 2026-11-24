@@ -1,0 +1,22 @@
+```java
+package org.apache.commons.lang3.builder;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
+import java.util.Set;
+
+class EqualsBuilder_GenTest {
+
+    @Test
+    public void testReflectionEqualsSameObject_3() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj));
+    }
+
+    @Test
+    public void testReflectionEqualsNulls() {
+        assertFalse(EqualsBuilder.reflectionEquals(null, null));
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), null));
+        assertFalse(EqualsBuilder.reflectionEquals(null, new Object()));
+    }
+}
+```

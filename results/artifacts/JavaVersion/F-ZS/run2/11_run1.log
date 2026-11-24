@@ -1,0 +1,23 @@
+[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.108 s <<< FAILURE! -- in org.apache.commons.lang3.JavaVersion_GenTest
+[ERROR] org.apache.commons.lang3.JavaVersion_GenTest.testDeprecatedJavaVersion -- Time elapsed: 0.009 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: org.apache.commons.lang3.JavaVersion@2701fc35<9> but was: org.apache.commons.lang3.JavaVersion@f264c2a<9>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertSame.failNotSame(AssertSame.java:50)
+	at org.junit.jupiter.api.AssertSame.assertSame(AssertSame.java:35)
+	at org.junit.jupiter.api.AssertSame.assertSame(AssertSame.java:30)
+	at org.junit.jupiter.api.Assertions.assertSame(Assertions.java:2860)
+	at org.apache.commons.lang3.JavaVersion_GenTest.testDeprecatedJavaVersion(JavaVersion_GenTest.java:28)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   JavaVersion_GenTest.testDeprecatedJavaVersion:28 expected: org.apache.commons.lang3.JavaVersion@2701fc35<9> but was: org.apache.commons.lang3.JavaVersion@f264c2a<9>
+[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w2/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

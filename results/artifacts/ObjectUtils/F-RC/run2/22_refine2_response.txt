@@ -1,0 +1,171 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    public void testReadResolve() {
+        // This method is private and not intended to be tested directly.
+        // However, we can verify that it returns the NULL singleton instance.
+        Object result = new ObjectUtils.Null();
+        assertEquals(ObjectUtils.NULL, result);
+    }
+
+    @Test
+    public void testAllNotNull_withNullValues() {
+        assertFalse(ObjectUtils.allNotNull(null, "value", 123));
+    }
+
+    @Test
+    public void testAllNotNull_withNonNullValues() {
+        assertTrue(ObjectUtils.allNotNull("value", 123));
+    }
+
+    @Test
+    public void testAnyNull_withNullValues() {
+        assertTrue(ObjectUtils.anyNull(null, "value", 123));
+    }
+
+    @Test
+    public void testAnyNull_withNonNullValues() {
+        assertFalse(ObjectUtils.anyNull("value", 123));
+    }
+
+    @Test
+    public void testCloneWithArray() {
+        Integer[] original = {1, 2, 3};
+        Integer[] cloned = ObjectUtils.clone(original);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    public void testCloneWithNull() {
+        assertNull(ObjectUtils.clone(null));
+    }
+
+    @Test
+    public void testCompare_withNullValues() {
+        assertEquals(0, ObjectUtils.compare(null, null));
+        assertEquals(-1, ObjectUtils.compare(null, "value"));
+        assertEquals(1, ObjectUtils.compare("value", null));
+    }
+
+    @Test
+    public void testCompare_withNonNullValues() {
+        assertEquals(0, ObjectUtils.compare("value", "value"));
+        assertTrue(ObjectUtils.compare("a", "b") < 0);
+        assertTrue(ObjectUtils.compare("b", "a") > 0);
+    }
+
+    @Test
+    public void testCONST_BYTE_withValidValue() {
+        byte result = ObjectUtils.CONST_BYTE(127);
+        assertEquals((byte) 127, result);
+    }
+
+    @Test
+    public void testCONST_SHORT_withValidValue() {
+        short result = ObjectUtils.CONST_SHORT(32767);
+        assertEquals((short) 32767, result);
+    }
+
+    @Test
+    public void testCONST_BYTE_withInvalidValue() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.CONST_BYTE(-129));
+        assertEquals("Supplied value must be a valid byte literal between -128 and 127: [-129]", exception.getMessage());
+    }
+
+    @Test
+    public void testCONST_SHORT_withInvalidValue() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.CONST_SHORT(32768));
+        assertEquals("Supplied value must be a valid byte literal between -32768 and 32767: [32768]", exception.getMessage());
+    }
+
+    @Test
+    public void testCONST() {
+        String result = ObjectUtils.CONST("value");
+        assertEquals("value", result);
+    }
+
+    @Test
+    public void testGetIfNull_withNonNullValue() {
+        Supplier<String> supplier = () -> "default";
+        String result = ObjectUtils.getIfNull("value", supplier);
+        assertEquals("value", result);
+    }
+
+    @Test
+    public void testGetIfNull_withNullValue() {
+        Supplier<String> supplier = () -> "default";
+        String result = ObjectUtils.getIfNull(null, supplier);
+        assertEquals("default", result);
+    }
+
+    @Test
+    public void testHashCodeHex() {
+        int hash = 123;
+        String result = ObjectUtils.hashCodeHex(new Object() { @Override public int hashCode() { return hash; } });
+        assertEquals(Integer.toHexString(hash), result);
+    }
+
+    @Test
+    public void testIdentityHashCodeHex() {
+        int hash = System.identityHashCode("value");
+        String result = ObjectUtils.identityHashCodeHex("value");
+        assertEquals(Integer.toHexString(hash), result);
+    }
+
+    @Test
+    public void testIdentityToString_withNull() {
+        assertNull(ObjectUtils.identityToString(null));
+    }
+
+    @Test
+    public void testIdentityToString_withNonNull() {
+        String result = ObjectUtils.identityToString(new Object());
+        assertTrue(result.contains("@"));
+    }
+
+    @Test
+    public void testIsArray_withArray() {
+        assertTrue(ObjectUtils.isArray(new int[] {1, 2, 3}));
+    }
+
+    @Test
+    public void testIsArray_withNonArray() {
+        assertFalse(ObjectUtils.isArray("value"));
+    }
+
+    @Test
+    public void testIsEmpty_withNull() {
+        assertTrue(ObjectUtils.isEmpty(null));
+    }
+
+    @Test
+    public void testIsEmpty_withEmptyCollection() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    public void testIsEmpty_withNonEmptyCollection() {
+        assertFalse(ObjectUtils.isEmpty(Arrays.asList("value")));
+    }
+
+    @Test
+    public void testMax_withNullValues() {
+        assertNull(ObjectUtils.max(null, "value", 123));
+    }
+
+    @Test
+    public void testMin_withNullValues() {
+        assertNull(ObjectUtils.min(null, "value", 123));
+    }
+}
+```

@@ -1,0 +1,19 @@
+[ERROR] Tests run: 33, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.190 s <<< FAILURE! -- in org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testXorWithEmptyArray -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalArgumentException: array
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1280)
+	at org.apache.commons.lang3.BooleanUtils.xor(BooleanUtils.java:1175)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testXorWithEmptyArray(BooleanUtils_GenTest.java:154)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   BooleanUtils_GenTest.testXorWithEmptyArray:154 » IllegalArgument array
+[ERROR] Tests run: 33, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w2/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

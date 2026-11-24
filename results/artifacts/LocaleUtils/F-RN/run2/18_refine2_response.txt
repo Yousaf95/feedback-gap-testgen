@@ -1,0 +1,68 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_emptyLanguageCode() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_emptyCountryCode() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testToLocale_validString_withLanguageAndCountry() {
+        Locale locale = LocaleUtils.toLocale("en_US");
+        assertEquals(Locale.US, locale);
+    }
+
+    @Test
+    public void testToLocale_validString_withLanguageOnly() {
+        Locale locale = LocaleUtils.toLocale("en");
+        assertEquals(new Locale("en", ""), locale);
+    }
+
+    @Test
+    public void testToLocale_validString_withCountryAndVariant() {
+        Locale locale = LocaleUtils.toLocale("en_GB_variant");
+        assertEquals(Locale.UK, locale);
+    }
+
+    @Test
+    public void testIsLanguageUndetermined_nullLocale() {
+        assertTrue(LocaleUtils.isLanguageUndetermined(null));
+    }
+
+    @Test
+    public void testIsLanguageUndetermined_validLocale_und() {
+        Locale locale = new Locale("und", "");
+        assertTrue(LocaleUtils.isLanguageUndetermined(locale));
+    }
+
+    @Test
+    public void testIsLanguageUndetermined_validLocale_en() {
+        Locale locale = new Locale("en", "");
+        assertFalse(LocaleUtils.isLanguageUndetermined(locale));
+    }
+
+    @Test
+    public void testToLocale_invalidFormat_withHash() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US#variant"));
+    }
+
+    @Test
+    public void testToLocale_invalidFormat_tooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("e"));
+    }
+}
+```

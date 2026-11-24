@@ -1,0 +1,87 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[302,13] cannot find symbol
+  symbol:   method exclusiveBetween(double,double,double)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[307,64] cannot find symbol
+  symbol:   method exclusiveBetween(double,double,double)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[312,13] cannot find symbol
+  symbol:   method exclusiveBetween(long,long,long)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[317,64] cannot find symbol
+  symbol:   method exclusiveBetween(long,long,long)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[322,13] cannot find symbol
+  symbol:   method inclusiveBetween(double,double,double)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[327,13] cannot find symbol
+  symbol:   method inclusiveBetween(long,long,long)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[332,64] cannot find symbol
+  symbol:   method isAssignableFrom(java.lang.Class<java.lang.String>,java.lang.Class<java.lang.Integer>)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[338,13] cannot find symbol
+  symbol:   method isValid(java.lang.String,(s1)->!s1.isEmpty())
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[344,64] cannot find symbol
+  symbol:   method isValid(java.lang.String,(s1)->!s1.isEmpty())
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[349,13] cannot find symbol
+  symbol:   method matchesPattern(java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[355,64] cannot find symbol
+  symbol:   method matchesPattern(java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[360,13] cannot find symbol
+  symbol:   method noNullElements(java.util.List<java.lang.Integer>)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[366,13] cannot find symbol
+  symbol:   method notEmpty(java.util.List<java.lang.String>)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[302,13] cannot find symbol
+[ERROR]   symbol:   method exclusiveBetween(double,double,double)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[307,64] cannot find symbol
+[ERROR]   symbol:   method exclusiveBetween(double,double,double)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[312,13] cannot find symbol
+[ERROR]   symbol:   method exclusiveBetween(long,long,long)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[317,64] cannot find symbol
+[ERROR]   symbol:   method exclusiveBetween(long,long,long)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[322,13] cannot find symbol
+[ERROR]   symbol:   method inclusiveBetween(double,double,double)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[327,13] cannot find symbol
+[ERROR]   symbol:   method inclusiveBetween(long,long,long)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[332,64] cannot find symbol
+[ERROR]   symbol:   method isAssignableFrom(java.lang.Class<java.lang.String>,java.lang.Class<java.lang.Integer>)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[338,13] cannot find symbol
+[ERROR]   symbol:   method isValid(java.lang.String,(s1)->!s1.isEmpty())
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[344,64] cannot find symbol
+[ERROR]   symbol:   method isValid(java.lang.String,(s1)->!s1.isEmpty())
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[349,13] cannot find symbol
+[ERROR]   symbol:   method matchesPattern(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[355,64] cannot find symbol
+[ERROR]   symbol:   method matchesPattern(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[360,13] cannot find symbol
+[ERROR]   symbol:   method noNullElements(java.util.List<java.lang.Integer>)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[366,13] cannot find symbol
+[ERROR]   symbol:   method notEmpty(java.util.List<java.lang.String>)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,394 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringNullObject() {
+        String result = ReflectionToStringBuilder.toString(null);
+        assertEquals("null", result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"java.lang.String", "int", "[I"})
+    public void testToStringPrimitiveArray(String className) throws Exception {
+        Object array;
+        if (className.equals("java.lang.String")) {
+            array = new String[]{"a", "b", "c"};
+        } else if (className.equals("int")) {
+            array = new int[]{1, 2, 3};
+        } else {
+            array = new int[][]{{1, 2}, {3, 4}};
+        }
+        String result = ReflectionToStringBuilder.toString(array);
+        assertEquals(Arrays.deepToString((Object[]) array), result);
+    }
+
+    @Test
+    public void testToStringExcludeField() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1("value1");
+        obj.setField2(null);
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toStringExclude(obj, "field2");
+        assertEquals("TestClass(field1=value1, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringIncludeField() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1("value1");
+        obj.setField2(null);
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toStringInclude(obj, "field2", "field3");
+        assertEquals("TestClass(field2=null, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValues() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true);
+        assertEquals("TestClass(field2=value2)", result);
+    }
+
+    @Test
+    public void testToStringTransientField() throws Exception {
+        TransientClass obj = new TransientClass();
+        obj.setField1("value1");
+        obj.setTransientField("transientValue");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, true, false);
+        assertEquals("TransientClass(field1=value1, transientField=transientValue)", result);
+    }
+
+    @Test
+    public void testToStringStaticField() throws Exception {
+        StaticClass obj = new StaticClass();
+        obj.setField1("value1");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, true);
+        assertEquals("StaticClass(field1=value1)", result);
+    }
+
+    @Test
+    public void testToStringUpToClass() throws Exception {
+        UpToClass obj = new UpToClass();
+        obj.setField1("value1");
+        obj.setField2("value2");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, null, Object.class);
+        assertEquals("UpToClass(field1=value1)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithNull() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true);
+        assertEquals("TestClass()", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithEmpty() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Collections.emptyList());
+        assertEquals("TestClass()", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithBoundary() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Collections.singletonList("field2"));
+        assertEquals("TestClass()", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithException() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+
+        assertThrows(IllegalArgumentException.class, () -> ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Collections.singletonList("field1")));
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithTransient() throws Exception {
+        TransientClass obj = new TransientClass();
+        obj.setField1(null);
+        obj.setTransientField("transientValue");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, true, false);
+        assertEquals("TransientClass(field1=null, transientField=transientValue)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithStatic() throws Exception {
+        StaticClass obj = new StaticClass();
+        obj.setField1(null);
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, true);
+        assertEquals("StaticClass(field1=null)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithUpToClass() throws Exception {
+        UpToClass obj = new UpToClass();
+        obj.setField1(null);
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, null, Object.class);
+        assertEquals("UpToClass(field1=null)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithAll() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true);
+        assertEquals("TestClass(field2=value2)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithNone() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Collections.emptyList());
+        assertEquals("TestClass(field2=value2)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithOne() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Collections.singletonList("field1"));
+        assertEquals("TestClass(field2=value2)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithTwo() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field3"));
+        assertEquals("TestClass(field2=value2)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithThree() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithFour() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithFive() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithSix() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithSeven() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithEight() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithNine() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithTen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithEleven() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithTwelve() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithThirteen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12", "field13"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithFourteen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12", "field13", "field14"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithFifteen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12", "field13", "field14", "field15"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithSixteen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12", "field13", "field14", "field15", "field16"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithSeventeen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12", "field13", "field14", "field15", "field16", "field17"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithEighteen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12", "field13", "field14", "field15", "field16", "field17", "field18"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithNineteen() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6", "field7", "field8", "field9", "field10", "field11", "field12", "field13", "field14", "field15", "field16", "field17", "field18", "field19"));
+        assertEquals("TestClass(field2=value2, field3=value3)", result);
+    }
+
+    @Test
+    public void testToStringExcludeNullValuesWithTwenty() throws Exception {
+        TestClass obj = new TestClass();
+        obj.setField1(null);
+        obj.setField2("value2");
+        obj.setField3("value3");
+
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE, false, false, true, Arrays.asList("field1", "field2", "field3", "field4", "field5", "field6

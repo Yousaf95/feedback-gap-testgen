@@ -1,0 +1,222 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import java.util.Arrays;
+import java.util.List;
+
+class Validate_GenTest {
+
+    @ParameterizedTest
+    @CsvSource({
+        "5.0, 10.0, 3.0",
+        "5.0, 10.0, 12.0"
+    })
+    public void testExclusiveBetween_double_valueLessThanStart_3(double start, double end, double value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5.0, 10.0, 3.0",
+        "5.0, 10.0, 12.0"
+    })
+    public void testExclusiveBetween_double_valueGreaterThanEnd_3(double start, double end, double value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5L, 10L, 3L",
+        "5L, 10L, 12L"
+    })
+    public void testExclusiveBetween_long_valueLessThanStart_2(long start, long end, long value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5L, 10L, 3L",
+        "5L, 10L, 12L"
+    })
+    public void testExclusiveBetween_long_valueGreaterThanEnd_2(long start, long end, long value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5.0, 10.0, 3.0",
+        "5.0, 10.0, 12.0"
+    })
+    public void testInclusiveBetween_double_valueLessThanStart_3(double start, double end, double value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5.0, 10.0, 3.0",
+        "5.0, 10.0, 12.0"
+    })
+    public void testInclusiveBetween_double_valueGreaterThanEnd_3(double start, double end, double value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5L, 10L, 3L",
+        "5L, 10L, 12L"
+    })
+    public void testInclusiveBetween_long_valueLessThanStart_2(long start, long end, long value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "5L, 10L, 3L",
+        "5L, 10L, 12L"
+    })
+    public void testInclusiveBetween_long_valueGreaterThanEnd_2(long start, long end, long value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "3, 10, 1",
+        "3, 10, 12"
+    })
+    public void testExclusiveBetween_Comparable_valueLessThanStart_2(Comparable<?> start, Comparable<?> end, Comparable<?> value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "3, 10, 1",
+        "3, 10, 12"
+    })
+    public void testExclusiveBetween_Comparable_valueGreaterThanEnd_2(Comparable<?> start, Comparable<?> end, Comparable<?> value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "3, 10, 1",
+        "3, 10, 12"
+    })
+    public void testInclusiveBetween_Comparable_valueLessThanStart_2(Comparable<?> start, Comparable<?> end, Comparable<?> value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(start, end, value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "3, 10, 1",
+        "3, 10, 12"
+    })
+    public void testInclusiveBetween_Comparable_valueGreaterThanEnd_2(Comparable<?> start, Comparable<?> end, Comparable<?> value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(start, end, value);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_3() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "false, 3.14",
+        "false, 42L"
+    })
+    public void testIsTrue_expressionFalse_messageDoubleValue_3(boolean expression, double value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(expression, "Value is not true: {}", value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "false, 42L",
+        "false, 3.14"
+    })
+    public void testIsTrue_expressionFalse_messageLongValue_3(boolean expression, long value) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(expression, "Value is not true: {}", value);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "false, 3.14",
+        "false, 42L"
+    })
+    public void testIsTrue_expressionFalse_messageValues_3(boolean expression, double value, long value2) {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(expression, "Value is not true: {} and {}", value, value2);
+        });
+    }
+
+    @Test
+    public void testNoNullElements_collectionWithNullElement_2() {
+        List<String> list = Arrays.asList("a", null, "c");
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(list);
+        });
+    }
+
+    @Test
+    public void testNoNullElements_arrayWithNullElement_2() {
+        String[] array = {"a", null, "c"};
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(array);
+        });
+    }
+
+    @Test
+    public void testNotBlank_charSequenceIsBlank() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("   ");
+        });
+    }
+
+    @Test
+    public void testNotEmpty_collectionIsEmpty() {
+        List<String> list = Arrays.asList();
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(list);
+        });
+    }
+
+    @Test
+    public void testNotEmpty_mapIsEmpty() {
+        Map<String, String> map = java.util.Collections.emptyMap();
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(map);
+        });
+    }
+}
+```

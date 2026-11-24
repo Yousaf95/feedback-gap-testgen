@@ -1,0 +1,59 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_SingleCharacterNoMatch() {
+        assertFalse(CharSetUtils.containsAny("abcdefg", "h"));
+    }
+
+    @Test
+    public void testCount_SingleCharacterNoMatch() {
+        assertEquals(0, CharSetUtils.count("abcdefg", "h"));
+    }
+
+    @Test
+    public void testDelete_SingleCharacterNoMatch() {
+        assertEquals("abcdefg", CharSetUtils.delete("abcdefg", "h"));
+    }
+
+    @Test
+    public void testKeep_SingleCharacterNoMatch() {
+        assertEquals("", CharSetUtils.keep("abcdefg", "h"));
+    }
+
+    @Test
+    public void testSqueeze_NoRepetition() {
+        assertEquals("abcde", CharSetUtils.squeeze("abcde", "f"));
+    }
+
+    @Test
+    public void testContainsAny_MultipleCharactersNoMatch() {
+        assertFalse(CharSetUtils.containsAny("abcdefg", "h", "i", "j"));
+    }
+
+    @Test
+    public void testCount_MultipleCharactersNoMatch() {
+        assertEquals(0, CharSetUtils.count("abcdefg", "h", "i", "j"));
+    }
+
+    @Test
+    public void testDelete_MultipleCharactersNoMatch() {
+        assertEquals("abcdefg", CharSetUtils.delete("abcdefg", "h", "i", "j"));
+    }
+
+    @Test
+    public void testKeep_MultipleCharactersNoMatch() {
+        assertEquals("", CharSetUtils.keep("abcdefg", "h", "i", "j"));
+    }
+
+    @Test
+    public void testSqueeze_NoRepetitionMultipleSets() {
+        assertEquals("abcde", CharSetUtils.squeeze("abcde", "f", "g"));
+    }
+}
+```

@@ -1,0 +1,73 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[91,13] cannot find symbol
+  symbol:   variable REGISTRY
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[96,27] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[101,25] cannot find symbol
+  symbol:   method isRegistered(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[102,13] cannot find symbol
+  symbol:   method register(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[103,24] cannot find symbol
+  symbol:   method isRegistered(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[109,13] cannot find symbol
+  symbol:   method reflectionAppend(java.lang.Object,java.lang.Class<capture#1 of ? extends java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[115,28] cannot find symbol
+  symbol:   method reflectionHashCode(java.lang.Object,boolean)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[121,13] cannot find symbol
+  symbol:   method register(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[127,13] cannot find symbol
+  symbol:   method register(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[128,13] cannot find symbol
+  symbol:   method unregister(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[135,37] iTotal has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[136,37] iConstant has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[91,13] cannot find symbol
+[ERROR]   symbol:   variable REGISTRY
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[96,27] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[101,25] cannot find symbol
+[ERROR]   symbol:   method isRegistered(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[102,13] cannot find symbol
+[ERROR]   symbol:   method register(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[103,24] cannot find symbol
+[ERROR]   symbol:   method isRegistered(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[109,13] cannot find symbol
+[ERROR]   symbol:   method reflectionAppend(java.lang.Object,java.lang.Class<capture#1 of ? extends java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[115,28] cannot find symbol
+[ERROR]   symbol:   method reflectionHashCode(java.lang.Object,boolean)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[121,13] cannot find symbol
+[ERROR]   symbol:   method register(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[127,13] cannot find symbol
+[ERROR]   symbol:   method register(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[128,13] cannot find symbol
+[ERROR]   symbol:   method unregister(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[135,37] iTotal has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[136,37] iConstant has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

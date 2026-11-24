@@ -1,0 +1,55 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharSequenceUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideCheckLaterThan1Data")
+    public void testCheckLaterThan1(String str1, String str2, int start1, int start2, boolean expected) {
+        assertEquals(expected, CharSequenceUtils.checkLaterThan1(str1, str2, start1, start2));
+    }
+
+    private static Stream<Arguments> provideCheckLaterThan1Data() {
+        return Stream.of(
+            arguments("abc", "abc", 3, 0, true),
+            arguments("abc", "def", 3, 0, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIndexOfData")
+    public void testIndexOf(CharSequence cs, CharSequence search, int start, int expected) {
+        assertEquals(expected, CharSequenceUtils.indexOf(cs, search, start));
+    }
+
+    private static Stream<Arguments> provideIndexOfData() {
+        return Stream.of(
+            arguments("hello world", "world", 0, 2),
+            arguments(new StringBuilder("hello world"), "world", 0, 6),
+            arguments(new StringBuffer("hello world"), "world", 0, 6)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideLastIndexOfData")
+    public void testLastIndexOf(CharSequence cs, CharSequence search, int start, int expected) {
+        assertEquals(expected, CharSequenceUtils.lastIndexOf(cs, search, start));
+    }
+
+    private static Stream<Arguments> provideLastIndexOfData() {
+        return Stream.of(
+            arguments("hello world", "world", 0, 6),
+            arguments(new StringBuilder("hello world"), "world", 0, 6),
+            arguments(new StringBuffer("hello world"), "world", 0, 6)
+        );
+    }
+}
+```

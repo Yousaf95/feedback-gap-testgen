@@ -1,0 +1,77 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testAsRuntimeException() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.asRuntimeException(throwable);
+        assertEquals(RuntimeException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testForEach() {
+        List<Throwable> throwables = Arrays.asList(new NullPointerException(), new IllegalArgumentException());
+        int count = 0;
+        ExceptionUtils.forEach(new RuntimeException("test"), t -> count++);
+        assertEquals(2, count);
+    }
+
+    @Test
+    public void testGetRootCauseStackTraceListWithNullThrowable_2() {
+        List<String> result = ExceptionUtils.getRootCauseStackTraceList(null);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testGetStackFramesWithNullThrowable() {
+        String[] result = ExceptionUtils.getStackFrames((Throwable) null);
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testGetThrowableCountWithNullThrowable_2() {
+        int count = ExceptionUtils.getThrowableCount(null);
+        assertEquals(0, count);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable_2() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintWriter printWriter = new PrintWriter(baos);
+        ExceptionUtils.printRootCauseStackTrace((Throwable) null, printWriter);
+        assertTrue(baos.toString().isEmpty());
+    }
+
+    @Test
+    public void testRemoveCommonFrames_2() {
+        List<String> causeFrames = Arrays.asList("frame1", "frame2");
+        List<String> wrapperFrames = Arrays.asList("frame3", "frame4", "frame2");
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(Arrays.asList("frame1"), causeFrames);
+    }
+
+    @Test
+    public void testRethrow() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.rethrow(throwable);
+        assertEquals(RuntimeException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testStreamWithNullThrowable() {
+        Stream<Throwable> stream = ExceptionUtils.stream((Throwable) null);
+        assertFalse(stream.findAny().isPresent());
+    }
+}
+```

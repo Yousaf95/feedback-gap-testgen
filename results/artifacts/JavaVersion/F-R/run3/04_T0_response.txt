@@ -1,0 +1,61 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
+
+public class JavaVersion_GenTest {
+
+    @ParameterizedTest
+    @EnumSource(JavaVersion.class)
+    public void testAtLeast(JavaVersion version) {
+        assertTrue(version.atLeast(JavaVersion.JAVA_0_9));
+        assertTrue(version.atLeast(version));
+        assertFalse(version.atLeast(JavaVersion.JAVA_RECENT));
+    }
+
+    @ParameterizedTest
+    @EnumSource(JavaVersion.class)
+    public void testAtMost(JavaVersion version) {
+        assertTrue(version.atMost(JavaVersion.JAVA_RECENT));
+        assertTrue(version.atMost(version));
+        assertFalse(version.atMost(JavaVersion.JAVA_0_9));
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals("0.9", JavaVersion.JAVA_0_9.toString());
+        assertEquals("21", JavaVersion.JAVA_21.toString());
+    }
+
+    @ParameterizedTest
+    @EnumSource(JavaVersion.class)
+    public void testValue(JavaVersion version) {
+        switch (version) {
+            case JAVA_0_9:
+                assertEquals(1.5f, version.value);
+                break;
+            case JAVA_21:
+                assertEquals(21.0f, version.value);
+                break;
+            default:
+                assertTrue(version.value >= 1.5 && version.value <= 21.0);
+        }
+    }
+
+    @Test
+    public void testRecentVersion() {
+        JavaVersion recent = JavaVersion.JAVA_RECENT;
+        assertEquals(JavaVersion.maxVersion(), recent.value);
+        assertEquals(Float.toString(JavaVersion.maxVersion()), recent.name);
+    }
+
+    @ParameterizedTest
+    @EnumSource(value = JavaVersion.class, names = {"JAVA_1_9", "JAVA_9"})
+    public void testDeprecatedVersion(JavaVersion version) {
+        assertTrue(version.isDeprecated());
+    }
+}
+```

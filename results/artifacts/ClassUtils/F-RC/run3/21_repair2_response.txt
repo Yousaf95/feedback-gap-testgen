@@ -1,0 +1,21 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testComparator() {
+        Comparator<Class<?>> comparator = ClassUtils.comparator();
+        assertNotNull(comparator);
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithNull() {
+        String result = ClassUtils.getAbbreviatedName(null, 5);
+        assertEquals("", result);
+    }
+}
+```

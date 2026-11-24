@@ -87,8 +87,8 @@ def main():
         for l in out.read_text().splitlines():
             r = json.loads(l)
             done.add((r["class"], r["config"][0], r["run_seed"]))
-    jobs = [(f, m, int(s)) for s in a.seeds.split(",") for f in fqns for m in ("L", "S")
-            if m in a.models.split(",") and (f, m, int(s)) not in done]
+    jobs = [(f, m, int(s)) for s in a.seeds.split(",") for f in fqns for m in a.models.split(",")
+            if (f, m, int(s)) not in done]
     print(f"{len(jobs)} control chains to run ({len(done)} done)", flush=True)
     from run_all import prepare_workers
     work = pathlib.Path(a.work)

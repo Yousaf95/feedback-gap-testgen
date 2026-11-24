@@ -1,0 +1,90 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.stream.Stream;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testAsRuntimeException() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.asRuntimeException(throwable);
+        assertEquals(RuntimeException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testGetCause_NullThrowable() {
+        Throwable cause = ExceptionUtils.getCause(null);
+        assertNull(cause);
+    }
+
+    @Test
+    public void testGetCause_NoMethodNames() {
+        Throwable throwable = new RuntimeException();
+        Throwable cause = ExceptionUtils.getCause(throwable, null);
+        assertEquals(throwable, cause);
+    }
+
+    @Test
+    public void testGetMessage_NullThrowable() {
+        String message = ExceptionUtils.getMessage(null);
+        assertEquals("", message);
+    }
+
+    @Test
+    public void testGetRootCause_NullThrowable() {
+        Throwable rootCause = ExceptionUtils.getRootCause(null);
+        assertNull(rootCause);
+    }
+
+    @Test
+    public void testGetRootCauseMessage_NullThrowable() {
+        String message = ExceptionUtils.getRootCauseMessage(null);
+        assertEquals("", message);
+    }
+
+    @Test
+    public void testGetStackFrames_NullThrowable() {
+        String[] frames = ExceptionUtils.getStackFrames(null);
+        assertEquals(0, frames.length);
+    }
+
+    @Test
+    public void testGetStackTrace_NullThrowable() {
+        String stackTrace = ExceptionUtils.getStackTrace(null);
+        assertEquals("", stackTrace);
+    }
+
+    @Test
+    public void testIndexOfThrowable_ClassFound() {
+        Throwable throwable = new RuntimeException("test");
+        int index = ExceptionUtils.indexOfThrowable(throwable, RuntimeException.class);
+        assertEquals(0, index);
+    }
+
+    @Test
+    public void testIndexOfType_TypeFound() {
+        Throwable throwable = new RuntimeException("test");
+        int index = ExceptionUtils.indexOfType(throwable, RuntimeException.class);
+        assertEquals(0, index);
+    }
+
+    @Test
+    public void testIsChecked_CheckedException() {
+        boolean result = ExceptionUtils.isChecked(new IOException());
+        assertTrue(result);
+    }
+
+    @Test
+    public void testStream_NullThrowable() {
+        Stream<Throwable> stream = ExceptionUtils.stream(null);
+        assertFalse(stream.findAny().isPresent());
+    }
+}
+```

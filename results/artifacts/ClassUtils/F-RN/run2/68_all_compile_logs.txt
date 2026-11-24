@@ -1,0 +1,302 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[141,88] incompatible types: java.lang.reflect.Constructor<java.util.List> cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[147,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[154,46] cannot find symbol
+  symbol:   class AbstractList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[155,46] cannot find symbol
+  symbol:   class AbstractCollection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+  both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+  both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,57] java.util.ArrayList.SubList has private access in java.util.ArrayList
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[141,88] incompatible types: java.lang.reflect.Constructor<java.util.List> cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[147,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[154,46] cannot find symbol
+[ERROR]   symbol:   class AbstractList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[155,46] cannot find symbol
+[ERROR]   symbol:   class AbstractCollection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+[ERROR]   both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+[ERROR]   both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,57] java.util.ArrayList.SubList has private access in java.util.ArrayList
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[141,83] incompatible types: java.lang.reflect.Constructor<java.util.ArrayList> cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+  both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+  both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[141,83] incompatible types: java.lang.reflect.Constructor<java.util.ArrayList> cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+[ERROR]   both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+[ERROR]   both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+  both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+  both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[204,69] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,95] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+[ERROR]   both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+[ERROR]   both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[204,69] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,95] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+  both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+  both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[204,69] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,95] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+[ERROR]   both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+[ERROR]   both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[204,69] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,95] incompatible types: java.lang.String cannot be converted to java.lang.Class<?>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,83] unreported exception java.lang.NoSuchMethodException; must be caught or declared to be thrown
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,83] unreported exception java.lang.NoSuchMethodException; must be caught or declared to be thrown
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[181,49] cannot find symbol
+  symbol:   class MutableObject
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[188,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[189,44] cannot find symbol
+  symbol:   class Serializable
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[203,52] cannot find symbol
+  symbol:   class Map
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[209,46] cannot find symbol
+  symbol:   class AbstractList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[210,46] cannot find symbol
+  symbol:   class AbstractCollection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[211,46] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[230,72] package Map does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[231,47] package Map does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[246,40] cannot find symbol
+  symbol:   class AtomicInteger
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[251,73] cannot find symbol
+  symbol:   class HashMap
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[252,46] cannot find symbol
+  symbol:   class AbstractMap
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[253,46] cannot find symbol
+  symbol:   class Map
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[181,49] cannot find symbol
+[ERROR]   symbol:   class MutableObject
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[188,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[189,44] cannot find symbol
+[ERROR]   symbol:   class Serializable
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[203,52] cannot find symbol
+[ERROR]   symbol:   class Map
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[209,46] cannot find symbol
+[ERROR]   symbol:   class AbstractList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[210,46] cannot find symbol
+[ERROR]   symbol:   class AbstractCollection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[211,46] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[230,72] package Map does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[231,47] package Map does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[246,40] cannot find symbol
+[ERROR]   symbol:   class AtomicInteger
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[251,73] cannot find symbol
+[ERROR]   symbol:   class HashMap
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[252,46] cannot find symbol
+[ERROR]   symbol:   class AbstractMap
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[253,46] cannot find symbol
+[ERROR]   symbol:   class Map
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[186,49] cannot find symbol
+  symbol:   class MutableObject
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[194,44] cannot find symbol
+  symbol:   class Serializable
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[214,46] cannot find symbol
+  symbol:   class AbstractList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[215,46] cannot find symbol
+  symbol:   class AbstractCollection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[257,46] cannot find symbol
+  symbol:   class AbstractMap
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[186,49] cannot find symbol
+[ERROR]   symbol:   class MutableObject
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[194,44] cannot find symbol
+[ERROR]   symbol:   class Serializable
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[214,46] cannot find symbol
+[ERROR]   symbol:   class AbstractList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[215,46] cannot find symbol
+[ERROR]   symbol:   class AbstractCollection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[257,46] cannot find symbol
+[ERROR]   symbol:   class AbstractMap
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[188,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[202,56] cannot find symbol
+  symbol:   class Map
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[188,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[202,56] cannot find symbol
+[ERROR]   symbol:   class Map
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

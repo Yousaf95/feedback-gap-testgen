@@ -1,0 +1,147 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+class Validate_GenTest {
+
+    @ParameterizedTest
+    @CsvSource({
+        "2.0, 5.0, 1.0",
+        "2.0, 5.0, 3.0"
+    })
+    public void testExclusiveBetween_double(double start, double end, double value) {
+        if (value <= start || value >= end) {
+            assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(start, end, value));
+        } else {
+            assertDoesNotThrow(() -> Validate.exclusiveBetween(start, end, value));
+        }
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "2L, 5L, 1L",
+        "2L, 5L, 3L"
+    })
+    public void testExclusiveBetween_long(long start, long end, long value) {
+        if (value <= start || value >= end) {
+            assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(start, end, value));
+        } else {
+            assertDoesNotThrow(() -> Validate.exclusiveBetween(start, end, value));
+        }
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "2.0, 5.0, 1.0",
+        "2.0, 5.0, 3.0"
+    })
+    public void testInclusiveBetween_double(double start, double end, double value) {
+        if (value < start || value > end) {
+            assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(start, end, value));
+        } else {
+            assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+        }
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "2L, 5L, 1L",
+        "2L, 5L, 3L"
+    })
+    public void testInclusiveBetween_long(long start, long end, long value) {
+        if (value < start || value > end) {
+            assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(start, end, value));
+        } else {
+            assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+        }
+    }
+
+    @Test
+    public void testMatchesPattern_valid() {
+        assertDoesNotThrow(() -> Validate.matchesPattern("hello", "h.*o"));
+    }
+
+    @Test
+    public void testMatchesPattern_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("world", "h.*o"));
+    }
+
+    @Test
+    public void testNoNullElements_array_valid() {
+        String[] array = {"a", "b", "c"};
+        assertDoesNotThrow(() -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNoNullElements_array_invalid() {
+        String[] array = {"a", null, "c"};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNoNullElements_collection_valid() {
+        Collection<String> collection = Arrays.asList("a", "b", "c");
+        assertDoesNotThrow(() -> Validate.noNullElements(collection));
+    }
+
+    @Test
+    public void testNoNullElements_collection_invalid() {
+        Collection<String> collection = Arrays.asList("a", null, "c");
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(collection));
+    }
+
+    @Test
+    public void testNotEmpty_array_valid() {
+        String[] array = {"a", "b", "c"};
+        assertDoesNotThrow(() -> Validate.notEmpty(array));
+    }
+
+    @Test
+    public void testNotEmpty_array_invalid() {
+        String[] array = {};
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(array));
+    }
+
+    @Test
+    public void testNotEmpty_collection_valid() {
+        Collection<String> collection = Arrays.asList("a", "b", "c");
+        assertDoesNotThrow(() -> Validate.notEmpty(collection));
+    }
+
+    @Test
+    public void testNotEmpty_collection_invalid() {
+        Collection<String> collection = Collections.emptyList();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(collection));
+    }
+
+    @Test
+    public void testNotEmpty_map_valid() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        assertDoesNotThrow(() -> Validate.notEmpty(map));
+    }
+
+    @Test
+    public void testNotEmpty_map_invalid() {
+        Map<String, String> map = Collections.emptyMap();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map));
+    }
+
+    @Test
+    public void testNotBlank_valid() {
+        assertDoesNotThrow(() -> Validate.notBlank("hello"));
+    }
+
+    @Test
+    public void testNotBlank_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notBlank(""));
+    }
+}
+```

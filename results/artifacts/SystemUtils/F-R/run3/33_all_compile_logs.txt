@@ -1,0 +1,420 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+  symbol:   method mock(java.lang.Class<java.util.Properties>)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+[ERROR]   symbol:   method mock(java.lang.Class<java.util.Properties>)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+  symbol:   method mock(java.lang.Class<java.util.Properties>)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+[ERROR]   symbol:   method mock(java.lang.Class<java.util.Properties>)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+  symbol:   method mock(java.lang.Class<java.util.Properties>)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+[ERROR]   symbol:   method mock(java.lang.Class<java.util.Properties>)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+  symbol:   method mock(java.lang.Class<java.util.Properties>)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+  symbol:   method getenv(java.lang.String)
+  location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+  symbol:   method when(java.lang.String)
+  location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[20,26] cannot find symbol
+[ERROR]   symbol:   method mock(java.lang.Class<java.util.Properties>)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[26,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[32,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[57,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[58,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[64,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[65,28] cannot find symbol
+[ERROR]   symbol:   method getenv(java.lang.String)
+[ERROR]   location: variable mockProperties of type java.util.Properties
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[78,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[92,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method when(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

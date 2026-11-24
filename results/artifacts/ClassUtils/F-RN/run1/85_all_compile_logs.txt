@@ -1,0 +1,295 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[164,44] cannot find symbol
+  symbol:   method isAssignableFrom(java.lang.Class<java.lang.Integer>,java.lang.Class<java.lang.Integer>)
+  location: class org.apache.commons.lang3.ClassUtils
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[170,44] cannot find symbol
+  symbol:   method isAssignableFrom(java.lang.Class<java.lang.Integer>,java.lang.Class<java.lang.Integer>)
+  location: class org.apache.commons.lang3.ClassUtils
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[164,44] cannot find symbol
+[ERROR]   symbol:   method isAssignableFrom(java.lang.Class<java.lang.Integer>,java.lang.Class<java.lang.Integer>)
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[170,44] cannot find symbol
+[ERROR]   symbol:   method isAssignableFrom(java.lang.Class<java.lang.Integer>,java.lang.Class<java.lang.Integer>)
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[236,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[237,44] cannot find symbol
+  symbol:   class Map
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[245,46] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[256,40] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[315,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[316,44] cannot find symbol
+  symbol:   class Map
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[236,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[237,44] cannot find symbol
+[ERROR]   symbol:   class Map
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[245,46] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[256,40] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[315,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[316,44] cannot find symbol
+[ERROR]   symbol:   class Map
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[233,69] cannot find symbol
+  symbol:   class Set
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[233,69] cannot find symbol
+[ERROR]   symbol:   class Set
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[233,69] cannot find symbol
+  symbol:   class Set
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[233,69] cannot find symbol
+[ERROR]   symbol:   class Set
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[233,69] cannot find symbol
+  symbol:   class Set
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[233,69] cannot find symbol
+[ERROR]   symbol:   class Set
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+  symbol:   class SortedSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+  symbol:   class AbstractSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[355,55] no suitable method found for getPackageName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+[ERROR]   symbol:   class SortedSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+[ERROR]   symbol:   class AbstractSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[355,55] no suitable method found for getPackageName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+  symbol:   class SortedSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+  symbol:   class AbstractSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+[ERROR]   symbol:   class SortedSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+[ERROR]   symbol:   class AbstractSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+  symbol:   class SortedSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+  symbol:   class AbstractSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+[ERROR]   symbol:   class SortedSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+[ERROR]   symbol:   class AbstractSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+  symbol:   class SortedSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+  symbol:   class AbstractSet
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[296,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[297,44] cannot find symbol
+[ERROR]   symbol:   class SortedSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[304,46] cannot find symbol
+[ERROR]   symbol:   class AbstractSet
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[305,46] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

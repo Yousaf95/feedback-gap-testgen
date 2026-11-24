@@ -1,0 +1,29 @@
+[ERROR] Tests run: 16, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.273 s <<< FAILURE! -- in org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] org.apache.commons.lang3.AnnotationUtils_GenTest.testHashCode_withEmptyAnnotations -- Time elapsed: 0.033 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.lang.annotation.Annotation.annotationType()" because "a" is null
+	at org.apache.commons.lang3.AnnotationUtils.hashCode(AnnotationUtils.java:241)
+	at org.apache.commons.lang3.AnnotationUtils_GenTest.testHashCode_withEmptyAnnotations(AnnotationUtils_GenTest.java:276)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.AnnotationUtils_GenTest.testToString_withEmptyAnnotations -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.lang.annotation.Annotation.annotationType()" because "a" is null
+	at org.apache.commons.lang3.AnnotationUtils.toString(AnnotationUtils.java:333)
+	at org.apache.commons.lang3.AnnotationUtils_GenTest.testToString_withEmptyAnnotations(AnnotationUtils_GenTest.java:282)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   AnnotationUtils_GenTest.testHashCode_withEmptyAnnotations:276 » NullPointer Cannot invoke "java.lang.annotation.Annotation.annotationType()" because "a" is null
+[ERROR]   AnnotationUtils_GenTest.testToString_withEmptyAnnotations:282 » NullPointer Cannot invoke "java.lang.annotation.Annotation.annotationType()" because "a" is null
+[ERROR] Tests run: 16, Failures: 0, Errors: 2, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w15/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

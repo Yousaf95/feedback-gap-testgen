@@ -1,0 +1,134 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testAsRuntimeException() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.asRuntimeException(throwable);
+        assertSame(throwable, result);
+    }
+
+    @Test
+    public void testForEach() {
+        List<Throwable> list = Arrays.asList(new RuntimeException(), new NullPointerException());
+        Consumer<Throwable> consumer = mockConsumer();
+        ExceptionUtils.forEach(list.get(0), consumer);
+        verify(consumer).accept(list.get(0));
+    }
+
+    @Test
+    public void testGetCauseWithNull() {
+        Throwable result = ExceptionUtils.getCause(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetCauseWithMethodNames() {
+        Throwable throwable = new RuntimeException();
+        String[] methodNames = {"getCause"};
+        Throwable result = ExceptionUtils.getCause(throwable, methodNames);
+        assertSame(throwable, result);
+    }
+
+    @Test
+    public void testGetMessageWithNull() {
+        String result = ExceptionUtils.getMessage(null);
+        assertEquals(StringUtils.EMPTY, result);
+    }
+
+    @Test
+    public void testGetRootCauseWithNull() {
+        Throwable result = ExceptionUtils.getRootCause(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNull() {
+        String result = ExceptionUtils.getRootCauseMessage(null);
+        assertEquals(StringUtils.EMPTY, result);
+    }
+
+    @Test
+    public void testGetRootCauseStackTraceListWithNull() {
+        List<String> result = ExceptionUtils.getRootCauseStackTraceList(null);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testGetStackFramesWithNull() {
+        String[] result = ExceptionUtils.getStackFrames(null);
+        assertTrue(Arrays.equals(ArrayUtils.EMPTY_STRING_ARRAY, result));
+    }
+
+    @Test
+    public void testGetStackTraceWithNull() {
+        String result = ExceptionUtils.getStackTrace(null);
+        assertEquals(StringUtils.EMPTY, result);
+    }
+
+    @Test
+    public void testGetThrowableCountWithNull() {
+        int result = ExceptionUtils.getThrowableCount(null);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testGetThrowableListWithNull() {
+        List<Throwable> result = ExceptionUtils.getThrowableList(null);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testHasCauseWithUndeclaredThrowableException() {
+        Throwable throwable = new UndeclaredThrowableException(new RuntimeException("test"));
+        boolean result = ExceptionUtils.hasCause(throwable, RuntimeException.class);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNull() {
+        int result = ExceptionUtils.indexOfThrowable(null, RuntimeException.class);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNull() {
+        ExceptionUtils.printRootCauseStackTrace(null);
+    }
+
+    @Test
+    public void testRemoveCommonFrames() {
+        List<String> causeFrames = Arrays.asList("a", "b", "c");
+        List<String> wrapperFrames = Arrays.asList("d", "b", "c");
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(Arrays.asList("a"), causeFrames);
+    }
+
+    @Test
+    public void testThrowUncheckedWithRuntimeException() {
+        RuntimeException runtimeException = new RuntimeException();
+        Throwable result = ExceptionUtils.throwUnchecked(runtimeException);
+        assertSame(runtimeException, result);
+    }
+
+    @Test
+    public void testWrapAndThrow() {
+        Throwable throwable = new RuntimeException("test");
+        UndeclaredThrowableException exception = ExceptionUtils.wrapAndThrow(throwable);
+        assertTrue(exception.getCause() instanceof RuntimeException);
+    }
+
+    private Consumer<Throwable> mockConsumer() {
+        return mock(Consumer.class);
+    }
+}
+```

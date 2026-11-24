@@ -1,0 +1,21 @@
+[ERROR] Tests run: 35, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.144 s <<< FAILURE! -- in org.apache.commons.lang3.JavaVersion_GenTest
+[ERROR] org.apache.commons.lang3.JavaVersion_GenTest.testGetInvalidVersion -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NumberFormatException: For input string: "invalid"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122)
+	at java.base/java.lang.Float.parseFloat(Float.java:476)
+	at org.apache.commons.lang3.JavaVersion.get(JavaVersion.java:242)
+	at org.apache.commons.lang3.JavaVersion_GenTest.testGetInvalidVersion(JavaVersion_GenTest.java:183)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   JavaVersion_GenTest.testGetInvalidVersion:183 » NumberFormat For input string: "invalid"
+[ERROR] Tests run: 35, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w1/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,149 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[15,26] package org.mockito does not exist
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[162,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[171,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[180,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[188,89] method asBiConsumer in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+  required: org.apache.commons.lang3.function.FailableBiConsumer<T,U,?>
+  found:    java.util.function.BiConsumer<java.lang.String,java.lang.Integer>
+  reason: cannot infer type-variable(s) T,U
+    (argument mismatch; java.util.function.BiConsumer<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[189,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[197,78] method asConsumer in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+  required: org.apache.commons.lang3.function.FailableConsumer<T,?>
+  found:    java.util.function.Consumer<java.lang.String>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.util.function.Consumer<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[198,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[207,86] method asFunction in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+  required: org.apache.commons.lang3.function.FailableFunction<T,R,?>
+  found:    java.util.function.Function<java.lang.String,java.lang.String>
+  reason: cannot infer type-variable(s) T,R
+    (argument mismatch; java.util.function.Function<java.lang.String,java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[208,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[217,80] method asPredicate in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+  required: org.apache.commons.lang3.function.FailablePredicate<T,?>
+  found:    java.util.function.Predicate<java.lang.String>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[218,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[226,82] incompatible types: java.lang.Runnable cannot be converted to org.apache.commons.lang3.function.FailableRunnable<?>
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[227,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[236,57] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[242,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[254,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[263,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[272,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[281,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[290,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[299,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[15,26] package org.mockito does not exist
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[162,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[171,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[180,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[188,89] method asBiConsumer in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+[ERROR]   required: org.apache.commons.lang3.function.FailableBiConsumer<T,U,?>
+[ERROR]   found:    java.util.function.BiConsumer<java.lang.String,java.lang.Integer>
+[ERROR]   reason: cannot infer type-variable(s) T,U
+[ERROR]     (argument mismatch; java.util.function.BiConsumer<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[189,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[197,78] method asConsumer in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+[ERROR]   required: org.apache.commons.lang3.function.FailableConsumer<T,?>
+[ERROR]   found:    java.util.function.Consumer<java.lang.String>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.util.function.Consumer<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[198,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[207,86] method asFunction in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+[ERROR]   required: org.apache.commons.lang3.function.FailableFunction<T,R,?>
+[ERROR]   found:    java.util.function.Function<java.lang.String,java.lang.String>
+[ERROR]   reason: cannot infer type-variable(s) T,R
+[ERROR]     (argument mismatch; java.util.function.Function<java.lang.String,java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[208,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[217,80] method asPredicate in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+[ERROR]   required: org.apache.commons.lang3.function.FailablePredicate<T,?>
+[ERROR]   found:    java.util.function.Predicate<java.lang.String>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,?>)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[218,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[226,82] incompatible types: java.lang.Runnable cannot be converted to org.apache.commons.lang3.function.FailableRunnable<?>
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[227,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[236,57] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[242,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[254,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[263,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[272,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[281,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[290,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[299,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

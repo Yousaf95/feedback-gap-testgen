@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[146,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[201,37] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[220,33] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[238,29] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[213,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[223,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[146,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[201,37] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[220,33] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[238,29] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[213,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[223,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,121 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetDefaultCauseMethodNames_4() {
+        String[] expected = {"getCause", "getNextException"};
+        assertArrayEquals(expected, ExceptionUtils.getDefaultCauseMethodNames());
+    }
+
+    @Test
+    public void testGetMessageWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        assertEquals("Exception: Checked exception", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithUncheckedThrowable() {
+        Throwable throwable = new RuntimeException("Unchecked exception");
+        assertEquals("RuntimeException: Unchecked exception", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    public void testGetStackTraceWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        assertTrue(ExceptionUtils.getStackTrace(throwable).contains("Exception: Checked exception"));
+    }
+
+    @Test
+    public void testGetThrowableCountWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        assertEquals(1, ExceptionUtils.getThrowableCount(throwable));
+    }
+
+    @Test
+    public void testGetThrowableListWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        List<Throwable> list = ExceptionUtils.getThrowableList(throwable);
+        assertEquals(1, list.size());
+        assertEquals(throwable, list.get(0));
+    }
+
+    @Test
+    public void testIndexOfThrowableWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        assertEquals(0, ExceptionUtils.indexOfThrowable(throwable, Exception.class));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        String expected = "Exception: Checked exception";
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, System.err));
+    }
+
+    @Test
+    public void testRemoveCommonFramesWithNonEmptyLists() {
+        List<String> causeFrames = List.of("Frame1", "Frame2");
+        List<String> wrapperFrames = List.of("Frame3", "Frame2");
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(List.of("Frame1"), causeFrames);
+    }
+
+    @Test
+    public void testRethrowWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.rethrow(throwable));
+    }
+
+    @Test
+    public void testStreamWithCheckedThrowable() {
+        Throwable throwable = new Exception("Checked exception");
+        Stream<Throwable> stream = ExceptionUtils.stream(throwable);
+        assertTrue(stream.anyMatch(t -> t instanceof Exception));
+    }
+
+    @Test
+    public void testGetDefaultCauseMethodNames_5() {
+        String[] expected = {"getCause", "getNextException"};
+        assertArrayEquals(expected, ExceptionUtils.getDefaultCauseMethodNames());
+    }
+
+    @Test
+    public void testGetStackTraceWithUncheckedThrowable() {
+        Throwable throwable = new RuntimeException("Unchecked exception");
+        assertTrue(ExceptionUtils.getStackTrace(throwable).contains("RuntimeException: Unchecked exception"));
+    }
+
+    @Test
+    public void testGetThrowableCountWithUncheckedThrowable() {
+        Throwable throwable = new RuntimeException("Unchecked exception");
+        assertEquals(1, ExceptionUtils.getThrowableCount(throwable));
+    }
+
+    @Test
+    public void testGetThrowableListWithUncheckedThrowable() {
+        Throwable throwable = new RuntimeException("Unchecked exception");
+        List<Throwable> list = ExceptionUtils.getThrowableList(throwable);
+        assertEquals(1, list.size());
+        assertEquals(throwable, list.get(0));
+    }
+
+    @Test
+    public void testIndexOfThrowableWithUncheckedThrowable() {
+        Throwable throwable = new RuntimeException("Unchecked exception");
+        assertEquals(0, ExceptionUtils.indexOfThrowable(throwable, RuntimeException.class));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithUncheckedThrowable() {
+        Throwable throwable = new RuntimeException("Unchecked exception");
+        String expected = "RuntimeException: Unchecked exception";
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, System.err));
+    }
+}
+```

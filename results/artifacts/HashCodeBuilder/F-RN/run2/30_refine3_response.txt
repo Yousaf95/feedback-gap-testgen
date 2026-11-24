@@ -1,0 +1,351 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testAppendCustomObject() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(1, "test");
+        assertEquals(obj1.hashCode(), obj2.hashCode());
+    }
+
+    @Test
+    public void testAppendDifferentCustomObjects() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(2, "test");
+        assertNotEquals(obj1.hashCode(), obj2.hashCode());
+    }
+
+    @Test
+    public void testAppendNullCustomObject() {
+        CustomObject obj = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(37 * 17 + 0, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithObjects() {
+        Object[] array = { "a", 123, true };
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(37 * 17 + 97 + 123 + (true ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNull() {
+        Object[] array = { "a", null, true };
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(37 * 17 + 97 + 0 + (true ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArray() {
+        Object[] array = {};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(37 * 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithCustomObjects() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(2, "test");
+        Object[] array = { obj1, obj2 };
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(37 * 17 + (37 * 17 + 1) + (37 * 17 + 2), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomObjects() {
+        CustomObject obj = new CustomObject(1, "test");
+        Object[] array = { null, obj };
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(37 * 17 + 0 + (37 * 17 + 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArrayAndCustomConstants() {
+        CustomObject obj = new CustomObject(1, "test");
+        Object[] array = {};
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithCustomObjectsAndCustomConstants() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(2, "test");
+        Object[] array = { obj1, obj2 };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41 + (31 * 41 + 1) + (31 * 41 + 2), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomObjectsAndCustomConstants() {
+        CustomObject obj = new CustomObject(1, "test");
+        Object[] array = { null, obj };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41 + 0 + (31 * 41 + 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendCustomObjectWithCustomConstants() {
+        CustomObject obj = new CustomObject(1, "test");
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj);
+        assertEquals(31 * 41 + (31 * 41 + 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullCustomObjectWithCustomConstants() {
+        CustomObject obj = null;
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj);
+        assertEquals(31 * 41 + 0, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithObjectsAndCustomConstants() {
+        Object[] array = { "a", 123, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41 + 97 + 123 + (true ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomConstants() {
+        Object[] array = { "a", null, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41 + 97 + 0 + (true ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArrayAndCustomConstants() {
+        Object[] array = {};
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithCustomObjectsAndCustomConstants() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(2, "test");
+        Object[] array = { obj1, obj2 };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41 + (31 * 41 + 1) + (31 * 41 + 2), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomObjectsAndCustomConstants() {
+        CustomObject obj = new CustomObject(1, "test");
+        Object[] array = { null, obj };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array);
+        assertEquals(31 * 41 + 0 + (31 * 41 + 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendCustomObjectWithCustomConstantsAndExcludeFields() {
+        CustomObject obj = new CustomObject(1, "test");
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2");
+        assertEquals(31 * 41 + (31 * 41 + 0), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullCustomObjectWithCustomConstantsAndExcludeFields() {
+        CustomObject obj = null;
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2");
+        assertEquals(31 * 41 + 0, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithObjectsAndCustomConstantsAndExcludeFields() {
+        Object[] array = { "a", 123, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2");
+        assertEquals(31 * 41 + 97 + 123 + (true ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomConstantsAndExcludeFields() {
+        Object[] array = { "a", null, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2");
+        assertEquals(31 * 41 + 97 + 0 + (true ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArrayAndCustomConstantsAndExcludeFields() {
+        Object[] array = {};
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2");
+        assertEquals(31 * 41, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithCustomObjectsAndCustomConstantsAndExcludeFields() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(2, "test");
+        Object[] array = { obj1, obj2 };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2");
+        assertEquals(31 * 41 + (31 * 41 + 0) + (31 * 41 + 0), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomObjectsAndCustomConstantsAndExcludeFields() {
+        CustomObject obj = new CustomObject(1, "test");
+        Object[] array = { null, obj };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2");
+        assertEquals(31 * 41 + 0 + (31 * 41 + 0), builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendCustomObjectWithCustomConstantsAndExcludeFieldsAndSuper() {
+        CustomObject obj = new CustomObject(1, "test");
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2").appendSuper(123);
+        assertEquals(31 * 41 + (31 * 41 + 0) + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullCustomObjectWithCustomConstantsAndExcludeFieldsAndSuper() {
+        CustomObject obj = null;
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2").appendSuper(123);
+        assertEquals(31 * 41 + 0 + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithObjectsAndCustomConstantsAndExcludeFieldsAndSuper() {
+        Object[] array = { "a", 123, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123);
+        assertEquals(31 * 41 + 97 + 123 + (true ? 0 : 1) + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomConstantsAndExcludeFieldsAndSuper() {
+        Object[] array = { "a", null, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123);
+        assertEquals(31 * 41 + 97 + 0 + (true ? 0 : 1) + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArrayAndCustomConstantsAndExcludeFieldsAndSuper() {
+        Object[] array = {};
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123);
+        assertEquals(31 * 41 + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithCustomObjectsAndCustomConstantsAndExcludeFieldsAndSuper() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(2, "test");
+        Object[] array = { obj1, obj2 };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123);
+        assertEquals(31 * 41 + (31 * 41 + 0) + (31 * 41 + 0) + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomObjectsAndCustomConstantsAndExcludeFieldsAndSuper() {
+        CustomObject obj = new CustomObject(1, "test");
+        Object[] array = { null, obj };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123);
+        assertEquals(31 * 41 + 0 + (31 * 41 + 0) + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendCustomObjectWithCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClass() {
+        CustomObject obj = new CustomObject(1, "test");
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null);
+        assertEquals(31 * 41 + (31 * 41 + 0) + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullCustomObjectWithCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClass() {
+        CustomObject obj = null;
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null);
+        assertEquals(31 * 41 + 0 + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithObjectsAndCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClass() {
+        Object[] array = { "a", 123, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null);
+        assertEquals(31 * 41 + 97 + 123 + (true ? 0 : 1) + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClass() {
+        Object[] array = { "a", null, true };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null);
+        assertEquals(31 * 41 + 97 + 0 + (true ? 0 : 1) + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArrayAndCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClass() {
+        Object[] array = {};
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null);
+        assertEquals(31 * 41 + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithCustomObjectsAndCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClass() {
+        CustomObject obj1 = new CustomObject(1, "test");
+        CustomObject obj2 = new CustomObject(2, "test");
+        Object[] array = { obj1, obj2 };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null);
+        assertEquals(31 * 41 + (31 * 41 + 0) + (31 * 41 + 0) + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndCustomObjectsAndCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClass() {
+        CustomObject obj = new CustomObject(1, "test");
+        Object[] array = { null, obj };
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(array, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null);
+        assertEquals(31 * 41 + 0 + (31 * 41 + 0) + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendCustomObjectWithCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClassAndExcludeFields() {
+        CustomObject obj = new CustomObject(1, "test");
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null, "field1");
+        assertEquals(31 * 41 + (31 * 41 + 0) + 123 + 17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullCustomObjectWithCustomConstantsAndExcludeFieldsAndSuperAndReflectUpToClassAndExcludeFields() {
+        CustomObject obj = null;
+        HashCodeBuilder builder = new HashCodeBuilder(31, 41);
+        builder.append(obj, "field2").appendSuper(123).reflectionAppend(obj, CustomObject.class.getSuperclass(), builder, false, null, "field1");
+        assertEquals(31 * 41 + 0 + 1

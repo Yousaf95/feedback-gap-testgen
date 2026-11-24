@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[133,32] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[139,42] cannot find symbol
+  symbol:   class Field
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[142,83] incompatible types: int cannot be converted to org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[146,67] incompatible types: int cannot be converted to org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[161,42] cannot find symbol
+  symbol:   class Field
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[133,32] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[139,42] cannot find symbol
+[ERROR]   symbol:   class Field
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[142,83] incompatible types: int cannot be converted to org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[146,67] incompatible types: int cannot be converted to org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[161,42] cannot find symbol
+[ERROR]   symbol:   class Field
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

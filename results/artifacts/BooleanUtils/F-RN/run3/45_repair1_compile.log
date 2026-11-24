@@ -1,0 +1,37 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[107,29] cannot find symbol
+  symbol:   method toIntegerDefaultIfNull(java.lang.Boolean,int)
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[122,64] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[127,64] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[132,64] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[137,24] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[142,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[107,29] cannot find symbol
+[ERROR]   symbol:   method toIntegerDefaultIfNull(java.lang.Boolean,int)
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[122,64] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[127,64] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[132,64] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[137,24] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[142,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,59 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_nonEmptyString_emptySet() {
+        assertFalse(CharSetUtils.containsAny("abc", new String[]{}));
+    }
+
+    @Test
+    public void testContainsAny_nonEmptyString_nullSet() {
+        assertFalse(CharSetUtils.containsAny("abc", (String[]) null));
+    }
+
+    @Test
+    public void testCount_nonEmptyString_emptySet() {
+        assertEquals(0, CharSetUtils.count("abc", new String[]{}));
+    }
+
+    @Test
+    public void testCount_nonEmptyString_nullSet() {
+        assertEquals(0, CharSetUtils.count("abc", (String[]) null));
+    }
+
+    @Test
+    public void testDelete_nonEmptyString_emptySet() {
+        assertEquals("abc", CharSetUtils.delete("abc", new String[]{}));
+    }
+
+    @Test
+    public void testDelete_nonEmptyString_nullSet() {
+        assertEquals("abc", CharSetUtils.delete("abc", (String[]) null));
+    }
+
+    @Test
+    public void testKeep_nonEmptyString_emptySet() {
+        assertEquals("", CharSetUtils.keep("abc", new String[]{}));
+    }
+
+    @Test
+    public void testKeep_nonEmptyString_nullSet() {
+        assertEquals("", CharSetUtils.keep("abc", (String[]) null));
+    }
+
+    @Test
+    public void testSqueeze_nonEmptyString_emptySet() {
+        assertEquals("abc", CharSetUtils.squeeze("abc", new String[]{}));
+    }
+
+    @Test
+    public void testSqueeze_nonEmptyString_nullSet() {
+        assertEquals("abc", CharSetUtils.squeeze("abc", (String[]) null));
+    }
+}
+```

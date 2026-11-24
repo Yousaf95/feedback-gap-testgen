@@ -1,0 +1,121 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    public void testCompare() {
+        assertEquals(0, BooleanUtils.compare(true, true));
+        assertEquals(-1, BooleanUtils.compare(false, true));
+        assertEquals(1, BooleanUtils.compare(true, false));
+    }
+
+    @Test
+    public void testForEach() {
+        List<Boolean> expected = Arrays.asList(Boolean.FALSE, Boolean.TRUE);
+        List<Boolean> actual = new java.util.ArrayList<>();
+        BooleanUtils.forEach(actual::add);
+        assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @MethodSource("oneHotProvider")
+    public void testOneHot(boolean[] array, boolean expected) {
+        assertTrue(BooleanUtils.oneHot(array));
+        assertFalse(!BooleanUtils.oneHot(array));
+    }
+
+    private static Stream<Arguments> oneHotProvider() {
+        return Stream.of(
+            arguments(new boolean[]{true}, true),
+            arguments(new boolean[]{false}, false),
+            arguments(new boolean[]{true, false}, true),
+            arguments(new boolean[]{false, true}, true),
+            arguments(new boolean[]{true, true}, false)
+        );
+    }
+
+    @Test
+    public void testToInteger() {
+        assertEquals(1, BooleanUtils.toInteger(true));
+        assertEquals(0, BooleanUtils.toInteger(false));
+        assertEquals(1, BooleanUtils.toInteger(true, 1, 0));
+        assertEquals(0, BooleanUtils.toInteger(false, 1, 0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("toIntegerObjectProvider")
+    public void testToIntegerObject(boolean value, Integer trueValue, Integer falseValue, Integer expected) {
+        assertEquals(expected, BooleanUtils.toIntegerObject(value, trueValue, falseValue));
+    }
+
+    private static Stream<Arguments> toIntegerObjectProvider() {
+        return Stream.of(
+            arguments(true, 1, 0, 1),
+            arguments(false, 1, 0, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("toStringProvider")
+    public void testToString(boolean value, String trueString, String falseString, String expected) {
+        assertEquals(expected, BooleanUtils.toString(value, trueString, falseString));
+    }
+
+    private static Stream<Arguments> toStringProvider() {
+        return Stream.of(
+            arguments(true, "true", "false", "true"),
+            arguments(false, "true", "false", "false")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("toStringOnOffProvider")
+    public void testToStringOnOff(boolean value, String expected) {
+        assertEquals(expected, BooleanUtils.toStringOnOff(value));
+    }
+
+    private static Stream<Arguments> toStringOnOffProvider() {
+        return Stream.of(
+            arguments(true, "on"),
+            arguments(false, "off")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("toStringTrueFalseProvider")
+    public void testToStringTrueFalse(boolean value, String expected) {
+        assertEquals(expected, BooleanUtils.toStringTrueFalse(value));
+    }
+
+    private static Stream<Arguments> toStringTrueFalseProvider() {
+        return Stream.of(
+            arguments(true, "true"),
+            arguments(false, "false")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("toStringYesNoProvider")
+    public void testToStringYesNo(boolean value, String expected) {
+        assertEquals(expected, BooleanUtils.toStringYesNo(value));
+    }
+
+    private static Stream<Arguments> toStringYesNoProvider() {
+        return Stream.of(
+            arguments(true, "yes"),
+            arguments(false, "no")
+        );
+    }
+}
+```

@@ -1,0 +1,91 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testReflectionCompareWithNull() {
+        Object lhs = null;
+        Object rhs = new Object();
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(lhs, rhs));
+    }
+
+    @Test
+    public void testAppendBooleanArray() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {false, true};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendByteArray() {
+        byte[] lhs = {1, 2};
+        byte[] rhs = {3, 4};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendCharArray() {
+        char[] lhs = {'a', 'b'};
+        char[] rhs = {'c', 'd'};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArray() {
+        double[] lhs = {1.0, 2.0};
+        double[] rhs = {3.0, 4.0};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArray() {
+        float[] lhs = {1.0f, 2.0f};
+        float[] rhs = {3.0f, 4.0f};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendIntArray() {
+        int[] lhs = {1, 2};
+        int[] rhs = {3, 4};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendLongArray() {
+        long[] lhs = {1L, 2L};
+        long[] rhs = {3L, 4L};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendShortArray() {
+        short[] lhs = {1, 2};
+        short[] rhs = {3, 4};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+}
+```

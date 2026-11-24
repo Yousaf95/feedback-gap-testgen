@@ -1,0 +1,100 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Random;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithEmptyCharsArrayThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, new char[0]));
+    }
+
+    @Test
+    public void testRandomAlphabeticWithNegativeLengthThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphabetic(-1));
+    }
+
+    @Test
+    public void testRandomAlphanumericWithNegativeLengthThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphanumeric(-1));
+    }
+
+    @Test
+    public void testRandomAsciiWithNegativeLengthThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAscii(-1));
+    }
+
+    @Test
+    public void testRandomGraphWithNegativeLengthThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomGraph(-1));
+    }
+
+    @Test
+    public void testRandomNumericWithNegativeLengthThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomNumeric(-1));
+    }
+
+    @Test
+    public void testRandomPrintWithNegativeLengthThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomPrint(-1));
+    }
+
+    @Test
+    public void testRandomAlphabeticWithRange() {
+        String result = RandomStringUtils.randomAlphabetic(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(Character.isLetter(c));
+        }
+    }
+
+    @Test
+    public void testRandomAlphanumericWithRange() {
+        String result = RandomStringUtils.randomAlphanumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(Character.isLetterOrDigit(c));
+        }
+    }
+
+    @Test
+    public void testRandomAsciiWithRange() {
+        String result = RandomStringUtils.randomAscii(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(c >= 32 && c <= 127);
+        }
+    }
+
+    @Test
+    public void testRandomGraphWithRange() {
+        String result = RandomStringUtils.randomGraph(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(c > 32 && c < 127);
+        }
+    }
+
+    @Test
+    public void testRandomNumericWithRange() {
+        String result = RandomStringUtils.randomNumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(Character.isDigit(c));
+        }
+    }
+
+    @Test
+    public void testRandomPrintWithRange() {
+        String result = RandomStringUtils.randomPrint(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(c >= 32 && c <= 126);
+        }
+    }
+
+}
+```

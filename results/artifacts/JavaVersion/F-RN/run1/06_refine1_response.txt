@@ -1,0 +1,29 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class JavaVersion_GenTest {
+
+    @Test
+    public void testAtLeastMethodForNewestVersion() {
+        assertTrue(JavaVersion.JAVA_21.atLeast(JavaVersion.JAVA_RECENT));
+    }
+
+    @Test
+    public void testAtMostMethodForOldestVersion() {
+        assertTrue(JavaVersion.JAVA_0_9.atMost(JavaVersion.JAVA_RECENT));
+    }
+
+    @Test
+    public void testAtLeastMethodWithNullArgument() {
+        assertThrows(NullPointerException.class, () -> JavaVersion.JAVA_17.atLeast(null));
+    }
+
+    @Test
+    public void testAtMostMethodWithNullArgument() {
+        assertThrows(NullPointerException.class, () -> JavaVersion.JAVA_17.atMost(null));
+    }
+}
+```

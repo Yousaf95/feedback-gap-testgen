@@ -1,0 +1,801 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+  symbol:   class Predicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[105,58] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[122,55] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,54] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,51] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[29,17] no suitable method found for accept(java.util.function.BiConsumer<T,U>,T,U)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (argument mismatch; java.util.function.BiConsumer<T,U> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[46,17] no suitable method found for accept(java.util.function.Consumer<T>,T)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableConsumer<T,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableDoubleConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableIntConsumer<E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (argument mismatch; java.util.function.Consumer<T> cannot be converted to org.apache.commons.lang3.function.FailableLongConsumer<E>))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,9] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[125,9] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,9] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[312,9] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[368,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[384,23] cannot select from a type variable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[426,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[428,28] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[435,28] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[504,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[505,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[506,28] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[512,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[513,28] cannot find symbol
+[ERROR]   symbol:   class Predicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[79,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[80,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[96,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[97,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[113,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[114,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[130,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[131,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[147,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[148,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[164,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[165,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[181,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[182,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[198,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[199,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[79,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[80,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[96,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[97,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[113,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[114,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[130,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[131,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[147,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[148,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[164,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[165,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[181,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[182,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[198,13] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[199,20] local variables referenced from a lambda expression must be final or effectively final
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

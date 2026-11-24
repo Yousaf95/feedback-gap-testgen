@@ -1,0 +1,135 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Pattern;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.Validate.*;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDouble() {
+        exclusiveBetween(1.0, 2.0, 1.5);
+    }
+
+    @Test
+    public void testExclusiveBetweenDoubleThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> exclusiveBetween(1.0, 2.0, 1.0));
+    }
+
+    @Test
+    public void testExclusiveBetweenLong() {
+        exclusiveBetween(1L, 2L, 1L);
+    }
+
+    @Test
+    public void testExclusiveBetweenLongThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> exclusiveBetween(1L, 2L, 2L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDouble() {
+        inclusiveBetween(1.0, 2.0, 1.5);
+    }
+
+    @Test
+    public void testInclusiveBetweenLong() {
+        inclusiveBetween(1L, 2L, 1L);
+    }
+
+    @Test
+    public void testIsAssignableFromThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOf() {
+        isInstanceOf(String.class, "test");
+    }
+
+    @Test
+    public void testIsValid() {
+        isValid("test", s -> !s.isEmpty());
+    }
+
+    @Test
+    public void testIsValidThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> isValid("", s -> !s.isEmpty()));
+    }
+
+    @Test
+    public void testMatchesPattern() {
+        matchesPattern("123", "\\d+");
+    }
+
+    @Test
+    public void testMatchesPatternThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> matchesPattern("abc", "\\d+"));
+    }
+
+    @Test
+    public void testNoNullElementsIterable() {
+        noNullElements(Arrays.asList(1, 2, 3));
+    }
+
+    @Test
+    public void testNotEmpty() {
+        notEmpty(Collections.singletonList("test"));
+    }
+
+    @Test
+    public void testNotNull() {
+        assertNotNull("test");
+    }
+
+    @Test
+    public void testExclusiveBetweenDouble_2() {
+        exclusiveBetween(1.0, 2.0, 1.5);
+    }
+
+    @Test
+    public void testExclusiveBetweenLong_2() {
+        exclusiveBetween(1L, 2L, 1L);
+    }
+
+    @Test
+    public void testInclusiveBetweenDouble_2() {
+        inclusiveBetween(1.0, 2.0, 1.5);
+    }
+
+    @Test
+    public void testInclusiveBetweenLong_2() {
+        inclusiveBetween(1L, 2L, 1L);
+    }
+
+    @Test
+    public void testIsAssignableFromThrowsException_2() {
+        assertThrows(IllegalArgumentException.class, () -> isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testMatchesPattern_2() {
+        matchesPattern("123", "\\d+");
+    }
+
+    @Test
+    public void testNoNullElementsIterable_2() {
+        noNullElements(Arrays.asList(1, 2, 3));
+    }
+
+    @Test
+    public void testNotBlank() {
+        notBlank("test");
+    }
+
+    @Test
+    public void testNotEmptyArray() {
+        notEmpty(new String[]{"test"});
+    }
+}
+```

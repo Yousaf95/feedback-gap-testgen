@@ -1,0 +1,67 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiAlphaLower_NotCovered() {
+        assertFalse(CharUtils.isAsciiAlphaLower('A'));
+        assertTrue(CharUtils.isAsciiAlphaLower('a'));
+        assertFalse(CharUtils.isAsciiAlphaLower('z'));
+    }
+
+    @Test
+    public void testIsAsciiControl_NotCovered() {
+        assertTrue(CharUtils.isAsciiControl((char) 31));
+        assertFalse(CharUtils.isAsciiControl((char) 32));
+        assertTrue(CharUtils.isAsciiControl((char) 126));
+        assertFalse(CharUtils.isAsciiControl((char) 127));
+    }
+
+    @Test
+    public void testIsAsciiPrintable_NotCovered() {
+        assertFalse(CharUtils.isAsciiPrintable((char) 31));
+        assertTrue(CharUtils.isAsciiPrintable((char) 32));
+        assertTrue(CharUtils.isAsciiPrintable((char) 126));
+        assertFalse(CharUtils.isAsciiPrintable((char) 127));
+    }
+
+    @Test
+    public void testToChar_Character_NotCovered() {
+        assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+    }
+
+    @Test
+    public void testToChar_StringDefaultValue_NotCovered() {
+        assertEquals('b', CharUtils.toChar("", 'b'));
+    }
+
+    @Test
+    public void testToCharacterObject_EmptyString_NotCovered() {
+        assertNull(CharUtils.toCharacterObject(""));
+    }
+
+    @Test
+    public void testToIntValue_NotCovered() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToIntValueDefaultValue_NotCovered() {
+        assertEquals(0, CharUtils.toIntValue('a', 0));
+    }
+
+    @Test
+    public void testToString_Char_NotCovered() {
+        assertEquals("128", CharUtils.toString((char) 128));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_NotCovered() {
+        assertEquals("\\u007F", CharUtils.unicodeEscaped((char) 127));
+    }
+}
+```

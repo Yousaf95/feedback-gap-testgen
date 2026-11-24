@@ -1,0 +1,68 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Properties;
+import org.junit.jupiter.api.Test;
+
+class SystemUtils_GenTest {
+
+    @Test
+    public void testGetUserCountry_WithUserCountrySet() {
+        System.setProperty(SystemProperties.USER_COUNTRY, "US");
+        assertEquals("US", SystemUtils.getUserCountry());
+    }
+
+    @Test
+    public void testGetUserCountry_WithUserRegionSet() {
+        System.setProperty(SystemProperties.USER_REGION, "US");
+        assertEquals("US", SystemUtils.getUserCountry());
+    }
+
+    @Test
+    public void testIsOSLinux_WithLinuxOsName() {
+        System.setProperty(SystemProperties.OS_NAME, "Linux");
+        assertTrue(SystemUtils.IS_OS_LINUX);
+    }
+
+    @Test
+    public void testIsOSLinux_WithNonLinuxOsName() {
+        System.setProperty(SystemProperties.OS_NAME, "Windows");
+        assertFalse(SystemUtils.IS_OS_LINUX);
+    }
+
+    @Test
+    public void testIsJavaAwtHeadless_WithTrueValue() {
+        System.setProperty(SystemProperties.JAVA_AWT_HEADLESS, "true");
+        assertTrue(SystemUtils.isJavaAwtHeadless());
+    }
+
+    @Test
+    public void testIsJavaAwtHeadless_WithFalseValue() {
+        System.setProperty(SystemProperties.JAVA_AWT_HEADLESS, "false");
+        assertFalse(SystemUtils.isJavaAwtHeadless());
+    }
+
+    @Test
+    public void testGetEnvironmentVariable_WithExistingVariable() {
+        System.setProperty("TEST_VAR", "testValue");
+        assertEquals("testValue", SystemUtils.getEnvironmentVariable("TEST_VAR"));
+    }
+
+    @Test
+    public void testGetEnvironmentVariable_WithNonExistingVariable() {
+        assertNull(SystemUtils.getEnvironmentVariable("NON_EXISTING_VAR"));
+    }
+
+    @Test
+    public void testGetHostName_WithWindowsOs() {
+        System.setProperty(SystemProperties.OS_NAME, "Windows");
+        assertNotNull(SystemUtils.getHostName());
+    }
+
+    @Test
+    public void testGetHostName_WithNonWindowsOs() {
+        System.setProperty(SystemProperties.OS_NAME, "Linux");
+        assertNotNull(SystemUtils.getHostName());
+    }
+}
+```

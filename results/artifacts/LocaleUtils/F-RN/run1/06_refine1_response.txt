@@ -1,0 +1,57 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.List;
+import java.util.Locale;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.LocaleUtils.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_invalidLanguageCode() {
+        List<Locale> countries = countriesByLanguage("zz");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_invalidCountryCode() {
+        List<Locale> languages = languagesByCountry("ZZ");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testToLocale_validLanguageTag() {
+        Locale locale = toLocale("en-US");
+        assertEquals(Locale.US, locale);
+    }
+
+    @Test
+    public void testToLocale_emptyLanguageTag() {
+        Locale locale = toLocale("_US");
+        assertEquals(new Locale(StringUtils.EMPTY, "US"), locale);
+    }
+
+    @Test
+    public void testToLocale_missingCountryCode() {
+        Locale locale = toLocale("en_");
+        assertEquals(new Locale("en", StringUtils.EMPTY), locale);
+    }
+
+    @Test
+    public void testToLocale_invalidLanguageTag_withDash() {
+        assertThrows(IllegalArgumentException.class, () -> toLocale("en-US-variant"));
+    }
+
+    @Test
+    public void testToLocale_invalidLanguageTag_withUnderscore() {
+        assertThrows(IllegalArgumentException.class, () -> toLocale("en_US_variant"));
+    }
+
+    @Test
+    public void testToLocale_invalidLanguageTag_tooLong() {
+        assertThrows(IllegalArgumentException.class, () -> toLocale("en-US-variant-extra"));
+    }
+}
+```

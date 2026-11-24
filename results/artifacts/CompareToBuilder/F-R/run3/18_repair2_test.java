@@ -1,0 +1,219 @@
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class CompareToBuilder_GenTest {
+
+    private CompareToBuilder builder;
+
+    @BeforeEach
+    public void setUp() {
+        builder = new CompareToBuilder();
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideBooleanData")
+    public void testAppendBoolean(boolean lhs, boolean rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideBooleanData() {
+        return Stream.of(
+            arguments(true, true, 0),
+            arguments(true, false, 1),
+            arguments(false, true, -1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideByteData")
+    public void testAppendByte(byte lhs, byte rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideByteData() {
+        return Stream.of(
+            arguments((byte) 0, (byte) 0, 0),
+            arguments((byte) 1, (byte) 2, -1),
+            arguments((byte) 3, (byte) 2, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCharData")
+    public void testAppendChar(char lhs, char rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideCharData() {
+        return Stream.of(
+            arguments('a', 'a', 0),
+            arguments('b', 'c', -1),
+            arguments('d', 'c', 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDoubleData")
+    public void testAppendDouble(double lhs, double rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideDoubleData() {
+        return Stream.of(
+            arguments(0.0, 0.0, 0),
+            arguments(1.0, 2.0, -1),
+            arguments(3.0, 2.0, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFloatData")
+    public void testAppendFloat(float lhs, float rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideFloatData() {
+        return Stream.of(
+            arguments(0.0f, 0.0f, 0),
+            arguments(1.0f, 2.0f, -1),
+            arguments(3.0f, 2.0f, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIntData")
+    public void testAppendInt(int lhs, int rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideIntData() {
+        return Stream.of(
+            arguments(0, 0, 0),
+            arguments(1, 2, -1),
+            arguments(3, 2, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideLongData")
+    public void testAppendLong(long lhs, long rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideLongData() {
+        return Stream.of(
+            arguments(0L, 0L, 0),
+            arguments(1L, 2L, -1),
+            arguments(3L, 2L, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideShortData")
+    public void testAppendShort(short lhs, short rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideShortData() {
+        return Stream.of(
+            arguments((short) 0, (short) 0, 0),
+            arguments((short) 1, (short) 2, -1),
+            arguments((short) 3, (short) 2, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideObjectData")
+    public void testAppendObject(Object lhs, Object rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideObjectData() {
+        return Stream.of(
+            arguments(0, 0, 0),
+            arguments(1, 2, -1),
+            arguments(3, 2, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArrayData")
+    public void testAppendArray(Object lhs, Object rhs, int expected) {
+        assertEquals(expected, builder.append(lhs, rhs).toComparison());
+    }
+
+    private static Stream<Arguments> provideArrayData() {
+        return Stream.of(
+            arguments(new int[]{1, 2}, new int[]{1, 2}, 0),
+            arguments(new int[]{1, 2}, new int[]{1, 3}, -1),
+            arguments(new int[]{1, 2}, new int[]{1}, 1)
+        );
+    }
+
+    @Test
+    public void testAppendSuper() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.appendSuper(0).toComparison());
+        assertEquals(-1, builder.appendSuper(-1).toComparison());
+        assertEquals(1, builder.appendSuper(1).toComparison());
+    }
+
+    @Test
+    public void testReflectionCompare() {
+        class TestClass {
+            int field1 = 1;
+            String field2 = "test";
+        }
+        TestClass obj1 = new TestClass();
+        TestClass obj2 = new TestClass();
+        assertEquals(0, CompareToBuilder.reflectionCompare(obj1, obj2));
+
+        obj1.field1 = 2;
+        assertEquals(-1, CompareToBuilder.reflectionCompare(obj1, obj2));
+
+        obj2.field1 = 3;
+        assertEquals(1, CompareToBuilder.reflectionCompare(obj1, obj2));
+    }
+
+    @Test
+    public void testReflectionCompareWithExcludeFields() {
+        class TestClass {
+            int field1 = 1;
+            String field2 = "test";
+        }
+        TestClass obj1 = new TestClass();
+        TestClass obj2 = new TestClass();
+        assertEquals(0, CompareToBuilder.reflectionCompare(obj1, obj2, Collections.singletonList("field1")));
+
+        obj1.field2 = "other";
+        assertEquals(0, CompareToBuilder.reflectionCompare(obj1, obj2, Collections.singletonList("field1")));
+    }
+
+    @Test
+    public void testReflectionCompareWithNull() {
+        class TestClass {
+            int field1 = 1;
+        }
+        TestClass obj1 = new TestClass();
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(obj1, null));
+    }
+
+    @Test
+    public void testAppendArrayWithComparator() {
+        Integer[] array1 = {1, 2, 3};
+        Integer[] array2 = {1, 2, 4};
+        Comparator<Integer> comparator = Comparator.naturalOrder();
+        assertEquals(-1, builder.append(array1, array2, comparator).toComparison());
+    }
+}

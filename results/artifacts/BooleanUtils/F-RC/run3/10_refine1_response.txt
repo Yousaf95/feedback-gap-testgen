@@ -1,0 +1,42 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.function.Consumer;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    public void testAndWithNull() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.and((Boolean[]) null));
+    }
+
+    @Test
+    public void testToStringTrueFalse() {
+        assertEquals("true", BooleanUtils.toString(true, "true", "false"));
+        assertEquals("false", BooleanUtils.toString(false, "true", "false"));
+        assertNull(BooleanUtils.toString(null, "true", "false"));
+    }
+
+    @Test
+    public void testValues() {
+        List<Boolean> values = BooleanUtils.values();
+        assertEquals(2, values.size());
+        assertTrue(values.contains(Boolean.FALSE));
+        assertTrue(values.contains(Boolean.TRUE));
+    }
+
+    @Test
+    public void testToBooleanObject() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("true"));
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("false"));
+        assertNull(BooleanUtils.toBooleanObject(null));
+    }
+
+    @Test
+    public void testXorWithNull() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.xor((Boolean[]) null));
+    }
+}
+```

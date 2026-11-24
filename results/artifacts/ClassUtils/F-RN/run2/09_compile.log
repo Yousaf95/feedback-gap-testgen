@@ -1,0 +1,43 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[141,88] incompatible types: java.lang.reflect.Constructor<java.util.List> cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[147,44] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[154,46] cannot find symbol
+  symbol:   class AbstractList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[155,46] cannot find symbol
+  symbol:   class AbstractCollection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+  both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+  both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,57] java.util.ArrayList.SubList has private access in java.util.ArrayList
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[135,34] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[141,88] incompatible types: java.lang.reflect.Constructor<java.util.List> cannot be converted to java.lang.Class<?>
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[147,44] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[154,46] cannot find symbol
+[ERROR]   symbol:   class AbstractList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[155,46] cannot find symbol
+[ERROR]   symbol:   class AbstractCollection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[187,34] reference to getPackageCanonicalName is ambiguous
+[ERROR]   both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[193,40] reference to getShortClassName is ambiguous
+[ERROR]   both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,57] java.util.ArrayList.SubList has private access in java.util.ArrayList
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,256 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetween_long() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 5L, 0L));
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 5L, 6L));
+        assertDoesNotThrow(() -> Validate.exclusiveBetween(1L, 5L, 2L));
+    }
+
+    @Test
+    public void testExclusiveBetween_long_message() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 5L, 0L, "Invalid value: %d"));
+        assertEquals("Invalid value: 0", ex.getMessage());
+
+        ex = assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 5L, 6L, "Invalid value: %d"));
+        assertEquals("Invalid value: 6", ex.getMessage());
+    }
+
+    @Test
+    public void testInclusiveBetween_long() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 5L, 0L));
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 5L, 6L));
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(1L, 5L, 1L));
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(1L, 5L, 5L));
+    }
+
+    @Test
+    public void testInclusiveBetween_long_message() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 5L, 0L, "Invalid value: %d"));
+        assertEquals("Invalid value: 0", ex.getMessage());
+
+        ex = assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 5L, 6L, "Invalid value: %d"));
+        assertEquals("Invalid value: 6", ex.getMessage());
+    }
+
+    @Test
+    public void testNoNullElements_array() {
+        String[] array = {"a", "b", null};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+
+        array = new String[]{"a", "b"};
+        assertDoesNotThrow(() -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNoNullElements_array_message() {
+        String[] array = {"a", "b", null};
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array, "Array contains null at index: %d"));
+        assertEquals("Array contains null at index: 2", ex.getMessage());
+
+        array = new String[]{"a", "b"};
+        assertDoesNotThrow(() -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNoNullElements_collection() {
+        Collection<String> collection = Arrays.asList("a", "b", null);
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(collection));
+
+        collection = Arrays.asList("a", "b");
+        assertDoesNotThrow(() -> Validate.noNullElements(collection));
+    }
+
+    @Test
+    public void testNoNullElements_collection_message() {
+        Collection<String> collection = Arrays.asList("a", "b", null);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(collection, "Collection contains null at index: %d"));
+        assertEquals("Collection contains null at index: 2", ex.getMessage());
+
+        collection = Arrays.asList("a", "b");
+        assertDoesNotThrow(() -> Validate.noNullElements(collection));
+    }
+
+    @Test
+    public void testNotEmpty_array() {
+        String[] array = {};
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(array));
+
+        array = new String[]{"a"};
+        assertDoesNotThrow(() -> Validate.notEmpty(array));
+    }
+
+    @Test
+    public void testNotEmpty_array_message() {
+        String[] array = {};
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(array, "Array is empty"));
+        assertEquals("Array is empty", ex.getMessage());
+
+        array = new String[]{"a"};
+        assertDoesNotThrow(() -> Validate.notEmpty(array));
+    }
+
+    @Test
+    public void testNotEmpty_collection() {
+        Collection<String> collection = Collections.emptyList();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(collection));
+
+        collection = Arrays.asList("a");
+        assertDoesNotThrow(() -> Validate.notEmpty(collection));
+    }
+
+    @Test
+    public void testNotEmpty_collection_message() {
+        Collection<String> collection = Collections.emptyList();
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(collection, "Collection is empty"));
+        assertEquals("Collection is empty", ex.getMessage());
+
+        collection = Arrays.asList("a");
+        assertDoesNotThrow(() -> Validate.notEmpty(collection));
+    }
+
+    @Test
+    public void testNotEmpty_map() {
+        Map<String, String> map = Collections.emptyMap();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map));
+
+        map = new HashMap<>();
+        map.put("key", "value");
+        assertDoesNotThrow(() -> Validate.notEmpty(map));
+    }
+
+    @Test
+    public void testNotEmpty_map_message() {
+        Map<String, String> map = Collections.emptyMap();
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map, "Map is empty"));
+        assertEquals("Map is empty", ex.getMessage());
+
+        map = new HashMap<>();
+        map.put("key", "value");
+        assertDoesNotThrow(() -> Validate.notEmpty(map));
+    }
+
+    @Test
+    public void testValidIndex_array() {
+        String[] array = {"a", "b"};
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(array, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(array, 2));
+        assertDoesNotThrow(() -> Validate.validIndex(array, 0));
+        assertDoesNotThrow(() -> Validate.validIndex(array, 1));
+    }
+
+    @Test
+    public void testValidIndex_array_message() {
+        String[] array = {"a", "b"};
+        IndexOutOfBoundsException ex = assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(array, -1, "Invalid index: %d"));
+        assertEquals("Invalid index: -1", ex.getMessage());
+
+        ex = assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(array, 2, "Invalid index: %d"));
+        assertEquals("Invalid index: 2", ex.getMessage());
+    }
+
+    @Test
+    public void testValidIndex_collection() {
+        Collection<String> collection = Arrays.asList("a", "b");
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(collection, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(collection, 2));
+        assertDoesNotThrow(() -> Validate.validIndex(collection, 0));
+        assertDoesNotThrow(() -> Validate.validIndex(collection, 1));
+    }
+
+    @Test
+    public void testValidIndex_collection_message() {
+        Collection<String> collection = Arrays.asList("a", "b");
+        IndexOutOfBoundsException ex = assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(collection, -1, "Invalid index: %d"));
+        assertEquals("Invalid index: -1", ex.getMessage());
+
+        ex = assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(collection, 2, "Invalid index: %d"));
+        assertEquals("Invalid index: 2", ex.getMessage());
+    }
+
+    @Test
+    public void testValidIndex_charSequence() {
+        CharSequence chars = "ab";
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(chars, -1));
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(chars, 2));
+        assertDoesNotThrow(() -> Validate.validIndex(chars, 0));
+        assertDoesNotThrow(() -> Validate.validIndex(chars, 1));
+    }
+
+    @Test
+    public void testValidIndex_charSequence_message() {
+        CharSequence chars = "ab";
+        IndexOutOfBoundsException ex = assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(chars, -1, "Invalid index: %d"));
+        assertEquals("Invalid index: -1", ex.getMessage());
+
+        ex = assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(chars, 2, "Invalid index: %d"));
+        assertEquals("Invalid index: 2", ex.getMessage());
+    }
+
+    @Test
+    public void testIsInstanceOf() {
+        Object obj = new String("test");
+        assertDoesNotThrow(() -> Validate.isInstanceOf(String.class, obj));
+
+        obj = null;
+        assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(String.class, obj));
+    }
+
+    @Test
+    public void testIsInstanceOf_message() {
+        Object obj = new String("test");
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(Integer.class, obj, "Expected type: %s, actual: %s"));
+        assertEquals("Expected type: java.lang.Integer, actual: java.lang.String", ex.getMessage());
+
+        obj = null;
+        ex = assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(String.class, obj, "Expected type: %s, actual: %s"));
+        assertEquals("Expected type: java.lang.String, actual: null", ex.getMessage());
+    }
+
+    @Test
+    public void testIsAssignableFrom() {
+        Class<?> superType = Number.class;
+        Class<?> type = Integer.class;
+        assertDoesNotThrow(() -> Validate.isAssignableFrom(superType, type));
+
+        type = String.class;
+        assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(superType, type));
+    }
+
+    @Test
+    public void testIsAssignableFrom_message() {
+        Class<?> superType = Number.class;
+        Class<?> type = Integer.class;
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(String.class, type, "Expected assignable from: %s to %s"));
+        assertEquals("Expected assignable from: java.lang.String to java.lang.Number", ex.getMessage());
+
+        type = String.class;
+        ex = assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(superType, type, "Expected assignable from: %s to %s"));
+        assertEquals("Expected assignable from: java.lang.Integer to java.lang.Number", ex.getMessage());
+    }
+
+    @Test
+    public void testValidState() {
+        assertDoesNotThrow(() -> Validate.validState(true));
+
+        assertThrows(IllegalArgumentException.class, () -> Validate.validState(false));
+    }
+
+    @Test
+    public void testValidState_message() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> Validate.validState(false, "Invalid state: %b"));
+        assertEquals("Invalid state: false", ex.getMessage());
+    }
+}
+```

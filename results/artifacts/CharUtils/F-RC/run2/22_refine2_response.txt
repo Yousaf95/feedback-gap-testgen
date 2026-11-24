@@ -1,0 +1,83 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiAlphaLower() {
+        assertTrue(CharUtils.isAsciiAlphaLower('a'));
+        assertFalse(CharUtils.isAsciiAlphaLower('A'));
+        assertFalse(CharUtils.isAsciiAlphaLower('z'));
+        assertFalse(CharUtils.isAsciiAlphaLower('0'));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumeric() {
+        assertTrue(CharUtils.isAsciiAlphanumeric('a'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('A'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('0'));
+        assertFalse(CharUtils.isAsciiAlphanumeric(' '));
+        assertFalse(CharUtils.isAsciiAlphanumeric('\t'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaUpper() {
+        assertTrue(CharUtils.isAsciiAlphaUpper('A'));
+        assertFalse(CharUtils.isAsciiAlphaUpper('a'));
+        assertFalse(CharUtils.isAsciiAlphaUpper('Z'));
+        assertFalse(CharUtils.isAsciiAlphaUpper('0'));
+    }
+
+    @Test
+    public void testIsAsciiControl() {
+        assertTrue(CharUtils.isAsciiControl('\n'));
+        assertTrue(CharUtils.isAsciiControl('\r'));
+        assertTrue(CharUtils.isAsciiControl('\t'));
+        assertFalse(CharUtils.isAsciiControl('a'));
+        assertFalse(CharUtils.isAsciiControl('A'));
+        assertFalse(CharUtils.isAsciiControl('0'));
+    }
+
+    @Test
+    public void testIsAsciiNumeric() {
+        assertTrue(CharUtils.isAsciiNumeric('0'));
+        assertTrue(CharUtils.isAsciiNumeric('9'));
+        assertFalse(CharUtils.isAsciiNumeric('a'));
+        assertFalse(CharUtils.isAsciiNumeric('A'));
+        assertFalse(CharUtils.isAsciiNumeric(' '));
+    }
+
+    @Test
+    public void testIsAsciiPrintable() {
+        assertTrue(CharUtils.isAsciiPrintable('a'));
+        assertTrue(CharUtils.isAsciiPrintable('A'));
+        assertTrue(CharUtils.isAsciiPrintable('0'));
+        assertTrue(CharUtils.isAsciiPrintable(' '));
+        assertFalse(CharUtils.isAsciiPrintable('\n'));
+        assertFalse(CharUtils.isAsciiPrintable('\r'));
+    }
+
+    @Test
+    public void testToChar_Character() {
+        assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+    }
+
+    @Test
+    public void testToChar_StringDefault() {
+        assertEquals('a', CharUtils.toChar("abc", 'a'));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefault_2() {
+        assertEquals(0, CharUtils.toIntValue(null, 0));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_2() {
+        assertEquals("\\u0061", CharUtils.unicodeEscaped('a'));
+    }
+}
+```

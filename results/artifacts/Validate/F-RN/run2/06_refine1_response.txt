@@ -1,0 +1,124 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Pattern;
+import org.junit.jupiter.api.Test;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDouble() {
+        Validate.exclusiveBetween(1.0, 5.0, 3.0);
+    }
+
+    @Test
+    public void testExclusiveBetweenLong() {
+        Validate.exclusiveBetween(1L, 5L, 3L);
+    }
+
+    @Test
+    public void testInclusiveBetweenDouble() {
+        Validate.inclusiveBetween(1.0, 5.0, 3.0);
+    }
+
+    @Test
+    public void testInclusiveBetweenLong() {
+        Validate.inclusiveBetween(1L, 5L, 3L);
+    }
+
+    @Test
+    public void testIsAssignableFrom() {
+        Validate.isAssignableFrom(Number.class, Integer.class);
+    }
+
+    @Test
+    public void testIsInstanceOf() {
+        Validate.isInstanceOf(String.class, "test");
+    }
+
+    @Test
+    public void testIsValidDouble() {
+        assertTrue(Validate.isValid(1.0));
+    }
+
+    @Test
+    public void testIsValidLong() {
+        assertTrue(Validate.isValid(1L));
+    }
+
+    @Test
+    public void testMatchesPattern() {
+        Validate.matchesPattern("test", "t.e.s.t");
+    }
+
+    @Test
+    public void testNoNullElementsArray() {
+        String[] array = {"a", "b", "c"};
+        Validate.noNullElements(array);
+    }
+
+    @Test
+    public void testNoNullElementsCollection() {
+        Collection<String> collection = Arrays.asList("a", "b", "c");
+        Validate.noNullElements(collection);
+    }
+
+    @Test
+    public void testNotBlank() {
+        Validate.notBlank("test");
+    }
+
+    @Test
+    public void testNotEmptyArray() {
+        String[] array = {"a", "b", "c"};
+        Validate.notEmpty(array);
+    }
+
+    @Test
+    public void testNotEmptyCollection() {
+        Collection<String> collection = Arrays.asList("a", "b", "c");
+        Validate.notEmpty(collection);
+    }
+
+    @Test
+    public void testNotEmptyMap() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key", "value");
+        Validate.notEmpty(map);
+    }
+
+    @Test
+    public void testNotNull() {
+        Object obj = new Object();
+        Validate.notNull(obj);
+    }
+
+    @Test
+    public void testValidIndexArray() {
+        String[] array = {"a", "b", "c"};
+        Validate.validIndex(array, 1);
+    }
+
+    @Test
+    public void testValidIndexCollection() {
+        Collection<String> collection = Arrays.asList("a", "b", "c");
+        Validate.validIndex(collection, 1);
+    }
+
+    @Test
+    public void testValidIndexCharSequence() {
+        CharSequence chars = "test";
+        Validate.validIndex(chars, 1);
+    }
+
+    @Test
+    public void testValidState() {
+        Validate.validState(true);
+    }
+}
+```

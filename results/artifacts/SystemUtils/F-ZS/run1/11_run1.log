@@ -1,0 +1,398 @@
+[ERROR] Tests run: 57, Failures: 26, Errors: 0, Skipped: 0, Time elapsed: 0.554 s <<< FAILURE! -- in org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetEnvironmentVariable(String, String, String)[1] -- Time elapsed: 0.055 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Environment variable should be /usr/lib/jvm/java-17-openjdk-amd64 ==> expected: </usr/lib/jvm/java-17-openjdk-amd64> but was: </home/user/ICECT/tools/jdk-17.0.21.1+2>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:188)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1167)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetEnvironmentVariable(SystemUtils_GenTest.java:98)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[1] -- Time elapsed: 0.010 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 0.9 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[2] -- Time elapsed: 0.014 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.1 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[3] -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.2 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[4] -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.3 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[5] -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.4 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[6] -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.5 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[7] -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.6 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[8] -- Time elapsed: 0.013 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.7 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[9] -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 1.8 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[10] -- Time elapsed: 0.015 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 9 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[11] -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 9 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[12] -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 10 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[13] -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 11 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[14] -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 12 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[15] -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 13 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[16] -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 14 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[17] -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 15 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[18] -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 16 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[19] -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 17 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(JavaVersion)[24] -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should not be at least 17.0 ==> expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:42)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:247)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch(SystemUtils_GenTest.java:48)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJava17 -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJava17(SystemUtils_GenTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(JavaVersion)[20] -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should be at least 18 ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:42)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:191)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(SystemUtils_GenTest.java:41)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(JavaVersion)[21] -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should be at least 19 ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:42)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:191)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(SystemUtils_GenTest.java:41)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(JavaVersion)[22] -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should be at least 20 ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:42)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:191)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(SystemUtils_GenTest.java:41)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(JavaVersion)[23] -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Java version should be at least 21 ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:42)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:191)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeast(SystemUtils_GenTest.java:41)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   SystemUtils_GenTest.testGetEnvironmentVariable:98 Environment variable should be /usr/lib/jvm/java-17-openjdk-amd64 ==> expected: </usr/lib/jvm/java-17-openjdk-amd64> but was: </home/user/ICECT/tools/jdk-17.0.21.1+2>
+[ERROR]   SystemUtils_GenTest.testIsJava17:54 expected: <true> but was: <false>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast:41 Java version should be at least 18 ==> expected: <true> but was: <false>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast:41 Java version should be at least 19 ==> expected: <true> but was: <false>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast:41 Java version should be at least 20 ==> expected: <true> but was: <false>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast:41 Java version should be at least 21 ==> expected: <true> but was: <false>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 9 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 9 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 10 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 11 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 12 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 13 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 14 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 15 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 16 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 17 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 0.9 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 17.0 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.1 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.2 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.3 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.4 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.5 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.6 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.7 ==> expected: <false> but was: <true>
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeast_NotMatch:48 Java version should not be at least 1.8 ==> expected: <false> but was: <true>
+[ERROR] Tests run: 57, Failures: 26, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w4/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

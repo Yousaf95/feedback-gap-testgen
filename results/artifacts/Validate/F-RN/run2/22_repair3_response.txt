@@ -1,0 +1,22 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+public class Validate_GenTest {
+
+    @ParameterizedTest
+    @ValueSource(doubles = {1.0})
+    public void testIsValidDouble(double value) {
+        assertTrue(Validate.isTrue(value == 1.0));
+    }
+
+    @ParameterizedTest
+    @ValueSource(longs = {1L})
+    public void testIsValidLong(long value) {
+        assertTrue(Validate.isTrue(value == 1L));
+    }
+}
+```

@@ -1,0 +1,66 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testIsAsciiAlphaLower_NotCovered() {
+            assertFalse(CharUtils.isAsciiAlphaLower('A'));
+            assertTrue(CharUtils.isAsciiAlphaLower('a'));
+            assertFalse(CharUtils.isAsciiAlphaLower('0'));
+        }
+
+    @Test
+        public void testIsAsciiControl_NotCovered() {
+            assertTrue(CharUtils.isAsciiControl((char) 31));
+            assertFalse(CharUtils.isAsciiControl((char) 32));
+            assertTrue(CharUtils.isAsciiControl((char) 126));
+            assertFalse(CharUtils.isAsciiControl((char) 127));
+        }
+
+    @Test
+        public void testToChar_Character_NotCovered_3() {
+            assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+        }
+
+    @Test
+        public void testToChar_StringDefaultValue_NotCovered_3() {
+            assertEquals('a', CharUtils.toChar("abc", 'a'));
+        }
+
+    @Test
+        public void testToCharacterObject_EmptyString_NotCovered_3() {
+            assertNull(CharUtils.toCharacterObject(""));
+        }
+
+    @Test
+        public void testToIntValue_NotCovered_3() {
+            assertEquals(0, CharUtils.toIntValue('0'));
+            assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+        }
+
+    @Test
+        public void testToIntValueDefaultValue_NotCovered_3() {
+            assertEquals(0, CharUtils.toIntValue('a', 0));
+        }
+
+    @Test
+        public void testToString_Char_NotCovered_2() {
+            assertEquals("abc", CharUtils.toString((char) 97));
+        }
+
+    @Test
+        public void testUnicodeEscaped_Character_NotCovered_2() {
+            assertEquals("\\u0061", CharUtils.unicodeEscaped('a'));
+        }
+}
+```

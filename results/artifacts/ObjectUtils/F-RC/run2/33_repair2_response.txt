@@ -1,0 +1,26 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ObjectUtils.*;
+
+import java.util.Collections;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testIsEmpty_withEmptyCollection() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    public void testMax_withNullValues() {
+        assertNull(max((Integer[]) null, 123));
+    }
+
+    @Test
+    public void testMin_withNullValues() {
+        assertNull(min((Integer[]) null, 123));
+    }
+}
+```

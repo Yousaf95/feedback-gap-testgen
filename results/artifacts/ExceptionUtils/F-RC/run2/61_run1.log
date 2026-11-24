@@ -1,0 +1,43 @@
+[ERROR] Tests run: 38, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.221 s <<< FAILURE! -- in org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException -- Time elapsed: 0.035 s <<< ERROR!
+java.lang.RuntimeException: test
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException(ExceptionUtils_GenTest.java:158)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testForEach -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.AbstractList.add(AbstractList.java:153)
+	at java.base/java.util.AbstractList.add(AbstractList.java:111)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.lambda$testForEach$0(ExceptionUtils_GenTest.java:168)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.apache.commons.lang3.exception.ExceptionUtils.forEach(ExceptionUtils.java:165)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testForEach(ExceptionUtils_GenTest.java:169)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetCauseWithMethodNames -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "Object.getClass()" because "result" is null
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetCauseWithMethodNames(ExceptionUtils_GenTest.java:184)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   ExceptionUtils_GenTest.testAsRuntimeException:158 Runtime test
+[ERROR]   ExceptionUtils_GenTest.testForEach:169->lambda$testForEach$0:168 » UnsupportedOperation
+[ERROR]   ExceptionUtils_GenTest.testGetCauseWithMethodNames:184 NullPointer Cannot invoke "Object.getClass()" because "result" is null
+[ERROR] Tests run: 38, Failures: 0, Errors: 3, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w13/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

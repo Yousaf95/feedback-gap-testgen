@@ -1,0 +1,56 @@
+[ERROR] Tests run: 21, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 0.202 s <<< FAILURE! -- in org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException -- Time elapsed: 0.036 s <<< ERROR!
+java.lang.RuntimeException: test
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException(ExceptionUtils_GenTest.java:19)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testThrowUnchecked -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.RuntimeException: unchecked
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testThrowUnchecked(ExceptionUtils_GenTest.java:101)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFrames -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.AbstractList.remove(AbstractList.java:167)
+	at org.apache.commons.lang3.exception.ExceptionUtils.removeCommonFrames(ExceptionUtils.java:809)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFrames(ExceptionUtils_GenTest.java:94)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testIsChecked -- Time elapsed: 0.011 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:31)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:231)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testIsChecked(ExceptionUtils_GenTest.java:65)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ExceptionUtils_GenTest.testIsChecked:65 expected: <false> but was: <true>
+[ERROR] Errors: 
+[ERROR]   ExceptionUtils_GenTest.testAsRuntimeException:19 Runtime test
+[ERROR]   ExceptionUtils_GenTest.testRemoveCommonFrames:94 » UnsupportedOperation
+[ERROR]   ExceptionUtils_GenTest.testThrowUnchecked:101 Runtime unchecked
+[ERROR] Tests run: 21, Failures: 1, Errors: 3, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w4/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

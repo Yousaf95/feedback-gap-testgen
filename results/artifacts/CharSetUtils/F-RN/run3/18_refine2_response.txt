@@ -1,0 +1,85 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_singleCharacterNoMatch() {
+        assertFalse(CharSetUtils.containsAny("hello", "w"));
+    }
+
+    @Test
+    public void testCount_multipleCharactersMatch() {
+        assertEquals(3, CharSetUtils.count("hello", "l", "o"));
+    }
+
+    @Test
+    public void testDelete_multipleCharacters() {
+        assertEquals("heo", CharSetUtils.delete("hello", "l", "w"));
+    }
+
+    @Test
+    public void testKeep_multipleCharacters() {
+        assertEquals("helo", CharSetUtils.keep("hello", "l", "o"));
+    }
+
+    @Test
+    public void testSqueeze_multipleCharacters() {
+        assertEquals("heo", CharSetUtils.squeeze("hellooo", "o"));
+    }
+
+    @Test
+    public void testContainsAny_emptySetWithMatch() {
+        assertFalse(CharSetUtils.containsAny("hello", ""));
+    }
+
+    @Test
+    public void testCount_emptySetWithMatch() {
+        assertEquals(0, CharSetUtils.count("hello", ""));
+    }
+
+    @Test
+    public void testDelete_emptySetWithMatch() {
+        assertEquals("hello", CharSetUtils.delete("hello", ""));
+    }
+
+    @Test
+    public void testKeep_emptySetWithMatch() {
+        assertEquals("", CharSetUtils.keep("hello", ""));
+    }
+
+    @Test
+    public void testSqueeze_emptySetWithMatch() {
+        assertEquals("hello", CharSetUtils.squeeze("hellooo", ""));
+    }
+
+    @Test
+    public void testContainsAny_nullSetWithMatch() {
+        assertFalse(CharSetUtils.containsAny("hello", (String[]) null));
+    }
+
+    @Test
+    public void testCount_nullSetWithMatch() {
+        assertEquals(0, CharSetUtils.count("hello", (String[]) null));
+    }
+
+    @Test
+    public void testDelete_nullSetWithMatch() {
+        assertEquals("hello", CharSetUtils.delete("hello", (String[]) null));
+    }
+
+    @Test
+    public void testKeep_nullSetWithMatch() {
+        assertEquals("", CharSetUtils.keep("hello", (String[]) null));
+    }
+
+    @Test
+    public void testSqueeze_nullSetWithMatch() {
+        assertEquals("hello", CharSetUtils.squeeze("hellooo", (String[]) null));
+    }
+}
+```

@@ -1,0 +1,31 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testComparator() {
+        Comparator<Class<?>> comparator = ClassUtils.comparator();
+        assertNotNull(comparator);
+    }
+
+    @Test
+    public void testGetAbbreviatedName_NullInput() {
+        String result = ClassUtils.getAbbreviatedName(null, 5);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testGetAllInterfaces_SingleInterface() {
+        List<Class<?>> result = ClassUtils.getAllInterfaces(List.class);
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        assertEquals(java.util.Collection.class, result.get(0));
+    }
+}
+```

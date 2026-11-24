@@ -1,0 +1,46 @@
+[ERROR] Tests run: 44, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 0.232 s <<< FAILURE! -- in org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException -- Time elapsed: 0.039 s <<< ERROR!
+java.lang.RuntimeException: test
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException(ExceptionUtils_GenTest.java:205)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetCauseWithNullMethodNames -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <java.lang.RuntimeException: test> but was: <null>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetCauseWithNullMethodNames(ExceptionUtils_GenTest.java:222)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFrames_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.AbstractList.remove(AbstractList.java:167)
+	at org.apache.commons.lang3.exception.ExceptionUtils.removeCommonFrames(ExceptionUtils.java:809)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFrames_2(ExceptionUtils_GenTest.java:273)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ExceptionUtils_GenTest.testGetCauseWithNullMethodNames:222 expected: <java.lang.RuntimeException: test> but was: <null>
+[ERROR] Errors: 
+[ERROR]   ExceptionUtils_GenTest.testAsRuntimeException:205 Runtime test
+[ERROR]   ExceptionUtils_GenTest.testRemoveCommonFrames_2:273 » UnsupportedOperation
+[ERROR] Tests run: 44, Failures: 1, Errors: 2, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w4/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

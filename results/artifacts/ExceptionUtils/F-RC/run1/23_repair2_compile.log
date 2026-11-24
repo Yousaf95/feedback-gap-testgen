@@ -1,0 +1,19 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[188,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[227,26] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[188,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[227,26] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

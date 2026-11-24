@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -N icect_ollama_fp16
+#PBS -q shortGPUQ
+#PBS -l select=1:ncpus=8:ngpus=1:mem=64gb:gpu_type=H100
+#PBS -l walltime=05:00:00
+#PBS -j oe
+# Post-hoc quantization check: FP16 7B model on its own H100 (port 11436), same Ollama settings as the main run.
+source /usr/share/Modules/init/bash
+module load CUDA/12.4.0
+export PATH=$HOME/ollama/bin:$PATH
+export OLLAMA_MODELS=$HOME/ollama/models OLLAMA_NUM_PARALLEL=8 OLLAMA_MAX_LOADED_MODELS=1 OLLAMA_KEEP_ALIVE=-1 OLLAMA_CONTEXT_LENGTH=20480
+L=$HOME/ICECT/logs
+(echo "fp16 job host=$(hostname)"; nvidia-smi --query-gpu=index,name,memory.total,memory.used --format=csv; ollama --version 2>&1) > $L/ollama_gpu_F.txt
+OLLAMA_HOST=0.0.0.0:11436 ollama serve > $L/ollama_serve_F.log 2>&1 &
+sleep 10
+curl -s localhost:11436/api/generate -d '{"model":"qwen2.5-coder:7b-instruct-fp16","prompt":"hi","stream":false,"options":{"num_predict":1}}' > /dev/null
+echo "$(hostname):11436" > $L/ollama_host_F.txt
+while true; do (date; OLLAMA_HOST=127.0.0.1:11436 ollama ps; nvidia-smi --query-gpu=index,utilization.gpu,memory.used --format=csv,noheader) > $L/ollama_ps_F.txt 2>&1; sleep 30; done

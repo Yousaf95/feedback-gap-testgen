@@ -1,0 +1,185 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ClassUtils.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testGetAbbreviatedName_NullInput_3() {
+        assertEquals("", getAbbreviatedName((String) null, 10));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_EmptyString_3() {
+        assertEquals("", getAbbreviatedName("", 10));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_ShorterThanLengthHint_3() {
+        assertEquals("short", getAbbreviatedName("short", 5));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_NullInput_2_2() {
+        assertThrows(NullPointerException.class, () -> getAbbreviatedName((String) null, -1));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_EmptyString_2_2() {
+        assertThrows(IllegalArgumentException.class, () -> getAbbreviatedName("", 0));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_ShorterThanLengthHint_2_2() {
+        assertEquals("short", getAbbreviatedName("short", 10));
+    }
+
+    @Test
+    public void testGetAllInterfaces_NullInput_2() {
+        assertNull(getAllInterfaces((Class<?>) null));
+    }
+
+    @Test
+    public void testGetAllSuperclasses_NullInput_2() {
+        assertNull(getAllSuperclasses((Class<?>) null));
+    }
+
+    @Test
+    public void testGetCanonicalName_NullInput() {
+        assertEquals("", getCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    public void testGetCanonicalName_EmptyString() {
+        assertEquals("", getCanonicalName("", "default"));
+    }
+
+    @Test
+    public void testGetCanonicalName_NullValueIfNull() {
+        assertNull(getCanonicalName((Class<?>) null, null));
+    }
+
+    @Test
+    public void testGetCanonicalName_EmptyClass() {
+        assertEquals("java.lang.Object", getCanonicalName(Object.class, "default"));
+    }
+
+    @Test
+    public void testGetCanonicalName_NullObject() {
+        assertEquals("", getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    public void testGetCanonicalName_EmptyValueIfNull() {
+        assertEquals("default", getCanonicalName(Object.class, ""));
+    }
+
+    @Test
+    public void testGetClass_NullClassLoader() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> getClass((ClassLoader) null, "java.lang.String"));
+    }
+
+    @Test
+    public void testGetClass_EmptyClassName() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> getClass(ClassLoader.getSystemClassLoader(), ""));
+    }
+
+    @Test
+    public void testGetClass_NullObject() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> getClass((String) null));
+    }
+
+    @Test
+    public void testGetClass_EmptyValueIfNull() throws ClassNotFoundException {
+        assertNull(getClass("java.lang.String", false));
+    }
+
+    @Test
+    public void testGetComponentType_NullInput() {
+        assertNull(getComponentType((Class<?>[]) null));
+    }
+
+    @Test
+    public void testGetName_NullInput() {
+        assertEquals("", getName((Class<?>) null, "default"));
+    }
+
+    @Test
+    public void testGetName_EmptyString() {
+        assertEquals("", getName("", "default"));
+    }
+
+    @Test
+    public void testGetName_NullValueIfNull() {
+        assertNull(getName((Class<?>) null, null));
+    }
+
+    @Test
+    public void testGetName_EmptyClass() {
+        assertEquals("java.lang.Object", getName(Object.class, "default"));
+    }
+
+    @Test
+    public void testGetName_NullObject() {
+        assertEquals("", getName((Object) null, "default"));
+    }
+
+    @Test
+    public void testGetName_EmptyValueIfNull() {
+        assertEquals("default", getName(Object.class, ""));
+    }
+
+    @Test
+    public void testGetPackageCanonicalName_NullInput_2() {
+        assertEquals("", getPackageCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    public void testGetPackageCanonicalName_EmptyString() {
+        assertEquals("", getPackageCanonicalName("", "default"));
+    }
+
+    @Test
+    public void testGetPackageCanonicalName_NullValueIfNull() {
+        assertNull(getPackageCanonicalName((Class<?>) null, null));
+    }
+
+    @Test
+    public void testGetPackageCanonicalName_EmptyClass() {
+        assertEquals("java.lang", getPackageCanonicalName(Object.class, "default"));
+    }
+
+    @Test
+    public void testGetPackageCanonicalName_NullObject() {
+        assertEquals("", getPackageCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    public void testGetPackageCanonicalName_EmptyValueIfNull() {
+        assertEquals("default", getPackageCanonicalName(Object.class, ""));
+    }
+
+    @Test
+    public void testGetPackageName_NullInput() {
+        assertEquals("", getPackageName((Class<?>) null));
+    }
+
+    @Test
+    public void testGetPackageName_EmptyString() {
+        assertEquals("", getPackageName(""));
+    }
+
+    @Test
+    public void testGetPackageName_EmptyClass() {
+        assertEquals("java.lang", getPackageName(Object.class));
+    }
+
+    @Test
+    public void testGetPackageName_NullObject() {
+        assertEquals("", getPackageName((Object) null));
+    }
+}
+```

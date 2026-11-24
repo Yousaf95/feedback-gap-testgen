@@ -1,0 +1,59 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testSubSequence_withSingleCharString() {
+        CharSequence cs = "a";
+        assertEquals("a", CharSequenceUtils.subSequence(cs, 0));
+    }
+
+    @Test
+    public void testSubSequence_withStartIndexAtEnd() {
+        CharSequence cs = "abc";
+        assertEquals("", CharSequenceUtils.subSequence(cs, 3));
+    }
+
+    @Test
+    public void testToCharArray_withSingleCharString() {
+        CharSequence source = "a";
+        char[] array = CharSequenceUtils.toCharArray(source);
+        assertArrayEquals(new char[]{'a'}, array);
+    }
+
+    @Test
+    public void testToCharArray_withStartIndexAtEnd_charArray() {
+        CharSequence source = "abc";
+        char[] array = CharSequenceUtils.toCharArray(source, 3);
+        assertArrayEquals(ArrayUtils.EMPTY_CHAR_ARRAY, array);
+    }
+
+    @Test
+    public void testSubSequence_withNegativeStartIndex_exception() {
+        CharSequence cs = "abc";
+        assertThrows(IndexOutOfBoundsException.class, () -> CharSequenceUtils.subSequence(cs, -1));
+    }
+
+    @Test
+    public void testToCharArray_withNegativeStartIndex_exception() {
+        CharSequence source = "abc";
+        assertThrows(IndexOutOfBoundsException.class, () -> CharSequenceUtils.toCharArray(source, -1));
+    }
+
+    @Test
+    public void testSubSequence_withExceedingEndIndex_exception() {
+        CharSequence cs = "abc";
+        assertThrows(IndexOutOfBoundsException.class, () -> CharSequenceUtils.subSequence(cs, 4));
+    }
+
+    @Test
+    public void testToCharArray_withExceedingEndIndex_exception() {
+        CharSequence source = "abc";
+        assertThrows(IndexOutOfBoundsException.class, () -> CharSequenceUtils.toCharArray(source, 4));
+    }
+}
+```

@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.Arrays;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToNoNullStringArrayWithNullCollection() {
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(null);
+        assertArrayEquals(new String[0], result);
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithEmptyCollection() {
+        Collection<String> emptyCollection = Collections.emptyList();
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(emptyCollection);
+        assertArrayEquals(new String[0], result);
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithNonEmptyCollection() {
+        Collection<String> nonEmptyCollection = Arrays.asList("a", "b", null, "c");
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(nonEmptyCollection);
+        assertArrayEquals(new String[]{"a", "b", "c"}, result);
+    }
+
+    @Test
+    public void testToStringWithDefaultStyle() {
+        Object object = new Object();
+        String result = ReflectionToStringBuilder.toString(object);
+        assertEquals(ToStringStyle.DEFAULT_STYLE.toString(object), result);
+    }
+
+    @Test
+    public void testToStringWithCustomStyle() {
+        Object object = new Object();
+        ToStringStyle customStyle = ToStringStyle.SHORT_PREFIX_STYLE;
+        String result = ReflectionToStringBuilder.toString(object, customStyle);
+        assertEquals(customStyle.toString(object), result);
+    }
+
+    @Test
+    public void testToStringWithExcludeNullValues() {
+        class TestClass {
+            private Integer field = null;
+        }
+        TestClass object = new TestClass();
+        String result = ReflectionToStringBuilder.toString(object, ToStringStyle.DEFAULT_STYLE, false, false, true);
+        assertFalse(result.contains("field"));
+    }
+
+    @Test
+    public void testValidateWithNoConflictingFieldNames() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeFieldNames(new String[]{"a"});
+        builder.setIncludeFieldNames(new String[]{"b"});
+        assertDoesNotThrow(() -> builder.validate());
+    }
+
+    @Test
+    public void testValidateWithConflictingFieldNames() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeFieldNames(new String[]{"a"});
+        builder.setIncludeFieldNames(new String[]{"a"});
+        assertThrows(IllegalStateException.class, () -> builder.validate());
+    }
+}
+```

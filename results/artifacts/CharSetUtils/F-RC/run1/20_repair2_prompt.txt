@@ -1,0 +1,218 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSetUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CharSetUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testContainsAny_NullString: reference to containsAny is ambiguous (both method containsAny(java.lang.Object[],java.lang.Object...) in org.apache.commons.lang3.ArrayUtils and method containsAny(java.lang.String,java.lang.String...) in org.apache.commons.lang3.CharSetUtils match)
+    code: assertFalse(containsAny(null, "a", "b"));
+
+Current test class (CharSetUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ArrayUtils.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+import static org.apache.commons.lang3.CharSetUtils.*;
+
+class CharSetUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testContainsAny_EmptyString() {
+            assertFalse(containsAny("", "a", "b", "c"));
+        }
+
+    @Test
+        public void testContainsAny_NoMatch() {
+            assertFalse(containsAny("xyz", "d", "e", "f"));
+        }
+
+    @Test
+        public void testContainsAny_Match() {
+            assertTrue(containsAny("xyz", "x", "y", "z"));
+        }
+
+    @Test
+        public void testCount_EmptyString() {
+            assertEquals(0, count("", "a", "b", "c"));
+        }
+
+    @Test
+        public void testCount_NullString() {
+            assertEquals(0, count((String) null, "a", "b", "c"));
+        }
+
+    @Test
+        public void testCount_NoMatch() {
+            assertEquals(0, count("xyz", "d", "e", "f"));
+        }
+
+    @Test
+        public void testCount_Match() {
+            assertEquals(3, count("xyz", "x", "y", "z"));
+        }
+
+    @Test
+        public void testDelete_EmptyString() {
+            assertEquals("", delete("", "a", "b", "c"));
+        }
+
+    @Test
+        public void testDelete_NullString() {
+            assertNull(delete((String) null, "a", "b", "c"));
+        }
+
+    @Test
+        public void testDelete_NoMatch() {
+            assertEquals("xyz", delete("xyz", "d", "e", "f"));
+        }
+
+    @Test
+        public void testDelete_Match() {
+            assertEquals("", delete("abc", "a", "b", "c"));
+        }
+
+    @Test
+        public void testKeep_EmptyString() {
+            assertEquals("", keep("", "a", "b", "c"));
+        }
+
+    @Test
+        public void testKeep_NullString() {
+            assertNull(keep((String) null, "a", "b", "c"));
+        }
+
+    @Test
+        public void testKeep_NoMatch() {
+            assertEquals(StringUtils.EMPTY, keep("xyz", "d", "e", "f"));
+        }
+
+    @Test
+        public void testKeep_Match() {
+            assertEquals("abc", keep("abc", "a", "b", "c"));
+        }
+
+    @Test
+        public void testSqueeze_EmptyString() {
+            assertEquals("", squeeze("", "a", "b", "c"));
+        }
+
+    @Test
+        public void testSqueeze_NullString() {
+            assertNull(squeeze((String) null, "a", "b", "c"));
+        }
+
+    @Test
+        public void testSqueeze_NoMatch() {
+            assertEquals("xyz", squeeze("xyz", "d", "e", "f"));
+        }
+
+    @Test
+        public void testSqueeze_Match() {
+            assertEquals("xyc", squeeze("xxxyyyzzz", "x", "y", "z"));
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.CharSetUtils):
+```java
+package org.apache.commons.lang3;
+import org.apache.commons.lang3.stream.Streams;
+
+/** Operations on {@link CharSet} instances. */
+public class CharSetUtils {
+    /** Takes an argument in set-syntax, see evaluateSet, and identifies whether any of the characters are present in the specified string. */
+    public static boolean containsAny(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return false;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and returns the number of characters present in the specified string. */
+    public static int count(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return 0;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        int count = 0;
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and deletes any of characters present in the specified string. */
+    public static String delete(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        return modify(str, set, false);
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and keeps any of characters present in the specified string. */
+    public static String keep(final String str, final String... set) {
+        if (str == null) {
+            return null;
+        }
+        if (str.isEmpty() || deepEmpty(set)) {
+            return StringUtils.EMPTY;
+        }
+        return modify(str, set, true);
+    }
+    /** Squeezes any repetitions of a character that is mentioned in the supplied set. */
+    public static String squeeze(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        final StringBuilder buffer = new StringBuilder(str.length());
+        final char[] chrs = str.toCharArray();
+        final int sz = chrs.length;
+        char lastChar = chrs[0];
+        char ch;
+        Character inChars = null;
+        Character notInChars = null;
+        buffer.append(lastChar);
+        for (int i = 1; i < sz; i++) {
+            ch = chrs[i];
+            if (ch == lastChar) {
+                if (inChars != null && ch == inChars) {
+                    continue;
+                }
+                if (notInChars == null || ch != notInChars) {
+                    if (chars.contains(ch)) {
+                        inChars = ch;
+                        continue;
+                    }
+                    notInChars = ch;
+                }
+            }
+            buffer.append(ch);
+            lastChar = ch;
+        }
+        return buffer.toString();
+    }
+    /** CharSetUtils instances should NOT be constructed in standard programming. */
+    public CharSetUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static boolean deepEmpty(final String[] strings);
+    private static String modify(final String str, final String[] set, final boolean expect);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

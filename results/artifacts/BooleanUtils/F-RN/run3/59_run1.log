@@ -1,0 +1,70 @@
+[ERROR] Tests run: 27, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.189 s <<< FAILURE! -- in org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testAndWithEmptyArray -- Time elapsed: 0.009 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testAndWithEmptyArray(BooleanUtils_GenTest.java:128)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: array
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1278)
+	at org.apache.commons.lang3.BooleanUtils.and(BooleanUtils.java:133)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.lambda$testAndWithEmptyArray$5(BooleanUtils_GenTest.java:128)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testXorWithEmptyArray -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testXorWithEmptyArray(BooleanUtils_GenTest.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: array
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1278)
+	at org.apache.commons.lang3.BooleanUtils.xor(BooleanUtils.java:1205)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.lambda$testXorWithEmptyArray$3(BooleanUtils_GenTest.java:118)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testOrWithEmptyArray -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testOrWithEmptyArray(BooleanUtils_GenTest.java:123)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: array
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1278)
+	at org.apache.commons.lang3.BooleanUtils.or(BooleanUtils.java:368)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.lambda$testOrWithEmptyArray$4(BooleanUtils_GenTest.java:123)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] Failures: 
+[ERROR]   BooleanUtils_GenTest.testAndWithEmptyArray:128 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+[ERROR]   BooleanUtils_GenTest.testOrWithEmptyArray:123 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+[ERROR]   BooleanUtils_GenTest.testXorWithEmptyArray:118 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+[ERROR] Tests run: 27, Failures: 3, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w2/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,75 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[24,32] incompatible types: java.lang.String cannot be converted to java.lang.Object[]
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[38,22] cannot find symbol
+  symbol:   method count(java.lang.String,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[52,22] cannot find symbol
+  symbol:   method delete(java.lang.String,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[66,22] cannot find symbol
+  symbol:   method keep(java.lang.String,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[80,22] cannot find symbol
+  symbol:   method squeeze(java.lang.String,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[90,33] incompatible types: java.lang.String cannot be converted to java.lang.Object[]
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[95,33] incompatible types: java.lang.String cannot be converted to java.lang.Object[]
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[100,22] cannot find symbol
+  symbol:   method count(<nulltype>,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[105,22] cannot find symbol
+  symbol:   method count(java.lang.String,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[110,22] cannot find symbol
+  symbol:   method count(java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[115,20] cannot find symbol
+  symbol:   method delete(<nulltype>,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[120,20] cannot find symbol
+  symbol:   method keep(<nulltype>,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[125,20] cannot find symbol
+  symbol:   method squeeze(<nulltype>,java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[24,32] incompatible types: java.lang.String cannot be converted to java.lang.Object[]
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[38,22] cannot find symbol
+[ERROR]   symbol:   method count(java.lang.String,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[52,22] cannot find symbol
+[ERROR]   symbol:   method delete(java.lang.String,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[66,22] cannot find symbol
+[ERROR]   symbol:   method keep(java.lang.String,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[80,22] cannot find symbol
+[ERROR]   symbol:   method squeeze(java.lang.String,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[90,33] incompatible types: java.lang.String cannot be converted to java.lang.Object[]
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[95,33] incompatible types: java.lang.String cannot be converted to java.lang.Object[]
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[100,22] cannot find symbol
+[ERROR]   symbol:   method count(<nulltype>,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[105,22] cannot find symbol
+[ERROR]   symbol:   method count(java.lang.String,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[110,22] cannot find symbol
+[ERROR]   symbol:   method count(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[115,20] cannot find symbol
+[ERROR]   symbol:   method delete(<nulltype>,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[120,20] cannot find symbol
+[ERROR]   symbol:   method keep(<nulltype>,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/CharSetUtils_GenTest.java:[125,20] cannot find symbol
+[ERROR]   symbol:   method squeeze(<nulltype>,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.CharSetUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,98 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import java.util.function.Function;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    public void testIsOverlappedByWithNonOverlappingRangesReturnsFalse() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertFalse(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByWithPartiallyOverlappingRangesReturnsTrue() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(4, 8);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByWithFullyOverlappingRangesReturnsTrue() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 4);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIntersectionWithNonOverlappingRangesThrowsIllegalArgumentException() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIntersectionWithPartiallyOverlappingRangesReturnsCorrectRange() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(4, 8);
+        assertEquals(Range.between(4, 5), range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIntersectionWithFullyOverlappingRangesReturnsCorrectRange() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 4);
+        assertEquals(Range.between(3, 4), range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIsNaturalOrderingWithCustomComparatorReturnsFalse() {
+        Comparator<String> customComparator = Comparator.reverseOrder();
+        Range<String> range = Range.between("b", "a", customComparator);
+        assertFalse(range.isNaturalOrdering());
+    }
+
+    @Test
+    public void testContainsRangeWithNullRangeThrowsNullPointerException() {
+        Range<Integer> range = Range.between(1, 5);
+        assertThrows(NullPointerException.class, () -> range.containsRange(null));
+    }
+
+    @Test
+    public void testIsOverlappedByWithPartiallyOverlappingRangesReturnsTrueForCustomComparator() {
+        Comparator<String> customComparator = Comparator.reverseOrder();
+        Range<String> range1 = Range.between("b", "a", customComparator);
+        Range<String> range2 = Range.between("c", "d", customComparator);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByWithFullyOverlappingRangesReturnsTrueForCustomComparator() {
+        Comparator<String> customComparator = Comparator.reverseOrder();
+        Range<String> range1 = Range.between("b", "a", customComparator);
+        Range<String> range2 = Range.between("c", "b", customComparator);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIntersectionWithPartiallyOverlappingRangesReturnsCorrectRangeForCustomComparator() {
+        Comparator<String> customComparator = Comparator.reverseOrder();
+        Range<String> range1 = Range.between("b", "a", customComparator);
+        Range<String> range2 = Range.between("c", "d", customComparator);
+        assertEquals(Range.between("c", "b"), range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIntersectionWithFullyOverlappingRangesReturnsCorrectRangeForCustomComparator() {
+        Comparator<String> customComparator = Comparator.reverseOrder();
+        Range<String> range1 = Range.between("b", "a", customComparator);
+        Range<String> range2 = Range.between("c", "b", customComparator);
+        assertEquals(Range.between("c", "b"), range1.intersectionWith(range2));
+    }
+}
+```

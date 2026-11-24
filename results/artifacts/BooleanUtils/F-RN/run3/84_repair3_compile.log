@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[164,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[179,24] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[205,40] no suitable method found for toBooleanObject(boolean)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (argument mismatch; boolean cannot be converted to java.lang.String)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (argument mismatch; boolean cannot be converted to java.lang.Integer)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (argument mismatch; boolean cannot be converted to int)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[164,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[179,24] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[205,40] no suitable method found for toBooleanObject(boolean)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; boolean cannot be converted to java.lang.String)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (argument mismatch; boolean cannot be converted to java.lang.Integer)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (argument mismatch; boolean cannot be converted to int)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

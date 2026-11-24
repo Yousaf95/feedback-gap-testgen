@@ -1,0 +1,164 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetween_double_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 3.0);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_double_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 12.0);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_long_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5L, 10L, 3L);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_long_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5L, 10L, 12L);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_double_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 3.0);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_double_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 12.0);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_long_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5L, 10L, 3L);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_long_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5L, 10L, 12L);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_Comparable_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(3, 10, 1);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_Comparable_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(3, 10, 12);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_Comparable_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(3, 10, 1);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_Comparable_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(3, 10, 12);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageDoubleValue() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Value is not true: {}", 3.14);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageLongValue() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Value is not true: {}", 42L);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageValues() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Value is not true: {} and {}", 3.14, 42L);
+        });
+    }
+
+    @Test
+    public void testNoNullElements_collectionWithNullElement() {
+        List<String> list = Arrays.asList("a", null, "c");
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(list);
+        });
+    }
+
+    @Test
+    public void testNoNullElements_arrayWithNullElement() {
+        String[] array = {"a", null, "c"};
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(array);
+        });
+    }
+
+    @Test
+    public void testNotBlank_charSequenceIsBlank() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("   ");
+        });
+    }
+
+    @Test
+    public void testNotEmpty_collectionIsEmpty() {
+        List<String> list = Arrays.asList();
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(list);
+        });
+    }
+
+    @Test
+    public void testNotEmpty_mapIsEmpty() {
+        Map<String, String> map = Collections.emptyMap();
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(map);
+        });
+    }
+}
+```

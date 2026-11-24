@@ -1,0 +1,117 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[180,36] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[181,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[182,36] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[183,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[185,76] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[198,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[199,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[200,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[200,86] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[200,111] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[201,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[201,88] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[201,113] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,26] cannot find symbol
+  symbol:   variable ON
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,26] cannot find symbol
+  symbol:   variable OFF
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[220,26] cannot find symbol
+  symbol:   variable TRUE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[221,26] cannot find symbol
+  symbol:   variable FALSE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[227,26] cannot find symbol
+  symbol:   variable YES
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[228,26] cannot find symbol
+  symbol:   variable NO
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[180,36] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[181,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[182,36] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[183,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[185,76] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[198,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[199,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[200,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[200,86] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[200,111] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[201,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[201,88] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[201,113] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,26] cannot find symbol
+[ERROR]   symbol:   variable ON
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,26] cannot find symbol
+[ERROR]   symbol:   variable OFF
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[220,26] cannot find symbol
+[ERROR]   symbol:   variable TRUE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[221,26] cannot find symbol
+[ERROR]   symbol:   variable FALSE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[227,26] cannot find symbol
+[ERROR]   symbol:   variable YES
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[228,26] cannot find symbol
+[ERROR]   symbol:   variable NO
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

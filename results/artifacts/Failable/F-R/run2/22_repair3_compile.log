@@ -1,0 +1,37 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[27,60] no suitable method found for apply(org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,R,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+      (cannot infer type-variable(s) T,R,E
+        (argument mismatch; org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[33,35] no suitable method found for apply(org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,R,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+      (cannot infer type-variable(s) T,R,E
+        (argument mismatch; org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[27,60] no suitable method found for apply(org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,R,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,R,E
+[ERROR]         (argument mismatch; org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[33,35] no suitable method found for apply(org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,R,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,R,E
+[ERROR]         (argument mismatch; org.apache.commons.lang3.function.FailableBiFunction<java.lang.String,java.lang.Void,java.lang.String,java.io.IOException> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

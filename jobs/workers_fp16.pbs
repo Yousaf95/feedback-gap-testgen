@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N icect_fp16
+#PBS -q shortCPUQ
+#PBS -l select=1:ncpus=32:mem=128gb
+#PBS -l walltime=05:59:00
+#PBS -j oe
+source $HOME/ICECT/env.sh
+export MAVEN_OPTS="-Xmx1g"
+cd $HOME/ICECT/scripts
+H=F=$(cat $HOME/ICECT/logs/ollama_host_F.txt)
+R=$HOME/ICECT/results/raw
+echo "node $(hostname) host $H start $(date)"
+python -I run_all.py --config config_fp16.json --set eval --models F --seeds 1,2,3 --workers 16 \
+  --out $R/runs_fp16.jsonl --art $HOME/ICECT/results/artifacts --host $H --work $TMPDIR/icect_fp16 2>&1 | tee -a $R/runs_fp16.progress.log
+python -I run_control.py --config config_fp16.json --runs $R/runs_fp16.jsonl --models F --seeds 1,2,3 --workers 16 \
+  --out $R/runs_control_fp16.jsonl --art $HOME/ICECT/results/artifacts --host $H --work $TMPDIR/icect_fp16c 2>&1 | tee -a $R/runs_control_fp16.progress.log
+echo "end $(date)"

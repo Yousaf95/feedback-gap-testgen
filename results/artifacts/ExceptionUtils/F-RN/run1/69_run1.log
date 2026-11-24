@@ -1,0 +1,144 @@
+[ERROR] Tests run: 58, Failures: 5, Errors: 1, Skipped: 0, Time elapsed: 0.213 s <<< FAILURE! -- in org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetDefaultCauseMethodNames_4 -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: array lengths differ, expected: <2> but was: <12>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArraysHaveSameLength(AssertArrayEquals.java:428)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:335)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:159)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:155)
+	at org.junit.jupiter.api.Assertions.assertArrayEquals(Assertions.java:1456)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetDefaultCauseMethodNames_4(ExceptionUtils_GenTest.java:312)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetDefaultCauseMethodNames_5 -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: array lengths differ, expected: <2> but was: <12>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArraysHaveSameLength(AssertArrayEquals.java:428)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:335)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:159)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:155)
+	at org.junit.jupiter.api.Assertions.assertArrayEquals(Assertions.java:1456)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetDefaultCauseMethodNames_5(ExceptionUtils_GenTest.java:384)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithCheckedThrowable -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.RuntimeException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithCheckedThrowable(ExceptionUtils_GenTest.java:357)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFramesWithNonEmptyLists -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
+	at java.base/java.util.ImmutableCollections$AbstractImmutableList.remove(ImmutableCollections.java:258)
+	at org.apache.commons.lang3.exception.ExceptionUtils.removeCommonFrames(ExceptionUtils.java:809)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFramesWithNonEmptyLists(ExceptionUtils_GenTest.java:364)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRethrowWithCheckedThrowable -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.RuntimeException> but was: <java.lang.Exception>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRethrowWithCheckedThrowable(ExceptionUtils_GenTest.java:371)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.Exception: Checked exception
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRethrowWithCheckedThrowable(ExceptionUtils_GenTest.java:370)
+	... 5 more
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithUncheckedThrowable -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.RuntimeException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithUncheckedThrowable(ExceptionUtils_GenTest.java:417)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ExceptionUtils_GenTest.testGetDefaultCauseMethodNames_4:312 array lengths differ, expected: <2> but was: <12>
+[ERROR]   ExceptionUtils_GenTest.testGetDefaultCauseMethodNames_5:384 array lengths differ, expected: <2> but was: <12>
+[ERROR]   ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithCheckedThrowable:357 Expected java.lang.RuntimeException to be thrown, but nothing was thrown.
+[ERROR]   ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithUncheckedThrowable:417 Expected java.lang.RuntimeException to be thrown, but nothing was thrown.
+[ERROR]   ExceptionUtils_GenTest.testRethrowWithCheckedThrowable:371 Unexpected exception type thrown, expected: <java.lang.RuntimeException> but was: <java.lang.Exception>
+[ERROR] Errors: 
+[ERROR]   ExceptionUtils_GenTest.testRemoveCommonFramesWithNonEmptyLists:364 » UnsupportedOperation
+[ERROR] Tests run: 58, Failures: 5, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w6/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+java.lang.Exception: Checked exception
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithCheckedThrowable(ExceptionUtils_GenTest.java:355)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.api.AssertTimeoutPreemptively.lambda$submitTask$3(AssertTimeoutPreemptively.java:95)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.lang.RuntimeException: cause
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTrace(ExceptionUtils_GenTest.java:116)
+ [wrapped] java.lang.Exception: test
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTrace(ExceptionUtils_GenTest.java:117)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.api.AssertTimeoutPreemptively.lambda$submitTask$3(AssertTimeoutPreemptively.java:95)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+java.lang.RuntimeException: Unchecked exception
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testPrintRootCauseStackTraceWithUncheckedThrowable(ExceptionUtils_GenTest.java:415)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.api.AssertTimeoutPreemptively.lambda$submitTask$3(AssertTimeoutPreemptively.java:95)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)

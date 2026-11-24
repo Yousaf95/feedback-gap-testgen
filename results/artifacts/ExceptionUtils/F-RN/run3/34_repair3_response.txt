@@ -1,0 +1,75 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetDefaultCauseMethodNames_3() {
+        String[] expected = {"getCause", "getNextException"};
+        assertArrayEquals(expected, ExceptionUtils.getDefaultCauseMethodNames());
+    }
+
+    @Test
+    public void testGetMessage_3() {
+        Throwable throwable = new RuntimeException("Custom message");
+        assertEquals("RuntimeException: Custom message", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    public void testGetStackFrames_3() {
+        Throwable throwable = new RuntimeException();
+        String[] stackFrames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(stackFrames.length > 0);
+    }
+
+    @Test
+    public void testGetStackTrace_3() {
+        Throwable throwable = new RuntimeException();
+        String stackTrace = ExceptionUtils.getStackTrace(throwable);
+        assertTrue(stackTrace.contains("RuntimeException"));
+    }
+
+    @Test
+    public void testIsUnchecked_3() {
+        Throwable checkedException = new IOException();
+        assertFalse(ExceptionUtils.isUnchecked(checkedException));
+        
+        Throwable uncheckedException = new RuntimeException();
+        assertTrue(ExceptionUtils.isUnchecked(uncheckedException));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTrace_3() {
+        Throwable throwable = new RuntimeException("Custom message");
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ExceptionUtils.printRootCauseStackTrace(throwable, new PrintStream(baos));
+        assertTrue(baos.toString().contains("RuntimeException: Custom message"));
+        
+        baos.reset();
+        ExceptionUtils.printRootCauseStackTrace(throwable, new PrintWriter(baos));
+        assertTrue(baos.toString().contains("RuntimeException: Custom message"));
+    }
+
+    @Test
+    public void testRemoveCommonFrames_3() {
+        List<String> causeFrames = Arrays.asList("Frame1", "Frame2");
+        
+        List<String> wrapperFrames = Arrays.asList("Frame1", "Frame2", "Frame3");
+        
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+    }
+
+    @Test
+    public void testStream_3() {
+        Throwable throwable = new RuntimeException();
+        ExceptionUtils.stream(throwable).forEach(t -> assertTrue(t instanceof RuntimeException));
+    }
+}
+```

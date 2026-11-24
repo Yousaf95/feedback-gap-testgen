@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class EqualsBuilder_GenTest {
+
+    private EqualsBuilder equalsBuilder;
+
+    @BeforeEach
+    public void setUp_2() {
+        equalsBuilder = new EqualsBuilder();
+    }
+
+    @Test
+    public void testAppendBoolean_trueTrue_2() {
+        assertTrue(equalsBuilder.append(true, true).isEquals());
+    }
+
+    @Test
+    public void testAppendBoolean_falseFalse_2() {
+        assertTrue(equalsBuilder.append(false, false).isEquals());
+    }
+
+    @Test
+    public void testAppendBoolean_trueFalse_2() {
+        assertFalse(equalsBuilder.append(true, false).isEquals());
+    }
+
+    @Test
+    public void testAppendByte_byte1_byte2_2() {
+        assertTrue(equalsBuilder.append((byte) 1, (byte) 1).isEquals());
+    }
+
+    @Test
+    public void testAppendChar_charA_charB_2() {
+        assertTrue(equalsBuilder.append('a', 'a').isEquals());
+    }
+
+    @Test
+    public void testAppendDouble_double1_double2_2() {
+        assertTrue(equalsBuilder.append(1.0, 1.0).isEquals());
+    }
+
+    @Test
+    public void testAppendFloat_float1_float2_2() {
+        assertTrue(equalsBuilder.append(1.0f, 1.0f).isEquals());
+    }
+
+    @Test
+    public void testAppendInt_int1_int2_2() {
+        assertTrue(equalsBuilder.append(1, 1).isEquals());
+    }
+
+    @Test
+    public void testAppendLong_long1_long2_2() {
+        assertTrue(equalsBuilder.append(1L, 1L).isEquals());
+    }
+
+    @Test
+    public void testAppendShort_short1_short2_2() {
+        assertTrue(equalsBuilder.append((short) 1, (short) 1).isEquals());
+    }
+
+    @Test
+    public void testAppendObject_nullNull_2() {
+        assertTrue(equalsBuilder.append(null, null).isEquals());
+    }
+}
+```

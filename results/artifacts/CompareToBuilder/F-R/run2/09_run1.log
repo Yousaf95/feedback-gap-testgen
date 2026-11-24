@@ -1,0 +1,305 @@
+[ERROR] Tests run: 22, Failures: 9, Errors: 9, Skipped: 0, Time elapsed: 0.167 s <<< FAILURE! -- in org.apache.commons.lang3.builder.CompareToBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_BooleanArray -- Time elapsed: 0.046 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_BooleanArray(CompareToBuilder_GenTest.java:35)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Object -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final byte[] java.lang.String.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Object(CompareToBuilder_GenTest.java:126)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_IntArray -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_IntArray(CompareToBuilder_GenTest.java:105)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Boolean -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final boolean java.lang.Boolean.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Boolean(CompareToBuilder_GenTest.java:28)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_LongArray -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_LongArray(CompareToBuilder_GenTest.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ShortArray -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ShortArray(CompareToBuilder_GenTest.java:147)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Float -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final float java.lang.Float.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Float(CompareToBuilder_GenTest.java:83)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Short -- Time elapsed: 0.016 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final short java.lang.Short.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Short(CompareToBuilder_GenTest.java:140)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_CharArray -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_CharArray(CompareToBuilder_GenTest.java:63)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Byte -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final byte java.lang.Byte.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Byte(CompareToBuilder_GenTest.java:42)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Char -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field static final int java.lang.Character.ERROR accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Char(CompareToBuilder_GenTest.java:56)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Long -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final long java.lang.Long.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Long(CompareToBuilder_GenTest.java:112)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ByteArray -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ByteArray(CompareToBuilder_GenTest.java:49)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Int -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field static final char[] java.lang.Integer.digits accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Int(CompareToBuilder_GenTest.java:98)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_FloatArray -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_FloatArray(CompareToBuilder_GenTest.java:91)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_DoubleArray -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_DoubleArray(CompareToBuilder_GenTest.java:77)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ObjectArray -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ObjectArray(CompareToBuilder_GenTest.java:133)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Double -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final double java.lang.Double.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Double(CompareToBuilder_GenTest.java:69)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_BooleanArray:35 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_ByteArray:49 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_CharArray:63 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_DoubleArray:77 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_FloatArray:91 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_IntArray:105 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_LongArray:119 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_ObjectArray:133 expected: <true> but was: <false>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_ShortArray:147 expected: <true> but was: <false>
+[ERROR] Errors: 
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Boolean:28 » InaccessibleObject Unable to make field private final boolean java.lang.Boolean.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Byte:42 » InaccessibleObject Unable to make field private final byte java.lang.Byte.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Char:56 » InaccessibleObject Unable to make field static final int java.lang.Character.ERROR accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Double:69 » InaccessibleObject Unable to make field private final double java.lang.Double.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Float:83 » InaccessibleObject Unable to make field private final float java.lang.Float.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Int:98 » InaccessibleObject Unable to make field static final char[] java.lang.Integer.digits accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Long:112 » InaccessibleObject Unable to make field private final long java.lang.Long.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Object:126 » InaccessibleObject Unable to make field private final byte[] java.lang.String.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Short:140 » InaccessibleObject Unable to make field private final short java.lang.Short.value accessible: module java.base does not "opens java.lang" to unnamed module @1af2d44a
+[ERROR] Tests run: 22, Failures: 9, Errors: 9, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w10/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

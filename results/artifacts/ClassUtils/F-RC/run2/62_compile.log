@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[11,26] package org.mockito does not exist
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[241,40] reference to getAbbreviatedName is ambiguous
+  both method getAbbreviatedName(java.lang.Class<?>,int) in org.apache.commons.lang3.ClassUtils and method getAbbreviatedName(java.lang.String,int) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[256,70] reference to getAbbreviatedName is ambiguous
+  both method getAbbreviatedName(java.lang.Class<?>,int) in org.apache.commons.lang3.ClassUtils and method getAbbreviatedName(java.lang.String,int) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[396,40] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[411,40] no suitable method found for getPackageName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[11,26] package org.mockito does not exist
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[241,40] reference to getAbbreviatedName is ambiguous
+[ERROR]   both method getAbbreviatedName(java.lang.Class<?>,int) in org.apache.commons.lang3.ClassUtils and method getAbbreviatedName(java.lang.String,int) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[256,70] reference to getAbbreviatedName is ambiguous
+[ERROR]   both method getAbbreviatedName(java.lang.Class<?>,int) in org.apache.commons.lang3.ClassUtils and method getAbbreviatedName(java.lang.String,int) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[396,40] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[411,40] no suitable method found for getPackageName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

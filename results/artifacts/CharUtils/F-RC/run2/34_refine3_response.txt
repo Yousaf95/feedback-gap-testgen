@@ -1,0 +1,98 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiAlphaLower_UncoveredBranch() {
+        assertFalse(CharUtils.isAsciiAlphaLower('A')); // ASCII uppercase letter
+    }
+
+    @Test
+    public void testIsAsciiControl_UncoveredBranch() {
+        assertTrue(CharUtils.isAsciiControl(31)); // ASCII control character
+    }
+
+    @Test
+    public void testToChar_Character_NotCovered() {
+        Character ch = 'a';
+        assertEquals('a', CharUtils.toChar(ch));
+    }
+
+    @Test
+    public void testToChar_StringDefault_NotCovered() {
+        String str = "";
+        char defaultValue = 'b';
+        assertEquals('b', CharUtils.toChar(str, defaultValue));
+    }
+
+    @Test
+    public void testToCharacterObject_Character_NotCovered() {
+        Character ch = 'a';
+        assertNotNull(CharUtils.toCharacterObject(ch));
+    }
+
+    @Test
+    public void testToCharacterObject_String_NotCovered() {
+        String str = "b";
+        assertNotNull(CharUtils.toCharacterObject(str));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefault_NotCovered() {
+        Character ch = '5';
+        int defaultValue = 10;
+        assertEquals(5, CharUtils.toIntValue(ch, defaultValue));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_2_NotCovered() {
+        Character ch = 'a';
+        assertNotNull(CharUtils.unicodeEscaped(ch));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumeric_2_NotCovered() {
+        assertTrue(CharUtils.isAsciiAlphanumeric('A')); // ASCII uppercase letter
+    }
+
+    @Test
+    public void testIsAsciiControl_2_NotCovered() {
+        assertFalse(CharUtils.isAsciiControl(32)); // ASCII space character
+    }
+
+    @Test
+    public void testIsAsciiNumeric_2_NotCovered() {
+        assertTrue(CharUtils.isAsciiNumeric('9')); // ASCII digit
+    }
+
+    @Test
+    public void testToChar_Character_2_NotCovered() {
+        Character ch = 'b';
+        assertEquals('b', CharUtils.toChar(ch));
+    }
+
+    @Test
+    public void testToChar_StringDefault_2_NotCovered() {
+        String str = "c";
+        char defaultValue = 'd';
+        assertEquals('c', CharUtils.toChar(str, defaultValue));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefault_2_NotCovered() {
+        Character ch = '6';
+        int defaultValue = 15;
+        assertEquals(6, CharUtils.toIntValue(ch, defaultValue));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_2_2_NotCovered() {
+        Character ch = 'b';
+        assertNotNull(CharUtils.unicodeEscaped(ch));
+    }
+}
+```

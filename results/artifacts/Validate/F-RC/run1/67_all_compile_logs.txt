@@ -1,0 +1,360 @@
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[548,39] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[548,39] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[497,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#1 of ?>,java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#3 of ?>)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#3 of ?
+        lower bounds: java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#1 of ?>)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[508,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#4 of ?>,java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#6 of ?>)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#6 of ?
+        lower bounds: java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#4 of ?>)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[519,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#7 of ?>,java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#9 of ?>)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#9 of ?
+        lower bounds: java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#7 of ?>)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[530,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#10 of ?>,java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#12 of ?>)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#12 of ?
+        lower bounds: java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#10 of ?>)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[497,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#1 of ?>,java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#3 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#3 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#1 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[508,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#4 of ?>,java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#6 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#6 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#4 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[519,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#7 of ?>,java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#9 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#9 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#7 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[530,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#10 of ?>,java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#12 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#12 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#10 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[496,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#1 of ?>,java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#3 of ?>)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#3 of ?
+        lower bounds: java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#1 of ?>)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[507,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#4 of ?>,java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#6 of ?>)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#6 of ?
+        lower bounds: java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#4 of ?>)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[518,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#7 of ?>,java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#9 of ?>)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#9 of ?
+        lower bounds: java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#7 of ?>)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[529,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#10 of ?>,java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#12 of ?>)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#12 of ?
+        lower bounds: java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#10 of ?>)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[606,13] cannot find symbol
+  symbol:   class Map
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[496,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#1 of ?>,java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#3 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#3 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#1 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[507,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#4 of ?>,java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#6 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#6 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#4 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[518,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#7 of ?>,java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#9 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#9 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#7 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[529,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#10 of ?>,java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#12 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#12 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#10 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[606,13] cannot find symbol
+[ERROR]   symbol:   class Map
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[497,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#1 of ?>,java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#3 of ?>)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#3 of ?
+        lower bounds: java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#1 of ?>)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[508,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#4 of ?>,java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#6 of ?>)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#6 of ?
+        lower bounds: java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#4 of ?>)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[519,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#7 of ?>,java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#9 of ?>)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#9 of ?
+        lower bounds: java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#7 of ?>)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[530,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#10 of ?>,java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#12 of ?>)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: capture#12 of ?
+        lower bounds: java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#10 of ?>)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[497,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#1 of ?>,java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#3 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#1 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#3 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#2 of ?>,java.lang.Comparable<capture#1 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[508,25] no suitable method found for exclusiveBetween(java.lang.Comparable<capture#4 of ?>,java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#6 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#4 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#6 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#5 of ?>,java.lang.Comparable<capture#4 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[519,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#7 of ?>,java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#9 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#7 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#9 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#8 of ?>,java.lang.Comparable<capture#7 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[530,25] no suitable method found for inclusiveBetween(java.lang.Comparable<capture#10 of ?>,java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#12 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Comparable<capture#10 of ?> cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: capture#12 of ?
+[ERROR]         lower bounds: java.lang.Comparable<capture#11 of ?>,java.lang.Comparable<capture#10 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

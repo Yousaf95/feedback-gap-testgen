@@ -1,0 +1,68 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class JavaVersion_GenTest {
+
+    
+    @Test
+    public void testAtLeastMethod() {
+        assertTrue(JavaVersion.JAVA_15.atLeast(JavaVersion.JAVA_10));
+        assertFalse(JavaVersion.JAVA_10.atLeast(JavaVersion.JAVA_15));
+    }
+
+    @Test
+    public void testAtMostMethod() {
+        assertTrue(JavaVersion.JAVA_10.atMost(JavaVersion.JAVA_15));
+        assertFalse(JavaVersion.JAVA_15.atMost(JavaVersion.JAVA_10));
+    }
+
+    @Test
+    public void testToStringMethod() {
+        assertEquals("21", JavaVersion.JAVA_21.toString());
+    }
+
+    
+    
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testAtLeastMethodWithNewerVersion() {
+            assertTrue(JavaVersion.JAVA_17.atLeast(JavaVersion.JAVA_16));
+        }
+
+    @Test
+        public void testAtLeastMethodWithSameVersion() {
+            assertTrue(JavaVersion.JAVA_17.atLeast(JavaVersion.JAVA_17));
+        }
+
+    @Test
+        public void testAtLeastMethodWithOlderVersion() {
+            assertFalse(JavaVersion.JAVA_16.atLeast(JavaVersion.JAVA_17));
+        }
+
+    @Test
+        public void testAtMostMethodWithNewerVersion() {
+            assertFalse(JavaVersion.JAVA_17.atMost(JavaVersion.JAVA_16));
+        }
+
+    @Test
+        public void testAtMostMethodWithSameVersion() {
+            assertTrue(JavaVersion.JAVA_17.atMost(JavaVersion.JAVA_17));
+        }
+
+    @Test
+        public void testAtMostMethodWithOlderVersion() {
+            assertTrue(JavaVersion.JAVA_16.atMost(JavaVersion.JAVA_17));
+        }
+
+    @Test
+        public void testToStringMethodWithRecentVersion() {
+            assertEquals("21", JavaVersion.JAVA_21.toString());
+        }
+
+    @Test
+        public void testToStringMethodWithDeprecatedVersion() {
+            assertEquals("9", JavaVersion.JAVA_1_9.toString());
+        }
+}

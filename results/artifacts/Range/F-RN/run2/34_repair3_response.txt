@@ -1,0 +1,81 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class Range_GenTest {
+
+    private Range<Integer> range1;
+
+    private Range<Integer> range2;
+
+    private Range<String> stringRange;
+
+    @BeforeEach
+    public void setUp() {
+        range1 = Range.between(3, 5);
+        range2 = Range.between(6, 8);
+        stringRange = Range.is("a");
+    }
+
+    @Test
+    public void testIsWithNonComparableValuesThrowsClassCastException() {
+        assertThrows(ClassCastException.class, () -> Range.is("a", "b"));
+    }
+
+    @Test
+    public void testContainsRangeWithNullRangeReturnsFalse() {
+        assertFalse(stringRange.containsRange(null));
+    }
+
+    @Test
+    public void testIsOverlappedByWithNonOverlappingRangesReturnsFalse() {
+        assertFalse(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByWithPartiallyOverlappingRangesReturnsTrue() {
+        assertTrue(range1.isOverlappedBy(Range.between(4, 8)));
+    }
+
+    @Test
+    public void testIsOverlappedByWithFullyOverlappingRangesReturnsTrue() {
+        assertTrue(range1.isOverlappedBy(Range.between(3, 4)));
+    }
+
+    @Test
+    public void testIntersectionWithNonOverlappingRangesThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIntersectionWithPartiallyOverlappingRangesReturnsCorrectRange() {
+        assertEquals(Range.between(4, 5), range1.intersectionWith(Range.between(4, 8)));
+    }
+
+    @Test
+    public void testIntersectionWithFullyOverlappingRangesReturnsCorrectRange() {
+        assertEquals(Range.between(3, 4), range1.intersectionWith(Range.between(3, 4)));
+    }
+
+    @Test
+    public void testIsNaturalOrderingWithCustomComparatorReturnsFalse() {
+        Comparator<String> customComparator = (s1, s2) -> s2.compareTo(s1);
+        assertFalse(Range.of("a", "b", customComparator).isNaturalOrdering());
+    }
+
+    @Test
+    public void testToStringWithCustomFormatReturnsCorrectString() {
+        assertEquals("[1..5]", Range.between(1, 5).toString("%s..%s"));
+    }
+}
+```

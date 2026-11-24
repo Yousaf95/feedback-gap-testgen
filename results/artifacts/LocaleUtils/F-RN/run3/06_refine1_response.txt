@@ -1,0 +1,58 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_invalidLanguageCode() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("invalid");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_invalidCountryCode() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("invalid");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testIsAvailableLocale_nonExistentLocale() {
+        Locale nonExistentLocale = new Locale("zz", "ZZ");
+        assertFalse(LocaleUtils.isAvailableLocale(nonExistentLocale));
+    }
+
+    @Test
+    public void testToLocale_nullString() {
+        Locale locale = LocaleUtils.toLocale((String) null);
+        assertEquals(Locale.getDefault(), locale);
+    }
+
+    @Test
+    public void testToLocale_emptyString() {
+        Locale locale = LocaleUtils.toLocale("");
+        assertEquals(new Locale("", ""), locale);
+    }
+
+    @Test
+    public void testToLocale_validLanguageCountryVariant() {
+        Locale locale = LocaleUtils.toLocale("en_US_WIN");
+        assertEquals(new Locale("en", "US", "WIN"), locale);
+    }
+
+    @Test
+    public void testToLocale_missingCountry() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_"));
+    }
+
+    @Test
+    public void testToLocale_missingVariant() {
+        Locale locale = LocaleUtils.toLocale("en_US");
+        assertEquals(new Locale("en", "US"), locale);
+    }
+}
+```

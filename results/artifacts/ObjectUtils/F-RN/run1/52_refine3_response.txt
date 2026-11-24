@@ -1,0 +1,115 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    public void testIsNotEmptyWithNonNullNonEmptyMap() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        assertTrue(ObjectUtils.isNotEmpty(map));
+    }
+
+    @Test
+    public void testIsNotEmptyWithNullObject() {
+        assertFalse(ObjectUtils.isNotEmpty(null));
+    }
+
+    @Test
+    public void testGetFirstNonNullWithNonNullableValues() {
+        Supplier<String> supplier = () -> "default";
+        assertEquals("value", ObjectUtils.getFirstNonNull(() -> "value", supplier));
+    }
+
+    @Test
+    public void testGetIfNullWithNonNullableObject() {
+        Supplier<String> supplier = () -> "default";
+        assertEquals("value", ObjectUtils.getIfNull("value", supplier));
+    }
+
+    @Test
+    public void testHashCodeHexForNonNullMap() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        assertTrue(ObjectUtils.hashCodeHex(map).length() == 8);
+    }
+
+    @Test
+    public void testHashCodeHexForNullObject() {
+        assertEquals("0", ObjectUtils.hashCodeHex(null));
+    }
+
+    @Test
+    public void testIdentityToStringWithNonNullMap() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        assertTrue(ObjectUtils.identityToString(map).contains("@"));
+    }
+
+    @Test
+    public void testIdentityToStringWithNullObject() {
+        assertNull(ObjectUtils.identityToString(null));
+    }
+
+    @Test
+    public void testIsArrayWithNonNullMap() {
+        assertFalse(ObjectUtils.isArray(Collections.singletonMap("key", "value")));
+    }
+
+    @Test
+    public void testIsArrayWithNullObject() {
+        assertFalse(ObjectUtils.isArray(null));
+    }
+
+    @Test
+    public void testIsEmptyWithNonNullEmptyMap() {
+        Map<String, String> map = new HashMap<>();
+        assertTrue(ObjectUtils.isEmpty(map));
+    }
+
+    @Test
+    public void testIsEmptyWithNullObject_2() {
+        assertTrue(ObjectUtils.isEmpty(null));
+    }
+
+    @Test
+    public void testIsNotEmptyWithNonNullNonEmptyCollection() {
+        Collection<String> collection = Arrays.asList("value1", "value2");
+        assertTrue(ObjectUtils.isNotEmpty(collection));
+    }
+
+    @Test
+    public void testAllNotNullWithNullValues_2() {
+        Object[] values = {null, null};
+        assertFalse(ObjectUtils.allNotNull(values));
+    }
+
+    @Test
+    public void testAnyNotNullWithNullValues_2() {
+        Object[] values = {null, "value"};
+        assertTrue(ObjectUtils.anyNotNull(values));
+    }
+
+    @Test
+    public void testGetIfNullWithNullableObject() {
+        Supplier<String> supplier = () -> "default";
+        assertEquals("default", ObjectUtils.getIfNull(null, supplier));
+    }
+
+    @Test
+    public void testHashCodeHexForNonNullMap_2() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        assertTrue(ObjectUtils.hashCodeHex(map).length() == 8);
+    }
+}
+```

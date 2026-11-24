@@ -1,0 +1,58 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testCheckLaterThan1_withEqualChars() {
+        assertTrue(CharSequenceUtils.checkLaterThan1("abc", "abc", 3, 0));
+    }
+
+    @Test
+    public void testCheckLaterThan1_withUnequalChars() {
+        assertFalse(CharSequenceUtils.checkLaterThan1("abc", "def", 3, 0));
+    }
+
+    @Test
+    public void testIndexOf_withString() {
+        assertEquals(2, CharSequenceUtils.indexOf("hello world", "world"));
+    }
+
+    @Test
+    public void testIndexOf_withStringBuilder() {
+        StringBuilder sb = new StringBuilder("hello world");
+        assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+    }
+
+    @Test
+    public void testIndexOf_withStringBuffer() {
+        StringBuffer sb = new StringBuffer("hello world");
+        assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+    }
+
+    @Test
+    public void testIndexOf_withChar() {
+        assertEquals(2, CharSequenceUtils.indexOf("hello world", 'l'));
+    }
+
+    @Test
+    public void testLastIndexOf_withString() {
+        assertEquals(6, CharSequenceUtils.lastIndexOf("hello world", "world"));
+    }
+
+    @Test
+    public void testLastIndexOf_withStringBuilder() {
+        StringBuilder sb = new StringBuilder("hello world");
+        assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+    }
+
+    @Test
+    public void testLastIndexOf_withStringBuffer() {
+        StringBuffer sb = new StringBuffer("hello world");
+        assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+    }
+}
+```

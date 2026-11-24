@@ -1,0 +1,91 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
+import java.util.Arrays;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiAlphaLower_LowerCase() {
+        assertTrue(CharUtils.isAsciiAlphaLower('a'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaLower_UpperCase() {
+        assertFalse(CharUtils.isAsciiAlphaLower('A'));
+    }
+
+    @Test
+    public void testIsAsciiControl_ControlCharacter() {
+        assertTrue(CharUtils.isAsciiControl('\t')); // Tab character
+    }
+
+    @Test
+    public void testIsAsciiControl_PrintableCharacter() {
+        assertFalse(CharUtils.isAsciiControl('a'));
+    }
+
+    @Test
+    public void testIsAsciiPrintable_ControlCharacter() {
+        assertFalse(CharUtils.isAsciiPrintable('\n')); // Linefeed character
+    }
+
+    @Test
+    public void testIsAsciiPrintable_PrintableCharacter() {
+        assertTrue(CharUtils.isAsciiPrintable('A'));
+    }
+
+    @Test
+    public void testToChar_CharacterNonNull() {
+        assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+    }
+
+    @Test
+    public void testToChar_StringNotEmpty() {
+        assertEquals('b', CharUtils.toChar("bc"));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNumeric() {
+        assertEquals(5, CharUtils.toIntValue('5'));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNonNumeric() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToString_CharacterValid() {
+        assertEquals("A", CharUtils.toString('A'));
+    }
+
+    @Test
+    public void testUnicodeEscaped_CharacterValid() {
+        assertEquals("\\u0041", CharUtils.unicodeEscaped('A'));
+    }
+
+    @Test
+    public void testToChar_StringDefaultValue() {
+        assertEquals('x', CharUtils.toChar("", 'x'));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefaultValue() {
+        assertEquals(9, CharUtils.toIntValue('a', 9));
+    }
+
+    @Test
+    public void testToString_CharacterValid2() {
+        assertEquals("z", CharUtils.toString('z'));
+    }
+
+    @Test
+    public void testUnicodeEscaped_CharacterValid2() {
+        assertEquals("\\u007A", CharUtils.unicodeEscaped('z'));
+    }
+}
+```

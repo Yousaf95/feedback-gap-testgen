@@ -1,0 +1,104 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSequenceUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CharSequenceUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testCheckLaterThan1: checkLaterThan1(java.lang.CharSequence,java.lang.CharSequence,int,int) has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(expected, CharSequenceUtils.checkLaterThan1(str1, str2, start1, start2));
+
+Current test class (CharSequenceUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharSequenceUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @ParameterizedTest
+        @MethodSource("provideCheckLaterThan1Data")
+        public void testCheckLaterThan1(String str1, String str2, int start1, int start2, boolean expected) {
+            assertEquals(expected, CharSequenceUtils.checkLaterThan1(str1, str2, start1, start2));
+        }
+
+    private static Stream<Arguments> provideCheckLaterThan1Data() {
+            return Stream.of(
+                arguments("abc", "abc", 3, 0, true),
+                arguments("abc", "def", 3, 0, false)
+            );
+        }
+
+    @ParameterizedTest
+        @MethodSource("provideIndexOfData")
+        public void testIndexOf(CharSequence cs, CharSequence search, int start, int expected) {
+            assertEquals(expected, CharSequenceUtils.indexOf(cs, search, start));
+        }
+
+    private static Stream<Arguments> provideIndexOfData() {
+            return Stream.of(
+                arguments("hello world", "world", 0, 2),
+                arguments(new StringBuilder("hello world"), "world", 0, 6),
+                arguments(new StringBuffer("hello world"), "world", 0, 6)
+            );
+        }
+
+    @ParameterizedTest
+        @MethodSource("provideLastIndexOfData")
+        public void testLastIndexOf(CharSequence cs, CharSequence search, int start, int expected) {
+            assertEquals(expected, CharSequenceUtils.lastIndexOf(cs, search, start));
+        }
+
+    private static Stream<Arguments> provideLastIndexOfData() {
+            return Stream.of(
+                arguments("hello world", "world", 0, 6),
+                arguments(new StringBuilder("hello world"), "world", 0, 6),
+                arguments(new StringBuffer("hello world"), "world", 0, 6)
+            );
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.CharSequenceUtils):
+```java
+package org.apache.commons.lang3;
+
+/** Operations on {@link CharSequence} that are {@code null} safe. */
+public class CharSequenceUtils {
+    private static final int NOT_FOUND = -1;
+    static final int TO_STRING_LIMIT = 16;
+    /** Returns a new {@link CharSequence} that is a subsequence of this sequence starting with the {@code char} value at the specified index. */
+    public static CharSequence subSequence(final CharSequence cs, final int start) {
+        return cs == null ? null : cs.subSequence(start, cs.length());
+    }
+    /** Converts the given CharSequence to a char[]. */
+    public static char[] toCharArray(final CharSequence source) {
+        final int len = StringUtils.length(source);
+        if (len == 0) {
+            return ArrayUtils.EMPTY_CHAR_ARRAY;
+        }
+        if (source instanceof String) {
+            return ((String) source).toCharArray();
+        }
+        final char[] array = new char[len];
+        for (int i = 0; i < len; i++) {
+            array[i] = source.charAt(i);
+        }
+        return array;
+    }
+    /** {@link CharSequenceUtils} instances should NOT be constructed in standard programming. */
+    public CharSequenceUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

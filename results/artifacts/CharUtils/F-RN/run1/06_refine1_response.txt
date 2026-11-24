@@ -1,0 +1,89 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiExtendedChar() {
+        assertFalse(CharUtils.isAscii('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaExtendedChar() {
+        assertFalse(CharUtils.isAsciiAlpha('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaLowerExtendedChar() {
+        assertFalse(CharUtils.isAsciiAlphaLower('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumericExtendedChar() {
+        assertFalse(CharUtils.isAsciiAlphanumeric('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaUpperExtendedChar() {
+        assertFalse(CharUtils.isAsciiAlphaUpper('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiControlExtendedChar() {
+        assertFalse(CharUtils.isAsciiControl('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiNumericExtendedChar() {
+        assertFalse(CharUtils.isAsciiNumeric('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiPrintableExtendedChar() {
+        assertFalse(CharUtils.isAsciiPrintable('\u0100'));
+    }
+
+    @Test
+    public void testToChar_NullCharacter() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar(null));
+    }
+
+    @Test
+    public void testToChar_EmptyString() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toChar(""));
+    }
+
+    @Test
+    public void testToChar_DefaultValueOnEmptyString() {
+        assertEquals('a', CharUtils.toChar("", 'a'));
+    }
+
+    @Test
+    public void testToCharacterObject_NullString() {
+        assertNull(CharUtils.toCharacterObject(null));
+    }
+
+    @Test
+    public void testToCharacterObject_EmptyString() {
+        assertNull(CharUtils.toCharacterObject(""));
+    }
+
+    @Test
+    public void testToIntValue_NonNumericChar() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToIntValue_DefaultValueOnNonNumericChar() {
+        assertEquals(0, CharUtils.toIntValue('a', 0));
+    }
+
+    @Test
+    public void testToString_NonAsciiChar() {
+        assertEquals("\\u0100", CharUtils.unicodeEscaped('\u0100'));
+    }
+}
+```

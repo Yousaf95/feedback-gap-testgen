@@ -1,0 +1,113 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[112,36] AVAILABLE_LOCALE_LIST has private access in org.apache.commons.lang3.LocaleUtils.SyncAvoid
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[113,36] AVAILABLE_LOCALE_SET has private access in org.apache.commons.lang3.LocaleUtils.SyncAvoid
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[118,24] cannot find symbol
+  symbol:   method isISO3166CountryCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[123,25] cannot find symbol
+  symbol:   method isISO3166CountryCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[128,25] cannot find symbol
+  symbol:   method isISO3166CountryCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[133,24] cannot find symbol
+  symbol:   method isISO639LanguageCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[138,24] cannot find symbol
+  symbol:   method isISO639LanguageCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[143,25] cannot find symbol
+  symbol:   method isISO639LanguageCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[148,25] cannot find symbol
+  symbol:   method isISO639LanguageCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[163,24] cannot find symbol
+  symbol:   method isNumericAreaCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[168,25] cannot find symbol
+  symbol:   method isNumericAreaCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[173,25] cannot find symbol
+  symbol:   method isNumericAreaCode(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[194,29] cannot find symbol
+  symbol:   method parseLocale(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[200,29] cannot find symbol
+  symbol:   method parseLocale(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[206,29] cannot find symbol
+  symbol:   method parseLocale(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[212,64] cannot find symbol
+  symbol:   method parseLocale(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[217,64] cannot find symbol
+  symbol:   method parseLocale(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[222,64] cannot find symbol
+  symbol:   method parseLocale(java.lang.String)
+  location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[238,24] reference to toLocale is ambiguous
+  both method toLocale(java.lang.String) in org.apache.commons.lang3.LocaleUtils and method toLocale(java.util.Locale) in org.apache.commons.lang3.LocaleUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[112,36] AVAILABLE_LOCALE_LIST has private access in org.apache.commons.lang3.LocaleUtils.SyncAvoid
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[113,36] AVAILABLE_LOCALE_SET has private access in org.apache.commons.lang3.LocaleUtils.SyncAvoid
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[118,24] cannot find symbol
+[ERROR]   symbol:   method isISO3166CountryCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[123,25] cannot find symbol
+[ERROR]   symbol:   method isISO3166CountryCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[128,25] cannot find symbol
+[ERROR]   symbol:   method isISO3166CountryCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[133,24] cannot find symbol
+[ERROR]   symbol:   method isISO639LanguageCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[138,24] cannot find symbol
+[ERROR]   symbol:   method isISO639LanguageCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[143,25] cannot find symbol
+[ERROR]   symbol:   method isISO639LanguageCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[148,25] cannot find symbol
+[ERROR]   symbol:   method isISO639LanguageCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[163,24] cannot find symbol
+[ERROR]   symbol:   method isNumericAreaCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[168,25] cannot find symbol
+[ERROR]   symbol:   method isNumericAreaCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[173,25] cannot find symbol
+[ERROR]   symbol:   method isNumericAreaCode(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[194,29] cannot find symbol
+[ERROR]   symbol:   method parseLocale(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[200,29] cannot find symbol
+[ERROR]   symbol:   method parseLocale(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[206,29] cannot find symbol
+[ERROR]   symbol:   method parseLocale(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[212,64] cannot find symbol
+[ERROR]   symbol:   method parseLocale(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[217,64] cannot find symbol
+[ERROR]   symbol:   method parseLocale(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[222,64] cannot find symbol
+[ERROR]   symbol:   method parseLocale(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[238,24] reference to toLocale is ambiguous
+[ERROR]   both method toLocale(java.lang.String) in org.apache.commons.lang3.LocaleUtils and method toLocale(java.util.Locale) in org.apache.commons.lang3.LocaleUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,81 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,31] cannot find symbol
+  symbol:   class Annotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[282,48] cannot find symbol
+  symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+  location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[283,48] cannot find symbol
+  symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+  location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[289,48] cannot find symbol
+  symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String)
+  location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[290,13] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[290,63] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[296,48] cannot find symbol
+  symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+  location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,48] cannot find symbol
+  symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+  location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[303,48] cannot find symbol
+  symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String)
+  location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[304,13] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[304,63] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[324,21] cannot find symbol
+  symbol:   class Method
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,31] cannot find symbol
+[ERROR]   symbol:   class Annotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[282,48] cannot find symbol
+[ERROR]   symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[283,48] cannot find symbol
+[ERROR]   symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[289,48] cannot find symbol
+[ERROR]   symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[290,13] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[290,63] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[296,48] cannot find symbol
+[ERROR]   symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,48] cannot find symbol
+[ERROR]   symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String,int)
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[303,48] cannot find symbol
+[ERROR]   symbol:   method create(java.lang.Class<org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation>,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[304,13] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[304,63] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[324,21] cannot find symbol
+[ERROR]   symbol:   class Method
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

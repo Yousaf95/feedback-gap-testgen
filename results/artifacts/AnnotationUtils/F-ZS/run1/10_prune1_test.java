@@ -1,0 +1,186 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.reflect.Method;
+
+public class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    private @interface TestAnnotation {
+        String value();
+        int count() default 0;
+    }
+
+    private static final TestAnnotation TEST_ANNOTATION = new TestAnnotation() {
+        @Override
+        public Class<? extends java.lang.annotation.Annotation> annotationType() {
+            return TestAnnotation.class;
+        }
+
+        @Override
+        public String value() {
+            return "test";
+        }
+
+        @Override
+        public int count() {
+            return 42;
+        }
+    };
+
+    private static final TestAnnotation TEST_ANNOTATION_NULL_COUNT = new TestAnnotation() {
+        @Override
+        public Class<? extends java.lang.annotation.Annotation> annotationType() {
+            return TestAnnotation.class;
+        }
+
+        @Override
+        public String value() {
+            return "test";
+        }
+
+        @Override
+        public int count() {
+            return 0;
+        }
+    };
+
+    private static final TestAnnotation TEST_ANNOTATION_DIFFERENT_COUNT = new TestAnnotation() {
+        @Override
+        public Class<? extends java.lang.annotation.Annotation> annotationType() {
+            return TestAnnotation.class;
+        }
+
+        @Override
+        public String value() {
+            return "test";
+        }
+
+        @Override
+        public int count() {
+            return 100;
+        }
+    };
+
+    private static final TestAnnotation TEST_ANNOTATION_DIFFERENT_VALUE = new TestAnnotation() {
+        @Override
+        public Class<? extends java.lang.annotation.Annotation> annotationType() {
+            return TestAnnotation.class;
+        }
+
+        @Override
+        public String value() {
+            return "different";
+        }
+
+        @Override
+        public int count() {
+            return 42;
+        }
+    };
+
+    private static final TestAnnotation TEST_ANNOTATION_NULL = null;
+
+    @BeforeEach
+    void setUp() throws Exception {
+    }
+
+    @Test
+    void testEquals_SameInstance() {
+        assertTrue(AnnotationUtils.equals(TEST_ANNOTATION, TEST_ANNOTATION));
+    }
+
+    @Test
+    void testEquals_NullFirst() {
+        assertFalse(AnnotationUtils.equals(null, TEST_ANNOTATION));
+    }
+
+    @Test
+    void testEquals_NullSecond() {
+        assertFalse(AnnotationUtils.equals(TEST_ANNOTATION, null));
+    }
+
+       }
+
+    @Test
+    void testEquals_DifferentCounts() {
+        assertFalse(AnnotationUtils.equals(TEST_ANNOTATION_DIFFERENT_COUNT, TEST_ANNOTATION));
+    }
+
+    @Test
+    void testEquals_NullCount() {
+        assertTrue(AnnotationUtils.equals(TEST_ANNOTATION_NULL_COUNT, TEST_ANNOTATION_NULL_COUNT));
+    }
+
+    @Test
+    void testHashCode_SameInstance() {
+        assertEquals(AnnotationUtils.hashCode(TEST_ANNOTATION), AnnotationUtils.hashCode(TEST_ANNOTATION));
+    }
+
+    @Test
+    void testHashCode_Null() {
+        assertThrows(IllegalStateException.class, () -> AnnotationUtils.hashCode(null));
+    }
+
+    @Test
+    void testToString_SameInstance() {
+        String expected = "@TestAnnotation(value=test, count=42)";
+        assertEquals(expected, AnnotationUtils.toString(TEST_ANNOTATION));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_Primitive() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(int.class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_String() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(String.class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_Class() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(Class.class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_Enum() {
+        enum TestEnum { A, B }
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(TestEnum.class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_ArrayOfPrimitive() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(int[].class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_ArrayOfString() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(String[].class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_ArrayOfClass() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(Class[].class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_ArrayOfEnum() {
+        enum TestEnum { A, B }
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(TestEnum[].class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_ArrayOfInvalid() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(Object[].class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_Null() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(null));
+    }
+}

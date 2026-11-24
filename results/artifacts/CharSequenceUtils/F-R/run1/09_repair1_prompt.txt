@@ -1,0 +1,93 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSequenceUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CharSequenceUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 34: cannot find symbol (symbol:   method toCharArray(java.lang.CharSequence); location: class org.apache.commons.lang3.CharSequenceUtils_GenTest)
+    code: assertArrayEquals(toCharArray(cs), result);
+
+Current test class (CharSequenceUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.StringUtils.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+public class CharSequenceUtils_GenTest {
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 5})
+    public void testSubSequence_withValidStartIndex(CharSequence cs, int start) {
+        CharSequence result = CharSequenceUtils.subSequence(cs, start);
+        assertEquals(cs.subSequence(start, cs.length()), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, -2, Integer.MAX_VALUE})
+    public void testSubSequence_withInvalidStartIndex(CharSequence cs, int start) {
+        assertThrows(IndexOutOfBoundsException.class, () -> CharSequenceUtils.subSequence(cs, start));
+    }
+
+    @Test
+    public void testSubSequence_withNull() {
+        assertNull(CharSequenceUtils.subSequence(null, 0));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", "a", "abc"})
+    public void testToCharArray_withValidString(CharSequence cs) {
+        char[] result = CharSequenceUtils.toCharArray(cs);
+        assertArrayEquals(toCharArray(cs), result);
+    }
+
+    @Test
+    public void testToCharArray_withNull() {
+        char[] result = CharSequenceUtils.toCharArray(null);
+        assertArrayEquals(ArrayUtils.EMPTY_CHAR_ARRAY, result);
+    }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.CharSequenceUtils):
+```java
+package org.apache.commons.lang3;
+
+/** Operations on {@link CharSequence} that are {@code null} safe. */
+public class CharSequenceUtils {
+    private static final int NOT_FOUND = -1;
+    static final int TO_STRING_LIMIT = 16;
+    /** Returns a new {@link CharSequence} that is a subsequence of this sequence starting with the {@code char} value at the specified index. */
+    public static CharSequence subSequence(final CharSequence cs, final int start) {
+        return cs == null ? null : cs.subSequence(start, cs.length());
+    }
+    /** Converts the given CharSequence to a char[]. */
+    public static char[] toCharArray(final CharSequence source) {
+        final int len = StringUtils.length(source);
+        if (len == 0) {
+            return ArrayUtils.EMPTY_CHAR_ARRAY;
+        }
+        if (source instanceof String) {
+            return ((String) source).toCharArray();
+        }
+        final char[] array = new char[len];
+        for (int i = 0; i < len; i++) {
+            array[i] = source.charAt(i);
+        }
+        return array;
+    }
+    /** {@link CharSequenceUtils} instances should NOT be constructed in standard programming. */
+    public CharSequenceUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

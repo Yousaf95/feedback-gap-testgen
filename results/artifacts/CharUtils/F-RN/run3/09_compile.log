@@ -1,0 +1,49 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[285,59] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[286,59] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[287,59] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[288,33] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[285,59] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[286,59] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[287,59] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[288,33] no suitable method found for toCharacterObject(java.lang.String,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

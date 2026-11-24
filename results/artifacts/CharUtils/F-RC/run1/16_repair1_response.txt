@@ -1,0 +1,71 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
+import java.util.Arrays;
+
+class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiAlphaLower_LowerCase() {
+        assertTrue(CharUtils.isAsciiAlphaLower('a'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaLower_UpperCase() {
+        assertFalse(CharUtils.isAsciiAlphaLower('A'));
+    }
+
+    @Test
+    public void testIsAsciiControl_ControlCharacter() {
+        assertTrue(CharUtils.isAsciiControl('\0'));
+    }
+
+    @Test
+    public void testIsAsciiControl_PrintableCharacter() {
+        assertFalse(CharUtils.isAsciiControl('a'));
+    }
+
+    @Test
+    public void testIsAsciiPrintable_ControlCharacter() {
+        assertFalse(CharUtils.isAsciiPrintable('\0'));
+    }
+
+    @Test
+    public void testIsAsciiPrintable_PrintableCharacter() {
+        assertTrue(CharUtils.isAsciiPrintable('a'));
+    }
+
+    @Test
+    public void testToChar_CharacterNonNull() {
+        assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+    }
+
+    @Test
+    public void testToChar_StringNotEmpty() {
+        assertEquals('a', CharUtils.toChar("abc"));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNumeric() {
+        assertEquals(5, CharUtils.toIntValue('5'));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNonNumeric() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToString_CharacterValid() {
+        assertEquals("a", CharUtils.toString('a'));
+    }
+
+    @Test
+    public void testUnicodeEscaped_CharacterValid() {
+        assertEquals("\\u0061", CharUtils.unicodeEscaped('a'));
+    }
+}
+```

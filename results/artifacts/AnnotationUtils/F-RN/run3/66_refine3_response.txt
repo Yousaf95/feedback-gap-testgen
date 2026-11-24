@@ -1,0 +1,75 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+public class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value();
+        int count() default 0;
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface AnotherTestAnnotation {
+        String name();
+    }
+
+    @Test
+    public void testEquals_withAnnotationsWithDifferentMemberValues() {
+        TestAnnotation a1 = AnnotationUtils.create(TestAnnotation.class, "test", 5);
+        TestAnnotation a2 = AnnotationUtils.create(TestAnnotation.class, "test", 10);
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    public void testEquals_withAnnotationsWithDifferentMemberTypes() {
+        TestAnnotation a1 = AnnotationUtils.create(TestAnnotation.class, "test");
+        AnotherTestAnnotation a2 = AnnotationUtils.create(AnotherTestAnnotation.class, "test");
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    public void testHashCode_withAnnotationsWithDifferentMemberValues() {
+        TestAnnotation a1 = AnnotationUtils.create(TestAnnotation.class, "test", 5);
+        TestAnnotation a2 = AnnotationUtils.create(TestAnnotation.class, "test", 10);
+        assertNotEquals(AnnotationUtils.hashCode(a1), AnnotationUtils.hashCode(a2));
+    }
+
+    @Test
+    public void testHashCode_withAnnotationsWithDifferentMemberTypes() {
+        TestAnnotation a1 = AnnotationUtils.create(TestAnnotation.class, "test");
+        AnotherTestAnnotation a2 = AnnotationUtils.create(AnotherTestAnnotation.class, "test");
+        assertNotEquals(AnnotationUtils.hashCode(a1), AnnotationUtils.hashCode(a2));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_withNestedArray() {
+        Class<?> type = int[][].class;
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(type));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_withInvalidNestedArray() {
+        Class<?> type = int[][][].class;
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(type));
+    }
+
+    private static <T extends Annotation> T create(Class<T> annotationClass, Object... values) {
+        try {
+            T annotation = annotationClass.getConstructor().newInstance();
+            for (int i = 0; i < annotation.annotationType().getDeclaredMethods().length; i++) {
+                Method method = annotation.annotationType().getDeclaredMethods()[i];
+                method.invoke(annotation, values[i]);
+            }
+            return annotation;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```

@@ -1,0 +1,49 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[280,68] incompatible types: java.lang.Class<?>[] cannot be converted to java.lang.Class<?>
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[357,69] incompatible types: java.lang.Class<?>[] cannot be converted to java.lang.Class<?>
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[396,13] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[396,82] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[396,40] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,13] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,82] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,40] cannot find symbol
+  symbol:   class AnotherTestAnnotation
+  location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[280,68] incompatible types: java.lang.Class<?>[] cannot be converted to java.lang.Class<?>
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[357,69] incompatible types: java.lang.Class<?>[] cannot be converted to java.lang.Class<?>
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[396,13] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[396,82] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[396,40] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,13] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,82] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,40] cannot find symbol
+[ERROR]   symbol:   class AnotherTestAnnotation
+[ERROR]   location: class org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

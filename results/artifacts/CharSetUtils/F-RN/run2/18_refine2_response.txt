@@ -1,0 +1,69 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_SpecialCharacters() {
+        assertTrue(CharSetUtils.containsAny("Hello, World!", "!@#$%^&*()"));
+        assertFalse(CharSetUtils.containsAny("Hello, World!", "abcdefghijklmnopqrstuvwxyz"));
+    }
+
+    @Test
+    public void testCount_SpecialCharacters() {
+        assertEquals(2, CharSetUtils.count("Hello, World!", "!@#$%^&*()"));
+        assertEquals(0, CharSetUtils.count("Hello, World!", "abcdefghijklmnopqrstuvwxyz"));
+    }
+
+    @Test
+    public void testDelete_SpecialCharacters() {
+        assertEquals("Hello, World", CharSetUtils.delete("Hello, World!", "!@#$%^&*()"));
+        assertEquals("Hello, World!", CharSetUtils.delete("Hello, World!", "abcdefghijklmnopqrstuvwxyz"));
+    }
+
+    @Test
+    public void testKeep_SpecialCharacters() {
+        assertEquals("!@#$%^&*()", CharSetUtils.keep("Hello, World!", "!@#$%^&*()"));
+        assertEquals("", CharSetUtils.keep("Hello, World!", "abcdefghijklmnopqrstuvwxyz"));
+    }
+
+    @Test
+    public void testSqueeze_SpecialCharacters() {
+        assertEquals("Helo, Wrd!", CharSetUtils.squeeze("Hello, World!", "!@#$%^&*()"));
+        assertEquals("Hello, World!", CharSetUtils.squeeze("Hello, World!", "abcdefghijklmnopqrstuvwxyz"));
+    }
+
+    @Test
+    public void testContainsAny_Whitespace() {
+        assertTrue(CharSetUtils.containsAny("Hello, World!", " "));
+        assertFalse(CharSetUtils.containsAny("Hello,World!", " "));
+    }
+
+    @Test
+    public void testCount_Whitespace() {
+        assertEquals(1, CharSetUtils.count("Hello, World!", " "));
+        assertEquals(0, CharSetUtils.count("Hello,World!", " "));
+    }
+
+    @Test
+    public void testDelete_Whitespace() {
+        assertEquals("Hello,World!", CharSetUtils.delete("Hello, World!", " "));
+        assertEquals("Hello, World!", CharSetUtils.delete("Hello,World!", " "));
+    }
+
+    @Test
+    public void testKeep_Whitespace() {
+        assertEquals("", CharSetUtils.keep("Hello, World!", " "));
+        assertEquals("Hello, World!", CharSetUtils.keep("Hello,World!", " "));
+    }
+
+    @Test
+    public void testSqueeze_Whitespace() {
+        assertEquals("Helo, Wrd!", CharSetUtils.squeeze("Hello, World!", " "));
+        assertEquals("Hello, World!", CharSetUtils.squeeze("Hello,World!", " "));
+    }
+}
+```

@@ -1,0 +1,119 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithCustomStyle() {
+        Person person = new Person("John", 30);
+        ToStringStyle style = new ToStringStyle() {
+            @Override
+            protected String getShortClassName(Object object) {
+                return "Person";
+            }
+
+            @Override
+            protected void appendDetail(StringBuffer buffer, String fieldName, Object value) {
+                buffer.append(fieldName).append("=").append(value);
+            }
+        };
+        String result = ReflectionToStringBuilder.toString(person, style);
+        assertEquals("Person[name=John,age=30]", result);
+    }
+
+    @Test
+    public void testToStringWithNullObject() {
+        String result = ReflectionToStringBuilder.toString(null);
+        assertEquals("[null]", result);
+    }
+
+    @Test
+    public void testToStringWithExcludeFieldNamesAndNullValues() {
+        Person person = new Person("John", null, 30);
+        String result = ReflectionToStringBuilder.toString(person).setExcludeFieldNames("age").toString();
+        assertEquals("Person[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithIncludeFieldNames() {
+        Person person = new Person("John", 30);
+        String result = ReflectionToStringBuilder.toString(person).setIncludeFieldNames("name").toString();
+        assertEquals("Person[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithNullExcludeFieldNames() {
+        Person person = new Person("John", 30);
+        assertThrows(NullPointerException.class, () -> ReflectionToStringBuilder.toString(person).setExcludeFieldNames((String[]) null));
+    }
+
+    @Test
+    public void testToStringWithNullIncludeFieldNames() {
+        Person person = new Person("John", 30);
+        assertThrows(NullPointerException.class, () -> ReflectionToStringBuilder.toString(person).setIncludeFieldNames((String[]) null));
+    }
+
+    @Test
+    public void testToStringWithExcludeAndIncludeFieldNames() {
+        Person person = new Person("John", 30);
+        String result = ReflectionToStringBuilder.toString(person)
+                .setExcludeFieldNames("age")
+                .setIncludeFieldNames("name")
+                .toString();
+        assertEquals("Person[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithReflectUpToClass() {
+        Parent parent = new Parent("Parent");
+        Child child = new Child(parent, "Child");
+        String result = ReflectionToStringBuilder.toString(child).setUpToClass(Parent.class).toString();
+        assertEquals("Child[parent=Parent]", result);
+    }
+
+    @Test
+    public void testToStringWithReflectUpToClassException() {
+        Parent parent = new Parent("Parent");
+        Child child = new Child(parent, "Child");
+        assertThrows(IllegalArgumentException.class, () -> ReflectionToStringBuilder.toString(child).setUpToClass(String.class));
+    }
+}
+
+class Person {
+    private String name;
+    private Integer age;
+
+    public Person(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getters and setters
+}
+
+class Parent {
+    private String name;
+
+    public Parent(String name) {
+        this.name = name;
+    }
+
+    // Getter and setter
+}
+
+class Child extends Parent {
+    private Parent parent;
+    private String name;
+
+    public Child(Parent parent, String name) {
+        super(parent.getName());
+        this.parent = parent;
+        this.name = name;
+    }
+
+    // Getters and setters
+}
+```

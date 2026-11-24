@@ -47,6 +47,7 @@ For each (class, model, seed): pruned class context → initial generation (T0) 
 - [results/extra/control_no_coverage.md](results/extra/control_no_coverage.md): post-hoc control, refinement rounds without the coverage report (separates coverage feedback from additional attempts)
 - [results/extra/repair_success.md](results/extra/repair_success.md): how often LLM repair made the test class compile (R configurations)
 - [results/extra/round_matched.md](results/extra/round_matched.md): post-hoc round-matched comparison of RC vs RN (coverage report vs none at equal refinement rounds)
+- [results/extra/fp16_check.md](results/extra/fp16_check.md): post-hoc quantization check, 7B model with FP16 weights vs 4-bit
 - `results/artifacts/<class>/<config>/run<seed>/`: every prompt, raw LLM response, intermediate test file, compiler/test log and PIT `mutations.xml` (JaCoCo XML reports are not in the repository because of their size)
 
 ## Reproducing

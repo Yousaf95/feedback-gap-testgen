@@ -1,0 +1,42 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_emptyLanguageCode() {
+        assertTrue(countriesByLanguage("").isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_emptyCountryCode() {
+        assertTrue(languagesByCountry("").isEmpty());
+    }
+
+    @Test
+    public void testToLocale_validLanguageTag_withRegion() {
+        Locale locale = toLocale("en-US");
+        assertEquals(Locale.US, locale);
+    }
+
+    @Test
+    public void testToLocale_validLanguageTag_withoutRegion() {
+        Locale locale = toLocale("en");
+        assertEquals(new Locale("en", ""), locale);
+    }
+
+    @Test
+    public void testToLocale_invalidLanguageTag_withScript() {
+        assertThrows(IllegalArgumentException.class, () -> toLocale("zh-Hans-CN"));
+    }
+
+    @Test
+    public void testToLocale_invalidLanguageTag_withExtensions() {
+        assertThrows(IllegalArgumentException.class, () -> toLocale("en-US-x-private"));
+    }
+}
+```

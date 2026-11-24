@@ -1,0 +1,61 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import java.util.function.Function;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    public void testContainsRangeWhenEmptyRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.containsRange(Range.is(3)));
+    }
+
+    @Test
+    public void testContainsRangeWhenFullRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.containsRange(Range.between(6, 10)));
+    }
+
+    @Test
+    public void testIsOverlappedByWhenNoOverlap() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isOverlappedBy(Range.between(6, 10)));
+    }
+
+    @Test
+    public void testIsOverlappedByWhenPartialOverlap() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.isOverlappedBy(Range.between(4, 8)));
+    }
+
+    @Test
+    public void testGetComparatorWithNullComparator() {
+        Range<String> range = Range.between("a", "b");
+        assertEquals(String::compareTo, range.getComparator());
+    }
+
+    @Test
+    public void testGetComparatorWithCustomComparator() {
+        Comparator<Integer> customComparator = (a, b) -> b - a;
+        Range<Integer> range = Range.between(1, 5, customComparator);
+        assertEquals(customComparator, range.getComparator());
+    }
+
+    @Test
+    public void testToStringWithNullFormat() {
+        Range<String> range = Range.between("a", "b");
+        assertThrows(NullPointerException.class, () -> range.toString((String) null));
+    }
+
+    @Test
+    public void testToStringWithCustomFormat() {
+        Range<Integer> range = Range.between(1, 5);
+        String result = range.toString("%s to %s");
+        assertEquals("1 to 5", result);
+    }
+}
+```

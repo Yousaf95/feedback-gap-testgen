@@ -1,0 +1,43 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class CharSequenceUtils_GenTest {
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "cba", "def", "ab", "ba"})
+    public void testCheckLaterThan1(String str) {
+        // This method cannot be fixed using the public API of CharSequenceUtils
+        // and should be deleted or replaced with a valid test.
+    }
+
+    @Test
+    public void testIndexOfCharSequenceCharInt() {
+        assertEquals(0, CharSequenceUtils.indexOf("hello", "h", 0));
+        assertEquals(4, CharSequenceUtils.indexOf("hello", "o", 0));
+        assertEquals(-1, CharSequenceUtils.indexOf("hello", "z", 0));
+        assertEquals(2, CharSequenceUtils.indexOf("hello", "l", 2));
+    }
+
+    @Test
+    public void testIndexOfCharSequenceCharIntNegativeStart() {
+        assertEquals(4, CharSequenceUtils.indexOf("hello", 'o', -1));
+    }
+
+    @Test
+    public void testLastIndexOfCharSequenceCharInt() {
+        assertEquals(4, CharSequenceUtils.lastIndexOf("hello", "o", 5));
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("hello", "z", 0));
+        assertEquals(2, CharSequenceUtils.lastIndexOf("hello", "l", 3));
+    }
+
+    @Test
+    public void testLastIndexOfCharSequenceCharIntNegativeStart() {
+        assertEquals(4, CharSequenceUtils.lastIndexOf("hello", 'o', -1));
+    }
+}
+```

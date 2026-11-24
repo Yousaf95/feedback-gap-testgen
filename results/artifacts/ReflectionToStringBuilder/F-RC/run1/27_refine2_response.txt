@@ -1,0 +1,196 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.builder.ToStringStyle.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithEmptyClass() {
+        Object obj = new Object();
+        String result = ReflectionToStringBuilder.toString(obj, EMPTY_STYLE);
+        assertTrue(result.contains("class java.lang.Object"));
+    }
+
+    @Test
+    public void testToStringWithFields() {
+        Person person = new Person("John", 30);
+        String result = ReflectionToStringBuilder.toString(person, SIMPLE_STYLE);
+        assertTrue(result.contains("name=John"));
+        assertTrue(result.contains("age=30"));
+    }
+
+    @Test
+    public void testToStringWithTransientField() {
+        TransientPerson transientPerson = new TransientPerson("Jane", 25);
+        String result = ReflectionToStringBuilder.toString(transientPerson, SIMPLE_STYLE);
+        assertFalse(result.contains("password=secret"));
+    }
+
+    @Test
+    public void testToStringWithStaticField() {
+        StaticPerson staticPerson = new StaticPerson("Alice", 35);
+        String result = ReflectionToStringBuilder.toString(staticPerson, SIMPLE_STYLE);
+        assertTrue(result.contains("name=Alice"));
+        assertTrue(result.contains("age=35"));
+    }
+
+    @Test
+    public void testToStringWithExcludeFieldNames() {
+        ExcludePerson excludePerson = new ExcludePerson("Bob", 40);
+        String result = ReflectionToStringBuilder.toString(excludePerson, SIMPLE_STYLE).replace("\n", "");
+        assertFalse(result.contains("name=Bob"));
+    }
+
+    @Test
+    public void testToStringWithIncludeFieldNames() {
+        IncludePerson includePerson = new IncludePerson("Charlie", 45);
+        String result = ReflectionToStringBuilder.toString(includePerson, SIMPLE_STYLE).replace("\n", "");
+        assertTrue(result.contains("age=45"));
+    }
+
+    @Test
+    public void testToStringWithNullExcludeFieldNames() {
+        Person person = new Person("David", 50);
+        String result = ReflectionToStringBuilder.toString(person, SIMPLE_STYLE, false, null);
+        assertTrue(result.contains("name=David"));
+        assertTrue(result.contains("age=50"));
+    }
+
+    @Test
+    public void testToStringWithNullIncludeFieldNames() {
+        Person person = new Person("Eve", 55);
+        String result = ReflectionToStringBuilder.toString(person, SIMPLE_STYLE, false, null);
+        assertTrue(result.contains("name=Eve"));
+        assertTrue(result.contains("age=55"));
+    }
+
+    @Test
+    public void testToStringWithNullObjectAndStyle() {
+        assertThrows(NullPointerException.class, () -> ReflectionToStringBuilder.toString(null, null));
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithNullCollection() {
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray((Collection<String>) null);
+        assertTrue(Arrays.equals(result, new String[0]));
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithEmptyCollection() {
+        Collection<String> collection = Arrays.asList();
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(collection);
+        assertTrue(Arrays.equals(result, new String[0]));
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithNonEmptyCollection() {
+        Collection<String> collection = Arrays.asList("foo", "bar");
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(collection);
+        assertTrue(Arrays.equals(result, new String[]{"bar", "foo"}));
+    }
+
+    @Test
+    public void testSetExcludeNullValuesWithTrue() {
+        Person person = new Person(null, 60);
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(person).setExcludeNullValues(true);
+        String result = builder.toString();
+        assertFalse(result.contains("name="));
+    }
+
+    @Test
+    public void testSetExcludeNullValuesWithFalse() {
+        Person person = new Person(null, 65);
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(person).setExcludeNullValues(false);
+        String result = builder.toString();
+        assertTrue(result.contains("name=null"));
+    }
+
+    @Test
+    public void testSetUpToClassWithNull() {
+        Person person = new Person("Frank", 70);
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(person).setUpToClass(null);
+        String result = builder.toString();
+        assertTrue(result.contains("class java.lang.Object"));
+    }
+
+    @Test
+    public void testSetUpToClassWithInvalidClass() {
+        Person person = new Person("Grace", 75);
+        assertThrows(IllegalArgumentException.class, () -> 
+            new ReflectionToStringBuilder(person).setUpToClass(String.class)
+        );
+    }
+}
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getters and setters
+}
+
+class TransientPerson {
+    private transient String password;
+    private String name;
+    private int age;
+
+    public TransientPerson(String name, int age) {
+        this.password = "secret";
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getters and setters
+}
+
+class StaticPerson {
+    static String staticField = "staticValue";
+    private String name;
+    private int age;
+
+    public StaticPerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getters and setters
+}
+
+class ExcludePerson {
+    private String name;
+    private int age;
+
+    public ExcludePerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @ToStringExclude
+    private String excludeField = "excludeValue";
+
+    // Getters and setters
+}
+
+class IncludePerson {
+    private String name;
+    private int age;
+
+    public IncludePerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @ToStringSummary
+    private String summaryField = "summaryValue";
+
+    // Getters and setters
+}
+```

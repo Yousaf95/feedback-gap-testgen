@@ -1,0 +1,87 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testAppendEmptyCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Collection<?>) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(Arrays.asList("a", "b", "c"));
+        assertEquals(208364595, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullObjectArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Object[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyObjectArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new Object[]{"a", "b", "c"});
+        assertEquals(208364595, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullStringArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((String[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyStringArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new String[]{"a", "b", "c"});
+        assertEquals(208364595, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullComparatorArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Comparator<?>) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyComparatorArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(Arrays.asList(Comparator.naturalOrder(), Comparator.reverseOrder()));
+        assertEquals(-208364595, builder.toHashCode());
+    }
+
+    // The following tests cannot be fixed using the public API of HashCodeBuilder
+    /*
+    @Test
+    public void testAppendNullFieldExclude() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new Object(), null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyFieldExclude() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new Object(), Arrays.asList("field"));
+        assertEquals(17, builder.toHashCode());
+    }
+    */
+}
+```

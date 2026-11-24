@@ -1,0 +1,34 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testAcceptWithException() {
+        assertThrows(RuntimeException.class, () -> Failable.accept(e -> { throw new IOException(); }));
+    }
+
+    @Test
+    public void testApplyWithException() {
+        assertThrows(RuntimeException.class, () -> Failable.apply(e -> { throw new IOException(); }, "input"));
+    }
+
+    @Test
+    public void testCallWithException() {
+        assertThrows(RuntimeException.class, () -> Failable.call(() -> { throw new IOException(); }));
+    }
+
+    @Test
+    public void testGetWithException() {
+        assertThrows(RuntimeException.class, () -> Failable.get(() -> { throw new IOException(); }));
+    }
+
+    @Test
+    public void testRunWithException() {
+        assertThrows(RuntimeException.class, () -> Failable.run(() -> { throw new IOException(); }));
+    }
+}
+```

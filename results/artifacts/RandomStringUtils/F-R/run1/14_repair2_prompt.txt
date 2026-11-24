@@ -1,0 +1,378 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class RandomStringUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of RandomStringUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 5: package org.mockito does not exist
+    code: import static org.mockito.Mockito.*;
+line 21: no suitable method found for toChars(int,int) (method java.lang.Character.toChars(int,char[],int) is not applicable; (actual and formal argument lists differ in length); method java.lang.Character.toChars(int) is not applicable)
+    code: private static final char[] ALL_CHARS = (char[]) Character.toChars(0, Character.MAX_CODE_POINT);
+line 63: no suitable method found for binarySearch(char[],int) (method java.util.Arrays.binarySearch(long[],long) is not applicable; (argument mismatch; char[] cannot be converted to long[]); method java.util.Arrays.binarySearch(int[],int) is not applicable)
+    code: assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+line 99: no suitable method found for binarySearch(char[],int) (method java.util.Arrays.binarySearch(long[],long) is not applicable; (argument mismatch; char[] cannot be converted to long[]); method java.util.Arrays.binarySearch(int[],int) is not applicable)
+    code: assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+line 127: no suitable method found for binarySearch(char[],int) (method java.util.Arrays.binarySearch(long[],long) is not applicable; (argument mismatch; char[] cannot be converted to long[]); method java.util.Arrays.binarySearch(int[],int) is not applicable)
+    code: assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+line 139: no suitable method found for binarySearch(char[],int) (method java.util.Arrays.binarySearch(long[],long) is not applicable; (argument mismatch; char[] cannot be converted to long[]); method java.util.Arrays.binarySearch(int[],int) is not applicable)
+    code: assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+line 156: no suitable method found for binarySearch(char[],int) (method java.util.Arrays.binarySearch(long[],long) is not applicable; (argument mismatch; char[] cannot be converted to long[]); method java.util.Arrays.binarySearch(int[],int) is not applicable)
+    code: assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+line 173: no suitable method found for binarySearch(char[],int) (method java.util.Arrays.binarySearch(long[],long) is not applicable; (argument mismatch; char[] cannot be converted to long[]); method java.util.Arrays.binarySearch(int[],int) is not applicable)
+    code: assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+
+Current test class (RandomStringUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.of;
+import static org.mockito.Mockito.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class RandomStringUtils_GenTest {
+
+    private static final String EMPTY = StringUtils.EMPTY;
+    private static final char[] ALL_CHARS = (char[]) Character.toChars(0, Character.MAX_CODE_POINT);
+    private static final char[] LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    private static final char[] NUMBERS = "0123456789".toCharArray();
+
+    @BeforeEach
+    public void setUp() {
+        // No-op
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCount")
+    public void testRandom(int count) {
+        String result = RandomStringUtils.random(count);
+        assertEquals(count, result.length());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndLetters")
+    public void testRandomWithLetters(int count, boolean letters) {
+        String result = RandomStringUtils.random(count, letters, false);
+        if (letters) {
+            assertTrue(result.chars().allMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isLetter));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndNumbers")
+    public void testRandomWithNumbers(int count, boolean numbers) {
+        String result = RandomStringUtils.random(count, false, numbers);
+        if (numbers) {
+            assertTrue(result.chars().allMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isDigit));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndChars")
+    public void testRandomWithChars(int count, char[] chars) {
+        String result = RandomStringUtils.random(count, chars);
+        assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRange")
+    public void testRandomWithRange(int count, int start, int end) {
+        String result = RandomStringUtils.random(count, start, end, false, false);
+        assertTrue(result.chars().allMatch(c -> c >= start && c < end));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithLetters")
+    public void testRandomWithRangeAndLetters(int count, int start, int end, boolean letters) {
+        String result = RandomStringUtils.random(count, start, end, letters, false);
+        if (letters) {
+            assertTrue(result.chars().allMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isLetter));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithNumbers")
+    public void testRandomWithRangeAndNumbers(int count, int start, int end, boolean numbers) {
+        String result = RandomStringUtils.random(count, start, end, false, numbers);
+        if (numbers) {
+            assertTrue(result.chars().allMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isDigit));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithChars")
+    public void testRandomWithRangeAndChars(int count, int start, int end, char[] chars) {
+        String result = RandomStringUtils.random(count, start, end, false, false, chars);
+        assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithLettersAndNumbers")
+    public void testRandomWithRangeAndLettersAndNumbers(int count, int start, int end, boolean letters, boolean numbers) {
+        String result = RandomStringUtils.random(count, start, end, letters, numbers);
+        if (letters) {
+            assertTrue(result.chars().anyMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isLetter));
+        }
+        if (numbers) {
+            assertTrue(result.chars().anyMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isDigit));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithCharsAndLetters")
+    public void testRandomWithRangeAndCharsAndLetters(int count, int start, int end, char[] chars, boolean letters) {
+        String result = RandomStringUtils.random(count, start, end, letters, false, chars);
+        if (letters) {
+            assertTrue(result.chars().anyMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isLetter));
+        }
+        assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithCharsAndNumbers")
+    public void testRandomWithRangeAndCharsAndNumbers(int count, int start, int end, char[] chars, boolean numbers) {
+        String result = RandomStringUtils.random(count, start, end, false, numbers, chars);
+        if (numbers) {
+            assertTrue(result.chars().anyMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isDigit));
+        }
+        assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithCharsAndLettersAndNumbers")
+    public void testRandomWithRangeAndCharsAndLettersAndNumbers(int count, int start, int end, char[] chars, boolean letters, boolean numbers) {
+        String result = RandomStringUtils.random(count, start, end, letters, numbers, chars);
+        if (letters) {
+            assertTrue(result.chars().anyMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isLetter));
+        }
+        if (numbers) {
+            assertTrue(result.chars().anyMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isDigit));
+        }
+        assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithCharsAndLettersAndNumbersAndRandom")
+    public void testRandomWithRangeAndCharsAndLettersAndNumbersAndRandom(int count, int start, int end, char[] chars, boolean letters, boolean numbers, Random random) {
+        String result = RandomStringUtils.random(count, start, end, letters, numbers, chars, random);
+        if (letters) {
+            assertTrue(result.chars().anyMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isLetter));
+        }
+        if (numbers) {
+            assertTrue(result.chars().anyMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isDigit));
+        }
+        assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, c) >= 0));
+    }
+
+}
+
+```
+
+Class under test (org.apache.commons.lang3.RandomStringUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+/** Generates random {@link String}s. */
+public class RandomStringUtils {
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count) {
+        return random(count, false, false);
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final boolean letters, final boolean numbers) {
+        return random(count, 0, 0, letters, numbers);
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final char... chars) {
+        if (chars == null) {
+            return random(count, 0, 0, false, false, null, random());
+        }
+        return random(count, 0, chars.length, false, false, chars, random());
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final int start, final int end, final boolean letters, final boolean numbers) {
+        return random(count, start, end, letters, numbers, null, random());
+    }
+    /** Creates a random string based on a variety of options, using default source of randomness. */
+    public static String random(final int count, final int start, final int end, final boolean letters, final boolean numbers, final char... chars) {
+        return random(count, start, end, letters, numbers, chars, random());
+    }
+    /** Creates a random string based on a variety of options, using supplied source of randomness. */
+    public static String random(int count, int start, int end, final boolean letters, final boolean numbers,
+                                final char[] chars, final Random random) {
+        if (count == 0) {
+            return StringUtils.EMPTY;
+        }
+        if (count < 0) {
+            throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+        }
+        if (chars != null && chars.length == 0) {
+            throw new IllegalArgumentException("The chars array must not be empty");
+        }
+
+        if (start == 0 && end == 0) {
+            if (chars != null) {
+                end = chars.length;
+            } else if (!letters && !numbers) {
+                end = Character.MAX_CODE_POINT;
+            } else {
+                end = 'z' + 1;
+                start = ' ';
+            }
+        } else if (end <= start) {
+            throw new IllegalArgumentException("Parameter end (" + end + ") must be greater than start (" + start + ")");
+        }
+
+        final int zeroDigitAscii = 48;
+        final int firstLetterAscii = 65;
+
+        if (chars == null && (numbers && end <= zeroDigitAscii
+                || letters && end <= firstLetterAscii)) {
+            throw new IllegalArgumentException("Parameter end (" + end + ") must be greater then (" + zeroDigitAscii + ") for generating digits " +
+                    "or greater then (" + firstLetterAscii + ") for generating letters.");
+        }
+
+        final StringBuilder builder = new StringBuilder(count);
+        final int gap = end - start;
+
+        while (count-- != 0) {
+            final int codePoint;
+            if (chars == null) {
+                codePoint = random.nextInt(gap) + start;
+
+                switch (Character.getType(codePoint)) {
+                case Character.UNASSIGNED:
+                case Character.PRIVATE_USE:
+                case Character.SURROGATE:
+                    count++;
+                    continue;
+                }
+
+            } else {
+                codePoint = chars[random.nextInt(gap) + start];
+            }
+
+            final int numberOfChars = Character.charCount(codePoint);
+            if (count == 0 && numberOfChars > 1) {
+                count++;
+                continue;
+            }
+
+            if (letters && Character.isLetter(codePoint)
+                    || numbers && Character.isDigit(codePoint)
+                    || !letters && !numbers) {
+                builder.appendCodePoint(codePoint);
+
+                if (numberOfChars == 2) {
+                    count--;
+                }
+
+            } else {
+                count++;
+            }
+        }
+        return builder.toString();
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final String chars) {
+        if (chars == null) {
+            return random(count, 0, 0, false, false, null, random());
+        }
+        return random(count, chars.toCharArray());
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomAlphabetic(final int count) {
+        return random(count, true, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomAlphabetic(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomAlphabetic(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomAlphanumeric(final int count) {
+        return random(count, true, true);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomAlphanumeric(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomAlphanumeric(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomAscii(final int count) {
+        return random(count, 32, 127, false, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomAscii(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomAscii(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomGraph(final int count) {
+        return random(count, 33, 126, false, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomGraph(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomGraph(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomNumeric(final int count) {
+        return random(count, false, true);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomNumeric(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomNumeric(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomPrint(final int count) {
+        return random(count, 32, 126, false, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomPrint(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomPrint(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** {@link RandomStringUtils} instances should NOT be constructed in standard programming. */
+    public RandomStringUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static ThreadLocalRandom random();
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

@@ -1,0 +1,145 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testAsRuntimeException() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.asRuntimeException(throwable);
+        assertEquals(RuntimeException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testForEach() {
+        Throwable throwable = new RuntimeException("test");
+        List<String> messages = new ArrayList<>();
+        ExceptionUtils.forEach(throwable, t -> messages.add(t.getMessage()));
+        assertEquals(1, messages.size());
+        assertEquals("test", messages.get(0));
+    }
+
+    @Test
+    public void testGetCauseWithNullThrowable() {
+        Throwable result = ExceptionUtils.getCause(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetCauseWithNullMethodNames() {
+        Throwable throwable = new RuntimeException("test");
+        Throwable result = ExceptionUtils.getCause(throwable, null);
+        assertEquals(throwable, result);
+    }
+
+    @Test
+    public void testGetCauseUsingMethodNameNoSuchMethodException() throws NoSuchMethodException {
+        Throwable throwable = new RuntimeException("test");
+        Method method = throwable.getClass().getMethod("nonExistentMethod");
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.getCauseUsingMethodName(throwable, "nonExistentMethod"));
+    }
+
+    @Test
+    public void testGetMessageWithNullThrowable() {
+        String result = ExceptionUtils.getMessage(null);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testGetRootCauseWithNullThrowable() {
+        Throwable result = ExceptionUtils.getRootCause(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNullThrowable() {
+        String result = ExceptionUtils.getRootCauseMessage(null);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testGetRootCauseStackTraceListWithNullThrowable() {
+        List<String> result = ExceptionUtils.getRootCauseStackTraceList(null);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testGetStackFramesWithNullThrowable() {
+        String[] result = ExceptionUtils.getStackFrames(null);
+        assertTrue(Arrays.equals(ArrayUtils.EMPTY_STRING_ARRAY, result));
+    }
+
+    @Test
+    public void testGetStackTraceWithNullThrowable() {
+        String result = ExceptionUtils.getStackTrace(null);
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testGetThrowableCountWithNullThrowable() {
+        int result = ExceptionUtils.getThrowableCount(null);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testHasCauseWithUndeclaredThrowableException() {
+        Throwable throwable = new UndeclaredThrowableException(new RuntimeException("test"));
+        boolean result = ExceptionUtils.hasCause(throwable, RuntimeException.class);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNullThrowable() {
+        int result = ExceptionUtils.indexOfThrowable(null, RuntimeException.class);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testIndexOfTypeWithNullThrowable() {
+        int result = ExceptionUtils.indexOfType(null, RuntimeException.class);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testIsCheckedWithNullThrowable() {
+        boolean result = ExceptionUtils.isChecked(null);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testIsUncheckedWithNullThrowable() {
+        boolean result = ExceptionUtils.isUnchecked(null);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        ExceptionUtils.printRootCauseStackTrace(null, ps);
+        assertTrue(baos.toString().isEmpty());
+    }
+
+    @Test
+    public void testRemoveCommonFrames_2() {
+        List<String> causeFrames = Arrays.asList("a", "b", "c");
+        List<String> wrapperFrames = Arrays.asList("d", "b", "c");
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(Arrays.asList("a"), causeFrames);
+    }
+
+    @Test
+    public void testThrowUncheckedWithRuntimeException() {
+        RuntimeException runtimeException = new RuntimeException("test");
+        Throwable result = assertThrows(RuntimeException.class, () -> ExceptionUtils.throwUnchecked(runtimeException));
+        assertEquals(runtimeException, result);
+    }
+}
+```

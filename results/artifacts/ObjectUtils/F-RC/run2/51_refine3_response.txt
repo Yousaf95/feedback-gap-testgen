@@ -1,0 +1,154 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    public void testReadResolve() {
+        // This method is private and returns a singleton instance, so we can't directly test it.
+        // However, we can ensure that the class has a no-arg constructor which is used by readResolve.
+        assertNotNull(new ObjectUtils.Null());
+    }
+
+    @Test
+    public void testAllNotNull_withNullValues() {
+        assertFalse(ObjectUtils.allNotNull(null, "value"));
+    }
+
+    @Test
+    public void testAllNotNull_withNonNullValues() {
+        assertTrue(ObjectUtils.allNotNull("value1", "value2"));
+    }
+
+    @Test
+    public void testAnyNull_withNullValues() {
+        assertTrue(ObjectUtils.anyNull(null, "value"));
+    }
+
+    @Test
+    public void testAnyNull_withNonNullValues() {
+        assertFalse(ObjectUtils.anyNull("value1", "value2"));
+    }
+
+    @Test
+    public void testCloneWithArray() throws CloneFailedException {
+        Integer[] original = {1, 2, 3};
+        Integer[] cloned = ObjectUtils.clone(original);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    public void testCloneWithNull() throws CloneFailedException {
+        assertNull(ObjectUtils.clone(null));
+    }
+
+    @Test
+    public void testCompare_withNullValues() {
+        assertEquals(1, ObjectUtils.compare(null, "value"));
+        assertEquals(-1, ObjectUtils.compare("value", null));
+        assertEquals(0, ObjectUtils.compare(null, null));
+    }
+
+    @Test
+    public void testCompare_withNonNullValues() {
+        assertEquals(-1, ObjectUtils.compare("apple", "banana"));
+        assertEquals(1, ObjectUtils.compare("banana", "apple"));
+        assertEquals(0, ObjectUtils.compare("apple", "apple"));
+    }
+
+    @Test
+    public void testCONST_BYTE_withValidValue() {
+        assertEquals((byte) 5, ObjectUtils.CONST_BYTE(5));
+    }
+
+    @Test
+    public void testCONST_SHORT_withValidValue() {
+        assertEquals((short) 10, ObjectUtils.CONST_SHORT(10));
+    }
+
+    @Test
+    public void testCONST_BYTE_withInvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(-129));
+    }
+
+    @Test
+    public void testCONST_SHORT_withInvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(32768));
+    }
+
+    @Test
+    public void testDefaultIfNull() {
+        assertEquals("default", ObjectUtils.defaultIfNull(null, "default"));
+        assertEquals("value", ObjectUtils.defaultIfNull("value", "default"));
+    }
+
+    @Test
+    public void testEquals_withNullValues() {
+        assertTrue(ObjectUtils.equals(null, null));
+        assertFalse(ObjectUtils.equals("value1", null));
+        assertFalse(ObjectUtils.equals(null, "value2"));
+    }
+
+    @Test
+    public void testGetIfNull() {
+        assertEquals("default", ObjectUtils.getIfNull(null, () -> "default"));
+        assertEquals("value", ObjectUtils.getIfNull("value", () -> "default"));
+    }
+
+    @Test
+    public void testHashCodeHex() {
+        assertEquals("0", ObjectUtils.hashCodeHex(null));
+        assertEquals(Integer.toHexString(Objects.hashCode("test")), ObjectUtils.hashCodeHex("test"));
+    }
+
+    @Test
+    public void testIdentityHashCodeHex() {
+        assertEquals(Integer.toHexString(System.identityHashCode(new Object())), ObjectUtils.identityHashCodeHex(new Object()));
+    }
+
+    @Test
+    public void testIdentityToString_withNull() {
+        assertNull(ObjectUtils.identityToString(null));
+    }
+
+    @Test
+    public void testIdentityToString_withNonNull() {
+        String expected = "java.lang.Object@" + Integer.toHexString(System.identityHashCode(new Object()));
+        assertEquals(expected, ObjectUtils.identityToString(new Object()));
+    }
+
+    @Test
+    public void testIsArray_withNull() {
+        assertFalse(ObjectUtils.isArray(null));
+    }
+
+    @Test
+    public void testIsArray_withNonArrayObject() {
+        assertFalse(ObjectUtils.isArray("test"));
+    }
+
+    @Test
+    public void testIsArray_withArrayObject() {
+        assertTrue(ObjectUtils.isArray(new String[]{"a", "b"}));
+    }
+
+    @Test
+    public void testIsEmpty_withNull() {
+        assertTrue(ObjectUtils.isEmpty(null));
+    }
+
+    @Test
+    public void testIsEmpty_withEmptyCollection() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    public void testIsEmpty_withNonEmptyCollection() {
+        assertFalse(ObjectUtils.isEmpty(Arrays.asList("a", "b")));
+    }
+}
+```

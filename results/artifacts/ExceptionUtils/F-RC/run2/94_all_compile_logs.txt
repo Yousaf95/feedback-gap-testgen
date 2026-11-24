@@ -1,0 +1,342 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[13,26] package org.mockito does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[133,44] cannot find symbol
+  symbol:   method mock(java.lang.Class<java.util.function.Consumer>)
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[135,13] cannot find symbol
+  symbol:   method verify(java.util.function.Consumer<java.lang.Throwable>)
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[178,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[202,39] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[210,26] cannot find symbol
+  symbol:   variable NOT_FOUND
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[236,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[13,26] package org.mockito does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[133,44] cannot find symbol
+[ERROR]   symbol:   method mock(java.lang.Class<java.util.function.Consumer>)
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[135,13] cannot find symbol
+[ERROR]   symbol:   method verify(java.util.function.Consumer<java.lang.Throwable>)
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[178,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[202,39] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[210,26] cannot find symbol
+[ERROR]   symbol:   variable NOT_FOUND
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[236,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[230,13] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[123,13] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[145,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[157,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[168,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[169,38] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[175,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[192,39] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[226,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[231,25] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[230,13] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[123,13] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[145,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[157,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[168,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[169,38] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[175,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[192,39] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[226,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[231,25] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[13,26] package org.mockito does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[179,13] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[124,13] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[155,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[167,39] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[175,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[180,25] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[13,26] package org.mockito does not exist
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[179,13] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[124,13] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[155,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[167,39] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[175,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[180,25] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[127,13] cannot find symbol
+  symbol:   method verify(java.util.function.Consumer<java.lang.Throwable>)
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[156,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[176,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[181,20] cannot find symbol
+  symbol:   method mock(java.lang.Class<java.util.function.Consumer>)
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[127,13] cannot find symbol
+[ERROR]   symbol:   method verify(java.util.function.Consumer<java.lang.Throwable>)
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[156,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[176,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[181,20] cannot find symbol
+[ERROR]   symbol:   method mock(java.lang.Class<java.util.function.Consumer>)
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[195,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[207,39] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[257,35] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[257,35] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[210,41] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[210,41] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

@@ -1,0 +1,54 @@
+[ERROR] Tests run: 32, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.149 s <<< FAILURE! -- in org.apache.commons.lang3.JavaVersion_GenTest
+[ERROR] org.apache.commons.lang3.JavaVersion_GenTest.testGetEmptyString -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NumberFormatException: empty String
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1842)
+	at java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122)
+	at java.base/java.lang.Float.parseFloat(Float.java:476)
+	at org.apache.commons.lang3.JavaVersion.get(JavaVersion.java:242)
+	at org.apache.commons.lang3.JavaVersion_GenTest.testGetEmptyString(JavaVersion_GenTest.java:171)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.JavaVersion_GenTest.testGetInvalidVersion -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <17.0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+	at org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+	at org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:30)
+	at org.junit.jupiter.api.Assertions.assertNull(Assertions.java:279)
+	at org.apache.commons.lang3.JavaVersion_GenTest.testGetInvalidVersion(JavaVersion_GenTest.java:176)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.JavaVersion_GenTest.testGetDecimalVersionLessThanTen -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <10> but was: <null>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.JavaVersion_GenTest.testGetDecimalVersionLessThanTen(JavaVersion_GenTest.java:161)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   JavaVersion_GenTest.testGetDecimalVersionLessThanTen:161 expected: <10> but was: <null>
+[ERROR]   JavaVersion_GenTest.testGetInvalidVersion:176 expected: <null> but was: <17.0>
+[ERROR] Errors: 
+[ERROR]   JavaVersion_GenTest.testGetEmptyString:171 » NumberFormat empty String
+[ERROR] Tests run: 32, Failures: 2, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w9/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

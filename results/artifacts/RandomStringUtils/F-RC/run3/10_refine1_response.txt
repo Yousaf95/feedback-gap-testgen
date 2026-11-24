@@ -1,0 +1,68 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithNullChars() {
+        String result = RandomStringUtils.random(5, (char[]) null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomNegativeCountThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(-1));
+    }
+
+    @Test
+    public void testRandomWithEmptyCharsArray() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, new char[0]));
+    }
+
+    @Test
+    public void testRandomAlphabeticWithRange() {
+        String result = RandomStringUtils.randomAlphabetic(10, 20);
+        assertNotNull(result);
+        assertTrue(result.length() >= 10 && result.length() < 20);
+    }
+
+    @Test
+    public void testRandomAlphanumericWithRange() {
+        String result = RandomStringUtils.randomAlphanumeric(15, 30);
+        assertNotNull(result);
+        assertTrue(result.length() >= 15 && result.length() < 30);
+    }
+
+    @Test
+    public void testRandomAsciiWithRange() {
+        String result = RandomStringUtils.randomAscii(20, 40);
+        assertNotNull(result);
+        assertTrue(result.length() >= 20 && result.length() < 40);
+    }
+
+    @Test
+    public void testRandomGraphWithRange() {
+        String result = RandomStringUtils.randomGraph(10, 25);
+        assertNotNull(result);
+        assertTrue(result.length() >= 10 && result.length() < 25);
+    }
+
+    @Test
+    public void testRandomNumericWithRange() {
+        String result = RandomStringUtils.randomNumeric(8, 16);
+        assertNotNull(result);
+        assertTrue(result.length() >= 8 && result.length() < 16);
+    }
+
+    @Test
+    public void testRandomPrintWithRange() {
+        String result = RandomStringUtils.randomPrint(5, 10);
+        assertNotNull(result);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+}
+```

@@ -1,0 +1,412 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,22] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,22] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,70] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,95] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[191,22] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[191,71] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[191,97] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[197,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[203,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,26] no suitable method found for toStringOnOff(boolean,java.lang.String,java.lang.String,<nulltype>)
+    method org.apache.commons.lang3.BooleanUtils.toStringOnOff(java.lang.Boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toStringOnOff(boolean) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[227,28] no suitable method found for toStringTrueFalse(boolean,java.lang.String,java.lang.String,<nulltype>)
+    method org.apache.commons.lang3.BooleanUtils.toStringTrueFalse(java.lang.Boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toStringTrueFalse(boolean) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[239,27] no suitable method found for toStringYesNo(boolean,java.lang.String,java.lang.String,<nulltype>)
+    method org.apache.commons.lang3.BooleanUtils.toStringYesNo(java.lang.Boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toStringYesNo(boolean) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[244,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[245,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[246,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[247,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,22] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,22] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,70] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,95] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[191,22] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[191,71] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[191,97] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[197,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[203,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,26] no suitable method found for toStringOnOff(boolean,java.lang.String,java.lang.String,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toStringOnOff(java.lang.Boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toStringOnOff(boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[227,28] no suitable method found for toStringTrueFalse(boolean,java.lang.String,java.lang.String,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toStringTrueFalse(java.lang.Boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toStringTrueFalse(boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[239,27] no suitable method found for toStringYesNo(boolean,java.lang.String,java.lang.String,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toStringYesNo(java.lang.Boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toStringYesNo(boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[244,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[245,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[246,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[247,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[216,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[216,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[216,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[216,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+  both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+  both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+  both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,28] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    boolean,java.lang.String,java.lang.String,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,21] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[216,20] reference to xor is ambiguous
+  both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[18,20] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[19,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[20,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[21,21] reference to and is ambiguous
+[ERROR]   both method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method and(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[85,20] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[86,21] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[92,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[93,20] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[94,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[95,21] reference to or is ambiguous
+[ERROR]   both method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method or(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[184,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[190,28] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    boolean,java.lang.String,java.lang.String,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[213,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[214,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[215,21] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[216,20] reference to xor is ambiguous
+[ERROR]   both method xor(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils and method xor(boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

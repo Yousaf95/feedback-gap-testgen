@@ -1,0 +1,528 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class ClassUtils_GenTest for ClassUtils currently achieves 42.6% line coverage and 21.3% branch coverage of ClassUtils.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+  222:      */
+  223:     public static String getAbbreviatedName(final Class<?> cls, final int lengthHint) {
+  224:         if (cls == null) {  // <-- NOT COVERED
+  225:             return StringUtils.EMPTY;  // <-- NOT COVERED
+  226:         }
+  227:         return getAbbreviatedName(cls.getName(), lengthHint);  // <-- NOT COVERED
+  228:     }
+  229: 
+    ...
+  302:      */
+  303:     public static String getAbbreviatedName(final String className, final int lengthHint) {
+  304:         if (lengthHint <= 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  305:             throw new IllegalArgumentException("len must be > 0");  // <-- NOT COVERED
+  306:         }
+  307:         if (className == null) {
+  308:             return StringUtils.EMPTY;
+  309:         }
+  310:         if (className.length() <= lengthHint) {  // <-- PARTIAL (1 of 2 branches missed)
+  311:             return className;
+  312:         }
+  313:         final char[] abbreviated = className.toCharArray();  // <-- NOT COVERED
+  314:         int target = 0;  // <-- NOT COVERED
+  315:         int source = 0;  // <-- NOT COVERED
+  316:         while (source < abbreviated.length) {  // <-- NOT COVERED
+  317:             // copy the next part
+  318:             int runAheadTarget = target;  // <-- NOT COVERED
+  319:             while (source < abbreviated.length && abbreviated[source] != '.') {  // <-- NOT COVERED
+  320:                 abbreviated[runAheadTarget++] = abbreviated[source++];  // <-- NOT COVERED
+  321:             }
+  322: 
+  323:             ++target;  // <-- NOT COVERED
+  324:             if (useFull(runAheadTarget, source, abbreviated.length, lengthHint) || target > runAheadTarget) {  // <-- NOT COVERED
+  325:                 target = runAheadTarget;  // <-- NOT COVERED
+  326:             }
+  327: 
+  328:             // copy the '.' unless it was the last part
+  329:             if (source < abbreviated.length) {  // <-- NOT COVERED
+  330:                 abbreviated[target++] = abbreviated[source++];  // <-- NOT COVERED
+  331:             }
+  332:         }  // <-- NOT COVERED
+  333:         return new String(abbreviated, 0, target);  // <-- NOT COVERED
+  334:     }
+  335: 
+    ...
+  347:      */
+  348:     public static List<Class<?>> getAllInterfaces(final Class<?> cls) {
+  349:         if (cls == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  350:             return null;  // <-- NOT COVERED
+  351:         }
+  352: 
+    ...
+  368: 
+  369:             for (final Class<?> i : interfaces) {
+  370:                 if (interfacesFound.add(i)) {  // <-- PARTIAL (1 of 2 branches missed)
+  371:                     getAllInterfaces(i, interfacesFound);
+  372:                 }
+    ...
+  384:      */
+  385:     public static List<Class<?>> getAllSuperclasses(final Class<?> cls) {
+  386:         if (cls == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  387:             return null;  // <-- NOT COVERED
+  388:         }
+  389:         final List<Class<?>> classes = new ArrayList<>();
+    ...
+  418:      */
+  419:     public static String getCanonicalName(final Class<?> cls, final String valueIfNull) {
+  420:         if (cls == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  421:             return valueIfNull;  // <-- NOT COVERED
+  422:         }
+  423:         final String canonicalName = cls.getCanonicalName();
+  424:         return canonicalName == null ? valueIfNull : canonicalName;  // <-- PARTIAL (1 of 2 branches missed)
+  425:     }
+  426: 
+    ...
+  434:      */
+  435:     public static String getCanonicalName(final Object object) {
+  436:         return getCanonicalName(object, StringUtils.EMPTY);  // <-- NOT COVERED
+  437:     }
+  438: 
+    ...
+  447:      */
+  448:     public static String getCanonicalName(final Object object, final String valueIfNull) {
+  449:         if (object == null) {  // <-- NOT COVERED
+  450:             return valueIfNull;  // <-- NOT COVERED
+  451:         }
+  452:         final String canonicalName = object.getClass().getCanonicalName();  // <-- NOT COVERED
+  453:         return canonicalName == null ? valueIfNull : canonicalName;  // <-- NOT COVERED
+  454:     }
+  455: 
+    ...
+  477:     private static String getCanonicalName(String className) {
+  478:         className = StringUtils.deleteWhitespace(className);
+  479:         if (className == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  480:             return null;  // <-- NOT COVERED
+  481:         }
+  482:         int dim = 0;
+  483:         while (className.startsWith("[")) {  // <-- PARTIAL (1 of 2 branches missed)
+  484:             dim++;  // <-- NOT COVERED
+  485:             className = className.substring(1);  // <-- NOT COVERED
+  486:         }
+  487:         if (dim < 1) {  // <-- PARTIAL (1 of 2 branches missed)
+  488:             return className;
+  489:         }
+  490:         if (className.startsWith("L")) {  // <-- NOT COVERED
+  491:             className = className.substring(1, className.endsWith(";") ? className.length() - 1 : className.length());  // <-- NOT COVERED
+  492:         } else if (!className.isEmpty()) {  // <-- NOT COVERED
+  493:             className = reverseAbbreviationMap.get(className.substring(0, 1));  // <-- NOT COVERED
+  494:         }
+  495:         final StringBuilder canonicalClassNameBuffer = new StringBuilder(className);  // <-- NOT COVERED
+  496:         for (int i = 0; i < dim; i++) {  // <-- NOT COVERED
+  497:             canonicalClassNameBuffer.append("[]");  // <-- NOT COVERED
+  498:         }
+  499:         return canonicalClassNameBuffer.toString();  // <-- NOT COVERED
+  500:     }
+  501: 
+    ...
+  512:      */
+  513:     public static Class<?> getClass(final ClassLoader classLoader, final String className) throws ClassNotFoundException {
+  514:         return getClass(classLoader, className, true);  // <-- NOT COVERED
+  515:     }
+  516: 
+    ...
+  530:         try {
+  531:             Class<?> clazz = namePrimitiveMap.get(className);
+  532:             return clazz != null ? clazz : Class.forName(toCanonicalName(className), initialize, classLoader);  // <-- PARTIAL (1 of 2 branches missed)
+  533:         } catch (final ClassNotFoundException ex) {  // <-- NOT COVERED
+  534:             // allow path separators (.) as inner class name separators
+  535:             final int lastDotIndex = className.lastIndexOf(PACKAGE_SEPARATOR_CHAR);  // <-- NOT COVERED
+  536: 
+  537:             if (lastDotIndex != -1) {  // <-- NOT COVERED
+  538:                 try {
+  539:                     return getClass(classLoader, className.substring(0, lastDotIndex) + INNER_CLASS_SEPARATOR_CHAR + className.substring(lastDotIndex + 1),  // <-- NOT COVERED
+  540:                         initialize);
+  541:                 } catch (final ClassNotFoundException ignored) {  // <-- NOT COVERED
+  542:                     // ignore exception
+  543:                 }
+  544:             }
+  545: 
+  546:             throw ex;  // <-- NOT COVERED
+  547:         }
+  548:     }
+    ...
+  575:     public static Class<?> getClass(final String className, final boolean initialize) throws ClassNotFoundException {
+  576:         final ClassLoader contextCL = Thread.currentThread().getContextClassLoader();
+  577:         final ClassLoader loader = contextCL == null ? ClassUtils.class.getClassLoader() : contextCL;  // <-- PARTIAL (1 of 2 branches missed)
+  578:         return getClass(loader, className, initialize);
+  579:     }
+    ...
+  590:     @SuppressWarnings("unchecked")
+  591:     public static <T> Class<T> getComponentType(final Class<T[]> cls) {
+  592:         return cls == null ? null : (Class<T>) cls.getComponentType();  // <-- NOT COVERED
+  593:     }
+  594: 
+    ...
+  627:      */
+  628:     public static String getName(final Object object) {
+  629:         return getName(object, StringUtils.EMPTY);  // <-- NOT COVERED
+  630:     }
+  631: 
+    ...
+  640:      */
+  641:     public static String getName(final Object object, final String valueIfNull) {
+  642:         return object == null ? valueIfNull : object.getClass().getName();  // <-- NOT COVERED
+  643:     }
+  644: 
+    ...
+  651:      */
+  652:     public static String getPackageCanonicalName(final Class<?> cls) {
+  653:         if (cls == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  654:             return StringUtils.EMPTY;
+  655:         }
+
+Existing test methods (do not duplicate them):
+testComparator, testConvertClassesToClassNames, testConvertClassNamesToClasses, testGetAllInterfaces, testGetAllSuperclasses, testGetCanonicalName, testGetClass, testGetName, testGetPackageCanonicalName, testGetShortCanonicalName, testGetShortClassName, testgetSimpleName, testHierarchy, testIsAssignable, testIsInnerClass, testIsPrimitiveOrWrapper, testIsPublic, testConvertClassesToClassNames_NullInput, testConvertClassesToClassNames_EmptyList, testConvertClassesToClassNames_SingleElement, testConvertClassNamesToClasses_NullInput, testConvertClassNamesToClasses_EmptyList, testConvertClassNamesToClasses_SingleElement, testConvertClassNamesToClasses_InvalidClassName, testGetAbbreviatedName_NullInput, testGetAbbreviatedName_EmptyString, testGetAbbreviatedName_ShorterThanLengthHint
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class ClassUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.ClassUtils):
+```java
+package org.apache.commons.lang3;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
+import org.apache.commons.lang3.mutable.MutableObject;
+
+/** Operates on classes without using reflection. */
+public class ClassUtils {
+    /** Inclusivity literals for {@link #hierarchy(Class, Interfaces)}. */
+    public enum Interfaces {
+        INCLUDE,
+        EXCLUDE,
+    }
+    private static final Comparator<Class<?>> COMPARATOR = (o1, o2) -> Objects.compare(getName(o1), getName(o2), String::compareTo);
+    /** The package separator character: {@code '&#x2e;' == {@value}}. */
+    public static final char PACKAGE_SEPARATOR_CHAR = '.';
+    /** The package separator String: {@code "&#x2e;"}. */
+    public static final String PACKAGE_SEPARATOR = String.valueOf(PACKAGE_SEPARATOR_CHAR);
+    /** The inner class separator character: {@code '$' == {@value}}. */
+    public static final char INNER_CLASS_SEPARATOR_CHAR = '$';
+    /** The inner class separator String: {@code "$"}. */
+    public static final String INNER_CLASS_SEPARATOR = String.valueOf(INNER_CLASS_SEPARATOR_CHAR);
+    /** Maps names of primitives to their corresponding primitive {@link Class}es. */
+    private static final Map<String, Class<?>> namePrimitiveMap = new HashMap<>();
+    static {
+        namePrimitiveMap.put("boolean", Boolean.TYPE);
+        namePrimitiveMap.put("byte", Byte.TYPE);
+        namePrimitiveMap.put("char", Character.TYPE);
+        namePrimitiveMap.put("short", Short.TYPE);
+        namePrimitiveMap.put("int", Integer.TYPE);
+        namePrimitiveMap.put("long", Long.TYPE);
+        namePrimitiveMap.put("double", Double.TYPE);
+        namePrimitiveMap.put("float", Float.TYPE);
+        namePrimitiveMap.put("void", Void.TYPE);
+    }
+    /** Maps primitive {@link Class}es to their corresponding wrapper {@link Class}. */
+    private static final Map<Class<?>, Class<?>> primitiveWrapperMap = new HashMap<>();
+    static {
+        primitiveWrapperMap.put(Boolean.TYPE, Boolean.class);
+        primitiveWrapperMap.put(Byte.TYPE, Byte.class);
+        primitiveWrapperMap.put(Character.TYPE, Character.class);
+        primitiveWrapperMap.put(Short.TYPE, Short.class);
+        primitiveWrapperMap.put(Integer.TYPE, Integer.class);
+        primitiveWrapperMap.put(Long.TYPE, Long.class);
+        primitiveWrapperMap.put(Double.TYPE, Double.class);
+        primitiveWrapperMap.put(Float.TYPE, Float.class);
+        primitiveWrapperMap.put(Void.TYPE, Void.TYPE);
+    }
+    /** Maps wrapper {@link Class}es to their corresponding primitive types. */
+    private static final Map<Class<?>, Class<?>> wrapperPrimitiveMap = new HashMap<>();
+    static {
+        primitiveWrapperMap.forEach((primitiveClass, wrapperClass) -> {
+            if (!primitiveClass.equals(wrapperClass)) {
+                wrapperPrimitiveMap.put(wrapperClass, primitiveClass);
+            }
+        });
+    }
+    /** Maps a primitive class name to its corresponding abbreviation used in array class names. */
+    private static final Map<String, String> abbreviationMap;
+    /** Maps an abbreviation used in array class names to corresponding primitive class name. */
+    private static final Map<String, String> reverseAbbreviationMap;
+    static {
+        final Map<String, String> map = new HashMap<>();
+        map.put("int", "I");
+        map.put("boolean", "Z");
+        map.put("float", "F");
+        map.put("long", "J");
+        map.put("short", "S");
+        map.put("byte", "B");
+        map.put("double", "D");
+        map.put("char", "C");
+        abbreviationMap = Collections.unmodifiableMap(map);
+        reverseAbbreviationMap = Collections.unmodifiableMap(map.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey)));
+    }
+    /** Gets the class comparator, comparing by class name. */
+    public static Comparator<Class<?>> comparator() {
+        return COMPARATOR;
+    }
+    /** Given a {@link List} of {@link Class} objects, this method converts them into class names. */
+    public static List<String> convertClassesToClassNames(final List<Class<?>> classes) {
+        return classes == null ? null : classes.stream().map(e -> getName(e, null)).collect(Collectors.toList());
+    }
+    /** Given a {@link List} of class names, this method converts them into classes. */
+    public static List<Class<?>> convertClassNamesToClasses(final List<String> classNames) {
+        if (classNames == null) {
+            return null;
+        }
+        final List<Class<?>> classes = new ArrayList<>(classNames.size());
+        classNames.forEach(className -> {
+            try {
+                classes.add(Class.forName(className));
+            } catch (final Exception ex) {
+                classes.add(null);
+            }
+        });
+        return classes;
+    }
+    /** Gets the abbreviated name of a {@link Class}. */
+    public static String getAbbreviatedName(final Class<?> cls, final int lengthHint) {
+        if (cls == null) {
+            return StringUtils.EMPTY;
+        }
+        return getAbbreviatedName(cls.getName(), lengthHint);
+    }
+    /** Gets the abbreviated class name from a {@link String}. */
+    public static String getAbbreviatedName(final String className, final int lengthHint) {
+        if (lengthHint <= 0) {
+            throw new IllegalArgumentException("len must be > 0");
+        }
+        if (className == null) {
+            return StringUtils.EMPTY;
+        }
+        if (className.length() <= lengthHint) {
+            return className;
+        }
+        final char[] abbreviated = className.toCharArray();
+        int target = 0;
+        int source = 0;
+        while (source < abbreviated.length) {
+            // copy the next part
+            int runAheadTarget = target;
+            while (source < abbreviated.length && abbreviated[source] != '.') {
+                abbreviated[runAheadTarget++] = abbreviated[source++];
+            }
+
+            ++target;
+            if (useFull(runAheadTarget, source, abbreviated.length, lengthHint) || target > runAheadTarget) {
+                target = runAheadTarget;
+            }
+
+            // copy the '.' unless it was the last part
+            if (source < abbreviated.length) {
+                abbreviated[target++] = abbreviated[source++];
+            }
+        }
+        return new String(abbreviated, 0, target);
+    }
+    /** Gets a {@link List} of all interfaces implemented by the given class and its superclasses. */
+    public static List<Class<?>> getAllInterfaces(final Class<?> cls) {
+        if (cls == null) {
+            return null;
+        }
+
+        final LinkedHashSet<Class<?>> interfacesFound = new LinkedHashSet<>();
+        getAllInterfaces(cls, interfacesFound);
+
+        return new ArrayList<>(interfacesFound);
+    }
+    /** Gets a {@link List} of superclasses for the given class. */
+    public static List<Class<?>> getAllSuperclasses(final Class<?> cls) {
+        if (cls == null) {
+            return null;
+        }
+        final List<Class<?>> classes = new ArrayList<>();
+        Class<?> superclass = cls.getSuperclass();
+        while (superclass != null) {
+            classes.add(superclass);
+            superclass = superclass.getSuperclass();
+        }
+        return classes;
+    }
+    /** Gets the canonical class name for a {@link Class}. */
+    public static String getCanonicalName(final Class<?> cls) {
+        return getCanonicalName(cls, StringUtils.EMPTY);
+    }
+    /** Gets the canonical name for a {@link Class}. */
+    public static String getCanonicalName(final Class<?> cls, final String valueIfNull) {
+        if (cls == null) {
+            return valueIfNull;
+        }
+        final String canonicalName = cls.getCanonicalName();
+        return canonicalName == null ? valueIfNull : canonicalName;
+    }
+    /** Gets the canonical name for an {@link Object}. */
+    public static String getCanonicalName(final Object object) {
+        return getCanonicalName(object, StringUtils.EMPTY);
+    }
+    /** Gets the canonical name for an {@link Object}. */
+    public static String getCanonicalName(final Object object, final String valueIfNull) {
+        if (object == null) {
+            return valueIfNull;
+        }
+        final String canonicalName = object.getClass().getCanonicalName();
+        return canonicalName == null ? valueIfNull : canonicalName;
+    }
+    /** Returns the (initialized) class represented by {@code className} using the {@code classLoader}. */
+    public static Class<?> getClass(final ClassLoader classLoader, final String className) throws ClassNotFoundException {
+        return getClass(classLoader, className, true);
+    }
+    /** Returns the class represented by {@code className} using the {@code classLoader}. */
+    public static Class<?> getClass(final ClassLoader classLoader, final String className, final boolean initialize) throws ClassNotFoundException {
+        try {
+            Class<?> clazz = namePrimitiveMap.get(className);
+            return clazz != null ? clazz : Class.forName(toCanonicalName(className), initialize, classLoader);
+        } catch (final ClassNotFoundException ex) {
+            // allow path separators (.) as inner class name separators
+            final int lastDotIndex = className.lastIndexOf(PACKAGE_SEPARATOR_CHAR);
+
+            if (lastDotIndex != -1) {
+                try {
+                    return getClass(classLoader, className.substring(0, lastDotIndex) + INNER_CLASS_SEPARATOR_CHAR + className.substring(lastDotIndex + 1),
+                        initialize);
+                } catch (final ClassNotFoundException ignored) {
+                    // ignore exception
+                }
+            }
+
+            throw ex;
+        }
+    }
+    /** Returns the (initialized) class represented by {@code className} using the current thread's context class loader. */
+    public static Class<?> getClass(final String className) throws ClassNotFoundException {
+        return getClass(className, true);
+    }
+    /** Returns the class represented by {@code className} using the current thread's context class loader. */
+    public static Class<?> getClass(final String className, final boolean initialize) throws ClassNotFoundException {
+        final ClassLoader contextCL = Thread.currentThread().getContextClassLoader();
+        final ClassLoader loader = contextCL == null ? ClassUtils.class.getClassLoader() : contextCL;
+        return getClass(loader, className, initialize);
+    }
+    /** Delegates to {@link Class#getComponentType()} using generics. */
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getComponentType(final Class<T[]> cls) {
+        return cls == null ? null : (Class<T>) cls.getComponentType();
+    }
+    /** Null-safe version of {@code cls.getName()} */
+    public static String getName(final Class<?> cls) {
+        return getName(cls, StringUtils.EMPTY);
+    }
+    /** Null-safe version of {@code cls.getName()} */
+    public static String getName(final Class<?> cls, final String valueIfNull) {
+        return cls == null ? valueIfNull : cls.getName();
+    }
+    /** Null-safe version of {@code object.getClass().getName()} */
+    public static String getName(final Object object) {
+        return getName(object, StringUtils.EMPTY);
+    }
+    /** Null-safe version of {@code object.getClass().getSimpleName()} */
+    public static String getName(final Object object, final String valueIfNull) {
+        return object == null ? valueIfNull : object.getClass().getName();
+    }
+    /** Gets the package name from the canonical name of a {@link Class}. */
+    public static String getPackageCanonicalName(final Class<?> cls) {
+        if (cls == null) {
+            return StringUtils.EMPTY;
+        }
+        return getPackageCanonicalName(cls.getName());
+    }
+    /** Gets the package name from the class name of an {@link Object}. */
+    public static String getPackageCanonicalName(final Object object, final String valueIfNull) {
+        if (object == null) {
+            return valueIfNull;
+        }
+        return getPackageCanonicalName(object.getClass().getName());
+    }
+    /** Gets the package name from the class name. */
+    public static String getPackageCanonicalName(final String name) {
+        return getPackageName(getCanonicalName(name));
+    }
+    /** Gets the package name of a {@link Class}. */
+    public static String getPackageName(final Class<?> cls);  // body omitted (context budget)
+    /** Gets the package name of an {@link Object}. */
+    public static String getPackageName(final Object object, final String valueIfNull);  // body omitted (context budget)
+    /** Gets the package name from a {@link String}. */
+    public static String getPackageName(String className);  // body omitted (context budget)
+    /** Returns the desired Method much like {@code Class.getMethod}, however it ensures that the returned Method is from a public class or interface and not from an anonymous inner class. */
+    public static Method getPublicMethod(final Class<?> cls, final String methodName, final Class<?>... parameterTypes) throws NoSuchMethodException;  // body omitted (context budget)
+    /** Gets the canonical name minus the package name from a {@link Class}. */
+    public static String getShortCanonicalName(final Class<?> cls);  // body omitted (context budget)
+    /** Gets the canonical name minus the package name for an {@link Object}. */
+    public static String getShortCanonicalName(final Object object, final String valueIfNull);  // body omitted (context budget)
+    /** Gets the canonical name minus the package name from a String. */
+    public static String getShortCanonicalName(final String canonicalName);  // body omitted (context budget)
+    /** Gets the class name minus the package name from a {@link Class}. */
+    public static String getShortClassName(final Class<?> cls);  // body omitted (context budget)
+    /** Gets the class name of the {@code object} without the package name or names. */
+    public static String getShortClassName(final Object object, final String valueIfNull);  // body omitted (context budget)
+    /** Gets the class name minus the package name from a String. */
+    public static String getShortClassName(String className);  // body omitted (context budget)
+    /** Null-safe version of {@code cls.getSimpleName()} */
+    public static String getSimpleName(final Class<?> cls);  // body omitted (context budget)
+    /** Null-safe version of {@code cls.getSimpleName()} */
+    public static String getSimpleName(final Class<?> cls, final String valueIfNull);  // body omitted (context budget)
+    /** Null-safe version of {@code object.getClass().getSimpleName()} <p> It is to note that this method is overloaded and in case the argument {@code object} is a {@link Class} object then the {@link #getSimpleName(Class)} will be invoked. */
+    public static String getSimpleName(final Object object);  // body omitted (context budget)
+    /** Null-safe version of {@code object.getClass().getSimpleName()} */
+    public static String getSimpleName(final Object object, final String valueIfNull);  // body omitted (context budget)
+    /** Gets an {@link Iterable} that can iterate over a class hierarchy in ascending (subclass to superclass) order, excluding interfaces. */
+    public static Iterable<Class<?>> hierarchy(final Class<?> type);  // body omitted (context budget)
+    /** Gets an {@link Iterable} that can iterate over a class hierarchy in ascending (subclass to superclass) order. */
+    public static Iterable<Class<?>> hierarchy(final Class<?> type, final Interfaces interfacesBehavior);  // body omitted (context budget)
+    /** Checks if one {@link Class} can be assigned to a variable of another {@link Class}. */
+    public static boolean isAssignable(final Class<?> cls, final Class<?> toClass);  // body omitted (context budget)
+    /** Checks if one {@link Class} can be assigned to a variable of another {@link Class}. */
+    public static boolean isAssignable(Class<?> cls, final Class<?> toClass, final boolean autoboxing);  // body omitted (context budget)
+    /** Checks if an array of Classes can be assigned to another array of Classes. */
+    public static boolean isAssignable(final Class<?>[] classArray, final Class<?>... toClassArray);  // body omitted (context budget)
+    /** Checks if an array of Classes can be assigned to another array of Classes. */
+    public static boolean isAssignable(Class<?>[] classArray, Class<?>[] toClassArray, final boolean autoboxing);  // body omitted (context budget)
+    /** Is the specified class an inner class or static nested class. */
+    public static boolean isInnerClass(final Class<?> cls);  // body omitted (context budget)
+    /** Returns whether the given {@code type} is a primitive or primitive wrapper ({@link Boolean}, {@link Byte}, {@link Character}, {@link Short}, {@link Integer}, {@link Long}, {@link Double}, {@link Float}). */
+    public static boolean isPrimitiveOrWrapper(final Class<?> type);  // body omitted (context budget)
+    /** Returns whether the given {@code type} is a primitive wrapper ({@link Boolean}, {@link Byte}, {@link Character}, {@link Short}, {@link Integer}, {@link Long}, {@link Double}, {@link Float}). */
+    public static boolean isPrimitiveWrapper(final Class<?> type);  // body omitted (context budget)
+    /** Tests whether a {@link Class} is public. */
+    public static boolean isPublic(final Class<?> cls);  // body omitted (context budget)
+    /** Converts the specified array of primitive Class objects to an array of its corresponding wrapper Class objects. */
+    public static Class<?>[] primitivesToWrappers(final Class<?>... classes);  // body omitted (context budget)
+    /** Converts the specified primitive Class object to its corresponding wrapper Class object. */
+    public static Class<?> primitiveToWrapper(final Class<?> cls);  // body omitted (context budget)
+    /** Converts an array of {@link Object} in to an array of {@link Class} objects. */
+    public static Class<?>[] toClass(final Object... array);  // body omitted (context budget)
+    /** Converts the specified array of wrapper Class objects to an array of its corresponding primitive Class objects. */
+    public static Class<?>[] wrappersToPrimitives(final Class<?>... classes);  // body omitted (context budget)
+    /** Converts the specified wrapper class to its corresponding primitive class. */
+    public static Class<?> wrapperToPrimitive(final Class<?> cls);  // body omitted (context budget)
+    /** ClassUtils instances should NOT be constructed in standard programming. */
+    public ClassUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static void getAllInterfaces(Class<?> cls, final HashSet<Class<?>> interfacesFound);
+    private static String getCanonicalName(String className);
+    private static String toCanonicalName(final String className);
+    private static boolean useFull(final int runAheadTarget, final int source, final int originalLength, final int desiredLength);
+}
+```

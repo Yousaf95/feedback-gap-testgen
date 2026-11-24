@@ -1,0 +1,97 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testIsAsciiExtended() {
+        assertFalse(CharUtils.isAscii('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiAlphaExtended() {
+        assertFalse(CharUtils.isAsciiAlpha('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiAlphanumericExtended() {
+        assertFalse(CharUtils.isAsciiAlphanumeric('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiControlExtended() {
+        assertTrue(CharUtils.isAsciiControl((char) 32)); // Space character
+    }
+
+    @Test
+    public void testIsAsciiNumericExtended() {
+        assertFalse(CharUtils.isAsciiNumeric('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiPrintableExtended() {
+        assertTrue(CharUtils.isAsciiPrintable((char) 32)); // Space character
+    }
+
+    @Test
+    public void testToChar_CharacterNull() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar(null));
+    }
+
+    @ParameterizedTest
+    @MethodSource("emptyStringProvider")
+    public void testToChar_StringEmpty(String str) {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toChar(str));
+    }
+
+    private static Stream<Arguments> emptyStringProvider() {
+        return Stream.of(
+            arguments("")
+        );
+    }
+
+    @Test
+    public void testToCharacterObject_EmptyString_3() {
+        assertNull(CharUtils.toCharacterObject(""));
+    }
+
+    @ParameterizedTest
+    @MethodSource("invalidCharacterProvider")
+    public void testToIntValue_InvalidCharacter_2(char ch) {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue(ch));
+    }
+
+    private static Stream<Arguments> invalidCharacterProvider() {
+        return Stream.of(
+            arguments('a'),
+            arguments('b')
+        );
+    }
+
+    @Test
+    public void testToString_CharacterNull() {
+        assertNull(CharUtils.toString(null));
+    }
+
+    @ParameterizedTest
+    @MethodSource("characterExtendedProvider")
+    public void testUnicodeEscaped_CharacterExtended(char ch) {
+        assertEquals("\\u0100", CharUtils.unicodeEscaped(ch)); // Latin capital letter A with macron
+    }
+
+    private static Stream<Arguments> characterExtendedProvider() {
+        return Stream.of(
+            arguments('\u0100')
+        );
+    }
+}
+```

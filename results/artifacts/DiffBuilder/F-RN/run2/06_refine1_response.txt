@@ -1,0 +1,249 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class DiffBuilder_GenTest {
+
+    @Test
+    public void testAppendNull() {
+        DiffResult<String> result = new DiffBuilder<>(null, "value", ToStringStyle.SHORT_PREFIX_STYLE).append("field", null, "value").build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertNull(result.getDiffs().get(0).getLeft());
+        assertEquals("value", result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendEmptyString() {
+        DiffResult<String> result = new DiffBuilder<>("", "value", ToStringStyle.SHORT_PREFIX_STYLE).append("field", "", "value").build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertEquals("", result.getDiffs().get(0).getLeft());
+        assertEquals("value", result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendEmptyArray() {
+        DiffResult<int[]> result = new DiffBuilder<>(new int[]{}, new int[]{1, 2, 3}, ToStringStyle.SHORT_PREFIX_STYLE).append("field", new int[]{}, new int[]{1, 2, 3}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new int[]{}, (int[]) result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new int[]{1, 2, 3}, (int[]) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentArrays() {
+        DiffResult<int[]> result = new DiffBuilder<>(new int[]{1, 2, 3}, new int[]{4, 5, 6}, ToStringStyle.SHORT_PREFIX_STYLE).append("field", new int[]{1, 2, 3}, new int[]{4, 5, 6}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new int[]{1, 2, 3}, (int[]) result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new int[]{4, 5, 6}, (int[]) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedArrays() {
+        DiffResult<int[][]> result = new DiffBuilder<>(new int[][]{{1, 2}, {3, 4}}, new int[][]{{5, 6}, {7, 8}}, ToStringStyle.SHORT_PREFIX_STYLE).append("field", new int[][]{{1, 2}, {3, 4}}, new int[][]{{5, 6}, {7, 8}}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new int[][]{{1, 2}, {3, 4}}, (int[][]) result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new int[][]{{5, 6}, {7, 8}}, (int[][]) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjects() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("a", "b"), Arrays.asList("c", "d"), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("a", "b"), Arrays.asList("c", "d")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("a", "b"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("c", "d"), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("a", null), Arrays.asList(null, "b"), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("a", null), Arrays.asList(null, "b")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("a", null), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList(null, "b"), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithEmpty() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("a", ""), Arrays.asList("", "b"), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("a", ""), Arrays.asList("", "b")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("a", ""), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("", "b"), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSize() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("a", "b"), Arrays.asList("c", "d"), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("a", "b"), Arrays.asList("c", "d")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("a", "b"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("c", "d"), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList(null, null), Arrays.asList(null, null), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList(null, null), Arrays.asList(null, null)).build();
+        assertEquals(0, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndEmpty() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", ""), Arrays.asList("", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", ""), Arrays.asList("", "")).build();
+        assertEquals(0, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixed() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("a", null), Arrays.asList(null, "b"), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("a", null), Arrays.asList(null, "b")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("a", null), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList(null, "b"), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmpty() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("a", ""), Arrays.asList("", "b"), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("a", ""), Arrays.asList("", "b")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("a", ""), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("", "b"), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList(null, "a"), Arrays.asList("b", null), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList(null, "a"), Arrays.asList("b", null)).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList(null, "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", null), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "a"), Arrays.asList("b", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "a"), Arrays.asList("b", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValues() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "a"), Arrays.asList("b", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "a"), Arrays.asList("b", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList(null, "", "a"), Arrays.asList("b", null, ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList(null, "", "a"), Arrays.asList("b", null, "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList(null, "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", null, ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndEmpty() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "", "a"), Arrays.asList("b", "", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "", "a"), Arrays.asList("b", "", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", "", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixed() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList(null, "", "a"), Arrays.asList("b", null, ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList(null, "", "a"), Arrays.asList("b", null, "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList(null, "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", null, ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedEmpty() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "", "a"), Arrays.asList("b", "", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "", "a"), Arrays.asList("b", "", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", "", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList(null, "", "a"), Arrays.asList("b", null, ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList(null, "", "a"), Arrays.asList("b", null, "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList(null, "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", null, ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedEmptyNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "", "a"), Arrays.asList("b", "", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "", "a"), Arrays.asList("b", "", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", "", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedEmptyNullValues() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "", "a"), Arrays.asList("b", "", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "", "a"), Arrays.asList("b", "", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", "", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedEmptyNullValuesAndNull() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList(null, "", "a"), Arrays.asList("b", null, ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList(null, "", "a"), Arrays.asList("b", null, "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList(null, "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", null, ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedEmptyNullValuesAndEmpty() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "", "a"), Arrays.asList("b", "", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "", "a"), Arrays.asList("b", "", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", "", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedEmptyNullValuesAndMixed() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList(null, "", "a"), Arrays.asList("b", null, ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList(null, "", "a"), Arrays.asList("b", null, "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList(null, "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", null, ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDifferentNestedObjectsWithSameSizeAndMixedEmptyNullValuesAndMixedEmptyNullValuesAndMixedEmpty() {
+        DiffResult<List<String>> result = new DiffBuilder<>(Arrays.asList("", "", "a"), Arrays.asList("b", "", ""), ToStringStyle.SHORT_PREFIX_STYLE).append("field", Arrays.asList("", "", "a"), Arrays.asList("b", "", "")).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field", result.getDiffs().get(0).getFieldName());
+        assertIterableEquals(Arrays.asList("", "", "a"), (List<String>) result.getDiffs().get(0).getLeft());
+        assertIterableEquals(Arrays.asList("b", "", ""), (List<String>) result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppend

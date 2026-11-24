@@ -1,0 +1,290 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class LocaleUtils_GenTest for LocaleUtils currently achieves 51.9% line coverage and 38.9% branch coverage of LocaleUtils.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+   41: 
+   42:     // class to avoid synchronization (Init on demand)
+   43:     static class SyncAvoid {  // <-- NOT COVERED
+   44:         /** Unmodifiable list of available locales. */
+   45:         private static final List<Locale> AVAILABLE_LOCALE_LIST;
+    ...
+  130:      */
+  131:     private static boolean isISO3166CountryCode(final String str) {
+  132:         return StringUtils.isAllUpperCase(str) && str.length() == 2;  // <-- PARTIAL (3 of 4 branches missed)
+  133:     }
+  134: 
+    ...
+  140:      */
+  141:     private static boolean isISO639LanguageCode(final String str) {
+  142:         return StringUtils.isAllLowerCase(str) && (str.length() == 2 || str.length() == 3);  // <-- PARTIAL (3 of 6 branches missed)
+  143:     }
+  144: 
+    ...
+  156:      */
+  157:     public static boolean isLanguageUndetermined(final Locale locale) {
+  158:         return locale == null || UNDETERMINED.equals(locale.toLanguageTag());  // <-- PARTIAL (1 of 4 branches missed)
+  159:     }
+  160: 
+    ...
+  166:      */
+  167:     private static boolean isNumericAreaCode(final String str) {
+  168:         return StringUtils.isNumeric(str) && str.length() == 3;  // <-- PARTIAL (3 of 4 branches missed)
+  169:     }
+  170: 
+    ...
+  199:      */
+  200:     public static List<Locale> localeLookupList(final Locale locale) {
+  201:         return localeLookupList(locale, locale);  // <-- NOT COVERED
+  202:     }
+  203: 
+    ...
+  220:      */
+  221:     public static List<Locale> localeLookupList(final Locale locale, final Locale defaultLocale) {
+  222:         final List<Locale> list = new ArrayList<>(4);  // <-- NOT COVERED
+  223:         if (locale != null) {  // <-- NOT COVERED
+  224:             list.add(locale);  // <-- NOT COVERED
+  225:             if (!locale.getVariant().isEmpty()) {  // <-- NOT COVERED
+  226:                 list.add(new Locale(locale.getLanguage(), locale.getCountry()));  // <-- NOT COVERED
+  227:             }
+  228:             if (!locale.getCountry().isEmpty()) {  // <-- NOT COVERED
+  229:                 list.add(new Locale(locale.getLanguage(), StringUtils.EMPTY));  // <-- NOT COVERED
+  230:             }
+  231:             if (!list.contains(defaultLocale)) {  // <-- NOT COVERED
+  232:                 list.add(defaultLocale);  // <-- NOT COVERED
+  233:             }
+  234:         }
+  235:         return Collections.unmodifiableList(list);  // <-- NOT COVERED
+  236:     }
+  237: 
+    ...
+  244:      */
+  245:     private static Locale parseLocale(final String str) {
+  246:         if (isISO639LanguageCode(str)) {  // <-- PARTIAL (1 of 2 branches missed)
+  247:             return new Locale(str);  // <-- NOT COVERED
+  248:         }
+  249: 
+  250:         final String[] segments = str.indexOf(UNDERSCORE) != -1  // <-- PARTIAL (1 of 2 branches missed)
+  251:             ? str.split(String.valueOf(UNDERSCORE), -1)
+  252:             : str.split(String.valueOf(DASH), -1);
+  253:         final String language = segments[0];
+  254:         if (segments.length == 2) {  // <-- PARTIAL (1 of 2 branches missed)
+  255:             final String country = segments[1];
+  256:             if (isISO639LanguageCode(language) && isISO3166CountryCode(country) ||  // <-- PARTIAL (2 of 4 branches missed)
+  257:                     isNumericAreaCode(country)) {  // <-- PARTIAL (1 of 2 branches missed)
+  258:                 return new Locale(language, country);  // <-- NOT COVERED
+  259:             }
+  260:         } else if (segments.length == 3) {  // <-- PARTIAL (2 of 2 branches missed)
+  261:             final String country = segments[1];  // <-- NOT COVERED
+  262:             final String variant = segments[2];  // <-- NOT COVERED
+  263:             if (isISO639LanguageCode(language) &&  // <-- NOT COVERED
+  264:                     (country.isEmpty() || isISO3166CountryCode(country) || isNumericAreaCode(country)) &&  // <-- NOT COVERED
+  265:                     !variant.isEmpty()) {  // <-- NOT COVERED
+  266:                 return new Locale(language, country, variant);  // <-- NOT COVERED
+  267:             }
+  268:         }
+    ...
+  278:      */
+  279:     public static Locale toLocale(final Locale locale) {
+  280:         return locale != null ? locale : Locale.getDefault();  // <-- PARTIAL (1 of 2 branches missed)
+  281:     }
+  282: 
+    ...
+  313:      */
+  314:     public static Locale toLocale(final String str) {
+  315:         if (str == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  316:             // TODO Should this return the default locale?
+  317:             return null;  // <-- NOT COVERED
+  318:         }
+  319:         if (str.isEmpty()) { // LANG-941 - JDK 8 introduced an empty locale where all fields are blank
+    ...
+  324:         }
+  325:         final int len = str.length();
+  326:         if (len < 2) {  // <-- PARTIAL (1 of 2 branches missed)
+  327:             throw new IllegalArgumentException("Invalid locale format: " + str);
+  328:         }
+  329:         final char ch0 = str.charAt(0);  // <-- NOT COVERED
+  330:         if (ch0 == UNDERSCORE || ch0 == DASH) {  // <-- NOT COVERED
+  331:             if (len < 3) {  // <-- NOT COVERED
+  332:                 throw new IllegalArgumentException("Invalid locale format: " + str);  // <-- NOT COVERED
+  333:             }
+  334:             final char ch1 = str.charAt(1);  // <-- NOT COVERED
+  335:             final char ch2 = str.charAt(2);  // <-- NOT COVERED
+  336:             if (!Character.isUpperCase(ch1) || !Character.isUpperCase(ch2)) {  // <-- NOT COVERED
+  337:                 throw new IllegalArgumentException("Invalid locale format: " + str);  // <-- NOT COVERED
+  338:             }
+  339:             if (len == 3) {  // <-- NOT COVERED
+  340:                 return new Locale(StringUtils.EMPTY, str.substring(1, 3));  // <-- NOT COVERED
+  341:             }
+  342:             if (len < 5) {  // <-- NOT COVERED
+  343:                 throw new IllegalArgumentException("Invalid locale format: " + str);  // <-- NOT COVERED
+  344:             }
+  345:             if (str.charAt(3) != ch0) {  // <-- NOT COVERED
+  346:                 throw new IllegalArgumentException("Invalid locale format: " + str);  // <-- NOT COVERED
+  347:             }
+  348:             return new Locale(StringUtils.EMPTY, str.substring(1, 3), str.substring(4));  // <-- NOT COVERED
+  349:         }
+  350: 
+  351:         return parseLocale(str);  // <-- NOT COVERED
+  352:     }
+  353: 
+    ...
+  359:      * to operate.</p>
+  360:      */
+  361:     public LocaleUtils() {  // <-- NOT COVERED
+  362:     }  // <-- NOT COVERED
+  363: 
+  364: }
+
+Existing test methods (do not duplicate them):
+testAvailableLocaleList, testAvailableLocaleSet, testCountriesByLanguage_validLanguageCode, testCountriesByLanguage_nullLanguageCode, testIsAvailableLocale_validLocale, testIsAvailableLocale_nullLocale, testIsLanguageUndetermined_validLocale, testIsLanguageUndetermined_nullLocale, testLanguagesByCountry_validCountryCode, testLanguagesByCountry_nullCountryCode, testToLocale_validLocale, testToLocale_emptyString, testToLocale_invalidFormat_withHash, testToLocale_invalidFormat_tooShort, testToLocale_invalidFormat_missingCountry
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class LocaleUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.LocaleUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+/** Operations to assist when working with a {@link Locale}. */
+public class LocaleUtils {
+    static class SyncAvoid {
+        /** Unmodifiable list of available locales. */
+        private static final List<Locale> AVAILABLE_LOCALE_LIST;
+        /** Unmodifiable set of available locales. */
+        private static final Set<Locale> AVAILABLE_LOCALE_SET;
+        static {
+            final List<Locale> list = new ArrayList<>(Arrays.asList(Locale.getAvailableLocales()));  // extra safe
+            AVAILABLE_LOCALE_LIST = Collections.unmodifiableList(list);
+            AVAILABLE_LOCALE_SET = Collections.unmodifiableSet(new HashSet<>(list));
+        }
+    }
+    private static final char UNDERSCORE = '_';
+    private static final String UNDETERMINED = "und";
+    private static final char DASH = '-';
+    /** Concurrent map of language locales by country. */
+    private static final ConcurrentMap<String, List<Locale>> cLanguagesByCountry =
+        new ConcurrentHashMap<>();
+    /** Concurrent map of country locales by language. */
+    private static final ConcurrentMap<String, List<Locale>> cCountriesByLanguage =
+        new ConcurrentHashMap<>();
+    /** Obtains an unmodifiable list of installed locales. */
+    public static List<Locale> availableLocaleList() {
+        return SyncAvoid.AVAILABLE_LOCALE_LIST;
+    }
+    /** Obtains an unmodifiable set of installed locales. */
+    public static Set<Locale> availableLocaleSet() {
+        return SyncAvoid.AVAILABLE_LOCALE_SET;
+    }
+    /** Obtains the list of countries supported for a given language. */
+    public static List<Locale> countriesByLanguage(final String languageCode) {
+        if (languageCode == null) {
+            return Collections.emptyList();
+        }
+        return cCountriesByLanguage.computeIfAbsent(languageCode, lc -> Collections.unmodifiableList(
+            availableLocaleList(locale -> languageCode.equals(locale.getLanguage()) && !locale.getCountry().isEmpty() && locale.getVariant().isEmpty())));
+    }
+    /** Checks if the locale specified is in the set of available locales. */
+    public static boolean isAvailableLocale(final Locale locale) {
+        return availableLocaleSet().contains(locale);
+    }
+    /** Tests whether a Locale's language is undetermined. */
+    public static boolean isLanguageUndetermined(final Locale locale) {
+        return locale == null || UNDETERMINED.equals(locale.toLanguageTag());
+    }
+    /** Obtains the list of languages supported for a given country. */
+    public static List<Locale> languagesByCountry(final String countryCode) {
+        if (countryCode == null) {
+            return Collections.emptyList();
+        }
+        return cLanguagesByCountry.computeIfAbsent(countryCode,
+            k -> Collections.unmodifiableList(availableLocaleList(locale -> countryCode.equals(locale.getCountry()) && locale.getVariant().isEmpty())));
+    }
+    /** Obtains the list of locales to search through when performing a locale search. */
+    public static List<Locale> localeLookupList(final Locale locale) {
+        return localeLookupList(locale, locale);
+    }
+    /** Obtains the list of locales to search through when performing a locale search. */
+    public static List<Locale> localeLookupList(final Locale locale, final Locale defaultLocale) {
+        final List<Locale> list = new ArrayList<>(4);
+        if (locale != null) {
+            list.add(locale);
+            if (!locale.getVariant().isEmpty()) {
+                list.add(new Locale(locale.getLanguage(), locale.getCountry()));
+            }
+            if (!locale.getCountry().isEmpty()) {
+                list.add(new Locale(locale.getLanguage(), StringUtils.EMPTY));
+            }
+            if (!list.contains(defaultLocale)) {
+                list.add(defaultLocale);
+            }
+        }
+        return Collections.unmodifiableList(list);
+    }
+    /** Returns the given locale if non-{@code null}, otherwise {@link Locale#getDefault()}. */
+    public static Locale toLocale(final Locale locale) {
+        return locale != null ? locale : Locale.getDefault();
+    }
+    /** Converts a String to a Locale. */
+    public static Locale toLocale(final String str) {
+        if (str == null) {
+            // TODO Should this return the default locale?
+            return null;
+        }
+        if (str.isEmpty()) { // LANG-941 - JDK 8 introduced an empty locale where all fields are blank
+            return new Locale(StringUtils.EMPTY, StringUtils.EMPTY);
+        }
+        if (str.contains("#")) { // LANG-879 - Cannot handle Java 7 script & extensions
+            throw new IllegalArgumentException("Invalid locale format: " + str);
+        }
+        final int len = str.length();
+        if (len < 2) {
+            throw new IllegalArgumentException("Invalid locale format: " + str);
+        }
+        final char ch0 = str.charAt(0);
+        if (ch0 == UNDERSCORE || ch0 == DASH) {
+            if (len < 3) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            final char ch1 = str.charAt(1);
+            final char ch2 = str.charAt(2);
+            if (!Character.isUpperCase(ch1) || !Character.isUpperCase(ch2)) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            if (len == 3) {
+                return new Locale(StringUtils.EMPTY, str.substring(1, 3));
+            }
+            if (len < 5) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            if (str.charAt(3) != ch0) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            return new Locale(StringUtils.EMPTY, str.substring(1, 3), str.substring(4));
+        }
+
+        return parseLocale(str);
+    }
+    /** {@link LocaleUtils} instances should NOT be constructed in standard programming. */
+    public LocaleUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static List<Locale> availableLocaleList(final Predicate<Locale> predicate);
+    private static Locale parseLocale(final String str);
+}
+```

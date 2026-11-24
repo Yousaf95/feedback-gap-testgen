@@ -1,0 +1,19 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[210,95] CAUSE_METHOD_NAMES has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[215,49] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[222,78] reference to printRootCauseStackTrace is ambiguous
+  both method printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream) in org.apache.commons.lang3.exception.ExceptionUtils and method printRootCauseStackTrace(java.lang.Throwable,java.io.PrintWriter) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[210,95] CAUSE_METHOD_NAMES has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[215,49] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[222,78] reference to printRootCauseStackTrace is ambiguous
+[ERROR]   both method printRootCauseStackTrace(java.lang.Throwable,java.io.PrintStream) in org.apache.commons.lang3.exception.ExceptionUtils and method printRootCauseStackTrace(java.lang.Throwable,java.io.PrintWriter) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

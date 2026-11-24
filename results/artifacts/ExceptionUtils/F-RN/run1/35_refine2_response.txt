@@ -1,0 +1,87 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetDefaultCauseMethodNames_3() {
+        String[] methodNames = ExceptionUtils.getDefaultCauseMethodNames();
+        assertTrue(Arrays.asList(methodNames).contains("getCause"));
+        assertTrue(Arrays.asList(methodNames).contains("getNextException"));
+        assertFalse(Arrays.asList(methodNames).contains("nonExistentMethod"));
+    }
+
+    @Test
+    public void testGetMessageWithEmptyThrowable() {
+        String message = ExceptionUtils.getMessage(new Throwable());
+        assertEquals("", message);
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithEmptyThrowable() {
+        String rootCauseMessage = ExceptionUtils.getRootCauseMessage(new Throwable());
+        assertEquals("", rootCauseMessage);
+    }
+
+    @Test
+    public void testGetStackTraceWithEmptyThrowable() {
+        String stackTrace = ExceptionUtils.getStackTrace(new Throwable());
+        assertTrue(stackTrace.contains("java.lang.Throwable"));
+    }
+
+    @Test
+    public void testGetThrowableCountWithNullThrowable() {
+        int throwableCount = ExceptionUtils.getThrowableCount(null);
+        assertEquals(0, throwableCount);
+    }
+
+    @Test
+    public void testGetThrowableListWithNullThrowable() {
+        List<Throwable> throwableList = ExceptionUtils.getThrowableList(null);
+        assertTrue(throwableList.isEmpty());
+    }
+
+    @Test
+    public void testGetThrowablesWithNullThrowable() {
+        Throwable[] throwables = ExceptionUtils.getThrowables(null);
+        assertTrue(Arrays.equals(ArrayUtils.EMPTY_THROWABLE_ARRAY, throwables));
+    }
+
+    @Test
+    public void testIndexOfThrowableWithEmptyThrowable() {
+        int index = ExceptionUtils.indexOfThrowable(new Throwable(), new RuntimeException());
+        assertEquals(-1, index);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        ExceptionUtils.printRootCauseStackTrace(null, ps);
+        assertTrue(baos.toString().isEmpty());
+    }
+
+    @Test
+    public void testRemoveCommonFramesWithNonEmptyLists() {
+        List<String> causeFrames = Arrays.asList("a", "b", "c");
+        List<String> wrapperFrames = Arrays.asList("x", "y", "b", "c");
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(Arrays.asList("a"), causeFrames);
+    }
+
+    @Test
+    public void testStreamWithNullThrowable() {
+        Stream<Throwable> stream = ExceptionUtils.stream(null);
+        assertTrue(stream.collect(Collectors.toList()).isEmpty());
+    }
+}
+```

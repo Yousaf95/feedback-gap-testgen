@@ -1,0 +1,21 @@
+[ERROR] Tests run: 24, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.173 s <<< FAILURE! -- in org.apache.commons.lang3.Range_GenTest
+[ERROR] org.apache.commons.lang3.Range_GenTest.testIsWithNullValueReturnsFalse_2 -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: element1
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.Range.<init>(Range.java:222)
+	at org.apache.commons.lang3.Range.of(Range.java:183)
+	at org.apache.commons.lang3.Range.is(Range.java:121)
+	at org.apache.commons.lang3.Range_GenTest.testIsWithNullValueReturnsFalse_2(Range_GenTest.java:139)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   Range_GenTest.testIsWithNullValueReturnsFalse_2:139 » NullPointer element1
+[ERROR] Tests run: 24, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w4/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

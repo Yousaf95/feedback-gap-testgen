@@ -1,0 +1,51 @@
+[ERROR] Tests run: 54, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.287 s <<< FAILURE! -- in org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testIsFalseNull_2 -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testIsFalseNull_2(BooleanUtils_GenTest.java:275)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testToBooleanObjectZero_2 -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+	at org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+	at org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:30)
+	at org.junit.jupiter.api.Assertions.assertNull(Assertions.java:279)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testToBooleanObjectZero_2(BooleanUtils_GenTest.java:301)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testToBooleanObjectNullValue_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: The Integer did not match any specified value
+	at org.apache.commons.lang3.BooleanUtils.toBooleanObject(BooleanUtils.java:693)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testToBooleanObjectNullValue_2(BooleanUtils_GenTest.java:311)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   BooleanUtils_GenTest.testIsFalseNull_2:275 expected: <true> but was: <false>
+[ERROR]   BooleanUtils_GenTest.testToBooleanObjectZero_2:301 expected: <null> but was: <false>
+[ERROR] Errors: 
+[ERROR]   BooleanUtils_GenTest.testToBooleanObjectNullValue_2:311 » IllegalArgument The Integer did not match any specified value
+[ERROR] Tests run: 54, Failures: 2, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w12/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

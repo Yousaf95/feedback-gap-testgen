@@ -1,0 +1,69 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiExtended() {
+        assertFalse(CharUtils.isAscii('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiAlphaExtended() {
+        assertFalse(CharUtils.isAsciiAlpha('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiAlphanumericExtended() {
+        assertFalse(CharUtils.isAsciiAlphanumeric('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiControlExtended() {
+        assertTrue(CharUtils.isAsciiControl((char) 32)); // Space character
+    }
+
+    @Test
+    public void testIsAsciiNumericExtended() {
+        assertFalse(CharUtils.isAsciiNumeric('\u0100')); // Latin capital letter A with macron
+    }
+
+    @Test
+    public void testIsAsciiPrintableExtended() {
+        assertTrue(CharUtils.isAsciiPrintable((char) 32)); // Space character
+    }
+
+    @Test
+    public void testToChar_CharacterNull() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar(null));
+    }
+
+    @Test
+    public void testToChar_StringEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toChar(""));
+    }
+
+    @Test
+    public void testToCharacterObject_EmptyString() {
+        assertNull(CharUtils.toCharacterObject(""));
+    }
+
+    @Test
+    public void testToIntValue_InvalidCharacter() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToString_CharacterNull() {
+        assertNull(CharUtils.toString(null));
+    }
+
+    @Test
+    public void testUnicodeEscaped_CharacterExtended() {
+        assertEquals("\\u0100", CharUtils.unicodeEscaped('\u0100')); // Latin capital letter A with macron
+    }
+}
+```

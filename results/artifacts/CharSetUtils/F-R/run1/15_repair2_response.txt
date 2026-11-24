@@ -1,0 +1,129 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ArrayUtils.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+public class CharSetUtils_GenTest {
+
+    @ParameterizedTest
+    @CsvSource({
+        "abc, a,b,c,true",
+        "abc, d,e,f,false",
+        ",a,b,c,false",
+        "abc,,c,true",
+        "abc,a,,true",
+        "abc,,b,true",
+        "abc,,,false"
+    })
+    public void testContainsAny(String str, String set1, String set2, boolean expected) {
+        assertTrue(containsAny(str, new String[]{set1, set2}) == expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "abc, a,b,c,3",
+        "abc, d,e,f,0",
+        ",a,b,c,0",
+        "abc,,c,1",
+        "abc,a,,1",
+        "abc,,b,1",
+        "abc,,,0"
+    })
+    public void testCount(String str, String set1, String set2, int expected) {
+        assertEquals(count(str, new String[]{set1, set2}), expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "abc, a,b,c,abc",
+        "abc, d,e,f,abc",
+        ",a,b,c,,",
+        "abc,,c,abc",
+        "abc,a,,abc",
+        "abc,,b,abc",
+        "abc,,,abc"
+    })
+    public void testDelete(String str, String set1, String set2, String expected) {
+        assertEquals(delete(str, new String[]{set1, set2}), expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "abc, a,b,c,a",
+        "abc, d,e,f,,",
+        ",a,b,c,,",
+        "abc,,c,a",
+        "abc,a,,a",
+        "abc,,b,a",
+        "abc,,,a"
+    })
+    public void testKeep(String str, String set1, String set2, String expected) {
+        assertEquals(keep(str, new String[]{set1, set2}), expected);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "abc, a,b,c,abc",
+        "abc, d,e,f,abc",
+        ",a,b,c,,",
+        "abc,,c,a",
+        "abc,a,,a",
+        "abc,,b,a",
+        "abc,,,a"
+    })
+    public void testSqueeze(String str, String set1, String set2, String expected) {
+        assertEquals(squeeze(str, new String[]{set1, set2}), expected);
+    }
+
+    @Test
+    public void testContainsAny_NullString() {
+        assertFalse(containsAny(null, "a", "b"));
+    }
+
+    @Test
+    public void testContainsAny_EmptyString() {
+        assertFalse(containsAny("", "a", "b"));
+    }
+
+    @Test
+    public void testContainsAny_EmptySet() {
+        assertFalse(containsAny("abc", ""));
+    }
+
+    @Test
+    public void testCount_NullString() {
+        assertEquals(count(null, "a", "b"), 0);
+    }
+
+    @Test
+    public void testCount_EmptyString() {
+        assertEquals(count("", "a", "b"), 0);
+    }
+
+    @Test
+    public void testCount_EmptySet() {
+        assertEquals(count("abc", ""), 0);
+    }
+
+    @Test
+    public void testDelete_NullString() {
+        assertNull(delete(null, "a", "b"));
+    }
+
+    @Test
+    public void testKeep_NullString() {
+        assertNull(keep(null, "a", "b"));
+    }
+
+    @Test
+    public void testSqueeze_NullString() {
+        assertNull(squeeze(null, "a", "b"));
+    }
+}
+```

@@ -1,0 +1,33 @@
+{
+  "models": {
+    "F": {
+      "tag": "qwen2.5-coder:7b-instruct-fp16",
+      "role": "small local (~7B), FP16 weights (post-hoc quantization check)",
+      "port": 11436
+    }
+  },
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "num_ctx": 20480,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "K_comp": 3,
+  "K_cov": 3,
+  "branch_stop": 0.9,
+  "context_budget_tokens": 6000,
+  "max_uncovered_lines": 60,
+  "pit_threads": 2,
+  "pit_mutators": "DEFAULTS",
+  "junit_default_timeout": "10 s",
+  "configs": {
+    "S-ZS": "small, prune only",
+    "S-R": "small, repair",
+    "S-RC": "small, repair + coverage loop",
+    "L-ZS": "large, prune only",
+    "L-R": "large, repair",
+    "L-RC": "large, repair + coverage loop"
+  }
+}

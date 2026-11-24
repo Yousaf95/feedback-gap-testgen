@@ -1,0 +1,99 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+class SystemUtils_GenTest {
+
+    @Test
+    public void testGetUserCountry() {
+        String userCountry = SystemUtils.USER_COUNTRY;
+        assertNotNull(userCountry);
+        assertTrue(Locale.getISOCountries().contains(userCountry));
+    }
+
+    @Test
+    public void testIsOSLinux() {
+        boolean isLinux = SystemUtils.IS_OS_LINUX;
+        if (System.getProperty("os.name").toLowerCase().contains("linux")) {
+            assertTrue(isLinux);
+        } else {
+            assertFalse(isLinux);
+        }
+    }
+
+    @Test
+    public void testIsJavaVersionAtLeast() {
+        boolean isJava17OrLater = SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_17);
+        if (System.getProperty("java.version").startsWith("17")) {
+            assertTrue(isJava17OrLater);
+        } else {
+            assertFalse(isJava17OrLater);
+        }
+    }
+
+    @Test
+    public void testGetEnvironmentVariable() {
+        String value = SystemUtils.getEnvironmentVariable("PATH", "default");
+        assertNotNull(value);
+    }
+
+    @Test
+    public void testIsOSMatch() {
+        boolean isMacOsX = SystemUtils.isOSMatch("Mac OS X", "10.15", "Mac", "10.15");
+        if (System.getProperty("os.name").toLowerCase().contains("mac os x") && System.getProperty("os.version").startsWith("10.15")) {
+            assertTrue(isMacOsX);
+        } else {
+            assertFalse(isMacOsX);
+        }
+    }
+
+    @Test
+    public void testIsOSNameMatch() {
+        boolean isWindows = SystemUtils.isOSNameMatch(System.getProperty("os.name"), "Windows");
+        if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+            assertTrue(isWindows);
+        } else {
+            assertFalse(isWindows);
+        }
+    }
+
+    @Test
+    public void testIsOSVersionMatch() {
+        boolean isJava17 = SystemUtils.isOSVersionMatch(System.getProperty("java.version"), "17");
+        if (System.getProperty("java.version").startsWith("17")) {
+            assertTrue(isJava17);
+        } else {
+            assertFalse(isJava17);
+        }
+    }
+
+    @Test
+    public void testGetUserName() {
+        String userName = SystemUtils.getUserName();
+        assertNotNull(userName);
+    }
+
+    @Test
+    public void testIsOSUnix() {
+        boolean isUnix = SystemUtils.IS_OS_UNIX;
+        if (System.getProperty("os.name").toLowerCase().contains("nix") || System.getProperty("os.name").toLowerCase().contains("nux")
+                || System.getProperty("os.name").toLowerCase().contains("mac")) {
+            assertTrue(isUnix);
+        } else {
+            assertFalse(isUnix);
+        }
+    }
+
+    @Test
+    public void testIsOSWindows() {
+        boolean isWindows = SystemUtils.IS_OS_WINDOWS;
+        if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
+            assertTrue(isWindows);
+        } else {
+            assertFalse(isWindows);
+        }
+    }
+}
+```

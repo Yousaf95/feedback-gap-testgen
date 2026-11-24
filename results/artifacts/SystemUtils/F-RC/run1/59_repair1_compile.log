@@ -1,0 +1,37 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[247,43] cannot find symbol
+  symbol:   method getUserCountry()
+  location: class org.apache.commons.lang3.SystemUtils
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[253,43] cannot find symbol
+  symbol:   method getUserCountry()
+  location: class org.apache.commons.lang3.SystemUtils
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[283,50] method getEnvironmentVariable in class org.apache.commons.lang3.SystemUtils cannot be applied to given types;
+  required: java.lang.String,java.lang.String
+  found:    java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[288,35] method getEnvironmentVariable in class org.apache.commons.lang3.SystemUtils cannot be applied to given types;
+  required: java.lang.String,java.lang.String
+  found:    java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[247,43] cannot find symbol
+[ERROR]   symbol:   method getUserCountry()
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[253,43] cannot find symbol
+[ERROR]   symbol:   method getUserCountry()
+[ERROR]   location: class org.apache.commons.lang3.SystemUtils
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[283,50] method getEnvironmentVariable in class org.apache.commons.lang3.SystemUtils cannot be applied to given types;
+[ERROR]   required: java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[288,35] method getEnvironmentVariable in class org.apache.commons.lang3.SystemUtils cannot be applied to given types;
+[ERROR]   required: java.lang.String,java.lang.String
+[ERROR]   found:    java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

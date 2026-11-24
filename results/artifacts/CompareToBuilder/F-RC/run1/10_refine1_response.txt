@@ -1,0 +1,173 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testReflectionCompare_NullObjects() {
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(null, new Object()));
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(new Object(), null));
+    }
+
+    @Test
+    public void testReflectionCompare_SameObject() {
+        assertEquals(0, CompareToBuilder.reflectionCompare("test", "test"));
+    }
+
+    @Test
+    public void testReflectionCompare_DifferentObjects() {
+        assertNotEquals(0, CompareToBuilder.reflectionCompare("test1", "test2"));
+    }
+
+    @Test
+    public void testReflectionCompare_ClassCastException() {
+        assertThrows(ClassCastException.class, () -> CompareToBuilder.reflectionCompare(new Object(), new Integer(1)));
+    }
+
+    @Test
+    public void testAppendBoolean_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(true, false);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendBoolean_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(false, false);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendByte_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((byte) 1, (byte) 2);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendByte_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((byte) 0, (byte) 0);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendChar_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append('a', 'b');
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendChar_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append('a', 'a');
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendDouble_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1.0, 2.0);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendDouble_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(0.0, 0.0);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendFloat_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1.0f, 2.0f);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendFloat_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(0.0f, 0.0f);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendInt_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendInt_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(0, 0);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendLong_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1L, 2L);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendLong_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(0L, 0L);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendShort_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((short) 1, (short) 2);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendShort_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((short) 0, (short) 0);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendObject_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append("test1", "test2");
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendObject_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append("test", "test");
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArray_ComparisonNotZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new int[]{1}, new int[]{2});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArray_ComparisonZero() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new int[]{0}, new int[]{0});
+        assertEquals(0, builder.toComparison());
+    }
+}
+```

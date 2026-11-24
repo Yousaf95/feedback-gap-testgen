@@ -1,0 +1,363 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class ObjectUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideAllNotNullCases")
+    public void testAllNotNull(Object... values) {
+        assertTrue(ObjectUtils.allNotNull(values));
+    }
+
+    private static Stream<Arguments> provideAllNotNullCases() {
+        return Stream.of(
+            arguments(1, 2, 3),
+            arguments("a", "b", "c"),
+            arguments(new Object(), new Object())
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAnyNotNullCases")
+    public void testAnyNotNull(Object... values) {
+        assertTrue(ObjectUtils.anyNotNull(values));
+    }
+
+    private static Stream<Arguments> provideAnyNotNullCases() {
+        return Stream.of(
+            arguments(1, null, 3),
+            arguments(null, "b", null),
+            arguments(new Object(), null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAllNullCases")
+    public void testAllNull(Object... values) {
+        assertTrue(ObjectUtils.allNull(values));
+    }
+
+    private static Stream<Arguments> provideAllNullCases() {
+        return Stream.of(
+            arguments((Object[]) null),
+            arguments(null, null, null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAnyNullCases")
+    public void testAnyNull(Object... values) {
+        assertTrue(ObjectUtils.anyNull(values));
+    }
+
+    private static Stream<Arguments> provideAnyNullCases() {
+        return Stream.of(
+            arguments(1, null, 3),
+            arguments(null, "b", null),
+            arguments(new Object(), null)
+        );
+    }
+
+    @Test
+    public void testClone() {
+        String original = "test";
+        String cloned = ObjectUtils.clone(original);
+        assertEquals(original, cloned);
+        assertNotSame(original, cloned);
+    }
+
+    @Test
+    public void testCloneIfPossible() {
+        String original = "test";
+        String cloned = ObjectUtils.cloneIfPossible(original);
+        assertEquals(original, cloned);
+        assertNotSame(original, cloned);
+
+        Object nullObject = null;
+        assertNull(ObjectUtils.cloneIfPossible(nullObject));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCompareCases")
+    public void testCompare(Comparable<?> c1, Comparable<?> c2, int expected) {
+        assertEquals(expected, ObjectUtils.compare(c1, c2));
+    }
+
+    private static Stream<Arguments> provideCompareCases() {
+        return Stream.of(
+            arguments(1, 2, -1),
+            arguments(2, 1, 1),
+            arguments(1, 1, 0),
+            arguments("a", "b", -1),
+            arguments("b", "a", 1),
+            arguments("a", "a", 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCompareNullCases")
+    public void testCompareWithNull(Comparable<?> c1, Comparable<?> c2, boolean nullGreater, int expected) {
+        assertEquals(expected, ObjectUtils.compare(c1, c2, nullGreater));
+    }
+
+    private static Stream<Arguments> provideCompareNullCases() {
+        return Stream.of(
+            arguments(null, 1, false, -1),
+            arguments(1, null, false, 1),
+            arguments(null, null, false, 0),
+            arguments(null, 1, true, 1),
+            arguments(1, null, true, -1),
+            arguments(null, null, true, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDefaultIfNullCases")
+    public void testDefaultIfNull(Object object, Object defaultValue, Object expected) {
+        assertEquals(expected, ObjectUtils.defaultIfNull(object, defaultValue));
+    }
+
+    private static Stream<Arguments> provideDefaultIfNullCases() {
+        return Stream.of(
+            arguments(null, "default", "default"),
+            arguments("value", "default", "value")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFirstNonNullCases")
+    public void testFirstNonNull(Object... values) {
+        assertEquals(values[0], ObjectUtils.firstNonNull(values));
+    }
+
+    private static Stream<Arguments> provideFirstNonNullCases() {
+        return Stream.of(
+            arguments(null, 2, 3),
+            arguments(1, null, 3),
+            arguments(1, 2, null)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetClassCases")
+    public void testGetClass(Object object, Class<?> expected) {
+        assertEquals(expected, ObjectUtils.getClass(object));
+    }
+
+    private static Stream<Arguments> provideGetClassCases() {
+        return Stream.of(
+            arguments(null, null),
+            arguments(1, Integer.class),
+            arguments("test", String.class)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetFirstNonNullCases")
+    public void testGetFirstNonNull(Supplier<?>... suppliers) {
+        assertEquals(suppliers[0].get(), ObjectUtils.getFirstNonNull(suppliers));
+    }
+
+    private static Stream<Arguments> provideGetFirstNonNullCases() {
+        return Stream.of(
+            arguments(Suppliers.of(1), Suppliers.of(null), Suppliers.of(3)),
+            arguments(Suppliers.of(null), Suppliers.of("b"), Suppliers.of(null))
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetIfNullCases")
+    public void testGetIfNull(Object object, Supplier<?> defaultSupplier, Object expected) {
+        assertEquals(expected, ObjectUtils.getIfNull(object, defaultSupplier));
+    }
+
+    private static Stream<Arguments> provideGetIfNullCases() {
+        return Stream.of(
+            arguments(null, Suppliers.of("default"), "default"),
+            arguments("value", Suppliers.of("default"), "value")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideHashCodeHexCases")
+    public void testHashCodeHex(Object object, String expected) {
+        assertEquals(expected, ObjectUtils.hashCodeHex(object));
+    }
+
+    private static Stream<Arguments> provideHashCodeHexCases() {
+        return Stream.of(
+            arguments(null, "0"),
+            arguments(1, "31"),
+            arguments("test", "74657374")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIdentityToStringCases")
+    public void testIdentityToString(Object object, String expected) {
+        assertEquals(expected, ObjectUtils.identityToString(object));
+    }
+
+    private static Stream<Arguments> provideIdentityToStringCases() {
+        return Stream.of(
+            arguments(null, null),
+            arguments(1, "java.lang.Integer@31"),
+            arguments("test", "java.lang.String@74657374")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsArrayCases")
+    public void testIsArray(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isArray(object));
+    }
+
+    private static Stream<Arguments> provideIsArrayCases() {
+        return Stream.of(
+            arguments(null, false),
+            arguments(1, false),
+            arguments(new int[]{}, true),
+            arguments("test", false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsEmptyCases")
+    public void testIsEmpty(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsEmptyCases() {
+        return Stream.of(
+            arguments(null, true),
+            arguments("", true),
+            arguments(new int[]{}, true),
+            arguments("test", false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsNotEmptyCases")
+    public void testIsNotEmpty(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isNotEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsNotEmptyCases() {
+        return Stream.of(
+            arguments(null, false),
+            arguments("", false),
+            arguments(new int[]{}, false),
+            arguments("test", true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMaxCases")
+    public void testMax(Comparable<?>... values) {
+        assertEquals(values[0], ObjectUtils.max(values));
+    }
+
+    private static Stream<Arguments> provideMaxCases() {
+        return Stream.of(
+            arguments(3, 2, 1),
+            arguments("c", "b", "a"),
+            arguments(new Integer[]{3, 2, 1})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMedianCases")
+    public void testMedian(Comparator<?> comparator, Comparable<?>... items) {
+        assertEquals(items[0], ObjectUtils.median(comparator, items));
+    }
+
+    private static Stream<Arguments> provideMedianCases() {
+        return Stream.of(
+            arguments(null, 1, 2, 3),
+            arguments(null, "c", "b", "a"),
+            arguments(null, new Integer[]{3, 2, 1})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMinCases")
+    public void testMin(Comparable<?>... values) {
+        assertEquals(values[0], ObjectUtils.min(values));
+    }
+
+    private static Stream<Arguments> provideMinCases() {
+        return Stream.of(
+            arguments(1, 2, 3),
+            arguments("a", "b", "c"),
+            arguments(new Integer[]{3, 2, 1})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideModeCases")
+    public void testMode(Comparable<?>... items) {
+        assertEquals(items[0], ObjectUtils.mode(items));
+    }
+
+    private static Stream<Arguments> provideModeCases() {
+        return Stream.of(
+            arguments(1, 2, 3),
+            arguments("a", "b", "c"),
+            arguments(new Integer[]{3, 2, 1})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNotEqualCases")
+    public void testNotEqual(Object object1, Object object2, boolean expected) {
+        assertEquals(expected, ObjectUtils.notEqual(object1, object2));
+    }
+
+    private static Stream<Arguments> provideNotEqualCases() {
+        return Stream.of(
+            arguments(1, 2, true),
+            arguments("a", "b", true),
+            arguments(new Integer[]{3, 2, 1}, new Integer[]{3, 2, 1}, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRequireNonEmptyCases")
+    public void testRequireNonEmpty(Object obj, String message) {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(obj, message));
+    }
+
+    private static Stream<Arguments> provideRequireNonEmptyCases() {
+        return Stream.of(
+            arguments(null, "object"),
+            arguments("", "object")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideToStringCases")
+    public void testToString(Object obj, String nullStr, String expected) {
+        assertEquals(expected, ObjectUtils.toString(obj, nullStr));
+    }
+
+    private static Stream<Arguments> provideToStringCases() {
+        return Stream.of(
+            arguments(null, "default", "default"),
+            arguments(1, "default", "1"),
+            arguments("test", "default", "test")
+        );
+    }
+}
+```

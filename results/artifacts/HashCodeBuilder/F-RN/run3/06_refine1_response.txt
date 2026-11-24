@@ -1,0 +1,79 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testAppendNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        assertEquals(17, builder.append((Object) null).toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        assertEquals(17, builder.append(new Object[0]).toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object[] array = { "a", 123, true };
+        assertEquals(17 * 37 + "a".hashCode() + 123 + (true ? 0 : 1), builder.append(array).toHashCode());
+    }
+
+    @Test
+    public void testAppendNullArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object[] array = null;
+        assertEquals(17 * 37, builder.append(array).toHashCode());
+    }
+
+    @Test
+    public void testAppendSuperHashCode() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        int superHashCode = 42;
+        assertEquals(17 * 37 + superHashCode, builder.appendSuper(superHashCode).toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCodeNullObject() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode((Object) null));
+    }
+
+    @Test
+    public void testReflectionHashCodeEmptyClass() {
+        class EmptyClass {}
+        assertEquals(17 * 37, HashCodeBuilder.reflectionHashCode(new EmptyClass()));
+    }
+
+    @Test
+    public void testReflectionHashCodeNonEmptyClass() {
+        class NonEmptyClass {
+            private int field = 42;
+        }
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(new NonEmptyClass()));
+    }
+
+    @Test
+    public void testReflectionHashCodeTransientField() {
+        class TransientClass {
+            private transient int transientField = 42;
+        }
+        assertEquals(17 * 37, HashCodeBuilder.reflectionHashCode(new TransientClass(), true));
+    }
+
+    @Test
+    public void testReflectionHashCodeExcludeFields() {
+        class ExcludeFieldsClass {
+            private String fieldToInclude = "include";
+            private String fieldToExclude = "exclude";
+        }
+        assertEquals(17 * 37 + "include".hashCode(), HashCodeBuilder.reflectionHashCode(new ExcludeFieldsClass(), new String[] {"fieldToExclude"}));
+    }
+
+}
+```

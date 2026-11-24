@@ -1,0 +1,177 @@
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[222,29] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[264,29] cannot find symbol
+  symbol:   class Comparator
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[278,20] no suitable method found for append(java.lang.Object,<nulltype>)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[285,20] no suitable method found for append(java.lang.Object,java.util.List<java.lang.String>)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[222,29] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[264,29] cannot find symbol
+[ERROR]   symbol:   class Comparator
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[278,20] no suitable method found for append(java.lang.Object,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[285,20] no suitable method found for append(java.lang.Object,java.util.List<java.lang.String>)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

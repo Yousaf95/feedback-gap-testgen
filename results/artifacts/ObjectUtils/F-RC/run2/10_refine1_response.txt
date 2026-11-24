@@ -1,0 +1,81 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    public void testAllNotNull_withNullValues() {
+        assertFalse(ObjectUtils.allNotNull(null, "value"));
+    }
+
+    @Test
+    public void testAllNotNull_withNonNullValues() {
+        assertTrue(ObjectUtils.allNotNull("value1", "value2"));
+    }
+
+    @Test
+    public void testAnyNull_withNullValues() {
+        assertTrue(ObjectUtils.anyNull(null, "value"));
+    }
+
+    @Test
+    public void testAnyNull_withNonNullValues() {
+        assertFalse(ObjectUtils.anyNull("value1", "value2"));
+    }
+
+    @Test
+    public void testCloneWithArray() {
+        Integer[] original = {1, 2, 3};
+        Integer[] cloned = ObjectUtils.clone(original);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    public void testCloneWithNonArrayObject() {
+        String original = "test";
+        String cloned = ObjectUtils.clone(original);
+        assertEquals(original, cloned);
+    }
+
+    @Test
+    public void testCloneWithNull() {
+        assertNull(ObjectUtils.clone(null));
+    }
+
+    @Test
+    public void testCompare_withNullValues() {
+        assertEquals(0, ObjectUtils.compare(null, null));
+    }
+
+    @Test
+    public void testCompare_withNonNullValues() {
+        assertEquals(-1, ObjectUtils.compare("apple", "banana"));
+    }
+
+    @Test
+    public void testCONST_BYTE_withValidValue() {
+        byte result = ObjectUtils.CONST_BYTE(50);
+        assertEquals((byte) 50, result);
+    }
+
+    @Test
+    public void testCONST_SHORT_withValidValue() {
+        short result = ObjectUtils.CONST_SHORT(12345);
+        assertEquals((short) 12345, result);
+    }
+
+    @Test
+    public void testCONST_BYTE_withInvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(-129));
+    }
+
+    @Test
+    public void testCONST_SHORT_withInvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(32768));
+    }
+}
+```

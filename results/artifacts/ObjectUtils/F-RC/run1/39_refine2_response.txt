@@ -1,0 +1,261 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testReadResolve() {
+        // This method is private and returns a singleton instance, so we can't directly test it.
+        // However, we can ensure that the class has a no-arg constructor.
+        assertNotNull(new ObjectUtils.Null());
+    }
+
+    @Test
+    void testAllNotNull() {
+        assertTrue(ObjectUtils.allNotNull(1, "test", 3.14));
+        assertFalse(ObjectUtils.allNotNull(1, null, 3.14));
+        assertTrue(ObjectUtils.allNotNull());
+    }
+
+    @Test
+    void testAnyNull() {
+        assertFalse(ObjectUtils.anyNull(1, "test", 3.14));
+        assertTrue(ObjectUtils.anyNull(1, null, 3.14));
+        assertFalse(ObjectUtils.anyNull());
+    }
+
+    @Test
+    void testClone() {
+        Integer original = 42;
+        Integer cloned = ObjectUtils.clone(original);
+        assertEquals(original, cloned);
+
+        String[] array = {"a", "b", "c"};
+        String[] clonedArray = ObjectUtils.clone(array);
+        assertArrayEquals(array, clonedArray);
+
+        Cloneable cloneableObject = new Cloneable() {};
+        Cloneable clonedCloneable = ObjectUtils.clone(cloneableObject);
+        assertNotNull(clonedCloneable);
+
+        assertNull(ObjectUtils.clone(null));
+    }
+
+    @Test
+    void testCloneIfPossible() {
+        Integer original = 42;
+        Integer cloned = ObjectUtils.cloneIfPossible(original);
+        assertEquals(original, cloned);
+
+        String[] array = {"a", "b", "c"};
+        String[] clonedArray = ObjectUtils.cloneIfPossible(array);
+        assertArrayEquals(array, clonedArray);
+
+        Cloneable cloneableObject = new Cloneable() {};
+        Cloneable clonedCloneable = ObjectUtils.cloneIfPossible(cloneableObject);
+        assertNotNull(clonedCloneable);
+
+        assertNull(ObjectUtils.cloneIfPossible(null));
+    }
+
+    @Test
+    void testCONST() {
+        assertEquals(true, ObjectUtils.CONST(true));
+        assertEquals(false, ObjectUtils.CONST(false));
+        assertEquals('a', ObjectUtils.CONST('a'));
+        assertEquals(1, ObjectUtils.CONST(1));
+        assertEquals(3.14f, ObjectUtils.CONST(3.14f));
+        assertEquals(2.718, ObjectUtils.CONST(2.718));
+        assertEquals(0L, ObjectUtils.CONST(0L));
+        assertEquals((short) 1, ObjectUtils.CONST((short) 1));
+    }
+
+    @Test
+    void testCONST_BYTE() {
+        assertEquals((byte) -128, ObjectUtils.CONST_BYTE(-128));
+        assertEquals((byte) 127, ObjectUtils.CONST_BYTE(127));
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.CONST_BYTE(-129));
+        assertEquals("Supplied value must be a valid byte literal between -128 and 127: [-129]", exception.getMessage());
+
+        exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.CONST_BYTE(128));
+        assertEquals("Supplied value must be a valid byte literal between -128 and 127: [128]", exception.getMessage());
+    }
+
+    @Test
+    void testCONST_SHORT() {
+        assertEquals((short) -32768, ObjectUtils.CONST_SHORT(-32768));
+        assertEquals((short) 32767, ObjectUtils.CONST_SHORT(32767));
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.CONST_SHORT(-32769));
+        assertEquals("Supplied value must be a valid byte literal between -32768 and 32767: [-32769]", exception.getMessage());
+
+        exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.CONST_SHORT(32768));
+        assertEquals("Supplied value must be a valid byte literal between -32768 and 32767: [32768]", exception.getMessage());
+    }
+
+    @Test
+    void testDefaultIfNull() {
+        String result = ObjectUtils.defaultIfNull(null, "default");
+        assertEquals("default", result);
+
+        result = ObjectUtils.defaultIfNull("value", "default");
+        assertEquals("value", result);
+    }
+
+    @Test
+    void testFirstNonNull() {
+        String result = ObjectUtils.firstNonNull(null, "default");
+        assertEquals("default", result);
+
+        result = ObjectUtils.firstNonNull(null, null, "default");
+        assertEquals("default", result);
+
+        result = ObjectUtils.firstNonNull("value", null);
+        assertEquals("value", result);
+    }
+
+    @Test
+    void testGetFirstNonNull() {
+        Supplier<String> supplier1 = () -> null;
+        Supplier<String> supplier2 = () -> "value";
+        String result = ObjectUtils.getFirstNonNull(supplier1, supplier2);
+        assertEquals("value", result);
+
+        result = ObjectUtils.getFirstNonNull(supplier2, supplier1);
+        assertEquals("value", result);
+    }
+
+    @Test
+    void testGetIfNull() {
+        Supplier<String> supplier = () -> "default";
+        String result = ObjectUtils.getIfNull(null, supplier);
+        assertEquals("default", result);
+
+        result = ObjectUtils.getIfNull("value", supplier);
+        assertEquals("value", result);
+    }
+
+    @Test
+    void testHashCodeHex() {
+        assertEquals("0", ObjectUtils.hashCodeHex(null));
+        assertEquals(Integer.toHexString(Objects.hashCode("test")), ObjectUtils.hashCodeHex("test"));
+    }
+
+    @Test
+    void testIdentityToString() throws IOException {
+        String result = ObjectUtils.identityToString(new Object());
+        assertNotNull(result);
+
+        result = ObjectUtils.identityToString(null);
+        assertNull(result);
+
+        Appendable appendable = new StringBuilder();
+        ObjectUtils.identityToString(appendable, new Object());
+        assertTrue(appendable.toString().length() > 0);
+    }
+
+    @Test
+    void testIsArray() {
+        assertTrue(ObjectUtils.isArray(new int[]{}));
+        assertFalse(ObjectUtils.isArray("test"));
+        assertFalse(ObjectUtils.isArray(null));
+    }
+
+    @Test
+    void testIsEmpty() {
+        assertTrue(ObjectUtils.isEmpty(""));
+        assertTrue(ObjectUtils.isEmpty(new ArrayList<>())); // empty list
+        assertTrue(ObjectUtils.isEmpty((Object) null));
+
+        assertFalse(ObjectUtils.isEmpty("value"));
+        assertFalse(ObjectUtils.isEmpty(new ArrayList<>(Collections.singletonList("value")))); // non-empty list
+    }
+
+    @Test
+    void testIsNotEmpty() {
+        assertFalse(ObjectUtils.isNotEmpty(""));
+        assertFalse(ObjectUtils.isNotEmpty(new ArrayList<>())); // empty list
+        assertFalse(ObjectUtils.isNotEmpty((Object) null));
+
+        assertTrue(ObjectUtils.isNotEmpty("value"));
+        assertTrue(ObjectUtils.isNotEmpty(new ArrayList<>(Collections.singletonList("value")))); // non-empty list
+    }
+
+    @Test
+    void testMax() {
+        assertEquals(3.14, ObjectUtils.max(1.0, 2.0, 3.14));
+        assertNull(ObjectUtils.max());
+    }
+
+    @Test
+    void testMedian() {
+        assertEquals(2.0, ObjectUtils.median(1.0, 2.0, 3.0));
+        assertEquals(2.0, ObjectUtils.median((Comparator<Double>) Double::compareTo, 1.0, 2.0, 3.0));
+        assertNull(ObjectUtils.median());
+    }
+
+    @Test
+    void testMin() {
+        assertEquals(1.0, ObjectUtils.min(1.0, 2.0, 3.0));
+        assertNull(ObjectUtils.min());
+    }
+
+    @Test
+    void testMode() {
+        assertEquals("b", ObjectUtils.mode("a", "b", "b", "c"));
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    void testNotEqual() {
+        assertFalse(ObjectUtils.notEqual(null, null));
+        assertTrue(ObjectUtils.notEqual(1, 2));
+        assertTrue(ObjectUtils.notEqual("test", "other"));
+    }
+
+    @Test
+    void testRequireNonEmpty() {
+        String result = ObjectUtils.requireNonEmpty("value");
+        assertEquals("value", result);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.requireNonEmpty(""));
+        assertEquals("object must not be empty", exception.getMessage());
+
+        exception = assertThrows(IllegalArgumentException.class,
+            () -> ObjectUtils.requireNonEmpty((String) null));
+        assertEquals("object must not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testToString() {
+        String result = ObjectUtils.toString(null);
+        assertEquals("", result);
+
+        result = ObjectUtils.toString("value");
+        assertEquals("value", result);
+
+        Supplier<String> supplier = () -> "supplier";
+        result = ObjectUtils.toString(supplier, () -> "default");
+        assertEquals("supplier", result);
+    }
+
+    @Test
+    void testWait() throws InterruptedException {
+        // This method is not easily testable without a real object and thread.
+        // We can only ensure that it does not throw an exception.
+        Object obj = new Object();
+        Duration duration = Duration.ofMillis(100);
+        ObjectUtils.wait(obj, duration);
+    }
+}
+```

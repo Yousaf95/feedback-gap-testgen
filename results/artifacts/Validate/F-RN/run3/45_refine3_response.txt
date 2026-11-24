@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDoublePositiveValue() {
+        assertDoesNotThrow(() -> Validate.exclusiveBetween(1.0, 5.0, 3.0));
+    }
+
+    @Test
+    public void testExclusiveBetweenLongPositiveValue() {
+        assertDoesNotThrow(() -> Validate.exclusiveBetween(1L, 5L, 3L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDoublePositiveValue() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(1.0, 5.0, 3.0));
+    }
+
+    @Test
+    public void testInclusiveBetweenLongPositiveValue() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(1L, 5L, 3L));
+    }
+
+    @Test
+    public void testIsAssignableFromValidAssignment() {
+        assertDoesNotThrow(() -> Validate.isAssignableFrom(Number.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOfValidInstance() {
+        assertDoesNotThrow(() -> Validate.isInstanceOf(String.class, "test"));
+    }
+
+    @Test
+    public void testIsValidStateTrue() {
+        assertDoesNotThrow(() -> Validate.validState(true));
+    }
+
+    @Test
+    public void testMatchesPatternValidString() {
+        assertDoesNotThrow(() -> Validate.matchesPattern("hello", "h.*o"));
+    }
+
+    @Test
+    public void testNotEmptyNonEmptyCollection() {
+        assertDoesNotThrow(() -> Validate.notEmpty(Arrays.asList(1, 2, 3)));
+    }
+
+    @Test
+    public void testNotBlankNonBlankString() {
+        assertDoesNotThrow(() -> Validate.notBlank("test"));
+    }
+
+    @Test
+    public void testNotNullNonNullObject() {
+        assertDoesNotThrow(() -> Validate.notNull(new Object()));
+    }
+
+    @Test
+    public void testValidIndexValidIndex() {
+        assertDoesNotThrow(() -> Validate.validIndex(Arrays.asList(1, 2, 3), 1));
+    }
+}
+```

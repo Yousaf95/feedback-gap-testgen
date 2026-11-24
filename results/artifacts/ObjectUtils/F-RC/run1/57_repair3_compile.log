@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[264,50] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[303,17] cannot find symbol
+  symbol:   class Duration
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[303,37] cannot find symbol
+  symbol:   variable Duration
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[264,50] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[303,17] cannot find symbol
+[ERROR]   symbol:   class Duration
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[303,37] cannot find symbol
+[ERROR]   symbol:   variable Duration
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[147,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[202,37] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[221,33] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[239,29] element value must be a constant expression
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[147,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[202,37] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[221,33] element value must be a constant expression
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[239,29] element value must be a constant expression
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

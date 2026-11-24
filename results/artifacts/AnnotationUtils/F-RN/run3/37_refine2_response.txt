@@ -1,0 +1,170 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+public class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value();
+        int count() default 0;
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface AnotherTestAnnotation {
+        String name();
+    }
+
+    @Test
+    void testEquals_withEmptyAnnotations() {
+        TestAnnotation a1 = TestAnnotation.class.getAnnotation(TestAnnotation.class);
+        TestAnnotation a2 = TestAnnotation.class.getAnnotation(TestAnnotation.class);
+        assertTrue(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testHashCode_withEmptyAnnotations() {
+        TestAnnotation a1 = TestAnnotation.class.getAnnotation(TestAnnotation.class);
+        TestAnnotation a2 = TestAnnotation.class.getAnnotation(TestAnnotation.class);
+        assertEquals(AnnotationUtils.hashCode(a1), AnnotationUtils.hashCode(a2));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_withNestedArray() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(new Class<?>[] { int[].class }));
+    }
+
+    @Test
+    void testToString_withEmptyAnnotations() {
+        TestAnnotation a = TestAnnotation.class.getAnnotation(TestAnnotation.class);
+        assertEquals("@TestAnnotation(value=\"\")", AnnotationUtils.toString(a));
+    }
+
+    @Test
+    void testEquals_withDifferentValues() {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+            @Override
+            public String value() {
+                return "test";
+            }
+            @Override
+            public int count() {
+                return 0;
+            }
+        };
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+            @Override
+            public String value() {
+                return "other";
+            }
+            @Override
+            public int count() {
+                return 0;
+            }
+        };
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testHashCode_withDifferentValues() {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+            @Override
+            public String value() {
+                return "test";
+            }
+            @Override
+            public int count() {
+                return 0;
+            }
+        };
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+            @Override
+            public String value() {
+                return "other";
+            }
+            @Override
+            public int count() {
+                return 0;
+            }
+        };
+        assertNotEquals(AnnotationUtils.hashCode(a1), AnnotationUtils.hashCode(a2));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_withInvalidArrayComponentType() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(new Class<?>[] { Object.class }));
+    }
+
+    @Test
+    void testToString_withDifferentValues() {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+            @Override
+            public String value() {
+                return "test";
+            }
+            @Override
+            public int count() {
+                return 0;
+            }
+        };
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+            @Override
+            public String value() {
+                return "other";
+            }
+            @Override
+            public int count() {
+                return 0;
+            }
+        };
+        assertNotEquals(AnnotationUtils.toString(a1), AnnotationUtils.toString(a2));
+    }
+
+    @Test
+    void testEquals_withDifferentTypes() {
+        TestAnnotation a1 = TestAnnotation.class.getAnnotation(TestAnnotation.class);
+        AnotherTestAnnotation a2 = AnotherTestAnnotation.class.getAnnotation(AnotherTestAnnotation.class);
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testHashCode_withDifferentTypes() {
+        TestAnnotation a1 = TestAnnotation.class.getAnnotation(TestAnnotation.class);
+        AnotherTestAnnotation a2 = AnotherTestAnnotation.class.getAnnotation(AnotherTestAnnotation.class);
+        assertNotEquals(AnnotationUtils.hashCode(a1), AnnotationUtils.hashCode(a2));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_withNull() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(null));
+    }
+}
+```

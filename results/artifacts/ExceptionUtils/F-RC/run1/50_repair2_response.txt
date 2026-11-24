@@ -1,0 +1,38 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetDefaultCauseMethodNames_2() {
+        String[] methodNames = ExceptionUtils.getDefaultCauseMethodNames();
+        assertNotNull(methodNames);
+        assertTrue(Arrays.asList(methodNames).containsAll(Arrays.asList(ExceptionUtils.CAUSE_METHOD_NAMES)));
+    }
+
+    @Test
+    public void testGetStackFrames_NullThrowable() {
+        String[] frames = ExceptionUtils.getStackFrames(null);
+        assertNotNull(frames);
+        assertTrue(Arrays.equals(new String[0], frames));
+    }
+
+    @Test
+    public void testGetThrowables_NullThrowable() {
+        Throwable[] throwables = ExceptionUtils.getThrowables(null);
+        assertNotNull(throwables);
+        assertTrue(Arrays.equals(new Throwable[0], throwables));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTrace_NullWriter() {
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(new RuntimeException(), null));
+    }
+}
+```

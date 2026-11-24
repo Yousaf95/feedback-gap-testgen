@@ -1,0 +1,92 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+public class DiffBuilder_GenTest {
+
+    @Test
+    public void testAppendShortArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        builder.append("shortArrayField", new short[]{1, 2, 3}, new short[]{1, 2, 4});
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("shortArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendLongArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        builder.append("longArrayField", new long[]{1, 2, 3}, new long[]{1, 2, 4});
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("longArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendFloatArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        builder.append("floatArrayField", new float[]{1.1f, 2.2f, 3.3f}, new float[]{1.1f, 2.2f, 4.4f});
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("floatArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendDoubleArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        builder.append("doubleArrayField", new double[]{1.1, 2.2, 3.3}, new double[]{1.1, 2.2, 4.4});
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("doubleArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendCharArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        builder.append("charArrayField", new char[]{'a', 'b', 'c'}, new char[]{'a', 'b', 'd'});
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("charArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendByteArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        builder.append("byteArrayField", new byte[]{1, 2, 3}, new byte[]{1, 2, 4});
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("byteArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendBooleanArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        builder.append("booleanArrayField", new boolean[]{true, false, true}, new boolean[]{true, false, false});
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("booleanArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendObjectArray() {
+        DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        String[] leftArray = {"a", "b", "c"};
+        String[] rightArray = {"a", "b", "d"};
+        builder.append("objectArrayField", leftArray, rightArray);
+        DiffResult<String> result = builder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("objectArrayField[2]", result.getDiffs().get(0).getFieldName());
+    }
+
+    @Test
+    public void testAppendNullFieldName() {
+        assertThrows(NullPointerException.class, () -> {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append(null, 1, 2);
+        });
+    }
+}
+```

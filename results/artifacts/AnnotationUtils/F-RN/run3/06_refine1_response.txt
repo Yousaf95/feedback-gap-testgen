@@ -1,0 +1,68 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+public class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value();
+        int count() default 0;
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface AnotherTestAnnotation {
+        String name();
+    }
+
+    @Test
+    void testEquals_withAnnotationsWithDifferentMemberValues() throws Exception {
+        TestAnnotation a1 = AnnotationUtils.createAnnotation(TestAnnotation.class, "test", 5);
+        TestAnnotation a2 = AnnotationUtils.createAnnotation(TestAnnotation.class, "test", 10);
+
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testEquals_withAnnotationsWithDifferentMemberTypes() throws Exception {
+        TestAnnotation a1 = AnnotationUtils.createAnnotation(TestAnnotation.class, "test");
+        AnotherTestAnnotation a2 = AnnotationUtils.createAnnotation(AnotherTestAnnotation.class, "example");
+
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testHashCode_withAnnotationsWithDifferentMemberValues() throws Exception {
+        TestAnnotation a1 = AnnotationUtils.createAnnotation(TestAnnotation.class, "test", 5);
+        TestAnnotation a2 = AnnotationUtils.createAnnotation(TestAnnotation.class, "test", 10);
+
+        assertNotEquals(AnnotationUtils.hashCode(a1), AnnotationUtils.hashCode(a2));
+    }
+
+    @Test
+    void testHashCode_withAnnotationsWithDifferentMemberTypes() throws Exception {
+        TestAnnotation a1 = AnnotationUtils.createAnnotation(TestAnnotation.class, "test");
+        AnotherTestAnnotation a2 = AnnotationUtils.createAnnotation(AnotherTestAnnotation.class, "example");
+
+        assertNotEquals(AnnotationUtils.hashCode(a1), AnnotationUtils.hashCode(a2));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_withInvalidType() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(new Object().getClass()));
+    }
+
+    private static <T extends Annotation> T createAnnotation(Class<T> annotationClass, Object... values) throws Exception {
+        T annotation = annotationClass.getConstructor().newInstance();
+        for (int i = 0; i < annotation.annotationType().getDeclaredMethods().length; i++) {
+            Method method = annotation.annotationType().getDeclaredMethods()[i];
+            method.invoke(annotation, values[i]);
+        }
+        return annotation;
+    }
+}
+```

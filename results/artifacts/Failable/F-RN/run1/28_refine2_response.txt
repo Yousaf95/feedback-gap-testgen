@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testAcceptWithNullConsumer() {
+        assertThrows(NullPointerException.class, () -> Failable.accept(null, "test"));
+    }
+
+    @Test
+    public void testApplyWithNullFunction() {
+        assertThrows(NullPointerException.class, () -> Failable.apply(null, "test"));
+    }
+
+    @Test
+    public void testCallWithNullCallable() {
+        assertThrows(NullPointerException.class, () -> Failable.call(null));
+    }
+
+    @Test
+    public void testGetWithNullSupplier() {
+        assertThrows(NullPointerException.class, () -> Failable.get(null));
+    }
+
+    @Test
+    public void testRunWithNullRunnable() {
+        assertThrows(NullPointerException.class, () -> Failable.run(null));
+    }
+
+    @Test
+    public void testAcceptWithException() {
+        FailableBiConsumer<String, String, IOException> consumer = (s1, s2) -> {
+            throw new IOException("test exception");
+        };
+        assertThrows(UncheckedIOException.class, () -> Failable.accept(consumer, "test", "test"));
+    }
+
+    @Test
+    public void testApplyWithException() {
+        FailableFunction<String, String, IOException> function = (s) -> {
+            throw new IOException("test exception");
+        };
+        assertThrows(UncheckedIOException.class, () -> Failable.apply(function, "test"));
+    }
+
+    @Test
+    public void testCallWithException() {
+        FailableCallable<String, IOException> callable = () -> {
+            throw new IOException("test exception");
+        };
+        assertThrows(UncheckedIOException.class, () -> Failable.call(callable));
+    }
+
+    @Test
+    public void testGetWithException() {
+        FailableSupplier<String, IOException> supplier = () -> {
+            throw new IOException("test exception");
+        };
+        assertThrows(UncheckedIOException.class, () -> Failable.get(supplier));
+    }
+
+    @Test
+    public void testRunWithException() {
+        FailableRunnable<IOException> runnable = () -> {
+            throw new IOException("test exception");
+        };
+        assertThrows(UncheckedIOException.class, () -> Failable.run(runnable));
+    }
+}
+```

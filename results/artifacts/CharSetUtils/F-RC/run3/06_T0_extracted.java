@@ -1,0 +1,152 @@
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CharSetUtils_GenTest {
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "123", "AaBbCc"})
+    public void testContainsAny_normal(String str) {
+        assertTrue(CharSetUtils.containsAny(str, "a"));
+        assertTrue(CharSetUtils.containsAny(str, "1"));
+        assertTrue(CharSetUtils.containsAny(str, "A"));
+    }
+
+    @Test
+    public void testContainsAny_emptyString() {
+        assertFalse(CharSetUtils.containsAny("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testContainsAny_nullString() {
+        assertFalse(CharSetUtils.containsAny(null, "a", "b", "c"));
+    }
+
+    @Test
+    public void testContainsAny_emptySet() {
+        assertFalse(CharSetUtils.containsAny("abc", ""));
+    }
+
+    @Test
+    public void testContainsAny_nullSet() {
+        assertFalse(CharSetUtils.containsAny("abc", null));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "123", "AaBbCc"})
+    public void testCount_normal(String str) {
+        assertEquals(1, CharSetUtils.count(str, "a"));
+        assertEquals(1, CharSetUtils.count(str, "1"));
+        assertEquals(1, CharSetUtils.count(str, "A"));
+    }
+
+    @Test
+    public void testCount_emptyString() {
+        assertEquals(0, CharSetUtils.count("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testCount_nullString() {
+        assertEquals(0, CharSetUtils.count(null, "a", "b", "c"));
+    }
+
+    @Test
+    public void testCount_emptySet() {
+        assertEquals(0, CharSetUtils.count("abc", ""));
+    }
+
+    @Test
+    public void testCount_nullSet() {
+        assertEquals(0, CharSetUtils.count("abc", null));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "123", "AaBbCc"})
+    public void testDelete_normal(String str) {
+        assertEquals("bc", CharSetUtils.delete(str, "a"));
+        assertEquals("23", CharSetUtils.delete(str, "1"));
+        assertEquals("Abc", CharSetUtils.delete(str, "a"));
+    }
+
+    @Test
+    public void testDelete_emptyString() {
+        assertEquals("", CharSetUtils.delete("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testDelete_nullString() {
+        assertNull(CharSetUtils.delete(null, "a", "b", "c"));
+    }
+
+    @Test
+    public void testDelete_emptySet() {
+        assertEquals("abc", CharSetUtils.delete("abc", ""));
+    }
+
+    @Test
+    public void testDelete_nullSet() {
+        assertEquals("abc", CharSetUtils.delete("abc", null));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "123", "AaBbCc"})
+    public void testKeep_normal(String str) {
+        assertEquals("a", CharSetUtils.keep(str, "a"));
+        assertEquals("1", CharSetUtils.keep(str, "1"));
+        assertEquals("A", CharSetUtils.keep(str, "A"));
+    }
+
+    @Test
+    public void testKeep_emptyString() {
+        assertEquals("", CharSetUtils.keep("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testKeep_nullString() {
+        assertNull(CharSetUtils.keep(null, "a", "b", "c"));
+    }
+
+    @Test
+    public void testKeep_emptySet() {
+        assertEquals("", CharSetUtils.keep("abc", ""));
+    }
+
+    @Test
+    public void testKeep_nullSet() {
+        assertEquals("", CharSetUtils.keep("abc", null));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"aaabbcc", "112233", "AABBCC"})
+    public void testSqueeze_normal(String str) {
+        assertEquals("abc", CharSetUtils.squeeze(str, "a"));
+        assertEquals("123", CharSetUtils.squeeze(str, "1"));
+        assertEquals("Abc", CharSetUtils.squeeze(str, "A"));
+    }
+
+    @Test
+    public void testSqueeze_emptyString() {
+        assertEquals("", CharSetUtils.squeeze("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testSqueeze_nullString() {
+        assertNull(CharSetUtils.squeeze(null, "a", "b", "c"));
+    }
+
+    @Test
+    public void testSqueeze_emptySet() {
+        assertEquals("aaabbcc", CharSetUtils.squeeze("aaabbcc", ""));
+    }
+
+    @Test
+    public void testSqueeze_nullSet() {
+        assertEquals("aaabbcc", CharSetUtils.squeeze("aaabbcc", null));
+    }
+}

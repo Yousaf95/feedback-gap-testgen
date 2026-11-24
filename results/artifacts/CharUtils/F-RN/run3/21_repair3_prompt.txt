@@ -1,0 +1,237 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CharUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testToCharacterObject_StringDefaultValue: no suitable method found for toCharacterObject(java.lang.String,<nulltype>) (method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable)
+    code: assertEquals(Character.valueOf('A'), CharUtils.toCharacterObject("ABC", null));
+in method testToCharacterObject_StringDefaultValue: no suitable method found for toCharacterObject(java.lang.String,<nulltype>) (method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable)
+    code: assertEquals(Character.valueOf('z'), CharUtils.toCharacterObject("zyx", null));
+in method testToCharacterObject_StringDefaultValue: no suitable method found for toCharacterObject(java.lang.String,<nulltype>) (method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable)
+    code: assertEquals(Character.valueOf('0'), CharUtils.toCharacterObject("123", null));
+in method testToCharacterObject_StringDefaultValue: no suitable method found for toCharacterObject(java.lang.String,<nulltype>) (method org.apache.commons.lang3.CharUtils.toCharacterObject(char) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharUtils.toCharacterObject(java.lang.String) is not applicable)
+    code: assertNull(CharUtils.toCharacterObject("", null));
+
+Current test class (CharUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        void testIsAsciiPrintable() {
+            assertTrue(CharUtils.isAsciiPrintable('A'));
+            assertTrue(CharUtils.isAsciiPrintable('z'));
+            assertTrue(CharUtils.isAsciiPrintable('0'));
+            assertTrue(CharUtils.isAsciiPrintable(' '));
+            assertFalse(CharUtils.isAsciiPrintable('\t'));
+            assertFalse(CharUtils.isAsciiPrintable('\n'));
+            assertFalse(CharUtils.isAsciiPrintable('\r'));
+            assertFalse(CharUtils.isAsciiPrintable('\f'));
+            assertFalse(CharUtils.isAsciiPrintable('\b'));
+            assertFalse(CharUtils.isAsciiPrintable((char) 127));
+        }
+
+    @Test
+        void testUnicodeEscaped() {
+            assertEquals("\\u0041", CharUtils.unicodeEscaped('A'));
+            assertEquals("\\u006a", CharUtils.unicodeEscaped('j'));
+            assertEquals("\\u0030", CharUtils.unicodeEscaped('0'));
+            assertEquals("\\u0020", CharUtils.unicodeEscaped(' '));
+        }
+
+    @Test
+        void testToIntValue_InvalidCharacter() {
+            assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+            assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('A'));
+            assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue(' '));
+        }
+
+    @Test
+        void testToIntValue_DefaultValue() {
+            assertEquals(0, CharUtils.toIntValue('a', 0));
+            assertEquals(1, CharUtils.toIntValue('b', 1));
+            assertEquals(2, CharUtils.toIntValue('c', 2));
+        }
+
+    @Test
+        void testToString_Character_2() {
+            assertEquals("A", CharUtils.toString('A'));
+            assertEquals("z", CharUtils.toString('z'));
+            assertEquals("0", CharUtils.toString('0'));
+            assertEquals(" ", CharUtils.toString(' '));
+        }
+
+    @Test
+        void testToString_Char_2() {
+            assertEquals("A", CharUtils.toString((char) 65));
+            assertEquals("z", CharUtils.toString((char) 122));
+            assertEquals("0", CharUtils.toString((char) 48));
+            assertEquals(" ", CharUtils.toString((char) 32));
+        }
+
+    @Test
+        void testToChar_StringDefaultValue_2() {
+            assertEquals('A', CharUtils.toChar("ABC", 'X'));
+            assertEquals('z', CharUtils.toChar("zyx", 'y'));
+            assertEquals('0', CharUtils.toChar("123", '9'));
+            assertEquals(' ', CharUtils.toChar(" ", 'a'));
+        }
+
+    @Test
+        void testToCharacterObject_EmptyString_2() {
+            assertNull(CharUtils.toCharacterObject(""));
+        }
+
+    @Test
+        void testToCharacterObject_StringDefaultValue() {
+            assertEquals(Character.valueOf('A'), CharUtils.toCharacterObject("ABC", null));
+            assertEquals(Character.valueOf('z'), CharUtils.toCharacterObject("zyx", null));
+            assertEquals(Character.valueOf('0'), CharUtils.toCharacterObject("123", null));
+            assertNull(CharUtils.toCharacterObject("", null));
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.CharUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.Objects;
+
+/** Operations on char primitives and Character objects. */
+public class CharUtils {
+    private static final String[] CHAR_STRING_ARRAY = new String[128];
+    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    /** Linefeed character LF ({@code '\n'}, Unicode 000a). */
+    public static final char LF = '\n';
+    /** Carriage return character CR ('\r', Unicode 000d). */
+    public static final char CR = '\r';
+    /** {@code \u0000} null control character ('\0'), abbreviated NUL. */
+    public static final char NUL = '\0';
+    static {
+        ArrayUtils.setAll(CHAR_STRING_ARRAY, i -> String.valueOf((char) i));
+    }
+    /** Compares two {@code char} values numerically. */
+    public static int compare(final char x, final char y) {
+        return x - y;
+    }
+    /** Checks whether the character is ASCII 7 bit. */
+    public static boolean isAscii(final char ch) {
+        return ch < 128;
+    }
+    /** Checks whether the character is ASCII 7 bit alphabetic. */
+    public static boolean isAsciiAlpha(final char ch) {
+        return isAsciiAlphaUpper(ch) || isAsciiAlphaLower(ch);
+    }
+    /** Checks whether the character is ASCII 7 bit alphabetic lower case. */
+    public static boolean isAsciiAlphaLower(final char ch) {
+        return ch >= 'a' && ch <= 'z';
+    }
+    /** Checks whether the character is ASCII 7 bit numeric. */
+    public static boolean isAsciiAlphanumeric(final char ch) {
+        return isAsciiAlpha(ch) || isAsciiNumeric(ch);
+    }
+    /** Checks whether the character is ASCII 7 bit alphabetic upper case. */
+    public static boolean isAsciiAlphaUpper(final char ch) {
+        return ch >= 'A' && ch <= 'Z';
+    }
+    /** Checks whether the character is ASCII 7 bit control. */
+    public static boolean isAsciiControl(final char ch) {
+        return ch < 32 || ch == 127;
+    }
+    /** Checks whether the character is ASCII 7 bit numeric. */
+    public static boolean isAsciiNumeric(final char ch) {
+        return ch >= '0' && ch <= '9';
+    }
+    /** Checks whether the character is ASCII 7 bit printable. */
+    public static boolean isAsciiPrintable(final char ch) {
+        return ch >= 32 && ch < 127;
+    }
+    /** Converts the Character to a char throwing an exception for {@code null}. */
+    public static char toChar(final Character ch) {
+        return Objects.requireNonNull(ch, "ch").charValue();
+    }
+    /** Converts the Character to a char handling {@code null}. */
+    public static char toChar(final Character ch, final char defaultValue) {
+        return ch != null ? ch.charValue() : defaultValue;
+    }
+    /** Converts the String to a char using the first character, throwing an exception on empty Strings. */
+    public static char toChar(final String str) {
+        Validate.notEmpty(str, "The String must not be empty");
+        return str.charAt(0);
+    }
+    /** Converts the String to a char using the first character, defaulting the value on empty Strings. */
+    public static char toChar(final String str, final char defaultValue) {
+        return StringUtils.isEmpty(str) ? defaultValue : str.charAt(0);
+    }
+    /** Converts the character to a Character. */
+    @Deprecated
+    public static Character toCharacterObject(final char ch) {
+        return Character.valueOf(ch);
+    }
+    /** Converts the String to a Character using the first character, returning null for empty Strings. */
+    public static Character toCharacterObject(final String str) {
+        return StringUtils.isEmpty(str) ? null : Character.valueOf(str.charAt(0));
+    }
+    /** Converts the character to the Integer it represents, throwing an exception if the character is not numeric. */
+    public static int toIntValue(final char ch) {
+        if (!isAsciiNumeric(ch)) {
+            throw new IllegalArgumentException("The character " + ch + " is not in the range '0' - '9'");
+        }
+        return ch - 48;
+    }
+    /** Converts the character to the Integer it represents, throwing an exception if the character is not numeric. */
+    public static int toIntValue(final char ch, final int defaultValue) {
+        return isAsciiNumeric(ch) ? ch - 48 : defaultValue;
+    }
+    /** Converts the character to the Integer it represents, throwing an exception if the character is not numeric. */
+    public static int toIntValue(final Character ch) {
+        return toIntValue(toChar(ch));
+    }
+    /** Converts the character to the Integer it represents, throwing an exception if the character is not numeric. */
+    public static int toIntValue(final Character ch, final int defaultValue) {
+        return ch != null ? toIntValue(ch.charValue(), defaultValue) : defaultValue;
+    }
+    /** Converts the character to a String that contains the one character. */
+    public static String toString(final char ch) {
+        if (ch < CHAR_STRING_ARRAY.length) {
+            return CHAR_STRING_ARRAY[ch];
+        }
+        return String.valueOf(ch);
+    }
+    /** Converts the character to a String that contains the one character. */
+    public static String toString(final Character ch) {
+        return ch != null ? toString(ch.charValue()) : null;
+    }
+    /** Converts the string to the Unicode format '\u0020'. */
+    public static String unicodeEscaped(final char ch) {
+        return "\\u" +
+            HEX_DIGITS[(ch >> 12) & 15] +
+            HEX_DIGITS[(ch >> 8) & 15] +
+            HEX_DIGITS[(ch >> 4) & 15] +
+            HEX_DIGITS[(ch) & 15];
+    }
+    /** Converts the string to the Unicode format '\u0020'. */
+    public static String unicodeEscaped(final Character ch) {
+        return ch != null ? unicodeEscaped(ch.charValue()) : null;
+    }
+    /** {@link CharUtils} instances should NOT be constructed in standard programming. */
+    public CharUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

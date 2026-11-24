@@ -1,0 +1,105 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.CharUtils.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiAlphaLower_UncoveredBranch() {
+        assertFalse(isAsciiAlphaLower('A')); // ASCII uppercase letter
+    }
+
+    @Test
+    public void testIsAsciiControl_UncoveredBranch() {
+        assertTrue(isAsciiControl(31)); // ASCII control character
+    }
+
+    @Test
+    public void testToChar_Character_NotCovered() {
+        Character ch = 'a';
+        assertEquals('a', toChar(ch));
+    }
+
+    @Test
+    public void testToChar_StringDefault_NotCovered() {
+        String str = "";
+        char defaultValue = 'b';
+        assertEquals('b', toChar(str, defaultValue));
+    }
+
+    @Test
+    public void testToCharacterObject_Character_NotCovered() {
+        Character ch = 'a';
+        assertNotNull(toCharacterObject(ch));
+    }
+
+    @Test
+    public void testToCharacterObject_String_NotCovered() {
+        String str = "b";
+        assertNotNull(toCharacterObject(str));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefault_NotCovered() {
+        Character ch = '5';
+        int defaultValue = 10;
+        assertEquals(5, toIntValue(ch, defaultValue));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_2_NotCovered() {
+        Character ch = 'a';
+        assertNotNull(unicodeEscaped(ch));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumeric_2_NotCovered() {
+        assertTrue(isAsciiAlphanumeric('A')); // ASCII uppercase letter
+    }
+
+    @Test
+    public void testIsAsciiControl_2_NotCovered() {
+        assertFalse(isAsciiControl(32)); // ASCII space character
+    }
+
+    @Test
+    public void testIsAsciiNumeric_2_NotCovered() {
+        assertTrue(isAsciiNumeric('9')); // ASCII digit
+    }
+
+    @Test
+    public void testToChar_Character_2_NotCovered() {
+        Character ch = 'b';
+        assertEquals('b', toChar(ch));
+    }
+
+    @Test
+    public void testToChar_StringDefault_2_NotCovered() {
+        String str = "c";
+        char defaultValue = 'd';
+        assertEquals('c', toChar(str, defaultValue));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefault_2_NotCovered() {
+        Character ch = '6';
+        int defaultValue = 15;
+        assertEquals(6, toIntValue(ch, defaultValue));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_2_2_NotCovered() {
+        Character ch = 'b';
+        assertNotNull(unicodeEscaped(ch));
+    }
+}
+```

@@ -1,0 +1,43 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Locale;
+import java.util.stream.Collectors;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_emptyLanguageCode() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_emptyCountryCode() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testToLocale_validLanguageTag_withScript() {
+        Locale locale = LocaleUtils.toLocale("en-Latn-US");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+    }
+
+    @Test
+    public void testToLocale_validLanguageTag_withExtensions() {
+        Locale locale = LocaleUtils.toLocale("de-u-va-posix");
+        assertEquals("de", locale.getLanguage());
+        assertTrue(locale.getExtension('u').equals("va=posix"));
+    }
+
+    @Test
+    public void testToLocale_invalidLanguageTag_tooLong() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en-US-x-private-abcdefghijklmnopqrstuvwxyz"));
+    }
+}
+```

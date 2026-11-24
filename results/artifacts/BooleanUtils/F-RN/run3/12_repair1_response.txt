@@ -1,0 +1,78 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.BooleanUtils.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    public void testCompare() {
+        assertEquals(0, BooleanUtils.compare(true, true));
+        assertEquals(-1, BooleanUtils.compare(false, true));
+        assertEquals(1, BooleanUtils.compare(true, false));
+    }
+
+    @Test
+    public void testForEach() {
+        int count = 0;
+        BooleanUtils.forEach(b -> count++);
+        assertEquals(2, count);
+    }
+
+    @Test
+    public void testIsFalseWithNull() {
+        assertFalse(BooleanUtils.isFalse(null));
+    }
+
+    @Test
+    public void testIsNotTrueWithNull() {
+        assertTrue(BooleanUtils.isNotTrue(null));
+    }
+
+    @Test
+    public void testNegateWithNull() {
+        assertNull(BooleanUtils.negate(null));
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    public void testOneHot(boolean value) {
+        assertFalse(BooleanUtils.oneHot(value));
+    }
+
+    @Test
+    public void testOrWithNull() {
+        assertTrue(BooleanUtils.or(null, true));
+    }
+
+    @Test
+    public void testToBooleanDefaultIfNullWithNull() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(null, true));
+    }
+
+    @Test
+    public void testToIntegerObjectWithNull() {
+        assertNull(BooleanUtils.toIntegerObject(null));
+    }
+
+    @Test
+    public void testToStringOnOffWithNull() {
+        assertNull(BooleanUtils.toStringOnOff(null));
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    public void testXor(boolean value) {
+        assertFalse(BooleanUtils.xor(value));
+    }
+}
+```

@@ -1,0 +1,65 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ClassUtils.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testGetAbbreviatedName_NullInput_2() {
+        assertEquals("", getAbbreviatedName((Class<?>) null, 10));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_EmptyString_2() {
+        assertEquals("", getAbbreviatedName("", 10));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_ShorterThanLengthHint_2() {
+        assertEquals("short", getAbbreviatedName("short", 5));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_LongerThanLengthHint() {
+        assertEquals("lo", getAbbreviatedName("longer", 2));
+    }
+
+    @Test
+    public void testGetAbbreviatedName_WithDots() {
+        assertEquals("com.example.MyClass", getAbbreviatedName("com.example.MyClass", 10));
+    }
+
+    @Test
+    public void testGetAllInterfaces_NullInput() {
+        assertNull(getAllInterfaces((Class<?>) null));
+    }
+
+    @Test
+    public void testGetAllSuperclasses_NullInput() {
+        assertNull(getAllSuperclasses((Class<?>) null));
+    }
+
+    @Test
+    public void testGetCanonicalName_NullInput() {
+        assertEquals("", getCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    public void testGetName_NullInput() {
+        assertEquals("", getName((Class<?>) null, "default"));
+    }
+
+    @Test
+    public void testGetPackageCanonicalName_NullInput() {
+        assertEquals("", getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    public void testGetShortClassName_NullInput() {
+        assertEquals("", getShortClassName((Class<?>) null, "default"));
+    }
+}
+```

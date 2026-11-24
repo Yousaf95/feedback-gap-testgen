@@ -1,0 +1,61 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[177,78] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[183,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[190,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[199,53] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.Object
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[207,37] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.Object
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,54] no suitable method found for toString(TestClass,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean)
+    method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean,java.lang.Class<? super T>) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class<? super T>) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; boolean cannot be converted to java.lang.Class<? super T>))
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[225,45] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[233,68] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[177,78] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[183,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[190,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[199,53] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.Object
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[207,37] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.Object
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,54] no suitable method found for toString(TestClass,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean)
+[ERROR]     method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean,java.lang.Class<? super T>) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class<? super T>) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; boolean cannot be converted to java.lang.Class<? super T>))
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[225,45] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[233,68] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

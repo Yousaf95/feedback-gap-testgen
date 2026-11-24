@@ -1,0 +1,121 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.List;
+import java.util.Set;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testGetAllInterfacesWithEmptyClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(Object.class);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithEmptyClass() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(Object.class);
+        assertEquals(1, superclasses.size());
+        assertEquals(Object.class, superclasses.get(0));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithNull() {
+        assertFalse(ClassUtils.isPrimitiveOrWrapper(null));
+    }
+
+    @Test
+    public void testIsPublicWithInterface() {
+        assertTrue(ClassUtils.isPublic(List.class));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithMultipleInterfaces() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(Set.class);
+        assertEquals(2, interfaces.size());
+        assertTrue(interfaces.contains(Collection.class));
+        assertTrue(interfaces.contains(Map.class));
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithMultipleSuperclasses() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(ArrayList.class);
+        assertEquals(3, superclasses.size());
+        assertTrue(superclasses.contains(List.class));
+        assertTrue(superclasses.contains(Collection.class));
+        assertTrue(superclasses.contains(Object.class));
+    }
+
+    @Test
+    public void testGetCanonicalNameWithNull() {
+        assertEquals("", ClassUtils.getCanonicalName(null));
+    }
+
+    @Test
+    public void testGetPackageNameWithNull() {
+        assertEquals("", ClassUtils.getPackageName(null));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithPrimitive() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(int.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithWrapper() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Integer.class));
+    }
+
+    @Test
+    public void testIsPublicWithNonPublicClass() {
+        assertFalse(ClassUtils.isPublic(new Object(){}.getClass()));
+    }
+
+    @Test
+    public void testIsPublicWithPublicClass() {
+        assertTrue(ClassUtils.isPublic(String.class));
+    }
+
+    @Test
+    public void testPrimitivesToWrappersWithSinglePrimitive() {
+        Class<?>[] wrappers = ClassUtils.primitivesToWrappers(int.class);
+        assertEquals(1, wrappers.length);
+        assertEquals(Integer.class, wrappers[0]);
+    }
+
+    @Test
+    public void testPrimitivesToWrappersWithMultiplePrimitives() {
+        Class<?>[] wrappers = ClassUtils.primitivesToWrappers(int.class, boolean.class, double.class);
+        assertEquals(3, wrappers.length);
+        assertEquals(Integer.class, wrappers[0]);
+        assertEquals(Boolean.class, wrappers[1]);
+        assertEquals(Double.class, wrappers[2]);
+    }
+
+    @Test
+    public void testWrappersToPrimitivesWithSingleWrapper() {
+        Class<?>[] primitives = ClassUtils.wrappersToPrimitives(Integer.class);
+        assertEquals(1, primitives.length);
+        assertEquals(int.class, primitives[0]);
+    }
+
+    @Test
+    public void testWrappersToPrimitivesWithMultipleWrappers() {
+        Class<?>[] primitives = ClassUtils.wrappersToPrimitives(Integer.class, Boolean.class, Double.class);
+        assertEquals(3, primitives.length);
+        assertEquals(int.class, primitives[0]);
+        assertEquals(boolean.class, primitives[1]);
+        assertEquals(double.class, primitives[2]);
+    }
+
+    @Test
+    public void testGetAllInterfacesWithInterface() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(List.class);
+        assertEquals(2, interfaces.size());
+        assertTrue(interfaces.contains(Collection.class));
+        assertTrue(interfaces.contains(Map.class));
+    }
+}
+```

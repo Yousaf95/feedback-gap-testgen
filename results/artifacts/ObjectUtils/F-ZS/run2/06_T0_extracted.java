@@ -1,0 +1,310 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ObjectUtils.*;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    public void testAllNotNull() {
+        assertTrue(allNotNull(1, "test", 3.14));
+        assertFalse(allNotNull(1, null, 3.14));
+        assertTrue(allNotNull());
+    }
+
+    @Test
+    public void testAllNull() {
+        assertTrue(allNull(null, null, null));
+        assertFalse(allNull(1, null, 3.14));
+        assertTrue(allNull());
+    }
+
+    @Test
+    public void testAnyNotNull() {
+        assertTrue(anyNotNull(1, null, 3.14));
+        assertFalse(anyNotNull(null, null, null));
+        assertTrue(anyNotNull());
+    }
+
+    @Test
+    public void testAnyNull() {
+        assertTrue(anyNull(1, null, 3.14));
+        assertFalse(anyNull(1, "test", 3.14));
+        assertTrue(anyNull());
+    }
+
+    @Test
+    public void testClone() throws IOException, CloneFailedException {
+        Integer original = 42;
+        Integer cloned = clone(original);
+        assertNotSame(original, cloned);
+        assertEquals(original, cloned);
+
+        String[] array = {"a", "b", "c"};
+        String[] clonedArray = clone(array);
+        assertNotSame(array, clonedArray);
+        assertArrayEquals(array, clonedArray);
+
+        Object nullObject = null;
+        assertNull(clone(nullObject));
+    }
+
+    @Test
+    public void testCloneIfPossible() throws IOException, CloneFailedException {
+        Integer original = 42;
+        Integer cloned = cloneIfPossible(original);
+        assertNotSame(original, cloned);
+        assertEquals(original, cloned);
+
+        String[] array = {"a", "b", "c"};
+        String[] clonedArray = cloneIfPossible(array);
+        assertNotSame(array, clonedArray);
+        assertArrayEquals(array, clonedArray);
+
+        Object nullObject = null;
+        assertSame(nullObject, cloneIfPossible(nullObject));
+    }
+
+    @Test
+    public void testCompare() {
+        assertEquals(0, compare(42, 42));
+        assertTrue(compare(42, 30) > 0);
+        assertTrue(compare(30, 42) < 0);
+
+        String str1 = "apple";
+        String str2 = "banana";
+        assertTrue(compare(str1, str2) < 0);
+        assertTrue(compare(str2, str1) > 0);
+
+        assertNull(compare(null, null));
+        assertTrue(compare(null, str1) < 0);
+        assertTrue(compare(str1, null) > 0);
+    }
+
+    @Test
+    public void testCompareNullGreater() {
+        assertEquals(0, compare(42, 42, true));
+        assertTrue(compare(42, 30, true) > 0);
+        assertTrue(compare(30, 42, true) < 0);
+
+        String str1 = "apple";
+        String str2 = "banana";
+        assertTrue(compare(str1, str2, true) < 0);
+        assertTrue(compare(str2, str1, true) > 0);
+
+        assertNull(compare(null, null, true));
+        assertTrue(compare(null, str1, true) < 0);
+        assertTrue(compare(str1, null, true) > 0);
+    }
+
+    @Test
+    public void testCONST() {
+        assertEquals(true, CONST(true));
+        assertEquals(42, CONST(42));
+        assertEquals('a', CONST('a'));
+        assertEquals(3.14, CONST(3.14));
+        assertEquals((byte) 1, CONST_BYTE(1));
+        assertEquals((short) 2, CONST_SHORT(2));
+    }
+
+    @Test
+    public void testDefaultIfNull() {
+        String str = defaultIfNull(null, "default");
+        assertEquals("default", str);
+
+        str = defaultIfNull("value", "default");
+        assertEquals("value", str);
+    }
+
+    @Test
+    public void testFirstNonNull() {
+        Integer result = firstNonNull(1, null, 3.14);
+        assertEquals(Integer.valueOf(1), result);
+
+        result = firstNonNull(null, null, null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetClass() {
+        Object obj = new Object();
+        Class<?> clazz = getClass(obj);
+        assertEquals(Object.class, clazz);
+
+        clazz = getClass(null);
+        assertNull(clazz);
+    }
+
+    @Test
+    public void testGetFirstNonNull() {
+        Integer result = getFirstNonNull(() -> 1, () -> null, () -> 3.14);
+        assertEquals(Integer.valueOf(1), result);
+
+        result = getFirstNonNull(() -> null, () -> null, () -> null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetIfNull() {
+        Integer result = getIfNull(null, () -> 42);
+        assertEquals(Integer.valueOf(42), result);
+
+        result = getIfNull(1, () -> 42);
+        assertEquals(Integer.valueOf(1), result);
+    }
+
+    @Test
+    public void testHashCodeHex() {
+        String hash = hashCodeHex("test");
+        assertNotNull(hash);
+        assertTrue(hash.matches("[0-9a-fA-F]+"));
+
+        hash = hashCodeHex(null);
+        assertNotNull(hash);
+        assertTrue(hash.matches("[0-9a-fA-F]+"));
+    }
+
+    @Test
+    public void testIdentityHashCodeHex() {
+        String hash = identityHashCodeHex("test");
+        assertNotNull(hash);
+        assertTrue(hash.matches("[0-9a-fA-F]+"));
+
+        hash = identityHashCodeHex(null);
+        assertNotNull(hash);
+        assertTrue(hash.matches("[0-9a-fA-F]+"));
+    }
+
+    @Test
+    public void testIdentityToString() throws IOException {
+        String str = identityToString("test");
+        assertEquals("java.lang.String@" + Integer.toHexString(System.identityHashCode("test")), str);
+
+        str = identityToString(null);
+        assertNull(str);
+
+        Appendable appendable = new StringBuilder();
+        identityToString(appendable, "test");
+        assertEquals("java.lang.String@" + Integer.toHexString(System.identityHashCode("test")), appendable.toString());
+
+        StrBuilder builder = new StrBuilder();
+        identityToString(builder, "test");
+        assertEquals("java.lang.String@" + Integer.toHexString(System.identityHashCode("test")), builder.toString());
+
+        StringBuffer buffer = new StringBuffer();
+        identityToString(buffer, "test");
+        assertEquals("java.lang.String@" + Integer.toHexString(System.identityHashCode("test")), buffer.toString());
+    }
+
+    @Test
+    public void testIsArray() {
+        assertTrue(isArray(new int[]{1, 2, 3}));
+        assertFalse(isArray(42));
+        assertTrue(isArray(null));
+    }
+
+    @Test
+    public void testIsEmpty() {
+        assertTrue(isEmpty(null));
+        assertTrue(isEmpty(""));
+        assertTrue(isEmpty(new ArrayList<>()));
+        assertTrue(isEmpty(new HashMap<>()));
+
+        assertFalse(isEmpty("test"));
+        assertFalse(isEmpty(Arrays.asList(1, 2, 3)));
+        assertFalse(isEmpty(Map.of("key", "value")));
+    }
+
+    @Test
+    public void testIsNotEmpty() {
+        assertFalse(isNotEmpty(null));
+        assertFalse(isNotEmpty(""));
+        assertFalse(isNotEmpty(new ArrayList<>()));
+        assertFalse(isNotEmpty(new HashMap<>()));
+
+        assertTrue(isNotEmpty("test"));
+        assertTrue(isNotEmpty(Arrays.asList(1, 2, 3)));
+        assertTrue(isNotEmpty(Map.of("key", "value")));
+    }
+
+    @Test
+    public void testMax() {
+        assertEquals(Integer.valueOf(4), max(1, 2, 3, 4));
+        assertEquals(Double.valueOf(5.0), max(1.0, 2.0, 3.0, 4.0, 5.0));
+
+        assertNull(max());
+    }
+
+    @Test
+    public void testMedian() {
+        assertEquals(Integer.valueOf(2), median(1, 2, 3));
+        assertEquals(Double.valueOf(2.5), median(1.0, 2.0, 3.0, 4.0));
+
+        assertThrows(IllegalArgumentException.class, () -> median());
+    }
+
+    @Test
+    public void testMin() {
+        assertEquals(Integer.valueOf(1), min(1, 2, 3, 4));
+        assertEquals(Double.valueOf(1.0), min(1.0, 2.0, 3.0, 4.0));
+
+        assertNull(min());
+    }
+
+    @Test
+    public void testMode() {
+        assertEquals(Integer.valueOf(2), mode(1, 2, 2, 3));
+        assertEquals(Double.valueOf(2.5), mode(1.0, 2.0, 2.5, 3.0));
+
+        assertNull(mode());
+    }
+
+    @Test
+    public void testNotEqual() {
+        assertTrue(notEqual(null, null));
+        assertFalse(notEqual("test", "test"));
+        assertTrue(notEqual("test", "other"));
+
+        assertEquals(Boolean.TRUE, notEqual(true, false));
+        assertEquals(Boolean.FALSE, notEqual(false, false));
+    }
+
+    @Test
+    public void testRequireNonEmpty() {
+        String str = requireNonEmpty("test");
+        assertEquals("test", str);
+
+        assertThrows(IllegalArgumentException.class, () -> requireNonEmpty(""));
+        assertThrows(IllegalArgumentException.class, () -> requireNonEmpty(null));
+    }
+
+    @Test
+    public void testToString() {
+        String str = toString("test");
+        assertEquals("test", str);
+
+        str = toString(null);
+        assertEquals("", str);
+
+        str = toString(() -> "test", () -> "default");
+        assertEquals("test", str);
+
+        str = toString(null, () -> "default");
+        assertEquals("default", str);
+    }
+
+    @Test
+    public void testWait() throws InterruptedException {
+        Object obj = new Object();
+        wait(obj, Duration.ofMillis(10));
+    }
+}

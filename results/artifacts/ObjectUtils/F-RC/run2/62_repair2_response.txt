@@ -1,0 +1,162 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ObjectUtils.*;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
+import java.util.function.Supplier;
+import java.util.Collections;
+import java.util.Arrays;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testReadResolve() {
+        assertNotNull(new ObjectUtils.Null());
+    }
+
+    @Test
+    public void testAllNotNull_withNullValues_2() {
+        assertFalse(allNotNull(null, "value"));
+    }
+
+    @Test
+    public void testAllNotNull_withNonNullValues_2() {
+        assertTrue(allNotNull("value1", "value2"));
+    }
+
+    @Test
+    public void testAnyNull_withNullValues_2() {
+        assertTrue(anyNull(null, "value"));
+    }
+
+    @Test
+    public void testAnyNull_withNonNullValues_2() {
+        assertFalse(anyNull("value1", "value2"));
+    }
+
+    @Test
+    public void testCloneWithArray_2() {
+        Integer[] original = {1, 2, 3};
+        Integer[] cloned = clone(original);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    public void testCloneWithNull_2() {
+        assertNull(clone(null));
+    }
+
+    @Test
+    public void testCompare_withNullValues_2() {
+        assertEquals(1, compare(null, "value"));
+        assertEquals(-1, compare("value", null));
+        assertEquals(0, compare(null, null));
+    }
+
+    @Test
+    public void testCompare_withNonNullValues_2() {
+        assertEquals(-1, compare("apple", "banana"));
+        assertEquals(1, compare("banana", "apple"));
+        assertEquals(0, compare("apple", "apple"));
+    }
+
+    @Test
+    public void testCONST_BYTE_withValidValue_2() {
+        assertEquals((byte) 5, CONST_BYTE(5));
+    }
+
+    @Test
+    public void testCONST_SHORT_withValidValue_2() {
+        assertEquals((short) 10, CONST_SHORT(10));
+    }
+
+    @Test
+    public void testCONST_BYTE_withInvalidValue_2() {
+        assertThrows(IllegalArgumentException.class, () -> CONST_BYTE(-129));
+    }
+
+    @Test
+    public void testCONST_SHORT_withInvalidValue_2() {
+        assertThrows(IllegalArgumentException.class, () -> CONST_SHORT(32768));
+    }
+
+    @Test
+    public void testDefaultIfNull_2() {
+        assertEquals("default", defaultIfNull(null, "default"));
+        assertEquals("value", defaultIfNull("value", "default"));
+    }
+
+    @Test
+    public void testEquals_withNullValues() {
+        assertTrue(equals(null, null));
+        assertFalse(equals("value1", null));
+        assertFalse(equals(null, "value2"));
+    }
+
+    @Test
+    public void testGetIfNull_2() {
+        assertEquals("default", getIfNull(null, () -> "default"));
+        assertEquals("value", getIfNull("value", () -> "default"));
+    }
+
+    @Test
+    public void testHashCodeHex_2() {
+        assertEquals("0", hashCodeHex(null));
+        assertEquals(Integer.toHexString(Objects.hashCode("test")), hashCodeHex("test"));
+    }
+
+    @Test
+    public void testIdentityHashCodeHex_2() {
+        assertEquals(Integer.toHexString(System.identityHashCode(new Object())), identityHashCodeHex(new Object()));
+    }
+
+    @Test
+    public void testIdentityToString_withNull() {
+        assertNull(identityToString(null));
+    }
+
+    @Test
+    public void testIdentityToString_withNonNull() {
+        String expected = "java.lang.Object@" + Integer.toHexString(System.identityHashCode(new Object()));
+        assertEquals(expected, identityToString(new Object()));
+    }
+
+    @Test
+    public void testIsArray_withNull() {
+        assertFalse(isArray(null));
+    }
+
+    @Test
+    public void testIsArray_withNonArrayObject() {
+        assertFalse(isArray("test"));
+    }
+
+    @Test
+    public void testIsArray_withArrayObject() {
+        assertTrue(isArray(new String[]{"a", "b"}));
+    }
+
+    @Test
+    public void testIsEmpty_withNull() {
+        assertTrue(isEmpty(null));
+    }
+
+    @Test
+    public void testIsEmpty_withEmptyCollection_2() {
+        assertTrue(isEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    public void testIsEmpty_withNonEmptyCollection() {
+        assertFalse(isEmpty(Arrays.asList("a", "b")));
+    }
+}
+```

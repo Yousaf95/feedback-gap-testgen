@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetDefaultCauseMethodNames_3() {
+        String[] expected = {"getCause", "getNextException"};
+        assertArrayEquals(expected, ExceptionUtils.getDefaultCauseMethodNames());
+    }
+
+    @Test
+    public void testGetMessage_3() {
+        Throwable throwable = new RuntimeException("Custom message");
+        assertEquals("RuntimeException: Custom message", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    public void testGetStackFrames_3() {
+        Throwable throwable = new RuntimeException();
+        String[] stackFrames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(stackFrames.length > 0);
+    }
+
+    @Test
+    public void testGetStackTrace_3() {
+        Throwable throwable = new RuntimeException();
+        String stackTrace = ExceptionUtils.getStackTrace(throwable);
+        assertTrue(stackTrace.contains("RuntimeException"));
+    }
+
+    @Test
+    public void testIsUnchecked_3() {
+        Throwable checkedException = new IOException();
+        assertFalse(ExceptionUtils.isUnchecked(checkedException));
+
+        Throwable uncheckedException = new RuntimeException();
+        assertTrue(ExceptionUtils.isUnchecked(uncheckedException));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTrace_3() {
+        Throwable throwable = new RuntimeException("Custom message");
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintStream) null));
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintWriter) null));
+    }
+
+    @Test
+    public void testRemoveCommonFrames_3() {
+        List<String> causeFrames = new ArrayList<>();
+        causeFrames.add("Frame1");
+        causeFrames.add("Frame2");
+
+        List<String> wrapperFrames = new ArrayList<>();
+        wrapperFrames.add("Frame1");
+        wrapperFrames.add("Frame2");
+        wrapperFrames.add("Frame3");
+
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+    }
+
+    @Test
+    public void testStream_3() {
+        Throwable throwable = new RuntimeException();
+        Stream<Throwable> stream = ExceptionUtils.stream(throwable);
+        assertTrue(stream.anyMatch(t -> t instanceof RuntimeException));
+    }
+}
+```

@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[89,13] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[99,13] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,13] cannot find symbol
+  symbol:   class Callable
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[155,13] cannot find symbol
+  symbol:   class Supplier
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[89,13] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[99,13] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[108,13] cannot find symbol
+[ERROR]   symbol:   class Callable
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[155,13] cannot find symbol
+[ERROR]   symbol:   class Supplier
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

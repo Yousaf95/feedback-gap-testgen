@@ -1,0 +1,27 @@
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.069 s <<< FAILURE! -- in org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] org.apache.commons.lang3.function.Failable_GenTest.testAccept_NoException -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.ClassCastException: class org.apache.commons.lang3.function.Failable_GenTest$$Lambda$413/0x0000150e00110c50 cannot be cast to class org.apache.commons.lang3.function.FailableBiConsumer (org.apache.commons.lang3.function.Failable_GenTest$$Lambda$413/0x0000150e00110c50 and org.apache.commons.lang3.function.FailableBiConsumer are in unnamed module of loader 'app')
+	at org.apache.commons.lang3.function.Failable_GenTest.testAccept_NoException(Failable_GenTest.java:16)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.function.Failable_GenTest.testGet_NoException -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.ClassCastException: class org.apache.commons.lang3.function.Failable_GenTest$$Lambda$454/0x0000150e0011f7d8 cannot be cast to class org.apache.commons.lang3.function.FailableSupplier (org.apache.commons.lang3.function.Failable_GenTest$$Lambda$454/0x0000150e0011f7d8 and org.apache.commons.lang3.function.FailableSupplier are in unnamed module of loader 'app')
+	at org.apache.commons.lang3.function.Failable_GenTest.testGet_NoException(Failable_GenTest.java:25)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   Failable_GenTest.testAccept_NoException:16 ClassCast class org.apache.commons.lang3.function.Failable_GenTest$$Lambda$413/0x0000150e00110c50 cannot be cast to class org.apache.commons.lang3.function.FailableBiConsumer (org.apache.commons.lang3.function.Failable_GenTest$$Lambda$413/0x0000150e00110c50 and org.apache.commons.lang3.function.FailableBiConsumer are in unnamed module of loader 'app')
+[ERROR]   Failable_GenTest.testGet_NoException:25 ClassCast class org.apache.commons.lang3.function.Failable_GenTest$$Lambda$454/0x0000150e0011f7d8 cannot be cast to class org.apache.commons.lang3.function.FailableSupplier (org.apache.commons.lang3.function.Failable_GenTest$$Lambda$454/0x0000150e0011f7d8 and org.apache.commons.lang3.function.FailableSupplier are in unnamed module of loader 'app')
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w15/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

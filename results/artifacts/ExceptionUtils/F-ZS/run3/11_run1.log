@@ -1,0 +1,39 @@
+[ERROR] Tests run: 20, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.190 s <<< FAILURE! -- in org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException -- Time elapsed: 0.033 s <<< ERROR!
+java.lang.RuntimeException: test
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testAsRuntimeException(ExceptionUtils_GenTest.java:18)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testThrowUnchecked -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.RuntimeException: unchecked
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testThrowUnchecked(ExceptionUtils_GenTest.java:95)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFrames -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.AbstractList.remove(AbstractList.java:167)
+	at org.apache.commons.lang3.exception.ExceptionUtils.removeCommonFrames(ExceptionUtils.java:809)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testRemoveCommonFrames(ExceptionUtils_GenTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   ExceptionUtils_GenTest.testAsRuntimeException:18 Runtime test
+[ERROR]   ExceptionUtils_GenTest.testRemoveCommonFrames:88 » UnsupportedOperation
+[ERROR]   ExceptionUtils_GenTest.testThrowUnchecked:95 Runtime unchecked
+[ERROR] Tests run: 20, Failures: 0, Errors: 3, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w4/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+import org.junit.jupiter.api.Test;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithNullChars() {
+        String result = RandomStringUtils.random(5, (char[]) null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomWithEmptyCharsArray() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            RandomStringUtils.random(5, new char[0]);
+        });
+    }
+
+    @Test
+    public void testRandomAlphabeticWithRange_2() {
+        String result = RandomStringUtils.randomAlphabetic(5, 1);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomAlphanumericWithRange_2() {
+        String result = RandomStringUtils.randomAlphanumeric(5, 1);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomAsciiWithRange_2() {
+        String result = RandomStringUtils.randomAscii(5, 1);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomGraphWithRange_2() {
+        String result = RandomStringUtils.randomGraph(5, 1);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomNumericWithRange_2() {
+        String result = RandomStringUtils.randomNumeric(5, 1);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomPrintWithRange_2() {
+        String result = RandomStringUtils.randomPrint(5, 1);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+}
+```

@@ -1,0 +1,350 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class HashCodeBuilder_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of HashCodeBuilder shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testAppendBooleanArray: bad operand types for binary operator '*' (first type:  boolean; second type: int)
+    code: int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+in method testAppendBooleanArray: bad operand types for binary operator '*' (first type:  boolean; second type: int)
+    code: int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+in method testAppendBooleanArray: bad operand types for binary operator '*' (first type:  boolean; second type: int)
+    code: int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+
+Current test class (HashCodeBuilder_GenTest.java):
+```java
+package org.apache.commons.lang3.builder;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+            public void testAppendDouble() {
+                double value = 123.456;
+                int expectedHashCode = (int) (value * 37 + 17);
+                assertEquals(expectedHashCode, new HashCodeBuilder().append(value).toHashCode());
+            }
+
+    @Test
+            public void testAppendFloatArray() {
+                float[] array = {1.0f, 2.0f, 3.0f};
+                int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+                assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+            }
+
+    @Test
+            public void testAppendLongArray() {
+            long[] array = {1L, 2L, 3L};
+            int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+            assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+        }
+
+    @Test
+            public void testAppendShortArray() {
+                short[] array = {1, 2, 3};
+                int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+                assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+            }
+
+    @Test
+            public void testAppendCharArray() {
+                char[] array = {'a', 'b', 'c'};
+                int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+                assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+            }
+
+    @Test
+            public void testAppendByteArray() {
+                byte[] array = {1, 2, 3};
+                int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+                assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+            }
+
+    @Test
+            public void testAppendBooleanArray() {
+            boolean[] array = {true, false, true};
+            int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+            assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+        }
+
+    @Test
+            public void testAppendNullArray() {
+                int expectedHashCode = 17;
+                assertEquals(expectedHashCode, new HashCodeBuilder().append((Object[]) null).toHashCode());
+            }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.builder.HashCodeBuilder):
+```java
+package org.apache.commons.lang3.builder;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+import org.apache.commons.lang3.ArraySorter;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.Validate;
+
+/** Assists in implementing {@link Object#hashCode()} methods. */
+public class HashCodeBuilder implements Builder<Integer> {
+    /** The default initial value to use in reflection hash code building. */
+    private static final int DEFAULT_INITIAL_VALUE = 17;
+    /** The default multiplier value to use in reflection hash code building. */
+    private static final int DEFAULT_MULTIPLIER_VALUE = 37;
+    /** A registry of objects used by reflection methods to detect cyclical object references and avoid infinite loops. */
+    private static final ThreadLocal<Set<IDKey>> REGISTRY = new ThreadLocal<>();
+    /** Uses reflection to build a valid hash code from the fields of {@code object}. */
+    public static int reflectionHashCode(final int initialNonZeroOddNumber, final int multiplierNonZeroOddNumber, final Object object) {
+        return reflectionHashCode(initialNonZeroOddNumber, multiplierNonZeroOddNumber, object, false, null);
+    }
+    /** Uses reflection to build a valid hash code from the fields of {@code object}. */
+    public static int reflectionHashCode(final int initialNonZeroOddNumber, final int multiplierNonZeroOddNumber, final Object object,
+            final boolean testTransients) {
+        return reflectionHashCode(initialNonZeroOddNumber, multiplierNonZeroOddNumber, object, testTransients, null);
+    }
+    /** Uses reflection to build a valid hash code from the fields of {@code object}. */
+    public static <T> int reflectionHashCode(final int initialNonZeroOddNumber, final int multiplierNonZeroOddNumber, final T object,
+            final boolean testTransients, final Class<? super T> reflectUpToClass, final String... excludeFields) {
+        Objects.requireNonNull(object, "object");
+        final HashCodeBuilder builder = new HashCodeBuilder(initialNonZeroOddNumber, multiplierNonZeroOddNumber);
+        Class<?> clazz = object.getClass();
+        reflectionAppend(object, clazz, builder, testTransients, excludeFields);
+        while (clazz.getSuperclass() != null && clazz != reflectUpToClass) {
+            clazz = clazz.getSuperclass();
+            reflectionAppend(object, clazz, builder, testTransients, excludeFields);
+        }
+        return builder.toHashCode();
+    }
+    /** Uses reflection to build a valid hash code from the fields of {@code object}. */
+    public static int reflectionHashCode(final Object object, final boolean testTransients) {
+        return reflectionHashCode(DEFAULT_INITIAL_VALUE, DEFAULT_MULTIPLIER_VALUE, object,
+                testTransients, null);
+    }
+    /** Uses reflection to build a valid hash code from the fields of {@code object}. */
+    public static int reflectionHashCode(final Object object, final Collection<String> excludeFields) {
+        return reflectionHashCode(object, ReflectionToStringBuilder.toNoNullStringArray(excludeFields));
+    }
+    /** Uses reflection to build a valid hash code from the fields of {@code object}. */
+    public static int reflectionHashCode(final Object object, final String... excludeFields) {
+        return reflectionHashCode(DEFAULT_INITIAL_VALUE, DEFAULT_MULTIPLIER_VALUE, object, false,
+                null, excludeFields);
+    }
+    /** Constant to use in building the hashCode. */
+    private final int iConstant;
+    /** Running total of the hashCode. */
+    private int iTotal;
+    /** Uses two hard coded choices for the constants needed to build a {@code hashCode}. */
+    public HashCodeBuilder() {
+        iConstant = 37;
+        iTotal = 17;
+    }
+    /** Two randomly chosen, odd numbers must be passed in. */
+    public HashCodeBuilder(final int initialOddNumber, final int multiplierOddNumber) {
+        Validate.isTrue(initialOddNumber % 2 != 0, "HashCodeBuilder requires an odd initial value");
+        Validate.isTrue(multiplierOddNumber % 2 != 0, "HashCodeBuilder requires an odd multiplier");
+        iConstant = multiplierOddNumber;
+        iTotal = initialOddNumber;
+    }
+    /** Append a {@code hashCode} for a {@code boolean}. */
+    public HashCodeBuilder append(final boolean value) {
+        iTotal = iTotal * iConstant + (value ? 0 : 1);
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code boolean} array. */
+    public HashCodeBuilder append(final boolean[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final boolean element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code byte}. */
+    public HashCodeBuilder append(final byte value) {
+        iTotal = iTotal * iConstant + value;
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code byte} array. */
+    public HashCodeBuilder append(final byte[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final byte element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code char}. */
+    public HashCodeBuilder append(final char value) {
+        iTotal = iTotal * iConstant + value;
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code char} array. */
+    public HashCodeBuilder append(final char[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final char element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code double}. */
+    public HashCodeBuilder append(final double value) {
+        return append(Double.doubleToLongBits(value));
+    }
+    /** Append a {@code hashCode} for a {@code double} array. */
+    public HashCodeBuilder append(final double[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final double element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code float}. */
+    public HashCodeBuilder append(final float value) {
+        iTotal = iTotal * iConstant + Float.floatToIntBits(value);
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code float} array. */
+    public HashCodeBuilder append(final float[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final float element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for an {@code int}. */
+    public HashCodeBuilder append(final int value) {
+        iTotal = iTotal * iConstant + value;
+        return this;
+    }
+    /** Append a {@code hashCode} for an {@code int} array. */
+    public HashCodeBuilder append(final int[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final int element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    public HashCodeBuilder append(final long value) {
+        iTotal = iTotal * iConstant + (int) (value ^ value >> 32);
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code long} array. */
+    public HashCodeBuilder append(final long[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final long element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for an {@link Object}. */
+    public HashCodeBuilder append(final Object object) {
+        if (object == null) {
+            iTotal = iTotal * iConstant;
+
+        } else if (ObjectUtils.isArray(object)) {
+            // factor out array case in order to keep method small enough
+            // to be inlined
+            appendArray(object);
+        } else {
+            iTotal = iTotal * iConstant + object.hashCode();
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for an {@link Object} array. */
+    public HashCodeBuilder append(final Object[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final Object element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code short}. */
+    public HashCodeBuilder append(final short value) {
+        iTotal = iTotal * iConstant + value;
+        return this;
+    }
+    /** Append a {@code hashCode} for a {@code short} array. */
+    public HashCodeBuilder append(final short[] array) {
+        if (array == null) {
+            iTotal = iTotal * iConstant;
+        } else {
+            for (final short element : array) {
+                append(element);
+            }
+        }
+        return this;
+    }
+    /** Adds the result of super.hashCode() to this builder. */
+    public HashCodeBuilder appendSuper(final int superHashCode) {
+        iTotal = iTotal * iConstant + superHashCode;
+        return this;
+    }
+    /** Returns the computed {@code hashCode}. */
+    @Override
+    public Integer build() {
+        return Integer.valueOf(toHashCode());
+    }
+    /** Implements equals using the hash code. */
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof HashCodeBuilder)) {
+            return false;
+        }
+        final HashCodeBuilder other = (HashCodeBuilder) obj;
+        return iTotal == other.iTotal;
+    }
+    /** The computed {@code hashCode} from toHashCode() is returned due to the likelihood of bugs in mis-calling toHashCode() and the unlikeliness of it mattering what the hashCode for HashCodeBuilder itself is. */
+    @Override
+    public int hashCode() {
+        return toHashCode();
+    }
+    /** Returns the computed {@code hashCode}. */
+    public int toHashCode() {
+        return iTotal;
+    }
+    // non-public helper methods (signatures only)
+    private static void reflectionAppend(final Object object, final Class<?> clazz, final HashCodeBuilder builder, final boolean useTransients,
+            final String[] excludeFields);
+    private void appendArray(final Object object);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

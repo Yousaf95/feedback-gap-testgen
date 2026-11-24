@@ -1,0 +1,122 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class ObjectUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testDefaultIfNullWithNonNull() {
+            String result = ObjectUtils.defaultIfNull("Hello", "World");
+            assertEquals("Hello", result);
+        }
+
+    @Test
+        public void testDefaultIfNullWithNull() {
+            String result = ObjectUtils.defaultIfNull(null, "World");
+            assertEquals("World", result);
+        }
+
+    @Test
+        public void testGetFirstNonNullWithNonNullValues() {
+            String result = ObjectUtils.getFirstNonNull(() -> "Hello", () -> null, () -> "World");
+            assertEquals("Hello", result);
+        }
+
+    @Test
+        public void testGetFirstNonNullWithNullValues() {
+            String result = ObjectUtils.getFirstNonNull(() -> null, () -> null, () -> "World");
+            assertEquals("World", result);
+        }
+
+    @Test
+        public void testGetFirstNonNullWithAllNullValues() {
+            String result = ObjectUtils.getFirstNonNull(() -> null, () -> null, () -> null);
+            assertNull(result);
+        }
+
+    @Test
+        public void testGetIfNullWithNonNullObject() {
+            String result = ObjectUtils.getIfNull("Hello", () -> "World");
+            assertEquals("Hello", result);
+        }
+
+    @Test
+        public void testGetIfNullWithNullObject() {
+            String result = ObjectUtils.getIfNull(null, () -> "World");
+            assertEquals("World", result);
+        }
+
+    @Test
+        public void testGetIfNullWithNullSupplier() {
+            assertThrows(NullPointerException.class, () -> ObjectUtils.getIfNull(null, null));
+        }
+
+    @Test
+    public void testHashCodeHexForNonNullObject() {
+        String result = ObjectUtils.hashCodeHex("Hello");
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testHashCodeHexForNullObject() {
+        String result = ObjectUtils.hashCodeHex(null);
+        assertEquals("0", result);
+    }
+
+    @Test
+    public void testIdentityToStringWithNonNullObject() throws IOException {
+        StringBuilder buffer = new StringBuilder();
+        ObjectUtils.identityToString(buffer, "Hello");
+        assertEquals("java.lang.String@" + Integer.toHexString(System.identityHashCode("Hello")), buffer.toString());
+    }
+
+    @Test
+    public void testIdentityToStringWithNullObject() {
+        String result = ObjectUtils.identityToString(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testIsArrayWithNonNullArray() {
+        boolean result = ObjectUtils.isArray(new int[]{1, 2, 3});
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIsArrayWithNullObject() {
+        boolean result = ObjectUtils.isArray(null);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testIsEmptyWithNonNullEmptyCollection() {
+        boolean result = ObjectUtils.isEmpty(Collections.emptyList());
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIsEmptyWithNullObject() {
+        boolean result = ObjectUtils.isEmpty(null);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIsNotEmptyWithNonNullNonEmptyCollection() {
+        boolean result = ObjectUtils.isNotEmpty(Arrays.asList("Hello", "World"));
+        assertTrue(result);
+    }
+}
+```

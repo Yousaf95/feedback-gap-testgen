@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static java.util.Map.entry;
+import static java.util.Map.of;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class SystemUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @BeforeEach
+    public void setUp() {
+        // Reset system properties to their default values before each test
+        System.clearProperty("os.name");
+        System.clearProperty(SystemUtils.USER_COUNTRY);
+        System.clearProperty(SystemUtils.USER_REGION);
+        System.clearProperty(SystemUtils.USER_NAME);
+        System.clearProperty(SystemUtils.USER_HOME);
+        System.clearProperty(SystemUtils.USER_DIR);
+        System.clearProperty(SystemUtils.JAVA_IO_TMPDIR);
+    }
+
+    @Test
+    public void testGetUserCountryWithDefault() {
+        String defaultValue = "US";
+        String result = SystemUtils.getUserCountry(defaultValue);
+        assertEquals(defaultValue, result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Linux", "Windows"})
+    public void testIsOS(String osName) {
+        System.setProperty("os.name", osName);
+        boolean isLinux = osName.equals("Linux");
+        boolean isUnix = osName.equals("Linux") || osName.startsWith("Mac OS X") || osName.equals("FreeBSD")
+                || osName.equals("OpenBSD") || osName.equals("NetBSD") || osName.equals("Solaris") || osName.equals("SunOS");
+        boolean isWindows = osName.startsWith(SystemUtils.OS_NAME_WINDOWS_PREFIX);
+        assertTrue(isLinux == SystemUtils.IS_OS_LINUX);
+        assertTrue(isUnix == SystemUtils.IS_OS_UNIX);
+        assertTrue(isWindows == SystemUtils.IS_OS_WINDOWS);
+    }
+
+    @Test
+    public void testGetEnvironmentVariableWithNullValue_2() {
+        String name = "NON_EXISTENT_ENV_VAR";
+        String defaultValue = "default";
+        String result = SystemUtils.getEnvironmentVariable(name, defaultValue);
+        assertEquals(defaultValue, result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Linux", "Windows"})
+    public void testGetHostName(String osName) {
+        System.setProperty("os.name", osName);
+        String result = SystemUtils.getHostName();
+        assertNotNull(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"defaultUser", "admin"})
+    public void testGetUserNameWithDefault_2(String defaultValue) {
+        String result = SystemUtils.getUserName(defaultValue);
+        assertEquals(defaultValue, result);
+    }
+}
+```

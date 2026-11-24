@@ -1,0 +1,44 @@
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.097 s <<< FAILURE! -- in org.apache.commons.lang3.builder.CompareToBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_NullArrays -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.ClassCastException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_NullArrays(CompareToBuilder_GenTest.java:85)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: lhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:237)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.lambda$testReflectionCompare_NullArrays$3(CompareToBuilder_GenTest.java:85)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Arrays -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-1> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_Arrays(CompareToBuilder_GenTest.java:75)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_Arrays:75 expected: <-1> but was: <0>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_NullArrays:85 Unexpected exception type thrown, expected: <java.lang.ClassCastException> but was: <java.lang.NullPointerException>
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w9/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,459 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppendArrayWithNullComparator() {
+        Object[] lhs = {1, 2, 3};
+        Object[] rhs = {1, 2, 4};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithNullElementsInLhs() {
+        Object[] lhs = {null, 2, 3};
+        Object[] rhs = {1, 2, 4};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithNullElementsInRhs() {
+        Object[] lhs = {1, 2, 3};
+        Object[] rhs = {null, 2, 4};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithNullElementsInBoth() {
+        Object[] lhs = {null, 2, null};
+        Object[] rhs = {null, 2, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithDifferentComparators() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Integer[] lhs = {1, 2, 3};
+        Integer[] rhs = {4, 5, 6};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithDifferentComparatorsReversed() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Integer[] lhs = {4, 5, 6};
+        Integer[] rhs = {1, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArrays() {
+        Object[] lhs = {};
+        Object[] rhs = {};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithDifferentLengthsLhsLonger() {
+        Object[] lhs = {1, 2, 3};
+        Object[] rhs = {4, 5};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithDifferentLengthsRhsLonger() {
+        Object[] lhs = {1, 2};
+        Object[] rhs = {4, 5, 6};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElements() {
+        Integer[] lhs = {1, 2, 3};
+        Integer[] rhs = {1, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsDifferentOrder() {
+        Integer[] lhs = {3, 2, 1};
+        Integer[] rhs = {1, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsDifferentOrderReversed() {
+        Integer[] lhs = {1, 2, 3};
+        Integer[] rhs = {3, 2, 1};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsDifferentComparators() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Integer[] lhs = {1, 2, 3};
+        Integer[] rhs = {3, 2, 1};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsDifferentComparatorsReversed() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Integer[] lhs = {3, 2, 1};
+        Integer[] rhs = {1, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullComparator() {
+        Object[] lhs = {1, 2, 3};
+        Object[] rhs = {1, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullComparatorReversed() {
+        Object[] lhs = {3, 2, 1};
+        Object[] rhs = {1, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElements() {
+        Object[] lhs = {null, 2, 3};
+        Object[] rhs = {null, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsReversed() {
+        Object[] lhs = {3, 2, null};
+        Object[] rhs = {null, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsDifferentOrder() {
+        Object[] lhs = {null, 2, 3};
+        Object[] rhs = {3, null, 2};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsDifferentOrderReversed() {
+        Object[] lhs = {3, null, 2};
+        Object[] rhs = {null, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsDifferentComparators() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {null, 2, 3};
+        Object[] rhs = {3, null, 2};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsDifferentComparatorsReversed() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {3, null, 2};
+        Object[] rhs = {null, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullComparator() {
+        Object[] lhs = {null, 2, 3};
+        Object[] rhs = {null, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullComparatorReversed() {
+        Object[] lhs = {3, null, 2};
+        Object[] rhs = {null, 2, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElements() {
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsReversed() {
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsDifferentOrder() {
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsDifferentOrderReversed() {
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsDifferentComparators() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsDifferentComparatorsReversed() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullComparator() {
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullComparatorReversed() {
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElements() {
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsReversed() {
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsDifferentOrder() {
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsDifferentOrderReversed() {
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsDifferentComparators() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsDifferentComparatorsReversed() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullComparator() {
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullComparatorReversed() {
+        Object[] lhs = {null, null, null, null};
+        Object[] rhs = {null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElements() {
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsReversed() {
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsDifferentOrder() {
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsDifferentOrderReversed() {
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsDifferentComparators() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsDifferentComparatorsReversed() {
+        Comparator<Integer> comparator = (a, b) -> Integer.compare(b, a);
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsNullComparator() {
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsNullComparatorReversed() {
+        Object[] lhs = {null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs, null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendArrayWithSameElementsNullElementsNullElementsNullElementsNullElementsNullElements() {
+        Object[] lhs = {null, null, null, null, null, null};
+        Object[] rhs = {null, null, null, null, null, null};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0

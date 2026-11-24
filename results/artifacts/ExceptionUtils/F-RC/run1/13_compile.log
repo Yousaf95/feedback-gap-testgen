@@ -1,0 +1,75 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[170,13] cannot find symbol
+  symbol:   class Method
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[172,45] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[179,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[191,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[202,45] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[209,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[241,68] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[255,63] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[261,59] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[294,13] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[324,39] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[325,26] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[170,13] cannot find symbol
+[ERROR]   symbol:   class Method
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[172,45] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[179,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[191,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[202,45] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[209,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[241,68] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[255,63] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[261,59] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[294,13] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[324,39] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[325,26] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

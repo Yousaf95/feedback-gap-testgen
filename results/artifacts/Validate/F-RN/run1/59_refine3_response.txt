@@ -1,0 +1,117 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetween_double_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 2.0, 1.5));
+    }
+
+    @Test
+    public void testExclusiveBetween_long_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 2L, 1L));
+    }
+
+    @Test
+    public void testInclusiveBetween_double_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 2.0, 3.0));
+    }
+
+    @Test
+    public void testInclusiveBetween_long_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 2L, 3L));
+    }
+
+    @Test
+    public void testMatchesPattern_valid() {
+        Validate.matchesPattern("hello", "h.*o");
+    }
+
+    @Test
+    public void testMatchesPattern_invalid() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("hello", "h.*z"));
+    }
+
+    @Test
+    public void testNoNullElements_array_valid() {
+        Integer[] array = {1, 2, 3};
+        Validate.noNullElements(array);
+    }
+
+    @Test
+    public void testNoNullElements_array_invalid() {
+        Integer[] array = {1, null, 3};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNoNullElements_collection_valid() {
+        Collection<Integer> collection = Arrays.asList(1, 2, 3);
+        Validate.noNullElements(collection);
+    }
+
+    @Test
+    public void testNoNullElements_collection_invalid() {
+        Collection<Integer> collection = Arrays.asList(1, null, 3);
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(collection));
+    }
+
+    @Test
+    public void testNotEmpty_array_valid() {
+        Integer[] array = {1, 2, 3};
+        Validate.notEmpty(array);
+    }
+
+    @Test
+    public void testNotEmpty_array_invalid() {
+        Integer[] array = {};
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(array));
+    }
+
+    @Test
+    public void testNotEmpty_collection_valid() {
+        Collection<Integer> collection = Arrays.asList(1, 2, 3);
+        Validate.notEmpty(collection);
+    }
+
+    @Test
+    public void testNotEmpty_collection_invalid() {
+        Collection<Integer> collection = Collections.emptyList();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(collection));
+    }
+
+    @Test
+    public void testNotEmpty_map_valid() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("one", 1);
+        map.put("two", 2);
+        Validate.notEmpty(map);
+    }
+
+    @Test
+    public void testNotEmpty_map_invalid() {
+        Map<String, Integer> map = Collections.emptyMap();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map));
+    }
+
+    @Test
+    public void testNotBlank_valid() {
+        CharSequence chars = "hello";
+        Validate.notBlank(chars);
+    }
+
+    @Test
+    public void testNotBlank_invalid() {
+        CharSequence chars = "";
+        assertThrows(IllegalArgumentException.class, () -> Validate.notBlank(chars));
+    }
+}
+```

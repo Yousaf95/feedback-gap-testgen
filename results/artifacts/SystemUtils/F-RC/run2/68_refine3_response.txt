@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class SystemUtils_GenTest {
+
+    @Test
+    public void testGetUserCountryWithDefault() {
+        String defaultValue = "US";
+        String result = SystemUtils.getUserCountry(defaultValue);
+        assertEquals(defaultValue, result);
+    }
+
+    @Test
+    public void testIsOSLinuxTrue() {
+        System.setProperty("os.name", "Linux");
+        assertTrue(SystemUtils.IS_OS_LINUX);
+    }
+
+    @Test
+    public void testIsOSLinuxFalse() {
+        System.setProperty("os.name", "Windows");
+        assertFalse(SystemUtils.IS_OS_LINUX);
+    }
+
+    @Test
+    public void testIsOSUnixTrue() {
+        System.setProperty("os.name", "Linux");
+        assertTrue(SystemUtils.IS_OS_UNIX);
+    }
+
+    @Test
+    public void testIsOSUnixFalse() {
+        System.setProperty("os.name", "Windows");
+        assertFalse(SystemUtils.IS_OS_UNIX);
+    }
+
+    @Test
+    public void testGetEnvironmentVariableWithNullValue() {
+        String name = "NON_EXISTENT_ENV_VAR";
+        String defaultValue = "default";
+        String result = SystemUtils.getEnvironmentVariable(name, defaultValue);
+        assertEquals(defaultValue, result);
+    }
+
+    @Test
+    public void testGetHostNameWindows() {
+        System.setProperty("os.name", "Windows 10");
+        String result = SystemUtils.getHostName();
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGetHostNameNonWindows() {
+        System.setProperty("os.name", "Linux");
+        String result = SystemUtils.getHostName();
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testGetUserNameWithDefault() {
+        String defaultValue = "defaultUser";
+        String result = SystemUtils.getUserName(defaultValue);
+        assertEquals(defaultValue, result);
+    }
+}
+```

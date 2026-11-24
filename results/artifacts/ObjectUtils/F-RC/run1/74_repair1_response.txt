@@ -1,0 +1,196 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.of;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class ObjectUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testReadResolve() {
+            // This method is not directly testable as it's invoked by the JVM during deserialization.
+            // However, we can ensure that the method exists and does not throw any exceptions.
+            assertNotNull(ObjectUtils.NULL);
+        }
+
+    @Test
+        public void testAllNotNull_2() {
+            assertTrue(ObjectUtils.allNotNull(1, 2, 3));
+            assertFalse(ObjectUtils.allNotNull(1, null, 3));
+            assertTrue(ObjectUtils.allNotNull());
+        }
+
+    @Test
+        public void testAnyNull() {
+            assertFalse(ObjectUtils.anyNull(1, 2, 3));
+            assertTrue(ObjectUtils.anyNull(1, null, 3));
+            assertFalse(ObjectUtils.anyNull());
+        }
+
+    @Test
+        public void testClone() {
+            Integer original = 42;
+            Integer cloned = ObjectUtils.clone(original);
+            assertEquals(original, cloned);
+    
+            String[] array = {"a", "b", "c"};
+            String[] clonedArray = ObjectUtils.clone(array);
+            assertArrayEquals(array, clonedArray);
+    
+            Map<String, String> map = new HashMap<>();
+            map.put("key", "value");
+            Map<String, String> clonedMap = ObjectUtils.clone(map);
+            assertEquals(map, clonedMap);
+        }
+
+    @Test
+        public void testCloneIfPossible() {
+            Integer original = 42;
+            Integer cloned = ObjectUtils.cloneIfPossible(original);
+            assertEquals(original, cloned);
+    
+            String[] array = {"a", "b", "c"};
+            String[] clonedArray = ObjectUtils.cloneIfPossible(array);
+            assertArrayEquals(array, clonedArray);
+    
+            Map<String, String> map = new HashMap<>();
+            map.put("key", "value");
+            Map<String, String> clonedMap = ObjectUtils.cloneIfPossible(map);
+            assertEquals(map, clonedMap);
+        }
+
+    @Test
+        public void testCONST_2() {
+            assertTrue(ObjectUtils.CONST(true));
+            assertEquals((byte) 42, ObjectUtils.CONST_BYTE(42));
+            assertEquals((short) 42, ObjectUtils.CONST_SHORT(42));
+            assertEquals(42.0, ObjectUtils.CONST(42.0), 0.0);
+            assertEquals(42f, ObjectUtils.CONST(42f), 0.0);
+            assertEquals(42, ObjectUtils.CONST(42));
+            assertEquals(42L, ObjectUtils.CONST(42L));
+            assertEquals((short) 42, ObjectUtils.CONST((short) 42));
+        }
+
+    @Test
+        public void testCONST_BYTE() {
+            assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(-129));
+            assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(128));
+            assertEquals((byte) -128, ObjectUtils.CONST_BYTE(-128));
+            assertEquals((byte) 127, ObjectUtils.CONST_BYTE(127));
+        }
+
+    @Test
+        public void testCONST_SHORT() {
+            assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(-32769));
+            assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(32768));
+            assertEquals((short) -32768, ObjectUtils.CONST_SHORT(-32768));
+            assertEquals((short) 32767, ObjectUtils.CONST_SHORT(32767));
+        }
+
+    @Test
+        public void testDefaultIfNull() {
+            String result = ObjectUtils.defaultIfNull(null, "default");
+            assertEquals("default", result);
+    
+            Integer number = ObjectUtils.defaultIfNull(42, 0);
+            assertEquals(42, number);
+        }
+
+    @Test
+        public void testFirstNonNull_2() {
+            Integer result = ObjectUtils.firstNonNull(null, 1, 2, 3);
+            assertEquals(1, result);
+    
+            String str = ObjectUtils.firstNonNull(null, null, "value", null);
+            assertEquals("value", str);
+        }
+
+    @Test
+        public void testGetFirstNonNull_2() {
+            Integer result = ObjectUtils.getFirstNonNull(() -> null, () -> 1, () -> 2, () -> 3);
+            assertEquals(1, result);
+    
+            String str = ObjectUtils.getFirstNonNull(() -> null, () -> null, () -> "value", () -> null);
+            assertEquals("value", str);
+        }
+
+    @Test
+        public void testGetIfNull_2() {
+            Integer result = ObjectUtils.getIfNull(null, () -> 42);
+            assertEquals(42, result);
+    
+            String str = ObjectUtils.getIfNull("value", () -> "default");
+            assertEquals("value", str);
+        }
+
+    @Test
+        public void testHashCodeHex() {
+            String hash = ObjectUtils.hashCodeHex("test");
+            assertNotNull(hash);
+            assertFalse(hash.isEmpty());
+        }
+
+    @Test
+        public void testIdentityToString_2() throws IOException {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectUtils.identityToString(baos, "test");
+            assertEquals("java.lang.String@", baos.toString());
+    
+            String result = ObjectUtils.identityToString(null);
+            assertNull(result);
+    
+            StringBuilder sb = new StringBuilder();
+            ObjectUtils.identityToString(sb, "test");
+            assertEquals("java.lang.String@", sb.toString());
+        }
+
+    @Test
+        public void testIsArray_2() {
+            assertTrue(ObjectUtils.isArray(new int[]{}));
+            assertFalse(ObjectUtils.isArray(42));
+            assertTrue(ObjectUtils.isArray(new HashMap<>() {{ put("key", "value"); }}));
+        }
+
+    @Test
+        public void testIsEmpty_3() {
+            assertTrue(ObjectUtils.isEmpty(null));
+            assertTrue(ObjectUtils.isEmpty(""));
+            assertTrue(ObjectUtils.isEmpty(new int[]{}));
+            assertTrue(ObjectUtils.isEmpty(new HashMap<>() {{ put("key", "value"); }}.entrySet()));
+            assertFalse(ObjectUtils.isEmpty("test"));
+            assertFalse(ObjectUtils.isEmpty(new int[]{1, 2, 3}));
+        }
+
+    @Test
+        public void testIsNotEmpty_2() {
+            assertFalse(ObjectUtils.isNotEmpty(null));
+            assertFalse(ObjectUtils.isNotEmpty(""));
+            assertFalse(ObjectUtils.isNotEmpty(new int[]{}));
+            assertFalse(ObjectUtils.isNotEmpty(new HashMap<>() {{ put("key", "value"); }}.entrySet()));
+            assertTrue(ObjectUtils.isNotEmpty("test"));
+            assertTrue(ObjectUtils.isNotEmpty(new int[]{1, 2, 3}));
+        }
+
+    @Test
+        public void testMedian_2() {
+            assertEquals(2, ObjectUtils.median(Arrays.asList(1, 2, 3)));
+        }
+
+    @Test
+        public void testMode() {
+            assertEquals("b", ObjectUtils.mode("a", "b", "b", "c"));
+            assertNull(ObjectUtils.mode());
+        }
+}
+```

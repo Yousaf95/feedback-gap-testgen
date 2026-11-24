@@ -1,0 +1,126 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
+import java.util.Set;
+
+class EqualsBuilder_GenTest {
+
+    private EqualsBuilder equalsBuilder;
+
+    @Test
+    public void testReflectionEqualsSameObject_2() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj, false));
+    }
+
+    @Test
+    public void testAppendBoolean() {
+        EqualsBuilder builder = new EqualsBuilder().append(true, true);
+        assertTrue(builder.isEquals());
+        builder.append(false, false);
+        assertTrue(builder.isEquals());
+        builder.append(true, false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendByte() {
+        EqualsBuilder builder = new EqualsBuilder().append((byte) 1, (byte) 1);
+        assertTrue(builder.isEquals());
+        builder.append((byte) 2, (byte) 2);
+        assertTrue(builder.isEquals());
+        builder.append((byte) 1, (byte) 2);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendChar() {
+        EqualsBuilder builder = new EqualsBuilder().append('a', 'a');
+        assertTrue(builder.isEquals());
+        builder.append('b', 'b');
+        assertTrue(builder.isEquals());
+        builder.append('a', 'b');
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendDouble() {
+        EqualsBuilder builder = new EqualsBuilder().append(1.0, 1.0);
+        assertTrue(builder.isEquals());
+        builder.append(2.0, 2.0);
+        assertTrue(builder.isEquals());
+        builder.append(1.0, 2.0);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendFloat() {
+        EqualsBuilder builder = new EqualsBuilder().append(1.0f, 1.0f);
+        assertTrue(builder.isEquals());
+        builder.append(2.0f, 2.0f);
+        assertTrue(builder.isEquals());
+        builder.append(1.0f, 2.0f);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendInt() {
+        EqualsBuilder builder = new EqualsBuilder().append(1, 1);
+        assertTrue(builder.isEquals());
+        builder.append(2, 2);
+        assertTrue(builder.isEquals());
+        builder.append(1, 2);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendLong() {
+        EqualsBuilder builder = new EqualsBuilder().append(1L, 1L);
+        assertTrue(builder.isEquals());
+        builder.append(2L, 2L);
+        assertTrue(builder.isEquals());
+        builder.append(1L, 2L);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendShort() {
+        EqualsBuilder builder = new EqualsBuilder().append((short) 1, (short) 1);
+        assertTrue(builder.isEquals());
+        builder.append((short) 2, (short) 2);
+        assertTrue(builder.isEquals());
+        builder.append((short) 1, (short) 2);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendObject_2() {
+        Object obj1 = new Object();
+        Object obj2 = new Object();
+        EqualsBuilder builder = new EqualsBuilder().append(obj1, obj1);
+        assertTrue(builder.isEquals());
+        builder.append(obj1, obj2);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendObjectNull_2() {
+        Object obj = null;
+        EqualsBuilder builder = new EqualsBuilder().append(obj, null);
+        assertTrue(builder.isEquals());
+        builder.append(null, obj);
+        assertTrue(builder.isEquals());
+        builder.append(obj, new Object());
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendObjectSame_2() {
+        Object obj = new Object();
+        EqualsBuilder builder = new EqualsBuilder().append(obj, obj);
+        assertTrue(builder.isEquals());
+    }
+}
+```

@@ -1,0 +1,136 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    public void testBetweenWithNullValuesThrowsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> Range.between(null, "test"));
+        assertThrows(NullPointerException.class, () -> Range.between("test", null));
+        assertThrows(NullPointerException.class, () -> Range.between(null, null, Comparator.naturalOrder()));
+    }
+
+    @Test
+    public void testIsWithNullValueReturnsFalse() {
+        assertFalse(Range.is(null).contains("test"));
+    }
+
+    @Test
+    public void testElementCompareTo() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(-1, range.elementCompareTo(0));
+        assertEquals(0, range.elementCompareTo(3));
+        assertEquals(1, range.elementCompareTo(6));
+    }
+
+    @Test
+    public void testContains() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.contains(2));
+        assertFalse(range.contains(0));
+        assertFalse(range.contains(6));
+    }
+
+    @Test
+    public void testContainsRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.containsRange(Range.between(2, 4)));
+        assertFalse(range.containsRange(Range.between(0, 2)));
+        assertFalse(range.containsRange(Range.between(4, 6)));
+    }
+
+    @Test
+    public void testGetMaximumAndMinimum() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(1, range.getMinimum());
+        assertEquals(5, range.getMaximum());
+    }
+
+    @Test
+    public void testHashCode() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        assertEquals(range1.hashCode(), range2.hashCode());
+
+        Range<Integer> range3 = Range.between(1, 6);
+        assertNotEquals(range1.hashCode(), range3.hashCode());
+    }
+
+    @Test
+    public void testIsAfter() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.isAfter(0));
+        assertFalse(range.isAfter(5));
+    }
+
+    @Test
+    public void testToString() {
+        Range<String> range = Range.between("a", "c");
+        assertEquals("[a..c]", range.toString());
+    }
+
+    @Test
+    public void testBetweenWithNullValuesThrowsNullPointerException_2() {
+        assertThrows(NullPointerException.class, () -> Range.between(null, "test", Comparator.naturalOrder()));
+        assertThrows(NullPointerException.class, () -> Range.between("test", null, Comparator.naturalOrder()));
+        assertThrows(NullPointerException.class, () -> Range.between(null, null));
+    }
+
+    @Test
+    public void testElementCompareTo_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(-1, range.elementCompareTo(0));
+        assertEquals(0, range.elementCompareTo(3));
+        assertEquals(1, range.elementCompareTo(6));
+    }
+
+    @Test
+    public void testContains_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.contains(2));
+        assertFalse(range.contains(0));
+        assertFalse(range.contains(6));
+    }
+
+    @Test
+    public void testContainsRange_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.containsRange(Range.between(2, 4)));
+        assertFalse(range.containsRange(Range.between(0, 2)));
+        assertFalse(range.containsRange(Range.between(4, 6)));
+    }
+
+    @Test
+    public void testGetMaximumAndMinimum_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(1, range.getMinimum());
+        assertEquals(5, range.getMaximum());
+    }
+
+    @Test
+    public void testHashCode_2() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        assertEquals(range1.hashCode(), range2.hashCode());
+
+        Range<Integer> range3 = Range.between(1, 6);
+        assertNotEquals(range1.hashCode(), range3.hashCode());
+    }
+
+    @Test
+    public void testIsAfter_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.isAfter(0));
+        assertFalse(range.isAfter(5));
+    }
+
+    @Test
+    public void testToString_2() {
+        Range<String> range = Range.between("a", "c");
+        assertEquals("[a..c]", range.toString());
+    }
+}
+```

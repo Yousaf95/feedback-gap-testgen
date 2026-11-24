@@ -1,0 +1,108 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.of;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class RandomStringUtils_GenTest {
+
+    private static final String EMPTY = StringUtils.EMPTY;
+    private static final char[] ALL_CHARS = new char[Character.MAX_CODE_POINT + 1];
+    private static final char[] LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    private static final char[] NUMBERS = "0123456789".toCharArray();
+
+    @BeforeEach
+    public void setUp() {
+        // No-op
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCount")
+    public void testRandom(int count) {
+        String result = RandomStringUtils.random(count);
+        assertEquals(count, result.length());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndLetters")
+    public void testRandomWithLetters(int count, boolean letters) {
+        String result = RandomStringUtils.random(count, letters, false);
+        if (letters) {
+            assertTrue(result.chars().allMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isLetter));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndNumbers")
+    public void testRandomWithNumbers(int count, boolean numbers) {
+        String result = RandomStringUtils.random(count, false, numbers);
+        if (numbers) {
+            assertTrue(result.chars().allMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isDigit));
+        }
+    }
+
+    
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRange")
+    public void testRandomWithRange(int count, int start, int end) {
+        String result = RandomStringUtils.random(count, start, end, false, false);
+        assertTrue(result.chars().allMatch(c -> c >= start && c < end));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithLetters")
+    public void testRandomWithRangeAndLetters(int count, int start, int end, boolean letters) {
+        String result = RandomStringUtils.random(count, start, end, letters, false);
+        if (letters) {
+            assertTrue(result.chars().allMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isLetter));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithNumbers")
+    public void testRandomWithRangeAndNumbers(int count, int start, int end, boolean numbers) {
+        String result = RandomStringUtils.random(count, start, end, false, numbers);
+        if (numbers) {
+            assertTrue(result.chars().allMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().anyMatch(Character::isDigit));
+        }
+    }
+
+    
+    @ParameterizedTest
+    @MethodSource("provideRandomCountAndRangeWithLettersAndNumbers")
+    public void testRandomWithRangeAndLettersAndNumbers(int count, int start, int end, boolean letters, boolean numbers) {
+        String result = RandomStringUtils.random(count, start, end, letters, numbers);
+        if (letters) {
+            assertTrue(result.chars().anyMatch(Character::isLetter));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isLetter));
+        }
+        if (numbers) {
+            assertTrue(result.chars().anyMatch(Character::isDigit));
+        } else {
+            assertFalse(result.chars().allMatch(Character::isDigit));
+        }
+    }
+
+    
+    
+    
+}

@@ -1,0 +1,39 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testCheckLaterThan1_true() {
+        assertTrue(CharSequenceUtils.checkLaterThan1("abc", "cba", 3, 0));
+    }
+
+    @Test
+    public void testCheckLaterThan1_false() {
+        assertFalse(CharSequenceUtils.checkLaterThan1("abc", "def", 3, 0));
+    }
+
+    @Test
+    public void testIndexOfCharSequenceCharInt_string() {
+        assertEquals(2, CharSequenceUtils.indexOf("hello world", 'o', 5));
+    }
+
+    @Test
+    public void testIndexOfCharSequenceCharInt_negativeStart() {
+        assertEquals(-1, CharSequenceUtils.indexOf("hello world", 'x', -1));
+    }
+
+    @Test
+    public void testLastIndexOfCharSequenceCharInt_string() {
+        assertEquals(6, CharSequenceUtils.lastIndexOf("hello world", 'o'));
+    }
+
+    @Test
+    public void testLastIndexOfCharSequenceCharInt_negativeStart() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("hello world", 'x', -1));
+    }
+}
+```

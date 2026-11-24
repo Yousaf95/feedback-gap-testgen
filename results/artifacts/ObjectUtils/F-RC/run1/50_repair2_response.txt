@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.of;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    void testHashCodeHex() {
+        assertEquals("0", ObjectUtils.hashCodeHex(null));
+        assertEquals(Integer.toHexString(Objects.hashCode("test")), ObjectUtils.hashCodeHex("test"));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsEmptyData")
+    void testIsEmpty_2(String input, boolean expected) {
+        assertEquals(expected, ObjectUtils.isEmpty(input));
+        assertEquals(expected, ObjectUtils.isEmpty(new ArrayList<>())); // empty list
+        assertEquals(expected, ObjectUtils.isEmpty((Object) null));
+    }
+
+    private static Stream<Arguments> provideIsEmptyData() {
+        return Stream.of(
+            of("", true),
+            of("value", false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsNotEmptyData")
+    void testIsNotEmpty(String input, boolean expected) {
+        assertEquals(expected, ObjectUtils.isNotEmpty(input));
+        assertEquals(expected, ObjectUtils.isNotEmpty(new ArrayList<>(Collections.singletonList("value")))); // non-empty list
+        assertEquals(expected, ObjectUtils.isNotEmpty((Object) null));
+    }
+
+    private static Stream<Arguments> provideIsNotEmptyData() {
+        return Stream.of(
+            of("", false),
+            of("value", true)
+        );
+    }
+
+    @Test
+    void testMedian() {
+        assertEquals(2.0, ObjectUtils.median(1.0, 2.0, 3.0));
+        assertEquals(2.0, ObjectUtils.median((Comparator<Double>) Double::compareTo, 1.0, 2.0, 3.0));
+    }
+
+    @Test
+    void testWait() throws InterruptedException {
+        // This method is not easily testable without a real object and thread.
+        // We can only ensure that it does not throw an exception.
+        Object obj = new Object();
+        Duration duration = Duration.ofMillis(100);
+        ObjectUtils.wait(obj, duration);
+    }
+}
+```

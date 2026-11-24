@@ -1,0 +1,84 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_singleCharacterMatch() {
+        assertTrue(CharSetUtils.containsAny("abc", "b"));
+    }
+
+    @Test
+    public void testContainsAny_multipleCharactersMatch() {
+        assertTrue(CharSetUtils.containsAny("hello world", "lho"));
+    }
+
+    @Test
+    public void testContainsAny_noMatch() {
+        assertFalse(CharSetUtils.containsAny("abcdefg", "xyz"));
+    }
+
+    @Test
+    public void testCount_singleCharacterMatch() {
+        assertEquals(1, CharSetUtils.count("abc", "b"));
+    }
+
+    @Test
+    public void testCount_multipleCharactersMatch() {
+        assertEquals(3, CharSetUtils.count("hello world", "lho"));
+    }
+
+    @Test
+    public void testCount_noMatch() {
+        assertEquals(0, CharSetUtils.count("abcdefg", "xyz"));
+    }
+
+    @Test
+    public void testDelete_singleCharacterMatch() {
+        assertEquals("ac", CharSetUtils.delete("abc", "b"));
+    }
+
+    @Test
+    public void testDelete_multipleCharactersMatch() {
+        assertEquals("heo world", CharSetUtils.delete("hello world", "lho"));
+    }
+
+    @Test
+    public void testDelete_noMatch() {
+        assertEquals("abcdefg", CharSetUtils.delete("abcdefg", "xyz"));
+    }
+
+    @Test
+    public void testKeep_singleCharacterMatch() {
+        assertEquals("b", CharSetUtils.keep("abc", "b"));
+    }
+
+    @Test
+    public void testKeep_multipleCharactersMatch() {
+        assertEquals("hello world", CharSetUtils.keep("hello world", "lho"));
+    }
+
+    @Test
+    public void testKeep_noMatch() {
+        assertEquals("", CharSetUtils.keep("abcdefg", "xyz"));
+    }
+
+    @Test
+    public void testSqueeze_singleCharacterMatch() {
+        assertEquals("a", CharSetUtils.squeeze("aa", "a"));
+    }
+
+    @Test
+    public void testSqueeze_multipleCharactersMatch() {
+        assertEquals("heo wrold", CharSetUtils.squeeze("hello world", "lho"));
+    }
+
+    @Test
+    public void testSqueeze_noMatch() {
+        assertEquals("abcdefg", CharSetUtils.squeeze("abcdefg", "xyz"));
+    }
+}
+```

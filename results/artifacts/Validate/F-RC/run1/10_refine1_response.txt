@@ -1,0 +1,139 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetween_double_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 4.9);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_double_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 10.1);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_double_message_valueLessThanStart() {
+        String expectedMessage = "Custom message";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 4.9, expectedMessage);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testExclusiveBetween_double_message_valueGreaterThanEnd() {
+        String expectedMessage = "Custom message";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 10.1, expectedMessage);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testFinite_double_nan() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.finite(Double.NaN);
+        });
+    }
+
+    @Test
+    public void testFinite_double_infinite() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.finite(Double.POSITIVE_INFINITY);
+        });
+    }
+
+    @Test
+    public void testFinite_double_message_nan() {
+        String expectedMessage = "Custom message";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.finite(Double.NaN, expectedMessage);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testFinite_double_message_infinite() {
+        String expectedMessage = "Custom message";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.finite(Double.POSITIVE_INFINITY, expectedMessage);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testInclusiveBetween_double_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 4.9);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_double_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 10.1);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_double_message_valueLessThanStart() {
+        String expectedMessage = "Custom message";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 4.9, expectedMessage);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testInclusiveBetween_double_message_valueGreaterThanEnd() {
+        String expectedMessage = "Custom message";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 10.1, expectedMessage);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageDoubleValue() {
+        String expectedMessage = "Custom message: 5.0";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, expectedMessage, 5.0);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageLongValue() {
+        String expectedMessage = "Custom message: 5";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, expectedMessage, 5L);
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageValues() {
+        String expectedMessage = "Custom message: value1, value2";
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, expectedMessage, "value1", "value2");
+        });
+        assertEquals(expectedMessage, exception.getMessage());
+    }
+}
+```

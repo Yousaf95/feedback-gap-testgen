@@ -1,0 +1,293 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class DiffBuilder_GenTest {
+
+    private DiffBuilder<String> diffBuilder;
+
+    @BeforeEach
+    public void setUp() {
+        diffBuilder = new DiffBuilder<>("", "", ToStringStyle.DEFAULT_STYLE);
+    }
+
+    @Test
+    public void testAppendBooleanTriviallyEqual() {
+        boolean lhs = true;
+        boolean rhs = true;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendBooleanNotEqual() {
+        boolean lhs = true;
+        boolean rhs = false;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendByteArrayTriviallyEqual() {
+        byte[] lhs = {1, 2, 3};
+        byte[] rhs = {1, 2, 3};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendByteArrayNotEqual() {
+        byte[] lhs = {1, 2, 3};
+        byte[] rhs = {4, 5, 6};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendCharTriviallyEqual() {
+        char lhs = 'a';
+        char rhs = 'a';
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendCharNotEqual() {
+        char lhs = 'a';
+        char rhs = 'b';
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendCharArrayTriviallyEqual() {
+        char[] lhs = {'a', 'b', 'c'};
+        char[] rhs = {'a', 'b', 'c'};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendCharArrayNotEqual() {
+        char[] lhs = {'a', 'b', 'c'};
+        char[] rhs = {'d', 'e', 'f'};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendDoubleTriviallyEqual() {
+        double lhs = 1.0;
+        double rhs = 1.0;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendDoubleNotEqual() {
+        double lhs = 1.0;
+        double rhs = 2.0;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendDoubleArrayTriviallyEqual() {
+        double[] lhs = {1.0, 2.0, 3.0};
+        double[] rhs = {1.0, 2.0, 3.0};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendDoubleArrayNotEqual() {
+        double[] lhs = {1.0, 2.0, 3.0};
+        double[] rhs = {4.0, 5.0, 6.0};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendFloatTriviallyEqual() {
+        float lhs = 1.0f;
+        float rhs = 1.0f;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendFloatNotEqual() {
+        float lhs = 1.0f;
+        float rhs = 2.0f;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendFloatArrayTriviallyEqual() {
+        float[] lhs = {1.0f, 2.0f, 3.0f};
+        float[] rhs = {1.0f, 2.0f, 3.0f};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendFloatArrayNotEqual() {
+        float[] lhs = {1.0f, 2.0f, 3.0f};
+        float[] rhs = {4.0f, 5.0f, 6.0f};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendIntTriviallyEqual() {
+        int lhs = 1;
+        int rhs = 1;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendIntNotEqual() {
+        int lhs = 1;
+        int rhs = 2;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendIntArrayTriviallyEqual() {
+        int[] lhs = {1, 2, 3};
+        int[] rhs = {1, 2, 3};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendIntArrayNotEqual() {
+        int[] lhs = {1, 2, 3};
+        int[] rhs = {4, 5, 6};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendLongTriviallyEqual() {
+        long lhs = 1L;
+        long rhs = 1L;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendLongNotEqual() {
+        long lhs = 1L;
+        long rhs = 2L;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendLongArrayTriviallyEqual() {
+        long[] lhs = {1L, 2L, 3L};
+        long[] rhs = {1L, 2L, 3L};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendLongArrayNotEqual() {
+        long[] lhs = {1L, 2L, 3L};
+        long[] rhs = {4L, 5L, 6L};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendObjectTriviallyEqual() {
+        Object lhs = new Object();
+        Object rhs = lhs;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendObjectNotEqual() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendObjectArrayTriviallyEqual() {
+        Object[] lhs = {new Object(), new Object()};
+        Object[] rhs = {new Object(), new Object()};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendObjectArrayNotEqual() {
+        Object[] lhs = {new Object(), new Object()};
+        Object[] rhs = {new Object(), null};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendShortTriviallyEqual() {
+        short lhs = 1;
+        short rhs = 1;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendShortNotEqual() {
+        short lhs = 1;
+        short rhs = 2;
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendShortArrayTriviallyEqual() {
+        short[] lhs = {1, 2, 3};
+        short[] rhs = {1, 2, 3};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertTrue(diffBuilder.objectsTriviallyEqual());
+    }
+
+    @Test
+    public void testAppendShortArrayNotEqual() {
+        short[] lhs = {1, 2, 3};
+        short[] rhs = {4, 5, 6};
+        diffBuilder.append("fieldName", lhs, rhs);
+        assertFalse(diffBuilder.objectsTriviallyEqual());
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+}
+```

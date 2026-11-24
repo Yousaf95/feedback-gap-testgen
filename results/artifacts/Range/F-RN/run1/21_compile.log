@@ -1,0 +1,127 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/Range_GenTest.java:[237,13] no suitable method found for assertEquals(String::compareTo,java.util.Comparator<java.lang.String>)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Object,java.lang.Object) is not applicable
+      (argument mismatch; java.lang.Object is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Character,java.lang.Character) is not applicable
+      (argument mismatch; java.lang.Character is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Character,char) is not applicable
+      (argument mismatch; java.lang.Character is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(char,java.lang.Character) is not applicable
+      (argument mismatch; char is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(char,char) is not applicable
+      (argument mismatch; char is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Double,java.lang.Double) is not applicable
+      (argument mismatch; java.lang.Double is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Double,double) is not applicable
+      (argument mismatch; java.lang.Double is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(double,java.lang.Double) is not applicable
+      (argument mismatch; double is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(double,double) is not applicable
+      (argument mismatch; double is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Float,java.lang.Float) is not applicable
+      (argument mismatch; java.lang.Float is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Float,float) is not applicable
+      (argument mismatch; java.lang.Float is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(float,java.lang.Float) is not applicable
+      (argument mismatch; float is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(float,float) is not applicable
+      (argument mismatch; float is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Long,java.lang.Long) is not applicable
+      (argument mismatch; java.lang.Long is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Long,long) is not applicable
+      (argument mismatch; java.lang.Long is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(long,java.lang.Long) is not applicable
+      (argument mismatch; long is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(long,long) is not applicable
+      (argument mismatch; long is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Integer,java.lang.Integer) is not applicable
+      (argument mismatch; java.lang.Integer is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Integer,int) is not applicable
+      (argument mismatch; java.lang.Integer is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(int,java.lang.Integer) is not applicable
+      (argument mismatch; int is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(int,int) is not applicable
+      (argument mismatch; int is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Byte,java.lang.Byte) is not applicable
+      (argument mismatch; java.lang.Byte is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Byte,byte) is not applicable
+      (argument mismatch; java.lang.Byte is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(byte,java.lang.Byte) is not applicable
+      (argument mismatch; byte is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(byte,byte) is not applicable
+      (argument mismatch; byte is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Short,java.lang.Short) is not applicable
+      (argument mismatch; java.lang.Short is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Short,short) is not applicable
+      (argument mismatch; java.lang.Short is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(short,java.lang.Short) is not applicable
+      (argument mismatch; short is not a functional interface)
+    method org.junit.jupiter.api.Assertions.assertEquals(short,short) is not applicable
+      (argument mismatch; short is not a functional interface)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/Range_GenTest.java:[237,13] no suitable method found for assertEquals(String::compareTo,java.util.Comparator<java.lang.String>)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Object,java.lang.Object) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Character,java.lang.Character) is not applicable
+[ERROR]       (argument mismatch; java.lang.Character is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Character,char) is not applicable
+[ERROR]       (argument mismatch; java.lang.Character is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(char,java.lang.Character) is not applicable
+[ERROR]       (argument mismatch; char is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(char,char) is not applicable
+[ERROR]       (argument mismatch; char is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Double,java.lang.Double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(double,java.lang.Double) is not applicable
+[ERROR]       (argument mismatch; double is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(double,double) is not applicable
+[ERROR]       (argument mismatch; double is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Float,java.lang.Float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Float,float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(float,java.lang.Float) is not applicable
+[ERROR]       (argument mismatch; float is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(float,float) is not applicable
+[ERROR]       (argument mismatch; float is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Long,java.lang.Long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Long is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.Long is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(long,java.lang.Long) is not applicable
+[ERROR]       (argument mismatch; long is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(long,long) is not applicable
+[ERROR]       (argument mismatch; long is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (argument mismatch; java.lang.Integer is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Integer,int) is not applicable
+[ERROR]       (argument mismatch; java.lang.Integer is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(int,java.lang.Integer) is not applicable
+[ERROR]       (argument mismatch; int is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(int,int) is not applicable
+[ERROR]       (argument mismatch; int is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Byte,java.lang.Byte) is not applicable
+[ERROR]       (argument mismatch; java.lang.Byte is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Byte,byte) is not applicable
+[ERROR]       (argument mismatch; java.lang.Byte is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(byte,java.lang.Byte) is not applicable
+[ERROR]       (argument mismatch; byte is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(byte,byte) is not applicable
+[ERROR]       (argument mismatch; byte is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Short,java.lang.Short) is not applicable
+[ERROR]       (argument mismatch; java.lang.Short is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(java.lang.Short,short) is not applicable
+[ERROR]       (argument mismatch; java.lang.Short is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(short,java.lang.Short) is not applicable
+[ERROR]       (argument mismatch; short is not a functional interface)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertEquals(short,short) is not applicable
+[ERROR]       (argument mismatch; short is not a functional interface)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,62 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_emptyLanguageCode() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_emptyCountryCode() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testIsAvailableLocale_invalidLocale() {
+        assertFalse(LocaleUtils.isAvailableLocale(new Locale("xx", "YY")));
+    }
+
+    @Test
+    public void testToLocale_validLanguageCountryVariant() {
+        Locale locale = LocaleUtils.toLocale("en_US_POSIX");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+        assertEquals("POSIX", locale.getVariant());
+    }
+
+    @Test
+    public void testToLocale_missingCountry() {
+        Locale locale = LocaleUtils.toLocale("en_");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("", locale.getCountry());
+        assertEquals("", locale.getVariant());
+    }
+
+    @Test
+    public void testToLocale_missingVariant() {
+        Locale locale = LocaleUtils.toLocale("en_US");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+        assertEquals("", locale.getVariant());
+    }
+
+    @Test
+    public void testIsLanguageUndetermined_validLocale() {
+        assertTrue(LocaleUtils.isLanguageUndetermined(new Locale("und")));
+    }
+
+    @Test
+    public void testIsLanguageUndetermined_nullLocale() {
+        assertTrue(LocaleUtils.isLanguageUndetermined(null));
+    }
+}
+```

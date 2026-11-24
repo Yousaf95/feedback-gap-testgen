@@ -1,0 +1,77 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiExtendedChar() {
+        assertTrue(CharUtils.isAsciiExtendedChar('\u0080'));
+        assertFalse(CharUtils.isAsciiExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaExtendedChar() {
+        assertTrue(CharUtils.isAsciiAlphaExtendedChar('\u00C0'));
+        assertFalse(CharUtils.isAsciiAlphaExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaLowerExtendedChar() {
+        assertTrue(CharUtils.isAsciiAlphaLowerExtendedChar('\u00E0'));
+        assertFalse(CharUtils.isAsciiAlphaLowerExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumericExtendedChar() {
+        assertTrue(CharUtils.isAsciiAlphanumericExtendedChar('\u00C9'));
+        assertFalse(CharUtils.isAsciiAlphanumericExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaUpperExtendedChar() {
+        assertTrue(CharUtils.isAsciiAlphaUpperExtendedChar('\u00D4'));
+        assertFalse(CharUtils.isAsciiAlphaUpperExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testIsAsciiControlExtendedChar() {
+        assertTrue(CharUtils.isAsciiControlExtendedChar('\u0085'));
+        assertFalse(CharUtils.isAsciiControlExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testIsAsciiNumericExtendedChar() {
+        assertTrue(CharUtils.isAsciiNumericExtendedChar('\u00B2'));
+        assertFalse(CharUtils.isAsciiNumericExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testIsAsciiPrintableExtendedChar() {
+        assertTrue(CharUtils.isAsciiPrintableExtendedChar('\u00A1'));
+        assertFalse(CharUtils.isAsciiPrintableExtendedChar('\u007F'));
+    }
+
+    @Test
+    public void testToChar_NullCharacter() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar(null));
+    }
+
+    @Test
+    public void testToChar_EmptyString_2() {
+        assertEquals(' ', CharUtils.toChar(" "));
+    }
+
+    @Test
+    public void testToIntValue_NonNumericChar() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('\u00A7'));
+    }
+
+    @Test
+    public void testToIntValue_DefaultValueOnNonNumericChar() {
+        assertEquals(42, CharUtils.toIntValue('\u00A7', 42));
+    }
+}
+```

@@ -1,0 +1,65 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+        public void testAppendDouble() {
+            double value = 123.456;
+            int expectedHashCode = (int) (value * 37 + 17);
+            assertEquals(expectedHashCode, new HashCodeBuilder().append(value).toHashCode());
+        }
+
+    @Test
+        public void testAppendFloatArray() {
+            float[] array = {1.0f, 2.0f, 3.0f};
+            int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+            assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+        }
+
+    @Test
+        public void testAppendLongArray() {
+        long[] array = {1L, 2L, 3L};
+        int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+        assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+    }
+
+    @Test
+        public void testAppendShortArray() {
+            short[] array = {1, 2, 3};
+            int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+            assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+        }
+
+    @Test
+        public void testAppendCharArray() {
+            char[] array = {'a', 'b', 'c'};
+            int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+            assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+        }
+
+    @Test
+        public void testAppendByteArray() {
+            byte[] array = {1, 2, 3};
+            int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+            assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+        }
+
+    @Test
+        public void testAppendBooleanArray() {
+        boolean[] array = {true, false, true};
+        int expectedHashCode = (int) ((array[0] * 37 + 17) * 37 + (array[1] * 37 + 17) * 37 + (array[2] * 37 + 17));
+        assertEquals(expectedHashCode, new HashCodeBuilder().append(array).toHashCode());
+    }
+
+    @Test
+        public void testAppendNullArray() {
+            int expectedHashCode = 17;
+            assertEquals(expectedHashCode, new HashCodeBuilder().append((Object[]) null).toHashCode());
+        }
+}
+```

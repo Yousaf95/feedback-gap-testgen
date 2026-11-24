@@ -1,0 +1,54 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiPrintable_NotCovered() {
+        assertFalse(CharUtils.isAsciiPrintable((char) 127));
+        assertTrue(CharUtils.isAsciiPrintable(' '));
+    }
+
+    @Test
+    public void testToChar_Character_NotCovered() {
+        assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+    }
+
+    @Test
+    public void testToChar_StringDefaultValue_NotCovered() {
+        assertEquals('b', CharUtils.toChar("", 'b'));
+    }
+
+    @Test
+    public void testToCharacterObject_EmptyString_NotCovered() {
+        assertNull(CharUtils.toCharacterObject(""));
+    }
+
+    @Test
+    public void testToIntValue_NotCovered() {
+        assertEquals(5, CharUtils.toIntValue('5'));
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToIntValueDefaultValue_NotCovered() {
+        assertEquals(9, CharUtils.toIntValue('9', 9));
+        assertEquals(0, CharUtils.toIntValue('a', 0));
+    }
+
+    @Test
+    public void testToString_Char_NotCovered() {
+        assertEquals(" ", CharUtils.toString(' '));
+        assertEquals("\u007F", CharUtils.toString((char) 127));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_NotCovered() {
+        assertEquals("\\u0041", CharUtils.unicodeEscaped(Character.valueOf('A')));
+        assertNull(CharUtils.unicodeEscaped(null));
+    }
+}
+```

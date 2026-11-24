@@ -1,0 +1,102 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithCustomStyle() {
+        Person person = new Person("John", 30);
+        ToStringStyle style = ToStringStyle.SHORT_PREFIX_STYLE;
+        String result = ReflectionToStringBuilder.toString(person, style);
+        assertEquals("Person@12345678[name=John, age=30]", result);
+    }
+
+    @Test
+    public void testToStringWithCustomBuffer() {
+        Person person = new Person("John", 30);
+        StringBuffer buffer = new StringBuffer();
+        ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE, buffer);
+        assertEquals("Person[name=John, age=30]", buffer.toString());
+    }
+
+    @Test
+    public void testToStringWithExcludeFieldNames() {
+        Person person = new Person("John", 30);
+        String result = ReflectionToStringBuilder.toStringExclude(person, "age");
+        assertEquals("Person@12345678[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithIncludeFieldNames() {
+        Person person = new Person("John", 30);
+        String result = ReflectionToStringBuilder.toStringInclude(person, "name");
+        assertEquals("Person@12345678[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithNullValuesIncluded() {
+        Person person = new Person(null, null);
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE, false, false, false);
+        assertEquals("Person@12345678[name=null, age=null]", result);
+    }
+
+    @Test
+    public void testToStringWithNullValuesExcluded() {
+        Person person = new Person(null, null);
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE, false, false, true);
+        assertEquals("Person@12345678", result);
+    }
+
+    @Test
+    public void testToStringWithTransientField() {
+        TransientPerson person = new TransientPerson("John");
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE);
+        assertEquals("TransientPerson@12345678[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithStaticField() {
+        StaticPerson person = new StaticPerson();
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE);
+        assertEquals("StaticPerson@12345678[staticValue=value]", result);
+    }
+
+    @Test
+    public void testToStringWithReflectUpToClass() {
+        SubPerson person = new SubPerson("John", 30);
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE, false, false, null, Person.class);
+        assertEquals("SubPerson@12345678[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithExcludeFieldAnnotation() {
+        ExcludePerson person = new ExcludePerson("John", 30);
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE);
+        assertEquals("ExcludePerson@12345678[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithIncludeFieldAnnotation() {
+        IncludePerson person = new IncludePerson("John", 30);
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE);
+        assertEquals("IncludePerson@12345678[name=John, age=30]", result);
+    }
+
+    @Test
+    public void testToStringWithSummaryAnnotation() {
+        SummaryPerson person = new SummaryPerson("John", 30);
+        String result = ReflectionToStringBuilder.toString(person, ToStringStyle.DEFAULT_STYLE);
+        assertEquals("SummaryPerson@12345678[name=John]", result);
+    }
+
+    @Test
+    public void testToStringWithNullObject() {
+        Object nullObject = null;
+        String result = ReflectionToStringBuilder.toString(nullObject, ToStringStyle.DEFAULT_STYLE);
+        assertEquals("", result);
+    }
+}
+```

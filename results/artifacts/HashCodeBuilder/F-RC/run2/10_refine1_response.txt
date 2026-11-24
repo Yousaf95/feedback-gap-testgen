@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    private Object testObject1;
+    private Object testObject2;
+    private Set<IDKey> registry;
+
+    @BeforeEach
+    public void setUp() {
+        testObject1 = new Object();
+        testObject2 = new Object();
+        registry = new HashSet<>();
+        REGISTRY.set(registry);
+    }
+
+    @Test
+    public void testGetRegistry() {
+        assertNotNull(getRegistry());
+    }
+
+    @Test
+    public void testIsRegistered() {
+        assertFalse(isRegistered(testObject1));
+        register(testObject1);
+        assertTrue(isRegistered(testObject1));
+    }
+
+    @Test
+    public void testReflectionAppend() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(testObject1, testObject1.getClass(), builder, false, null);
+        assertNotEquals(0, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCode() {
+        int hashCode = reflectionHashCode(testObject1, false);
+        assertNotEquals(0, hashCode);
+    }
+
+    @Test
+    public void testRegister() {
+        register(testObject1);
+        assertTrue(registry.contains(new IDKey(testObject1)));
+    }
+
+    @Test
+    public void testUnregister() {
+        register(testObject1);
+        unregister(testObject1);
+        assertFalse(registry.contains(new IDKey(testObject1)));
+    }
+
+    @Test
+    public void testHashCodeBuilderConstructor() {
+        HashCodeBuilder builder = new HashCodeBuilder(17, 37);
+        assertEquals(17, builder.iTotal);
+        assertEquals(37, builder.iConstant);
+    }
+}
+```

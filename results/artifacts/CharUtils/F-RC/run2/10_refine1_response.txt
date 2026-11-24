@@ -1,0 +1,38 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiControl() {
+        assertTrue(CharUtils.isAsciiControl((char) 0)); // NUL
+        assertTrue(CharUtils.isAsciiControl((char) 31)); // DEL
+        assertFalse(CharUtils.isAsciiControl('a'));
+        assertFalse(CharUtils.isAsciiControl('A'));
+        assertFalse(CharUtils.isAsciiControl('0'));
+    }
+
+    @Test
+    public void testToChar_Character() {
+        assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+    }
+
+    @Test
+    public void testToChar_StringDefault() {
+        assertEquals('b', CharUtils.toChar("bc", 'b'));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefault() {
+        assertEquals(2, CharUtils.toIntValue(Character.valueOf('2'), 2));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character() {
+        assertEquals("\\u0041", CharUtils.unicodeEscaped(Character.valueOf('A')));
+    }
+}
+```

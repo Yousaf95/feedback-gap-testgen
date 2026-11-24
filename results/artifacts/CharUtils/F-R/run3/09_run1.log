@@ -1,0 +1,39 @@
+[ERROR] Tests run: 50, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.313 s <<< FAILURE! -- in org.apache.commons.lang3.CharUtils_GenTest
+[ERROR] org.apache.commons.lang3.CharUtils_GenTest.testToChar_CharacterDefaultValue -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:54)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:49)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1041)
+	at org.apache.commons.lang3.CharUtils_GenTest.testToChar_CharacterDefaultValue(CharUtils_GenTest.java:156)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharUtils_GenTest.testIsAsciiPrintable(char, boolean)[3] -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.CharUtils_GenTest.testIsAsciiPrintable(CharUtils_GenTest.java:138)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   CharUtils_GenTest.testIsAsciiPrintable:138 expected: <true> but was: <false>
+[ERROR]   CharUtils_GenTest.testToChar_CharacterDefaultValue:156 expected: <b> but was: <a>
+[ERROR] Tests run: 50, Failures: 2, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w10/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

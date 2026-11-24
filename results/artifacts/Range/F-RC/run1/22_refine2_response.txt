@@ -1,0 +1,132 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import java.util.function.Function;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    private Range<Integer> range1;
+    private Range<Integer> range2;
+    private Range<Integer> range3;
+
+    @BeforeEach
+    public void setUp() {
+        range1 = Range.between(1, 5);
+        range2 = Range.between(6, 10);
+        range3 = Range.is(7);
+    }
+
+    @Test
+    public void testComparatorComparison() {
+        assertTrue(range1.comparator.compare(3, 4) < 0);
+        assertTrue(range1.comparator.compare(4, 3) > 0);
+        assertEquals(0, range1.comparator.compare(3, 3));
+    }
+
+    @Test
+    public void testContainsRangeNonOverlapping() {
+        assertFalse(range1.containsRange(range2));
+    }
+
+    @Test
+    public void testContainsRangeOverlapping() {
+        Range<Integer> overlapping = Range.between(4, 6);
+        assertTrue(range1.containsRange(overlapping));
+    }
+
+    @Test
+    public void testElementCompareTo() {
+        assertEquals(-1, range1.elementCompareTo(2));
+        assertEquals(0, range1.elementCompareTo(3));
+        assertEquals(1, range1.elementCompareTo(4));
+    }
+
+    @Test
+    public void testEqualsWithNullObject() {
+        assertFalse(range1.equals(null));
+    }
+
+    @Test
+    public void testEqualsWithDifferentClass() {
+        assertFalse(range1.equals("not a Range"));
+    }
+
+    @Test
+    public void testEqualsWithSameObject() {
+        assertTrue(range1.equals(range1));
+    }
+
+    @Test
+    public void testEqualsWithDifferentRange() {
+        assertFalse(range1.equals(Range.between(2, 6)));
+    }
+
+    @Test
+    public void testHashCodeWithNullComparator() {
+        Range<Integer> range = new Range<>(1, 5, null);
+        assertEquals(37 * (37 * (37 * 17 + Integer.class.hashCode()) + 1) + 5, range.hashCode());
+    }
+
+    @Test
+    public void testToStringWithNullToString() {
+        Range<Integer> range = new Range<>(1, 5) {
+            @Override
+            public String toString() {
+                return null;
+            }
+        };
+        assertEquals("[1..5]", range.toString());
+    }
+
+    @Test
+    public void testToStringWithFormat() {
+        assertEquals("Range{minimum=1, maximum=5}", range1.toString("%s{%s, %s}"));
+    }
+
+    @Test
+    public void testIsAfterWithNullElement() {
+        assertFalse(range1.isAfter(null));
+    }
+
+    @Test
+    public void testIsBeforeWithNullElement() {
+        assertFalse(range1.isBefore(null));
+    }
+
+    @Test
+    public void testIsEndedByWithNullElement() {
+        assertFalse(range1.isEndedBy(null));
+    }
+
+    @Test
+    public void testIsStartedByWithNullElement() {
+        assertFalse(range1.isStartedBy(null));
+    }
+
+    @Test
+    public void testIntersectionWithNonOverlappingRange() {
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIsNaturalOrderingWithNullComparator() {
+        Range<Integer> range = new Range<>(1, 5, null);
+        assertTrue(range.isNaturalOrdering());
+    }
+
+    @Test
+    public void testIsOverlappedByNonOverlappingRange() {
+        assertFalse(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByOverlappingRange() {
+        Range<Integer> overlapping = Range.between(4, 6);
+        assertTrue(range1.isOverlappedBy(overlapping));
+    }
+}
+```

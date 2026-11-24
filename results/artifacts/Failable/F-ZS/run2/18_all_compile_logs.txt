@@ -1,0 +1,121 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[15,60] no suitable method found for accept(java.util.function.BiConsumer<java.lang.String,java.lang.String>,java.lang.String,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (argument mismatch; java.util.function.BiConsumer<java.lang.String,java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[21,17] no suitable method found for accept(java.util.function.BiConsumer<java.lang.String,java.lang.String>,java.lang.String,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (argument mismatch; java.util.function.BiConsumer<java.lang.String,java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[26,9] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[32,9] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[38,9] cannot find symbol
+  symbol:   class Callable
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[44,9] cannot find symbol
+  symbol:   class Callable
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[51,60] method get in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+  required: org.apache.commons.lang3.function.FailableSupplier<T,E>
+  found:    java.util.function.Supplier<java.lang.String>
+  reason: cannot infer type-variable(s) T,E
+    (argument mismatch; java.util.function.Supplier<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableSupplier<T,E>)
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[57,35] method get in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+  required: org.apache.commons.lang3.function.FailableSupplier<T,E>
+  found:    java.util.function.Supplier<java.lang.String>
+  reason: cannot infer type-variable(s) T,E
+    (argument mismatch; java.util.function.Supplier<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableSupplier<T,E>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[15,60] no suitable method found for accept(java.util.function.BiConsumer<java.lang.String,java.lang.String>,java.lang.String,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (argument mismatch; java.util.function.BiConsumer<java.lang.String,java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[21,17] no suitable method found for accept(java.util.function.BiConsumer<java.lang.String,java.lang.String>,java.lang.String,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (argument mismatch; java.util.function.BiConsumer<java.lang.String,java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[26,9] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[32,9] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[38,9] cannot find symbol
+[ERROR]   symbol:   class Callable
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[44,9] cannot find symbol
+[ERROR]   symbol:   class Callable
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[51,60] method get in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+[ERROR]   required: org.apache.commons.lang3.function.FailableSupplier<T,E>
+[ERROR]   found:    java.util.function.Supplier<java.lang.String>
+[ERROR]   reason: cannot infer type-variable(s) T,E
+[ERROR]     (argument mismatch; java.util.function.Supplier<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableSupplier<T,E>)
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[57,35] method get in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+[ERROR]   required: org.apache.commons.lang3.function.FailableSupplier<T,E>
+[ERROR]   found:    java.util.function.Supplier<java.lang.String>
+[ERROR]   reason: cannot infer type-variable(s) T,E
+[ERROR]     (argument mismatch; java.util.function.Supplier<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableSupplier<T,E>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

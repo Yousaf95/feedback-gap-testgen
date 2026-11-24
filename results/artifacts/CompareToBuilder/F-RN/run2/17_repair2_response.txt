@@ -1,0 +1,92 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Comparator;
+
+class CompareToBuilder_GenTest {
+
+    @Test
+    public void testReflectionCompare_Arrays() {
+        int[] lhsArray = {1, 2, 3};
+        int[] rhsArray = {1, 2, 4};
+        assertEquals(-1, CompareToBuilder.reflectionCompare(lhsArray, rhsArray));
+    }
+
+    @Test
+    public void testReflectionCompare_ComparableObjects() {
+        ComparableObject lhs = new ComparableObject(5);
+        ComparableObject rhs = new ComparableObject(3);
+        assertEquals(1, CompareToBuilder.reflectionCompare(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionCompare_Comparator() {
+        Integer[] lhsArray = {2, 4, 6};
+        Integer[] rhsArray = {1, 3, 5};
+        Comparator<Integer> comparator = (a, b) -> b - a;
+        assertEquals(1, CompareToBuilder.reflectionCompare(lhsArray, rhsArray, comparator));
+    }
+
+    @Test
+    public void testReflectionCompare_ExcludeFields() {
+        ExcludeFieldObject lhs = new ExcludeFieldObject("value", 10);
+        ExcludeFieldObject rhs = new ExcludeFieldObject("otherValue", 20);
+        assertEquals(0, CompareToBuilder.reflectionCompare(lhs, rhs, "value"));
+    }
+
+    @Test
+    public void testReflectionCompare_NullArrays() {
+        Integer[] lhsArray = null;
+        Integer[] rhsArray = {1, 2, 3};
+        assertThrows(ClassCastException.class, () -> CompareToBuilder.reflectionCompare(lhsArray, rhsArray));
+    }
+
+    @Test
+    public void testReflectionCompare_SameClassDifferentFields() {
+        DifferentFieldObject lhs = new DifferentFieldObject(5);
+        DifferentFieldObject rhs = new DifferentFieldObject(10);
+        assertEquals(-1, CompareToBuilder.reflectionCompare(lhs, rhs));
+    }
+}
+
+class ComparableObject implements Comparable<ComparableObject> {
+    private int value;
+
+    public ComparableObject(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public int compareTo(ComparableObject other) {
+        return Integer.compare(this.value, other.value);
+    }
+}
+
+class ExcludeFieldObject {
+    private String value;
+    private int number;
+
+    public ExcludeFieldObject(String value, int number) {
+        this.value = value;
+        this.number = number;
+    }
+
+    // Getters and setters (if needed)
+}
+
+class DifferentFieldObject implements Comparable<DifferentFieldObject> {
+    private int value;
+
+    public DifferentFieldObject(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public int compareTo(DifferentFieldObject other) {
+        return Integer.compare(this.value, other.value);
+    }
+}
+```

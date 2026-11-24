@@ -1,0 +1,171 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.exception.ExceptionUtils.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetDefaultCauseMethodNames() {
+        String[] expected = {"getCause", "getNextException", "getTargetException", "getException", "getSourceException", "getRootCause", "getCausedByException", "getNested", "getLinkedException", "getNestedException", "getLinkedCause", "getThrowable"};
+        assertArrayEquals(expected, getDefaultCauseMethodNames());
+    }
+
+    @Test
+    public void testGetMessage() {
+        Throwable throwable = new IllegalArgumentException("Invalid argument");
+        assertEquals("IllegalArgumentException: Invalid argument", getMessage(throwable));
+    }
+
+    @Test
+    public void testGetRootCause() {
+        Throwable rootCause = new RuntimeException("Root cause");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        assertSame(rootCause, getRootCause(wrapper));
+    }
+
+    @Test
+    public void testGetRootCauseMessage() {
+        Throwable rootCause = new IllegalArgumentException("Invalid argument");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        assertEquals("IllegalArgumentException: Invalid argument", getRootCauseMessage(wrapper));
+    }
+
+    @Test
+    public void testGetRootCauseStackTrace() {
+        Throwable rootCause = new RuntimeException("Root cause");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        List<String> expected = Arrays.asList(
+            "ExceptionUtils_GenTest$ExceptionWrapper: Root cause",
+            "java.lang.RuntimeException: Root cause"
+        );
+        assertEquals(expected, getRootCauseStackTraceList(wrapper));
+    }
+
+    @Test
+    public void testGetStackFrames() {
+        Throwable throwable = new IllegalArgumentException("Invalid argument");
+        List<String> expected = Arrays.asList(
+            "ExceptionUtils_GenTest$testGetStackFrames",
+            "java.lang.IllegalArgumentException: Invalid argument"
+        );
+        assertEquals(expected, getStackFrameList(throwable));
+    }
+
+    @Test
+    public void testGetStackTrace() {
+        Throwable throwable = new IllegalArgumentException("Invalid argument");
+        String expected = "ExceptionUtils_GenTest$testGetStackTrace\n" +
+                          "\tat java.lang.IllegalArgumentException.<init>(IllegalArgumentException.java:29)\n" +
+                          "\tat ExceptionUtils_GenTest.testGetStackTrace(ExceptionUtils_GenTest.java:100)";
+        assertEquals(expected, getStackTrace(throwable));
+    }
+
+    @Test
+    public void testGetThrowableCount() {
+        Throwable rootCause = new RuntimeException("Root cause");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        assertEquals(2, getThrowableCount(wrapper));
+    }
+
+    @Test
+    public void testGetThrowableList() {
+        Throwable rootCause = new RuntimeException("Root cause");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        List<Throwable> expected = Arrays.asList(
+            wrapper,
+            rootCause
+        );
+        assertEquals(expected, getThrowableList(wrapper));
+    }
+
+    @Test
+    public void testGetThrowables() {
+        Throwable rootCause = new RuntimeException("Root cause");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        Throwable[] expected = new Throwable[]{wrapper, rootCause};
+        assertArrayEquals(expected, getThrowables(wrapper));
+    }
+
+    @Test
+    public void testHasCause() {
+        Throwable rootCause = new RuntimeException("Root cause");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        assertTrue(hasCause(wrapper, RuntimeException.class));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTrace() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(out);
+        Throwable rootCause = new IllegalArgumentException("Invalid argument");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        printRootCauseStackTrace(wrapper, printStream);
+        String expected = "ExceptionUtils_GenTest$ExceptionWrapper: Invalid argument\n" +
+                          "\tat java.lang.IllegalArgumentException.<init>(IllegalArgumentException.java:29)\n" +
+                          "\tat ExceptionUtils_GenTest.testPrintRootCauseStackTrace(ExceptionUtils_GenTest.java:130)";
+        assertEquals(expected, out.toString());
+    }
+
+    @Test
+    public void testRemoveCommonFrames() {
+        List<String> causeFrames = Arrays.asList(
+            "ExceptionUtils_GenTest$testRemoveCommonFrames",
+            "java.lang.RuntimeException: Root cause"
+        );
+        List<String> wrapperFrames = Arrays.asList(
+            "ExceptionUtils_GenTest$testRemoveCommonFrames",
+            "java.lang.IllegalArgumentException: Invalid argument",
+            "ExceptionUtils_GenTest$testRemoveCommonFrames",
+            "java.lang.RuntimeException: Root cause"
+        );
+        removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(Arrays.asList("ExceptionUtils_GenTest$testRemoveCommonFrames", "java.lang.RuntimeException: Root cause"), causeFrames);
+    }
+
+    @Test
+    public void testStream() {
+        Throwable rootCause = new RuntimeException("Root cause");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        List<Throwable> expected = Arrays.asList(
+            wrapper,
+            rootCause
+        );
+        assertEquals(expected, stream(wrapper).toList());
+    }
+
+    @Test
+    public void testThrowableOfThrowable() {
+        Throwable rootCause = new IllegalArgumentException("Invalid argument");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        assertSame(rootCause, throwableOfThrowable(wrapper, IllegalArgumentException.class));
+    }
+
+    @Test
+    public void testThrowUnchecked() {
+        RuntimeException exception = new RuntimeException("Unchecked exception");
+        assertThrows(RuntimeException.class, () -> throwUnchecked(exception));
+    }
+
+    @Test
+    public void testWrapAndThrow() {
+        Throwable rootCause = new IllegalArgumentException("Invalid argument");
+        ExceptionWrapper wrapper = new ExceptionWrapper(rootCause);
+        assertThrows(UndeclaredThrowableException.class, () -> wrapAndThrow(wrapper));
+    }
+
+    private static class ExceptionWrapper extends RuntimeException {
+        public ExceptionWrapper(Throwable cause) {
+            super(cause);
+        }
+    }
+}
+```

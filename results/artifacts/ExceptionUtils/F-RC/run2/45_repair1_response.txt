@@ -1,0 +1,92 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testAsRuntimeException() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.asRuntimeException(throwable);
+        assertEquals(RuntimeException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testForEach() {
+        List<String> messages = Arrays.asList("message1", "message2");
+        Throwable throwable = new RuntimeException();
+        Consumer<Throwable> consumer = t -> messages.add(t.getMessage());
+        ExceptionUtils.forEach(throwable, consumer);
+        assertEquals(Arrays.asList("message1", "message2"), messages);
+    }
+
+    @Test
+    public void testGetCauseWithNull_2() {
+        Throwable result = ExceptionUtils.getCause(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetCauseWithMethodNames() {
+        Throwable throwable = new RuntimeException();
+        String[] methodNames = {"getCause"};
+        Throwable result = ExceptionUtils.getCause(throwable, methodNames);
+        assertEquals(RuntimeException.class, result.getClass());
+    }
+
+    @Test
+    public void testGetRootCauseStackTraceListWithNull() {
+        List<String> result = ExceptionUtils.getRootCauseStackTraceList(null);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testGetStackFramesWithNull() {
+        String[] result = ExceptionUtils.getStackFrames(null);
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testGetThrowableCountWithNull() {
+        int result = ExceptionUtils.getThrowableCount(null);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testHasCauseWithUndeclaredThrowableException_2() {
+        Throwable throwable = new UndeclaredThrowableException(new RuntimeException("test"));
+        boolean result = ExceptionUtils.hasCause(throwable, RuntimeException.class);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIndexOfThrowable() {
+        Throwable throwable = new RuntimeException();
+        int result = ExceptionUtils.indexOfThrowable(throwable, RuntimeException.class);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testIsCheckedWithRuntimeException() {
+        boolean result = ExceptionUtils.isChecked(new RuntimeException("test"));
+        assertFalse(result);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNull() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        ExceptionUtils.printRootCauseStackTrace(null, printStream);
+        assertTrue(outputStream.toString().isEmpty());
+    }
+}
+```

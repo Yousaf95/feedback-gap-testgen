@@ -1,0 +1,55 @@
+[ERROR] Tests run: 53, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.250 s <<< FAILURE! -- in org.apache.commons.lang3.builder.CompareToBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_DifferentObjects -- Time elapsed: 0.044 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private final byte[] java.lang.String.value accessible: module java.base does not "opens java.lang" to unnamed module @32502377
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionAppend(CompareToBuilder.java:119)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:245)
+	at org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(CompareToBuilder.java:160)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_DifferentObjects(CompareToBuilder_GenTest.java:226)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testAppendBoolean_ComparisonNotZero -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-1> but was: <1>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testAppendBoolean_ComparisonNotZero(CompareToBuilder_GenTest.java:238)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ClassCastException -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.ClassCastException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.builder.CompareToBuilder_GenTest.testReflectionCompare_ClassCastException(CompareToBuilder_GenTest.java:231)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   CompareToBuilder_GenTest.testAppendBoolean_ComparisonNotZero:238 expected: <-1> but was: <1>
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_ClassCastException:231 Expected java.lang.ClassCastException to be thrown, but nothing was thrown.
+[ERROR] Errors: 
+[ERROR]   CompareToBuilder_GenTest.testReflectionCompare_DifferentObjects:226 » InaccessibleObject Unable to make field private final byte[] java.lang.String.value accessible: module java.base does not "opens java.lang" to unnamed module @32502377
+[ERROR] Tests run: 53, Failures: 2, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w2/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

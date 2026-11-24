@@ -1,0 +1,39 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[186,49] cannot find symbol
+  symbol:   class MutableObject
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[194,44] cannot find symbol
+  symbol:   class Serializable
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[214,46] cannot find symbol
+  symbol:   class AbstractList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[215,46] cannot find symbol
+  symbol:   class AbstractCollection
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[257,46] cannot find symbol
+  symbol:   class AbstractMap
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[186,49] cannot find symbol
+[ERROR]   symbol:   class MutableObject
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[194,44] cannot find symbol
+[ERROR]   symbol:   class Serializable
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[214,46] cannot find symbol
+[ERROR]   symbol:   class AbstractList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[215,46] cannot find symbol
+[ERROR]   symbol:   class AbstractCollection
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[257,46] cannot find symbol
+[ERROR]   symbol:   class AbstractMap
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

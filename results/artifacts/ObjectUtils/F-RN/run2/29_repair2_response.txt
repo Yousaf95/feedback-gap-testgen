@@ -1,0 +1,81 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ObjectUtils.*;
+
+import java.util.function.Supplier;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testDefaultIfNullWithNullSupplier() {
+        Supplier<String> nullSupplier = () -> null;
+        String result = defaultIfNull(null, nullSupplier);
+        assertNull(result);
+    }
+
+    @Test
+    public void testDefaultIfNullWithValueSupplier() {
+        Supplier<String> valueSupplier = () -> "default";
+        String result = defaultIfNull("value", valueSupplier);
+        assertEquals("value", result);
+    }
+
+    @Test
+    public void testGetFirstNonNullWithEmptySuppliersArray() {
+        Supplier<String>[] emptySuppliers = new Supplier[0];
+        String result = getFirstNonNull(emptySuppliers);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetFirstNonNullWithNullSuppliers_2() {
+        Supplier<String> nullSupplier = () -> null;
+        Supplier<String> valueSupplier = () -> "value";
+        Supplier<String>[] suppliers = new Supplier[]{nullSupplier, valueSupplier};
+        String result = getFirstNonNull(suppliers);
+        assertEquals("value", result);
+    }
+
+    @Test
+    public void testGetFirstNonNullWithNullObject() {
+        Supplier<String> nullSupplier = () -> null;
+        String result = getIfNull(null, nullSupplier);
+        assertNull(result);
+    }
+
+    @Test
+    public void testGetFirstNonNullWithValueObject() {
+        Supplier<String> valueSupplier = () -> "value";
+        String result = getIfNull("value", valueSupplier);
+        assertEquals("value", result);
+    }
+
+    @Test
+    public void testModeWithEmptyArray_2() {
+        String[] emptyArray = new String[0];
+        String result = mode(emptyArray);
+        assertNull(result);
+    }
+
+    @Test
+    public void testModeWithSingleElementArray_2() {
+        String[] singleElementArray = {"single"};
+        String result = mode(singleElementArray);
+        assertEquals("single", result);
+    }
+
+    @Test
+    public void testMedianWithEmptyArray_2() {
+        assertThrows(IllegalArgumentException.class, () -> median((String[]) null));
+    }
+
+    @Test
+    public void testMedianWithSingleElementArray_2() {
+        String[] singleElementArray = {"single"};
+        String result = median(singleElementArray);
+        assertEquals("single", result);
+    }
+}
+```

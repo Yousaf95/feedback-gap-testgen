@@ -1,0 +1,54 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_EmptyCharSet_2() {
+        assertFalse(CharSetUtils.containsAny("abc", new String[]{}));
+    }
+
+    @Test
+    public void testContainsAny_NullCharSet_2() {
+        assertThrows(NullPointerException.class, () -> CharSetUtils.containsAny("abc", (String[]) null));
+    }
+
+    @Test
+    public void testCount_EmptyCharSet_2() {
+        assertEquals(0, CharSetUtils.count("abc", new String[]{}));
+    }
+
+    @Test
+    public void testCount_NullCharSet_2() {
+        assertThrows(NullPointerException.class, () -> CharSetUtils.count("abc", (String[]) null));
+    }
+
+    @Test
+    public void testDelete_EmptyCharSet_2() {
+        assertEquals("abc", CharSetUtils.delete("abc", new String[]{}));
+    }
+
+    @Test
+    public void testDelete_NullCharSet_2() {
+        assertThrows(NullPointerException.class, () -> CharSetUtils.delete("abc", (String[]) null));
+    }
+
+    @Test
+    public void testKeep_EmptyCharSet() {
+        assertEquals("", CharSetUtils.keep("", new String[]{"a"}));
+    }
+
+    @Test
+    public void testSqueeze_EmptyCharSet_2() {
+        assertEquals("abc", CharSetUtils.squeeze("abc", new String[]{}));
+    }
+
+    @Test
+    public void testSqueeze_NullCharSet_2() {
+        assertThrows(NullPointerException.class, () -> CharSetUtils.squeeze("abc", (String[]) null));
+    }
+}
+```

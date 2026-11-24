@@ -1,0 +1,92 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.BooleanUtils.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    public void testOneHotWithNull() {
+        assertThrows(NullPointerException.class, () -> oneHot((Boolean[]) null));
+    }
+
+    @Test
+    public void testToIntegerDefaultIfNullWithNonNullValue() {
+        assertEquals(1, toIntegerDefaultIfNull(Boolean.TRUE, 0));
+    }
+
+    @Test
+    public void testToStringOnOffTrue() {
+        assertEquals("on", toStringOnOff(true));
+    }
+
+    @Test
+    public void testToStringYesNoFalse() {
+        assertEquals("no", toStringYesNo(false));
+    }
+
+    @Test
+    public void testXorWithEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> xor());
+    }
+
+    @Test
+    public void testOrWithEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> or());
+    }
+
+    @Test
+    public void testAndWithEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> and());
+    }
+
+    @Test
+    public void testToBooleanObjectWithNullValue() {
+        assertNull(toBooleanObject(null));
+    }
+
+    @Test
+    public void testToIntegerObjectWithTrueValue() {
+        assertEquals(NumberUtils.INTEGER_ONE, toIntegerObject(true));
+    }
+
+    @Test
+    public void testToStringTrueFalseNull() {
+        assertNull(toStringTrueFalse((Boolean) null));
+    }
+
+    @Test
+    public void testIsNotTrueWithTrueValue() {
+        assertFalse(isNotTrue(Boolean.TRUE));
+    }
+
+    @Test
+    public void testIsNotFalseWithFalseValue() {
+        assertFalse(isNotFalse(Boolean.FALSE));
+    }
+
+    @Test
+    public void testNegateWithBooleanTrue() {
+        assertEquals(Boolean.FALSE, negate(Boolean.TRUE));
+    }
+
+    @Test
+    public void testCompareWithEqualValues() {
+        assertEquals(0, compare(true, true));
+    }
+
+    @Test
+    public void testToBooleanDefaultIfNullWithFalseValue() {
+        assertFalse(toBooleanDefaultIfNull(Boolean.FALSE, true));
+    }
+}
+```

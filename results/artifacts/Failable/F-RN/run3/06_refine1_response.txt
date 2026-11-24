@@ -1,0 +1,54 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.io.IOException;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testAcceptWithIOException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.accept((BiConsumer<String, String>) (s1, s2) -> {
+            throw new IOException("test exception");
+        }, "a", "b"));
+    }
+
+    @Test
+    public void testAcceptWithRuntimeException() {
+        assertThrows(RuntimeException.class, () -> Failable.accept((BiConsumer<String, String>) (s1, s2) -> {
+            throw new RuntimeException("test exception");
+        }, "a", "b"));
+    }
+
+    @Test
+    public void testApplyWithIOException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.apply((BiFunction<String, String, String>) (s1, s2) -> {
+            throw new IOException("test exception");
+        }, "a", "b"));
+    }
+
+    @Test
+    public void testApplyWithRuntimeException() {
+        assertThrows(RuntimeException.class, () -> Failable.apply((BiFunction<String, String, String>) (s1, s2) -> {
+            throw new RuntimeException("test exception");
+        }, "a", "b"));
+    }
+
+    @Test
+    public void testRunWithIOException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.run(() -> {
+            throw new IOException("test exception");
+        }));
+    }
+
+    @Test
+    public void testRunWithRuntimeException() {
+        assertThrows(RuntimeException.class, () -> Failable.run(() -> {
+            throw new RuntimeException("test exception");
+        }));
+    }
+}
+```

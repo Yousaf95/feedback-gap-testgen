@@ -1,0 +1,83 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDouble_3() {
+        exclusiveBetween(1.0, 2.0, 1.5);
+    }
+
+    @Test
+    public void testExclusiveBetweenDoubleThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> exclusiveBetween(1.0, 2.0, 1.0));
+    }
+
+    @Test
+    public void testExclusiveBetweenLong_4() {
+        exclusiveBetween(1L, 2L, 1L);
+    }
+
+    @Test
+    public void testExclusiveBetweenLongThrowsException_2() {
+        assertThrows(IllegalArgumentException.class, () -> exclusiveBetween(1L, 2L, 2L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDouble_3() {
+        inclusiveBetween(1.0, 2.0, 1.5);
+    }
+
+    @Test
+    public void testInclusiveBetweenLong_4() {
+        inclusiveBetween(1L, 2L, 1L);
+    }
+
+    @Test
+    public void testIsAssignableFromThrowsException_3() {
+        assertThrows(IllegalArgumentException.class, () -> isAssignableFrom(String.class, Integer.class));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"test"})
+    public void testIsValid_2(String s) {
+        isValid(s, s1 -> !s1.isEmpty());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {""})
+    public void testIsValidThrowsException_2(String s) {
+        assertThrows(IllegalArgumentException.class, () -> isValid(s, s1 -> !s1.isEmpty()));
+    }
+
+    @Test
+    public void testMatchesPattern_4() {
+        matchesPattern("123", "\\d+");
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc"})
+    public void testMatchesPatternThrowsException_2(String s) {
+        assertThrows(IllegalArgumentException.class, () -> matchesPattern(s, "\\d+"));
+    }
+
+    @Test
+    public void testNoNullElementsIterable_3() {
+        noNullElements(Arrays.asList(1, 2, 3));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"test"})
+    public void testNotEmpty_2(String s) {
+        notEmpty(Collections.singletonList(s));
+    }
+}
+```

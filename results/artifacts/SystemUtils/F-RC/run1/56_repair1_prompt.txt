@@ -1,0 +1,411 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class SystemUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of SystemUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testGetEnvironmentVariable_WithExistingVariable: method getEnvironmentVariable in class org.apache.commons.lang3.SystemUtils cannot be applied to given types; (required: java.lang.String,java.lang.String; found:    java.lang.String; reason: actual and formal argument lists differ in length)
+    code: assertEquals("testValue", SystemUtils.getEnvironmentVariable("TEST_VAR"));
+in method testGetEnvironmentVariable_WithNonExistingVariable: method getEnvironmentVariable in class org.apache.commons.lang3.SystemUtils cannot be applied to given types; (required: java.lang.String,java.lang.String; found:    java.lang.String; reason: actual and formal argument lists differ in length)
+    code: assertNull(SystemUtils.getEnvironmentVariable("NON_EXISTING_VAR"));
+
+Current test class (SystemUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import static org.junit.jupiter.params.provider.EnumSource.Mode.EXCLUDE;
+import java.io.File;
+import java.util.Locale;
+import java.util.Properties;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class SystemUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testGetUserCountry_WithUserCountrySet() {
+            System.setProperty(SystemProperties.USER_COUNTRY, "US");
+            assertEquals("US", SystemUtils.USER_COUNTRY);
+        }
+
+    @Test
+        public void testGetUserCountry_WithUserRegionSet() {
+            System.setProperty(SystemProperties.USER_REGION, "US");
+            assertEquals("US", SystemUtils.USER_COUNTRY);
+        }
+
+    @Test
+        public void testIsOSLinux_WithLinuxOsName() {
+            System.setProperty(SystemProperties.OS_NAME, "Linux");
+            assertTrue(SystemUtils.IS_OS_LINUX);
+        }
+
+    @Test
+        public void testIsOSLinux_WithNonLinuxOsName() {
+            System.setProperty(SystemProperties.OS_NAME, "Windows");
+            assertFalse(SystemUtils.IS_OS_LINUX);
+        }
+
+    @Test
+        public void testIsJavaAwtHeadless_WithTrueValue() {
+            System.setProperty(SystemProperties.JAVA_AWT_HEADLESS, "true");
+            assertTrue(SystemUtils.isJavaAwtHeadless());
+        }
+
+    @Test
+        public void testIsJavaAwtHeadless_WithFalseValue() {
+            System.setProperty(SystemProperties.JAVA_AWT_HEADLESS, "false");
+            assertFalse(SystemUtils.isJavaAwtHeadless());
+        }
+
+    @Test
+        public void testGetEnvironmentVariable_WithExistingVariable() {
+            System.setProperty("TEST_VAR", "testValue");
+            assertEquals("testValue", SystemUtils.getEnvironmentVariable("TEST_VAR"));
+        }
+
+    @Test
+        public void testGetEnvironmentVariable_WithNonExistingVariable() {
+            assertNull(SystemUtils.getEnvironmentVariable("NON_EXISTING_VAR"));
+        }
+
+    @Test
+        public void testGetHostName_WithWindowsOs() {
+            System.setProperty(SystemProperties.OS_NAME, "Windows");
+            assertNotNull(SystemUtils.getHostName());
+        }
+
+    @Test
+        public void testGetHostName_WithNonWindowsOs() {
+            System.setProperty(SystemProperties.OS_NAME, "Linux");
+            assertNotNull(SystemUtils.getHostName());
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.SystemUtils):
+```java
+package org.apache.commons.lang3;
+import java.io.File;
+
+/** Helpers for {@code java.lang.System}. */
+public class SystemUtils {
+    /** The prefix String for all Windows OS. */
+    private static final String OS_NAME_WINDOWS_PREFIX = "Windows";
+    /** The {@code file.encoding} System Property. */
+    public static final String FILE_ENCODING = SystemProperties.getFileEncoding();
+    /** The {@code file.separator} System Property. */
+    @Deprecated
+    public static final String FILE_SEPARATOR = SystemProperties.getFileSeparator();
+    /** The {@code java.awt.fonts} System Property. */
+    public static final String JAVA_AWT_FONTS = SystemProperties.getJavaAwtFonts();
+    /** The {@code java.awt.graphicsenv} System Property. */
+    public static final String JAVA_AWT_GRAPHICSENV = SystemProperties.getJavaAwtGraphicsenv();
+    /** The {@code java.awt.headless} System Property. */
+    public static final String JAVA_AWT_HEADLESS = SystemProperties.getJavaAwtHeadless();
+    /** The {@code java.awt.printerjob} System Property. */
+    public static final String JAVA_AWT_PRINTERJOB = SystemProperties.getJavaAwtPrinterjob();
+    /** The {@code java.class.path} System Property. */
+    public static final String JAVA_CLASS_PATH = SystemProperties.getJavaClassPath();
+    /** The {@code java.class.version} System Property. */
+    public static final String JAVA_CLASS_VERSION = SystemProperties.getJavaClassVersion();
+    /** The {@code java.compiler} System Property. */
+    public static final String JAVA_COMPILER = SystemProperties.getJavaCompiler();
+    /** The {@code java.endorsed.dirs} System Property. */
+    public static final String JAVA_ENDORSED_DIRS = SystemProperties.getJavaEndorsedDirs();
+    /** The {@code java.ext.dirs} System Property. */
+    public static final String JAVA_EXT_DIRS = SystemProperties.getJavaExtDirs();
+    /** The {@code java.home} System Property. */
+    public static final String JAVA_HOME = SystemProperties.getJavaHome();
+    /** The {@code java.io.tmpdir} System Property. */
+    public static final String JAVA_IO_TMPDIR = SystemProperties.getJavaIoTmpdir();
+    /** The {@code java.library.path} System Property. */
+    public static final String JAVA_LIBRARY_PATH = SystemProperties.getJavaLibraryPath();
+    /** The {@code java.runtime.name} System Property. */
+    public static final String JAVA_RUNTIME_NAME = SystemProperties.getJavaRuntimeName();
+    /** The {@code java.runtime.version} System Property. */
+    public static final String JAVA_RUNTIME_VERSION = SystemProperties.getJavaRuntimeVersion();
+    /** The {@code java.specification.name} System Property. */
+    public static final String JAVA_SPECIFICATION_NAME = SystemProperties.getJavaSpecificationName();
+    /** The {@code java.specification.vendor} System Property. */
+    public static final String JAVA_SPECIFICATION_VENDOR = SystemProperties.getJavaSpecificationVendor();
+    /** The {@code java.specification.version} System Property. */
+    public static final String JAVA_SPECIFICATION_VERSION = SystemProperties.getJavaSpecificationVersion();
+    private static final JavaVersion JAVA_SPECIFICATION_VERSION_AS_ENUM = JavaVersion.get(JAVA_SPECIFICATION_VERSION);
+    /** The {@code java.util.prefs.PreferencesFactory} System Property. */
+    public static final String JAVA_UTIL_PREFS_PREFERENCES_FACTORY = SystemProperties.getJavaUtilPrefsPreferencesFactory();
+    /** The {@code java.vendor} System Property. */
+    public static final String JAVA_VENDOR = SystemProperties.getJavaVendor();
+    /** The {@code java.vendor.url} System Property. */
+    public static final String JAVA_VENDOR_URL = SystemProperties.getJavaVendorUrl();
+    /** The {@code java.version} System Property. */
+    public static final String JAVA_VERSION = SystemProperties.getJavaVersion();
+    /** The {@code java.vm.info} System Property. */
+    public static final String JAVA_VM_INFO = SystemProperties.getJavaVmInfo();
+    /** The {@code java.vm.name} System Property. */
+    public static final String JAVA_VM_NAME = SystemProperties.getJavaVmName();
+    /** The {@code java.vm.specification.name} System Property. */
+    public static final String JAVA_VM_SPECIFICATION_NAME = SystemProperties.getJavaVmSpecificationName();
+    /** The {@code java.vm.specification.vendor} System Property. */
+    public static final String JAVA_VM_SPECIFICATION_VENDOR = SystemProperties.getJavaVmSpecificationVendor();
+    /** The {@code java.vm.specification.version} System Property. */
+    public static final String JAVA_VM_SPECIFICATION_VERSION = SystemProperties.getJavaVmSpecificationVersion();
+    /** The {@code java.vm.vendor} System Property. */
+    public static final String JAVA_VM_VENDOR = SystemProperties.getJavaVmVendor();
+    /** The {@code java.vm.version} System Property. */
+    public static final String JAVA_VM_VERSION = SystemProperties.getJavaVmVersion();
+    /** The {@code line.separator} System Property. */
+    @Deprecated
+    public static final String LINE_SEPARATOR = SystemProperties.getLineSeparator();
+    /** The {@code os.arch} System Property. */
+    public static final String OS_ARCH = SystemProperties.getOsArch();
+    /** The {@code os.name} System Property. */
+    public static final String OS_NAME = SystemProperties.getOsName();
+    /** The {@code os.version} System Property. */
+    public static final String OS_VERSION = SystemProperties.getOsVersion();
+    /** The {@code path.separator} System Property. */
+    @Deprecated
+    public static final String PATH_SEPARATOR = SystemProperties.getPathSeparator();
+    /** The {@code user.country} or {@code user.region} System Property. */
+    public static final String USER_COUNTRY = SystemProperties.getProperty(SystemProperties.USER_COUNTRY,
+            () -> SystemProperties.getProperty(SystemProperties.USER_REGION));
+    /** The {@code user.dir} System Property. */
+    public static final String USER_DIR = SystemProperties.getUserDir();
+    /** The {@code user.home} System Property. */
+    public static final String USER_HOME = SystemProperties.getUserHome();
+    /** The {@code user.language} System Property. */
+    public static final String USER_LANGUAGE = SystemProperties.getUserLanguage();
+    /** The {@code user.name} System Property. */
+    public static final String USER_NAME = SystemProperties.getUserName();
+    /** The {@code user.timezone} System Property. */
+    public static final String USER_TIMEZONE = SystemProperties.getUserTimezone();
+    /** Is {@code true} if this is Java version 1.1 (also 1.1.x versions). */
+    public static final boolean IS_JAVA_1_1 = getJavaVersionMatches("1.1");
+    /** Is {@code true} if this is Java version 1.2 (also 1.2.x versions). */
+    public static final boolean IS_JAVA_1_2 = getJavaVersionMatches("1.2");
+    /** Is {@code true} if this is Java version 1.3 (also 1.3.x versions). */
+    public static final boolean IS_JAVA_1_3 = getJavaVersionMatches("1.3");
+    /** Is {@code true} if this is Java version 1.4 (also 1.4.x versions). */
+    public static final boolean IS_JAVA_1_4 = getJavaVersionMatches("1.4");
+    /** Is {@code true} if this is Java version 1.5 (also 1.5.x versions). */
+    public static final boolean IS_JAVA_1_5 = getJavaVersionMatches("1.5");
+    /** Is {@code true} if this is Java version 1.6 (also 1.6.x versions). */
+    public static final boolean IS_JAVA_1_6 = getJavaVersionMatches("1.6");
+    /** Is {@code true} if this is Java version 1.7 (also 1.7.x versions). */
+    public static final boolean IS_JAVA_1_7 = getJavaVersionMatches("1.7");
+    /** Is {@code true} if this is Java version 1.8 (also 1.8.x versions). */
+    public static final boolean IS_JAVA_1_8 = getJavaVersionMatches("1.8");
+    /** Is {@code true} if this is Java version 1.9 (also 1.9.x versions). */
+    @Deprecated
+    public static final boolean IS_JAVA_1_9 = getJavaVersionMatches("9");
+    /** Is {@code true} if this is Java version 9 (also 9.x versions). */
+    public static final boolean IS_JAVA_9 = getJavaVersionMatches("9");
+    /** Is {@code true} if this is Java version 10 (also 10.x versions). */
+    public static final boolean IS_JAVA_10 = getJavaVersionMatches("10");
+    /** Is {@code true} if this is Java version 11 (also 11.x versions). */
+    public static final boolean IS_JAVA_11 = getJavaVersionMatches("11");
+    /** Is {@code true} if this is Java version 12 (also 12.x versions). */
+    public static final boolean IS_JAVA_12 = getJavaVersionMatches("12");
+    /** Is {@code true} if this is Java version 13 (also 13.x versions). */
+    public static final boolean IS_JAVA_13 = getJavaVersionMatches("13");
+    /** Is {@code true} if this is Java version 14 (also 14.x versions). */
+    public static final boolean IS_JAVA_14 = getJavaVersionMatches("14");
+    /** Is {@code true} if this is Java version 15 (also 15.x versions). */
+    public static final boolean IS_JAVA_15 = getJavaVersionMatches("15");
+    /** Is {@code true} if this is Java version 16 (also 16.x versions). */
+    public static final boolean IS_JAVA_16 = getJavaVersionMatches("16");
+    /** Is {@code true} if this is Java version 17 (also 17.x versions). */
+    public static final boolean IS_JAVA_17 = getJavaVersionMatches("17");
+    /** Is {@code true} if this is Java version 18 (also 18.x versions). */
+    public static final boolean IS_JAVA_18 = getJavaVersionMatches("18");
+    /** Is {@code true} if this is Java version 19 (also 19.x versions). */
+    public static final boolean IS_JAVA_19 = getJavaVersionMatches("19");
+    /** Is {@code true} if this is Java version 20 (also 20.x versions). */
+    public static final boolean IS_JAVA_20 = getJavaVersionMatches("20");
+    /** Is {@code true} if this is Java version 21 (also 21.x versions). */
+    public static final boolean IS_JAVA_21 = getJavaVersionMatches("21");
+    /** Is {@code true} if this is AIX. */
+    public static final boolean IS_OS_AIX = getOsMatchesName("AIX");
+    /** Is {@code true} if this is HP-UX. */
+    public static final boolean IS_OS_HP_UX = getOsMatchesName("HP-UX");
+    /** Is {@code true} if this is IBM OS/400. */
+    public static final boolean IS_OS_400 = getOsMatchesName("OS/400");
+    /** Is {@code true} if this is Irix. */
+    public static final boolean IS_OS_IRIX = getOsMatchesName("Irix");
+    /** Is {@code true} if this is Linux. */
+    public static final boolean IS_OS_LINUX = getOsMatchesName("Linux") || getOsMatchesName("LINUX");
+    /** Is {@code true} if this is Mac. */
+    public static final boolean IS_OS_MAC = getOsMatchesName("Mac");
+    /** Is {@code true} if this is Mac. */
+    public static final boolean IS_OS_MAC_OSX = getOsMatchesName("Mac OS X");
+    /** Is {@code true} if this is Mac OS X Cheetah. */
+    public static final boolean IS_OS_MAC_OSX_CHEETAH = getOsMatches("Mac OS X", "10.0");
+    /** Is {@code true} if this is Mac OS X Puma. */
+    public static final boolean IS_OS_MAC_OSX_PUMA = getOsMatches("Mac OS X", "10.1");
+    /** Is {@code true} if this is Mac OS X Jaguar. */
+    public static final boolean IS_OS_MAC_OSX_JAGUAR = getOsMatches("Mac OS X", "10.2");
+    /** Is {@code true} if this is Mac OS X Panther. */
+    public static final boolean IS_OS_MAC_OSX_PANTHER = getOsMatches("Mac OS X", "10.3");
+    /** Is {@code true} if this is Mac OS X Tiger. */
+    public static final boolean IS_OS_MAC_OSX_TIGER = getOsMatches("Mac OS X", "10.4");
+    /** Is {@code true} if this is Mac OS X Leopard. */
+    public static final boolean IS_OS_MAC_OSX_LEOPARD = getOsMatches("Mac OS X", "10.5");
+    /** Is {@code true} if this is Mac OS X Snow Leopard. */
+    public static final boolean IS_OS_MAC_OSX_SNOW_LEOPARD = getOsMatches("Mac OS X", "10.6");
+    /** Is {@code true} if this is Mac OS X Lion. */
+    public static final boolean IS_OS_MAC_OSX_LION = getOsMatches("Mac OS X", "10.7");
+    /** Is {@code true} if this is Mac OS X Mountain Lion. */
+    public static final boolean IS_OS_MAC_OSX_MOUNTAIN_LION = getOsMatches("Mac OS X", "10.8");
+    /** Is {@code true} if this is Mac OS X Mavericks. */
+    public static final boolean IS_OS_MAC_OSX_MAVERICKS = getOsMatches("Mac OS X", "10.9");
+    /** Is {@code true} if this is Mac OS X Yosemite. */
+    public static final boolean IS_OS_MAC_OSX_YOSEMITE = getOsMatches("Mac OS X", "10.10");
+    /** Is {@code true} if this is Mac OS X El Capitan. */
+    public static final boolean IS_OS_MAC_OSX_EL_CAPITAN = getOsMatches("Mac OS X", "10.11");
+    /** Is {@code true} if this is Mac OS X Sierra. */
+    public static final boolean IS_OS_MAC_OSX_SIERRA = getOsMatches("Mac OS X", "10.12");
+    /** Is {@code true} if this is Mac OS X High Sierra. */
+    public static final boolean IS_OS_MAC_OSX_HIGH_SIERRA = getOsMatches("Mac OS X", "10.13");
+    /** Is {@code true} if this is Mac OS X Mojave. */
+    public static final boolean IS_OS_MAC_OSX_MOJAVE = getOsMatches("Mac OS X", "10.14");
+    /** Is {@code true} if this is Mac OS X Catalina. */
+    public static final boolean IS_OS_MAC_OSX_CATALINA = getOsMatches("Mac OS X", "10.15");
+    /** Is {@code true} if this is Mac OS X Big Sur. */
+    public static final boolean IS_OS_MAC_OSX_BIG_SUR = getOsMatches("Mac OS X", "11");
+    /** Is {@code true} if this is Mac OS X Monterey. */
+    public static final boolean IS_OS_MAC_OSX_MONTEREY = getOsMatches("Mac OS X", "12");
+    /** Is {@code true} if this is Mac OS X Ventura. */
+    public static final boolean IS_OS_MAC_OSX_VENTURA = getOsMatches("Mac OS X", "13");
+    /** Is {@code true} if this is FreeBSD. */
+    public static final boolean IS_OS_FREE_BSD = getOsMatchesName("FreeBSD");
+    /** Is {@code true} if this is OpenBSD. */
+    public static final boolean IS_OS_OPEN_BSD = getOsMatchesName("OpenBSD");
+    /** Is {@code true} if this is NetBSD. */
+    public static final boolean IS_OS_NET_BSD = getOsMatchesName("NetBSD");
+    /** Is {@code true} if this is OS/2. */
+    public static final boolean IS_OS_OS2 = getOsMatchesName("OS/2");
+    /** Is {@code true} if this is Solaris. */
+    public static final boolean IS_OS_SOLARIS = getOsMatchesName("Solaris");
+    /** Is {@code true} if this is SunOS. */
+    public static final boolean IS_OS_SUN_OS = getOsMatchesName("SunOS");
+    /** Is {@code true} if this is a UNIX like system, as in any of AIX, HP-UX, Irix, Linux, MacOSX, Solaris or SUN OS. */
+    public static final boolean IS_OS_UNIX = IS_OS_AIX || IS_OS_HP_UX || IS_OS_IRIX || IS_OS_LINUX || IS_OS_MAC_OSX
+            || IS_OS_SOLARIS || IS_OS_SUN_OS || IS_OS_FREE_BSD || IS_OS_OPEN_BSD || IS_OS_NET_BSD;
+    /** Is {@code true} if this is Windows. */
+    public static final boolean IS_OS_WINDOWS = getOsMatchesName(OS_NAME_WINDOWS_PREFIX);
+    /** Is {@code true} if this is Windows 2000. */
+    public static final boolean IS_OS_WINDOWS_2000 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 2000");
+    /** Is {@code true} if this is Windows 2003. */
+    public static final boolean IS_OS_WINDOWS_2003 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 2003");
+    /** Is {@code true} if this is Windows Server 2008. */
+    public static final boolean IS_OS_WINDOWS_2008 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " Server 2008");
+    /** Is {@code true} if this is Windows Server 2012. */
+    public static final boolean IS_OS_WINDOWS_2012 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " Server 2012");
+    /** Is {@code true} if this is Windows 95. */
+    public static final boolean IS_OS_WINDOWS_95 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 95");
+    /** Is {@code true} if this is Windows 98. */
+    public static final boolean IS_OS_WINDOWS_98 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 98");
+    /** Is {@code true} if this is Windows ME. */
+    public static final boolean IS_OS_WINDOWS_ME = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " Me");
+    /** Is {@code true} if this is Windows NT. */
+    public static final boolean IS_OS_WINDOWS_NT = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " NT");
+    /** Is {@code true} if this is Windows XP. */
+    public static final boolean IS_OS_WINDOWS_XP = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " XP");
+    /** Is {@code true} if this is Windows Vista. */
+    public static final boolean IS_OS_WINDOWS_VISTA = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " Vista");
+    /** Is {@code true} if this is Windows 7. */
+    public static final boolean IS_OS_WINDOWS_7 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 7");
+    /** Is {@code true} if this is Windows 8. */
+    public static final boolean IS_OS_WINDOWS_8 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 8");
+    /** Is {@code true} if this is Windows 10. */
+    public static final boolean IS_OS_WINDOWS_10 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 10");
+    /** Is {@code true} if this is Windows 11. */
+    public static final boolean IS_OS_WINDOWS_11 = getOsMatchesName(OS_NAME_WINDOWS_PREFIX + " 11");
+    public static final boolean IS_OS_ZOS = getOsMatchesName("z/OS");
+    /** The System property key for the user home directory. */
+    public static final String USER_HOME_KEY = "user.home";
+    /** The System property key for the user name. */
+    @Deprecated
+    public static final String USER_NAME_KEY = "user.name";
+    /** The System property key for the user directory. */
+    @Deprecated
+    public static final String USER_DIR_KEY = "user.dir";
+    /** The System property key for the Java IO temporary directory. */
+    @Deprecated
+    public static final String JAVA_IO_TMPDIR_KEY = "java.io.tmpdir";
+    /** The System property key for the Java home directory. */
+    @Deprecated
+    public static final String JAVA_HOME_KEY = "java.home";
+    /** The {@code awt.toolkit} System Property. */
+    public static final String AWT_TOOLKIT = SystemProperties.getAwtToolkit();
+    /** Gets an environment variable, defaulting to {@code defaultValue} if the variable cannot be read. */
+    public static String getEnvironmentVariable(final String name, final String defaultValue) {
+        try {
+            final String value = System.getenv(name);
+            return value == null ? defaultValue : value;
+        } catch (final SecurityException ex) {
+            // we are not allowed to look at this property
+            // System.err.println("Caught a SecurityException reading the environment variable '" + name + "'.");
+            return defaultValue;
+        }
+    }
+    /** Gets the host name from an environment variable (COMPUTERNAME on Windows, HOSTNAME elsewhere). */
+    public static String getHostName() {
+        return IS_OS_WINDOWS ? System.getenv("COMPUTERNAME") : System.getenv("HOSTNAME");
+    }
+    /** Gets the current Java home directory as a {@link File}. */
+    public static File getJavaHome() {
+        return new File(SystemProperties.getJavaHome());
+    }
+    /** Gets the current Java IO temporary directory as a {@link File}. */
+    public static File getJavaIoTmpDir() {
+        return new File(SystemProperties.getJavaIoTmpdir());
+    }
+    /** Gets the current user directory as a {@link File}. */
+    public static File getUserDir() {
+        return new File(SystemProperties.getUserDir());
+    }
+    /** Gets the current user home directory as a {@link File}. */
+    public static File getUserHome() {
+        return new File(SystemProperties.getUserHome());
+    }
+    /** Gets the current user name. */
+    @Deprecated
+    public static String getUserName() {
+        return SystemProperties.getUserName();
+    }
+    /** Gets the user name. */
+    public static String getUserName(final String defaultValue) {
+        return System.getProperty(SystemProperties.USER_NAME, defaultValue);
+    }
+    /** Returns whether the {@link #JAVA_AWT_HEADLESS} value is {@code true}. */
+    public static boolean isJavaAwtHeadless() {
+        return Boolean.TRUE.toString().equals(JAVA_AWT_HEADLESS);
+    }
+    /** Is the Java version at least the requested version. */
+    public static boolean isJavaVersionAtLeast(final JavaVersion requiredVersion) {
+        return JAVA_SPECIFICATION_VERSION_AS_ENUM.atLeast(requiredVersion);
+    }
+    /** Is the Java version at most the requested version. */
+    public static boolean isJavaVersionAtMost(final JavaVersion requiredVersion) {
+        return JAVA_SPECIFICATION_VERSION_AS_ENUM.atMost(requiredVersion);
+    }
+    /** SystemUtils instances should NOT be constructed in standard programming. */
+    public SystemUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

@@ -1,0 +1,22 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testIdentityToString_2() {
+        String result = ObjectUtils.identityToString("test");
+        assertEquals("java.lang.String@", result);
+
+        result = ObjectUtils.identityToString(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testMedian_2() {
+        assertEquals(2, ObjectUtils.median(Arrays.asList(1, 2, 3)));
+    }
+}
+```

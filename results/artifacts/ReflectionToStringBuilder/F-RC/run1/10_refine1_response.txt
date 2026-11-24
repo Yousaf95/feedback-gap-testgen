@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToNoNullStringArrayWithNullCollection() {
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(null);
+        assertArrayEquals(new String[0], result);
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithEmptyCollection() {
+        Collection<String> emptyList = Arrays.asList();
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(emptyList);
+        assertArrayEquals(new String[0], result);
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithNonEmptyCollection() {
+        Collection<String> list = Arrays.asList("a", null, "b");
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(list);
+        assertArrayEquals(new String[]{"a", "b"}, result);
+    }
+
+    @Test
+    public void testToStringWithNullObjectAndStyle() {
+        String result = ReflectionToStringBuilder.toString(null, null);
+        assertEquals("null", result);
+    }
+
+    @Test
+    public void testToStringExcludeWithNullExcludeFieldNames() {
+        String result = ReflectionToStringBuilder.toStringExclude(new Object(), (String[]) null);
+        assertEquals("{}", result);
+    }
+
+    @Test
+    public void testToStringIncludeWithNullIncludeFieldNames() {
+        String result = ReflectionToStringBuilder.toStringInclude(new Object(), (String[]) null);
+        assertEquals("{}", result);
+    }
+
+    @Test
+    public void testSetExcludeNullValuesWithTrue() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeNullValues(true);
+        assertTrue(builder.isExcludeNullValues());
+    }
+
+    @Test
+    public void testSetExcludeNullValuesWithFalse() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeNullValues(false);
+        assertFalse(builder.isExcludeNullValues());
+    }
+
+    @Test
+    public void testSetUpToClassWithNull() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setUpToClass(null);
+        assertNull(builder.getUpToClass());
+    }
+
+    @Test
+    public void testSetUpToClassWithInvalidClass() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        assertThrows(IllegalArgumentException.class, () -> builder.setUpToClass(String.class));
+    }
+}
+```

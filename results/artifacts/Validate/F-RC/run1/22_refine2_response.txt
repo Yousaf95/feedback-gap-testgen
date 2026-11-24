@@ -1,0 +1,153 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetween_double_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 3.0);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_double_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5.0, 10.0, 12.0);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_long_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5L, 10L, 3L);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_long_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(5L, 10L, 12L);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_double_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 3.0);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_double_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5.0, 10.0, 12.0);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_long_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5L, 10L, 3L);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_long_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(5L, 10L, 12L);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_Comparable_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(3, 10, 1);
+        });
+    }
+
+    @Test
+    public void testExclusiveBetween_Comparable_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(3, 10, 12);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_Comparable_valueLessThanStart() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(3, 10, 1);
+        });
+    }
+
+    @Test
+    public void testInclusiveBetween_Comparable_valueGreaterThanEnd() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(3, 10, 12);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageDoubleValue() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "The value is %f", 3.14);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageLongValue() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "The value is %d", 42L);
+        });
+    }
+
+    @Test
+    public void testIsTrue_expressionFalse_messageValues() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "The values are %s and %s", "one", "two");
+        });
+    }
+
+    @Test
+    public void testMatchesPattern_inputDoesNotMatchPattern() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.matchesPattern("hello", "^\\d+$");
+        });
+    }
+
+    @Test
+    public void testMatchesPattern_messageInputDoesNotMatchPattern() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Validate.matchesPattern("hello", "^\\d+$", "The input %s does not match the pattern %s", "hello", "^\\d+$");
+        });
+    }
+
+    @Test
+    public void testNoNullElements_collectionWithNullElement() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Iterable<String> iterable = Arrays.asList("one", null, "three");
+            Validate.noNullElements(iterable);
+        });
+    }
+
+    @Test
+    public void testNoNullElements_arrayWithNullElement() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            String[] array = {"one", null, "three"};
+            Validate.noNullElements(array);
+        });
+    }
+}
+```

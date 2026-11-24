@@ -1,0 +1,100 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_SingleCharSet() {
+        assertTrue(CharSetUtils.containsAny("abc", "a"));
+        assertFalse(CharSetUtils.containsAny("abc", "d"));
+    }
+
+    @Test
+    public void testCount_SingleCharSet() {
+        assertEquals(1, CharSetUtils.count("abc", "a"));
+        assertEquals(0, CharSetUtils.count("abc", "d"));
+    }
+
+    @Test
+    public void testDelete_SingleCharSet() {
+        assertEquals("bc", CharSetUtils.delete("abc", "a"));
+        assertEquals("abc", CharSetUtils.delete("abc", "d"));
+    }
+
+    @Test
+    public void testKeep_SingleCharSet() {
+        assertEquals("a", CharSetUtils.keep("abc", "a"));
+        assertEquals("", CharSetUtils.keep("abc", "d"));
+    }
+
+    @Test
+    public void testSqueeze_SingleCharSet() {
+        assertEquals("abc", CharSetUtils.squeeze("aaabbcc", "a"));
+        assertEquals("abc", CharSetUtils.squeeze("abc", "d"));
+    }
+
+    @Test
+    public void testContainsAny_MultipleCharSets() {
+        assertTrue(CharSetUtils.containsAny("abc", "a", "b"));
+        assertFalse(CharSetUtils.containsAny("abc", "d", "e"));
+    }
+
+    @Test
+    public void testCount_MultipleCharSets() {
+        assertEquals(2, CharSetUtils.count("abc", "a", "b"));
+        assertEquals(0, CharSetUtils.count("abc", "d", "e"));
+    }
+
+    @Test
+    public void testDelete_MultipleCharSets() {
+        assertEquals("c", CharSetUtils.delete("abc", "a", "b"));
+        assertEquals("abc", CharSetUtils.delete("abc", "d", "e"));
+    }
+
+    @Test
+    public void testKeep_MultipleCharSets() {
+        assertEquals("ab", CharSetUtils.keep("abc", "a", "b"));
+        assertEquals("", CharSetUtils.keep("abc", "d", "e"));
+    }
+
+    @Test
+    public void testSqueeze_MultipleCharSets() {
+        assertEquals("abc", CharSetUtils.squeeze("aaabbccdd", "a", "d"));
+        assertEquals("abc", CharSetUtils.squeeze("abc", "d", "e"));
+    }
+
+    @Test
+    public void testContainsAny_OverlapCharSets() {
+        assertTrue(CharSetUtils.containsAny("abc", "a", "b", "c"));
+        assertFalse(CharSetUtils.containsAny("abc", "d", "e", "f"));
+    }
+
+    @Test
+    public void testCount_OverlapCharSets() {
+        assertEquals(3, CharSetUtils.count("abc", "a", "b", "c"));
+        assertEquals(0, CharSetUtils.count("abc", "d", "e", "f"));
+    }
+
+    @Test
+    public void testDelete_OverlapCharSets() {
+        assertEquals("", CharSetUtils.delete("abc", "a", "b", "c"));
+        assertEquals("abc", CharSetUtils.delete("abc", "d", "e", "f"));
+    }
+
+    @Test
+    public void testKeep_OverlapCharSets() {
+        assertEquals("abc", CharSetUtils.keep("abc", "a", "b", "c"));
+        assertEquals("", CharSetUtils.keep("abc", "d", "e", "f"));
+    }
+
+    @Test
+    public void testSqueeze_OverlapCharSets() {
+        assertEquals("abc", CharSetUtils.squeeze("aaabbccdd", "a", "b", "c", "d"));
+        assertEquals("abc", CharSetUtils.squeeze("abc", "d", "e", "f"));
+    }
+}
+```

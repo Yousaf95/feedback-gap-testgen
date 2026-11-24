@@ -1,0 +1,95 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.concurrent.ThreadLocalRandom;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+class RandomStringUtils_GenTest {
+
+    private ThreadLocalRandom randomMock;
+
+    @BeforeEach
+    public void setUp() {
+        randomMock = mock(ThreadLocalRandom.class);
+    }
+
+    @Test
+    public void testRandomWithCustomRandom() {
+        when(randomMock.nextInt(10)).thenReturn(5);
+        String result = RandomStringUtils.random(1, false, false, null, null, new char[]{'a', 'b'}, randomMock);
+        assertEquals("b", result);
+    }
+
+    @Test
+    public void testRandomWithEmptyCharsArray() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, (char[])null)
+        );
+    }
+
+    @Test
+    public void testRandomWithNegativeCountThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(-1)
+        );
+    }
+
+    @Test
+    public void testRandomAlphabeticRange_2() {
+        String result = RandomStringUtils.randomAlphabetic(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(Character.isLetter(c));
+        }
+    }
+
+    @Test
+    public void testRandomAlphanumericRange_2() {
+        String result = RandomStringUtils.randomAlphanumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(Character.isLetterOrDigit(c));
+        }
+    }
+
+    @Test
+    public void testRandomAsciiRange_2() {
+        String result = RandomStringUtils.randomAscii(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(c >= 32 && c <= 127);
+        }
+    }
+
+    @Test
+    public void testRandomGraphRange_2() {
+        String result = RandomStringUtils.randomGraph(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(c > 32 && c < 127);
+        }
+    }
+
+    @Test
+    public void testRandomNumericRange_2() {
+        String result = RandomStringUtils.randomNumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(Character.isDigit(c));
+        }
+    }
+
+    @Test
+    public void testRandomPrintRange_2() {
+        String result = RandomStringUtils.randomPrint(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+        for (char c : result.toCharArray()) {
+            assertTrue(c >= 32 && c <= 126);
+        }
+    }
+}
+```

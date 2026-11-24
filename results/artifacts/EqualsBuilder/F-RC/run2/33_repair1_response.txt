@@ -1,0 +1,35 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.HashSet;
+import java.util.Set;
+
+class EqualsBuilder_GenTest {
+
+    private EqualsBuilder builder;
+
+    @BeforeEach
+    public void setUp() {
+        builder = new EqualsBuilder();
+    }
+
+    @Test
+    public void testReflectionEquals_withNulls_2() {
+        Object lhs = null;
+        Object rhs = null;
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionEquals_withEqualObjects_2() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs));
+    }
+}
+```

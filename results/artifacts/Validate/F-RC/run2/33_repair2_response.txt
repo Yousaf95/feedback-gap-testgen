@@ -1,0 +1,83 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDouble_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 2.0, 0.5));
+    }
+
+    @Test
+    public void testExclusiveBetweenLong_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 2L, 0L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDouble_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 2.0, -1.0));
+    }
+
+    @Test
+    public void testInclusiveBetweenLong_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 2L, -1L));
+    }
+
+    @Test
+    public void testIsAssignableFromThrowsException_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOf_3() {
+        Object obj = "test";
+        assertEquals(obj, Validate.isInstanceOf(Object.class, obj));
+    }
+
+    @Test
+    public void testMatchesPattern_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("test", "^[0-9]+$"));
+    }
+
+    @Test
+    public void testNoNullElementsIterable_2() {
+        Iterable<String> iterable = Arrays.asList("a", null, "c");
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(iterable));
+    }
+
+    @Test
+    public void testNoNullElementsArray_2() {
+        String[] array = {"a", null, "c"};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNotBlank() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notBlank(" "));
+    }
+
+    @Test
+    public void testNotEmptyIterable() {
+        Iterable<String> iterable = Arrays.asList();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(iterable));
+    }
+
+    @Test
+    public void testNotEmptyArray() {
+        String[] array = {};
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(array));
+    }
+
+    @Test
+    public void testNotEmptyMap() {
+        Map<String, String> map = new HashMap<>();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map));
+    }
+}
+```

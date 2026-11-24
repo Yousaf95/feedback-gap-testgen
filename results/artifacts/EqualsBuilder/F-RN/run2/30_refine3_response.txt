@@ -1,0 +1,78 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    public void testAppendArrayWithEmptyArrays() {
+        boolean[] lhs = {};
+        boolean[] rhs = {};
+        assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithNonEmptyEqualArrays() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {true, false};
+        assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithNonEmptyUnequalArrays() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {false, true};
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendNullArray() {
+        boolean[] lhs = null;
+        boolean[] rhs = new boolean[]{true, false};
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendDifferentNullArrays_2() {
+        boolean[] lhs = new boolean[]{true, false};
+        boolean[] rhs = null;
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithMixedTypes() {
+        Object[] lhs = {1, "test", true};
+        Object[] rhs = {1, "test", true};
+        assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendDifferentArraysWithMixedTypes() {
+        Object[] lhs = {1, "test", true};
+        Object[] rhs = {2, "test", false};
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testReflectionEqualsWithNullObjects_2() {
+        Object lhs = null;
+        Object rhs = new Object();
+        assertFalse(EqualsBuilder.reflectionEquals(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionEqualsWithDifferentNulls_2() {
+        Object lhs = new Object();
+        Object rhs = null;
+        assertFalse(EqualsBuilder.reflectionEquals(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionEqualsWithSameObject_2() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj));
+    }
+}
+```

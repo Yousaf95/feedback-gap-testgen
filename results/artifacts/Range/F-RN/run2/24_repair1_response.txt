@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import org.junit.jupiter.api.Test;
+
+class Range_GenTest {
+
+    @Test
+    public void testIsWithNonComparableValuesThrowsClassCastException() {
+        assertThrows(ClassCastException.class, () -> Range.is("a", "b"));
+    }
+
+    @Test
+    public void testContainsRangeWithNullRangeReturnsFalse() {
+        Range<String> range = Range.between("a", "z");
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    public void testIsOverlappedByWithNonOverlappingRangesReturnsFalse() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertFalse(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByWithPartiallyOverlappingRangesReturnsTrue() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(4, 8);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByWithFullyOverlappingRangesReturnsTrue() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 4);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    public void testIntersectionWithNonOverlappingRangesThrowsIllegalArgumentException() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIntersectionWithPartiallyOverlappingRangesReturnsCorrectRange() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(4, 8);
+        assertEquals(Range.between(4, 5), range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIntersectionWithFullyOverlappingRangesReturnsCorrectRange() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 4);
+        assertEquals(Range.between(3, 4), range1.intersectionWith(range2));
+    }
+
+    @Test
+    public void testIsNaturalOrderingWithCustomComparatorReturnsFalse() {
+        Comparator<String> customComparator = (s1, s2) -> s2.compareTo(s1);
+        Range<String> range = Range.of("a", "b", customComparator);
+        assertFalse(range.isNaturalOrdering());
+    }
+
+    @Test
+    public void testToStringWithCustomFormatReturnsCorrectString() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals("[1..5]", range.toString("%s..%s"));
+    }
+}
+```

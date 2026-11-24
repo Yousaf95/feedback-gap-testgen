@@ -1,0 +1,156 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSequenceUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CharSequenceUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testCheckLaterThan1_withEmptyCharSequence: checkLaterThan1(java.lang.CharSequence,java.lang.CharSequence,int,int) has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertTrue(CharSequenceUtils.checkLaterThan1("", "a", 0, 0));
+in method testCheckLaterThan1_withSingleCharacterMatch: checkLaterThan1(java.lang.CharSequence,java.lang.CharSequence,int,int) has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertTrue(CharSequenceUtils.checkLaterThan1("ab", "b", 2, 0));
+in method testCheckLaterThan1_withSingleCharacterMismatch: checkLaterThan1(java.lang.CharSequence,java.lang.CharSequence,int,int) has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertFalse(CharSequenceUtils.checkLaterThan1("ab", "c", 2, 0));
+in method testIndexOf_withString: no suitable method found for indexOf(java.lang.String,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertEquals(3, CharSequenceUtils.indexOf("hello world", "world"));
+in method testIndexOf_withStringBuilder: no suitable method found for indexOf(java.lang.StringBuilder,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+in method testIndexOf_withStringBuffer: no suitable method found for indexOf(java.lang.StringBuffer,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+in method testIndexOf_withNullCharSequence: no suitable method found for indexOf(<nulltype>,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertThrows(NullPointerException.class, () -> CharSequenceUtils.indexOf(null, "world"));
+in method testIndexOf_withNullSearchChar: no suitable method found for indexOf(java.lang.String,<nulltype>) (method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.indexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertThrows(NullPointerException.class, () -> CharSequenceUtils.indexOf("hello world", null));
+in method testLastIndexOf_withString: no suitable method found for lastIndexOf(java.lang.String,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertEquals(6, CharSequenceUtils.lastIndexOf("hello world", "world"));
+in method testLastIndexOf_withStringBuilder: no suitable method found for lastIndexOf(java.lang.StringBuilder,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+in method testLastIndexOf_withStringBuffer: no suitable method found for lastIndexOf(java.lang.StringBuffer,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+in method testLastIndexOf_withNullCharSequence: no suitable method found for lastIndexOf(<nulltype>,java.lang.String) (method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertThrows(NullPointerException.class, () -> CharSequenceUtils.lastIndexOf(null, "world"));
+in method testLastIndexOf_withNullSearchChar: no suitable method found for lastIndexOf(java.lang.String,<nulltype>) (method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,java.lang.CharSequence,int) is not applicable; (actual and formal argument lists differ in length); method org.apache.commons.lang3.CharSequenceUtils.lastIndexOf(java.lang.CharSequence,int,int) is not applicable)
+    code: assertThrows(NullPointerException.class, () -> CharSequenceUtils.lastIndexOf("hello world", null));
+
+Current test class (CharSequenceUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.StringUtils.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.Arrays;
+import java.util.List;
+
+class CharSequenceUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testCheckLaterThan1_withEmptyCharSequence() {
+            assertTrue(CharSequenceUtils.checkLaterThan1("", "a", 0, 0));
+        }
+
+    @Test
+        public void testCheckLaterThan1_withSingleCharacterMatch() {
+            assertTrue(CharSequenceUtils.checkLaterThan1("ab", "b", 2, 0));
+        }
+
+    @Test
+        public void testCheckLaterThan1_withSingleCharacterMismatch() {
+            assertFalse(CharSequenceUtils.checkLaterThan1("ab", "c", 2, 0));
+        }
+
+    @Test
+        public void testIndexOf_withString() {
+            assertEquals(3, CharSequenceUtils.indexOf("hello world", "world"));
+        }
+
+    @Test
+        public void testIndexOf_withStringBuilder() {
+            StringBuilder sb = new StringBuilder("hello world");
+            assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+        }
+
+    @Test
+        public void testIndexOf_withStringBuffer() {
+            StringBuffer sb = new StringBuffer("hello world");
+            assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+        }
+
+    @Test
+        public void testIndexOf_withNullCharSequence() {
+            assertThrows(NullPointerException.class, () -> CharSequenceUtils.indexOf(null, "world"));
+        }
+
+    @Test
+        public void testIndexOf_withNullSearchChar() {
+            assertThrows(NullPointerException.class, () -> CharSequenceUtils.indexOf("hello world", null));
+        }
+
+    @Test
+        public void testLastIndexOf_withString() {
+            assertEquals(6, CharSequenceUtils.lastIndexOf("hello world", "world"));
+        }
+
+    @Test
+        public void testLastIndexOf_withStringBuilder() {
+            StringBuilder sb = new StringBuilder("hello world");
+            assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+        }
+
+    @Test
+        public void testLastIndexOf_withStringBuffer() {
+            StringBuffer sb = new StringBuffer("hello world");
+            assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+        }
+
+    @Test
+        public void testLastIndexOf_withNullCharSequence() {
+            assertThrows(NullPointerException.class, () -> CharSequenceUtils.lastIndexOf(null, "world"));
+        }
+
+    @Test
+        public void testLastIndexOf_withNullSearchChar() {
+            assertThrows(NullPointerException.class, () -> CharSequenceUtils.lastIndexOf("hello world", null));
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.CharSequenceUtils):
+```java
+package org.apache.commons.lang3;
+
+/** Operations on {@link CharSequence} that are {@code null} safe. */
+public class CharSequenceUtils {
+    private static final int NOT_FOUND = -1;
+    static final int TO_STRING_LIMIT = 16;
+    /** Returns a new {@link CharSequence} that is a subsequence of this sequence starting with the {@code char} value at the specified index. */
+    public static CharSequence subSequence(final CharSequence cs, final int start) {
+        return cs == null ? null : cs.subSequence(start, cs.length());
+    }
+    /** Converts the given CharSequence to a char[]. */
+    public static char[] toCharArray(final CharSequence source) {
+        final int len = StringUtils.length(source);
+        if (len == 0) {
+            return ArrayUtils.EMPTY_CHAR_ARRAY;
+        }
+        if (source instanceof String) {
+            return ((String) source).toCharArray();
+        }
+        final char[] array = new char[len];
+        for (int i = 0; i < len; i++) {
+            array[i] = source.charAt(i);
+        }
+        return array;
+    }
+    /** {@link CharSequenceUtils} instances should NOT be constructed in standard programming. */
+    public CharSequenceUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

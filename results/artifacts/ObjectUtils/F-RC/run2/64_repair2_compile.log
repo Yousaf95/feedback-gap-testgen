@@ -1,0 +1,55 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[237,32] method clone in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.Integer[]
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[243,24] method clone in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    <nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[288,24] method equals in class java.lang.Object cannot be applied to given types;
+  required: java.lang.Object
+  found:    <nulltype>,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[289,25] method equals in class java.lang.Object cannot be applied to given types;
+  required: java.lang.Object
+  found:    java.lang.String,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[290,25] method equals in class java.lang.Object cannot be applied to given types;
+  required: java.lang.Object
+  found:    <nulltype>,java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[302,46] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[237,32] method clone in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.Integer[]
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[243,24] method clone in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    <nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[288,24] method equals in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: java.lang.Object
+[ERROR]   found:    <nulltype>,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[289,25] method equals in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: java.lang.Object
+[ERROR]   found:    java.lang.String,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[290,25] method equals in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: java.lang.Object
+[ERROR]   found:    <nulltype>,java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[302,46] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

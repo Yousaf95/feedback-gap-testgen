@@ -1,0 +1,65 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testConvertClassesToClassNamesWithEmptyList() {
+        List<Class<?>> classes = Arrays.asList();
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertTrue(classNames.isEmpty());
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithEmptyList() {
+        List<String> classNames = Arrays.asList();
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertTrue(classes.isEmpty());
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithShortClassName() {
+        String className = "java.lang.String";
+        int lengthHint = 10;
+        assertEquals("String", ClassUtils.getAbbreviatedName(className, lengthHint));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithEmptyClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(Object.class);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithEmptyClass() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(Object.class);
+        assertEquals(1, superclasses.size());
+        assertEquals(Object.class, superclasses.get(0));
+    }
+
+    @Test
+    public void testIsAssignableWithPrimitiveToWrapper() {
+        assertTrue(ClassUtils.isAssignableFrom(Integer.TYPE, Integer.class));
+    }
+
+    @Test
+    public void testIsAssignableFromWithWrapperToPrimitive() {
+        assertFalse(ClassUtils.isAssignableFrom(Integer.class, Integer.TYPE));
+    }
+
+    @Test
+    public void testIsAssignableFromWithArrayTypes() {
+        assertTrue(ClassUtils.isAssignableFrom(int[].class, Number[].class));
+    }
+
+    @Test
+    public void testIsAssignableFromWithNonArrayTypes() {
+        assertFalse(ClassUtils.isAssignableFrom(String.class, Number.class));
+    }
+}
+```

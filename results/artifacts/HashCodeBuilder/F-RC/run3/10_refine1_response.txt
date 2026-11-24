@@ -1,0 +1,430 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testGetRegistry() {
+        // Ensure the registry is not null and returns a Set
+        Set<IDKey> registry = HashCodeBuilder.getRegistry();
+        assertNotNull(registry);
+        assertTrue(registry instanceof HashSet);
+    }
+
+    @Test
+    public void testIsRegistered() {
+        // Register an object and check if it's registered
+        Object value = new Object();
+        HashCodeBuilder.register(value);
+        assertTrue(HashCodeBuilder.isRegistered(value));
+
+        // Unregister the object and check again
+        HashCodeBuilder.unregister(value);
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testReflectionAppend_withNullObject() {
+        // Test with a null object
+        Object value = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(value);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientField() throws Exception {
+        // Create an object with a non-transient field and append it
+        TestObject obj = new TestObject("test");
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + "test".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientField() throws Exception {
+        // Create an object with a transient field and append it
+        TestObject obj = new TestObject("transient");
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + "transient".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedField() throws Exception {
+        // Create an object with an excluded field and append it
+        TestObject obj = new TestObject("excluded");
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, false, null, "excludedField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullArray() {
+        // Test with a null array
+        Object[] array = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientArrayField() throws Exception {
+        // Create an object with a non-transient array field and append it
+        TestObject obj = new TestObject(new String[]{"test", "array"});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + "test".hashCode() * 29 + "array".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientArrayField() throws Exception {
+        // Create an object with a transient array field and append it
+        TestObject obj = new TestObject(new String[]{"transient", "array"});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + "transient".hashCode() * 29 + "array".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedArrayField() throws Exception {
+        // Create an object with an excluded array field and append it
+        TestObject obj = new TestObject(new String[]{"excluded", "array"});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, false, null, "excludedArrayField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullCollection() {
+        // Test with a null collection
+        Collection<String> collection = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(collection);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientCollectionField() throws Exception {
+        // Create an object with a non-transient collection field and append it
+        TestObject obj = new TestObject(new String[]{"test", "collection"});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + "test".hashCode() * 29 + "collection".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientCollectionField() throws Exception {
+        // Create an object with a transient collection field and append it
+        TestObject obj = new TestObject(new String[]{"transient", "collection"});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + "transient".hashCode() * 29 + "collection".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedCollectionField() throws Exception {
+        // Create an object with an excluded collection field and append it
+        TestObject obj = new TestObject(new String[]{"excluded", "collection"});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, false, null, "excludedCollectionField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullMap() {
+        // Test with a null map
+        java.util.Map<String, String> map = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(map);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientMapField() throws Exception {
+        // Create an object with a non-transient map field and append it
+        TestObject obj = new TestObject(java.util.Map.of("key", "value"));
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + "key".hashCode() * 29 + "value".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientMapField() throws Exception {
+        // Create an object with a transient map field and append it
+        TestObject obj = new TestObject(java.util.Map.of("transient", "value"));
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + "transient".hashCode() * 29 + "value".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedMapField() throws Exception {
+        // Create an object with an excluded map field and append it
+        TestObject obj = new TestObject(java.util.Map.of("excluded", "value"));
+        HashCodeBuilder.builder.append(obj, false, null, "excludedMapField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullSet() {
+        // Test with a null set
+        Set<String> set = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(set);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientSetField() throws Exception {
+        // Create an object with a non-transient set field and append it
+        TestObject obj = new TestObject(java.util.Set.of("test", "set"));
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + "test".hashCode() * 29 + "set".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientSetField() throws Exception {
+        // Create an object with a transient set field and append it
+        TestObject obj = new TestObject(java.util.Set.of("transient", "set"));
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + "transient".hashCode() * 29 + "set".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedSetField() throws Exception {
+        // Create an object with an excluded set field and append it
+        TestObject obj = new TestObject(java.util.Set.of("excluded", "set"));
+        HashCodeBuilder.builder.append(obj, false, null, "excludedSetField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullString() {
+        // Test with a null string
+        String str = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(str);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientStringField() throws Exception {
+        // Create an object with a non-transient string field and append it
+        TestObject obj = new TestObject("test");
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + "test".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientStringField() throws Exception {
+        // Create an object with a transient string field and append it
+        TestObject obj = new TestObject("transient");
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + "transient".hashCode(), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedStringField() throws Exception {
+        // Create an object with an excluded string field and append it
+        TestObject obj = new TestObject("excluded");
+        HashCodeBuilder.builder.append(obj, false, null, "excludedStringField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullBooleanArray() {
+        // Test with a null boolean array
+        boolean[] array = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientBooleanArrayField() throws Exception {
+        // Create an object with a non-transient boolean array field and append it
+        TestObject obj = new TestObject(new boolean[]{true, false});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + (true ? 0 : 1) * 29 + (false ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientBooleanArrayField() throws Exception {
+        // Create an object with a transient boolean array field and append it
+        TestObject obj = new TestObject(new boolean[]{true, false});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + (true ? 0 : 1) * 29 + (false ? 0 : 1), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedBooleanArrayField() throws Exception {
+        // Create an object with an excluded boolean array field and append it
+        TestObject obj = new TestObject(new boolean[]{true, false});
+        HashCodeBuilder.builder.append(obj, false, null, "excludedBooleanArrayField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullByteArray() {
+        // Test with a null byte array
+        byte[] array = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientByteArrayField() throws Exception {
+        // Create an object with a non-transient byte array field and append it
+        TestObject obj = new TestObject(new byte[]{1, 2});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + 1 * 29 + 2, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientByteArrayField() throws Exception {
+        // Create an object with a transient byte array field and append it
+        TestObject obj = new TestObject(new byte[]{1, 2});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + 1 * 29 + 2, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedByteArrayField() throws Exception {
+        // Create an object with an excluded byte array field and append it
+        TestObject obj = new TestObject(new byte[]{1, 2});
+        HashCodeBuilder.builder.append(obj, false, null, "excludedByteArrayField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullCharArray() {
+        // Test with a null char array
+        char[] array = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientCharArrayField() throws Exception {
+        // Create an object with a non-transient char array field and append it
+        TestObject obj = new TestObject(new char[]{'a', 'b'});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + 'a' * 29 + 'b', builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientCharArrayField() throws Exception {
+        // Create an object with a transient char array field and append it
+        TestObject obj = new TestObject(new char[]{'a', 'b'});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + 'a' * 29 + 'b', builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedCharArrayField() throws Exception {
+        // Create an object with an excluded char array field and append it
+        TestObject obj = new TestObject(new char[]{'a', 'b'});
+        HashCodeBuilder.builder.append(obj, false, null, "excludedCharArrayField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullDoubleArray() {
+        // Test with a null double array
+        double[] array = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientDoubleArrayField() throws Exception {
+        // Create an object with a non-transient double array field and append it
+        TestObject obj = new TestObject(new double[]{1.0, 2.0});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + Double.doubleToLongBits(1.0) * 29 + Double.doubleToLongBits(2.0), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientDoubleArrayField() throws Exception {
+        // Create an object with a transient double array field and append it
+        TestObject obj = new TestObject(new double[]{1.0, 2.0});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + Double.doubleToLongBits(1.0) * 29 + Double.doubleToLongBits(2.0), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedDoubleArrayField() throws Exception {
+        // Create an object with an excluded double array field and append it
+        TestObject obj = new TestObject(new double[]{1.0, 2.0});
+        HashCodeBuilder.builder.append(obj, false, null, "excludedDoubleArrayField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullFloatArray() {
+        // Test with a null float array
+        float[] array = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientFloatArrayField() throws Exception {
+        // Create an object with a non-transient float array field and append it
+        TestObject obj = new TestObject(new float[]{1.0f, 2.0f});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj);
+        assertEquals(17 * 37 + Float.floatToIntBits(1.0f) * 29 + Float.floatToIntBits(2.0f), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withTransientFloatArrayField() throws Exception {
+        // Create an object with a transient float array field and append it
+        TestObject obj = new TestObject(new float[]{1.0f, 2.0f});
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(obj, true);
+        assertEquals(17 * 37 + Float.floatToIntBits(1.0f) * 29 + Float.floatToIntBits(2.0f), builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withExcludedFloatArrayField() throws Exception {
+        // Create an object with an excluded float array field and append it
+        TestObject obj = new TestObject(new float[]{1.0f, 2.0f});
+        HashCodeBuilder.builder.append(obj, false, null, "excludedFloatArrayField");
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNullIntArray() {
+        // Test with a null int array
+        int[] array = null;
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppend_withNonTransientIntArrayField() throws Exception {
+        // Create an object with a non-transient int array field and append it
+        TestObject obj = new TestObject(new int[]{1, 2});
+        HashCode

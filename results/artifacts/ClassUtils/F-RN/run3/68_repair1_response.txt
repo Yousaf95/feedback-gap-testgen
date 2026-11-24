@@ -1,0 +1,159 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testGetAllInterfacesWithNonEmptyClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(List.class);
+        assertTrue(interfaces.contains(Collection.class));
+        assertTrue(interfaces.contains(Iterable.class));
+        assertEquals(2, interfaces.size());
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithBoolean() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Boolean.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithByte() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Byte.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithCharacter() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Character.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithShort() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Short.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithInteger() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Integer.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithLong() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Long.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithDouble() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Double.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithFloat() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Float.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithVoid() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Void.class));
+    }
+
+    @Test
+    public void testIsInnerClassWithStaticNestedClass() {
+        class Outer {
+            static class Inner {}
+        }
+        assertTrue(ClassUtils.isInnerClass(Outer.Inner.class));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithLongClassName() {
+        String abbreviated = ClassUtils.getAbbreviatedName("com.example.MyVeryLongClassName", 10);
+        assertEquals("com.ex.MyVer...", abbreviated);
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithNonEmptyListAndNullElement() {
+        List<Class<?>> classes = Arrays.asList(String.class, null, Integer.class);
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertEquals(3, classNames.size());
+        assertEquals("java.lang.String", classNames.get(0));
+        assertNull(classNames.get(1));
+        assertEquals("java.lang.Integer", classNames.get(2));
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithNonEmptyListAndNullElement() {
+        List<String> classNames = Arrays.asList("java.lang.String", null, "java.lang.Integer");
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertEquals(3, classes.size());
+        assertEquals(String.class, classes.get(0));
+        assertNull(classes.get(1));
+        assertEquals(Integer.class, classes.get(2));
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithNonEmptyClass() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(ArrayList.class);
+        assertTrue(superclasses.contains(List.class));
+        assertTrue(superclasses.contains(Collection.class));
+        assertTrue(superclasses.contains(Object.class));
+        assertEquals(3, superclasses.size());
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithBooleanWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Boolean.class));
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithByteWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Byte.class));
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithCharacterWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Character.class));
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithShortWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Short.class));
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithIntegerWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Integer.class));
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithLongWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Long.class));
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithDoubleWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Double.class));
+    }
+
+    @Test
+    public void testIsPrimitiveWrapperWithFloatWrapper() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Float.class));
+    }
+
+    @Test
+    public void testIsPublicWithPublicClass() {
+        assertTrue(ClassUtils.isPublic(String.class));
+    }
+
+    @Test
+    public void testIsPublicWithNonPublicClass() {
+        class NonPublic {}
+        assertFalse(ClassUtils.isPublic(NonPublic.class));
+    }
+}
+```

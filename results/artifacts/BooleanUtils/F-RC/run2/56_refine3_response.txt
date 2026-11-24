@@ -1,0 +1,131 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    public void testAndWithNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.and((Boolean[]) null));
+    }
+
+    @Test
+    public void testOrWithNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.or((Boolean[]) null));
+    }
+
+    @Test
+    public void testXorWithNullArrayThrowsException() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.xor((Boolean[]) null));
+    }
+
+    @Test
+    public void testIsNotFalseNull() {
+        assertTrue(BooleanUtils.isNotFalse(null));
+    }
+
+    @Test
+    public void testIsNotTrueNull() {
+        assertTrue(BooleanUtils.isNotTrue(null));
+    }
+
+    @Test
+    public void testNegateNull() {
+        assertNull(BooleanUtils.negate(null));
+    }
+
+    @Test
+    public void testOneHotMixed() {
+        assertTrue(BooleanUtils.oneHot(true, false, true));
+        assertFalse(BooleanUtils.oneHot(false, true, false));
+    }
+
+    @Test
+    public void testToBooleanDefaultIfNullTrue() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(null, true));
+    }
+
+    @Test
+    public void testToBooleanDefaultIfNullFalse() {
+        assertFalse(BooleanUtils.toBooleanDefaultIfNull(null, false));
+    }
+
+    @Test
+    public void testToBooleanObjectZero() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0));
+    }
+
+    @Test
+    public void testToBooleanObjectNonZero() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1));
+    }
+
+    @Test
+    public void testToBooleanObjectNullValue() {
+        assertNull(BooleanUtils.toBooleanObject(null, 1, 0, null));
+    }
+
+    @Test
+    public void testToBooleanObjectTrueValue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 1, 0, null));
+    }
+
+    @Test
+    public void testToBooleanObjectFalseValue() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, 1, 0, null));
+    }
+
+    @Test
+    public void testAndWithNullArrayThrowsException_2() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.and((boolean[]) null));
+    }
+
+    @Test
+    public void testOrWithNullArrayThrowsException_2() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.or((boolean[]) null));
+    }
+
+    @Test
+    public void testXorWithNullArrayThrowsException_2() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.xor((boolean[]) null));
+    }
+
+    @Test
+    public void testIsTrueNull_2() {
+        assertFalse(BooleanUtils.isTrue(null));
+    }
+
+    @Test
+    public void testNegateNull_2() {
+        assertNull(BooleanUtils.negate(null));
+    }
+
+    @Test
+    public void testToBooleanDefaultIfNullTrue_2() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(null, true));
+    }
+
+    @Test
+    public void testToBooleanDefaultIfNullFalse_2() {
+        assertFalse(BooleanUtils.toBooleanDefaultIfNull(null, false));
+    }
+
+    @Test
+    public void testToBooleanObjectNonZero_2() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1));
+    }
+
+    @Test
+    public void testToBooleanObjectTrueValue_2() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 1, 0, null));
+    }
+
+    @Test
+    public void testToBooleanObjectFalseValue_2() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, 1, 0, null));
+    }
+}
+```

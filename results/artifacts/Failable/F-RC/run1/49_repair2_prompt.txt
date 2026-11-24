@@ -1,0 +1,447 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class Failable_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of Failable shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testAccept_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.accept(consumer, "test", 1));
+in method testApply_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.apply(function, "test", 1));
+in method testApplyAsDouble_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.applyAsDouble(function, 1.0, 2.0));
+in method testBiConsumer_2: method asBiConsumer in class org.apache.commons.lang3.function.Failable cannot be applied to given types; (required: org.apache.commons.lang3.function.FailableBiConsumer<T,U,?>; found:    java.util.function.BiConsumer<java.lang.String,java.lang.Integer>; reason: cannot infer type-variable(s) T,U)
+    code: FailableBiConsumer<String, Integer, IOException> failableConsumer = Failable.asBiConsumer(consumer);
+in method testBiConsumer_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> failableConsumer.accept("test", 1));
+in method testConsumer_2: method asConsumer in class org.apache.commons.lang3.function.Failable cannot be applied to given types; (required: org.apache.commons.lang3.function.FailableConsumer<T,?>; found:    java.util.function.Consumer<java.lang.String>; reason: cannot infer type-variable(s) T)
+    code: FailableConsumer<String, IOException> failableConsumer = Failable.asConsumer(consumer);
+in method testConsumer_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> failableConsumer.accept("test"));
+in method testFunction_2: method asFunction in class org.apache.commons.lang3.function.Failable cannot be applied to given types; (required: org.apache.commons.lang3.function.FailableFunction<T,R,?>; found:    java.util.function.Function<java.lang.String,java.lang.String>; reason: cannot infer type-variable(s) T,R)
+    code: FailableFunction<String, String, IOException> failableFunction = Failable.asFunction(function);
+in method testFunction_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> failableFunction.apply("test"));
+in method testPredicate_2: method asPredicate in class org.apache.commons.lang3.function.Failable cannot be applied to given types; (required: org.apache.commons.lang3.function.FailablePredicate<T,?>; found:    java.util.function.Predicate<java.lang.String>; reason: cannot infer type-variable(s) T)
+    code: FailablePredicate<String, IOException> failablePredicate = Failable.asPredicate(predicate);
+in method testPredicate_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> failablePredicate.test("test"));
+in method testRunnable_2: incompatible types: java.lang.Runnable cannot be converted to org.apache.commons.lang3.function.FailableRunnable<?>
+    code: FailableRunnable<IOException> failableRunnable = Failable.asRunnable(runnable);
+in method testRunnable_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> failableRunnable.run());
+in method testTryWithResources_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: if (t instanceof IOException) throw new UncheckedIOException((IOException) t);
+in method testTryWithResources_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(action, errorHandler, resource));
+in method testTryWithResourcesNoErrorHandler_2: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(action, resource));
+in method testGetAsBoolean: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.getAsBoolean(supplier));
+in method testGetAsDouble: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.getAsDouble(supplier));
+in method testGetAsInt: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.getAsInt(supplier));
+in method testGetAsLong: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.getAsLong(supplier));
+in method testGetAsShort: cannot find symbol (symbol:   class UncheckedIOException; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: assertThrows(UncheckedIOException.class, () -> Failable.getAsShort(supplier));
+
+Current test class (Failable_GenTest.java):
+```java
+package org.apache.commons.lang3.function;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+
+class Failable_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+            public void testAccept_2() {
+                FailableBiConsumer<String, Integer, IOException> consumer = (s, i) -> {
+                    if ("test".equals(s)) throw new IOException("Test exception");
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.accept(consumer, "test", 1));
+            }
+
+    @Test
+            public void testApply_2() {
+                FailableBiFunction<String, Integer, String, IOException> function = (s, i) -> {
+                    if ("test".equals(s)) throw new IOException("Test exception");
+                    return s + i;
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.apply(function, "test", 1));
+            }
+
+    @Test
+            public void testApplyAsDouble_2() {
+                FailableDoubleBinaryOperator<IOException> function = (d1, d2) -> {
+                    if (d1 == 1.0) throw new IOException("Test exception");
+                    return d1 + d2;
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.applyAsDouble(function, 1.0, 2.0));
+            }
+
+    @Test
+            public void testBiConsumer_2() {
+            BiConsumer<String, Integer> consumer = (s, i) -> {
+                    if ("test".equals(s)) throw new IOException("Test exception");
+                };
+                FailableBiConsumer<String, Integer, IOException> failableConsumer = Failable.asBiConsumer(consumer);
+                assertThrows(UncheckedIOException.class, () -> failableConsumer.accept("test", 1));
+            }
+
+    @Test
+            public void testConsumer_2() {
+            Consumer<String> consumer = s -> {
+                    if ("test".equals(s)) throw new IOException("Test exception");
+                };
+                FailableConsumer<String, IOException> failableConsumer = Failable.asConsumer(consumer);
+                assertThrows(UncheckedIOException.class, () -> failableConsumer.accept("test"));
+            }
+
+    @Test
+            public void testFunction_2() {
+            Function<String, String> function = s -> {
+                    if ("test".equals(s)) throw new IOException("Test exception");
+                    return s;
+                };
+                FailableFunction<String, String, IOException> failableFunction = Failable.asFunction(function);
+                assertThrows(UncheckedIOException.class, () -> failableFunction.apply("test"));
+            }
+
+    @Test
+            public void testPredicate_2() {
+            Predicate<String> predicate = s -> {
+                    if ("test".equals(s)) throw new IOException("Test exception");
+                    return true;
+                };
+                FailablePredicate<String, IOException> failablePredicate = Failable.asPredicate(predicate);
+                assertThrows(UncheckedIOException.class, () -> failablePredicate.test("test"));
+            }
+
+    @Test
+            public void testRunnable_2() {
+            Runnable runnable = () -> {
+                    throw new IOException("Test exception");
+                };
+                FailableRunnable<IOException> failableRunnable = Failable.asRunnable(runnable);
+                assertThrows(UncheckedIOException.class, () -> failableRunnable.run());
+            }
+
+    @Test
+            public void testTryWithResources_2() {
+            FailableRunnable<IOException> action = () -> {
+                    throw new IOException("Test exception");
+                };
+                FailableConsumer<Throwable, IOException> errorHandler = t -> {
+                    if (t instanceof IOException) throw new UncheckedIOException((IOException) t);
+                };
+                FailableRunnable<IOException> resource = () -> {
+                    throw new IOException("Resource exception");
+                };
+        
+                assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(action, errorHandler, resource));
+            }
+
+    @Test
+            public void testTryWithResourcesNoErrorHandler_2() {
+            FailableRunnable<IOException> action = () -> {
+                    throw new IOException("Test exception");
+                };
+                FailableRunnable<IOException> resource = () -> {
+                    throw new IOException("Resource exception");
+                };
+        
+                assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(action, resource));
+            }
+
+    @Test
+            public void testGetAsBoolean() {
+            FailableBooleanSupplier<IOException> supplier = () -> {
+                    if (true) throw new IOException("Test exception");
+                    return true;
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.getAsBoolean(supplier));
+            }
+
+    @Test
+            public void testGetAsDouble() {
+            FailableDoubleSupplier<IOException> supplier = () -> {
+                    if (true) throw new IOException("Test exception");
+                    return 1.0;
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.getAsDouble(supplier));
+            }
+
+    @Test
+            public void testGetAsInt() {
+            FailableIntSupplier<IOException> supplier = () -> {
+                    if (true) throw new IOException("Test exception");
+                    return 1;
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.getAsInt(supplier));
+            }
+
+    @Test
+            public void testGetAsLong() {
+            FailableLongSupplier<IOException> supplier = () -> {
+                    if (true) throw new IOException("Test exception");
+                    return 1L;
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.getAsLong(supplier));
+            }
+
+    @Test
+            public void testGetAsShort() {
+            FailableShortSupplier<IOException> supplier = () -> {
+                    if (true) throw new IOException("Test exception");
+                    return 1;
+                };
+                assertThrows(UncheckedIOException.class, () -> Failable.getAsShort(supplier));
+            }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.function.Failable):
+```java
+package org.apache.commons.lang3.function;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.Collection;
+import java.util.Objects;
+import java.util.concurrent.Callable;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.stream.Streams;
+import org.apache.commons.lang3.stream.Streams.FailableStream;
+
+/** This class provides utility functions, and classes for working with the {@code java.util.function} package, or more generally, with Java 8 lambdas. */
+public class Failable {
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, E extends Throwable> void accept(final FailableBiConsumer<T, U, E> consumer, final T object1,
+        final U object2) {
+        run(() -> consumer.accept(object1, object2));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, E extends Throwable> void accept(final FailableConsumer<T, E> consumer, final T object) {
+        run(() -> consumer.accept(object));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableDoubleConsumer<E> consumer, final double value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableIntConsumer<E> consumer, final int value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableLongConsumer<E> consumer, final long value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, R, E extends Throwable> R apply(final FailableBiFunction<T, U, R, E> function, final T input1,
+        final U input2) {
+        return get(() -> function.apply(input1, input2));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, R, E extends Throwable> R apply(final FailableFunction<T, R, E> function, final T input) {
+        return get(() -> function.apply(input));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> double applyAsDouble(final FailableDoubleBinaryOperator<E> function,
+        final double left, final double right) {
+        return getAsDouble(() -> function.applyAsDouble(left, right));
+    }
+    /** Converts the given {@link FailableBiConsumer} into a standard {@link BiConsumer}. */
+    public static <T, U> BiConsumer<T, U> asBiConsumer(final FailableBiConsumer<T, U, ?> consumer) {
+        return (input1, input2) -> accept(consumer, input1, input2);
+    }
+    /** Converts the given {@link FailableBiFunction} into a standard {@link BiFunction}. */
+    public static <T, U, R> BiFunction<T, U, R> asBiFunction(final FailableBiFunction<T, U, R, ?> function) {
+        return (input1, input2) -> apply(function, input1, input2);
+    }
+    /** Converts the given {@link FailableBiPredicate} into a standard {@link BiPredicate}. */
+    public static <T, U> BiPredicate<T, U> asBiPredicate(final FailableBiPredicate<T, U, ?> predicate) {
+        return (input1, input2) -> test(predicate, input1, input2);
+    }
+    /** Converts the given {@link FailableCallable} into a standard {@link Callable}. */
+    public static <V> Callable<V> asCallable(final FailableCallable<V, ?> callable) {
+        return () -> call(callable);
+    }
+    /** Converts the given {@link FailableConsumer} into a standard {@link Consumer}. */
+    public static <T> Consumer<T> asConsumer(final FailableConsumer<T, ?> consumer) {
+        return input -> accept(consumer, input);
+    }
+    /** Converts the given {@link FailableFunction} into a standard {@link Function}. */
+    public static <T, R> Function<T, R> asFunction(final FailableFunction<T, R, ?> function) {
+        return input -> apply(function, input);
+    }
+    /** Converts the given {@link FailablePredicate} into a standard {@link Predicate}. */
+    public static <T> Predicate<T> asPredicate(final FailablePredicate<T, ?> predicate) {
+        return input -> test(predicate, input);
+    }
+    /** Converts the given {@link FailableRunnable} into a standard {@link Runnable}. */
+    public static Runnable asRunnable(final FailableRunnable<?> runnable) {
+        return () -> run(runnable);
+    }
+    /** Converts the given {@link FailableSupplier} into a standard {@link Supplier}. */
+    public static <T> Supplier<T> asSupplier(final FailableSupplier<T, ?> supplier) {
+        return () -> get(supplier);
+    }
+    /** Calls a callable and rethrows any exception as a {@link RuntimeException}. */
+    public static <V, E extends Throwable> V call(final FailableCallable<V, E> callable) {
+        return get(callable::call);
+    }
+    /** Invokes a supplier, and returns the result. */
+    public static <T, E extends Throwable> T get(final FailableSupplier<T, E> supplier) {
+        try {
+            return supplier.get();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a boolean supplier, and returns the result. */
+    public static <E extends Throwable> boolean getAsBoolean(final FailableBooleanSupplier<E> supplier) {
+        try {
+            return supplier.getAsBoolean();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a double supplier, and returns the result. */
+    public static <E extends Throwable> double getAsDouble(final FailableDoubleSupplier<E> supplier) {
+        try {
+            return supplier.getAsDouble();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes an int supplier, and returns the result. */
+    public static <E extends Throwable> int getAsInt(final FailableIntSupplier<E> supplier) {
+        try {
+            return supplier.getAsInt();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a long supplier, and returns the result. */
+    public static <E extends Throwable> long getAsLong(final FailableLongSupplier<E> supplier) {
+        try {
+            return supplier.getAsLong();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a short supplier, and returns the result. */
+    public static <E extends Throwable> short getAsShort(final FailableShortSupplier<E> supplier) {
+        try {
+            return supplier.getAsShort();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Rethrows a {@link Throwable} as an unchecked exception. */
+    public static RuntimeException rethrow(final Throwable throwable) {
+        Objects.requireNonNull(throwable, "throwable");
+        ExceptionUtils.throwUnchecked(throwable);
+        if (throwable instanceof IOException) {
+            throw new UncheckedIOException((IOException) throwable);
+        }
+        throw new UndeclaredThrowableException(throwable);
+    }
+    /** Runs a runnable and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void run(final FailableRunnable<E> runnable) {
+        try {
+            runnable.run();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Converts the given collection into a {@link FailableStream}. */
+    public static <E> FailableStream<E> stream(final Collection<E> collection) {
+        return new FailableStream<>(collection.stream());
+    }
+    /** Converts the given stream into a {@link FailableStream}. */
+    public static <T> FailableStream<T> stream(final Stream<T> stream) {
+        return new FailableStream<>(stream);
+    }
+    /** Tests a predicate and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, E extends Throwable> boolean test(final FailableBiPredicate<T, U, E> predicate,
+        final T object1, final U object2) {
+        return getAsBoolean(() -> predicate.test(object1, object2));
+    }
+    /** Tests a predicate and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, E extends Throwable> boolean test(final FailablePredicate<T, E> predicate, final T object) {
+        return getAsBoolean(() -> predicate.test(object));
+    }
+    /** A simple try-with-resources implementation, that can be used, if your objects do not implement the {@link AutoCloseable} interface. */
+    @SafeVarargs
+    public static void tryWithResources(final FailableRunnable<? extends Throwable> action,
+        final FailableConsumer<Throwable, ? extends Throwable> errorHandler,
+        final FailableRunnable<? extends Throwable>... resources) {
+        final FailableConsumer<Throwable, ? extends Throwable> actualErrorHandler;
+        if (errorHandler == null) {
+            actualErrorHandler = Failable::rethrow;
+        } else {
+            actualErrorHandler = errorHandler;
+        }
+        Streams.of(resources).forEach(r -> Objects.requireNonNull(r, "runnable"));
+        Throwable th = null;
+        try {
+            action.run();
+        } catch (final Throwable t) {
+            th = t;
+        }
+        if (resources != null) {
+            for (final FailableRunnable<?> runnable : resources) {
+                try {
+                    runnable.run();
+                } catch (final Throwable t) {
+                    if (th == null) {
+                        th = t;
+                    }
+                }
+            }
+        }
+        if (th != null) {
+            try {
+                actualErrorHandler.accept(th);
+            } catch (final Throwable t) {
+                throw rethrow(t);
+            }
+        }
+    }
+    /** A simple try-with-resources implementation, that can be used, if your objects do not implement the {@link AutoCloseable} interface. */
+    @SafeVarargs
+    public static void tryWithResources(final FailableRunnable<? extends Throwable> action,
+        final FailableRunnable<? extends Throwable>... resources) {
+        tryWithResources(action, null, resources);
+    }
+    private Failable() {
+        // empty
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

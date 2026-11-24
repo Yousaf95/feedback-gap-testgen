@@ -1,0 +1,41 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[50,64] no suitable method found for accept((e)->{ thr[...](); },<nulltype>,<nulltype>)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (argument mismatch; incompatible parameter types in lambda expression))
+    method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+      (cannot infer type-variable(s) E
+        (actual and formal argument lists differ in length))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[50,64] no suitable method found for accept((e)->{ thr[...](); },<nulltype>,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>accept(org.apache.commons.lang3.function.FailableBiConsumer<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (argument mismatch; incompatible parameter types in lambda expression))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>accept(org.apache.commons.lang3.function.FailableConsumer<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) is not applicable
+[ERROR]       (cannot infer type-variable(s) E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
