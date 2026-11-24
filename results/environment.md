@@ -25,5 +25,6 @@ Recorded: 2026-11-24T09:59:31.576338+01:00
 - S: `qwen2.5-coder:7b-instruct` manifest sha256:dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364, weights sha256:60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463 (small local (~7B))
 - L: `qwen2.5-coder:32b-instruct` manifest sha256:b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41, weights sha256:ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9 (large local (32B), replaces the API model)
 - Quantization (from the model config blobs): both models GGUF, **Q4_K_M** (4-bit); parameter counts 7.6B (S) and 32.8B (L); weight files 4.68 GB and 19.85 GB
+- Post-hoc FP16 check (deviation 30): `qwen2.5-coder:7b-instruct-fp16`, manifest sha256:9bff1b5c46f86f50f916c6b8642edbac1a00aaa95c9e39f78cc72cc405a58e5a, weights sha256:d8e374f171cbf20a79619dc6e0926124c7690497609bc94bdad18ef6a86cdee0 (15.24 GB), file_type F16, served on its own H100 NVL with the same Ollama settings
 - Decoding: temperature 0.2, num_predict 4096, num_ctx 20480, seed = run seed [1, 2, 3]
 - No commercial API model was used (no API key available); cost in USD is 0 for both models, time and tokens are reported instead.

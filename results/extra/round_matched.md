@@ -28,3 +28,5 @@ Consistency: |round-3 value − reported final| max = 1.72 pp; runs off by > 1 p
 |---|---|---|---|---|---|
 | S | 58.0 | 60.0 | +2.0 | 0.148 | 11/4/5 |
 | L | 64.1 | 68.2 | +4.1 | 0.0329 | 15/1/4 |
+
+The per-round values used above (RC and RN, after the deviation-20 rule) are in `round_matched_values.csv`; `scripts/round_matched_from_csv.py` recomputes this table from that file alone. The older `coverage_per_round.csv` (from `extra_analysis.py`) contains RC only and the raw values before the deviation-20 rule.

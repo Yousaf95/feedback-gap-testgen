@@ -41,6 +41,8 @@ for r in rows:
         rec.append({"cls": simple, "cfg": r["config"], "model": r["config"][0], "seed": r["run_seed"], "round": k, "branch": 100 * v[k]})
     chk.append(abs(100 * v[3] - 100 * (r["branch_cov"] or 0.0)))
 df = pd.DataFrame(rec)
+# public per-round values (RC and RN), exactly as used below, so E1 can be re-run without the JaCoCo XMLs
+df.sort_values(["cfg", "cls", "seed", "round"]).to_csv(out.with_name("round_matched_values.csv"), index=False)
 pc = df.groupby(["model", "cfg", "round", "cls"]).branch.mean()
 tests = []
 for mk in ("S", "L"):
