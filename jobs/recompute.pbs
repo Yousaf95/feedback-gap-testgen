@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N icect_recompute
+#PBS -q shortCPUQ
+#PBS -l select=1:ncpus=4:mem=16gb
+#PBS -l walltime=00:45:00
+#PBS -j oe
+source $HOME/ICECT/env.sh
+cd $HOME/ICECT
+python -I scripts/recompute_stage5_noreport.py results/raw/runs.jsonl results/artifacts $TMPDIR > logs/recompute.log 2>&1
+python -I scripts/analyze.py results/raw/runs.jsonl results/artifacts results results/deviations.md > logs/analyze.log 2>&1
+echo done >> logs/recompute.log

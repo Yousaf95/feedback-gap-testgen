@@ -1,0 +1,397 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class AnnotationUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of AnnotationUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 17: cannot find symbol (symbol: class TestInstance)
+    code: @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+line 17: package TestInstance does not exist
+    code: @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+line 46: method equals in class java.lang.Object cannot be applied to given types; (required: java.lang.Object; found:    org.apache.commons.lang3.TestAnnotation,org.apache.commons.lang3.TestAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertTrue(equals(a1, a2));
+line 75: method equals in class java.lang.Object cannot be applied to given types; (required: java.lang.Object; found:    org.apache.commons.lang3.TestAnnotation,org.apache.commons.lang3.TestAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertFalse(equals(a1, a2));
+line 82: method equals in class java.lang.Object cannot be applied to given types; (required: java.lang.Object; found:    org.apache.commons.lang3.TestAnnotation,<anonymous org.apache.commons.lang3.TestAnnotation>; reason: actual and formal argument lists differ in length)
+    code: assertThrows(NullPointerException.class, () -> equals(a1, new TestAnnotation() {
+line 121: method hashCode in class java.lang.Object cannot be applied to given types; (required: no arguments; found:    org.apache.commons.lang3.TestAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertEquals(hashCode(a1), hashCode(a2));
+line 121: method hashCode in class java.lang.Object cannot be applied to given types; (required: no arguments; found:    org.apache.commons.lang3.TestAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertEquals(hashCode(a1), hashCode(a2));
+line 150: method hashCode in class java.lang.Object cannot be applied to given types; (required: no arguments; found:    org.apache.commons.lang3.TestAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertNotEquals(hashCode(a1), hashCode(a2));
+line 150: method hashCode in class java.lang.Object cannot be applied to given types; (required: no arguments; found:    org.apache.commons.lang3.TestAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertNotEquals(hashCode(a1), hashCode(a2));
+line 198: method toString in class java.lang.Object cannot be applied to given types; (required: no arguments; found:    org.apache.commons.lang3.TestAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertEquals("@TestAnnotation(value=test)", toString(a));
+line 215: method toString in class java.lang.Object cannot be applied to given types; (required: no arguments; found:    org.apache.commons.lang3.AnnotationUtils_GenTest.MultipleValuesAnnotation; reason: actual and formal argument lists differ in length)
+    code: assertEquals("@MultipleValuesAnnotation(values=[test1, test2])", toString(a));
+
+Current test class (AnnotationUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.AnnotationUtils.*;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.reflect.Method;
+
+import org.junit.jupiter.api.Test;
+
+@Retention(RetentionPolicy.RUNTIME)
+@interface TestAnnotation {
+    String value();
+}
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class AnnotationUtils_GenTest {
+
+    @Test
+    public void testEquals_SameAnnotations() throws Exception {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+
+        assertTrue(equals(a1, a2));
+    }
+
+    @Test
+    public void testEquals_DifferentAnnotations() throws Exception {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "different";
+            }
+        };
+
+        assertFalse(equals(a1, a2));
+    }
+
+    @Test
+    public void testEquals_NullAnnotations() throws Exception {
+        TestAnnotation a1 = null;
+
+        assertThrows(NullPointerException.class, () -> equals(a1, new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        }));
+    }
+
+    @Test
+    public void testHashCode_SameAnnotations() throws Exception {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+
+        assertEquals(hashCode(a1), hashCode(a2));
+    }
+
+    @Test
+    public void testHashCode_DifferentAnnotations() throws Exception {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "different";
+            }
+        };
+
+        assertNotEquals(hashCode(a1), hashCode(a2));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_PrimitiveType() throws Exception {
+        assertTrue(isValidAnnotationMemberType(int.class));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_EnumType() throws Exception {
+        enum TestEnum { A, B }
+        assertTrue(isValidAnnotationMemberType(TestEnum.class));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_AnnotationType() throws Exception {
+        assertTrue(isValidAnnotationMemberType(TestAnnotation.class));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_StringType() throws Exception {
+        assertTrue(isValidAnnotationMemberType(String.class));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_ClassType() throws Exception {
+        assertTrue(isValidAnnotationMemberType(Class.class));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_ArrayType() throws Exception {
+        assertFalse(isValidAnnotationMemberType(int[].class));
+    }
+
+    @Test
+    public void testToString_SingleValueAnnotation() throws Exception {
+        TestAnnotation a = new TestAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+
+        assertEquals("@TestAnnotation(value=test)", toString(a));
+    }
+
+    @Test
+    public void testToString_MultipleValuesAnnotation() throws Exception {
+        MultipleValuesAnnotation a = new MultipleValuesAnnotation() {
+            @Override
+            public Class<? extends java.lang.annotation.Annotation> annotationType() {
+                return MultipleValuesAnnotation.class;
+            }
+
+            @Override
+            public String[] values() {
+                return new String[]{"test1", "test2"};
+            }
+        };
+
+        assertEquals("@MultipleValuesAnnotation(values=[test1, test2])", toString(a));
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface MultipleValuesAnnotation {
+        String[] values();
+    }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.AnnotationUtils):
+```java
+package org.apache.commons.lang3;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.commons.lang3.exception.UncheckedException;
+
+/** Helper methods for working with {@link Annotation} instances. */
+public class AnnotationUtils {
+    /** A style that prints annotations as recommended. */
+    private static final ToStringStyle TO_STRING_STYLE = new ToStringStyle() {
+        /** Serialization version */
+        private static final long serialVersionUID = 1L;
+
+        {
+            setDefaultFullDetail(true);
+            setArrayContentDetail(true);
+            setUseClassName(true);
+            setUseShortClassName(true);
+            setUseIdentityHashCode(false);
+            setContentStart("(");
+            setContentEnd(")");
+            setFieldSeparator(", ");
+            setArrayStart("[");
+            setArrayEnd("]");
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected void appendDetail(final StringBuffer buffer, final String fieldName, Object value) {
+            if (value instanceof Annotation) {
+                value = AnnotationUtils.toString((Annotation) value);
+            }
+            super.appendDetail(buffer, fieldName, value);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        protected String getShortClassName(final Class<?> cls) {
+            // formatter:off
+            return ClassUtils.getAllInterfaces(cls).stream().filter(Annotation.class::isAssignableFrom).findFirst()
+                .map(iface -> "@" + iface.getName())
+                .orElse(StringUtils.EMPTY);
+            // formatter:on
+        }
+
+    };
+    /** Checks if two annotations are equal using the criteria for equality presented in the {@link Annotation#equals(Object)} API docs. */
+    public static boolean equals(final Annotation a1, final Annotation a2) {
+        if (a1 == a2) {
+            return true;
+        }
+        if (a1 == null || a2 == null) {
+            return false;
+        }
+        final Class<? extends Annotation> type1 = a1.annotationType();
+        final Class<? extends Annotation> type2 = a2.annotationType();
+        Validate.notNull(type1, "Annotation %s with null annotationType()", a1);
+        Validate.notNull(type2, "Annotation %s with null annotationType()", a2);
+        if (!type1.equals(type2)) {
+            return false;
+        }
+        try {
+            for (final Method m : type1.getDeclaredMethods()) {
+                if (m.getParameterTypes().length == 0
+                        && isValidAnnotationMemberType(m.getReturnType())) {
+                    final Object v1 = m.invoke(a1);
+                    final Object v2 = m.invoke(a2);
+                    if (!memberEquals(m.getReturnType(), v1, v2)) {
+                        return false;
+                    }
+                }
+            }
+        } catch (final ReflectiveOperationException ex) {
+            return false;
+        }
+        return true;
+    }
+    /** Generate a hash code for the given annotation using the algorithm presented in the {@link Annotation#hashCode()} API docs. */
+    public static int hashCode(final Annotation a) {
+        int result = 0;
+        final Class<? extends Annotation> type = a.annotationType();
+        for (final Method m : type.getDeclaredMethods()) {
+            try {
+                final Object value = m.invoke(a);
+                if (value == null) {
+                    throw new IllegalStateException(String.format("Annotation method %s returned null", m));
+                }
+                result += hashMember(m.getName(), value);
+            } catch (final ReflectiveOperationException ex) {
+                throw new UncheckedException(ex);
+            }
+        }
+        return result;
+    }
+    /** Checks if the specified type is permitted as an annotation member. */
+    public static boolean isValidAnnotationMemberType(Class<?> type) {
+        if (type == null) {
+            return false;
+        }
+        if (type.isArray()) {
+            type = type.getComponentType();
+        }
+        return type.isPrimitive() || type.isEnum() || type.isAnnotation()
+                || String.class.equals(type) || Class.class.equals(type);
+    }
+    /** Generate a string representation of an Annotation, as suggested by {@link Annotation#toString()}. */
+    public static String toString(final Annotation a) {
+        final ToStringBuilder builder = new ToStringBuilder(a, TO_STRING_STYLE);
+        for (final Method m : a.annotationType().getDeclaredMethods()) {
+            if (m.getParameterTypes().length > 0) {
+                continue; // wtf?
+            }
+            try {
+                builder.append(m.getName(), m.invoke(a));
+            } catch (final ReflectiveOperationException ex) {
+                throw new UncheckedException(ex);
+            }
+        }
+        return builder.build();
+    }
+    /** {@link AnnotationUtils} instances should NOT be constructed in standard programming. */
+    public AnnotationUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static int hashMember(final String name, final Object value);
+    private static boolean memberEquals(final Class<?> type, final Object o1, final Object o2);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

@@ -1,0 +1,68 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import org.apache.commons.lang3.exception.CloneFailedException;
+import java.time.Duration;
+import java.util.Optional;
+
+class ObjectUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testReadResolve() {
+        ObjectUtils.Null nullInstance = new ObjectUtils.Null();
+        assertSame(ObjectUtils.NULL, nullInstance);
+    }
+
+    @Test
+    void testClone_IllegalAccessException() {
+        final Object obj = new ArrayList<>();
+        Exception exception = assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(obj));
+        assertTrue(exception.getMessage().contains("Cannot clone Cloneable type"));
+    }
+
+    @Test
+    void testHashCodeMulti_NullArray_2() {
+        assertEquals(1, ObjectUtils.hashCodeMulti((Object[]) null));
+    }
+
+    @Test
+    void testIdentityToString_StringBuilder() throws IOException {
+        StringBuilder builder = new StringBuilder();
+        Object obj = new Object();
+        ObjectUtils.identityToString(builder, obj);
+        assertTrue(builder.toString().contains(obj.getClass().getName()));
+    }
+
+    @Test
+    void testIsEmpty_EmptyOptional_2() {
+        assertTrue(ObjectUtils.isEmpty(Optional.empty()));
+    }
+
+    @Test
+    void testIsEmpty_NonEmptyOptional() {
+        assertFalse(ObjectUtils.isEmpty(Optional.of("test")));
+    }
+
+    @Test
+    void testGetFirstNonNull_SingleSupplierReturningNull_2() {
+        Supplier<String> supplier = () -> null;
+        assertNull(ObjectUtils.getFirstNonNull(supplier));
+    }
+
+    @Test
+    void testToString_SupplierNull_2() {
+        assertEquals("default", ObjectUtils.toString((Supplier<Object>) null, () -> "default"));
+    }
+
+    @Test
+    void testWait_ZeroDuration_2() throws InterruptedException {
+        final Object obj = new Object();
+        assertDoesNotThrow(() -> ObjectUtils.wait(obj, Duration.ZERO));
+    }
+}
+```

@@ -1,0 +1,135 @@
+```java
+package org.apache.commons.lang3.math;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.math.Fraction.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+public class Fraction_GenTest {
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testAddAndCheckOverflow(int x) {
+        assertThrows(ArithmeticException.class, () -> addAndCheck(x, 1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-1, 0, 1})
+    public void testGetFractionSign(int sign) {
+        assertEquals(sign, getFraction(sign * 1.5).getNumerator());
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {Integer.MAX_VALUE + 1.0, Double.NaN})
+    public void testGetFractionDoubleException(double value) {
+        assertThrows(ArithmeticException.class, () -> getFraction(value));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {-2, -1, 0, 1, 2})
+    public void testGetFractionDenominatorLarge(int denominator) {
+        if (denominator != 0) {
+            assertThrows(ArithmeticException.class, () -> getFraction(1, denominator));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGetFractionNumeratorLarge(int numerator) {
+        if (numerator != 0) {
+            assertThrows(ArithmeticException.class, () -> getFraction(numerator, 1));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGetFractionDenominatorNegative(int denominator) {
+        if (denominator != 0) {
+            assertThrows(ArithmeticException.class, () -> getFraction(1, -denominator));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGetFractionNumeratorNegative(int numerator) {
+        if (numerator != 0) {
+            assertThrows(ArithmeticException.class, () -> getFraction(-numerator, 1));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1.5", "2.5"})
+    public void testGetFractionStringDouble(String str) {
+        assertEquals(3, getFraction(str).getNumerator());
+        assertEquals(2, getFraction(str).getDenominator());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1 1/2", "2 1/4"})
+    public void testGetFractionStringWholeAndFraction(String str) {
+        assertEquals(5, getFraction(str).getNumerator());
+        assertEquals(2, getFraction(str).getDenominator());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-3/2", "1/0"})
+    public void testGetFractionStringException(String str) {
+        assertThrows(NumberFormatException.class, () -> getFraction(str));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGetReducedFractionNumeratorLarge(int numerator) {
+        if (numerator != 0) {
+            assertThrows(ArithmeticException.class, () -> getReducedFraction(numerator, 1));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGetReducedFractionDenominatorLarge(int denominator) {
+        if (denominator != 0) {
+            assertThrows(ArithmeticException.class, () -> getReducedFraction(1, denominator));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGetReducedFractionDenominatorNegative(int denominator) {
+        if (denominator != 0) {
+            assertThrows(ArithmeticException.class, () -> getReducedFraction(1, -denominator));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGetReducedFractionNumeratorNegative(int numerator) {
+        if (numerator != 0) {
+            assertThrows(ArithmeticException.class, () -> getReducedFraction(-numerator, 1));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testGreatestCommonDivisorOverflow(int u) {
+        if (u != 0) {
+            assertThrows(ArithmeticException.class, () -> greatestCommonDivisor(u, Integer.MIN_VALUE));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testMulAndCheckOverflow(int x) {
+        assertThrows(ArithmeticException.class, () -> mulAndCheck(x, 2));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {Integer.MIN_VALUE, Integer.MAX_VALUE})
+    public void testSubAndCheckOverflow(int x) {
+        assertThrows(ArithmeticException.class, () -> subAndCheck(x, -1));
+    }
+}
+```

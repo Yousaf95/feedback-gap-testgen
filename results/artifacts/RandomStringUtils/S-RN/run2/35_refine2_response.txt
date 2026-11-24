@@ -1,0 +1,86 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Random;
+import org.junit.jupiter.api.Test;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithLargeCount() {
+        String result = RandomStringUtils.random(10000);
+        assertEquals(10000, result.length());
+    }
+
+    @Test
+    public void testRandomWithSmallCount() {
+        String result = RandomStringUtils.random(5);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomWithCustomRange() {
+        String result = RandomStringUtils.random(10, 65, 90);
+        assertTrue(result.chars().allMatch(c -> c >= 65 && c <= 90));
+    }
+
+    @Test
+    public void testRandomWithNegativeStartThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(10, -1, 10)
+        );
+    }
+
+    @Test
+    public void testRandomWithLargeEndThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(10, 0, Character.MAX_CODE_POINT + 1)
+        );
+    }
+
+    @Test
+    public void testRandomWithNonAlphabeticChars() {
+        String result = RandomStringUtils.random(10, new char[] {'!', '@', '#'});
+        assertTrue(result.chars().allMatch(c -> c == '!' || c == '@' || c == '#'));
+    }
+
+    @Test
+    public void testRandomWithMixedCaseLetters() {
+        String result = RandomStringUtils.randomAlphabetic(10);
+        assertTrue(result.chars().anyMatch(Character::isUpperCase));
+        assertTrue(result.chars().anyMatch(Character::isLowerCase));
+    }
+
+    @Test
+    public void testRandomAlphanumericWithMixedChars() {
+        String result = RandomStringUtils.randomAlphanumeric(10);
+        assertTrue(result.chars().anyMatch(Character::isLetter));
+        assertTrue(result.chars().anyMatch(Character::isDigit));
+    }
+
+    @Test
+    public void testRandomAsciiWithValidRange() {
+        String result = RandomStringUtils.randomAscii(10);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 127));
+    }
+
+    @Test
+    public void testRandomGraphWithValidRange() {
+        String result = RandomStringUtils.randomGraph(10);
+        assertTrue(result.chars().allMatch(c -> c > 32 && c < 127));
+    }
+
+    @Test
+    public void testRandomNumericWithDigitsOnly() {
+        String result = RandomStringUtils.randomNumeric(10);
+        assertTrue(result.chars().allMatch(Character::isDigit));
+    }
+
+    @Test
+    public void testRandomPrintWithValidRange() {
+        String result = RandomStringUtils.randomPrint(10);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 126));
+    }
+}
+```

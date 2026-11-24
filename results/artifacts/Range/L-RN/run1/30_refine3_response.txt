@@ -1,0 +1,142 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    void testIsNaturalOrderingWithNullComparator() {
+        Range<Integer> range = Range.of(1, 5);
+        assertTrue(range.isNaturalOrdering());
+    }
+
+    @Test
+    void testElementCompareToWithinRange() {
+        Range<Integer> range = Range.between(3, 7);
+        assertEquals(0, range.elementCompareTo(5));
+    }
+
+    @Test
+    void testFitWithinRange() {
+        Range<Integer> range = Range.of(10, 20);
+        assertEquals(15, range.fit(15));
+    }
+
+    @Test
+    void testFitBelowRange() {
+        Range<Integer> range = Range.between(10, 20);
+        assertEquals(10, range.fit(5));
+    }
+
+    @Test
+    void testFitAboveRange() {
+        Range<Integer> range = Range.between(10, 20);
+        assertEquals(20, range.fit(25));
+    }
+
+    @Test
+    void testIsStartedByTrue() {
+        Range<Integer> range = Range.of(10, 20);
+        assertTrue(range.isStartedBy(10));
+    }
+
+    @Test
+    void testIsStartedByFalse() {
+        Range<Integer> range = Range.of(10, 20);
+        assertFalse(range.isStartedBy(5));
+    }
+
+    @Test
+    void testIsEndedByTrue() {
+        Range<Integer> range = Range.of(10, 20);
+        assertTrue(range.isEndedBy(20));
+    }
+
+    @Test
+    void testIsEndedByFalse() {
+        Range<Integer> range = Range.of(10, 20);
+        assertFalse(range.isEndedBy(25));
+    }
+
+    @Test
+    void testIntersectionWithIdenticalRanges() {
+        Range<Integer> range1 = Range.between(10, 20);
+        Range<Integer> range2 = Range.between(10, 20);
+        assertEquals(range1, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIntersectionWithOverlappingRanges() {
+        Range<Integer> range1 = Range.between(10, 20);
+        Range<Integer> range2 = Range.between(15, 25);
+        Range<Integer> expected = Range.between(15, 20);
+        assertEquals(expected, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIntersectionWithNonOverlappingRangesThrowsException() {
+        Range<Integer> range1 = Range.between(10, 20);
+        Range<Integer> range2 = Range.between(25, 30);
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIsOverlappedByIdenticalRanges() {
+        Range<Integer> range1 = Range.between(10, 20);
+        Range<Integer> range2 = Range.between(10, 20);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    void testIsOverlappedByPartiallyOverlappingRange() {
+        Range<Integer> range1 = Range.between(10, 20);
+        Range<Integer> range2 = Range.between(15, 25);
+        assertTrue(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    void testIsNotOverlappedByNonOverlappingRange() {
+        Range<Integer> range1 = Range.between(10, 20);
+        Range<Integer> range2 = Range.between(25, 30);
+        assertFalse(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    void testIsBeforeRangeWithNull() {
+        Range<Integer> range = Range.of(10, 20);
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    void testIsAfterRangeWithNull() {
+        Range<Integer> range = Range.of(10, 20);
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    void testIsStartedByWithNull() {
+        Range<Integer> range = Range.of(10, 20);
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    void testIsEndedByWithNull() {
+        Range<Integer> range = Range.of(10, 20);
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    void testElementCompareToWithNull() {
+        Range<Integer> range = Range.between(10, 20);
+        assertThrows(NullPointerException.class, () -> range.elementCompareTo(null));
+    }
+
+    @Test
+    void testFitWithNull() {
+        Range<Integer> range = Range.between(10, 20);
+        assertThrows(NullPointerException.class, () -> range.fit(null));
+    }
+}
+```

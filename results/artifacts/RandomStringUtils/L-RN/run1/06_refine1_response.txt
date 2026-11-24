@@ -1,0 +1,75 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class RandomStringUtils_GenTest {
+
+    @Test
+    void testRandomWithStartAndEndGeneratesStringWithinRange() {
+        String result = RandomStringUtils.random(10, 65, 91); // A-Z
+        assertTrue(result.chars().allMatch(c -> c >= 65 && c < 91));
+    }
+
+    @Test
+    void testRandomAlphabeticWithZeroCountReturnsEmptyString() {
+        assertEquals("", RandomStringUtils.randomAlphabetic(0));
+    }
+
+    @Test
+    void testRandomAlphanumericWithZeroCountReturnsEmptyString() {
+        assertEquals("", RandomStringUtils.randomAlphanumeric(0));
+    }
+
+    @Test
+    void testRandomAsciiWithZeroCountReturnsEmptyString() {
+        assertEquals("", RandomStringUtils.randomAscii(0));
+    }
+
+    @Test
+    void testRandomGraphWithZeroCountReturnsEmptyString() {
+        assertEquals("", RandomStringUtils.randomGraph(0));
+    }
+
+    @Test
+    void testRandomNumericWithZeroCountReturnsEmptyString() {
+        assertEquals("", RandomStringUtils.randomNumeric(0));
+    }
+
+    @Test
+    void testRandomPrintWithZeroCountReturnsEmptyString() {
+        assertEquals("", RandomStringUtils.randomPrint(0));
+    }
+
+    @Test
+    void testRandomAlphabeticWithNegativeRangeThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphabetic(-1, 5));
+    }
+
+    @Test
+    void testRandomAlphanumericWithNegativeRangeThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphanumeric(-1, 5));
+    }
+
+    @Test
+    void testRandomAsciiWithNegativeRangeThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAscii(-1, 5));
+    }
+
+    @Test
+    void testRandomGraphWithNegativeRangeThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomGraph(-1, 5));
+    }
+
+    @Test
+    void testRandomNumericWithNegativeRangeThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomNumeric(-1, 5));
+    }
+
+    @Test
+    void testRandomPrintWithNegativeRangeThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomPrint(-1, 5));
+    }
+}
+```

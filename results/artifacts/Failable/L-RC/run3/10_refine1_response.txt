@@ -1,0 +1,155 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    void testAcceptDoubleConsumerNormalCase() {
+        Failable.accept((value) -> {}, 1.0);
+    }
+
+    @Test
+    void testAcceptIntConsumerNormalCase() {
+        Failable.accept((value) -> {}, 1);
+    }
+
+    @Test
+    void testAcceptLongConsumerNormalCase() {
+        Failable.accept((value) -> {}, 1L);
+    }
+
+    @Test
+    void testApplyBiFunctionNormalCase() {
+        String result = Failable.apply((a, b) -> a + b, "Hello", "World");
+        assertTrue(result.equals("HelloWorld"));
+    }
+
+    @Test
+    void testApplyAsDoubleNormalCase() {
+        double result = Failable.applyAsDouble((a, b) -> a + b, 1.0, 2.0);
+        assertTrue(result == 3.0);
+    }
+
+    @Test
+    void testAsBiConsumerNormalCase() {
+        BiConsumer<String, String> consumer = Failable.asBiConsumer((a, b) -> {});
+        consumer.accept("Hello", "World");
+    }
+
+    @Test
+    void testAsBiFunctionNormalCase() {
+        BiFunction<String, String, String> function = Failable.asBiFunction((a, b) -> a + b);
+        assertTrue(function.apply("Hello", "World").equals("HelloWorld"));
+    }
+
+    @Test
+    void testAsBiPredicateNormalCase() {
+        BiPredicate<String, String> predicate = Failable.asBiPredicate((a, b) -> a.equals(b));
+        assertTrue(predicate.test("Hello", "Hello"));
+    }
+
+    @Test
+    void testAsStreamCollectionNormalCase() {
+        FailableStream<String> failableStream = Failable.stream(Collections.singletonList("Hello"));
+        List<String> result = failableStream.collect(Collectors.toList());
+        assertTrue(result.contains("Hello"));
+    }
+
+    @Test
+    void testAsStreamStreamNormalCase() {
+        Stream<String> stream = Stream.of("Hello");
+        FailableStream<String> failableStream = Failable.stream(stream);
+        List<String> result = failableStream.collect(Collectors.toList());
+        assertTrue(result.contains("Hello"));
+    }
+
+    @Test
+    void testTestBiPredicateNormalCase() {
+        boolean result = Failable.test((a, b) -> a.equals(b), "Hello", "Hello");
+        assertTrue(result);
+    }
+
+    @Test
+    void testTryWithResourcesActionThrowsException() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.tryWithResources(() -> { throw new IOException("Test"); })
+        );
+    }
+
+    @Test
+    void testTryWithResourcesResourceThrowsException() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.tryWithResources(
+                () -> {}, 
+                (Throwable t) -> {},
+                () -> { throw new IOException("Test"); }
+            )
+        );
+    }
+
+    @Test
+    void testTryWithResourcesNoErrorHandler() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.tryWithResources(
+                () -> { throw new IOException("Test"); },
+                (FailableRunnable<Throwable>[]) null
+            )
+        );
+    }
+
+    @Test
+    void testGetAsBooleanNormalCase() {
+        boolean result = Failable.getAsBoolean(() -> true);
+        assertTrue(result);
+    }
+
+    @Test
+    void testGetAsDoubleNormalCase() {
+        double result = Failable.getAsDouble(() -> 1.0);
+        assertTrue(result == 1.0);
+    }
+
+    @Test
+    void testGetAsIntNormalCase() {
+        int result = Failable.getAsInt(() -> 1);
+        assertTrue(result == 1);
+    }
+
+    @Test
+    void testGetAsLongNormalCase() {
+        long result = Failable.getAsLong(() -> 1L);
+        assertTrue(result == 1L);
+    }
+
+    @Test
+    void testGetAsShortNormalCase() {
+        short result = Failable.getAsShort(() -> (short) 1);
+        assertTrue(result == 1);
+    }
+
+    @Test
+    void testRethrowIOException() {
+        assertThrows(UncheckedIOException.class, () -> 
+            Failable.rethrow(new IOException("Test"))
+        );
+    }
+
+    @Test
+    void testRethrowUndeclaredThrowableException() {
+        assertThrows(UndeclaredThrowableException.class, () -> 
+            Failable.rethrow(new Exception("Test"))
+        );
+    }
+}
+```

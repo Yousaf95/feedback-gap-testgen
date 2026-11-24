@@ -1,0 +1,111 @@
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testReflectionCompare_NullObjects() {
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(null, new Object()));
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(new Object(), null));
+    }
+
+    @Test
+    public void testReflectionCompare_SameObject() {
+        assertEquals(0, CompareToBuilder.reflectionCompare(new Object(), new Object()));
+    }
+
+    @Test
+    public void testReflectionCompare_DifferentClasses() {
+        assertThrows(ClassCastException.class, () -> CompareToBuilder.reflectionCompare("string", 123));
+    }
+
+    @Test
+    public void testAppendBoolean() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append(false, false).toComparison());
+        assertEquals(-1, builder.append(true, false).toComparison());
+        assertEquals(1, builder.append(false, true).toComparison());
+    }
+
+    @Test
+    public void testAppendByte() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append((byte) 0, (byte) 0).toComparison());
+        assertEquals(-1, builder.append((byte) 1, (byte) 0).toComparison());
+        assertEquals(1, builder.append((byte) 0, (byte) 1).toComparison());
+    }
+
+    @Test
+    public void testAppendChar() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append('a', 'a').toComparison());
+        assertEquals(-1, builder.append('b', 'a').toComparison());
+        assertEquals(1, builder.append('a', 'b').toComparison());
+    }
+
+    @Test
+    public void testAppendDouble() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append(0.0, 0.0).toComparison());
+        assertEquals(-1, builder.append(1.0, 0.0).toComparison());
+        assertEquals(1, builder.append(0.0, 1.0).toComparison());
+    }
+
+    @Test
+    public void testAppendFloat() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append(0.0f, 0.0f).toComparison());
+        assertEquals(-1, builder.append(1.0f, 0.0f).toComparison());
+        assertEquals(1, builder.append(0.0f, 1.0f).toComparison());
+    }
+
+    @Test
+    public void testAppendInt() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append(0, 0).toComparison());
+        assertEquals(-1, builder.append(1, 0).toComparison());
+        assertEquals(1, builder.append(0, 1).toComparison());
+    }
+
+    @Test
+    public void testAppendLong() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append(0L, 0L).toComparison());
+        assertEquals(-1, builder.append(1L, 0L).toComparison());
+        assertEquals(1, builder.append(0L, 1L).toComparison());
+    }
+
+    @Test
+    public void testAppendShort() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append((short) 0, (short) 0).toComparison());
+        assertEquals(-1, builder.append((short) 1, (short) 0).toComparison());
+        assertEquals(1, builder.append((short) 0, (short) 1).toComparison());
+    }
+
+    @Test
+    public void testAppendObject() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append(new Object(), new Object()).toComparison());
+        assertNotEquals(0, builder.append(new Object(), null).toComparison());
+        assertNotEquals(0, builder.append(null, new Object()).toComparison());
+    }
+
+    @Test
+    public void testAppendObjectArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.append(new Integer[]{1, 2}, new Integer[]{1, 2}).toComparison());
+        assertNotEquals(0, builder.append(new Integer[]{1, 2}, new Integer[]{1, 3}).toComparison());
+        assertNotEquals(0, builder.append(new Integer[]{1, 2}, new Integer[]{1}).toComparison());
+    }
+
+    @Test
+    public void testAppendSuper() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(-1, builder.appendSuper(-1).toComparison());
+        assertEquals(1, builder.appendSuper(1).toComparison());
+        assertEquals(0, builder.appendSuper(0).toComparison());
+    }
+}

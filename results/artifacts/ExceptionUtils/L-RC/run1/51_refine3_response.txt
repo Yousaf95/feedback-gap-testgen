@@ -1,0 +1,145 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    void testAsRuntimeException_withNullPointerException() {
+        NullPointerException npe = new NullPointerException("test");
+        RuntimeException re = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(npe));
+        assertEquals(npe.getMessage(), re.getMessage());
+    }
+
+    @Test
+    void testGetCauseUsingMethodName_withNullMethodName() {
+        Throwable throwable = new Exception();
+        assertNull(ExceptionUtils.getCauseUsingMethodName(throwable, null));
+    }
+
+    @Test
+    void testGetCauseUsingMethodName_withInvalidMethodName() {
+        Throwable throwable = new Exception();
+        assertNull(ExceptionUtils.getCauseUsingMethodName(throwable, "invalidMethod"));
+    }
+
+    @Test
+    void testGetCauseUsingMethodName_withIllegalAccessException() throws NoSuchMethodException {
+        Throwable throwable = new Exception();
+        Method method = Exception.class.getDeclaredMethod("getMessage");
+        method.setAccessible(false);
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.getCauseUsingMethodName(throwable, "getMessage"));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withNullRoot() {
+        assertEquals(ExceptionUtils.getMessage(new Exception()), ExceptionUtils.getRootCauseMessage(new Exception()));
+    }
+
+    @Test
+    void testGetThrowableList_withLoopingException() {
+        Throwable t1 = new Exception();
+        Throwable t2 = new Exception();
+        t1.initCause(t2);
+        t2.initCause(t1);
+        assertEquals(1, ExceptionUtils.getThrowableList(t1).size());
+    }
+
+    @Test
+    void testHasCause_withUndeclaredThrowableException() {
+        UndeclaredThrowableException ute = new UndeclaredThrowableException(new IllegalArgumentException("test"));
+        assertTrue(ExceptionUtils.hasCause(ute, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOf_withNegativeFromIndex() {
+        Throwable t1 = new Exception();
+        assertEquals(0, ExceptionUtils.indexOf(t1, Exception.class, -1, true));
+    }
+
+    @Test
+    void testIndexOf_withFromIndexGreaterThanLength() {
+        Throwable t1 = new Exception();
+        assertEquals(-1, ExceptionUtils.indexOf(t1, Exception.class, 2, true));
+    }
+
+    @Test
+    void testIsChecked_withNullThrowable() {
+        assertFalse(ExceptionUtils.isChecked(null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintStream() {
+        Throwable t = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(t, (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintWriter() {
+        Throwable t = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(t, (PrintWriter) null));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withEmptyLists() {
+        List<String> causeFrames = List.of();
+        List<String> wrapperFrames = List.of();
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+    }
+
+    @Test
+    void testRethrow_withNullPointerException() {
+        NullPointerException npe = new NullPointerException("test");
+        RuntimeException re = assertThrows(RuntimeException.class, () -> ExceptionUtils.rethrow(npe));
+        assertEquals(npe.getMessage(), re.getMessage());
+    }
+
+    @Test
+    void testThrowUnchecked_withRuntimeException() {
+        RuntimeException re = new RuntimeException("test");
+        RuntimeException thrownRe = assertThrows(RuntimeException.class, () -> ExceptionUtils.throwUnchecked(re));
+        assertEquals(re.getMessage(), thrownRe.getMessage());
+    }
+
+    @Test
+    void testThrowUnchecked_withError() {
+        Error error = new Error("test");
+        Error thrownError = assertThrows(Error.class, () -> ExceptionUtils.throwUnchecked(error));
+        assertEquals(error.getMessage(), thrownError.getMessage());
+    }
+
+    @Test
+    void testThrowableOf_withNullThrowable() {
+        assertNull(ExceptionUtils.throwableOf(null, Exception.class, 0, true));
+    }
+
+    @Test
+    void testThrowableOf_withNegativeFromIndex() {
+        Throwable t1 = new Exception();
+        assertEquals(t1, ExceptionUtils.throwableOf(t1, Exception.class, -1, true));
+    }
+
+    @Test
+    void testThrowableOf_withFromIndexGreaterThanLength() {
+        Throwable t1 = new Exception();
+        assertNull(ExceptionUtils.throwableOf(t1, Exception.class, 2, true));
+    }
+
+    @Test
+    void testThrowableOfThrowable_withNullThrowable() {
+        assertNull(ExceptionUtils.throwableOfThrowable(null, Exception.class));
+    }
+
+    @Test
+    void testThrowableOfType_withNullThrowable() {
+        assertNull(ExceptionUtils.throwableOfType(null, Exception.class));
+    }
+}
+```

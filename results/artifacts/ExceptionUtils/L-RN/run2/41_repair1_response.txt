@@ -1,0 +1,83 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testForEach_withMultipleThrowables() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable root = new IllegalStateException("Root", cause);
+        List<String> messages = new ArrayList<>();
+        ExceptionUtils.forEach(root, t -> messages.add(t.getMessage()));
+        assertEquals(List.of("Root", "Cause"), messages);
+    }
+
+    @Test
+    void testGetMessage_withNestedException() {
+        Throwable nested = new NullPointerException("Nested");
+        Throwable root = new IllegalArgumentException("Root", nested);
+        String message = ExceptionUtils.getMessage(root);
+        assertEquals("IllegalArgumentException: Root", message);
+    }
+
+    @Test
+    void testGetRootCauseStackTrace_withMultipleThrowables() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable root = new IllegalStateException("Root", cause);
+        String[] stackTrace = ExceptionUtils.getRootCauseStackTrace(root);
+        assertTrue(stackTrace.length > 2, "Stack trace should include both exceptions");
+        assertTrue(new String(stackTrace[0]).contains("IllegalStateException: Root"));
+        assertTrue(new String(stackTrace[stackTrace.length - 1]).contains("NullPointerException: Cause"));
+    }
+
+    @Test
+    void testGetThrowableCount_withMultipleThrowables() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable root = new IllegalStateException("Root", cause);
+        int count = ExceptionUtils.getThrowableCount(root);
+        assertEquals(2, count);
+    }
+
+    @Test
+    void testIndexOfType_withExactMatchAtDifferentIndex() {
+        Throwable nested = new NullPointerException("Nested");
+        Throwable middle = new IllegalArgumentException("Middle", nested);
+        Throwable root = new IllegalStateException("Root", middle);
+        int index = ExceptionUtils.indexOfType(root, NullPointerException.class);
+        assertEquals(2, index);
+    }
+
+    @Test
+    void testHasCause_withExactMatch() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable root = new IllegalStateException("Root", cause);
+        boolean hasCause = ExceptionUtils.hasCause(root, IllegalArgumentException.class);
+        assertTrue(hasCause);
+    }
+
+    @Test
+    void testThrowableOfThrowable_withSubclassMatchAtDifferentIndex() {
+        Throwable nested = new NullPointerException("Nested");
+        Throwable middle = new IllegalArgumentException("Middle", nested);
+        Throwable root = new IllegalStateException("Root", middle);
+        NullPointerException found = ExceptionUtils.throwableOfType(root, NullPointerException.class);
+        assertNotNull(found);
+        assertEquals("Nested", found.getMessage());
+    }
+
+    @Test
+    void testWrapAndThrow_withCheckedException_2() {
+        Exception checkedException = new Exception("Checked");
+        UndeclaredThrowableException wrapped = assertThrows(UndeclaredThrowableException.class, () -> ExceptionUtils.wrapAndThrow(checkedException));
+        assertEquals(checkedException, wrapped.getUndeclaredThrowable());
+    }
+}
+```

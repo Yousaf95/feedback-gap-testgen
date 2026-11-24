@@ -1,0 +1,71 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[711,72] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[719,72] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[773,25] no suitable method found for notEmpty(int[],java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Collection<?>
+        lower bounds: int[])
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Map<?,?>
+        lower bounds: int[])
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.CharSequence
+        lower bounds: int[])
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: int
+        lower bounds: java.lang.Object)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[711,72] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[719,72] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[773,25] no suitable method found for notEmpty(int[],java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Collection<?>
+[ERROR]         lower bounds: int[])
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Map<?,?>
+[ERROR]         lower bounds: int[])
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.CharSequence
+[ERROR]         lower bounds: int[])
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: int
+[ERROR]         lower bounds: java.lang.Object)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

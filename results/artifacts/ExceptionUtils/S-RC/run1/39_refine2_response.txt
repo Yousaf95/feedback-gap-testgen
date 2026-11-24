@@ -1,0 +1,98 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetCauseWithNullThrowable() {
+        Throwable cause = ExceptionUtils.getCause(null);
+        assertNull(cause);
+    }
+
+    @Test
+    public void testGetRootCauseWithNullThrowable() {
+        Throwable rootCause = ExceptionUtils.getRootCause(null);
+        assertNull(rootCause);
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNullThrowable() {
+        String message = ExceptionUtils.getRootCauseMessage(null);
+        assertEquals("", message);
+    }
+
+    @Test
+    public void testGetStackFramesWithNullThrowable() {
+        String[] stackFrames = ExceptionUtils.getStackFrames(null);
+        assertTrue(Arrays.equals(ArrayUtils.EMPTY_STRING_ARRAY, stackFrames));
+    }
+
+    @Test
+    public void testGetStackTraceWithNullThrowable() {
+        String stackTrace = ExceptionUtils.getStackTrace(null);
+        assertEquals("", stackTrace);
+    }
+
+    @Test
+    public void testGetThrowablesWithNullThrowable() {
+        Throwable[] throwables = ExceptionUtils.getThrowables(null);
+        assertTrue(Arrays.equals(ArrayUtils.EMPTY_THROWABLE_ARRAY, throwables));
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNullThrowable() {
+        int index = ExceptionUtils.indexOfThrowable(null, NullPointerException.class);
+        assertEquals(-1, index);
+    }
+
+    @Test
+    public void testIndexOfTypeWithNullThrowable() {
+        int index = ExceptionUtils.indexOfType(null, NullPointerException.class);
+        assertEquals(-1, index);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable() {
+        ExceptionUtils.printRootCauseStackTrace(null);
+    }
+
+    @Test
+    public void testRethrowWithNullThrowable() {
+        Throwable throwable = ExceptionUtils.rethrow(null);
+        assertNull(throwable);
+    }
+
+    @Test
+    public void testThrowUncheckedWithRuntimeException() {
+        RuntimeException runtimeException = new RuntimeException();
+        Throwable thrown = assertThrows(RuntimeException.class, () -> ExceptionUtils.throwUnchecked(runtimeException));
+        assertEquals(runtimeException, thrown);
+    }
+
+    @Test
+    public void testThrowUncheckedWithError() {
+        Error error = new Error();
+        Throwable thrown = assertThrows(Error.class, () -> ExceptionUtils.throwUnchecked(error));
+        assertEquals(error, thrown);
+    }
+
+    @Test
+    public void testWrapAndThrowWithRuntimeException() {
+        RuntimeException runtimeException = new RuntimeException();
+        Throwable thrown = assertThrows(UndeclaredThrowableException.class, () -> ExceptionUtils.wrapAndThrow(runtimeException));
+        assertTrue(thrown.getCause() instanceof RuntimeException);
+    }
+
+    @Test
+    public void testWrapAndThrowWithError() {
+        Error error = new Error();
+        Throwable thrown = assertThrows(UndeclaredThrowableException.class, () -> ExceptionUtils.wrapAndThrow(error));
+        assertTrue(thrown.getCause() instanceof Error);
+    }
+}
+```

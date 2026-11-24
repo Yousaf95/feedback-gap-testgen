@@ -1,0 +1,64 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class JavaVersion_GenTest {
+
+    
+    @Test
+    void testAtLeastWithSameVersion() {
+        // Arrange
+        JavaVersion version = JavaVersion.JAVA_11;
+        JavaVersion sameVersion = JavaVersion.JAVA_11;
+
+        // Act & Assert
+        assertTrue(version.atLeast(sameVersion));
+    }
+
+    @Test
+    void testAtLeastWithNewerVersion() {
+        // Arrange
+        JavaVersion version = JavaVersion.JAVA_11;
+        JavaVersion newerVersion = JavaVersion.JAVA_17;
+
+        // Act & Assert
+        assertFalse(version.atLeast(newerVersion));
+    }
+
+    
+    @Test
+    void testAtMostWithSameVersion() {
+        // Arrange
+        JavaVersion version = JavaVersion.JAVA_11;
+        JavaVersion sameVersion = JavaVersion.JAVA_11;
+
+        // Act & Assert
+        assertTrue(version.atMost(sameVersion));
+    }
+
+    @Test
+    void testAtMostWithNewerVersion() {
+        // Arrange
+        JavaVersion version = JavaVersion.JAVA_11;
+        JavaVersion newerVersion = JavaVersion.JAVA_17;
+
+        // Act & Assert
+        assertTrue(version.atMost(newerVersion));
+    }
+
+    @Test
+    void testToStringReturnsCorrectName() {
+        // Arrange
+        JavaVersion version = JavaVersion.JAVA_11;
+
+        // Act & Assert
+        assertEquals("11", version.toString());
+    }
+
+    @Test
+    void testJAVA_RECENTIsNotNull() {
+        // Arrange & Act & Assert
+        assertNotNull(JavaVersion.JAVA_RECENT);
+    }
+}

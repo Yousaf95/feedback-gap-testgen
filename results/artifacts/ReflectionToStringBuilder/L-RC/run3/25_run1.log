@@ -1,0 +1,64 @@
+[ERROR] Tests run: 25, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.182 s <<< FAILURE! -- in org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeFieldNamesWithNullParameter -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "[Ljava.lang.String;.clone()" because "this.excludeFieldNames" is null
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder.getExcludeFieldNames(ReflectionToStringBuilder.java:676)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeFieldNamesWithNullParameter(ReflectionToStringBuilder_GenTest.java:178)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetIncludeFieldNamesWithNullParameter -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "[Ljava.lang.String;.clone()" because "this.includeFieldNames" is null
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder.getIncludeFieldNames(ReflectionToStringBuilder.java:686)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetIncludeFieldNamesWithNullParameter(ReflectionToStringBuilder_GenTest.java:184)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetExcludeFieldNames -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "[Ljava.lang.String;.clone()" because "this.excludeFieldNames" is null
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder.getExcludeFieldNames(ReflectionToStringBuilder.java:676)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetExcludeFieldNames(ReflectionToStringBuilder_GenTest.java:159)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithNullArray -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.lang.reflect.Array.getLength(Native Method)
+	at org.apache.commons.lang3.builder.ToStringStyle.reflectionAppendArrayDetail(ToStringStyle.java:2267)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder.reflectionAppendArray(ReflectionToStringBuilder.java:753)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithNullArray(ReflectionToStringBuilder_GenTest.java:171)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetIncludeFieldNames -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "[Ljava.lang.String;.clone()" because "this.includeFieldNames" is null
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder.getIncludeFieldNames(ReflectionToStringBuilder.java:686)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetIncludeFieldNames(ReflectionToStringBuilder_GenTest.java:165)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   ReflectionToStringBuilder_GenTest.testGetExcludeFieldNames:159 » NullPointer Cannot invoke "[Ljava.lang.String;.clone()" because "this.excludeFieldNames" is null
+[ERROR]   ReflectionToStringBuilder_GenTest.testGetIncludeFieldNames:165 » NullPointer Cannot invoke "[Ljava.lang.String;.clone()" because "this.includeFieldNames" is null
+[ERROR]   ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithNullArray:171 » NullPointer
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetExcludeFieldNamesWithNullParameter:178 » NullPointer Cannot invoke "[Ljava.lang.String;.clone()" because "this.excludeFieldNames" is null
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetIncludeFieldNamesWithNullParameter:184 » NullPointer Cannot invoke "[Ljava.lang.String;.clone()" because "this.includeFieldNames" is null
+[ERROR] Tests run: 25, Failures: 0, Errors: 5, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w9/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

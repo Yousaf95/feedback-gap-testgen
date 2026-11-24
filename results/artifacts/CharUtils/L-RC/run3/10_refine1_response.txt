@@ -1,0 +1,61 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    void testIsAsciiBranches() {
+        assertFalse(CharUtils.isAscii((char) 128));
+        assertTrue(CharUtils.isAscii('a'));
+    }
+
+    @Test
+    void testIsAsciiAlphaLowerBranches() {
+        assertFalse(CharUtils.isAsciiAlphaLower('A'));
+        assertFalse(CharUtils.isAsciiAlphaLower('9'));
+        assertFalse(CharUtils.isAsciiAlphaLower('!'));
+        assertTrue(CharUtils.isAsciiAlphaLower('z'));
+    }
+
+    @Test
+    void testIsAsciiAlphanumericBranches() {
+        assertFalse(CharUtils.isAsciiAlphanumeric('!'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('a'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('9'));
+    }
+
+    @Test
+    void testIsAsciiControlBranches() {
+        assertTrue(CharUtils.isAsciiControl((char) 31));
+        assertFalse(CharUtils.isAsciiControl(' '));
+        assertTrue(CharUtils.isAsciiControl((char) 127));
+    }
+
+    @Test
+    void testIsAsciiNumericBranches() {
+        assertFalse(CharUtils.isAsciiNumeric('a'));
+        assertFalse(CharUtils.isAsciiNumeric('!'));
+        assertTrue(CharUtils.isAsciiNumeric('9'));
+    }
+
+    @Test
+    void testIsAsciiPrintableBranches() {
+        assertFalse(CharUtils.isAsciiPrintable((char) 31));
+        assertTrue(CharUtils.isAsciiPrintable(' '));
+        assertFalse(CharUtils.isAsciiPrintable((char) 127));
+    }
+
+    @Test
+    void testToStringCharNotInArray() {
+        assertEquals(String.valueOf((char) 128), CharUtils.toString((char) 128));
+    }
+
+    @Test
+    void testCharUtilsConstructor() {
+        assertNotNull(new CharUtils());
+    }
+}
+```

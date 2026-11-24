@@ -1,0 +1,114 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Validate_GenTest {
+
+    @Test
+    void testFiniteWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.finite(Double.NaN, "Custom message for NaN"));
+        assertEquals("Custom message for NaN", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueWithDoubleValue() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.isTrue(false, "Value is %f", 123.45));
+        assertEquals("Value is 123.45", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueWithLongValue() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.isTrue(false, "Value is %d", 123L));
+        assertEquals("Value is 123", exception.getMessage());
+    }
+
+    @Test
+    void testMatchesPatternWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("abc", "^\\d+$", "Custom message for %s", "abc"));
+        assertEquals("Custom message for abc", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsArrayWithNullAndCustomMessage() {
+        String[] array = {"a", null, "c"};
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array, "Custom message at index %d", 1));
+        assertEquals("Custom message at index 1", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsCollectionWithNullAndCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(Arrays.asList("a", null, "c"), "Custom message at index %d", 1));
+        assertEquals("Custom message at index 1", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyArrayWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(new String[0], "Custom message for empty array"));
+        assertEquals("Custom message for empty array", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCollectionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(Collections.emptyList(), "Custom message for empty collection"));
+        assertEquals("Custom message for empty collection", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyMapWithCustomMessage() {
+        Map<String, String> map = new HashMap<>();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map, "Custom message for empty map"));
+        assertEquals("Custom message for empty map", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCharSequenceWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty("", "Custom message for empty char sequence"));
+        assertEquals("Custom message for empty char sequence", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexArrayWithNegativeIndexAndCustomMessage() {
+        String[] array = {"a", "b", "c"};
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(array, -1, "Custom message for index %d", -1));
+        assertEquals("Custom message for index -1", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexArrayWithTooLargeIndexAndCustomMessage() {
+        String[] array = {"a", "b", "c"};
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(array, 3, "Custom message for index %d", 3));
+        assertEquals("Custom message for index 3", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCollectionWithNegativeIndexAndCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(Arrays.asList("a", "b", "c"), -1, "Custom message for index %d", -1));
+        assertEquals("Custom message for index -1", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCollectionWithTooLargeIndexAndCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(Arrays.asList("a", "b", "c"), 3, "Custom message for index %d", 3));
+        assertEquals("Custom message for index 3", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCharSequenceWithNegativeIndexAndCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex("abc", -1, "Custom message for index %d", -1));
+        assertEquals("Custom message for index -1", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCharSequenceWithTooLargeIndexAndCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex("abc", 3, "Custom message for index %d", 3));
+        assertEquals("Custom message for index 3", exception.getMessage());
+    }
+}
+```

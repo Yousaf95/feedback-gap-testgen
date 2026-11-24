@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Optional;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testReadResolve() {
+        ObjectUtils.Null nullInstance = new ObjectUtils.Null();
+        assertSame(ObjectUtils.NULL, nullInstance);
+    }
+
+    @Test
+    void testClone_IllegalAccessException() {
+        final Object obj = new CloneableClassWithoutPublicCloneMethod();
+        Exception exception = assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(obj));
+        assertTrue(exception.getMessage().contains("Cannot clone Cloneable type"));
+    }
+
+    @Test
+    void testHashCodeMulti_NullArray() {
+        assertEquals(1, ObjectUtils.hashCodeMulti((Object[]) null));
+    }
+
+    @Test
+    void testIdentityToString_StringBuilder() throws IOException {
+        StringBuilder builder = new StringBuilder();
+        Object obj = new Object();
+        ObjectUtils.identityToString(builder, obj);
+        assertTrue(builder.toString().contains(obj.getClass().getName()));
+    }
+
+    @Test
+    void testIsEmpty_EmptyOptional() {
+        assertTrue(ObjectUtils.isEmpty(Optional.empty()));
+    }
+
+    @Test
+    void testIsEmpty_NonEmptyOptional() {
+        assertFalse(ObjectUtils.isEmpty(Optional.of("test")));
+    }
+
+    @Test
+    void testGetFirstNonNull_SingleSupplierReturningNull() {
+        Supplier<String> supplier = () -> null;
+        assertNull(ObjectUtils.getFirstNonNull(supplier));
+    }
+
+    @Test
+    void testToString_SupplierNull() {
+        assertEquals("default", ObjectUtils.toString((Supplier<Object>) null, () -> "default"));
+    }
+
+    @Test
+    void testWait_ZeroDuration() throws InterruptedException {
+        final Object obj = new Object();
+        assertDoesNotThrow(() -> ObjectUtils.wait(obj, Duration.ZERO));
+    }
+
+    private static class CloneableClassWithoutPublicCloneMethod implements Cloneable {
+        // No public clone method
+    }
+}
+```

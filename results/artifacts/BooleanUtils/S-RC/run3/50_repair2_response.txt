@@ -1,0 +1,57 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.function.Consumer;
+import org.junit.jupiter.api.Test;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    public void testForEach() {
+        forEach(System.out::println);
+    }
+
+    @Test
+    public void testOneHotBooleanArray() {
+        assertTrue(oneHot(true, false));
+        assertFalse(oneHot(false, true));
+        assertThrows(IllegalArgumentException.class, () -> oneHot());
+    }
+
+    @Test
+    public void testOneHotBooleanObjectArray() {
+        assertTrue(oneHot(Boolean.TRUE, Boolean.FALSE));
+        assertFalse(oneHot(Boolean.FALSE, Boolean.TRUE));
+        assertThrows(IllegalArgumentException.class, () -> oneHot((Boolean[]) null));
+    }
+
+    @Test
+    public void testToBooleanIntegerValues_3() {
+        assertTrue(toBoolean(1, 1, 0));
+        assertFalse(toBoolean(0, 1, 0));
+        assertThrows(IllegalArgumentException.class, () -> toBoolean(2, 1, 0));
+    }
+
+    @Test
+    public void testToBooleanIntegerObjectValues_2() {
+        assertTrue(toBoolean(Integer.valueOf(1), Integer.valueOf(1), Integer.valueOf(0)));
+        assertFalse(toBoolean(Integer.valueOf(0), Integer.valueOf(1), Integer.valueOf(0)));
+        assertThrows(IllegalArgumentException.class, () -> toBoolean((Integer) null, Integer.valueOf(1), Integer.valueOf(0)));
+    }
+
+    @Test
+    public void testToBooleanStringValues_3() {
+        assertTrue(toBoolean("true", "true", "false"));
+        assertFalse(toBoolean("false", "true", "false"));
+        assertThrows(IllegalArgumentException.class, () -> toBoolean("other", "true", "false"));
+    }
+
+    @Test
+    public void testToBooleanStringPartialBranches_2() {
+        assertTrue(toBoolean("y", "yes", "no"));
+        assertFalse(toBoolean("n", "yes", "no"));
+        assertThrows(IllegalArgumentException.class, () -> toBoolean("o", "yes", "no"));
+    }
+}
+```

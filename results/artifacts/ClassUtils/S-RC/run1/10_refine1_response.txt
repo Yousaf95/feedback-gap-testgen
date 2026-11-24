@@ -1,0 +1,119 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testInterfacesEnum() {
+        assertEquals(ClassUtils.Interfaces.INCLUDE, ClassUtils.Interfaces.values()[0]);
+        assertEquals(ClassUtils.Interfaces.EXCLUDE, ClassUtils.Interfaces.values()[1]);
+    }
+
+    @Test
+    public void testGetAbbreviatedNameEmptyString() {
+        assertEquals("", ClassUtils.getAbbreviatedName("", 5));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameLengthHintZero() {
+        assertThrows(IllegalArgumentException.class, () -> ClassUtils.getAbbreviatedName("test", 0));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameShortClassName() {
+        assertEquals("tes", ClassUtils.getAbbreviatedName("test", 3));
+    }
+
+    @Test
+    public void testGetAllInterfacesNullInput() {
+        assertNull(ClassUtils.getAllInterfaces(null));
+    }
+
+    @Test
+    public void testGetAllInterfacesEmptyClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(Object.class);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    public void testGetAllSuperclassesNullInput() {
+        assertNull(ClassUtils.getAllSuperclasses(null));
+    }
+
+    @Test
+    public void testGetAllSuperclassesEmptyClass() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(Object.class);
+        assertTrue(superclasses.isEmpty());
+    }
+
+    @Test
+    public void testGetCanonicalNameNullInput() {
+        assertEquals("", ClassUtils.getCanonicalName(null));
+    }
+
+    @Test
+    public void testGetCanonicalNameEmptyClass() {
+        assertEquals("java.lang.Object", ClassUtils.getCanonicalName(Object.class));
+    }
+
+    @Test
+    public void testGetCanonicalNameNullObject() {
+        assertNull(ClassUtils.getCanonicalName((Object) null));
+    }
+
+    @Test
+    public void testGetCanonicalNameEmptyObject() {
+        assertEquals("", ClassUtils.getCanonicalName(new Object()));
+    }
+
+    @Test
+    public void testGetComponentTypeNullInput() {
+        assertNull(ClassUtils.getComponentType(null));
+    }
+
+    @Test
+    public void testGetNameNullInput() {
+        assertEquals("", ClassUtils.getName(null));
+    }
+
+    @Test
+    public void testGetNameEmptyClass() {
+        assertEquals("java.lang.Object", ClassUtils.getName(Object.class));
+    }
+
+    @Test
+    public void testGetNameNullObject() {
+        assertNull(ClassUtils.getName((Object) null));
+    }
+
+    @Test
+    public void testGetNameEmptyObject() {
+        assertEquals("", ClassUtils.getName(new Object()));
+    }
+
+    @Test
+    public void testGetPackageCanonicalNameEmptyClass() {
+        assertEquals("java.lang", ClassUtils.getPackageCanonicalName(Object.class));
+    }
+
+    @Test
+    public void testGetPackageNameEmptyClass() {
+        assertEquals("java.lang", ClassUtils.getPackageName(Object.class));
+    }
+
+    @Test
+    public void testGetShortCanonicalNameEmptyClass() {
+        assertEquals("Object", ClassUtils.getShortCanonicalName(Object.class));
+    }
+
+    @Test
+    public void testGetShortClassNameEmptyClass() {
+        assertEquals("Object", ClassUtils.getShortClassName(Object.class));
+    }
+}
+```

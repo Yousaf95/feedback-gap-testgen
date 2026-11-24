@@ -1,0 +1,162 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+
+class EqualsBuilder_GenTest {
+
+    @Test
+    void testReflectionEqualsSameObject() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj));
+    }
+
+    @Test
+    void testReflectionEqualsDifferentObjects() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object()));
+    }
+
+    @Test
+    void testReflectionEqualsNullObjects() {
+        assertTrue(EqualsBuilder.reflectionEquals(null, null));
+        assertFalse(EqualsBuilder.reflectionEquals(null, new Object()));
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), null));
+    }
+
+    @Test
+    void testReflectionEqualsWithExcludeFields() {
+        class TestClass {
+            private int field1;
+            private int field2;
+
+            public TestClass(int field1, int field2) {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+        }
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(1, 3);
+        assertTrue(EqualsBuilder.reflectionEquals(obj1, obj2, "field2"));
+    }
+
+    @Test
+    void testReflectionEqualsWithExcludeFieldsCollection() {
+        class TestClass {
+            private int field1;
+            private int field2;
+
+            public TestClass(int field1, int field2) {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+        }
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(1, 3);
+        assertTrue(EqualsBuilder.reflectionEquals(obj1, obj2, Collections.singletonList("field2")));
+    }
+
+    @Test
+    void testReflectionEqualsWithReflectUpToClass() {
+        class Parent {
+            private int parentField;
+
+            public Parent(int parentField) {
+                this.parentField = parentField;
+            }
+        }
+        class Child extends Parent {
+            private int childField;
+
+            public Child(int parentField, int childField) {
+                super(parentField);
+                this.childField = childField;
+            }
+        }
+        Child obj1 = new Child(1, 2);
+        Child obj2 = new Child(1, 3);
+        assertTrue(EqualsBuilder.reflectionEquals(obj1, obj2, false, Parent.class));
+    }
+
+    @Test
+    void testReflectionEqualsWithTestTransients() {
+        class TestClass {
+            private transient int transientField;
+            private int nonTransientField;
+
+            public TestClass(int transientField, int nonTransientField) {
+                this.transientField = transientField;
+                this.nonTransientField = nonTransientField;
+            }
+        }
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(3, 2);
+        assertTrue(EqualsBuilder.reflectionEquals(obj1, obj2, true));
+    }
+
+    @Test
+    void testAppendBooleanArray() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {true, false};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendByteArray() {
+        byte[] lhs = {1, 2};
+        byte[] rhs = {1, 2};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendCharArray() {
+        char[] lhs = {'a', 'b'};
+        char[] rhs = {'a', 'b'};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendDoubleArray() {
+        double[] lhs = {1.0, 2.0};
+        double[] rhs = {1.0, 2.0};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendFloatArray() {
+        float[] lhs = {1.0f, 2.0f};
+        float[] rhs = {1.0f, 2.0f};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendIntArray() {
+        int[] lhs = {1, 2};
+        int[] rhs = {1, 2};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendLongArray() {
+        long[] lhs = {1L, 2L};
+        long[] rhs = {1L, 2L};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendShortArray() {
+        short[] lhs = {1, 2};
+        short[] rhs = {1, 2};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    void testAppendObjectArray_2() {
+        Object[] lhs = {"a", "b"};
+        Object[] rhs = {"a", "b"};
+        assertEquals(true, new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+}
+```

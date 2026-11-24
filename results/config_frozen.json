@@ -1,0 +1,105 @@
+{
+  "frozen_at": "2026-11-24T09:59:31.576338+01:00",
+  "config": {
+    "models": {
+      "S": {
+        "tag": "qwen2.5-coder:7b-instruct",
+        "role": "small local (~7B)",
+        "port": 11434
+      },
+      "L": {
+        "tag": "qwen2.5-coder:32b-instruct",
+        "role": "large local (32B), replaces the API model",
+        "port": 11435
+      }
+    },
+    "temperature": 0.2,
+    "max_tokens": 4096,
+    "num_ctx": 20480,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "K_comp": 3,
+    "K_cov": 3,
+    "branch_stop": 0.9,
+    "context_budget_tokens": 6000,
+    "max_uncovered_lines": 60,
+    "pit_threads": 2,
+    "pit_mutators": "DEFAULTS",
+    "junit_default_timeout": "10 s",
+    "configs": {
+      "S-ZS": "small, prune only",
+      "S-R": "small, repair",
+      "S-RC": "small, repair + coverage loop",
+      "L-ZS": "large, prune only",
+      "L-R": "large, repair",
+      "L-RC": "large, repair + coverage loop"
+    }
+  },
+  "models": {
+    "S": {
+      "tag": "qwen2.5-coder:7b-instruct",
+      "role": "small local (~7B)",
+      "port": 11434,
+      "manifest_digest": "sha256:dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+      "weights_digest": "sha256:60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+      "weights_size_bytes": 4683074048
+    },
+    "L": {
+      "tag": "qwen2.5-coder:32b-instruct",
+      "role": "large local (32B), replaces the API model",
+      "port": 11435,
+      "manifest_digest": "sha256:b92d6a0bd47ee79114298de0177bf920c05a706d12633950b3936778492bef41",
+      "weights_digest": "sha256:ac3d1ba8aa77755dab3806d9024e9c385ea0d5b412d6bdf9157f8a4a7e9fc0d9",
+      "weights_size_bytes": 19851336384
+    }
+  },
+  "prompts": {
+    "generate.txt": {
+      "sha256": "d4c25976d854e52957c664c751d559a774b489b9cda30a6db800c88a59bf9681",
+      "text": "Write a JUnit 5 test class named {test_class} in package {package} for the class {simple_name} shown below.\n\nConstraints:\n- Use only the public API shown below. Do not use reflection and do not access private or package-private members.\n- No mocks and no mocking frameworks. Use only JUnit 5 (org.junit.jupiter.api.*, org.junit.jupiter.params.*) and the JDK.\n- Follow Arrange-Act-Assert. One behaviour per test method.\n- Use meaningful assertions on concrete expected values (assertEquals, assertTrue, assertNull, assertArrayEquals, ...).\n- Cover normal cases, edge cases (null, empty, boundary values) and exceptions (use assertThrows).\n- The code must compile with Java 17.\n\nOutput: a single ```java code block containing the complete test class (package declaration, imports, class). No explanations.\n\nClass under test ({fqn}):\n```java\n{context}\n```\n"
+    },
+    "refine.txt": {
+      "sha256": "03adc6e61515a99e2c4780564dae062ef6b537289542ecc4d672f3c7cd26fd82",
+      "text": "The JUnit 5 test class {test_class} for {simple_name} currently achieves {line_cov} line coverage and {branch_cov} branch coverage of {simple_name}.java.\n\nThe source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.\n{snippets}\n\nExisting test methods (do not duplicate them):\n{existing}\n\nWrite ADDITIONAL test methods that execute the uncovered lines and the missed branches.\nConstraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.\n\nOutput: a single ```java code block containing a class {test_class} (package {package}) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.\n\nClass under test ({fqn}):\n```java\n{context}\n```\n"
+    },
+    "repair.txt": {
+      "sha256": "81531a5fe1114766b967b8cbd7ed97347756f7609d8db1b53fc0e5be8d2841dc",
+      "text": "The JUnit 5 test class {test_class} below does not compile. Fix the compilation errors.\n\nKeep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of {simple_name} shown below. Do not change the class name or the package. No mocks.\n\nCompiler errors (line: message):\n{errors}\n\nCurrent test class ({test_class}.java):\n```java\n{test_code}\n```\n\nClass under test ({fqn}):\n```java\n{context}\n```\n\nOutput: a single ```java code block with the complete corrected test class. No explanations.\n"
+    },
+    "system.txt": {
+      "sha256": "ced48679fa71f04bf0db2f433405f0702fafa702d19e8b2558c296940a4ffc08",
+      "text": "You are an expert Java tester. You write correct, compilable JUnit 5 tests.\n"
+    }
+  },
+  "eval_classes": [
+    "org.apache.commons.lang3.AnnotationUtils",
+    "org.apache.commons.lang3.BooleanUtils",
+    "org.apache.commons.lang3.CharSequenceUtils",
+    "org.apache.commons.lang3.CharSetUtils",
+    "org.apache.commons.lang3.CharUtils",
+    "org.apache.commons.lang3.ClassUtils",
+    "org.apache.commons.lang3.JavaVersion",
+    "org.apache.commons.lang3.LocaleUtils",
+    "org.apache.commons.lang3.ObjectUtils",
+    "org.apache.commons.lang3.RandomStringUtils",
+    "org.apache.commons.lang3.Range",
+    "org.apache.commons.lang3.SystemUtils",
+    "org.apache.commons.lang3.Validate",
+    "org.apache.commons.lang3.builder.CompareToBuilder",
+    "org.apache.commons.lang3.builder.DiffBuilder",
+    "org.apache.commons.lang3.builder.EqualsBuilder",
+    "org.apache.commons.lang3.builder.HashCodeBuilder",
+    "org.apache.commons.lang3.builder.ReflectionToStringBuilder",
+    "org.apache.commons.lang3.exception.ExceptionUtils",
+    "org.apache.commons.lang3.function.Failable"
+  ],
+  "dev_classes": [
+    "org.apache.commons.lang3.math.Fraction",
+    "org.apache.commons.lang3.time.DateUtils",
+    "org.apache.commons.lang3.time.DurationFormatUtils"
+  ],
+  "selection_rule": "public top-level class/enum in org.apache.commons.lang3.** excluding concurrent.* and reflect.*, not @Deprecated, 80<=NCLOC<=600 (non-blank, non-comment lines of the file), >=15 branch constructs (if/for/foreach/while/do/case-label/catch/ternary/&&/||, counted with tree-sitter-java); sorted alphabetically by FQN; first 20 = eval, next 3 = dev. Manual exclusions: {\"org.apache.commons.lang3.ThreadUtils\": \"thread/thread-group state (concurrency, environment-dependent)\"}"
+}

@@ -1,0 +1,144 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class Validate_GenTest {
+
+    @Test
+    void testNoNullElementsArrayWithCustomMessageAndValues() {
+        String[] array = {"a", null, "c"};
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(array, "Element at index %d is null", 1);
+        });
+        assertTrue(exception.getMessage().equals("Element at index 1 is null"));
+    }
+
+    @Test
+    void testNoNullElementsCollectionWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(Arrays.asList("a", null, "c"), "Element at index %d is null", 1);
+        });
+        assertTrue(exception.getMessage().equals("Element at index 1 is null"));
+    }
+
+    @Test
+    void testNotEmptyArrayWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new String[0], "The array must not be empty: %s", "testArray");
+        });
+        assertTrue(exception.getMessage().equals("The array must not be empty: testArray"));
+    }
+
+    @Test
+    void testNotEmptyCollectionWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(Collections.emptyList(), "The collection must not be empty: %s", "testCollection");
+        });
+        assertTrue(exception.getMessage().equals("The collection must not be empty: testCollection"));
+    }
+
+    @Test
+    void testNotEmptyMapWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(Collections.emptyMap(), "The map must not be empty: %s", "testMap");
+        });
+        assertTrue(exception.getMessage().equals("The map must not be empty: testMap"));
+    }
+
+    @Test
+    void testNotEmptyCharSequenceWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty("", "The char sequence must not be empty: %s", "testString");
+        });
+        assertTrue(exception.getMessage().equals("The char sequence must not be empty: testString"));
+    }
+
+    @Test
+    void testNotBlankWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("   ", "The char sequence must not be blank: %s", "testString");
+        });
+        assertTrue(exception.getMessage().equals("The char sequence must not be blank: testString"));
+    }
+
+    @Test
+    void testValidIndexArrayWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex(new String[3], 5, "Index %d is invalid for array of length %d", 5, 3);
+        });
+        assertTrue(exception.getMessage().equals("Index 5 is invalid for array of length 3"));
+    }
+
+    @Test
+    void testValidIndexCollectionWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex(Arrays.asList("a", "b"), 2, "Index %d is invalid for collection of size %d", 2, 2);
+        });
+        assertTrue(exception.getMessage().equals("Index 2 is invalid for collection of size 2"));
+    }
+
+    @Test
+    void testValidIndexCharSequenceWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex("ab", 3, "Index %d is invalid for char sequence of length %d", 3, 2);
+        });
+        assertTrue(exception.getMessage().equals("Index 3 is invalid for char sequence of length 2"));
+    }
+
+    @Test
+    void testFiniteWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.finite(Double.NaN, "The value %f is not finite", Double.NaN);
+        });
+        assertTrue(exception.getMessage().equals("The value NaN is not finite"));
+    }
+
+    @Test
+    void testIsTrueWithBooleanValueAndCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Expression must be true: %b", false);
+        });
+        assertTrue(exception.getMessage().equals("Expression must be true: false"));
+    }
+
+    @Test
+    void testMatchesPatternWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.matchesPattern("abc", "def", "The string %s does not match the pattern %s", "abc", "def");
+        });
+        assertTrue(exception.getMessage().equals("The string abc does not match the pattern def"));
+    }
+
+    @Test
+    void testIsAssignableFromWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isAssignableFrom(Number.class, String.class, "Cannot assign a %s to a %s", "String", "Number");
+        });
+        assertTrue(exception.getMessage().equals("Cannot assign a String to a Number"));
+    }
+
+    @Test
+    void testIsInstanceOfWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isInstanceOf(String.class, 123, "Expected type: %s, actual: %s", "String", "Integer");
+        });
+        assertTrue(exception.getMessage().equals("Expected type: String, actual: Integer"));
+    }
+
+    @Test
+    void testValidStateWithCustomMessageAndValues() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validState(false, "The state must be valid: %b", false);
+        });
+        assertTrue(exception.getMessage().equals("The state must be valid: false"));
+    }
+}
+```

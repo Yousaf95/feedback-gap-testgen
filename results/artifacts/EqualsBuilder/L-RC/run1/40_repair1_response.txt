@@ -1,0 +1,33 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Collections;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
+import org.apache.commons.lang3.tuple.Pair;
+
+class EqualsBuilder_GenTest {
+
+    @Test
+    void testAppendObjectWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertFalse(builder.append(null, new Object()).isEquals());
+    }
+
+    @Test
+    void testAppendObjectWithDifferentClasses() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertFalse(builder.append(new Object(), "").isEquals());
+    }
+
+    @Test
+    void testAppendArrayWithDifferentTypes() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertFalse(builder.append(new int[]{1}, new long[]{1L}).isEquals());
+    }
+}
+```

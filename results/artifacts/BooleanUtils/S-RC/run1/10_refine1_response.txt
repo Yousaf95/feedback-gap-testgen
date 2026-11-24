@@ -1,0 +1,131 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.function.Consumer;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    public void testAndEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.and());
+    }
+
+    @Test
+    public void testAndAllTrue() {
+        assertTrue(BooleanUtils.and(true, true, true));
+    }
+
+    @Test
+    public void testAndMixedBooleans() {
+        assertFalse(BooleanUtils.and(true, false, true));
+    }
+
+    @Test
+    public void testOrEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.or());
+    }
+
+    @Test
+    public void testOrAllFalse() {
+        assertFalse(BooleanUtils.or(false, false, false));
+    }
+
+    @Test
+    public void testOrMixedBooleans() {
+        assertTrue(BooleanUtils.or(true, false, true));
+    }
+
+    @Test
+    public void testOneHotEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.oneHot());
+    }
+
+    @Test
+    public void testOneHotAllFalse() {
+        assertFalse(BooleanUtils.oneHot(false, false, false));
+    }
+
+    @Test
+    public void testOneHotMixedBooleans() {
+        assertTrue(BooleanUtils.oneHot(true, false, true));
+    }
+
+    @Test
+    public void testToBooleanObjectNull() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+    }
+
+    @Test
+    public void testToBooleanObjectTrueString() {
+        assertTrue(BooleanUtils.toBooleanObject(TRUE));
+    }
+
+    @Test
+    public void testToBooleanObjectFalseString() {
+        assertFalse(BooleanUtils.toBooleanObject(FALSE));
+    }
+
+    @Test
+    public void testToBooleanObjectYesString() {
+        assertTrue(BooleanUtils.toBooleanObject(YES));
+    }
+
+    @Test
+    public void testToBooleanObjectNoString() {
+        assertFalse(BooleanUtils.toBooleanObject(NO));
+    }
+
+    @Test
+    public void testToBooleanObjectOnString() {
+        assertTrue(BooleanUtils.toBooleanObject(ON));
+    }
+
+    @Test
+    public void testToBooleanObjectOffString() {
+        assertFalse(BooleanUtils.toBooleanObject(OFF));
+    }
+
+    @Test
+    public void testToBooleanObjectIntegerZero() {
+        assertFalse(BooleanUtils.toBoolean(0));
+    }
+
+    @Test
+    public void testToBooleanObjectIntegerOne() {
+        assertTrue(BooleanUtils.toBoolean(1));
+    }
+
+    @Test
+    public void testToBooleanObjectIntegerTrueValue() {
+        assertTrue(BooleanUtils.toBoolean(1, 1, 0));
+    }
+
+    @Test
+    public void testToBooleanObjectIntegerFalseValue() {
+        assertFalse(BooleanUtils.toBoolean(0, 1, 0));
+    }
+
+    @Test
+    public void testToBooleanObjectIntegerNullValue() {
+        assertNull(BooleanUtils.toBooleanObject(null, null, null, 0));
+    }
+
+    @Test
+    public void testToBooleanObjectStringTrueValue() {
+        assertTrue(BooleanUtils.toBoolean(TRUE, TRUE, FALSE));
+    }
+
+    @Test
+    public void testToBooleanObjectStringFalseValue() {
+        assertFalse(BooleanUtils.toBoolean(FALSE, TRUE, FALSE));
+    }
+
+    @Test
+    public void testToBooleanObjectStringNullValue() {
+        assertNull(BooleanUtils.toBooleanObject(null, null, null, "true"));
+    }
+}
+```

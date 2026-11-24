@@ -1,0 +1,49 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class CompareToBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testAppendWithComparatorNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append("a", "b", null));
+    }
+
+    @Test
+    public void testAppendWithComparatorCustomComparator() {
+        final Comparator<String> customComparator = (s1, s2) -> s2.compareTo(s1);
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("apple", "banana", customComparator);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendWithArrayComparatorNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(new String[]{"a"}, new String[]{"b"}, null));
+    }
+
+    @Test
+    public void testAppendWithArrayComparatorCustomComparator() {
+        final Comparator<String> customComparator = (s1, s2) -> s2.compareTo(s1);
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new String[]{"apple", "banana"}, new String[]{"banana", "apple"}, customComparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendSuperNonZeroComparison() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2);
+        builder.appendSuper(-5);
+        assertEquals(-1, builder.toComparison());
+    }
+}
+```

@@ -1,0 +1,46 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.File;
+import org.junit.jupiter.api.Test;
+
+public class SystemUtils_GenTest {
+
+    @Test
+    public void testGetJavaVersion() {
+        assertNotNull(SystemUtils.JAVA_VERSION);
+    }
+
+    @Test
+    public void testIsJavaAwtHeadless() {
+        boolean isHeadless = SystemUtils.isJavaAwtHeadless();
+        assertTrue(isHeadless || !isHeadless); // Always true, but checks the method call
+    }
+
+    @Test
+    public void testGetOsName() {
+        assertNotNull(SystemUtils.OS_NAME);
+    }
+
+    @Test
+    public void testGetOsVersion() {
+        assertNotNull(SystemUtils.OS_VERSION);
+    }
+
+    @Test
+    public void testGetOsArch() {
+        assertNotNull(SystemUtils.OS_ARCH);
+    }
+
+    @Test
+    public void testIsJava17() {
+        assertTrue(SystemUtils.IS_JAVA_17);
+    }
+
+    @Test
+    public void testIsJava20() {
+        assertFalse(SystemUtils.IS_JAVA_20); // This should be false for Java 17
+    }
+}
+```

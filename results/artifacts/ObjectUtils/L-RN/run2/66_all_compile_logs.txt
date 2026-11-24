@@ -1,0 +1,156 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[441,59] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[449,75] no suitable method found for median(java.util.Comparator<T>)
+    method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+      (inferred type does not conform to equality constraint(s)
+        inferred: T
+        equality constraints(s): T)
+    method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.Comparable<? super T>
+        lower bounds: java.util.Comparator<T>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[441,59] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[449,75] no suitable method found for median(java.util.Comparator<T>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+[ERROR]       (inferred type does not conform to equality constraint(s)
+[ERROR]         inferred: T
+[ERROR]         equality constraints(s): T)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.Comparable<? super T>
+[ERROR]         lower bounds: java.util.Comparator<T>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[540,31] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[570,59] cannot find symbol
+  symbol:   class Supplier
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[540,31] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[570,59] cannot find symbol
+[ERROR]   symbol:   class Supplier
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[538,31] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[538,31] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[589,40] no suitable method found for compare(<nulltype>,<nulltype>,java.util.Comparator<java.lang.Integer>)
+    method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T,boolean) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; java.util.Comparator<java.lang.Integer> cannot be converted to boolean))
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[590,35] no suitable method found for compare(int,<nulltype>,java.util.Comparator<java.lang.Integer>)
+    method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T,boolean) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; java.util.Comparator<java.lang.Integer> cannot be converted to boolean))
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[591,35] no suitable method found for compare(<nulltype>,int,java.util.Comparator<java.lang.Integer>)
+    method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T,boolean) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; java.util.Comparator<java.lang.Integer> cannot be converted to boolean))
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[601,13] cannot find symbol
+  symbol:   class Supplier
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[602,13] cannot find symbol
+  symbol:   class Supplier
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[589,40] no suitable method found for compare(<nulltype>,<nulltype>,java.util.Comparator<java.lang.Integer>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T,boolean) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; java.util.Comparator<java.lang.Integer> cannot be converted to boolean))
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[590,35] no suitable method found for compare(int,<nulltype>,java.util.Comparator<java.lang.Integer>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T,boolean) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; java.util.Comparator<java.lang.Integer> cannot be converted to boolean))
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[591,35] no suitable method found for compare(<nulltype>,int,java.util.Comparator<java.lang.Integer>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>compare(T,T,boolean) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; java.util.Comparator<java.lang.Integer> cannot be converted to boolean))
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[601,13] cannot find symbol
+[ERROR]   symbol:   class Supplier
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[602,13] cannot find symbol
+[ERROR]   symbol:   class Supplier
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

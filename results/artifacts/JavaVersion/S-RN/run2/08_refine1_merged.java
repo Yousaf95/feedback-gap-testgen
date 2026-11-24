@@ -1,0 +1,42 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class JavaVersion_GenTest {
+
+    
+    
+    
+    @Test
+    public void testToStringMethod() {
+        assertEquals("0.9", JavaVersion.JAVA_0_9.toString());
+        assertEquals("21", JavaVersion.JAVA_21.toString());
+        assertTrue(JavaVersion.JAVA_RECENT.toString().length() > 0);
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testAtLeastMethod() {
+            assertTrue(JavaVersion.JAVA_17.atLeast(JavaVersion.JAVA_15));
+            assertFalse(JavaVersion.JAVA_15.atLeast(JavaVersion.JAVA_17));
+            assertTrue(JavaVersion.JAVA_RECENT.atLeast(JavaVersion.JAVA_20));
+        }
+
+    @Test
+        public void testAtMostMethod() {
+            assertTrue(JavaVersion.JAVA_15.atMost(JavaVersion.JAVA_17));
+            assertFalse(JavaVersion.JAVA_17.atMost(JavaVersion.JAVA_15));
+            assertTrue(JavaVersion.JAVA_20.atMost(JavaVersion.JAVA_RECENT));
+        }
+
+    @Test
+        public void testMaxVersion() {
+            assertEquals(21.0f, JavaVersion.maxVersion());
+        }
+
+    @Test
+        public void testDeprecatedJava1_9() {
+            assertThrows(IllegalArgumentException.class, () -> JavaVersion.valueOf("JAVA_1_9"));
+        }
+}

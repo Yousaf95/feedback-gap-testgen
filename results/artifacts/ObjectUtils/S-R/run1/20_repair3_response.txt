@@ -1,0 +1,331 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.of;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class ObjectUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideAllNotNullValues")
+    public void testAllNotNull(Object... values) {
+        assertTrue(ObjectUtils.allNotNull(values));
+    }
+
+    private static Stream<Arguments> provideAllNotNullValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 2, 3},
+            {"a", "b", "c"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAnyNullValues")
+    public void testAnyNotNull(Object... values) {
+        assertTrue(ObjectUtils.anyNotNull(values));
+    }
+
+    private static Stream<Arguments> provideAnyNullValues() {
+        return Arrays.stream(new Object[][]{
+            {1, null, 3},
+            {"a", null, "c"},
+            {new HashMap<>(), null}
+        });
+    }
+
+    @Test
+    public void testClone() throws CloneFailedException {
+        Integer original = 42;
+        Integer cloned = ObjectUtils.clone(original);
+        assertEquals(original, cloned);
+    }
+
+    @Test
+    public void testCloneIfPossible() throws CloneFailedException {
+        Integer original = 42;
+        Integer cloned = ObjectUtils.cloneIfPossible(original);
+        assertEquals(original, cloned);
+
+        String str = "test";
+        String clonedStr = ObjectUtils.cloneIfPossible(str);
+        assertEquals(str, clonedStr);
+    }
+
+    @Test
+    public void testCompare() {
+        assertEquals(0, ObjectUtils.compare(1, 1));
+        assertTrue(ObjectUtils.compare(2, 1) > 0);
+        assertTrue(ObjectUtils.compare(1, 2) < 0);
+
+        String str1 = "a";
+        String str2 = "b";
+        assertTrue(ObjectUtils.compare(str1, str2) < 0);
+        assertTrue(ObjectUtils.compare(str2, str1) > 0);
+    }
+
+    @Test
+    public void testCompareWithNullGreater() {
+        assertEquals(1, ObjectUtils.compare(null, 1, true));
+        assertEquals(-1, ObjectUtils.compare(1, null, true));
+
+        String str = "a";
+        assertTrue(ObjectUtils.compare(str, null, true) > 0);
+        assertTrue(ObjectUtils.compare(null, str, true) < 0);
+    }
+
+    @Test
+    public void testDefaultIfNull() {
+        Integer defaultValue = 42;
+        assertEquals(defaultValue, ObjectUtils.defaultIfNull(null, defaultValue));
+        assertEquals(1, ObjectUtils.defaultIfNull(1, defaultValue));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideEqualsValues")
+    public void testEquals(Object object1, Object object2) {
+        assertTrue(ObjectUtils.equals(object1, object2));
+    }
+
+    private static Stream<Arguments> provideEqualsValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 1},
+            {"a", "a"},
+            {new HashMap<>(), new HashMap<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFirstNonNullValues")
+    public void testFirstNonNull(Object... values) {
+        assertEquals(2, ObjectUtils.firstNonNull(values));
+    }
+
+    private static Stream<Arguments> provideFirstNonNullValues() {
+        return Arrays.stream(new Object[][]{
+            {null, 2, null},
+            {"", "a", ""},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetClassValues")
+    public void testGetClass(Object object) {
+        assertEquals(object.getClass(), ObjectUtils.getClass(object));
+    }
+
+    private static Stream<Arguments> provideGetClassValues() {
+        return Arrays.stream(new Object[][]{
+            {1, Integer.class},
+            {"a", String.class},
+            {new HashMap<>(), HashMap.class}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetFirstNonNullValues")
+    public void testGetFirstNonNull(Supplier<Object>... suppliers) {
+        assertEquals(2, ObjectUtils.getFirstNonNull(suppliers));
+    }
+
+    private static Stream<Arguments> provideGetFirstNonNullValues() {
+        return Arrays.stream(new Object[][]{
+            {of(() -> null), of(() -> 2), of(() -> null)},
+            {of(() -> ""), of(() -> "a"), of(() -> "")},
+            {of(() -> new HashMap<>()), of(() -> new ArrayList<>())}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetIfNullValues")
+    public void testGetIfNull(Object object, Supplier<Object> defaultSupplier) {
+        assertEquals(object, ObjectUtils.getIfNull(object, defaultSupplier));
+    }
+
+    private static Stream<Arguments> provideGetIfNullValues() {
+        return Arrays.stream(new Object[][]{
+            {null, of(() -> 2)},
+            {"", of(() -> "a")},
+            {new HashMap<>(), of(() -> new ArrayList<>())}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideHashCodeValues")
+    public void testHashCode(Object object) {
+        assertEquals(Objects.hashCode(object), ObjectUtils.hashCode(object));
+    }
+
+    private static Stream<Arguments> provideHashCodeValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 1},
+            {"a", "a"},
+            {new HashMap<>(), new HashMap<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIdentityToStringValues")
+    public void testIdentityToString(Object object) {
+        assertNotNull(ObjectUtils.identityToString(object));
+    }
+
+    private static Stream<Arguments> provideIdentityToStringValues() {
+        return Arrays.stream(new Object[][]{
+            {1},
+            {"a"},
+            {new HashMap<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsArrayValues")
+    public void testIsArray(Object object) {
+        assertTrue(ObjectUtils.isArray(object));
+    }
+
+    private static Stream<Arguments> provideIsArrayValues() {
+        return Arrays.stream(new Object[][]{
+            {new int[]{1, 2, 3}},
+            {"a".toCharArray()},
+            {new HashMap<Integer, String>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsEmptyValues")
+    public void testIsEmpty(Object object) {
+        assertTrue(ObjectUtils.isEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsEmptyValues() {
+        return Arrays.stream(new Object[][]{
+            {null},
+            {"", "a"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsNotEmptyValues")
+    public void testIsNotEmpty(Object object) {
+        assertTrue(ObjectUtils.isNotEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsNotEmptyValues() {
+        return Arrays.stream(new Object[][]{
+            {1},
+            {"a"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMaxValues")
+    public void testMax(Object... values) {
+        assertEquals(ObjectUtils.max(values), Arrays.stream(values).max().orElse(null));
+    }
+
+    private static Stream<Arguments> provideMaxValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 2, 3},
+            {"a", "b", "c"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMedianValues")
+    public void testMedian(Object... items) {
+        assertEquals(ObjectUtils.median(items), Arrays.stream(items).sorted().skip((items.length - 1) / 2).findFirst().orElse(null));
+    }
+
+    private static Stream<Arguments> provideMedianValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 2, 3},
+            {"a", "b", "c"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMinValues")
+    public void testMin(Object... values) {
+        assertEquals(ObjectUtils.min(values), Arrays.stream(values).min().orElse(null));
+    }
+
+    private static Stream<Arguments> provideMinValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 2, 3},
+            {"a", "b", "c"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideModeValues")
+    public void testMode(Object... items) {
+        assertEquals(ObjectUtils.mode(items), Arrays.stream(items).collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+                .max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null));
+    }
+
+    private static Stream<Arguments> provideModeValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 2, 3},
+            {"a", "b", "c"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNotEqualValues")
+    public void testNotEqual(Object object1, Object object2) {
+        assertTrue(ObjectUtils.notEqual(object1, object2));
+    }
+
+    private static Stream<Arguments> provideNotEqualValues() {
+        return Arrays.stream(new Object[][]{
+            {1, 2},
+            {"a", "b"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRequireNonEmptyValues")
+    public void testRequireNonEmpty(Object obj) {
+        assertEquals(obj, ObjectUtils.requireNonEmpty(obj));
+    }
+
+    private static Stream<Arguments> provideRequireNonEmptyValues() {
+        return Arrays.stream(new Object[][]{
+            {1},
+            {"a"},
+            {new HashMap<>(), new ArrayList<>()}
+        });
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideToStringValues")
+    public void testToString(Object obj) {
+        assertNotNull(ObjectUtils.toString(obj));
+    }
+
+    private static Stream<Arguments> provideToStringValues() {
+        return Arrays.stream(new Object[][]{
+            {1},
+            {"a"},
+            {new HashMap<>()}
+        });
+    }
+}
+```

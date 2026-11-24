@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[201,36] isISO3166CountryCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[206,36] isISO3166CountryCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[211,36] isISO639LanguageCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[216,36] isISO639LanguageCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[226,36] isNumericAreaCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[231,36] isNumericAreaCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[201,36] isISO3166CountryCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[206,36] isISO3166CountryCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[211,36] isISO639LanguageCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[216,36] isISO639LanguageCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[226,36] isNumericAreaCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/LocaleUtils_GenTest.java:[231,36] isNumericAreaCode(java.lang.String) has private access in org.apache.commons.lang3.LocaleUtils
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

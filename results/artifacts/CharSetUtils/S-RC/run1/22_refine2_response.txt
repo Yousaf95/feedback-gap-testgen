@@ -1,0 +1,105 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.CharSetUtils.*;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testCount_withMatchingChars() {
+        assertEquals(2, count("abcde", "ae"));
+    }
+
+    @Test
+    public void testDelete_withMatchingChars() {
+        assertEquals("bcd", delete("abcde", "ae"));
+    }
+
+    @Test
+    public void testKeep_withMatchingChars() {
+        assertEquals("ace", keep("abcde", "ae"));
+    }
+
+    @Test
+    public void testSqueeze_withMatchingChars() {
+        assertEquals("abcde", squeeze("aaabbbcccddd", "abcd"));
+    }
+
+    @Test
+    public void testContainsAny_withSingleCharSet_matching() {
+        assertTrue(containsAny("abcde", "e"));
+    }
+
+    @Test
+    public void testCount_withEmptyCharSet() {
+        assertEquals(0, count("abcde", ""));
+    }
+
+    @Test
+    public void testDelete_withEmptyCharSet() {
+        assertEquals("abcde", delete("abcde", ""));
+    }
+
+    @Test
+    public void testKeep_withEmptyCharSet() {
+        assertEquals("", keep("abcde", ""));
+    }
+
+    @Test
+    public void testSqueeze_withEmptyCharSet() {
+        assertEquals("abcde", squeeze("abcde", ""));
+    }
+
+    @Test
+    public void testContainsAny_withNullCharSet() {
+        assertFalse(containsAny("abcde", (String[]) null));
+    }
+
+    @Test
+    public void testCount_withNullCharSet() {
+        assertEquals(0, count("abcde", (String[]) null));
+    }
+
+    @Test
+    public void testDelete_withNullCharSet() {
+        assertEquals("abcde", delete("abcde", (String[]) null));
+    }
+
+    @Test
+    public void testKeep_withNullCharSet() {
+        assertEquals("", keep("abcde", (String[]) null));
+    }
+
+    @Test
+    public void testSqueeze_withNullCharSet() {
+        assertEquals("abcde", squeeze("abcde", (String[]) null));
+    }
+
+    @Test
+    public void testContainsAny_withNoMatchingChars_2() {
+        assertFalse(containsAny("abcde", "fgh"));
+    }
+
+    @Test
+    public void testCount_withNoMatchingChars_2() {
+        assertEquals(0, count("abcde", "fgh"));
+    }
+
+    @Test
+    public void testDelete_withNoMatchingChars_2() {
+        assertEquals("abcde", delete("abcde", "fgh"));
+    }
+
+    @Test
+    public void testKeep_withNoMatchingChars_2() {
+        assertEquals("abcde", keep("abcde", "fgh"));
+    }
+
+    @Test
+    public void testSqueeze_withNoMatchingChars_2() {
+        assertEquals("abcde", squeeze("abcde", "fgh"));
+    }
+}
+```

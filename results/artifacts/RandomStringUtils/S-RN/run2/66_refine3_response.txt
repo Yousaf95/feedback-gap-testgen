@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Random;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithCustomRangeAndChars() {
+        String result = RandomStringUtils.random(10, 65, 90, false, false, "ABCD".toCharArray());
+        assertTrue(result.matches("[ABCD]{10}"));
+    }
+
+    @Test
+    public void testRandomWithLargeCountAndNonAlphabeticChars() {
+        String result = RandomStringUtils.random(1000, '!', '~');
+        assertTrue(result.chars().allMatch(c -> c >= '!' && c <= '~'));
+    }
+
+    @Test
+    public void testRandomWithSmallCountAndMixedCaseLetters() {
+        String result = RandomStringUtils.random(5, true, false);
+        assertTrue(result.matches("[a-zA-Z]{5}"));
+    }
+
+    @Test
+    public void testRandomWithNonAlphabeticCharsAndCustomRange() {
+        String result = RandomStringUtils.random(10, 32, 47, false, false);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 47));
+    }
+
+    @Test
+    public void testRandomWithNonAlphanumericCharsAndCustomRange() {
+        String result = RandomStringUtils.random(10, 58, 64, false, false);
+        assertTrue(result.chars().allMatch(c -> c >= 58 && c <= 64));
+    }
+
+    @Test
+    public void testRandomWithNonPrintableCharsAndCustomRange() {
+        String result = RandomStringUtils.random(10, 0, 31, false, false);
+        assertTrue(result.chars().allMatch(c -> c >= 0 && c <= 31));
+    }
+
+    @Test
+    public void testRandomWithLargeCountAndNonPrintableChars() {
+        String result = RandomStringUtils.random(1000, 0, 7);
+        assertTrue(result.chars().allMatch(c -> c >= 0 && c <= 7));
+    }
+
+    @Test
+    public void testRandomWithSmallCountAndCustomRange() {
+        String result = RandomStringUtils.random(5, 48, 57);
+        assertTrue(result.matches("[0-9]{5}"));
+    }
+
+    @Test
+    public void testRandomWithNonAlphabeticCharsAndLargeRange() {
+        String result = RandomStringUtils.random(10, '!', '~');
+        assertTrue(result.chars().allMatch(c -> c >= '!' && c <= '~'));
+    }
+
+    @Test
+    public void testRandomWithCustomRangeAndNonAlphabeticChars() {
+        String result = RandomStringUtils.random(10, 32, 47);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 47));
+    }
+}
+```

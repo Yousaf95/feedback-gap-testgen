@@ -1,0 +1,214 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.builder.DiffBuilder;
+import org.apache.commons.lang3.builder.DiffResult;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.junit.jupiter.api.Test;
+
+public class DiffBuilder_GenTest {
+
+    @Test
+    public void testAppendBooleanWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", true, false));
+    }
+
+    @Test
+    public void testAppendBooleanArrayWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new boolean[]{true}, new boolean[]{false}));
+    }
+
+    @Test
+    public void testAppendByteWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", (byte) 1, (byte) 2));
+    }
+
+    @Test
+    public void testAppendByteArrayWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new byte[]{1}, new byte[]{2}));
+    }
+
+    @Test
+    public void testAppendCharWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", 'a', 'b'));
+    }
+
+    @Test
+    public void testAppendCharArrayWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new char[]{'a'}, new char[]{'b'}));
+    }
+
+    @Test
+    public void testAppendDiffResultWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new DiffResult<>(new Object(), new Object(), Arrays.asList(), ToStringStyle.DEFAULT_STYLE)));
+    }
+
+    @Test
+    public void testAppendDoubleWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", 1.0, 2.0));
+    }
+
+    @Test
+    public void testAppendDoubleArrayWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new double[]{1.0}, new double[]{2.0}));
+    }
+
+    @Test
+    public void testAppendFloatWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", 1.0f, 2.0f));
+    }
+
+    @Test
+    public void testAppendFloatArrayWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new float[]{1.0f}, new float[]{2.0f}));
+    }
+
+    @Test
+    public void testAppendObjectWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new Object(), new Object()));
+    }
+
+    @Test
+    public void testAppendObjectArrayWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new Object[]{new Object()}, new Object[]{new Object()}));
+    }
+
+    @Test
+    public void testAppendShortWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", (short) 1, (short) 2));
+    }
+
+    @Test
+    public void testAppendShortArrayWithTriviallyEqualObjects() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("fieldName", new short[]{1}, new short[]{2}));
+    }
+
+    @Test
+    public void testAppendBooleanWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, true, false));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendBooleanArrayWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new boolean[]{true}, new boolean[]{false}));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendByteWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, (byte) 1, (byte) 2));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendByteArrayWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new byte[]{1}, new byte[]{2}));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendCharWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, 'a', 'b'));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendCharArrayWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new char[]{'a'}, new char[]{'b'}));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendDiffResultWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new DiffResult<>(new Object(), new Object(), Arrays.asList(), ToStringStyle.DEFAULT_STYLE)));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendDoubleWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, 1.0, 2.0));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendDoubleArrayWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new double[]{1.0}, new double[]{2.0}));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendFloatWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, 1.0f, 2.0f));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendFloatArrayWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new float[]{1.0f}, new float[]{2.0f}));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendObjectWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new Object(), new Object()));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendObjectArrayWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new Object[]{new Object()}, new Object[]{new Object()}));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendShortWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, (short) 1, (short) 2));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+
+    @Test
+    public void testAppendShortArrayWithNullFieldName() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> diffBuilder.append(null, new short[]{1}, new short[]{2}));
+        assertTrue(exception.getMessage().contains("fieldName"));
+    }
+}
+```

@@ -1,0 +1,89 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppendWithComparatorNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append("a", "b", null));
+    }
+
+    @Test
+    public void testAppendWithComparatorCustomComparator() {
+        final Comparator<String> customComparator = (s1, s2) -> s2.compareTo(s1);
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("apple", "banana", customComparator);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendWithArrayComparatorNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(new String[]{"a"}, new String[]{"b"}, null));
+    }
+
+    @Test
+    public void testAppendWithArrayComparatorCustomComparator() {
+        final Comparator<String> customComparator = (s1, s2) -> s2.compareTo(s1);
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new String[]{"apple", "banana"}, new String[]{"banana", "apple"}, customComparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testReflectionCompareWithReflectUpToClassSameObject() {
+        final TestClass obj = new TestClass(1, 2);
+        final int result = CompareToBuilder.reflectionCompare(obj, obj, false, TestClass.class.getSuperclass());
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testReflectionCompareWithReflectUpToClassDifferentObjects() {
+        final TestClass obj1 = new TestClass(1, 2);
+        final TestClass obj2 = new TestClass(3, 4);
+        final int result = CompareToBuilder.reflectionCompare(obj1, obj2, false, TestClass.class.getSuperclass());
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testReflectionCompareWithReflectUpToClassNullObjects() {
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(null, null, false, TestClass.class.getSuperclass()));
+    }
+
+    @Test
+    public void testAppendSuperNonZeroComparison() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2);
+        builder.appendSuper(-5);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    private static class TestClass extends SuperTestClass {
+        private int field1;
+        private int field2;
+
+        public TestClass(int field1, int field2) {
+            this.field1 = field1;
+            this.field2 = field2;
+        }
+    }
+
+    private static class SuperTestClass {
+        private int superField;
+
+        public SuperTestClass() {
+            this.superField = 0;
+        }
+    }
+}
+```

@@ -1,0 +1,81 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[10,26] package org.mockito does not exist
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[166,81] no suitable method found for randomNumeric(int,int,int)
+    method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int,int) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[171,67] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[178,69] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[185,62] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[192,62] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[199,62] incompatible types: char[] cannot be converted to int
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[10,26] package org.mockito does not exist
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[166,81] no suitable method found for randomNumeric(int,int,int)
+[ERROR]     method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[171,67] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[178,69] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[185,62] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[192,62] incompatible types: char[] cannot be converted to int
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[199,62] incompatible types: char[] cannot be converted to int
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[165,81] no suitable method found for randomNumeric(int,int,int)
+    method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int,int) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[165,81] no suitable method found for randomNumeric(int,int,int)
+[ERROR]     method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[164,46] no suitable method found for randomNumeric(int,int,int)
+    method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int,int) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/RandomStringUtils_GenTest.java:[164,46] no suitable method found for randomNumeric(int,int,int)
+[ERROR]     method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.RandomStringUtils.randomNumeric(int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

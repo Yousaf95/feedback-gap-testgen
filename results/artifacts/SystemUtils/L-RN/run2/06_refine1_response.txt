@@ -1,0 +1,78 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.io.File;
+
+class SystemUtils_GenTest {
+
+    @Test
+    void testGetEnvironmentVariable_withDefault() {
+        String result = SystemUtils.getEnvironmentVariable("NON_EXISTENT_VARIABLE", "default");
+        assertEquals("default", result);
+    }
+
+    @Test
+    void testIsJavaAwtHeadless_whenTrue() {
+        System.setProperty(SystemUtils.JAVA_AWT_HEADLESS, "true");
+        assertTrue(SystemUtils.isJavaAwtHeadless());
+    }
+
+    @Test
+    void testGetHostName_onWindows() {
+        assumeTrue(SystemUtils.IS_OS_WINDOWS);
+        String result = SystemUtils.getHostName();
+        assertNotNull(result); // Assuming the environment variable COMPUTERNAME is set
+    }
+
+    @Test
+    void testGetHostName_onUnixLike() {
+        assumeFalse(SystemUtils.IS_OS_WINDOWS);
+        String result = SystemUtils.getHostName();
+        assertNotNull(result); // Assuming the environment variable HOSTNAME is set
+    }
+
+    @Test
+    void testIsJavaVersionAtLeast_withLowerVersion() {
+        assertTrue(SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_1_8));
+    }
+
+    @Test
+    void testIsJavaVersionAtMost_withHigherVersion() {
+        assertTrue(SystemUtils.isJavaVersionAtMost(JavaVersion.JAVA_RECENT));
+    }
+
+    @Test
+    void testGetUserDir_asFile() {
+        File userDir = SystemUtils.getUserDir();
+        assertNotNull(userDir);
+        assertTrue(userDir.exists());
+        assertTrue(userDir.isDirectory());
+    }
+
+    @Test
+    void testGetUserHome_asFile() {
+        File userHome = SystemUtils.getUserHome();
+        assertNotNull(userHome);
+        assertTrue(userHome.exists());
+        assertTrue(userHome.isDirectory());
+    }
+
+    @Test
+    void testGetJavaHome_asFile() {
+        File javaHome = SystemUtils.getJavaHome();
+        assertNotNull(javaHome);
+        assertTrue(javaHome.exists());
+        assertTrue(javaHome.isDirectory());
+    }
+
+    @Test
+    void testGetJavaIoTmpDir_asFile() {
+        File tmpDir = SystemUtils.getJavaIoTmpDir();
+        assertNotNull(tmpDir);
+        assertTrue(tmpDir.exists());
+        assertTrue(tmpDir.isDirectory());
+    }
+}
+```

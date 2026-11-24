@@ -1,0 +1,147 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testReflectionCompareWithReflectUpToClass() {
+        class TestClass extends BaseClass {
+            int value = 10;
+        }
+        class BaseClass {
+            int baseValue = 5;
+        }
+
+        TestClass obj1 = new TestClass();
+        TestClass obj2 = new TestClass();
+
+        // Compare only fields in BaseClass
+        int result = CompareToBuilder.reflectionCompare(obj1, obj2, false, BaseClass.class);
+        assertEquals(0, result);
+
+        obj1.baseValue = 6;
+        result = CompareToBuilder.reflectionCompare(obj1, obj2, false, BaseClass.class);
+        assertEquals(1, result);
+
+        obj2.baseValue = 7;
+        result = CompareToBuilder.reflectionCompare(obj1, obj2, false, BaseClass.class);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testReflectionCompareWithComparator() {
+        class TestClass {
+            String value = "test";
+        }
+
+        TestClass obj1 = new TestClass();
+        TestClass obj2 = new TestClass();
+
+        // Use a custom comparator that reverses the order
+        Comparator<String> reverseComparator = (s1, s2) -> s2.compareTo(s1);
+
+        int result = CompareToBuilder.reflectionCompare(obj1, obj2, false, null, "value");
+        assertEquals(0, result);
+
+        obj1.value = "a";
+        obj2.value = "b";
+
+        result = CompareToBuilder.reflectionCompare(obj1, obj2, reverseComparator);
+        assertEquals(1, result); // 'b' should come before 'a' with the custom comparator
+
+        result = CompareToBuilder.reflectionCompare(obj2, obj1, reverseComparator);
+        assertEquals(-1, result); // 'a' should come after 'b' with the custom comparator
+    }
+
+    @Test
+    public void testAppendSuper() {
+        class BaseClass implements Comparable<BaseClass> {
+            int baseValue = 5;
+
+            @Override
+            public int compareTo(BaseClass other) {
+                return Integer.compare(this.baseValue, other.baseValue);
+            }
+        }
+
+        class TestClass extends BaseClass {
+            int value = 10;
+        }
+
+        TestClass obj1 = new TestClass();
+        TestClass obj2 = new TestClass();
+
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.appendSuper(obj1.compareTo(obj2));
+        assertEquals(0, builder.toComparison());
+
+        obj1.baseValue = 6;
+        builder = new CompareToBuilder();
+        builder.appendSuper(obj1.compareTo(obj2));
+        assertEquals(1, builder.toComparison());
+
+        obj2.baseValue = 7;
+        builder = new CompareToBuilder();
+        builder.appendSuper(obj1.compareTo(obj2));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendWithComparator() {
+        class TestClass {
+            String value = "test";
+        }
+
+        TestClass obj1 = new TestClass();
+        TestClass obj2 = new TestClass();
+
+        // Use a custom comparator that reverses the order
+        Comparator<String> reverseComparator = (s1, s2) -> s2.compareTo(s1);
+
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(obj1.value, obj2.value, reverseComparator);
+        assertEquals(0, builder.toComparison());
+
+        obj1.value = "a";
+        obj2.value = "b";
+
+        builder = new CompareToBuilder();
+        builder.append(obj1.value, obj2.value, reverseComparator);
+        assertEquals(1, builder.toComparison()); // 'b' should come before 'a' with the custom comparator
+
+        builder = new CompareToBuilder();
+        builder.append(obj2.value, obj1.value, reverseComparator);
+        assertEquals(-1, builder.toComparison()); // 'a' should come after 'b' with the custom comparator
+    }
+
+    @Test
+    public void testAppendArrayWithComparator() {
+        class TestClass {
+            String[] values = {"a", "b"};
+        }
+
+        TestClass obj1 = new TestClass();
+        TestClass obj2 = new TestClass();
+
+        // Use a custom comparator that reverses the order of strings
+        Comparator<String> reverseComparator = (s1, s2) -> s2.compareTo(s1);
+
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(obj1.values, obj2.values, reverseComparator);
+        assertEquals(0, builder.toComparison());
+
+        obj1.values = new String[]{"b", "a"};
+        builder = new CompareToBuilder();
+        builder.append(obj1.values, obj2.values, reverseComparator);
+        assertEquals(-1, builder.toComparison()); // ["b", "a"] should come after ["a", "b"] with the custom comparator
+
+        obj2.values = new String[]{"c", "d"};
+        builder = new CompareToBuilder();
+        builder.append(obj1.values, obj2.values, reverseComparator);
+        assertEquals(1, builder.toComparison()); // ["b", "a"] should come before ["c", "d"] with the custom comparator
+    }
+}
+```

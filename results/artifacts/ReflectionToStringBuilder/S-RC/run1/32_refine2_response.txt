@@ -1,0 +1,245 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithDefaultStyle() {
+        Object obj = new Object();
+        String result = ReflectionToStringBuilder.toString(obj);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testToStringExcludeFields() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringExclude(obj, "field2");
+        assertTrue(result.contains("field1=value1"));
+        assertFalse(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringIncludeFields() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringInclude(obj, "field2");
+        assertFalse(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertFalse(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringWithNullObject() {
+        String result = ReflectionToStringBuilder.toString(null);
+        assertEquals(ReflectionToStringStyle.DEFAULT_STYLE.getNullText(), result);
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithNullCollection() {
+        Collection<String> collection = null;
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(collection);
+        assertNotNull(result);
+        assertTrue(result.length == 0);
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithEmptyCollection() {
+        Collection<String> collection = Arrays.asList();
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(collection);
+        assertNotNull(result);
+        assertTrue(result.length == 0);
+    }
+
+    @Test
+    public void testToNoNullStringArrayWithNonEmptyCollection() {
+        Collection<String> collection = Arrays.asList("value1", null, "value2");
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(collection);
+        assertNotNull(result);
+        assertEquals(2, result.length);
+        assertTrue(Arrays.asList(result).contains("value1"));
+        assertTrue(Arrays.asList(result).contains("value2"));
+    }
+
+    @Test
+    public void testToStringExcludeFieldsWithNullFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringExclude(obj, (String[]) null);
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringIncludeFieldsWithNullFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringInclude(obj, (String[]) null);
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringExcludeFieldsWithEmptyFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringExclude(obj, new String[0]);
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringIncludeFieldsWithEmptyFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringInclude(obj, new String[0]);
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringExcludeFieldsWithNonEmptyFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringExclude(obj, "field1", "field3");
+        assertFalse(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertFalse(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringIncludeFieldsWithNonEmptyFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringInclude(obj, "field1", "field3");
+        assertTrue(result.contains("field1=value1"));
+        assertFalse(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testSetExcludeNullValuesWithTrue() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setExcludeNullValues(true);
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertFalse(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testSetExcludeNullValuesWithFalse() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setExcludeNullValues(false);
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testSetAppendTransientsWithTrue() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setAppendTransients(true);
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testSetAppendTransientsWithFalse() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setAppendTransients(false);
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testSetAppendStaticsWithTrue() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setAppendStatics(true);
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testSetAppendStaticsWithFalse() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setAppendStatics(false);
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testGetUpToClassWithNull() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setUpToClass(null);
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testGetUpToClassWithNonNull() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setUpToClass(MyClass.class.getSuperclass());
+        String result = builder.toString();
+        assertTrue(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertFalse(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testReflectionAppendArrayWithNullArray() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        String result = builder.reflectionAppendArray(null).toString();
+        assertEquals(ReflectionToStringStyle.DEFAULT_STYLE.getNullText(), result);
+    }
+
+    @Test
+    public void testValidateWithIntersectingFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj)
+                .setExcludeFieldNames("field1")
+                .setIncludeFieldNames("field1");
+        assertThrows(IllegalStateException.class, () -> builder.validate());
+    }
+
+    @Test
+    public void testValidateWithNonIntersectingFieldNames() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj)
+                .setExcludeFieldNames("field1")
+                .setIncludeFieldNames("field2");
+        assertDoesNotThrow(() -> builder.validate());
+    }
+
+    private static class MyClass {
+        public String field1;
+        public String field2;
+        public String field3;
+
+        public MyClass(String field1, String field2, String field3) {
+            this.field1 = field1;
+            this.field2 = field2;
+            this.field3 = field3;
+        }
+    }
+}
+```

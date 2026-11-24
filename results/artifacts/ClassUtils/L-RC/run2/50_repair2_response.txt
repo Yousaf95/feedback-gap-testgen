@@ -1,0 +1,93 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Set;
+
+class ClassUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testGetAbbreviatedName_withNullClass_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getAbbreviatedName((Class<?>) null, 10));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClassAndValueIfNull_2() {
+        String valueIfNull = "default";
+        assertEquals(valueIfNull, ClassUtils.getCanonicalName((Class<?>) null, valueIfNull));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullObjectAndValueIfNull_2() {
+        String valueIfNull = "default";
+        assertEquals(valueIfNull, ClassUtils.getCanonicalName((Object) null, valueIfNull));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClassAndValueIfNull_3() {
+        String valueIfNull = "default";
+        assertEquals(valueIfNull, ClassUtils.getPackageCanonicalName((Class<?>) null, valueIfNull));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullObjectAndValueIfNull_2() {
+        String valueIfNull = "default";
+        assertEquals(valueIfNull, ClassUtils.getPackageCanonicalName((Object) null, valueIfNull));
+    }
+
+    @Test
+    void testGetPackageName_withNullClassAndValueIfNull_2() {
+        String valueIfNull = "default";
+        assertEquals(valueIfNull, ClassUtils.getPackageName((Class<?>) null, valueIfNull));
+    }
+
+    @Test
+    void testGetPackageName_withNullObjectAndValueIfNull_3() {
+        String valueIfNull = "default";
+        assertEquals(valueIfNull, ClassUtils.getPackageName((Object) null, valueIfNull));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassNameBranches_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetComponentType_withNonNullArrayClass_2_2() {
+        assertNotNull(ClassUtils.getComponentType(new String[0].getClass()));
+    }
+
+    @Test
+    void testGetCanonicalName_privateMethodWithNull() {
+        assertNull(ClassUtils.getCanonicalName((String) null));
+    }
+
+    @Test
+    void testGetCanonicalName_privateMethodWithEmptyArrayClass() {
+        assertEquals("[Z", ClassUtils.getCanonicalName(boolean[].class));
+    }
+
+    @Test
+    void testGetAllInterfaces_withClassHavingNoInterfaces_2() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(String.class);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    void testGetPublicMethod_throwsExceptionWhenMethodNotFoundOnSuperclass() {
+        assertThrows(NoSuchMethodException.class, () -> 
+            ClassUtils.getPublicMethod(String.class, "nonExistentMethod"));
+    }
+
+    @Test
+    void testGetClass_withInvalidClassNameThrowsException_2() {
+        assertThrows(ClassNotFoundException.class, () -> 
+            ClassUtils.getClass("invalid.ClassName"));
+    }
+}
+```

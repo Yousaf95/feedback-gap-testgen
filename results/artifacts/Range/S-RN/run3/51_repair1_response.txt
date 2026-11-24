@@ -1,0 +1,164 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.api.Test;
+import java.util.function.Function;
+
+class Range_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideRanges")
+    public void testIsEmptyRange(Range<Integer> range) {
+        assertTrue(range.isEmpty());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRangesWithComparator")
+    public void testIsEmptyRangeWithComparator(Range<Integer> range) {
+        assertTrue(range.isEmpty());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNonEmptyRanges")
+    public void testIsNotEmptyRange(Range<Integer> range) {
+        assertFalse(range.isEmpty());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNonEmptyRangesWithComparator")
+    public void testIsNotEmptyRangeWithComparator(Range<Integer> range) {
+        assertFalse(range.isEmpty());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRanges")
+    public void testIntersectionWithEmptyRangeThrowsException(Range<Integer> range) {
+        assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(Range.is(6)));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNonOverlappingRanges")
+    public void testIsOverlappedByNonOverlappingRange(Range<Integer> range) {
+        assertFalse(range.isOverlappedBy(Range.between(6, 10)));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNonOverlappingRangesWithComparator")
+    public void testIsNotOverlappedByNonOverlappingRangeWithComparator(Range<Integer> range) {
+        assertFalse(range.isOverlappedBy(Range.between(6, 10, Comparator.reverseOrder())));
+    }
+
+    @ParameterizedTest
+    @MethodSource("providePartiallyOverlappingRanges")
+    public void testIsOverlappedByPartiallyOverlappingRange(Range<Integer> range) {
+        assertTrue(range.isOverlappedBy(Range.between(3, 7)));
+    }
+
+    @ParameterizedTest
+    @MethodSource("providePartiallyOverlappingRangesWithComparator")
+    public void testIsNotOverlappedByPartiallyOverlappingRangeWithComparator(Range<Integer> range) {
+        assertTrue(range.isOverlappedBy(Range.between(7, 3, Comparator.reverseOrder())));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFullyOverlappingRanges")
+    public void testIsOverlappedByFullyOverlappingRange(Range<Integer> range) {
+        assertTrue(range.isOverlappedBy(Range.between(2, 4)));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFullyOverlappingRangesWithComparator")
+    public void testIsNotOverlappedByFullyOverlappingRangeWithComparator(Range<Integer> range) {
+        assertTrue(range.isOverlappedBy(Range.between(4, 2, Comparator.reverseOrder())));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNonOverlappingRangesWithNullComparator")
+    public void testIsNotOverlappedByNonOverlappingRangeWithNullComparator(Range<Integer> range) {
+        assertFalse(range.isOverlappedBy(Range.between(6, 10, null)));
+    }
+
+    private static Stream<Arguments> provideRanges() {
+        return Stream.of(
+            arguments(Range.between(5, 4)),
+            arguments(Range.between(5, 4, Comparator.reverseOrder()))
+        );
+    }
+
+    private static Stream<Arguments> provideRangesWithComparator() {
+        return Stream.of(
+            arguments(Range.between(5, 4, Comparator.reverseOrder())),
+            arguments(Range.between(5, 4))
+        );
+    }
+
+    private static Stream<Arguments> provideNonEmptyRanges() {
+        return Stream.of(
+            arguments(Range.between(1, 3)),
+            arguments(Range.between(3, 1, Comparator.reverseOrder()))
+        );
+    }
+
+    private static Stream<Arguments> provideNonEmptyRangesWithComparator() {
+        return Stream.of(
+            arguments(Range.between(3, 1, Comparator.reverseOrder())),
+            arguments(Range.between(1, 3))
+        );
+    }
+
+    private static Stream<Arguments> provideNonOverlappingRanges() {
+        return Stream.of(
+            arguments(Range.between(1, 5)),
+            arguments(Range.between(6, 10))
+        );
+    }
+
+    private static Stream<Arguments> provideNonOverlappingRangesWithComparator() {
+        return Stream.of(
+            arguments(Range.between(6, 10, Comparator.reverseOrder())),
+            arguments(Range.between(1, 5, Comparator.reverseOrder()))
+        );
+    }
+
+    private static Stream<Arguments> providePartiallyOverlappingRanges() {
+        return Stream.of(
+            arguments(Range.between(1, 5)),
+            arguments(Range.between(3, 7))
+        );
+    }
+
+    private static Stream<Arguments> providePartiallyOverlappingRangesWithComparator() {
+        return Stream.of(
+            arguments(Range.between(7, 3, Comparator.reverseOrder())),
+            arguments(Range.between(1, 5, Comparator.reverseOrder()))
+        );
+    }
+
+    private static Stream<Arguments> provideFullyOverlappingRanges() {
+        return Stream.of(
+            arguments(Range.between(1, 5)),
+            arguments(Range.between(2, 4))
+        );
+    }
+
+    private static Stream<Arguments> provideFullyOverlappingRangesWithComparator() {
+        return Stream.of(
+            arguments(Range.between(4, 2, Comparator.reverseOrder())),
+            arguments(Range.between(1, 5, Comparator.reverseOrder()))
+        );
+    }
+
+    private static Stream<Arguments> provideNonOverlappingRangesWithNullComparator() {
+        return Stream.of(
+            arguments(Range.between(1, 5)),
+            arguments(Range.between(6, 10))
+        );
+    }
+}
+```

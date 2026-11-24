@@ -1,0 +1,84 @@
+```java
+package org.apache.commons.lang3.time;
+
+import org.junit.jupiter.api.Test;
+import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.time.DurationFormatUtils.*;
+
+public class DurationFormatUtils_GenTest {
+
+    @Test
+    public void testTokenEquals() {
+        Token token1 = new Token("test", false, -1);
+        Token token2 = new Token("test", false, -1);
+        Token token3 = new Token("test", true, 0);
+
+        assertTrue(token1.equals(token2));
+        assertFalse(token1.equals(token3));
+    }
+
+    @Test
+    public void testTokenHashCode() {
+        Token token1 = new Token("test", false, -1);
+        Token token2 = new Token("test", false, -1);
+        Token token3 = new Token("test", true, 0);
+
+        assertEquals(token1.hashCode(), token2.hashCode());
+        assertNotEquals(token1.hashCode(), token3.hashCode());
+    }
+
+    @Test
+    public void testTokenToString() {
+        Token token = new Token("test", false, -1);
+        assertEquals("testtesttest", token.toString());
+    }
+
+    @Test
+    public void testFormatDurationISO() {
+        String result = formatDurationISO(1000 * 60 * 60 * 24); // 1 day in milliseconds
+        assertTrue(result.contains("P1D"));
+    }
+
+    @Test
+    public void testFormatPeriodThrowsExceptionForStartAfterEnd() {
+        assertThrows(IllegalArgumentException.class, () -> formatPeriod(2000, 1000, "d' days 'H' hours 'm' minutes 's' seconds'", true, TimeZone.getDefault()));
+    }
+
+    @Test
+    public void testFormatDurationWithOptionalToken() {
+        Token token = new Token("test", true, 0);
+        assertTrue(token.equals(new Token("test", true, 0)));
+    }
+
+    @Test
+    public void testFormatDurationWithNumberValue() {
+        Token token = new Token(123, false, -1);
+        assertTrue(token.equals(new Token(123, false, -1)));
+    }
+
+    @Test
+    public void testFormatDurationWithStringBuilderValue() {
+        Token token = new Token(new StringBuilder("test"), false, -1);
+        assertTrue(token.equals(new Token(new StringBuilder("test"), false, -1)));
+    }
+
+    @Test
+    public void testFormatDurationWithOptionalIndex() {
+        Token token = new Token("test", true, 5);
+        assertEquals(5, token.optionalIndex);
+    }
+
+    @Test
+    public void testFormatDurationWithCount() {
+        Token token = new Token("test", false, -1);
+        assertEquals(1, token.count);
+    }
+
+    @Test
+    public void testFormatDurationWithNullValueThrowsException() {
+        assertThrows(NullPointerException.class, () -> new Token(null, false, -1));
+    }
+}
+```

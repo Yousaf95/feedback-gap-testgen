@@ -1,0 +1,81 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[251,53] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[268,35] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[275,35] cannot find symbol
+  symbol:   class FileNotFoundException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[277,59] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[282,39] cannot find symbol
+  symbol:   class SQLException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[296,39] cannot find symbol
+  symbol:   class SQLException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[323,13] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[323,48] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[330,13] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[330,48] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[331,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[331,86] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[251,53] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[268,35] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[275,35] cannot find symbol
+[ERROR]   symbol:   class FileNotFoundException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[277,59] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[282,39] cannot find symbol
+[ERROR]   symbol:   class SQLException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[296,39] cannot find symbol
+[ERROR]   symbol:   class SQLException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[323,13] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[323,48] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[330,13] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[330,48] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[331,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[331,86] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

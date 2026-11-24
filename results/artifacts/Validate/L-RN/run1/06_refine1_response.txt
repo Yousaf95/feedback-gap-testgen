@@ -1,0 +1,170 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class Validate_GenTest {
+
+    @Test
+    void testExclusiveBetweenComparableNormal() {
+        Validate.exclusiveBetween(1, 3, 2);
+    }
+
+    @Test
+    void testExclusiveBetweenComparableLowerBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(1, 3, 1);
+        });
+        assertEquals("The value 1 is not in the specified exclusive range of 1 to 3", exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenComparableUpperBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(1, 3, 3);
+        });
+        assertEquals("The value 3 is not in the specified exclusive range of 1 to 3", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenComparableNormal() {
+        Validate.inclusiveBetween(1, 3, 2);
+    }
+
+    @Test
+    void testInclusiveBetweenComparableLowerBound() {
+        Validate.inclusiveBetween(1, 3, 1);
+    }
+
+    @Test
+    void testInclusiveBetweenComparableUpperBound() {
+        Validate.inclusiveBetween(1, 3, 3);
+    }
+
+    @Test
+    void testNoNullElementsArrayWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(new String[]{"a", null, "b"}, "Element at index %d is null");
+        });
+        assertEquals("Element at index 1 is null", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsCollectionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(Arrays.asList("a", null, "b"), "Element at index %d is null");
+        });
+        assertEquals("Element at index 1 is null", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyArrayWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new String[]{}, "The array must not be empty");
+        });
+        assertEquals("The array must not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCollectionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(Collections.emptyList(), "The collection must not be empty");
+        });
+        assertEquals("The collection must not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyMapWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new HashMap<>(), "The map must not be empty");
+        });
+        assertEquals("The map must not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCharSequenceWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty("", "The char sequence must not be empty");
+        });
+        assertEquals("The char sequence must not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotBlankWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("   ", "The char sequence must not be blank");
+        });
+        assertEquals("The char sequence must not be blank", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexArrayNormal() {
+        Validate.validIndex(new String[]{"a", "b", "c"}, 1);
+    }
+
+    @Test
+    void testValidIndexArrayLowerBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex(new String[]{"a", "b", "c"}, -1);
+        });
+        assertEquals("The validated array index is invalid: -1", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexArrayUpperBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex(new String[]{"a", "b", "c"}, 3);
+        });
+        assertEquals("The validated array index is invalid: 3", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCollectionNormal() {
+        Validate.validIndex(Arrays.asList("a", "b", "c"), 1);
+    }
+
+    @Test
+    void testValidIndexCollectionLowerBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex(Arrays.asList("a", "b", "c"), -1);
+        });
+        assertEquals("The validated collection index is invalid: -1", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCollectionUpperBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex(Arrays.asList("a", "b", "c"), 3);
+        });
+        assertEquals("The validated collection index is invalid: 3", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCharSequenceNormal() {
+        Validate.validIndex("abc", 1);
+    }
+
+    @Test
+    void testValidIndexCharSequenceLowerBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex("abc", -1);
+        });
+        assertEquals("The validated character sequence index is invalid: -1", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCharSequenceUpperBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.validIndex("abc", 3);
+        });
+        assertEquals("The validated character sequence index is invalid: 3", exception.getMessage());
+    }
+}
+```

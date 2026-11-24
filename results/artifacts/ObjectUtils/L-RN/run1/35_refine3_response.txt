@@ -1,0 +1,57 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Optional;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testMedian_withComparatorAndEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median(Comparator.naturalOrder()));
+    }
+
+    @Test
+    void testMedian_withSingleItemUsingComparator() {
+        assertEquals(Integer.valueOf(5), ObjectUtils.median(Comparator.naturalOrder(), 5));
+    }
+
+    @Test
+    void testMode_withEmptyArray() {
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    void testMode_withNoDuplicatesInArray() {
+        assertNull(ObjectUtils.mode(1, 2, 3, 4, 5));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyCollection() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyMap() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(new HashMap<>()));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyOptional() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(Optional.empty()));
+    }
+
+    @Test
+    void testToString_withSupplierReturningNullString() {
+        assertEquals("default", ObjectUtils.toString((Object) null, () -> "default"));
+    }
+
+    @Test
+    void testToString_withSupplierReturningNonNullString() {
+        assertEquals("value", ObjectUtils.toString("value", () -> "default"));
+    }
+}
+```

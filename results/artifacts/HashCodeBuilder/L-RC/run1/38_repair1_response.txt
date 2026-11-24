@@ -1,0 +1,131 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testIsRegistered_ObjectNotRegistered_ReturnsFalse_2() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    void testReflectionHashCode_DefaultValues_2() {
+        int result = HashCodeBuilder.reflectionHashCode(17, 37, new StringBuilder(), false, null);
+        assertEquals(4690583, result); // Expected hash code based on default values and fields of StringBuilder
+    }
+
+    @Test
+    void testReflectionHashCode_WithTransients_2() {
+        int result = HashCodeBuilder.reflectionHashCode(17, 37, new StringBuilder(), true, null);
+        assertEquals(4690583, result); // Expected hash code based on default values and fields of StringBuilder including transient
+    }
+
+    @Test
+    void testReflectionHashCode_WithExcludeFields_2() {
+        int result = HashCodeBuilder.reflectionHashCode(new StringBuilder(), "transientField");
+        assertEquals(4690583, result); // Expected hash code based on default values and fields of StringBuilder excluding transientField
+    }
+
+    @Test
+    void testAppendBoolean_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(true);
+        assertEquals(61, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendBooleanArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new boolean[]{true, false});
+        assertEquals(3594708, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendDouble_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(1.0);
+        assertEquals(37, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendDoubleArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new double[]{1.0, 2.0});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new int[]{1, 2, 3});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_LongArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new long[]{1L, 2L});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_IntArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new int[]{1, 2});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_ShortArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new short[]{1, 2});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_CharArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new char[]{'a', 'b'});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_ByteArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new byte[]{1, 2});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_DoubleArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new double[]{1.0, 2.0});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_FloatArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new float[]{1.0f, 2.0f});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_BooleanArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new boolean[]{true, false});
+        assertEquals(3594708, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_ObjectArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new Object[]{"a", "b"});
+        assertEquals(4690583, builder.toHashCode()); // Expected hash code based on array values
+    }
+}
+```

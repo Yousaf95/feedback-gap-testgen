@@ -1,0 +1,101 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetRootCauseWithNoCause() {
+        Throwable throwable = new RuntimeException("No cause");
+        assertNull(ExceptionUtils.getRootCause(throwable));
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNoCause() {
+        Throwable throwable = new RuntimeException("No cause");
+        assertEquals("RuntimeException: No cause", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    public void testGetRootCauseStackTraceWithNoCause_2() {
+        Throwable throwable = new RuntimeException("No cause");
+        String[] stackTrace = ExceptionUtils.getRootCauseStackTrace(throwable);
+        assertTrue(stackTrace.length > 0);
+        assertTrue(stackTrace[0].contains("RuntimeException: No cause"));
+    }
+
+    @Test
+    public void testGetStackFramesWithNullThrowable() {
+        assertNull(ExceptionUtils.getStackFrames((Throwable) null));
+    }
+
+    @Test
+    public void testGetStackTraceWithNullThrowable_2() {
+        assertEquals("", ExceptionUtils.getStackTrace((Throwable) null));
+    }
+
+    @Test
+    public void testGetThrowableCountWithNoCause_2() {
+        Throwable throwable = new RuntimeException("No cause");
+        assertEquals(1, ExceptionUtils.getThrowableCount(throwable));
+    }
+
+    @Test
+    public void testGetThrowableListWithNoCause_2() {
+        Throwable throwable = new RuntimeException("No cause");
+        List<Throwable> throwables = ExceptionUtils.getThrowableList(throwable);
+        assertEquals(1, throwables.size());
+        assertEquals(throwable, throwables.get(0));
+    }
+
+    @Test
+    public void testGetThrowablesWithNoCause_2() {
+        Throwable throwable = new RuntimeException("No cause");
+        Throwable[] throwables = ExceptionUtils.getThrowables(throwable);
+        assertEquals(1, throwables.length);
+        assertEquals(throwable, throwables[0]);
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNullThrowable_2() {
+        int index = ExceptionUtils.indexOfThrowable((Throwable) null, RuntimeException.class);
+        assertEquals(-1, index);
+    }
+
+    @Test
+    public void testIsCheckedWithUncheckedException_2() {
+        assertFalse(ExceptionUtils.isChecked(new RuntimeException()));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable_2() {
+        ExceptionUtils.printRootCauseStackTrace((Throwable) null, System.err);
+    }
+
+    @Test
+    public void testRemoveCommonFramesWithNoCommonFrames_2() {
+        List<String> causeFrames = new ArrayList<>();
+        causeFrames.add("Frame1");
+        causeFrames.add("Frame2");
+
+        List<String> wrapperFrames = new ArrayList<>();
+        wrapperFrames.add("WrapperFrame1");
+        wrapperFrames.add("Frame1");
+        wrapperFrames.add("Frame2");
+
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(2, causeFrames.size());
+    }
+
+    @Test
+    public void testStreamWithNoCause_2() {
+        Throwable throwable = new RuntimeException("No cause");
+        Stream<Throwable> stream = ExceptionUtils.stream(throwable);
+        assertTrue(stream.count() == 1);
+    }
+}
+```

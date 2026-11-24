@@ -1,0 +1,101 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    void testRandomWithStartGreaterThanEndThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 10, 5, true, false));
+    }
+
+    @Test
+    void testRandomAlphabeticWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphabetic(-1));
+    }
+
+    @Test
+    void testRandomAlphanumericWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphanumeric(-1));
+    }
+
+    @Test
+    void testRandomAsciiWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAscii(-1));
+    }
+
+    @Test
+    void testRandomGraphWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomGraph(-1));
+    }
+
+    @Test
+    void testRandomNumericWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomNumeric(-1));
+    }
+
+    @Test
+    void testRandomPrintWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomPrint(-1));
+    }
+
+    @Test
+    void testRandomAlphabeticWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomAlphabetic(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomAlphanumericWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomAlphanumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomAsciiWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomAscii(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomGraphWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomGraph(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomNumericWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomNumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomPrintWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomPrint(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndGeneratesStringUsingThoseChars() {
+        char[] chars = {'a', 'b', 'c'};
+        String result = RandomStringUtils.random(5, 0, 3, false, false, chars);
+        assertTrue(result.chars().allMatch(c -> Arrays.binarySearch(chars, (char) c) >= 0));
+    }
+
+    @Test
+    void testRandomWithStartEndAndLettersTrueGeneratesOnlyLetters() {
+        String result = RandomStringUtils.random(5, 'A', 'Z' + 1, true, false);
+        assertTrue(result.chars().allMatch(Character::isLetter));
+    }
+
+    @Test
+    void testRandomWithStartEndAndNumbersTrueGeneratesOnlyDigits() {
+        String result = RandomStringUtils.random(5, '0', '9' + 1, false, true);
+        assertTrue(result.chars().allMatch(Character::isDigit));
+    }
+}
+```

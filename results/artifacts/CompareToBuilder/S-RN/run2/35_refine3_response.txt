@@ -1,0 +1,422 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppend_Comparator_nullArrays() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((Comparator<Object>) null, (Object[]) null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_nullLeftArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((Comparator<Object>) null, new Object[0]);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_nullRightArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, null);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_differentLengthArrays() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(1, 2).toArray());
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_sameLengthDifferentElementsArrays() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return ((Integer) o1).compareTo((Integer) o2);
+            }
+        }, Arrays.asList(1, 3), Arrays.asList(1, 2));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_sameLengthSameElementsArrays() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return ((Integer) o1).compareTo((Integer) o2);
+            }
+        }, Arrays.asList(1, 2), Arrays.asList(1, 2));
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElements() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(1, null), Arrays.asList(1, 2));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArrays() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(1, null), Arrays.asList(null, 2));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLength() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(1, null), Arrays.asList(null, 1));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(1, null), Arrays.asList(null, 1));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqual() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrder() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Comparator<Object>() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        }, Arrays.asList(null, 1), Arrays.asList(1, null));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_withNullElementsInBothArraysAndSameLengthAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAndEqualAndDifferentOrderAnd

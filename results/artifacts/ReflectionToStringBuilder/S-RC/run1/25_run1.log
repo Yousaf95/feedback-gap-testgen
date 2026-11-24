@@ -1,0 +1,78 @@
+[ERROR] Tests run: 27, Failures: 3, Errors: 2, Skipped: 0, Time elapsed: 0.217 s <<< FAILURE! -- in org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetExcludeFieldNamesWithNull -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "[Ljava.lang.String;.clone()" because "this.excludeFieldNames" is null
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder.getExcludeFieldNames(ReflectionToStringBuilder.java:676)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetExcludeFieldNamesWithNull(ReflectionToStringBuilder_GenTest.java:138)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithNonEmptyArray -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <a,b> but was: <java.lang.Object@b405137[{a,b}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithNonEmptyArray(ReflectionToStringBuilder_GenTest.java:208)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithDefaultStyleAndNullObject -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <<null>>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithDefaultStyleAndNullObject(ReflectionToStringBuilder_GenTest.java:73)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetIncludeFieldNamesWithNull -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "[Ljava.lang.String;.clone()" because "this.includeFieldNames" is null
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder.getIncludeFieldNames(ReflectionToStringBuilder.java:686)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testGetIncludeFieldNamesWithNull(ReflectionToStringBuilder_GenTest.java:145)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithEmptyArray -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <> but was: <java.lang.Object@42534350[{}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithEmptyArray(ReflectionToStringBuilder_GenTest.java:201)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithEmptyArray:201 expected: <> but was: <java.lang.Object@42534350[{}]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testReflectionAppendArrayWithNonEmptyArray:208 expected: <a,b> but was: <java.lang.Object@b405137[{a,b}]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testToStringWithDefaultStyleAndNullObject:73 expected: <null> but was: <<null>>
+[ERROR] Errors: 
+[ERROR]   ReflectionToStringBuilder_GenTest.testGetExcludeFieldNamesWithNull:138 » NullPointer Cannot invoke "[Ljava.lang.String;.clone()" because "this.excludeFieldNames" is null
+[ERROR]   ReflectionToStringBuilder_GenTest.testGetIncludeFieldNamesWithNull:145 » NullPointer Cannot invoke "[Ljava.lang.String;.clone()" because "this.includeFieldNames" is null
+[ERROR] Tests run: 27, Failures: 3, Errors: 2, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w9/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

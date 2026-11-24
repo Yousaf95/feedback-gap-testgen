@@ -1,0 +1,109 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class Validate_GenTest {
+
+    @Test
+    void testNotNaNWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notNaN(Double.NaN, "Value is NaN"));
+        assertEquals("Value is NaN", exception.getMessage());
+    }
+
+    @Test
+    void testNotNullNormalCase() {
+        Object obj = new Object();
+        assertSame(obj, Validate.notNull(obj));
+    }
+
+    @Test
+    void testNotNullWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notNull(null, "Object is null"));
+        assertEquals("Object is null", exception.getMessage());
+    }
+
+    @Test
+    void testValidStateNormalCase() {
+        Validate.validState(true);
+    }
+
+    @Test
+    void testValidStateWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validState(false, "Invalid state"));
+        assertEquals("Invalid state", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsArrayEmptyCase() {
+        String[] array = {};
+        assertSame(array, Validate.noNullElements(array));
+    }
+
+    @Test
+    void testNoNullElementsCollectionEmptyCase() {
+        Collection<String> collection = Collections.emptyList();
+        assertSame(collection, Validate.noNullElements(collection));
+    }
+
+    @Test
+    void testNotEmptyArrayWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(new String[0], "Array is empty"));
+        assertEquals("Array is empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCollectionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(Collections.emptyList(), "Collection is empty"));
+        assertEquals("Collection is empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyMapWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(new HashMap<>(), "Map is empty"));
+        assertEquals("Map is empty", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexArrayNormalCase() {
+        String[] array = {"a", "b"};
+        assertSame(array, Validate.validIndex(array, 1));
+    }
+
+    @Test
+    void testValidIndexCollectionNormalCase() {
+        Collection<String> collection = Arrays.asList("a", "b");
+        assertSame(collection, Validate.validIndex(collection, 1));
+    }
+
+    @Test
+    void testValidIndexCharSequenceNormalCase() {
+        String str = "ab";
+        assertEquals(str, Validate.validIndex(str, 1));
+    }
+
+    @Test
+    void testValidIndexArrayWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(new String[0], 0, "Invalid index"));
+        assertEquals("Invalid index", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCollectionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(Collections.emptyList(), 0, "Invalid index"));
+        assertEquals("Invalid index", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCharSequenceWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Validate.validIndex("", 0, "Invalid index"));
+        assertEquals("Invalid index", exception.getMessage());
+    }
+}
+```

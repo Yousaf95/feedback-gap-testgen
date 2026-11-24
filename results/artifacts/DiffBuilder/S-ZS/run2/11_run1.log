@@ -1,0 +1,25 @@
+[ERROR] Tests run: 19, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.189 s <<< FAILURE! -- in org.apache.commons.lang3.builder.DiffBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendEmptyArray -- Time elapsed: 0.009 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: array contents differ at index [0], expected: <java.lang.Object@273f46a> but was: <java.lang.Object@4bfc1048>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertArrayEquals.failArraysNotEqual(AssertArrayEquals.java:440)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayElementsEqual(AssertArrayEquals.java:389)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:346)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:159)
+	at org.junit.jupiter.api.AssertArrayEquals.assertArrayEquals(AssertArrayEquals.java:155)
+	at org.junit.jupiter.api.Assertions.assertArrayEquals(Assertions.java:1456)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendEmptyArray(DiffBuilder_GenTest.java:230)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   DiffBuilder_GenTest.testAppendEmptyArray:230 array contents differ at index [0], expected: <java.lang.Object@273f46a> but was: <java.lang.Object@4bfc1048>
+[ERROR] Tests run: 19, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w4/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

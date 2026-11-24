@@ -1,0 +1,65 @@
+[ERROR] Tests run: 89, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.263 s <<< FAILURE! -- in org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] org.apache.commons.lang3.ObjectUtils_GenTest.testRequireNonEmpty_withNullObject -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.testRequireNonEmpty_withNullObject(ObjectUtils_GenTest.java:469)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: object
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1278)
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1250)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.lambda$testRequireNonEmpty_withNullObject$15(ObjectUtils_GenTest.java:469)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.ObjectUtils_GenTest.testMedian_withComparatorAndNullElement -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.NullPointerException> but was: <java.lang.IllegalArgumentException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.testMedian_withComparatorAndNullElement(ObjectUtils_GenTest.java:454)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalArgumentException: The validated array contains null element at index: 1
+	at org.apache.commons.lang3.Validate.noNullElements(Validate.java:733)
+	at org.apache.commons.lang3.Validate.noNullElements(Validate.java:702)
+	at org.apache.commons.lang3.ObjectUtils.median(ObjectUtils.java:1110)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.lambda$testMedian_withComparatorAndNullElement$14(ObjectUtils_GenTest.java:454)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.ObjectUtils_GenTest.testHashCodeMulti_withNonNullValues -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <3557800> but was: <110252441>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.testHashCodeMulti_withNonNullValues(ObjectUtils_GenTest.java:437)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ObjectUtils_GenTest.testHashCodeMulti_withNonNullValues:437 expected: <3557800> but was: <110252441>
+[ERROR]   ObjectUtils_GenTest.testMedian_withComparatorAndNullElement:454 Unexpected exception type thrown, expected: <java.lang.NullPointerException> but was: <java.lang.IllegalArgumentException>
+[ERROR]   ObjectUtils_GenTest.testRequireNonEmpty_withNullObject:469 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+[ERROR] Tests run: 89, Failures: 3, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w6/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

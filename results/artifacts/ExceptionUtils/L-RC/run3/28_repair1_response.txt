@@ -1,0 +1,75 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.lang.reflect.Method;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    void testAsRuntimeException_2() {
+        IllegalArgumentException exception = new IllegalArgumentException("test");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(exception));
+        assertEquals("test", runtimeException.getMessage());
+    }
+
+    @Test
+    void testGetRootCause_withEmptyList() {
+        assertNull(ExceptionUtils.getRootCause(null));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withRootCause() {
+        Throwable rootCause = new IllegalArgumentException("root cause");
+        Throwable throwable = new RuntimeException(rootCause);
+        assertEquals("IllegalArgumentException: root cause", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    void testGetStackFrames_withNullThrowable_2() {
+        assertArrayEquals(new String[0], ExceptionUtils.getStackFrames((Throwable) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintStream() {
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(new RuntimeException(), (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintWriter() {
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(new RuntimeException(), (PrintWriter) null));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withEmptyLists() {
+        List<String> causeFrames = new ArrayList<>();
+        List<String> wrapperFrames = new ArrayList<>();
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+        assertTrue(wrapperFrames.isEmpty());
+    }
+
+    @Test
+    void testRethrow() {
+        IllegalArgumentException exception = new IllegalArgumentException("test");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.rethrow(exception));
+        assertEquals("test", runtimeException.getMessage());
+    }
+
+    @Test
+    void testIsChecked_withNullThrowable_2() {
+        assertFalse(ExceptionUtils.isChecked(null));
+    }
+
+    @Test
+    void testIsUnchecked_withNullThrowable_2() {
+        assertFalse(ExceptionUtils.isUnchecked(null));
+    }
+}
+```

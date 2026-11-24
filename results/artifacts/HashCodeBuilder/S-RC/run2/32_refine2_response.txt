@@ -1,0 +1,81 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testIsRegisteredWithNullValue() {
+        assertFalse(HashCodeBuilder.isRegistered(null));
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue() {
+        Object value = new Object();
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(null, null, builder, false, null);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithRegisteredObject() {
+        Object value = new Object();
+        register(value);
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(value, value.getClass(), builder, false, null);
+        assertEquals(17 * 37, builder.toHashCode());
+        unregister(value);
+    }
+
+    @Test
+    public void testRegisterWithNullValue() {
+        register(null);
+        assertNull(getRegistry());
+    }
+
+    @Test
+    public void testRegisterWithNonRegisteredValue() {
+        Object value = new Object();
+        register(value);
+        assertNotNull(getRegistry());
+        assertTrue(getRegistry().contains(new IDKey(value)));
+        unregister(value);
+    }
+
+    @Test
+    public void testUnregisterWithNullValue() {
+        unregister(null);
+        assertNull(getRegistry());
+    }
+
+    @Test
+    public void testUnregisterWithNonRegisteredValue() {
+        Object value = new Object();
+        unregister(value);
+        assertNull(getRegistry());
+    }
+
+    @Test
+    public void testHashCodeBuilderWithOddInitialNumberAndMultiplier() {
+        HashCodeBuilder builder = new HashCodeBuilder(17, 37);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testHashCodeBuilderWithEvenInitialNumberThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(2, 37));
+    }
+
+    @Test
+    public void testHashCodeBuilderWithEvenMultiplierThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(17, 4));
+    }
+}
+```

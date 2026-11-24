@@ -1,0 +1,81 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    void testFitElementWithinRangeUsingComparator() {
+        Comparator<Integer> reverseOrder = Comparator.reverseOrder();
+        Range<Integer> range = Range.between(1, 5, reverseOrder);
+        assertEquals(Integer.valueOf(3), range.fit(3));
+        assertEquals(Integer.valueOf(1), range.fit(6));
+        assertEquals(Integer.valueOf(5), range.fit(0));
+    }
+
+    @Test
+    void testIsNaturalOrderingWithNullComparator() {
+        Range<Integer> range = Range.between(1, 5, null);
+        assertTrue(range.isNaturalOrdering());
+    }
+
+    @Test
+    void testElementCompareToUsingCustomComparator() {
+        Comparator<String> lengthComparator = Comparator.comparingInt(String::length);
+        Range<String> range = Range.of("short", "longer", lengthComparator);
+        assertEquals(1, range.elementCompareTo("tiny"));
+        assertEquals(-1, range.elementCompareTo("extraLongest"));
+        assertEquals(0, range.elementCompareTo("medium"));
+    }
+
+    @Test
+    void testIsStartedByElementAboveRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isStartedBy(6));
+    }
+
+    @Test
+    void testIsEndedByElementBelowRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isEndedBy(0));
+    }
+
+    @Test
+    void testIntersectionWithIdenticalRangesUsingNaturalOrdering() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        assertEquals(range1, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIsOverlappedByNonOverlappingRange() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertFalse(range1.isOverlappedBy(range2));
+    }
+
+    @Test
+    void testIntersectionWithThrowsExceptionForNonOverlappingRangesUsingCustomComparator() {
+        Comparator<Integer> reverseOrder = Comparator.reverseOrder();
+        Range<Integer> range1 = Range.between(1, 5, reverseOrder);
+        Range<Integer> range2 = Range.between(6, 10, reverseOrder);
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testFitElementBelowRangeUsingCustomComparator() {
+        Comparator<Integer> reverseOrder = Comparator.reverseOrder();
+        Range<Integer> range = Range.between(5, 1, reverseOrder);
+        assertEquals(Integer.valueOf(5), range.fit(6));
+    }
+
+    @Test
+    void testFitElementAboveRangeUsingCustomComparator() {
+        Comparator<Integer> reverseOrder = Comparator.reverseOrder();
+        Range<Integer> range = Range.between(5, 1, reverseOrder);
+        assertEquals(Integer.valueOf(1), range.fit(0));
+    }
+}
+```

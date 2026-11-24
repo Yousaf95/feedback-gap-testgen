@@ -1,0 +1,132 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+public class DiffBuilder_GenTest {
+
+    @Test
+    public void testAppendEmptyStringArray() {
+        String[] lhs = {};
+        String[] rhs = {};
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("array", lhs, rhs).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNonEmptyStringArray() {
+        String[] lhs = {"a", "b"};
+        String[] rhs = {"c", "d"};
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("array", lhs, rhs).build();
+        assertEquals(2, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNullStringArray() {
+        String[] lhs = null;
+        String[] rhs = {"a"};
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("array", lhs, rhs).build();
+        assertEquals(1, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNullLeftStringArray() {
+        String[] lhs = null;
+        String[] rhs = null;
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("array", lhs, rhs).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNullRightStringArray() {
+        String[] lhs = {"a"};
+        String[] rhs = null;
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("array", lhs, rhs).build();
+        assertEquals(1, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendEmptyString() {
+        String lhs = "";
+        String rhs = "";
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("string", lhs, rhs).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNonEmptyString() {
+        String lhs = "abc";
+        String rhs = "def";
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("string", lhs, rhs).build();
+        assertEquals(1, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNullString() {
+        String lhs = null;
+        String rhs = "abc";
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("string", lhs, rhs).build();
+        assertEquals(1, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNullLeftString() {
+        String lhs = null;
+        String rhs = null;
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("string", lhs, rhs).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNullRightString() {
+        String lhs = "abc";
+        String rhs = null;
+        DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("string", lhs, rhs).build();
+        assertEquals(1, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendEmptyObject() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        DiffResult<Object> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("object", lhs, rhs).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNonEmptyObject() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        lhs.toString(); // Ensure toString is called to trigger the comparison
+        rhs.toString(); // Ensure toString is called to trigger the comparison
+        DiffResult<Object> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("object", lhs, rhs).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNullObject() {
+        Object lhs = null;
+        Object rhs = new Object();
+        DiffResult<Object> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("object", lhs, rhs).build();
+        assertEquals(1, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNullLeftObject() {
+        Object lhs = null;
+        Object rhs = null;
+        DiffResult<Object> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("object", lhs, rhs).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNullRightObject() {
+        Object lhs = new Object();
+        Object rhs = null;
+        DiffResult<Object> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("object", lhs, rhs).build();
+        assertEquals(1, result.getDiffs().size());
+    }
+}
+```

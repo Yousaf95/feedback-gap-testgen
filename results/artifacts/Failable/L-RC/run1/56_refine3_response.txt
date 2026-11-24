@@ -1,0 +1,91 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.IOException;
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testGetSupplierThrowsException_coverage() {
+        FailableSupplier<String, IOException> supplier = () -> { throw new IOException("test"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.get(supplier));
+        assertTrue(exception.getMessage().contains("test"));
+    }
+
+    @Test
+    public void testGetAsBooleanThrowsException_coverage() {
+        FailableBooleanSupplier<IOException> supplier = () -> { throw new IOException("test"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.getAsBoolean(supplier));
+        assertTrue(exception.getMessage().contains("test"));
+    }
+
+    @Test
+    public void testGetAsDoubleThrowsException_coverage() {
+        FailableDoubleSupplier<IOException> supplier = () -> { throw new IOException("test"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.getAsDouble(supplier));
+        assertTrue(exception.getMessage().contains("test"));
+    }
+
+    @Test
+    public void testGetAsIntThrowsException_coverage() {
+        FailableIntSupplier<IOException> supplier = () -> { throw new IOException("test"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.getAsInt(supplier));
+        assertTrue(exception.getMessage().contains("test"));
+    }
+
+    @Test
+    public void testGetAsLongThrowsException_coverage() {
+        FailableLongSupplier<IOException> supplier = () -> { throw new IOException("test"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.getAsLong(supplier));
+        assertTrue(exception.getMessage().contains("test"));
+    }
+
+    @Test
+    public void testGetAsShortThrowsException_coverage() {
+        FailableShortSupplier<IOException> supplier = () -> { throw new IOException("test"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.getAsShort(supplier));
+        assertTrue(exception.getMessage().contains("test"));
+    }
+
+    @Test
+    public void testRethrowUndeclaredThrowableException_coverage() {
+        Exception exception = assertThrows(UndeclaredThrowableException.class, () -> Failable.rethrow(new RuntimeException("test")));
+        assertTrue(exception.getCause().getMessage().contains("test"));
+    }
+
+    @Test
+    public void testRunRunnableThrowsException_coverage() {
+        FailableRunnable<IOException> runnable = () -> { throw new IOException("test"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.run(runnable));
+        assertTrue(exception.getMessage().contains("test"));
+    }
+
+    @Test
+    public void testTryWithResourcesErrorHandlerThrowsException_coverage() {
+        FailableRunnable<IOException> action = () -> { throw new IOException("action"); };
+        FailableConsumer<Throwable, IOException> errorHandler = th -> { throw new IOException("errorHandler"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(action, errorHandler));
+        assertTrue(exception.getMessage().contains("errorHandler"));
+    }
+
+    @Test
+    public void testTryWithResourcesResourceThrowsException_coverage() {
+        FailableRunnable<IOException> action = () -> { throw new IOException("action"); };
+        FailableRunnable<IOException> resource = () -> { throw new IOException("resource"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(action, resource));
+        assertTrue(exception.getMessage().contains("resource"));
+    }
+
+    @Test
+    public void testTryWithResourcesNoErrorHandlerResourceThrowsException_coverage() {
+        FailableRunnable<IOException> action = () -> { throw new IOException("action"); };
+        FailableRunnable<IOException> resource = () -> { throw new IOException("resource"); };
+        Exception exception = assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(action, resource));
+        assertTrue(exception.getMessage().contains("resource"));
+    }
+}
+```

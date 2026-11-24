@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N icect_conn
+#PBS -q shortCPUQ
+#PBS -l select=1:ncpus=1:mem=1gb
+#PBS -l walltime=00:05:00
+#PBS -j oe
+H=$(cat $HOME/ICECT/logs/ollama_host.txt)
+echo "from $(hostname) to $H"; nproc
+curl -s -m 10 http://$H:11434/api/version; echo " rc=$?"
+curl -s -m 10 -o /dev/null -w "maven:%{http_code}\n" https://repo.maven.apache.org/maven2/
+df -h ${TMPDIR:-/tmp} | tail -1; echo TMPDIR=$TMPDIR

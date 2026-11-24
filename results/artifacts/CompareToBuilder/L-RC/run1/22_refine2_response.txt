@@ -1,0 +1,142 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppendBooleanArrayDifferentLengthSecondShorter() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {true};
+        assertEquals(1, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendByteArrayFirstNull() {
+        byte[] lhs = null;
+        byte[] rhs = {10};
+        assertEquals(-1, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendCharArraySecondNull() {
+        char[] lhs = {'a'};
+        char[] rhs = null;
+        assertEquals(1, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArraySame() {
+        double[] lhs = {1.0, 2.0};
+        double[] rhs = {1.0, 2.0};
+        assertEquals(0, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArrayDifferentLengthFirstShorter() {
+        float[] lhs = {1.0f};
+        float[] rhs = {1.0f, 2.0f};
+        assertEquals(-1, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArraySecondNull() {
+        float[] lhs = {1.0f};
+        float[] rhs = null;
+        assertEquals(1, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleAlreadyCompared() {
+        double[] lhs = {1.0};
+        double[] rhs = {2.0};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendFloatAlreadyCompared() {
+        float[] lhs = {1.0f};
+        float[] rhs = {2.0f};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArrayAlreadyCompared() {
+        double[] lhs = {1.0};
+        double[] rhs = {2.0};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArrayAlreadyCompared() {
+        float[] lhs = {1.0f};
+        float[] rhs = {2.0f};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArrayDifferentLengthSecondShorter() {
+        double[] lhs = {1.0, 2.0};
+        double[] rhs = {1.0};
+        assertEquals(1, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArrayFirstNull() {
+        float[] lhs = null;
+        float[] rhs = {1.0f};
+        assertEquals(-1, new CompareToBuilder().append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleAlreadyComparedWithDifferentValues() {
+        double[] lhs = {2.0};
+        double[] rhs = {1.0};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendFloatAlreadyComparedWithDifferentValues() {
+        float[] lhs = {2.0f};
+        float[] rhs = {1.0f};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArrayAlreadyComparedWithDifferentValues() {
+        double[] lhs = {2.0};
+        double[] rhs = {1.0};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArrayAlreadyComparedWithDifferentValues() {
+        float[] lhs = {2.0f};
+        float[] rhs = {1.0f};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2); // Set comparison to -1
+        assertEquals(-1, builder.append(lhs, rhs).toComparison());
+    }
+}
+```

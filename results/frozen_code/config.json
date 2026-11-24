@@ -1,0 +1,38 @@
+{
+  "models": {
+    "S": {
+      "tag": "qwen2.5-coder:7b-instruct",
+      "role": "small local (~7B)",
+      "port": 11434
+    },
+    "L": {
+      "tag": "qwen2.5-coder:32b-instruct",
+      "role": "large local (32B), replaces the API model",
+      "port": 11435
+    }
+  },
+  "temperature": 0.2,
+  "max_tokens": 4096,
+  "num_ctx": 20480,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "K_comp": 3,
+  "K_cov": 3,
+  "branch_stop": 0.9,
+  "context_budget_tokens": 6000,
+  "max_uncovered_lines": 60,
+  "pit_threads": 2,
+  "pit_mutators": "DEFAULTS",
+  "junit_default_timeout": "10 s",
+  "configs": {
+    "S-ZS": "small, prune only",
+    "S-R": "small, repair",
+    "S-RC": "small, repair + coverage loop",
+    "L-ZS": "large, prune only",
+    "L-R": "large, repair",
+    "L-RC": "large, repair + coverage loop"
+  }
+}

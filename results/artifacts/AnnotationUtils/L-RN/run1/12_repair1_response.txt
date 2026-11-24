@@ -1,0 +1,68 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.AnnotationUtils.*;
+
+class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    private @interface TestAnnotation {
+        String value();
+        int number() default 42;
+    }
+
+    @Test
+    void testHashCode_sameAnnotations() throws Exception {
+        TestAnnotation ann1 = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        TestAnnotation ann2 = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        assertEquals(hashCode(ann1), hashCode(ann2));
+    }
+
+    @Test
+    void testHashCode_differentAnnotations() throws Exception {
+        TestAnnotation ann1 = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        TestAnnotation ann2 = TestAnnotation.class.getDeclaredMethod("number").getDeclaringAnnotation(TestAnnotation.class);
+        assertNotEquals(hashCode(ann1), hashCode(ann2));
+    }
+
+    @Test
+    void testToString_nonNullAnnotation() throws Exception {
+        TestAnnotation ann = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        assertEquals("@TestAnnotation(value=, number=42)", toString(ann));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_invalidType() {
+        assertFalse(isValidAnnotationMemberType(new Object().getClass()));
+    }
+
+    @Test
+    void testEquals_differentTypes() throws Exception {
+        TestAnnotation ann1 = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        Annotation otherAnn = Retention.class.getAnnotations()[0];
+        assertFalse(equals(ann1, otherAnn));
+    }
+
+    @Test
+    void testEquals_nullFirstAnnotation() throws Exception {
+        TestAnnotation ann2 = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        assertFalse(equals(null, ann2));
+    }
+
+    @Test
+    void testEquals_nullSecondAnnotation() throws Exception {
+        TestAnnotation ann1 = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        assertFalse(equals(ann1, null));
+    }
+
+    @Test
+    void testEquals_sameInstance() throws Exception {
+        TestAnnotation ann = TestAnnotation.class.getDeclaredMethod("value").getDeclaringAnnotation(TestAnnotation.class);
+        assertTrue(equals(ann, ann));
+    }
+}
+```

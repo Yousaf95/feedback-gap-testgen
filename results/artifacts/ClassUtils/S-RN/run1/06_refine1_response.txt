@@ -1,0 +1,107 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testGetPackageNameEmptyClass() {
+        assertEquals("", ClassUtils.getPackageName(new Object()));
+    }
+
+    @Test
+    public void testGetPackageNameNullInput() {
+        assertThrows(NullPointerException.class, () -> ClassUtils.getPackageName((String) null));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperBooleanArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(boolean[].class));
+    }
+
+    @Test
+    public void testIsPublicNonPublicClass() {
+        assertFalse(ClassUtils.isPublic(new Object(){}.getClass()));
+    }
+
+    @Test
+    public void testPrimitivesToWrappersEmptyInput() {
+        assertArrayEquals(new Class<?>[0], ClassUtils.primitivesToWrappers());
+    }
+
+    @Test
+    public void testToClassNullObject() {
+        assertNull(ClassUtils.toClass((Object) null));
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithNullElement() {
+        List<Class<?>> classes = Arrays.asList(String.class, null, Integer.class);
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertEquals(3, classNames.size());
+        assertNull(classNames.get(1));
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithInvalidClassName() {
+        List<String> classNames = Arrays.asList("java.lang.String", "com.example.NonExistentClass");
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertEquals(2, classes.size());
+        assertNotNull(classes.get(0));
+        assertNull(classes.get(1));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithNoInterfaces() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(String.class);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithNoSuperclasses() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(String.class);
+        assertTrue(superclasses.isEmpty());
+    }
+
+    @Test
+    public void testGetCanonicalNameNullObject() {
+        assertEquals("", ClassUtils.getCanonicalName((Object) null));
+    }
+
+    @Test
+    public void testGetShortClassNameEmptyClass() {
+        assertEquals("Object", ClassUtils.getShortClassName(new Object()));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperBooleanWrapper() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Boolean.class));
+    }
+
+    @Test
+    public void testPrimitivesToWrappersSingleElement() {
+        assertArrayEquals(new Class<?>[]{Integer.class}, ClassUtils.primitivesToWrappers(Integer.TYPE));
+    }
+
+    @Test
+    public void testToClassWithNullInput() {
+        assertNull(ClassUtils.toClass((Object[]) null));
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithEmptyList() {
+        List<Class<?>> classes = Collections.emptyList();
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertTrue(classNames.isEmpty());
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithEmptyList() {
+        List<String> classNames = Collections.emptyList();
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertTrue(classes.isEmpty());
+    }
+}
+```

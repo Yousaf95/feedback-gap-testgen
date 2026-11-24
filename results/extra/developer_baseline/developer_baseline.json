@@ -1,0 +1,412 @@
+[
+  {
+    "class": "AnnotationUtils",
+    "test_classes": [
+      "AnnotationUtilsTest"
+    ],
+    "tests_run": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 22.1,
+    "line_cov": 0.888,
+    "branch_cov": 0.9042553191489362,
+    "mut_total": 117,
+    "mut_killed": 81,
+    "mut_no_cov": 4,
+    "mut_timeout": 0,
+    "mutation_score": 0.6923076923076923,
+    "test_strength": 0.7168141592920354,
+    "pit_time_s": 39.4
+  },
+  {
+    "class": "BooleanUtils",
+    "test_classes": [
+      "BooleanUtilsTest"
+    ],
+    "tests_run": 90,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 22.1,
+    "line_cov": 0.9887640449438202,
+    "branch_cov": 0.9541666666666667,
+    "mut_total": 214,
+    "mut_killed": 192,
+    "mut_no_cov": 2,
+    "mut_timeout": 0,
+    "mutation_score": 0.897196261682243,
+    "test_strength": 0.9056603773584906,
+    "pit_time_s": 41.1
+  },
+  {
+    "class": "CharSequenceUtils",
+    "test_classes": [
+      "CharSequenceUtilsTest"
+    ],
+    "tests_run": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 22.0,
+    "line_cov": 0.6048387096774194,
+    "branch_cov": 0.5491803278688525,
+    "mut_total": 147,
+    "mut_killed": 63,
+    "mut_no_cov": 58,
+    "mut_timeout": 2,
+    "mutation_score": 0.42857142857142855,
+    "test_strength": 0.7078651685393258,
+    "pit_time_s": 48.8
+  },
+  {
+    "class": "CharSetUtils",
+    "test_classes": [
+      "CharSetUtilsTest"
+    ],
+    "tests_run": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 22.0,
+    "line_cov": 1.0,
+    "branch_cov": 0.9791666666666666,
+    "mut_total": 36,
+    "mut_killed": 33,
+    "mut_no_cov": 0,
+    "mut_timeout": 0,
+    "mutation_score": 0.9166666666666666,
+    "test_strength": 0.9166666666666666,
+    "pit_time_s": 38.2
+  },
+  {
+    "class": "CharUtils",
+    "test_classes": [
+      "CharUtilsTest"
+    ],
+    "tests_run": 24,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 4.0,
+    "line_cov": 1.0,
+    "branch_cov": 1.0,
+    "mut_total": 70,
+    "mut_killed": 69,
+    "mut_no_cov": 0,
+    "mut_timeout": 0,
+    "mutation_score": 0.9857142857142858,
+    "test_strength": 0.9857142857142858,
+    "pit_time_s": 6.7
+  },
+  {
+    "class": "ClassUtils",
+    "test_classes": [
+      "ClassUtilsTest"
+    ],
+    "tests_run": 66,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 4.0,
+    "line_cov": 0.9705882352941176,
+    "branch_cov": 0.9302325581395349,
+    "mut_total": 269,
+    "mut_killed": 242,
+    "mut_no_cov": 3,
+    "mut_timeout": 2,
+    "mutation_score": 0.8996282527881041,
+    "test_strength": 0.9097744360902256,
+    "pit_time_s": 21.4
+  },
+  {
+    "class": "JavaVersion",
+    "test_classes": [
+      "JavaVersionTest"
+    ],
+    "tests_run": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 3.6,
+    "line_cov": 0.9473684210526315,
+    "branch_cov": 0.8292682926829268,
+    "mut_total": 41,
+    "mut_killed": 33,
+    "mut_no_cov": 3,
+    "mut_timeout": 0,
+    "mutation_score": 0.8048780487804879,
+    "test_strength": 0.868421052631579,
+    "pit_time_s": 6.2
+  },
+  {
+    "class": "LocaleUtils",
+    "test_classes": [
+      "LocaleUtilsTest"
+    ],
+    "tests_run": 2051,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 5.3,
+    "line_cov": 0.9876543209876543,
+    "branch_cov": 0.9111111111111111,
+    "mut_total": 73,
+    "mut_killed": 56,
+    "mut_no_cov": 0,
+    "mut_timeout": 0,
+    "mutation_score": 0.7671232876712328,
+    "test_strength": 0.7671232876712328,
+    "pit_time_s": 17.2
+  },
+  {
+    "class": "ObjectUtils",
+    "test_classes": [
+      "ObjectUtilsTest"
+    ],
+    "tests_run": 57,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 4.5,
+    "line_cov": 0.9513513513513514,
+    "branch_cov": 0.9821428571428571,
+    "mut_total": 141,
+    "mut_killed": 121,
+    "mut_no_cov": 1,
+    "mut_timeout": 0,
+    "mutation_score": 0.8581560283687943,
+    "test_strength": 0.8642857142857143,
+    "pit_time_s": 7.9
+  },
+  {
+    "class": "RandomStringUtils",
+    "test_classes": [
+      "RandomStringUtilsTest"
+    ],
+    "tests_run": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 4.6,
+    "line_cov": 0.9846153846153847,
+    "branch_cov": 1.0,
+    "mut_total": 63,
+    "mut_killed": 38,
+    "mut_no_cov": 1,
+    "mut_timeout": 16,
+    "mutation_score": 0.6031746031746031,
+    "test_strength": 0.6129032258064516,
+    "pit_time_s": 77.9
+  },
+  {
+    "class": "Range",
+    "test_classes": [
+      "RangeTest"
+    ],
+    "tests_run": 28,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 3.3,
+    "line_cov": 0.989247311827957,
+    "branch_cov": 0.9210526315789473,
+    "mut_total": 94,
+    "mut_killed": 81,
+    "mut_no_cov": 1,
+    "mut_timeout": 0,
+    "mutation_score": 0.8617021276595744,
+    "test_strength": 0.8709677419354839,
+    "pit_time_s": 5.8
+  },
+  {
+    "class": "SystemUtils",
+    "test_classes": [
+      "SystemUtilsTest"
+    ],
+    "tests_run": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 3.5,
+    "line_cov": 0.9668874172185431,
+    "branch_cov": 0.5434782608695652,
+    "mut_total": 39,
+    "mut_killed": 30,
+    "mut_no_cov": 6,
+    "mut_timeout": 0,
+    "mutation_score": 0.7692307692307693,
+    "test_strength": 0.9090909090909091,
+    "pit_time_s": 5.1
+  },
+  {
+    "class": "Validate",
+    "test_classes": [
+      "ValidateTest"
+    ],
+    "tests_run": 212,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 3.7,
+    "line_cov": 1.0,
+    "branch_cov": 1.0,
+    "mut_total": 116,
+    "mut_killed": 115,
+    "mut_no_cov": 0,
+    "mut_timeout": 0,
+    "mutation_score": 0.9913793103448276,
+    "test_strength": 0.9913793103448276,
+    "pit_time_s": 7.2
+  },
+  {
+    "class": "CompareToBuilder",
+    "test_classes": [
+      "CompareToBuilderTest"
+    ],
+    "tests_run": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 3.6,
+    "line_cov": 0.9215686274509803,
+    "branch_cov": 0.8611111111111112,
+    "mut_total": 218,
+    "mut_killed": 169,
+    "mut_no_cov": 20,
+    "mut_timeout": 0,
+    "mutation_score": 0.7752293577981652,
+    "test_strength": 0.8535353535353535,
+    "pit_time_s": 9.0
+  },
+  {
+    "class": "DiffBuilder",
+    "test_classes": [
+      "DiffBuilderTest"
+    ],
+    "tests_run": 33,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 3.1,
+    "line_cov": 0.898936170212766,
+    "branch_cov": 0.81,
+    "mut_total": 158,
+    "mut_killed": 96,
+    "mut_no_cov": 19,
+    "mut_timeout": 0,
+    "mutation_score": 0.6075949367088608,
+    "test_strength": 0.6906474820143885,
+    "pit_time_s": 11.5
+  },
+  {
+    "class": "EqualsBuilder",
+    "test_classes": [
+      "EqualsBuilderTest"
+    ],
+    "tests_run": 57,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 4.3,
+    "line_cov": 0.872852233676976,
+    "branch_cov": 0.7976190476190477,
+    "mut_total": 260,
+    "mut_killed": 188,
+    "mut_no_cov": 37,
+    "mut_timeout": 0,
+    "mutation_score": 0.7230769230769231,
+    "test_strength": 0.8430493273542601,
+    "pit_time_s": 9.4
+  },
+  {
+    "class": "HashCodeBuilder",
+    "test_classes": [
+      "HashCodeBuilderAndEqualsBuilderTest",
+      "HashCodeBuilderTest"
+    ],
+    "tests_run": 50,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 4.0,
+    "line_cov": 0.9459459459459459,
+    "branch_cov": 0.9591836734693877,
+    "mut_total": 113,
+    "mut_killed": 108,
+    "mut_no_cov": 4,
+    "mut_timeout": 0,
+    "mutation_score": 0.9557522123893806,
+    "test_strength": 0.9908256880733946,
+    "pit_time_s": 6.8
+  },
+  {
+    "class": "ReflectionToStringBuilder",
+    "test_classes": [
+      "ReflectionToStringBuilderConcurrencyTest",
+      "ReflectionToStringBuilderCustomImplementationTest",
+      "ReflectionToStringBuilderExcludeNullValuesTest",
+      "ReflectionToStringBuilderExcludeTest",
+      "ReflectionToStringBuilderExcludeWithAnnotationTest",
+      "ReflectionToStringBuilderIncludeTest",
+      "ReflectionToStringBuilderMutateInspectConcurrencyTest",
+      "ReflectionToStringBuilderSummaryTest",
+      "ReflectionToStringBuilderTest"
+    ],
+    "tests_run": 44,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 4,
+    "test_time_s": 3.2,
+    "line_cov": 0.8235294117647058,
+    "branch_cov": 0.75,
+    "mut_total": 75,
+    "mut_killed": 39,
+    "mut_no_cov": 17,
+    "mut_timeout": 0,
+    "mutation_score": 0.52,
+    "test_strength": 0.6724137931034483,
+    "pit_time_s": 6.8
+  },
+  {
+    "class": "ExceptionUtils",
+    "test_classes": [
+      "ExceptionUtilsTest"
+    ],
+    "tests_run": 64,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 3.8,
+    "line_cov": 0.9349112426035503,
+    "branch_cov": 0.9454545454545454,
+    "mut_total": 126,
+    "mut_killed": 93,
+    "mut_no_cov": 6,
+    "mut_timeout": 0,
+    "mutation_score": 0.7380952380952381,
+    "test_strength": 0.775,
+    "pit_time_s": 6.8
+  },
+  {
+    "class": "Failable",
+    "test_classes": [
+      "FailableFunctionsTest",
+      "FailableSupplierTest"
+    ],
+    "tests_run": 167,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "test_time_s": 4.3,
+    "line_cov": 0.7974683544303798,
+    "branch_cov": 0.6666666666666666,
+    "mut_total": 65,
+    "mut_killed": 49,
+    "mut_no_cov": 3,
+    "mut_timeout": 0,
+    "mutation_score": 0.7538461538461538,
+    "test_strength": 0.7903225806451613,
+    "pit_time_s": 5.9
+  }
+]

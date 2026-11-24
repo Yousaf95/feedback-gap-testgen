@@ -1,0 +1,55 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class CharSequenceUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testSubSequence_withStartIndexLessThanZero() {
+        assertEquals("abc", CharSequenceUtils.subSequence("abc", -1));
+    }
+
+    @Test
+    void testToCharArray_withStringBuilderInstance() {
+        char[] expected = {'a', 'b', 'c'};
+        char[] result = CharSequenceUtils.toCharArray(new StringBuilder("abc"));
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    void testToCharArray_withStringBufferInstance() {
+        char[] expected = {'a', 'b', 'c'};
+        char[] result = CharSequenceUtils.toCharArray(new StringBuffer("abc"));
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    void testIndexOf_withNonSpecificInstance() {
+        int index = CharSequenceUtils.indexOf(new StringBuilder("abc"), "b", 0);
+        assertEquals(1, index);
+    }
+
+    @Test
+    void testIndexOf_withStartLessThanZero() {
+        int index = CharSequenceUtils.indexOf("abc", 'a', -1);
+        assertEquals(0, index);
+    }
+
+    @Test
+    void testLastIndexOf_withNonSpecificInstance_2() {
+        int index = CharSequenceUtils.lastIndexOf(new StringBuilder("abc"), "b", 2);
+        assertEquals(1, index);
+    }
+
+    @Test
+    void testLastIndexOf_withStartGreaterThanLength_2() {
+        int index = CharSequenceUtils.lastIndexOf("abc", 'c', 5);
+        assertEquals(2, index);
+    }
+}
+```

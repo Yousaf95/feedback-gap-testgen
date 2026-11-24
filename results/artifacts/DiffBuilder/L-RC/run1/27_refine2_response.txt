@@ -1,0 +1,180 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+
+public class DiffBuilder_GenTest {
+
+    @Test
+    public void testAppendBooleanFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", true, true));
+    }
+
+    @Test
+    public void testAppendByteArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new byte[]{1}, new byte[]{1}));
+    }
+
+    @Test
+    public void testAppendByteFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", (byte) 1, (byte) 1));
+    }
+
+    @Test
+    public void testAppendCharArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new char[]{'a'}, new char[]{'a'}));
+    }
+
+    @Test
+    public void testAppendCharFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", 'a', 'a'));
+    }
+
+    @Test
+    public void testAppendDiffResultFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        DiffResult<Object> diffResult = new DiffResult<>(new Object(), new Object(), Arrays.asList(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", diffResult));
+    }
+
+    @Test
+    public void testAppendDoubleArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new double[]{1.0}, new double[]{1.0}));
+    }
+
+    @Test
+    public void testAppendDoubleFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", 1.0, 1.0));
+    }
+
+    @Test
+    public void testAppendFloatArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new float[]{1.0f}, new float[]{1.0f}));
+    }
+
+    @Test
+    public void testAppendFloatFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", 1.0f, 1.0f));
+    }
+
+    @Test
+    public void testAppendIntArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new int[]{1}, new int[]{1}));
+    }
+
+    @Test
+    public void testAppendIntFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", 1, 1));
+    }
+
+    @Test
+    public void testAppendLongArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new long[]{1L}, new long[]{1L}));
+    }
+
+    @Test
+    public void testAppendLongFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", 1L, 1L));
+    }
+
+    @Test
+    public void testAppendObjectArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new Object[]{new Object()}, new Object[]{new Object()}));
+    }
+
+    @Test
+    public void testAppendObjectFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new Object(), new Object()));
+    }
+
+    @Test
+    public void testAppendShortArrayFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", new short[]{(short) 1}, new short[]{(short) 1}));
+    }
+
+    @Test
+    public void testAppendShortFieldTriviallyEqual() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE, true);
+        assertSame(diffBuilder, diffBuilder.append("field", (short) 1, (short) 1));
+    }
+
+    @Test
+    public void testAppendObjectFieldRhsArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new int[]{1}, ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new Object(), new int[]{1}));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsBooleanArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new boolean[]{true}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new boolean[]{true}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsByteArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new byte[]{1}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new byte[]{1}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsCharArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new char[]{'a'}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new char[]{'a'}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsDoubleArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new double[]{1.0}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new double[]{1.0}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsFloatArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new float[]{1.0f}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new float[]{1.0f}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsIntArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new int[]{1}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new int[]{1}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsLongArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new long[]{1L}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new long[]{1L}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldLhsShortArray() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new short[]{(short) 1}, new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", new short[]{(short) 1}, new Object()));
+    }
+
+    @Test
+    public void testAppendObjectFieldObjectsEqual() {
+        Object obj = new Object();
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(obj, obj, ToStringStyle.DEFAULT_STYLE);
+        assertSame(diffBuilder, diffBuilder.append("field", obj, obj));
+    }
+}
+```

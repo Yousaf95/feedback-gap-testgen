@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    void testAppendSuperWithFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendSuperWithTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(true);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testSetBypassReflectionClassesWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertThrows(NullPointerException.class, () -> builder.setBypassReflectionClasses(null));
+    }
+
+    @Test
+    void testSetExcludeFieldsWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertThrows(NullPointerException.class, () -> builder.setExcludeFields((String[]) null));
+    }
+
+    @Test
+    void testSetReflectUpToClassWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setReflectUpToClass(null);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testResetAfterAppendBoolean() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(true, false).reset();
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testReflectionAppendWithSameObject() {
+        List<String> list = new ArrayList<>();
+        assertTrue(EqualsBuilder.reflectionEquals(list, list));
+    }
+
+    @Test
+    void testReflectionAppendWithDifferentObjects() {
+        assertFalse(EqualsBuilder.reflectionEquals(new ArrayList<>(), new ArrayList<>() {{ add("test"); }}));
+    }
+
+    @Test
+    void testReflectionAppendWithNullObjects() {
+        assertTrue(EqualsBuilder.reflectionEquals(null, null));
+    }
+}
+```

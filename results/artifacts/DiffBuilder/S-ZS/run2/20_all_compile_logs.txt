@@ -1,0 +1,343 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[113,9] no suitable method found for assertArrayEquals(java.lang.Double[],java.lang.Double[],double)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+      (argument mismatch; double cannot be converted to java.lang.String)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[114,9] no suitable method found for assertArrayEquals(java.lang.Double[],java.lang.Double[],double)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+      (argument mismatch; double cannot be converted to java.lang.String)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[136,9] no suitable method found for assertArrayEquals(java.lang.Float[],java.lang.Float[],double)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+      (argument mismatch; double cannot be converted to java.lang.String)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[137,9] no suitable method found for assertArrayEquals(java.lang.Float[],java.lang.Float[],double)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+      (argument mismatch; double cannot be converted to java.lang.String)
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to double[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to float[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to long[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to int[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to short[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to char[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+    method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+      (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[4,26] package org.mockito does not exist
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[113,9] no suitable method found for assertArrayEquals(java.lang.Double[],java.lang.Double[],double)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.lang.String)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[114,9] no suitable method found for assertArrayEquals(java.lang.Double[],java.lang.Double[],double)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.lang.String)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Double[] cannot be converted to boolean[])
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[136,9] no suitable method found for assertArrayEquals(java.lang.Float[],java.lang.Float[],double)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.lang.String)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[137,9] no suitable method found for assertArrayEquals(java.lang.Float[],java.lang.Float[],double)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.util.function.Supplier<java.lang.String>)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(java.lang.Object[],java.lang.Object[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; double cannot be converted to java.lang.String)
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],double) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(double[],double[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to double[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],float) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(float[],float[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to float[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(long[],long[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to long[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(int[],int[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to int[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(short[],short[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to short[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(byte[],byte[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to byte[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(char[],char[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to char[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.util.function.Supplier<java.lang.String>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+[ERROR]     method org.junit.jupiter.api.Assertions.assertArrayEquals(boolean[],boolean[],java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Float[] cannot be converted to boolean[])
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

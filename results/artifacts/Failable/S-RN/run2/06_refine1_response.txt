@@ -1,0 +1,553 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testStream() {
+        List<String> strings = Arrays.asList("a", "b", "c");
+        FailableStream<String, IOException> stream = Failable.stream(strings);
+        assertEquals(3, stream.count());
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorAndException() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> {}
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandler() {
+        Exception exception = new RuntimeException("Error");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception; },
+                t -> {}
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndException() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanup() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> {},
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndAction() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandler() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {}
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndException() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanup() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndAction() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandler() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {}
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndException() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanup() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndAction() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandler() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {}
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndException() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanup() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndAction() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandler() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndException() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanup() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndAction() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandler() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndException() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanup() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; }
+            );
+            fail("Expected exception not thrown");
+        } catch (RuntimeException e) {
+            assertEquals(exception2, e);
+        }
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndActionAndErrorHandlerAndExceptionInCleanupAndAction() {
+        Exception exception1 = new RuntimeException("Error 1");
+        Exception exception2 = new RuntimeException("Error 2");
+
+        try {
+            Failable.tryWithResources(
+                () -> { throw exception1; },
+                t -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t -> {},
+                () -> { throw exception2; },
+                () -> { throw exception1; },
+                t

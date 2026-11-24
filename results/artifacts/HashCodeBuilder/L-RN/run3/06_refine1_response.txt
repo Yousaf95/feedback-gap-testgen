@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    void testReflectionHashCodeWithDefaultValues() {
+        SampleClass sample = new SampleClass(10, "test");
+        int expectedHashCode = new HashCodeBuilder()
+                .append(sample.getIntField())
+                .append(sample.getStringField())
+                .toHashCode();
+        assertEquals(expectedHashCode, HashCodeBuilder.reflectionHashCode(sample));
+    }
+
+    @Test
+    void testReflectionHashCodeWithCustomInitialAndMultiplier() {
+        SampleClass sample = new SampleClass(10, "test");
+        int expectedHashCode = new HashCodeBuilder(5, 7)
+                .append(sample.getIntField())
+                .append(sample.getStringField())
+                .toHashCode();
+        assertEquals(expectedHashCode, HashCodeBuilder.reflectionHashCode(5, 7, sample));
+    }
+
+    @Test
+    void testReflectionHashCodeExcludingFields() {
+        SampleClass sample = new SampleClass(10, "test");
+        int expectedHashCode = new HashCodeBuilder()
+                .append(sample.getIntField())
+                .toHashCode();
+        assertEquals(expectedHashCode, HashCodeBuilder.reflectionHashCode(sample, "stringField"));
+    }
+
+    @Test
+    void testReflectionHashCodeWithTransients() {
+        SampleClass sample = new SampleClass(10, "test");
+        int expectedHashCode = new HashCodeBuilder()
+                .append(sample.getIntField())
+                .append(sample.getStringField())
+                .toHashCode();
+        assertEquals(expectedHashCode, HashCodeBuilder.reflectionHashCode(sample, true));
+    }
+
+    @Test
+    void testReflectionHashCodeWithNullObjectThrowsException() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null));
+    }
+
+    private static class SampleClass {
+        private final int intField;
+        private transient String stringField;
+
+        public SampleClass(int intField, String stringField) {
+            this.intField = intField;
+            this.stringField = stringField;
+        }
+
+        public int getIntField() {
+            return intField;
+        }
+
+        public String getStringField() {
+            return stringField;
+        }
+    }
+}
+```

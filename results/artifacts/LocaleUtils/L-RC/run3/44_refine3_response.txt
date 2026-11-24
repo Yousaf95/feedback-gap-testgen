@@ -1,0 +1,67 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testSyncAvoidInitialization() {
+        // This test ensures that the SyncAvoid class is initialized, which will cover line 43.
+        assertNotNull(LocaleUtils.availableLocaleList());
+    }
+
+    @Test
+    void testIsISO3166CountryCodeWithUpperCaseAndLengthNotTwo() {
+        assertFalse(LocaleUtils.isISO3166CountryCode("USA"));
+    }
+
+    @Test
+    void testIsISO639LanguageCodeWithInvalidCase() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("EN"));
+        assertFalse(LocaleUtils.isISO639LanguageCode("enG"));
+    }
+
+    @Test
+    void testIsNumericAreaCodeWithNonThreeLength() {
+        assertFalse(LocaleUtils.isNumericAreaCode("12"));
+        assertFalse(LocaleUtils.isNumericAreaCode("1234"));
+    }
+
+    @Test
+    void testLocaleLookupListWithVariant() {
+        Locale locale = new Locale("en", "US", "POSIX");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(4, result.size());
+        assertTrue(result.contains(new Locale("en", "US")));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidLength() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_A"));
+    }
+
+    @Test
+    void testParseLocaleWithLowerCaseCountryCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_us"));
+    }
+
+    @Test
+    void testParseLocaleWithShortStringAndInvalidLength() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_A1"));
+    }
+
+    @Test
+    void testParseLocaleWithMismatchedSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US-POSIX"));
+    }
+
+    @Test
+    void testParseLocaleWithValidShortString() {
+        Locale result = LocaleUtils.toLocale("_US");
+        assertEquals(new Locale("", "US"), result);
+    }
+}
+```

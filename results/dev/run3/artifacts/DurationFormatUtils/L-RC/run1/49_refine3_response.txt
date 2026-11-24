@@ -1,0 +1,159 @@
+```java
+package org.apache.commons.lang3.time;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
+class DurationFormatUtils_GenTest {
+
+    @Test
+    void testTokenConstructorWithOptional() {
+        Token token = new Token(new StringBuilder("test"), true, 1);
+        assertEquals(1, token.optionalIndex);
+    }
+
+    @Test
+    void testTokenEqualsDifferentClass() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        assertFalse(token1.equals("not a token"));
+    }
+
+    @Test
+    void testTokenEqualsDifferentValueClass() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        Token token2 = new Token(123, false, -1);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    void testTokenEqualsDifferentCount() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        Token token2 = new Token(new StringBuilder("test"), false, 0);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    void testTokenEqualsStringBuilderValue() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        Token token2 = new Token(new StringBuilder("test"), false, -1);
+        assertTrue(token1.equals(token2));
+    }
+
+    @Test
+    void testTokenEqualsNumberValue() {
+        Token token1 = new Token(123, false, -1);
+        Token token2 = new Token(123, false, -1);
+        assertTrue(token1.equals(token2));
+    }
+
+    @Test
+    void testTokenEqualsSameObjectReference() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        assertTrue(token1.equals(token1));
+    }
+
+    @Test
+    void testTokenHashCode() {
+        Token token = new Token(123, false, -1);
+        assertEquals(123, token.hashCode());
+    }
+
+    @Test
+    void testTokenToString() {
+        Token token = new Token(new StringBuilder("test"), false, -1);
+        assertEquals("test", token.toString());
+    }
+
+    @Test
+    void testFormatDurationWithOptionalTokens() {
+        String result = DurationFormatUtils.formatDuration(0, "y[M]d[H]m[s]", true);
+        assertEquals("", result);
+    }
+
+    @Test
+    void testFormatPeriodWithOptionalTokens() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis + 1000; // one second later
+        String result = DurationFormatUtils.formatPeriod(startMillis, endMillis, "y[M]d[H]m[s]", true, TimeZone.getDefault());
+        assertEquals("0s", result);
+    }
+
+    @Test
+    void testSuppressLeadingZeroElementsWithDays() {
+        String result = DurationFormatUtils.formatDurationWords(86400000L, true, false); // 1 day
+        assertEquals("1 day", result);
+    }
+
+    @Test
+    void testSuppressTrailingZeroElementsWithSeconds() {
+        String result = DurationFormatUtils.formatDurationWords(1000L, false, true); // 1 second
+        assertEquals("1 second", result);
+    }
+
+    @Test
+    void testFormatPeriodISOWithNegativeDifference() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis - 1000; // one second earlier
+        assertThrows(IllegalArgumentException.class, () -> DurationFormatUtils.formatPeriodISO(startMillis, endMillis));
+    }
+
+    @Test
+    void testFormatDurationWithNegativeMilliseconds() {
+        assertThrows(IllegalArgumentException.class, () -> DurationFormatUtils.formatDuration(-1L, "HH:mm:ss.SSS"));
+    }
+
+    @Test
+    void testFormatDurationWordsWithoutSuppressingZeros() {
+        String result = DurationFormatUtils.formatDurationWords(86400000L, false, false); // 1 day
+        assertEquals("1 days", result);
+    }
+
+    @Test
+    void testFormatPeriodWithStartAfterEnd() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis - 1000; // one second earlier
+        assertThrows(IllegalArgumentException.class, () -> DurationFormatUtils.formatPeriod(startMillis, endMillis, "HH:mm:ss.SSS"));
+    }
+
+    @Test
+    void testFormatDurationWithNullPattern() {
+        assertThrows(NullPointerException.class, () -> DurationFormatUtils.formatDuration(1000L, null));
+    }
+
+    @Test
+    void testFormatPeriodWithNullPattern() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis + 1000; // one second later
+        assertThrows(NullPointerException.class, () -> DurationFormatUtils.formatPeriod(startMillis, endMillis, null));
+    }
+
+    @Test
+    void testFormatDurationWithEmptyPattern() {
+        String result = DurationFormatUtils.formatDuration(1000L, "");
+        assertEquals("", result);
+    }
+
+    @Test
+    void testFormatPeriodWithEmptyPattern() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis + 1000; // one second later
+        String result = DurationFormatUtils.formatPeriod(startMillis, endMillis, "");
+        assertEquals("", result);
+    }
+
+    @Test
+    void testFormatDurationWithNegativeMillisecondsInAdjustment() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2023, Calendar.FEBRUARY, 28, 23, 59, 59);
+        calendar.set(Calendar.MILLISECOND, 999);
+        long startMillis = calendar.getTimeInMillis();
+        calendar.add(Calendar.SECOND, 1); // move to next day
+        long endMillis = calendar.getTimeInMillis();
+        String result = DurationFormatUtils.formatPeriod(startMillis, endMillis, "d'H'm's'S'", true, TimeZone.getDefault());
+        assertEquals("1d0H0m0s0S", result);
+    }
+}
+```

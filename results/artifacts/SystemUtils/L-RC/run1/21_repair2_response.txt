@@ -1,0 +1,47 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assumptions;
+import org.junit.jupiter.api.Test;
+import java.io.File;
+
+class SystemUtils_GenTest {
+
+    @Test
+    void testGetEnvironmentVariable_withSecurityException() {
+        SecurityManager originalSecurityManager = System.getSecurityManager();
+        try {
+            System.setSecurityManager(new SecurityManager() {
+                public void checkPermission(java.security.Permission perm) {
+                    if ("getenv.*".equals(perm.getName())) {
+                        throw new SecurityException("Not allowed to read environment variable");
+                    }
+                }
+            });
+            String result = SystemUtils.getEnvironmentVariable("SECURE_VAR", "default");
+            assertEquals("default", result);
+        } finally {
+            System.setSecurityManager(originalSecurityManager);
+        }
+    }
+
+    @Test
+    void testGetHostName_onWindows() {
+        Assumptions.assumeTrue(SystemUtils.IS_OS_WINDOWS);
+        String hostName = System.getenv("COMPUTERNAME");
+        assertEquals(hostName, SystemUtils.getHostName());
+    }
+
+    @Test
+    void testGetUserName_deprecatedMethod() {
+        String userName = System.getProperty(SystemUtils.USER_NAME_KEY);
+        assertEquals(userName, SystemUtils.getUserName());
+    }
+
+    @Test
+    void testIsJavaVersionMatch_withNullVersion() {
+        assertFalse(SystemUtils.isJavaVersionAtLeast(null));
+    }
+}
+```

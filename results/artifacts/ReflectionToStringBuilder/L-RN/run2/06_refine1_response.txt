@@ -1,0 +1,79 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testAppendTransients() {
+        TestClassWithTransientField obj = new TestClassWithTransientField();
+        String result = ReflectionToStringBuilder.toString(obj, null, true, false);
+        assertTrue(result.contains("transientField"));
+    }
+
+    @Test
+    public void testExcludeTransients() {
+        TestClassWithTransientField obj = new TestClassWithTransientField();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false);
+        assertFalse(result.contains("transientField"));
+    }
+
+    @Test
+    public void testAppendStatics() {
+        TestClassWithStaticField obj = new TestClassWithStaticField();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, true);
+        assertTrue(result.contains("staticField"));
+    }
+
+    @Test
+    public void testExcludeStatics() {
+        TestClassWithStaticField obj = new TestClassWithStaticField();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false);
+        assertFalse(result.contains("staticField"));
+    }
+
+    @Test
+    public void testExcludeNullValues() {
+        TestClassWithNullableFields obj = new TestClassWithNullableFields(null, "nonNull");
+        String result = ReflectionToStringBuilder.toString(obj).setExcludeNullValues(true).toString();
+        assertFalse(result.contains("nullField"));
+        assertTrue(result.contains("nonNullField=nonNull"));
+    }
+
+    @Test
+    public void testReflectUpToClass() {
+        SubTestClass obj = new SubTestClass();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, SubTestClass.class);
+        assertFalse(result.contains("superField"));
+        assertTrue(result.contains("subField"));
+    }
+
+    private static class TestClassWithTransientField {
+        public transient String transientField = "transientValue";
+    }
+
+    private static class TestClassWithStaticField {
+        public static String staticField = "staticValue";
+    }
+
+    private static class TestClassWithNullableFields {
+        public String nullField;
+        public String nonNullField;
+
+        public TestClassWithNullableFields(String nullField, String nonNullField) {
+            this.nullField = nullField;
+            this.nonNullField = nonNullField;
+        }
+    }
+
+    private static class SuperTestClass {
+        public String superField = "superValue";
+    }
+
+    private static class SubTestClass extends SuperTestClass {
+        public String subField = "subValue";
+    }
+}
+```

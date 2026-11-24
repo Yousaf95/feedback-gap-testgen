@@ -1,0 +1,109 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testGetPackageNameWithNull() {
+        assertNull(ClassUtils.getPackageName(null));
+    }
+
+    @Test
+    public void testGetPackageNameWithEmptyString() {
+        assertEquals("", ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    public void testGetPackageNameWithClassInDefaultPackage() {
+        assertEquals("", ClassUtils.getPackageName(String.class));
+    }
+
+    @Test
+    public void testGetPackageNameWithClassInPackage() {
+        assertEquals("org.apache.commons.lang3", ClassUtils.getPackageName(ClassUtils_GenTest.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithBooleanArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(boolean[].class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithByteArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(byte[].class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithCharArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(char[].class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithShortArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(short[].class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithIntegerArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(int[].class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithLongArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(long[].class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithDoubleArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(double[].class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithFloatArray() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(float[].class));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithInterface() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(List.class);
+        assertEquals(1, interfaces.size());
+        assertTrue(interfaces.contains(Collection.class));
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithEmptyArray() {
+        List<String> classNames = ClassUtils.convertClassesToClassNames(new Class<?>[0]);
+        assertTrue(classNames.isEmpty());
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithNullElements() {
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(Arrays.asList("java.lang.String", null, "java.util.List"));
+        assertEquals(3, classes.size());
+        assertNotNull(classes.get(0));
+        assertNull(classes.get(1));
+        assertNotNull(classes.get(2));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithEmptyClassName() {
+        assertEquals("", ClassUtils.getAbbreviatedName("", 5));
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithNull() {
+        assertNull(ClassUtils.getAllSuperclasses(null));
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithObjectClass() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(Object.class);
+        assertEquals(0, superclasses.size());
+    }
+}
+```

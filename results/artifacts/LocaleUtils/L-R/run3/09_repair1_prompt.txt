@@ -1,0 +1,300 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class LocaleUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of LocaleUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 33: element value must be a constant expression
+    code: @ValueSource(strings = {"en", "fr", null})
+line 49: cannot find symbol (symbol:   method objects(); location: @interface org.junit.jupiter.params.provider.ValueSource)
+    code: @ValueSource(objects = {null, new Locale("und"), new Locale("en")})
+line 49: expression not allowed as annotation value
+    code: @ValueSource(objects = {null, new Locale("und"), new Locale("en")})
+line 49: expression not allowed as annotation value
+    code: @ValueSource(objects = {null, new Locale("und"), new Locale("en")})
+line 60: element value must be a constant expression
+    code: @ValueSource(strings = {"US", "FR", null})
+line 70: cannot find symbol (symbol:   method objects(); location: @interface org.junit.jupiter.params.provider.ValueSource)
+    code: @ValueSource(objects = {null, new Locale("en", "US"), Locale.US})
+line 70: expression not allowed as annotation value
+    code: @ValueSource(objects = {null, new Locale("en", "US"), Locale.US})
+line 80: cannot find symbol (symbol:   method objects(); location: @interface org.junit.jupiter.params.provider.ValueSource)
+    code: @ValueSource(objects = {null, new Locale("en", "US"), Locale.US})
+line 80: expression not allowed as annotation value
+    code: @ValueSource(objects = {null, new Locale("en", "US"), Locale.US})
+line 91: cannot find symbol (symbol:   method objects(); location: @interface org.junit.jupiter.params.provider.ValueSource)
+    code: @ValueSource(objects = {null, new Locale("en", "US")})
+line 91: expression not allowed as annotation value
+    code: @ValueSource(objects = {null, new Locale("en", "US")})
+
+Current test class (LocaleUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testAvailableLocaleList() {
+        List<Locale> locales = LocaleUtils.availableLocaleList();
+        assertNotNull(locales);
+        assertFalse(locales.isEmpty());
+        assertTrue(locales.contains(Locale.US));
+    }
+
+    @Test
+    void testAvailableLocaleSet() {
+        Set<Locale> locales = LocaleUtils.availableLocaleSet();
+        assertNotNull(locales);
+        assertFalse(locales.isEmpty());
+        assertTrue(locales.contains(Locale.US));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"en", "fr", null})
+    void testCountriesByLanguage(String languageCode) {
+        List<Locale> countries = LocaleUtils.countriesByLanguage(languageCode);
+        assertNotNull(countries);
+        if (languageCode != null && !languageCode.isEmpty()) {
+            assertTrue(countries.stream().allMatch(locale -> languageCode.equals(locale.getLanguage())));
+        }
+    }
+
+    @Test
+    void testIsAvailableLocale() {
+        assertTrue(LocaleUtils.isAvailableLocale(Locale.US));
+        assertFalse(LocaleUtils.isAvailableLocale(new Locale("xx", "YY")));
+    }
+
+    @ParameterizedTest
+    @ValueSource(objects = {null, new Locale("und"), new Locale("en")})
+    void testIsLanguageUndetermined(Locale locale) {
+        boolean result = LocaleUtils.isLanguageUndetermined(locale);
+        if (locale == null || "und".equals(locale.toLanguageTag())) {
+            assertTrue(result);
+        } else {
+            assertFalse(result);
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"US", "FR", null})
+    void testLanguagesByCountry(String countryCode) {
+        List<Locale> languages = LocaleUtils.languagesByCountry(countryCode);
+        assertNotNull(languages);
+        if (countryCode != null && !countryCode.isEmpty()) {
+            assertTrue(languages.stream().allMatch(locale -> countryCode.equals(locale.getCountry())));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(objects = {null, new Locale("en", "US"), Locale.US})
+    void testLocaleLookupList(Locale locale) {
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale);
+        assertNotNull(lookupList);
+        if (locale != null) {
+            assertTrue(lookupList.contains(locale));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(objects = {null, new Locale("en", "US"), Locale.US})
+    void testLocaleLookupListWithDefault(Locale locale) {
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale, Locale.GERMANY);
+        assertNotNull(lookupList);
+        if (locale != null) {
+            assertTrue(lookupList.contains(locale));
+        }
+        assertTrue(lookupList.contains(Locale.GERMANY));
+    }
+
+    @ParameterizedTest
+    @ValueSource(objects = {null, new Locale("en", "US")})
+    void testToLocaleWithLocale(Locale locale) {
+        Locale result = LocaleUtils.toLocale(locale);
+        assertNotNull(result);
+        if (locale != null) {
+            assertEquals(locale, result);
+        } else {
+            assertEquals(Locale.getDefault(), result);
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"en", "fr_FR", "_US", "-CA", "xx_YY", "", "#invalid"})
+    void testToLocaleWithString(String str) {
+        if (str == null || str.isEmpty() || str.contains("#") || str.length() < 2) {
+            assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale(str));
+        } else {
+            Locale result = LocaleUtils.toLocale(str);
+            assertNotNull(result);
+            if (str.equals("_US")) {
+                assertEquals("", result.getLanguage());
+                assertEquals("US", result.getCountry());
+            } else if (str.equals("-CA")) {
+                assertEquals("", result.getLanguage());
+                assertEquals("CA", result.getCountry());
+            }
+        }
+    }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.LocaleUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+/** Operations to assist when working with a {@link Locale}. */
+public class LocaleUtils {
+    static class SyncAvoid {
+        /** Unmodifiable list of available locales. */
+        private static final List<Locale> AVAILABLE_LOCALE_LIST;
+        /** Unmodifiable set of available locales. */
+        private static final Set<Locale> AVAILABLE_LOCALE_SET;
+        static {
+            final List<Locale> list = new ArrayList<>(Arrays.asList(Locale.getAvailableLocales()));  // extra safe
+            AVAILABLE_LOCALE_LIST = Collections.unmodifiableList(list);
+            AVAILABLE_LOCALE_SET = Collections.unmodifiableSet(new HashSet<>(list));
+        }
+    }
+    private static final char UNDERSCORE = '_';
+    private static final String UNDETERMINED = "und";
+    private static final char DASH = '-';
+    /** Concurrent map of language locales by country. */
+    private static final ConcurrentMap<String, List<Locale>> cLanguagesByCountry =
+        new ConcurrentHashMap<>();
+    /** Concurrent map of country locales by language. */
+    private static final ConcurrentMap<String, List<Locale>> cCountriesByLanguage =
+        new ConcurrentHashMap<>();
+    /** Obtains an unmodifiable list of installed locales. */
+    public static List<Locale> availableLocaleList() {
+        return SyncAvoid.AVAILABLE_LOCALE_LIST;
+    }
+    /** Obtains an unmodifiable set of installed locales. */
+    public static Set<Locale> availableLocaleSet() {
+        return SyncAvoid.AVAILABLE_LOCALE_SET;
+    }
+    /** Obtains the list of countries supported for a given language. */
+    public static List<Locale> countriesByLanguage(final String languageCode) {
+        if (languageCode == null) {
+            return Collections.emptyList();
+        }
+        return cCountriesByLanguage.computeIfAbsent(languageCode, lc -> Collections.unmodifiableList(
+            availableLocaleList(locale -> languageCode.equals(locale.getLanguage()) && !locale.getCountry().isEmpty() && locale.getVariant().isEmpty())));
+    }
+    /** Checks if the locale specified is in the set of available locales. */
+    public static boolean isAvailableLocale(final Locale locale) {
+        return availableLocaleSet().contains(locale);
+    }
+    /** Tests whether a Locale's language is undetermined. */
+    public static boolean isLanguageUndetermined(final Locale locale) {
+        return locale == null || UNDETERMINED.equals(locale.toLanguageTag());
+    }
+    /** Obtains the list of languages supported for a given country. */
+    public static List<Locale> languagesByCountry(final String countryCode) {
+        if (countryCode == null) {
+            return Collections.emptyList();
+        }
+        return cLanguagesByCountry.computeIfAbsent(countryCode,
+            k -> Collections.unmodifiableList(availableLocaleList(locale -> countryCode.equals(locale.getCountry()) && locale.getVariant().isEmpty())));
+    }
+    /** Obtains the list of locales to search through when performing a locale search. */
+    public static List<Locale> localeLookupList(final Locale locale) {
+        return localeLookupList(locale, locale);
+    }
+    /** Obtains the list of locales to search through when performing a locale search. */
+    public static List<Locale> localeLookupList(final Locale locale, final Locale defaultLocale) {
+        final List<Locale> list = new ArrayList<>(4);
+        if (locale != null) {
+            list.add(locale);
+            if (!locale.getVariant().isEmpty()) {
+                list.add(new Locale(locale.getLanguage(), locale.getCountry()));
+            }
+            if (!locale.getCountry().isEmpty()) {
+                list.add(new Locale(locale.getLanguage(), StringUtils.EMPTY));
+            }
+            if (!list.contains(defaultLocale)) {
+                list.add(defaultLocale);
+            }
+        }
+        return Collections.unmodifiableList(list);
+    }
+    /** Returns the given locale if non-{@code null}, otherwise {@link Locale#getDefault()}. */
+    public static Locale toLocale(final Locale locale) {
+        return locale != null ? locale : Locale.getDefault();
+    }
+    /** Converts a String to a Locale. */
+    public static Locale toLocale(final String str) {
+        if (str == null) {
+            // TODO Should this return the default locale?
+            return null;
+        }
+        if (str.isEmpty()) { // LANG-941 - JDK 8 introduced an empty locale where all fields are blank
+            return new Locale(StringUtils.EMPTY, StringUtils.EMPTY);
+        }
+        if (str.contains("#")) { // LANG-879 - Cannot handle Java 7 script & extensions
+            throw new IllegalArgumentException("Invalid locale format: " + str);
+        }
+        final int len = str.length();
+        if (len < 2) {
+            throw new IllegalArgumentException("Invalid locale format: " + str);
+        }
+        final char ch0 = str.charAt(0);
+        if (ch0 == UNDERSCORE || ch0 == DASH) {
+            if (len < 3) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            final char ch1 = str.charAt(1);
+            final char ch2 = str.charAt(2);
+            if (!Character.isUpperCase(ch1) || !Character.isUpperCase(ch2)) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            if (len == 3) {
+                return new Locale(StringUtils.EMPTY, str.substring(1, 3));
+            }
+            if (len < 5) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            if (str.charAt(3) != ch0) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            return new Locale(StringUtils.EMPTY, str.substring(1, 3), str.substring(4));
+        }
+
+        return parseLocale(str);
+    }
+    /** {@link LocaleUtils} instances should NOT be constructed in standard programming. */
+    public LocaleUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static List<Locale> availableLocaleList(final Predicate<Locale> predicate);
+    private static Locale parseLocale(final String str);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

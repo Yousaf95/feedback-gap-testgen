@@ -1,0 +1,84 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_EmptySet() {
+        assertFalse(CharSetUtils.containsAny("abc", new String[]{}));
+    }
+
+    @Test
+    public void testCount_EmptySet() {
+        assertEquals(0, CharSetUtils.count("abc", new String[]{}));
+    }
+
+    @Test
+    public void testDelete_EmptySet() {
+        assertEquals("abc", CharSetUtils.delete("abc", new String[]{}));
+    }
+
+    @Test
+    public void testKeep_EmptySet() {
+        assertEquals("", CharSetUtils.keep("abc", new String[]{}));
+    }
+
+    @Test
+    public void testSqueeze_EmptySet() {
+        assertEquals("abc", CharSetUtils.squeeze("abc", new String[]{}));
+    }
+
+    @Test
+    public void testContainsAny_MultipleSets() {
+        assertTrue(CharSetUtils.containsAny("abc", "a", "b"));
+    }
+
+    @Test
+    public void testCount_MultipleSets() {
+        assertEquals(2, CharSetUtils.count("abc", "a", "b"));
+    }
+
+    @Test
+    public void testDelete_MultipleSets() {
+        assertEquals("c", CharSetUtils.delete("abc", "a", "b"));
+    }
+
+    @Test
+    public void testKeep_MultipleSets() {
+        assertEquals("ab", CharSetUtils.keep("abc", "a", "b"));
+    }
+
+    @Test
+    public void testSqueeze_MultipleSets() {
+        assertEquals("abc", CharSetUtils.squeeze("aaabbcc", "a", "b", "c"));
+    }
+
+    @Test
+    public void testContainsAny_WithWhitespace() {
+        assertTrue(CharSetUtils.containsAny("hello world", "h", "w"));
+    }
+
+    @Test
+    public void testCount_WithWhitespace() {
+        assertEquals(2, CharSetUtils.count("hello world", "h", "w"));
+    }
+
+    @Test
+    public void testDelete_WithWhitespace() {
+        assertEquals("ellorld", CharSetUtils.delete("hello world", "h", "w"));
+    }
+
+    @Test
+    public void testKeep_WithWhitespace() {
+        assertEquals("helolrld", CharSetUtils.keep("hello world", "h", "e", "l", "o", "r", "d"));
+    }
+
+    @Test
+    public void testSqueeze_WithWhitespace() {
+        assertEquals("he lo w", CharSetUtils.squeeze("he  lo   w", " ", "e", "o"));
+    }
+}
+```

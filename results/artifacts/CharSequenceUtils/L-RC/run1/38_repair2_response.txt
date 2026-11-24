@@ -1,0 +1,19 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class CharSequenceUtils_GenTest {
+
+    @Test
+    void testIndexOf_StartLessThanZero() {
+        assertEquals(0, CharSequenceUtils.indexOf("abc", "a", -1));
+    }
+
+    @Test
+    void testLastIndexOf_StartLessThanZero() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("abc", "a", -1));
+    }
+}
+```

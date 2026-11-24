@@ -1,0 +1,339 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[245,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[253,24] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[245,68] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$12> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[250,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[252,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[253,51] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[254,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[256,28] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[264,32] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[256,55] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$12$1> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[261,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[263,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[264,59] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[265,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[267,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[271,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[275,28] TO_STRING_STYLE has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[275,44] no suitable method found for appendDetail(java.lang.StringBuffer,java.lang.String,org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,boolean) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to boolean)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,boolean[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to boolean[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,byte) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to byte)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,byte[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to byte[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,char) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to char)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,char[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to char[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.util.Collection<?>) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to java.util.Collection<?>)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,double) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to double)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,double[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to double[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,float) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to float)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,float[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to float[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,int) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to int)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,int[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to int[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,long) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to long)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,long[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to long[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.util.Map<?,?>) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to java.util.Map<?,?>)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object) is not applicable
+      (appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object) has protected access in org.apache.commons.lang3.builder.ToStringStyle)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to java.lang.Object[])
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,short) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to short)
+    method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,short[]) is not applicable
+      (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to short[])
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[280,44] TO_STRING_STYLE has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[280,60] getShortClassName(java.lang.Class<?>) has protected access in org.apache.commons.lang3.builder.ToStringStyle
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[288,40] annotationArrayMemberEquals(java.lang.annotation.Annotation[],java.lang.annotation.Annotation[]) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[293,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[293,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$13> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[296,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,61] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[298,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[299,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[302,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[306,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[302,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$14> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[305,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[306,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[306,61] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[307,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[308,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[311,40] annotationArrayMemberEquals(java.lang.annotation.Annotation[],java.lang.annotation.Annotation[]) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[316,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[316,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$15> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[319,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,61] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[321,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[322,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[325,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[329,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[325,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$16> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[328,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[329,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[329,61] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[330,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[331,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[334,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[341,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[348,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[355,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[362,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[369,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[376,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[383,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[390,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[397,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[409,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[415,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[421,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[427,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[433,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[439,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[445,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[451,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[456,33] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[460,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[456,60] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$17> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[459,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[460,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[460,61] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[461,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[462,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[465,33] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[469,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[465,60] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$18> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[468,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[469,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[469,61] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[470,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[471,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[479,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[483,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[479,68] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$19> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[482,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[483,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[484,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[485,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[493,41] hashMember(java.lang.String,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[499,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[503,34] cannot find symbol
+  symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[499,68] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$20> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[502,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[503,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[503,61] cannot find symbol
+  symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[504,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[505,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[508,41] hashMember(java.lang.String,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[245,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[253,24] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[245,68] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$12> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[250,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[252,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[253,51] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[254,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[256,28] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[264,32] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[256,55] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$12$1> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[261,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[263,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[264,59] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[265,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[267,25] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[271,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[275,28] TO_STRING_STYLE has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[275,44] no suitable method found for appendDetail(java.lang.StringBuffer,java.lang.String,org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,boolean) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to boolean)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,boolean[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to boolean[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,byte) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to byte)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,byte[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to byte[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,char) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to char)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,char[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to char[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.util.Collection<?>) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to java.util.Collection<?>)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,double) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,double[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to double[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,float) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to float)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,float[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to float[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,int) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to int)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,int[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to int[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,long) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,long[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to long[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.util.Map<?,?>) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to java.util.Map<?,?>)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object) is not applicable
+[ERROR]       (appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object) has protected access in org.apache.commons.lang3.builder.ToStringStyle)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,java.lang.Object[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to java.lang.Object[])
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,short) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to short)
+[ERROR]     method org.apache.commons.lang3.builder.ToStringStyle.appendDetail(java.lang.StringBuffer,java.lang.String,short[]) is not applicable
+[ERROR]       (argument mismatch; org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation cannot be converted to short[])
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[280,44] TO_STRING_STYLE has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[280,60] getShortClassName(java.lang.Class<?>) has protected access in org.apache.commons.lang3.builder.ToStringStyle
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[288,40] annotationArrayMemberEquals(java.lang.annotation.Annotation[],java.lang.annotation.Annotation[]) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[293,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[293,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$13> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[296,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[297,61] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[298,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[299,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[302,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[306,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[302,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$14> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[305,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[306,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[306,61] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[307,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[308,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[311,40] annotationArrayMemberEquals(java.lang.annotation.Annotation[],java.lang.annotation.Annotation[]) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[316,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[316,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$15> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[319,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[320,61] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[321,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[322,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[325,37] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[329,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[325,64] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$16> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[328,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[329,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[329,61] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[330,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[331,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[334,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[341,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[348,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[355,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[362,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[369,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[376,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[383,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[390,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[397,39] arrayMemberEquals(java.lang.Class<?>,java.lang.Object,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[403,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[409,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[415,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[421,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[427,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[433,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[439,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[445,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[451,28] arrayMemberHash(java.lang.Class<?>,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[456,33] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[460,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[456,60] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$17> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[459,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[460,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[460,61] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[461,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[462,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[465,33] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[469,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[465,60] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$18> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[468,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[469,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[469,61] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[470,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[471,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[479,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[483,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[479,68] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$19> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[482,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[483,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[484,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[485,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[493,41] hashMember(java.lang.String,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[499,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[503,34] cannot find symbol
+[ERROR]   symbol: class TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[499,68] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$20> is not abstract and does not override abstract method annotationType() in java.lang.annotation.Annotation
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[502,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[503,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[503,61] cannot find symbol
+[ERROR]   symbol: variable TestEnum
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[504,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[505,17] method does not override or implement a method from a supertype
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[508,41] hashMember(java.lang.String,java.lang.Object) has private access in org.apache.commons.lang3.AnnotationUtils
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,84 @@
+```java
+package org.apache.commons.lang3.math;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Fraction_GenTest {
+
+    @Test
+    void testGetFractionFromDoubleOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Double.MAX_VALUE));
+    }
+
+    @Test
+    void testAddAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(Integer.MAX_VALUE, 1).add(Fraction.ONE));
+    }
+
+    @Test
+    void testSubAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(Integer.MIN_VALUE, 1).subtract(Fraction.ONE));
+    }
+
+    @Test
+    void testMulAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(Integer.MAX_VALUE, 1).multiplyBy(Fraction.TWO));
+    }
+
+    @Test
+    void testMulPosAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(Integer.MAX_VALUE, 1).multiplyBy(Fraction.ONE_HALF.invert()));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsNegativeDenominator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, -1, 2));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsNegativeNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, 1, -2));
+    }
+
+    @Test
+    void testGetFractionFromStringDoubleFormat() {
+        assertEquals(Fraction.ONE_HALF, Fraction.getFraction("0.5"));
+    }
+
+    @Test
+    void testGetFractionFromStringXYOverZFormat() {
+        assertEquals(new Fraction(7, 4), Fraction.getFraction("1 3/4"));
+    }
+
+    @Test
+    void testGetFractionFromStringInvalidFormat() {
+        assertThrows(NumberFormatException.class, () -> Fraction.getFraction("1 2"));
+    }
+
+    @Test
+    void testGetReducedFractionDenominatorMinValueEvenNumerator() {
+        assertEquals(new Fraction(1, Integer.MIN_VALUE / 2), Fraction.getReducedFraction(Integer.MIN_VALUE / 2, Integer.MIN_VALUE));
+    }
+
+    @Test
+    void testGreatestCommonDivisorOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.greatestCommonDivisor(Integer.MIN_VALUE, 1));
+    }
+
+    @Test
+    void testAbsPositiveNumerator() {
+        assertEquals(Fraction.ONE, Fraction.ONE.abs());
+    }
+
+    @Test
+    void testAddZeroFraction() {
+        assertEquals(Fraction.ONE, Fraction.ONE.add(Fraction.ZERO));
+    }
+
+    @Test
+    void testSubtractZeroFraction() {
+        assertEquals(Fraction.ONE, Fraction.ONE.subtract(Fraction.ZERO));
+    }
+}
+```

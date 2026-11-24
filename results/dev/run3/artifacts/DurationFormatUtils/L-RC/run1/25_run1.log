@@ -1,0 +1,50 @@
+[ERROR] Tests run: 20, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 0.188 s <<< FAILURE! -- in org.apache.commons.lang3.time.DurationFormatUtils_GenTest
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustSecondsNegative -- Time elapsed: 0.041 s <<< ERROR!
+java.lang.IllegalArgumentException: startMillis must not be greater than endMillis
+	at org.apache.commons.lang3.Validate.isTrue(Validate.java:572)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:509)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:481)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustSecondsNegative(DurationFormatUtils_GenTest.java:205)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustMillisecondsNegative -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.IllegalArgumentException: startMillis must not be greater than endMillis
+	at org.apache.commons.lang3.Validate.isTrue(Validate.java:572)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:509)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:481)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustMillisecondsNegative(DurationFormatUtils_GenTest.java:197)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testSuppressTrailingZeroElements -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1 hour> but was: <0 days 1 hour>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testSuppressTrailingZeroElements(DurationFormatUtils_GenTest.java:190)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   DurationFormatUtils_GenTest.testSuppressTrailingZeroElements:190 expected: <1 hour> but was: <0 days 1 hour>
+[ERROR] Errors: 
+[ERROR]   DurationFormatUtils_GenTest.testAdjustMillisecondsNegative:197 » IllegalArgument startMillis must not be greater than endMillis
+[ERROR]   DurationFormatUtils_GenTest.testAdjustSecondsNegative:205 » IllegalArgument startMillis must not be greater than endMillis
+[ERROR] Tests run: 20, Failures: 1, Errors: 2, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w3/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,447 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class BooleanUtils_GenTest for BooleanUtils already contains the test methods listed below.
+
+Existing test methods (do not duplicate them):
+testAndWithBooleanArray, testAndWithBooleanArrayContainingFalse, testAndWithBooleanObjectArray, testAndWithNullBooleanObjectArray, testAndWithEmptyBooleanObjectArray, testOrWithBooleanArray, testOrWithAllFalseBooleanArray, testOrWithBooleanObjectArray, testOrWithNullBooleanObjectArray, testOrWithEmptyBooleanObjectArray, testOneHotWithSingleTrue, testOneHotWithMultipleTrue, testOneHotWithAllFalse, testXorWithSingleTrue, testXorWithMultipleTrue, testXorWithAllFalse, testCompareTrueAndTrue, testCompareFalseAndTrue, testCompareTrueAndFalse, testNegateTrue, testNegateFalse, testNegateNull, testToBooleanWithInt, testToBooleanObjectWithInt, testToBooleanDefaultIfNull, testToBooleanObjectWithString, testToBooleanWithString, testToStringTrueFalseWithNull, testToStringOnOff, testBooleanValues, testPrimitiveValues, testIsFalseWithNull, testIsNotFalseWithTrue, testIsNotFalseWithFalse, testIsNotFalseWithNull, testIsTrueWithNull, testIsNotTrueWithTrue, testIsNotTrueWithFalse, testIsNotTrueWithNull, testToBooleanObjectWithIntAndCustomValues, testToBooleanObjectWithIntegerAndCustomValues, testToBooleanWithIntAndCustomValues, testToBooleanWithIntegerAndCustomValues, testToIntegerWithCustomValues, testToIntegerObjectWithBooleanAndCustomValues, testToIntegerObjectWithBooleanAndNullValues, testToStringWithCustomValues, testToStringWithNullBooleanAndCustomValues, testForEachWithAction
+
+Write ADDITIONAL test methods for BooleanUtils that test behaviour not yet tested by the existing test methods.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class BooleanUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.BooleanUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Consumer;
+import org.apache.commons.lang3.math.NumberUtils;
+
+/** Operations on boolean primitives and Boolean objects. */
+public class BooleanUtils {
+    private static final List<Boolean> BOOLEAN_LIST = Collections.unmodifiableList(Arrays.asList(Boolean.FALSE, Boolean.TRUE));
+    /** The false String {@code "false"}. */
+    public static final String FALSE = "false";
+    /** The no String {@code "no"}. */
+    public static final String NO = "no";
+    /** The off String {@code "off"}. */
+    public static final String OFF = "off";
+    /** The on String {@code "on"}. */
+    public static final String ON = "on";
+    /** The true String {@code "true"}. */
+    public static final String TRUE = "true";
+    /** The yes String {@code "yes"}. */
+    public static final String YES = "yes";
+    /** Performs an 'and' operation on a set of booleans. */
+    public static boolean and(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        for (final boolean element : array) {
+            if (!element) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /** Performs an 'and' operation on an array of Booleans. */
+    public static Boolean and(final Boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        return and(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
+    }
+    /** Returns a new array of possible values (like an enum would). */
+    public static Boolean[] booleanValues() {
+        return new Boolean[] {Boolean.FALSE, Boolean.TRUE};
+    }
+    /** Compares two {@code boolean} values. */
+    public static int compare(final boolean x, final boolean y) {
+        if (x == y) {
+            return 0;
+        }
+        return x ? 1 : -1;
+    }
+    /** Performs the given action for each Boolean {@link BooleanUtils#values()}. */
+    public static void forEach(final Consumer<Boolean> action) {
+        values().forEach(action);
+    }
+    /** Checks if a {@link Boolean} value is {@code false}, handling {@code null} by returning {@code false}. */
+    public static boolean isFalse(final Boolean bool) {
+        return Boolean.FALSE.equals(bool);
+    }
+    /** Checks if a {@link Boolean} value is <i>not</i> {@code false}, handling {@code null} by returning {@code true}. */
+    public static boolean isNotFalse(final Boolean bool) {
+        return !isFalse(bool);
+    }
+    /** Checks if a {@link Boolean} value is <i>not</i> {@code true}, handling {@code null} by returning {@code true}. */
+    public static boolean isNotTrue(final Boolean bool) {
+        return !isTrue(bool);
+    }
+    /** Checks if a {@link Boolean} value is {@code true}, handling {@code null} by returning {@code false}. */
+    public static boolean isTrue(final Boolean bool) {
+        return Boolean.TRUE.equals(bool);
+    }
+    /** Negates the specified boolean. */
+    public static Boolean negate(final Boolean bool) {
+        if (bool == null) {
+            return null;
+        }
+        return bool.booleanValue() ? Boolean.FALSE : Boolean.TRUE;
+    }
+    /** Performs a one-hot on an array of booleans. */
+    public static boolean oneHot(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        boolean result = false;
+        for (final boolean element: array) {
+            if (element) {
+                if (result) {
+                    return false;
+                }
+                result = true;
+            }
+        }
+        return result;
+    }
+    /** Performs a one-hot on an array of booleans. */
+    public static Boolean oneHot(final Boolean... array) {
+        return Boolean.valueOf(oneHot(ArrayUtils.toPrimitive(array)));
+    }
+    /** Performs an 'or' operation on a set of booleans. */
+    public static boolean or(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        for (final boolean element : array) {
+            if (element) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /** Performs an 'or' operation on an array of Booleans. */
+    public static Boolean or(final Boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        return or(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
+    }
+    /** Returns a new array of possible values (like an enum would). */
+    public static boolean[] primitiveValues() {
+        return new boolean[] {false, true};
+    }
+    /** Converts a Boolean to a boolean handling {@code null} by returning {@code false}. */
+    public static boolean toBoolean(final Boolean bool) {
+        return bool != null && bool.booleanValue();
+    }
+    /** Converts an int to a boolean using the convention that {@code zero} is {@code false}, everything else is {@code true}. */
+    public static boolean toBoolean(final int value) {
+        return value != 0;
+    }
+    /** Converts an int to a boolean specifying the conversion values. */
+    public static boolean toBoolean(final int value, final int trueValue, final int falseValue) {
+        if (value == trueValue) {
+            return true;
+        }
+        if (value == falseValue) {
+            return false;
+        }
+        throw new IllegalArgumentException("The Integer did not match either specified value");
+    }
+    /** Converts an Integer to a boolean specifying the conversion values. */
+    public static boolean toBoolean(final Integer value, final Integer trueValue, final Integer falseValue) {
+        if (value == null) {
+            if (trueValue == null) {
+                return true;
+            }
+            if (falseValue == null) {
+                return false;
+            }
+        } else if (value.equals(trueValue)) {
+            return true;
+        } else if (value.equals(falseValue)) {
+            return false;
+        }
+        throw new IllegalArgumentException("The Integer did not match either specified value");
+    }
+    /** Converts a String to a boolean (optimised for performance). */
+    public static boolean toBoolean(final String str) {
+        return toBooleanObject(str) == Boolean.TRUE;
+    }
+    /** Converts a String to a Boolean throwing an exception if no match found. */
+    public static boolean toBoolean(final String str, final String trueString, final String falseString) {
+        if (str == trueString) {
+            return true;
+        }
+        if (str == falseString) {
+            return false;
+        }
+        if (str != null) {
+            if (str.equals(trueString)) {
+                return true;
+            }
+            if (str.equals(falseString)) {
+                return false;
+            }
+        }
+        throw new IllegalArgumentException("The String did not match either specified value");
+    }
+    /** Converts a Boolean to a boolean handling {@code null}. */
+    public static boolean toBooleanDefaultIfNull(final Boolean bool, final boolean valueIfNull) {
+        if (bool == null) {
+            return valueIfNull;
+        }
+        return bool.booleanValue();
+    }
+    /** Converts an int to a Boolean using the convention that {@code zero} is {@code false}, everything else is {@code true}. */
+    public static Boolean toBooleanObject(final int value) {
+        return value == 0 ? Boolean.FALSE : Boolean.TRUE;
+    }
+    /** Converts an int to a Boolean specifying the conversion values. */
+    public static Boolean toBooleanObject(final int value, final int trueValue, final int falseValue, final int nullValue) {
+        if (value == trueValue) {
+            return Boolean.TRUE;
+        }
+        if (value == falseValue) {
+            return Boolean.FALSE;
+        }
+        if (value == nullValue) {
+            return null;
+        }
+        throw new IllegalArgumentException("The Integer did not match any specified value");
+    }
+    /** Converts an Integer to a Boolean using the convention that {@code zero} is {@code false}, every other numeric value is {@code true}. */
+    public static Boolean toBooleanObject(final Integer value) {
+        if (value == null) {
+            return null;
+        }
+        return value.intValue() == 0 ? Boolean.FALSE : Boolean.TRUE;
+    }
+    /** Converts an Integer to a Boolean specifying the conversion values. */
+    public static Boolean toBooleanObject(final Integer value, final Integer trueValue, final Integer falseValue, final Integer nullValue) {
+        if (value == null) {
+            if (trueValue == null) {
+                return Boolean.TRUE;
+            }
+            if (falseValue == null) {
+                return Boolean.FALSE;
+            }
+            if (nullValue == null) {
+                return null;
+            }
+        } else if (value.equals(trueValue)) {
+            return Boolean.TRUE;
+        } else if (value.equals(falseValue)) {
+            return Boolean.FALSE;
+        } else if (value.equals(nullValue)) {
+            return null;
+        }
+        throw new IllegalArgumentException("The Integer did not match any specified value");
+    }
+    /** Converts a String to a Boolean. */
+    public static Boolean toBooleanObject(final String str) {
+        // Previously used equalsIgnoreCase, which was fast for interned 'true'.
+        // Non interned 'true' matched 15 times slower.
+        //
+        // Optimisation provides same performance as before for interned 'true'.
+        // Similar performance for null, 'false', and other strings not length 2/3/4.
+        // 'true'/'TRUE' match 4 times slower, 'tRUE'/'True' 7 times slower.
+        if (str == TRUE) {
+            return Boolean.TRUE;
+        }
+        if (str == null) {
+            return null;
+        }
+        switch (str.length()) {
+            case 1: {
+                final char ch0 = str.charAt(0);
+                if (ch0 == 'y' || ch0 == 'Y' ||
+                    ch0 == 't' || ch0 == 'T' ||
+                    ch0 == '1') {
+                    return Boolean.TRUE;
+                }
+                if (ch0 == 'n' || ch0 == 'N' ||
+                    ch0 == 'f' || ch0 == 'F' ||
+                    ch0 == '0') {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+            case 2: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                if ((ch0 == 'o' || ch0 == 'O') &&
+                    (ch1 == 'n' || ch1 == 'N') ) {
+                    return Boolean.TRUE;
+                }
+                if ((ch0 == 'n' || ch0 == 'N') &&
+                    (ch1 == 'o' || ch1 == 'O') ) {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+            case 3: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                final char ch2 = str.charAt(2);
+                if ((ch0 == 'y' || ch0 == 'Y') &&
+                    (ch1 == 'e' || ch1 == 'E') &&
+                    (ch2 == 's' || ch2 == 'S') ) {
+                    return Boolean.TRUE;
+                }
+                if ((ch0 == 'o' || ch0 == 'O') &&
+                    (ch1 == 'f' || ch1 == 'F') &&
+                    (ch2 == 'f' || ch2 == 'F') ) {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+            case 4: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                final char ch2 = str.charAt(2);
+                final char ch3 = str.charAt(3);
+                if ((ch0 == 't' || ch0 == 'T') &&
+                    (ch1 == 'r' || ch1 == 'R') &&
+                    (ch2 == 'u' || ch2 == 'U') &&
+                    (ch3 == 'e' || ch3 == 'E') ) {
+                    return Boolean.TRUE;
+                }
+                break;
+            }
+            case 5: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                final char ch2 = str.charAt(2);
+                final char ch3 = str.charAt(3);
+                final char ch4 = str.charAt(4);
+                if ((ch0 == 'f' || ch0 == 'F') &&
+                    (ch1 == 'a' || ch1 == 'A') &&
+                    (ch2 == 'l' || ch2 == 'L') &&
+                    (ch3 == 's' || ch3 == 'S') &&
+                    (ch4 == 'e' || ch4 == 'E') ) {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+        default:
+            break;
+        }
+
+        return null;
+    }
+    /** Converts a String to a Boolean throwing an exception if no match. */
+    public static Boolean toBooleanObject(final String str, final String trueString, final String falseString, final String nullString) {
+        if (str == null) {
+            if (trueString == null) {
+                return Boolean.TRUE;
+            }
+            if (falseString == null) {
+                return Boolean.FALSE;
+            }
+            if (nullString == null) {
+                return null;
+            }
+        } else if (str.equals(trueString)) {
+            return Boolean.TRUE;
+        } else if (str.equals(falseString)) {
+            return Boolean.FALSE;
+        } else if (str.equals(nullString)) {
+            return null;
+        }
+        // no match
+        throw new IllegalArgumentException("The String did not match any specified value");
+    }
+    /** Converts a boolean to an int using the convention that {@code true} is {@code 1} and {@code false} is {@code 0}. */
+    public static int toInteger(final boolean bool) {
+        return bool ? 1 : 0;
+    }
+    /** Converts a boolean to an int specifying the conversion values. */
+    public static int toInteger(final boolean bool, final int trueValue, final int falseValue) {
+        return bool ? trueValue : falseValue;
+    }
+    /** Converts a Boolean to an int specifying the conversion values. */
+    public static int toInteger(final Boolean bool, final int trueValue, final int falseValue, final int nullValue) {
+        if (bool == null) {
+            return nullValue;
+        }
+        return bool.booleanValue() ? trueValue : falseValue;
+    }
+    /** Converts a boolean to an Integer using the convention that {@code true} is {@code 1} and {@code false} is {@code 0}. */
+    public static Integer toIntegerObject(final boolean bool) {
+        return bool ? NumberUtils.INTEGER_ONE : NumberUtils.INTEGER_ZERO;
+    }
+    /** Converts a boolean to an Integer specifying the conversion values. */
+    public static Integer toIntegerObject(final boolean bool, final Integer trueValue, final Integer falseValue) {
+        return bool ? trueValue : falseValue;
+    }
+    /** Converts a Boolean to a Integer using the convention that {@code zero} is {@code false}. */
+    public static Integer toIntegerObject(final Boolean bool) {
+        if (bool == null) {
+            return null;
+        }
+        return bool.booleanValue() ? NumberUtils.INTEGER_ONE : NumberUtils.INTEGER_ZERO;
+    }
+    /** Converts a Boolean to an Integer specifying the conversion values. */
+    public static Integer toIntegerObject(final Boolean bool, final Integer trueValue, final Integer falseValue, final Integer nullValue) {
+        if (bool == null) {
+            return nullValue;
+        }
+        return bool.booleanValue() ? trueValue : falseValue;
+    }
+    /** Converts a boolean to a String returning one of the input Strings. */
+    public static String toString(final boolean bool, final String trueString, final String falseString) {
+        return bool ? trueString : falseString;
+    }
+    /** Converts a Boolean to a String returning one of the input Strings. */
+    public static String toString(final Boolean bool, final String trueString, final String falseString, final String nullString) {
+        if (bool == null) {
+            return nullString;
+        }
+        return bool.booleanValue() ? trueString : falseString;
+    }
+    /** Converts a boolean to a String returning {@code 'on'} or {@code 'off'}. */
+    public static String toStringOnOff(final boolean bool) {
+        return toString(bool, ON, OFF);
+    }
+    /** Converts a Boolean to a String returning {@code 'on'}, {@code 'off'}, or {@code null}. */
+    public static String toStringOnOff(final Boolean bool) {
+        return toString(bool, ON, OFF, null);
+    }
+    /** Converts a boolean to a String returning {@code 'true'} or {@code 'false'}. */
+    public static String toStringTrueFalse(final boolean bool) {
+        return toString(bool, TRUE, FALSE);
+    }
+    /** Converts a Boolean to a String returning {@code 'true'}, {@code 'false'}, or {@code null}. */
+    public static String toStringTrueFalse(final Boolean bool) {
+        return toString(bool, TRUE, FALSE, null);
+    }
+    /** Converts a boolean to a String returning {@code 'yes'} or {@code 'no'}. */
+    public static String toStringYesNo(final boolean bool) {
+        return toString(bool, YES, NO);
+    }
+    /** Converts a Boolean to a String returning {@code 'yes'}, {@code 'no'}, or {@code null}. */
+    public static String toStringYesNo(final Boolean bool) {
+        return toString(bool, YES, NO, null);
+    }
+    /** Returns an unmodifiable list of Booleans {@code [false, true]}. */
+    public static List<Boolean> values() {
+        return BOOLEAN_LIST;
+    }
+    /** Performs an xor on a set of booleans. */
+    public static boolean xor(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        // false if the neutral element of the xor operator
+        boolean result = false;
+        for (final boolean element : array) {
+            result ^= element;
+        }
+
+        return result;
+    }
+    /** Performs an xor on an array of Booleans. */
+    public static Boolean xor(final Boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        return xor(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
+    }
+    /** {@link BooleanUtils} instances should NOT be constructed in standard programming. */
+    public BooleanUtils() {
+    }
+}
+```

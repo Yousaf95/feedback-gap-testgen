@@ -1,0 +1,46 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import java.util.NoSuchElementException;
+
+public class Range_GenTest {
+
+    @Test
+    public void testContainsNullElement() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.contains(null));
+    }
+
+    @Test
+    public void testFitWithNullElement() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(1, range.fit(null).intValue());
+    }
+
+    @Test
+    public void testContainsRangeWithEmptyRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.containsRange(Range.between(6, 8)));
+    }
+
+    @Test
+    public void testIntersectionWithEmptyRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(Range.between(6, 8)));
+    }
+
+    @Test
+    public void testIsStartedBy_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.isStartedBy(1));
+    }
+
+    @Test
+    public void testIsEndedBy_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.isEndedBy(5));
+    }
+}
+```

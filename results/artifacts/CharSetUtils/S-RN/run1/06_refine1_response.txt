@@ -1,0 +1,59 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_withSingleCharSet_MultipleMatches() {
+        assertTrue(CharSetUtils.containsAny("abcde", "c"));
+    }
+
+    @Test
+    public void testContainsAny_withMultipleCharSets_MultipleMatches() {
+        assertTrue(CharSetUtils.containsAny("abcde", "c", "e"));
+    }
+
+    @Test
+    public void testCount_withSingleCharSet_MultipleMatches() {
+        assertEquals(2, CharSetUtils.count("abcde", "c"));
+    }
+
+    @Test
+    public void testCount_withMultipleCharSets_MultipleMatches() {
+        assertEquals(3, CharSetUtils.count("abcde", "c", "e"));
+    }
+
+    @Test
+    public void testDelete_withSingleCharSet_MultipleMatches() {
+        assertEquals("abd", CharSetUtils.delete("abcde", "c"));
+    }
+
+    @Test
+    public void testDelete_withMultipleCharSets_MultipleMatches() {
+        assertEquals("abd", CharSetUtils.delete("abcde", "c", "e"));
+    }
+
+    @Test
+    public void testKeep_withSingleCharSet_MultipleMatches() {
+        assertEquals("ccc", CharSetUtils.keep("abcde", "c"));
+    }
+
+    @Test
+    public void testKeep_withMultipleCharSets_MultipleMatches() {
+        assertEquals("cce", CharSetUtils.keep("abcde", "c", "e"));
+    }
+
+    @Test
+    public void testSqueeze_withSingleCharSet_MultipleMatches() {
+        assertEquals("abcde", CharSetUtils.squeeze("aaabbbcccddd", "a"));
+    }
+
+    @Test
+    public void testSqueeze_withMultipleCharSets_MultipleMatches() {
+        assertEquals("abcde", CharSetUtils.squeeze("aaabbbcccddd", "a", "b", "c", "d"));
+    }
+}
+```

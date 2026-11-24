@@ -1,0 +1,48 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    void testIsAsciiAlpha_MixedCase() {
+        assertTrue(CharUtils.isAsciiAlpha('A'));
+        assertTrue(CharUtils.isAsciiAlpha('z'));
+        assertFalse(CharUtils.isAsciiAlpha('1'));
+        assertFalse(CharUtils.isAsciiAlpha('@'));
+    }
+
+    @Test
+    void testIsAsciiControl_PrintableCharacter() {
+        assertFalse(CharUtils.isAsciiControl(' '));
+        assertFalse(CharUtils.isAsciiControl('A'));
+        assertFalse(CharUtils.isAsciiControl('9'));
+    }
+
+    @Test
+    void testIsAsciiPrintable_ControlCharacter() {
+        assertFalse(CharUtils.isAsciiPrintable('\b'));
+        assertFalse(CharUtils.isAsciiPrintable('\t'));
+        assertFalse(CharUtils.isAsciiPrintable('\n'));
+    }
+
+    @Test
+    void testToIntValue_OutOfRangeCharacterWithDefault() {
+        assertEquals(42, CharUtils.toIntValue('A', 42));
+        assertEquals(42, CharUtils.toIntValue('z', 42));
+        assertEquals(42, CharUtils.toIntValue('@', 42));
+    }
+
+    @Test
+    void testToString_NonAsciiCharacter() {
+        assertEquals("\u0100", CharUtils.toString('\u0100'));
+    }
+
+    @Test
+    void testUnicodeEscaped_HigherPlaneCharacter() {
+        assertEquals("\\uD835\\uDD46", CharUtils.unicodeEscaped('\uD835\uDD46'));
+    }
+}
+```

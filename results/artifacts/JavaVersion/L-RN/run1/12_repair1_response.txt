@@ -1,0 +1,29 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class JavaVersion_GenTest {
+
+    @Test
+    void testJavaVersionValue() {
+        assertEquals(1.8f, JavaVersion.JAVA_1_8.value());
+    }
+
+    @Test
+    void testJavaVersionName() {
+        assertEquals("11", JavaVersion.JAVA_11.name());
+    }
+
+    @Test
+    void testJavaRecentIsGreaterThanAllVersions() {
+        assertTrue(JavaVersion.JAVA_RECENT.atLeast(JavaVersion.JAVA_21));
+    }
+
+    @Test
+    void testJavaVersionComparisonWithNull() {
+        assertThrows(NullPointerException.class, () -> JavaVersion.JAVA_17.atLeast(null));
+    }
+}
+```

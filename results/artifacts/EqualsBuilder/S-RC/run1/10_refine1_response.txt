@@ -1,0 +1,131 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.HashSet;
+import java.util.Set;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    public void testGetRegisterPair() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        Pair<IDKey, IDKey> pair = EqualsBuilder.getRegisterPair(lhs, rhs);
+        assertNotNull(pair);
+        assertEquals(new IDKey(lhs), pair.getLeft());
+        assertEquals(new IDKey(rhs), pair.getRight());
+    }
+
+    @Test
+    public void testGetRegistry() {
+        Set<Pair<IDKey, IDKey>> registry = EqualsBuilder.getRegistry();
+        assertNotNull(registry);
+    }
+
+    @Test
+    public void testIsRegistered() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        assertFalse(EqualsBuilder.isRegistered(lhs, rhs));
+        EqualsBuilder.register(lhs, rhs);
+        assertTrue(EqualsBuilder.isRegistered(lhs, rhs));
+        EqualsBuilder.unregister(lhs, rhs);
+        assertFalse(EqualsBuilder.isRegistered(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionEquals_withNulls() {
+        Object lhs = null;
+        Object rhs = null;
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs, false));
+    }
+
+    @Test
+    public void testReflectionEquals_withEqualObjects() {
+        Object lhs = new Object();
+        Object rhs = lhs;
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs, false));
+    }
+
+    @Test
+    public void testReflectionEquals_withUnequalObjects() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        assertFalse(EqualsBuilder.reflectionEquals(lhs, rhs, false));
+    }
+
+    @Test
+    public void testAppend_boolean() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append(true, true).isEquals());
+        assertFalse(builder.append(true, false).isEquals());
+    }
+
+    @Test
+    public void testAppend_byte() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append((byte) 1, (byte) 1).isEquals());
+        assertFalse(builder.append((byte) 1, (byte) 2).isEquals());
+    }
+
+    @Test
+    public void testAppend_char() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append('a', 'a').isEquals());
+        assertFalse(builder.append('a', 'b').isEquals());
+    }
+
+    @Test
+    public void testAppend_double() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append(1.0, 1.0).isEquals());
+        assertFalse(builder.append(1.0, 2.0).isEquals());
+    }
+
+    @Test
+    public void testAppend_float() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append(1.0f, 1.0f).isEquals());
+        assertFalse(builder.append(1.0f, 2.0f).isEquals());
+    }
+
+    @Test
+    public void testAppend_int() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append(1, 1).isEquals());
+        assertFalse(builder.append(1, 2).isEquals());
+    }
+
+    @Test
+    public void testAppend_long() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append(1L, 1L).isEquals());
+        assertFalse(builder.append(1L, 2L).isEquals());
+    }
+
+    @Test
+    public void testAppend_short() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append((short) 1, (short) 1).isEquals());
+        assertFalse(builder.append((short) 1, (short) 2).isEquals());
+    }
+
+    @Test
+    public void testAppend_Object() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppend_Object_array() {
+        Object[] lhs = {1, 2, 3};
+        Object[] rhs = {1, 2, 3};
+        EqualsBuilder builder = new EqualsBuilder();
+        assertTrue(builder.append(lhs, rhs).isEquals());
+    }
+}
+```

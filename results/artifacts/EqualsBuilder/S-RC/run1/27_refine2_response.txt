@@ -1,0 +1,52 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.HashSet;
+import java.util.Set;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    public void testGetRegisterPair() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        Pair<IDKey, IDKey> pair = EqualsBuilder.getRegisterPair(lhs, rhs);
+        assertNotNull(pair);
+        assertEquals(new IDKey(lhs), pair.getLeft());
+        assertEquals(new IDKey(rhs), pair.getRight());
+    }
+
+    @Test
+    public void testGetRegistry() {
+        Set<Pair<IDKey, IDKey>> registry = EqualsBuilder.getRegistry();
+        assertNotNull(registry);
+    }
+
+    @Test
+    public void testIsRegistered() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        assertFalse(EqualsBuilder.isRegistered(lhs, rhs));
+        EqualsBuilder.register(lhs, rhs);
+        assertTrue(EqualsBuilder.isRegistered(lhs, rhs));
+        EqualsBuilder.unregister(lhs, rhs);
+        assertFalse(EqualsBuilder.isRegistered(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionEquals_withNulls() {
+        Object lhs = null;
+        Object rhs = null;
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionEquals_withEqualObjects() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs));
+    }
+}
+```

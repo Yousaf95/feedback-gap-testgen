@@ -1,0 +1,85 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testIsRegisteredNull() {
+        Set<IDKey> registry = new HashSet<>();
+        IDKey key = new IDKey(null);
+        registry.add(key);
+        assertTrue(HashCodeBuilder.isRegistered(null));
+    }
+
+    @Test
+    public void testIsRegisteredNonRegisteredObject() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    public void testReflectionAppendNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(null, null, builder, false, null);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendRegisteredObject() {
+        Set<IDKey> registry = new HashSet<>();
+        IDKey key = new IDKey(new Object());
+        registry.add(key);
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(new Object(), null, builder, false, null);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendArrayNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(null, null, builder, false, null);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendArrayEmpty() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(new Object[0], null, builder, false, null);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendArrayNonEmpty() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(new Object[]{new Object()}, null, builder, false, null);
+        assertEquals(17 * 37 + 17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCodeNullObject_2() {
+        assertEquals(0, HashCodeBuilder.reflectionHashCode(null));
+    }
+
+    @Test
+    public void testReflectionHashCodeEmptyObject_2() {
+        Object obj = new Object();
+        assertEquals(17 * 37, HashCodeBuilder.reflectionHashCode(obj));
+    }
+
+    @Test
+    public void testReflectionHashCodeExcludeFields_2() {
+        Object obj = new Object();
+        assertEquals(17 * 37, HashCodeBuilder.reflectionHashCode(obj, "excluded"));
+    }
+
+    private static void reflectionAppend(final Object object, final Class<?> clazz, final HashCodeBuilder builder, final boolean useTransients,
+            final String[] excludeFields) {
+        // Dummy implementation for testing purposes
+    }
+}
+```

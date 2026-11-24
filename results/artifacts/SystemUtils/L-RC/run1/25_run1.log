@@ -1,0 +1,23 @@
+[ERROR] Tests run: 15, Failures: 0, Errors: 1, Skipped: 1, Time elapsed: 0.278 s <<< FAILURE! -- in org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionMatch_withNullVersion -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: Cannot read field "value" because "requiredVersion" is null
+	at org.apache.commons.lang3.JavaVersion.atLeast(JavaVersion.java:325)
+	at org.apache.commons.lang3.SystemUtils.isJavaVersionAtLeast(SystemUtils.java:2050)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionMatch_withNullVersion(SystemUtils_GenTest.java:182)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionMatch_withNullVersion:182 » NullPointer Cannot read field "value" because "requiredVersion" is null
+[ERROR] Tests run: 15, Failures: 0, Errors: 1, Skipped: 1
+[ERROR] 
+
+Please refer to /work/w6/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by org.apache.commons.lang3.SystemUtils_GenTest (file:/work/w6/target/test-classes/)
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang3.SystemUtils_GenTest
+WARNING: System::setSecurityManager will be removed in a future release

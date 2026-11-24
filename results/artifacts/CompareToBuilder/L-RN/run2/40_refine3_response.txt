@@ -1,0 +1,128 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    void testAppendObjectWithNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("test", "test");
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectWithCustomComparator() {
+        final Comparator<String> customComparator = Collections.reverseOrder();
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("apple", "banana", customComparator);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectArrayWithNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new String[]{"a", "b"}, new String[]{"a", "b"});
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectArrayWithCustomComparator() {
+        final Comparator<String> customComparator = Collections.reverseOrder();
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new String[]{"apple", "banana"}, new String[]{"banana", "apple"}, customComparator);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendSuperWithNonZeroValue() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.appendSuper(5);
+        assertEquals(5, builder.toComparison());
+    }
+
+    @Test
+    void testBuildWithNonZeroComparison() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2);
+        assertEquals(Integer.valueOf(-1), builder.build());
+    }
+
+    @Test
+    void testReflectionCompareWithExcludeFields() {
+        final TestClass obj1 = new TestClass("test", 10);
+        final TestClass obj2 = new TestClass("test", 20);
+        final int result = CompareToBuilder.reflectionCompare(obj1, obj2, "value");
+        assertEquals(0, result);
+    }
+
+    @Test
+    void testReflectionCompareWithExcludeFieldsArray() {
+        final TestClass obj1 = new TestClass("test", 10);
+        final TestClass obj2 = new TestClass("test", 20);
+        final int result = CompareToBuilder.reflectionCompare(obj1, obj2, new String[]{"value"});
+        assertEquals(0, result);
+    }
+
+    @Test
+    void testReflectionCompareWithExcludeFieldsCollection() {
+        final TestClass obj1 = new TestClass("test", 10);
+        final TestClass obj2 = new TestClass("test", 20);
+        final int result = CompareToBuilder.reflectionCompare(obj1, obj2, Arrays.asList("value"));
+        assertEquals(0, result);
+    }
+
+    @Test
+    void testReflectionCompareWithReflectUpToClass() {
+        final SubTestClass obj1 = new SubTestClass("test", 10, "sub");
+        final SubTestClass obj2 = new SubTestClass("test", 20, "sub");
+        final int result = CompareToBuilder.reflectionCompare(obj1, obj2, false, TestClass.class);
+        assertEquals(0, result);
+    }
+
+    @Test
+    void testAppendWithComparableObjects() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("apple", "banana");
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendWithNonComparableObjectsThrowsClassCastException() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(new Object(), "test"));
+    }
+
+    static class TestClass implements Comparable<TestClass> {
+        private String name;
+        private int value;
+
+        public TestClass(String name, int value) {
+            this.name = name;
+            this.value = value;
+        }
+
+        @Override
+        public int compareTo(TestClass other) {
+            return Integer.compare(this.value, other.value);
+        }
+    }
+
+    static class SubTestClass extends TestClass {
+        private String subName;
+
+        public SubTestClass(String name, int value, String subName) {
+            super(name, value);
+            this.subName = subName;
+        }
+    }
+}
+```

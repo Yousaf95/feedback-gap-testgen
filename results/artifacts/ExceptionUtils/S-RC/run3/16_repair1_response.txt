@@ -1,0 +1,25 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testIsChecked_2() {
+        assertTrue(ExceptionUtils.isChecked(new IOException()));
+        assertFalse(ExceptionUtils.isChecked(new RuntimeException()));
+    }
+
+    @Test
+    public void testIsUnchecked_2() {
+        assertFalse(ExceptionUtils.isUnchecked(new IOException()));
+        assertTrue(ExceptionUtils.isUnchecked(new RuntimeException()));
+    }
+}
+```

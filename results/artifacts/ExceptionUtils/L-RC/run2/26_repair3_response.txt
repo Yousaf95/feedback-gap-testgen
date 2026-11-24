@@ -1,0 +1,82 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testAsRuntimeException_withCheckedException() {
+        Exception checkedException = new Exception("Checked Exception");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(checkedException));
+        assertEquals("Checked Exception", runtimeException.getMessage());
+    }
+
+    @Test
+    void testGetCause_withNullMethodNames() {
+        Throwable cause = new IllegalArgumentException("cause");
+        Throwable throwable = new IllegalStateException("root", cause);
+        Throwable result = ExceptionUtils.getCause(throwable, null);
+        assertSame(cause, result);
+    }
+
+    @Test
+    void testGetRootCauseMessage_withRootCause() {
+        Throwable cause = new IllegalArgumentException("cause");
+        Throwable rootCause = new NullPointerException("root cause");
+        cause.initCause(rootCause);
+        String message = ExceptionUtils.getRootCauseMessage(cause);
+        assertEquals("NullPointerException: root cause", message);
+    }
+
+    @Test
+    void testGetRootCauseStackTraceList_withNestedExceptions() {
+        Throwable cause = new IllegalArgumentException("cause");
+        Throwable rootCause = new NullPointerException("root cause");
+        cause.initCause(rootCause);
+        List<String> stackTrace = ExceptionUtils.getRootCauseStackTraceList(cause);
+        assertFalse(stackTrace.isEmpty());
+        assertTrue(stackTrace.get(0).contains("java.lang.IllegalArgumentException: cause"));
+        assertTrue(stackTrace.get(stackTrace.size() - 1).contains("java.lang.NullPointerException: root cause"));
+    }
+
+    @Test
+    void testGetStackFrameList_withStackTrace() {
+        Throwable throwable = new IllegalStateException("test");
+        List<String> stackFrames = ExceptionUtils.getStackFrameList(throwable);
+        assertFalse(stackFrames.isEmpty());
+        assertTrue(stackFrames.get(0).contains("java.lang.IllegalStateException: test"));
+    }
+
+    @Test
+    void testGetStackFrames_withStackTrace() {
+        Throwable throwable = new IllegalStateException("test");
+        String[] stackFrames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(stackFrames.length > 0);
+        assertTrue(stackFrames[0].contains("java.lang.IllegalStateException: test"));
+    }
+
+    @Test
+    void testHasCause_withUndeclaredThrowableException() {
+        Throwable cause = new IllegalArgumentException("cause");
+        org.apache.commons.lang3.exception.UndeclaredThrowableException undeclared = new org.apache.commons.lang3.exception.UndeclaredThrowableException(cause);
+        boolean hasCause = ExceptionUtils.hasCause(undeclared, IllegalArgumentException.class);
+        assertTrue(hasCause);
+    }
+
+    @Test
+    void testGetThrowableList_withCircularReference() {
+        Throwable t1 = new IllegalArgumentException("t1");
+        Throwable t2 = new IllegalStateException("t2", t1);
+        t1.initCause(t2);
+        List<Throwable> throwables = ExceptionUtils.getThrowableList(t1);
+        assertEquals(2, throwables.size());
+    }
+}
+```

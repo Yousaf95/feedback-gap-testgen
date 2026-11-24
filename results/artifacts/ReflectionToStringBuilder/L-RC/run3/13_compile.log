@@ -1,0 +1,59 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[95,78] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[96,31] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[102,31] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[108,31] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[131,54] no suitable method found for toString(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean)
+    method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean,java.lang.Class<? super T>) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class<? super T>) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; boolean cannot be converted to java.lang.Class<? super T>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[164,31] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[170,31] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[95,78] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[96,31] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[102,31] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[108,31] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[131,54] no suitable method found for toString(java.lang.Object,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean)
+[ERROR]     method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,boolean,java.lang.Class<? super T>) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.builder.ReflectionToStringBuilder.<T>toString(T,org.apache.commons.lang3.builder.ToStringStyle,boolean,boolean,java.lang.Class<? super T>) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; boolean cannot be converted to java.lang.Class<? super T>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[164,31] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[170,31] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

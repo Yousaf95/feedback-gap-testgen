@@ -1,0 +1,148 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.StringWriter;
+import java.util.function.Supplier;
+import org.apache.commons.lang3.text.StrBuilder;
+
+class ObjectUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testReadResolve() throws Exception {
+        ObjectUtils.Null nullInstance = new ObjectUtils.Null();
+        assertEquals(ObjectUtils.NULL, nullInstance);
+    }
+
+    @Test
+    void testAllNotNull_withNullArray() {
+        assertFalse(ObjectUtils.allNotNull((Object[]) null));
+    }
+
+    @Test
+    void testClone_primitiveArray() {
+        int[] original = {1, 2, 3};
+        int[] cloned = ObjectUtils.clone(original);
+        assertNotSame(original, cloned);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    void testClone_objectArray() {
+        String[] original = {"a", "b", "c"};
+        String[] cloned = ObjectUtils.clone(original);
+        assertNotSame(original, cloned);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    void testClone_nonClonableObject() {
+        assertNull(ObjectUtils.clone(new Object()));
+    }
+
+    @Test
+    void testCONST_boolean() {
+        assertTrue(ObjectUtils.CONST(true));
+        assertFalse(ObjectUtils.CONST(false));
+    }
+
+    @Test
+    void testCONST_byte() {
+        assertEquals((byte) 127, ObjectUtils.CONST((byte) 127));
+    }
+
+    @Test
+    void testCONST_char() {
+        assertEquals('a', ObjectUtils.CONST('a'));
+    }
+
+    @Test
+    void testCONST_double() {
+        assertEquals(1.0, ObjectUtils.CONST(1.0), 0.0);
+    }
+
+    @Test
+    void testCONST_float() {
+        assertEquals(1.0f, ObjectUtils.CONST(1.0f), 0.0f);
+    }
+
+    @Test
+    void testCONST_int() {
+        assertEquals(1, ObjectUtils.CONST(1));
+    }
+
+    @Test
+    void testCONST_long() {
+        assertEquals(1L, ObjectUtils.CONST(1L));
+    }
+
+    @Test
+    void testCONST_short() {
+        assertEquals((short) 127, ObjectUtils.CONST((short) 127));
+    }
+
+    @Test
+    void testCONST_object() {
+        String original = "test";
+        assertSame(original, ObjectUtils.CONST(original));
+    }
+
+    @Test
+    void testCONST_BYTE_withinRange() {
+        assertEquals(Byte.MAX_VALUE, ObjectUtils.CONST_BYTE(127));
+        assertEquals(Byte.MIN_VALUE, ObjectUtils.CONST_BYTE(-128));
+    }
+
+    @Test
+    void testCONST_BYTE_outOfRange() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(128));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(-129));
+    }
+
+    @Test
+    void testCONST_SHORT_withinRange() {
+        assertEquals(Short.MAX_VALUE, ObjectUtils.CONST_SHORT(32767));
+        assertEquals(Short.MIN_VALUE, ObjectUtils.CONST_SHORT(-32768));
+    }
+
+    @Test
+    void testCONST_SHORT_outOfRange() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(32768));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(-32769));
+    }
+
+    @Test
+    void testGetFirstNonNull_withNullSuppliers() {
+        assertNull(ObjectUtils.getFirstNonNull((Supplier<Object>[]) null));
+    }
+
+    @Test
+    void testHashCodeMulti_withNullArray() {
+        assertEquals(1, ObjectUtils.hashCodeMulti((Object[]) null));
+    }
+
+    @Test
+    void testIdentityToString_withAppendable() throws java.io.IOException {
+        StringWriter writer = new StringWriter();
+        ObjectUtils.identityToString(writer, "test");
+        assertEquals("java.lang.String@" + System.identityHashCode("test"), writer.toString());
+    }
+
+    @Test
+    void testIdentityToString_withNullObject_2() {
+        assertNull(ObjectUtils.identityToString((Object) null));
+    }
+
+    @Test
+    void testIdentityToString_withStrBuilder() {
+        StrBuilder builder = new StrBuilder();
+        ObjectUtils.identityToString(builder, "test");
+        assertEquals("java.lang.String@" + System.identityHashCode("test"), builder.toString());
+    }
+}
+```

@@ -1,0 +1,41 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    void testReadResolve_2() {
+        ObjectUtils.Null nullPlaceholder = new ObjectUtils.Null();
+        assertSame(nullPlaceholder, nullPlaceholder.readResolve());
+    }
+
+    @Test
+    void testIdentityToString() throws IOException {
+        String result = ObjectUtils.identityToString(new StringBuilder(), new Object());
+        assertTrue(result.contains("@"));
+
+        result = ObjectUtils.identityToString((Appendable) null);
+        assertNull(result);
+
+        // Remove the following line as StrBuilder is not part of the public API
+        // result = ObjectUtils.identityToString((StrBuilder) null);
+        // assertNull(result);
+
+        result = ObjectUtils.identityToString((StringBuffer) null);
+        assertNull(result);
+    }
+
+    @Test
+    void testIsArray() {
+        assertTrue(ObjectUtils.isArray(new int[0]));
+        assertFalse(ObjectUtils.isArray(null));
+        assertFalse(ObjectUtils.isArray("test"));
+    }
+}
+```

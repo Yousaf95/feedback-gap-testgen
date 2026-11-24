@@ -1,0 +1,108 @@
+```java
+package org.apache.commons.lang3.exception;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    void testGetDefaultCauseMethodNames_returnsExpectedArray() {
+        String[] expected = {"getCause", "getNextException", "getTargetException", "getException",
+                "getSourceException", "getRootCause", "getCausedByException", "getNested",
+                "getLinkedException", "getNestedException", "getLinkedCause", "getThrowable"};
+        assertArrayEquals(expected, ExceptionUtils.getDefaultCauseMethodNames());
+    }
+
+    @Test
+    void testGetMessage_withEmptyMessage_returnsClassName() {
+        Throwable throwable = new Exception();
+        String expected = "Exception: ";
+        assertEquals(expected, ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    void testHasCause_withMatchingExactType_returnsTrue() {
+        Throwable cause = new IllegalArgumentException("cause");
+        Throwable throwable = new RuntimeException("root", cause);
+        assertTrue(ExceptionUtils.hasCause(throwable, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOfThrowable_withNoMatch_returnsNegativeOne() {
+        Throwable throwable = new Exception();
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(throwable, NullPointerException.class));
+    }
+
+    @Test
+    void testIndexOfType_withNoMatch_returnsNegativeOne() {
+        Throwable throwable = new Exception();
+        assertEquals(-1, ExceptionUtils.indexOfType(throwable, NullPointerException.class));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withSingleException_returnsSameAsGetMessage() {
+        Throwable throwable = new IllegalArgumentException("single");
+        assertEquals(ExceptionUtils.getMessage(throwable), ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    void testGetThrowableCount_withNullThrowable_returnsZero() {
+        assertEquals(0, ExceptionUtils.getThrowableCount(null));
+    }
+
+    @Test
+    void testGetThrowableList_withNullThrowable_returnsEmptyList() {
+        assertTrue(ExceptionUtils.getThrowableList(null).isEmpty());
+    }
+
+    @Test
+    void testGetStackFrames_withNonNullThrowable_returnsNonEmptyArray() {
+        Throwable throwable = new Exception("test");
+        String[] frames = ExceptionUtils.getStackFrames(throwable);
+        assertFalse(frames.length == 0);
+    }
+
+    @Test
+    void testGetStackTrace_withNonNullThrowable_returnsNonEmptyString() {
+        Throwable throwable = new Exception("test");
+        String stackTrace = ExceptionUtils.getStackTrace(throwable);
+        assertFalse(stackTrace.isEmpty());
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintStream_throwsNullPointerException() {
+        Throwable throwable = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintWriter_throwsNullPointerException() {
+        Throwable throwable = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintWriter) null));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withNullCauseFrames_throwsNullPointerException() {
+        List<String> wrapperFrames = List.of("frame1", "frame2");
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.removeCommonFrames(null, wrapperFrames));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withNullWrapperFrames_throwsNullPointerException() {
+        List<String> causeFrames = List.of("frame1", "frame2");
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.removeCommonFrames(causeFrames, null));
+    }
+
+    @Test
+    void testStream_withNonNullThrowable_returnsNonEmptyStream() {
+        Throwable throwable = new Exception();
+        assertFalse(ExceptionUtils.stream(throwable).toList().isEmpty());
+    }
+}
+```

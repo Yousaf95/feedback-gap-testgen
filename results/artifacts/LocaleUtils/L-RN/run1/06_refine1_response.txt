@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testCountriesByLanguage_withEmptyCode() {
+        List<Locale> result = LocaleUtils.countriesByLanguage("");
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountry_withEmptyCode() {
+        List<Locale> result = LocaleUtils.languagesByCountry("");
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testIsAvailableLocale_withNullLocale() {
+        assertFalse(LocaleUtils.isAvailableLocale(null));
+    }
+
+    @Test
+    void testToString_withInvalidLocaleString() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("invalid"));
+    }
+
+    @Test
+    void testToString_withShortLocaleString() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en"));
+    }
+
+    @Test
+    void testToString_withCountryOnlyLocaleString() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US"));
+    }
+
+    @Test
+    void testToString_withScriptInLocaleString() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en-Latn-US"));
+    }
+
+    @Test
+    void testToString_withEmptyVariantLocaleString() {
+        Locale result = LocaleUtils.toLocale("en_US_");
+        assertEquals(new Locale("en", "US"), result);
+    }
+
+    @Test
+    void testLocaleLookupList_withNullLocaleAndDefault() {
+        List<Locale> result = LocaleUtils.localeLookupList(null, null);
+        assertEquals(List.of(Locale.getDefault()), result);
+    }
+
+    @Test
+    void testLocaleLookupList_withNullLocaleAndNonNullDefault() {
+        Locale defaultLocale = new Locale("fr", "FR");
+        List<Locale> result = LocaleUtils.localeLookupList(null, defaultLocale);
+        assertEquals(List.of(defaultLocale), result);
+    }
+
+    @Test
+    void testLocaleLookupList_withNonNullLocaleAndNullDefault() {
+        Locale locale = new Locale("es", "ES");
+        List<Locale> result = LocaleUtils.localeLookupList(locale, null);
+        assertEquals(List.of(locale, new Locale("es"), Locale.getDefault()), result);
+    }
+}
+```

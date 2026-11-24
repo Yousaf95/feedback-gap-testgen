@@ -1,0 +1,16 @@
+Write a JUnit 5 test class named {test_class} in package {package} for the class {simple_name} shown below.
+
+Constraints:
+- Use only the public API shown below. Do not use reflection and do not access private or package-private members.
+- No mocks and no mocking frameworks. Use only JUnit 5 (org.junit.jupiter.api.*, org.junit.jupiter.params.*) and the JDK.
+- Follow Arrange-Act-Assert. One behaviour per test method.
+- Use meaningful assertions on concrete expected values (assertEquals, assertTrue, assertNull, assertArrayEquals, ...).
+- Cover normal cases, edge cases (null, empty, boundary values) and exceptions (use assertThrows).
+- The code must compile with Java 17.
+
+Output: a single ```java code block containing the complete test class (package declaration, imports, class). No explanations.
+
+Class under test ({fqn}):
+```java
+{context}
+```

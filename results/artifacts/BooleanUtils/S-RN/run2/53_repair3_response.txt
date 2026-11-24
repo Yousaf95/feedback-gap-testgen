@@ -1,0 +1,66 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.function.Consumer;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    public void testToBooleanObjectWithNullString() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideTrueValues")
+    public void testToBooleanObjectWithTrueIntegerValue(int value) {
+        assertTrue(BooleanUtils.toBooleanObject(value, 42, 0));
+    }
+
+    private static Stream<Arguments> provideTrueValues() {
+        return Stream.of(1);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFalseValues")
+    public void testToBooleanObjectWithFalseIntegerValue(int value) {
+        assertFalse(BooleanUtils.toBooleanObject(value, 0, 1));
+    }
+
+    private static Stream<Arguments> provideFalseValues() {
+        return Stream.of(0);
+    }
+
+    @Test
+    public void testXorWithSingleTrueElement() {
+        assertTrue(BooleanUtils.xor(true));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideSingleTrueValue")
+    public void testOneHotWithSingleTrueElement(boolean value) {
+        assertTrue(BooleanUtils.oneHot(value));
+    }
+
+    private static Stream<Arguments> provideSingleTrueValue() {
+        return Stream.of(arguments(true));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideSingleFalseValue")
+    public void testOneHotWithSingleFalseElement(boolean value) {
+        assertFalse(BooleanUtils.oneHot(value));
+    }
+
+    private static Stream<Arguments> provideSingleFalseValue() {
+        return Stream.of(arguments(false));
+    }
+}
+```

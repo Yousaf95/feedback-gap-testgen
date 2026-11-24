@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    void testRandomWithStartGreaterThanEndThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 127, 33, false, false));
+    }
+
+    @Test
+    void testRandomAlphabeticWithNegativeMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphabetic(-1, 5));
+    }
+
+    @Test
+    void testRandomAlphanumericWithNegativeMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphanumeric(-1, 5));
+    }
+
+    @Test
+    void testRandomAsciiWithNegativeMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAscii(-1, 5));
+    }
+
+    @Test
+    void testRandomGraphWithNegativeMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomGraph(-1, 5));
+    }
+
+    @Test
+    void testRandomNumericWithNegativeMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomNumeric(-1, 5));
+    }
+
+    @Test
+    void testRandomPrintWithNegativeMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomPrint(-1, 5));
+    }
+
+    @Test
+    void testRandomAlphabeticWithMaxLengthLessThanMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphabetic(5, 3));
+    }
+
+    @Test
+    void testRandomAlphanumericWithMaxLengthLessThanMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphanumeric(5, 3));
+    }
+
+    @Test
+    void testRandomAsciiWithMaxLengthLessThanMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAscii(5, 3));
+    }
+
+    @Test
+    void testRandomGraphWithMaxLengthLessThanMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomGraph(5, 3));
+    }
+
+    @Test
+    void testRandomNumericWithMaxLengthLessThanMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomNumeric(5, 3));
+    }
+
+    @Test
+    void testRandomPrintWithMaxLengthLessThanMinLengthThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomPrint(5, 3));
+    }
+}
+```

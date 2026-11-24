@@ -1,0 +1,134 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HashCodeBuilder_GenTest {
+
+    @BeforeEach
+    public void setUp() {
+        // Clear the registry before each test to ensure a clean state
+        HashCodeBuilder.clearRegistry();
+    }
+
+    @Test
+    public void testGetRegistry() {
+        assertNotNull(HashCodeBuilder.getRegistry());
+    }
+
+    @Test
+    public void testIsRegistered() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    public void testRegisterAndUnregister() {
+        Object obj = new Object();
+        HashCodeBuilder.register(obj);
+        assertTrue(HashCodeBuilder.isRegistered(obj));
+        HashCodeBuilder.unregister(obj);
+        assertFalse(HashCodeBuilder.isRegistered(obj));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(null, Object.class, builder, false, null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(new int[0], builder, false, null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithNonTransientField() {
+        NonTransientClass obj = new NonTransientClass();
+        HashCodeBuilder builder = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(obj, NonTransientClass.class, builder, false, null);
+        assertEquals(17 * 37 + 42, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithTransientField() {
+        TransientClass obj = new TransientClass();
+        HashCodeBuilder builder = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(obj, TransientClass.class, builder, true, null);
+        assertEquals(17 * 37 + 42, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithExcludeField() {
+        ExcludeClass obj = new ExcludeClass();
+        HashCodeBuilder builder = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(obj, ExcludeClass.class, builder, false, new String[]{"exclude"});
+        assertEquals(17 * 37 + 42, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithSuperclass() {
+        SubClass obj = new SubClass();
+        HashCodeBuilder builder = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(obj, SubClass.class, builder, false, null);
+        assertEquals(17 * 37 + 42 + 50, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCodeWithNullObject() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithEmptyExcludeFields() {
+        ExcludeClass obj = new ExcludeClass();
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, (String[]) null));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithNonTransientField() {
+        NonTransientClass obj = new NonTransientClass();
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, false));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithTransientField() {
+        TransientClass obj = new TransientClass();
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, true));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithExcludeField() {
+        ExcludeClass obj = new ExcludeClass();
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, new String[]{"exclude"}));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithSuperclass() {
+        SubClass obj = new SubClass();
+        assertEquals(17 * 37 + 42 + 50, HashCodeBuilder.reflectionHashCode(obj, false));
+    }
+
+    private static class NonTransientClass {
+        int value = 42;
+    }
+
+    private static class TransientClass {
+        transient int value = 42;
+    }
+
+    private static class ExcludeClass {
+        int exclude = 10;
+        int include = 42;
+    }
+
+    private static class SubClass extends NonTransientClass {
+        int subValue = 50;
+    }
+}
+```

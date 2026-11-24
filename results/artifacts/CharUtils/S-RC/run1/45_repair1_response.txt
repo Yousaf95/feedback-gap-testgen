@@ -1,0 +1,62 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.CharUtils.*;
+
+import java.util.Arrays;
+
+class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiAlphaLowerPartialBranches_2() {
+        assertFalse(isAsciiAlphaLower('A'));
+        assertTrue(isAsciiAlphaLower('a'));
+        assertFalse(isAsciiAlphaLower('z'));
+        assertFalse(isAsciiAlphaLower('0'));
+    }
+
+    @Test
+    public void testIsAsciiControlPartialBranches_3() {
+        assertTrue(isAsciiControl('\r'));
+        assertTrue(isAsciiControl('\n'));
+        assertFalse(isAsciiControl(' '));
+        assertTrue(isAsciiControl((char) 127));
+    }
+
+    @Test
+    public void testIsAsciiPrintablePartialBranches_3() {
+        assertTrue(isAsciiPrintable('a'));
+        assertTrue(isAsciiPrintable('A'));
+        assertFalse(isAsciiPrintable('\r'));
+        assertTrue(isAsciiPrintable(' '));
+    }
+
+    @Test
+    public void testToChar_CharacterNotCovered_2() {
+        assertThrows(NullPointerException.class, () -> toChar((Character) null));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNotCovered_3() {
+        assertEquals(-1, toIntValue((char) 0, -1));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefaultValuePartialBranches_3() {
+        assertEquals(5, toIntValue('5', 3));
+        assertEquals(3, toIntValue('a', 3));
+    }
+
+    @Test
+    public void testUnicodeEscaped_CharacterPartialBranches_3() {
+        assertNull(unicodeEscaped(null));
+        assertEquals("\\u0020", unicodeEscaped(' '));
+    }
+
+    @Test
+    public void testToString_CharacterNotCovered_3() {
+        assertNull(toString((Character) null));
+    }
+}
+```

@@ -1,0 +1,114 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    void testIsRegistered_ObjectNotRegistered_ReturnsFalse() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    void testReflectionHashCode_DefaultValues() {
+        int hashCode = HashCodeBuilder.reflectionHashCode(new Object());
+        assertEquals(17, hashCode); // Default initial value
+    }
+
+    @Test
+    void testReflectionHashCode_WithTransients() {
+        class TestClass {
+            private transient int transientField;
+            private int nonTransientField;
+
+            public TestClass(int transientField, int nonTransientField) {
+                this.transientField = transientField;
+                this.nonTransientField = nonTransientField;
+            }
+        }
+
+        TestClass obj = new TestClass(10, 20);
+        int hashCodeWithTransients = HashCodeBuilder.reflectionHashCode(obj, true);
+        int hashCodeWithoutTransients = HashCodeBuilder.reflectionHashCode(obj, false);
+
+        assertFalse(hashCodeWithTransients == hashCodeWithoutTransients);
+    }
+
+    @Test
+    void testReflectionHashCode_WithExcludeFields() {
+        class TestClass {
+            private int field1;
+            private int field2;
+
+            public TestClass(int field1, int field2) {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+        }
+
+        TestClass obj = new TestClass(10, 20);
+        int hashCodeWithExclusion = HashCodeBuilder.reflectionHashCode(obj, "field1");
+        int hashCodeWithoutExclusion = HashCodeBuilder.reflectionHashCode(obj);
+
+        assertFalse(hashCodeWithExclusion == hashCodeWithoutExclusion);
+    }
+
+    @Test
+    void testAppendBooleanArray_NotNull() {
+        boolean[] array = {true, false};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(1237, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendDoubleArray_NotNull() {
+        double[] array = {1.0, 2.0};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(465893503789499425L, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendObject_Array() {
+        Object[] array = {1, 2};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(1237, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendArray_LongArray() {
+        long[] array = {1L, 2L};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(465893503789499425L, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendArray_IntArray() {
+        int[] array = {1, 2};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(1237, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendArray_ShortArray() {
+        short[] array = {1, 2};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(1237, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendArray_CharArray() {
+        char[] array = {'a', 'b'};
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(array);
+        assertEquals(29879, builder.toHashCode());
+    }
+}
+```

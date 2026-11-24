@@ -1,0 +1,97 @@
+```java
+package org.apache.commons.lang3;
+import java.util.Comparator;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.function.Predicate;
+import java.util.NoSuchElementException;
+
+class Range_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+                public void testIsEmpty() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertFalse(range.isEmpty()); // Fixed the assertion
+                }
+
+    @Test
+                public void testIsNotEmpty() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertTrue(range.isNotEmpty()); // Fixed the assertion
+                }
+
+    @Test
+                public void testGetMinimumElement() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertEquals(Integer.valueOf(5), range.getMinimum());
+                }
+
+    @Test
+                public void testGetMaximumElement() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertEquals(Integer.valueOf(10), range.getMaximum());
+                }
+
+    @Test
+                public void testIsNaturalOrderingWithCustomComparator() {
+                    Comparator<String> customComparator = Comparator.reverseOrder();
+                    Range<String> range = Range.between("a", "z", customComparator);
+                    assertFalse(range.isNaturalOrdering());
+                }
+
+    @Test
+                public void testGetComparatorWithNullComparator() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertNotNull(range.getComparator());
+                }
+
+    @Test
+                public void testToStringWithCustomFormat() {
+                    Range<String> range = Range.between("a", "z");
+                    assertEquals("[a..z]", range.toString("%s..%s"));
+                }
+
+    @Test
+                public void testIsStartedBy_3() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertFalse(range.isStartedBy(3));
+                }
+
+    @Test
+                public void testIsEndedBy_3() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertFalse(range.isEndedBy(3));
+                }
+
+    @Test
+                public void testContainsNullElement() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertFalse(range.contains(null));
+                }
+
+    @Test
+                public void testFitWithNullElement() {
+                    Range<Integer> range = Range.between(5, 10);
+                    assertThrows(NullPointerException.class, () -> range.fit(null));
+                }
+
+    @Test
+            public void testContainsRangeWithEmptyRange() {
+                Range<Integer> range = Range.between(5, 10);
+                assertFalse(range.containsRange(Range.is(3)));
+            }
+
+    @Test
+            public void testIsOverlappedByWithNonOverlappingRange() {
+                Range<Integer> range = Range.between(5, 10);
+                assertTrue(range.isOverlappedBy(Range.between(11, 20)));
+            }
+
+    @Test
+            public void testIntersectionWithEmptyRange() {
+                Range<Integer> range = Range.between(5, 10);
+                assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(Range.is(3)));
+            }
+}
+```

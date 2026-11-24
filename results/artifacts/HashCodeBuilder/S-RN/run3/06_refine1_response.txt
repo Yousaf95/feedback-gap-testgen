@@ -1,0 +1,81 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testAppendNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Object) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new Object[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new Object[] { "a", 123 });
+        assertEquals(17 * 37 + "a".hashCode() * 37 + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Object[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(java.util.Collections.emptyList());
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(java.util.Arrays.asList("a", 123));
+        assertEquals(17 * 37 + "a".hashCode() * 37 + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((java.util.Collection<?>) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyMap() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(java.util.Collections.emptyMap());
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNonEmptyMap() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        java.util.Map<String, Object> map = new java.util.HashMap<>();
+        map.put("a", 123);
+        builder.append(map);
+        assertEquals(17 * 37 + "a".hashCode() * 37 + 123, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullMap() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((java.util.Map<?, ?>) null);
+        assertEquals(17, builder.toHashCode());
+    }
+}
+```

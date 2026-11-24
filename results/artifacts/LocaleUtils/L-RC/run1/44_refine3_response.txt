@@ -1,0 +1,109 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testSyncAvoidInitialization() {
+        // This test ensures that the SyncAvoid class is initialized
+        assertNotNull(LocaleUtils.availableLocaleList());
+    }
+
+    @Test
+    void testIsISO3166CountryCode_withInvalidLength() {
+        assertFalse(LocaleUtils.isISO3166CountryCode("A"));
+        assertFalse(LocaleUtils.isISO3166CountryCode("ABC"));
+    }
+
+    @Test
+    void testIsISO3166CountryCode_withLowerCase() {
+        assertFalse(LocaleUtils.isISO3166CountryCode("us"));
+    }
+
+    @Test
+    void testIsISO639LanguageCode_withInvalidLength() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("a"));
+        assertFalse(LocaleUtils.isISO639LanguageCode("abcd"));
+    }
+
+    @Test
+    void testIsISO639LanguageCode_withUpperCase() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("EN"));
+    }
+
+    @Test
+    void testIsNumericAreaCode_withInvalidLength() {
+        assertFalse(LocaleUtils.isNumericAreaCode("12"));
+        assertFalse(LocaleUtils.isNumericAreaCode("1234"));
+    }
+
+    @Test
+    void testIsNumericAreaCode_withNonNumeric() {
+        assertFalse(LocaleUtils.isNumericAreaCode("abc"));
+    }
+
+    @Test
+    void testLocaleLookupList_withNullLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(null);
+        assertEquals(1, result.size());
+        assertEquals(Locale.getDefault(), result.get(0));
+    }
+
+    @Test
+    void testLocaleLookupList_withEmptyCountryAndVariant() {
+        Locale locale = new Locale("en", "", "");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(1, result.size());
+        assertEquals(locale, result.get(0));
+    }
+
+    @Test
+    void testParseLocale_withInvalidFormatShortCountryCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US"));
+    }
+
+    @Test
+    void testParseLocale_withInvalidFormatMissingSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_USA"));
+    }
+
+    @Test
+    void testParseLocale_withInvalidFormatShortVariant() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US_V"));
+    }
+
+    @Test
+    void testParseLocale_withEmptyString() {
+        assertEquals(new Locale("", ""), LocaleUtils.toLocale(""));
+    }
+
+    @Test
+    void testParseLocale_withHashCharacter() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US#Variant"));
+    }
+
+    @Test
+    void testParseLocale_withShortCountryCode() {
+        assertEquals(new Locale("", "US"), LocaleUtils.toLocale("_US"));
+        assertEquals(new Locale("", "US"), LocaleUtils.toLocale("-US"));
+    }
+
+    @Test
+    void testToString_withInvalidFormatShortCountryCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US"));
+    }
+
+    @Test
+    void testToString_withInvalidFormatMissingSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_USA"));
+    }
+
+    @Test
+    void testToString_withInvalidFormatShortVariant() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US_V"));
+    }
+}
+```

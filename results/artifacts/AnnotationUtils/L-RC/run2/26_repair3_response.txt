@@ -1,0 +1,285 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        Class<?> clazz();
+        TestEnum anEnum();
+        TestAnnotation nested();
+        TestAnnotation[] array();
+        int number() default 0;
+    }
+
+    public enum TestEnum {
+        VALUE1, VALUE2
+    }
+
+    @Test
+    void testAppendDetailWithAnnotationValue() {
+        TestAnnotation annotation = new TestAnnotation() {
+            @Override
+            public Class<?> clazz() { return Object.class; }
+            @Override
+            public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override
+            public TestAnnotation nested() {
+                return new TestAnnotation() {
+                    @Override
+                    public Class<?> clazz() { return Object.class; }
+                    @Override
+                    public TestEnum anEnum() { return TestEnum.VALUE1; }
+                    @Override
+                    public TestAnnotation nested() { return this; }
+                    @Override
+                    public TestAnnotation[] array() { return new TestAnnotation[0]; }
+                    @Override
+                    public int number() { return 0; }
+                };
+            }
+            @Override
+            public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override
+            public int number() { return 0; }
+        };
+
+        AnnotationUtils.toString(annotation);
+    }
+
+    @Test
+    void testGetShortClassNameWithAnnotationInterface() {
+        String result = AnnotationUtils.toString(TestAnnotation.class.getAnnotations()[0]);
+        assertTrue(result.contains("@org.apache.commons.lang3.AnnotationUtils_GenTest$TestAnnotation"));
+    }
+
+    @Test
+    void testAnnotationArrayMemberEqualsDifferentLengths() {
+        TestAnnotation[] a1 = new TestAnnotation[0];
+        TestAnnotation[] a2 = new TestAnnotation[1];
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testAnnotationArrayMemberEqualsDifferentAnnotations() {
+        TestAnnotation[] a1 = { new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 0; }
+        }};
+
+        TestAnnotation[] a2 = { new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 1; }
+        }};
+
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithAnnotations() {
+        TestAnnotation[] a1 = { new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 0; }
+        }};
+
+        TestAnnotation[] a2 = { new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 0; }
+        }};
+
+        assertTrue(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithBytes() {
+        byte[] b1 = { 1, 2, 3 };
+        byte[] b2 = { 1, 2, 3 };
+        assertTrue(AnnotationUtils.equals(b1, b2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithShorts() {
+        short[] s1 = { 1, 2, 3 };
+        short[] s2 = { 1, 2, 3 };
+        assertTrue(AnnotationUtils.equals(s1, s2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithInts() {
+        int[] i1 = { 1, 2, 3 };
+        int[] i2 = { 1, 2, 3 };
+        assertTrue(AnnotationUtils.equals(i1, i2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithChars() {
+        char[] c1 = { 'a', 'b', 'c' };
+        char[] c2 = { 'a', 'b', 'c' };
+        assertTrue(AnnotationUtils.equals(c1, c2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithLongs() {
+        long[] l1 = { 1L, 2L, 3L };
+        long[] l2 = { 1L, 2L, 3L };
+        assertTrue(AnnotationUtils.equals(l1, l2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithFloats() {
+        float[] f1 = { 1.0f, 2.0f, 3.0f };
+        float[] f2 = { 1.0f, 2.0f, 3.0f };
+        assertTrue(AnnotationUtils.equals(f1, f2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithDoubles() {
+        double[] d1 = { 1.0, 2.0, 3.0 };
+        double[] d2 = { 1.0, 2.0, 3.0 };
+        assertTrue(AnnotationUtils.equals(d1, d2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithBooleans() {
+        boolean[] b1 = { true, false, true };
+        boolean[] b2 = { true, false, true };
+        assertTrue(AnnotationUtils.equals(b1, b2));
+    }
+
+    @Test
+    void testArrayMemberEqualsWithObjects() {
+        Object[] o1 = { "a", "b", "c" };
+        Object[] o2 = { "a", "b", "c" };
+        assertTrue(AnnotationUtils.equals(o1, o2));
+    }
+
+    @Test
+    void testArrayMemberHashWithBytes() {
+        byte[] b = { 1, 2, 3 };
+        AnnotationUtils.hashCode(b);
+    }
+
+    @Test
+    void testArrayMemberHashWithShorts() {
+        short[] s = { 1, 2, 3 };
+        AnnotationUtils.hashCode(s);
+    }
+
+    @Test
+    void testArrayMemberHashWithInts() {
+        int[] i = { 1, 2, 3 };
+        AnnotationUtils.hashCode(i);
+    }
+
+    @Test
+    void testArrayMemberHashWithChars() {
+        char[] c = { 'a', 'b', 'c' };
+        AnnotationUtils.hashCode(c);
+    }
+
+    @Test
+    void testArrayMemberHashWithLongs() {
+        long[] l = { 1L, 2L, 3L };
+        AnnotationUtils.hashCode(l);
+    }
+
+    @Test
+    void testArrayMemberHashWithFloats() {
+        float[] f = { 1.0f, 2.0f, 3.0f };
+        AnnotationUtils.hashCode(f);
+    }
+
+    @Test
+    void testArrayMemberHashWithDoubles() {
+        double[] d = { 1.0, 2.0, 3.0 };
+        AnnotationUtils.hashCode(d);
+    }
+
+    @Test
+    void testArrayMemberHashWithBooleans() {
+        boolean[] b = { true, false, true };
+        AnnotationUtils.hashCode(b);
+    }
+
+    @Test
+    void testArrayMemberHashWithObjects() {
+        Object[] o = { "a", "b", "c" };
+        AnnotationUtils.hashCode(o);
+    }
+
+    @Test
+    void testEqualsReflectiveOperationException() {
+        TestAnnotation a1 = new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 0; }
+        };
+
+        TestAnnotation a2 = new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 0; }
+        };
+
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testHashCodeWithNullValue() {
+        TestAnnotation annotation = new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return null; } // This will cause the exception
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 0; }
+        };
+
+        assertThrows(IllegalStateException.class, () -> AnnotationUtils.hashCode(annotation));
+    }
+
+    @Test
+    void testHashMemberWithArrayValue() {
+        int result = AnnotationUtils.hashMember("testField", new String[]{"a", "b", "c"});
+        assertEquals(1368495207, result);
+    }
+
+    @Test
+    void testHashMemberWithAnnotationValue() {
+        TestAnnotation annotation = new TestAnnotation() {
+            @Override public Class<?> clazz() { return Object.class; }
+            @Override public TestEnum anEnum() { return TestEnum.VALUE1; }
+            @Override public TestAnnotation nested() { return this; }
+            @Override public TestAnnotation[] array() { return new TestAnnotation[0]; }
+            @Override public int number() { return 0; }
+        };
+
+        int result = AnnotationUtils.hashMember("testField", annotation);
+        assertEquals(1368495207, result);
+    }
+}
+```

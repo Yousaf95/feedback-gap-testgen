@@ -1,0 +1,95 @@
+[ERROR] Tests run: 97, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.213 s <<< FAILURE! -- in org.apache.commons.lang3.builder.DiffBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsDoubleArray_2 -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [D (java.lang.Object and [D are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:765)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsDoubleArray_2(DiffBuilder_GenTest.java:684)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsShortArray_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [S (java.lang.Object and [S are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:777)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsShortArray_2(DiffBuilder_GenTest.java:708)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsIntArray_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [I (java.lang.Object and [I are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:771)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsIntArray_2(DiffBuilder_GenTest.java:696)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsFloatArray_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [F (java.lang.Object and [F are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:768)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsFloatArray_2(DiffBuilder_GenTest.java:690)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsBooleanArray_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [Z (java.lang.Object and [Z are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:756)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsBooleanArray_2(DiffBuilder_GenTest.java:666)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsLongArray_2 -- Time elapsed: 0 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [J (java.lang.Object and [J are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:774)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsLongArray_2(DiffBuilder_GenTest.java:702)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsCharArray_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [C (java.lang.Object and [C are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:762)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsCharArray_2(DiffBuilder_GenTest.java:678)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsByteArray_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.ClassCastException: class java.lang.Object cannot be cast to class [B (java.lang.Object and [B are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder.append(DiffBuilder.java:759)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendObjectFieldLhsByteArray_2(DiffBuilder_GenTest.java:672)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsBooleanArray_2:666 » ClassCast class java.lang.Object cannot be cast to class [Z (java.lang.Object and [Z are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsByteArray_2:672 » ClassCast class java.lang.Object cannot be cast to class [B (java.lang.Object and [B are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsCharArray_2:678 » ClassCast class java.lang.Object cannot be cast to class [C (java.lang.Object and [C are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsDoubleArray_2:684 » ClassCast class java.lang.Object cannot be cast to class [D (java.lang.Object and [D are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsFloatArray_2:690 » ClassCast class java.lang.Object cannot be cast to class [F (java.lang.Object and [F are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsIntArray_2:696 » ClassCast class java.lang.Object cannot be cast to class [I (java.lang.Object and [I are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsLongArray_2:702 » ClassCast class java.lang.Object cannot be cast to class [J (java.lang.Object and [J are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendObjectFieldLhsShortArray_2:708 » ClassCast class java.lang.Object cannot be cast to class [S (java.lang.Object and [S are in module java.base of loader 'bootstrap')
+[ERROR] Tests run: 97, Failures: 0, Errors: 8, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w2/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

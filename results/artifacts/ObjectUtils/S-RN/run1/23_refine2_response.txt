@@ -1,0 +1,66 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    public void testMedianWithComparator() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        Integer[] numbers = {3, 1, 4, 1, 5, 9};
+        assertEquals(3, ObjectUtils.median(comparator, numbers));
+    }
+
+    @Test
+    public void testMedianWithEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median(new Integer[0]));
+    }
+
+    @Test
+    public void testMedianWithNullElements() {
+        assertThrows(NullPointerException.class, () -> ObjectUtils.median((Integer[]) null));
+    }
+
+    @Test
+    public void testModeWithEmptyArray() {
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    public void testModeWithSingleElement() {
+        assertEquals("a", ObjectUtils.mode("a"));
+    }
+
+    @Test
+    public void testModeWithMultipleElements() {
+        String[] elements = {"a", "b", "a", "c"};
+        assertEquals("a", ObjectUtils.mode(elements));
+    }
+
+    @Test
+    public void testModeWithTie() {
+        String[] elements = {"a", "b", "b", "c"};
+        assertNull(ObjectUtils.mode(elements));
+    }
+
+    @Test
+    public void testToStringWithSupplierNonNull() {
+        Supplier<String> supplier = () -> "Hello";
+        assertEquals("Hello", ObjectUtils.toString(supplier, () -> "Default"));
+    }
+
+    @Test
+    public void testToStringWithSupplierNull() {
+        Supplier<Object> supplier = null;
+        assertEquals("Default", ObjectUtils.toString(supplier, () -> "Default"));
+    }
+}
+```

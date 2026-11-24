@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+class HashCodeBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testAppendDouble_SpecificValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(123.456);
+        assertEquals(190870269, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendFloat_SpecificValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(123.456f);
+        assertEquals(190870269, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendLong_SpecificValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(123456789L);
+        assertEquals(-1521135388, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendShort_SpecificValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((short) 1234);
+        assertEquals(64097, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendChar_SpecificValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append('A');
+        assertEquals(583, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendByte_SpecificValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((byte) 123);
+        assertEquals(460, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendBoolean_True() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(true);
+        assertEquals(59, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendBoolean_False() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(false);
+        assertEquals(34, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendSuper_SpecificValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.appendSuper(123456789);
+        assertEquals(-1521135388, builder.toHashCode());
+    }
+}
+```

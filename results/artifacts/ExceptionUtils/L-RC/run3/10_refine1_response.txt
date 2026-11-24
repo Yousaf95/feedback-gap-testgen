@@ -1,0 +1,61 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    void testAsRuntimeException() {
+        IllegalArgumentException exception = new IllegalArgumentException("test");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(exception));
+        assertEquals("test", runtimeException.getMessage());
+    }
+
+    @Test
+    void testGetCause_withNullMethodNames() {
+        Throwable cause = new NullPointerException();
+        Throwable throwable = new IllegalArgumentException(cause);
+        Throwable result = ExceptionUtils.getCause(throwable, null);
+        assertSame(cause, result);
+    }
+
+    @Test
+    void testGetCause_withNoCause() {
+        Throwable throwable = new IllegalArgumentException();
+        Throwable result = ExceptionUtils.getCause(throwable, null);
+        assertNull(result);
+    }
+
+    @Test
+    void testGetMessage_withNonNullThrowable() {
+        Throwable throwable = new IllegalArgumentException("test message");
+        String message = ExceptionUtils.getMessage(throwable);
+        assertEquals("IllegalArgumentException: test message", message);
+    }
+
+    @Test
+    void testGetRootCauseStackTraceList_withNonNullThrowable() {
+        Throwable cause = new NullPointerException();
+        Throwable throwable = new IllegalArgumentException(cause);
+        List<String> stackTrace = ExceptionUtils.getRootCauseStackTraceList(throwable);
+        assertFalse(stackTrace.isEmpty());
+    }
+
+    @Test
+    void testGetStackFrameList_withNonNullThrowable() {
+        Throwable throwable = new IllegalArgumentException("test message");
+        List<String> stackFrames = ExceptionUtils.getStackFrameList(throwable);
+        assertFalse(stackFrames.isEmpty());
+    }
+
+    @Test
+    void testGetStackFrames_withNonNullStackTrace() {
+        Throwable throwable = new IllegalArgumentException("test message");
+        String[] stackFrames = ExceptionUtils.getStackFrames(ExceptionUtils.getStackTrace(throwable));
+        assertTrue(stackFrames.length > 0);
+    }
+}
+```

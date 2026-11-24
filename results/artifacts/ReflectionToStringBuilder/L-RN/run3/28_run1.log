@@ -1,0 +1,39 @@
+[ERROR] Tests run: 10, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.262 s <<< FAILURE! -- in org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeFieldNames -- Time elapsed: 0.011 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <TestClass@<hashcode>(field1=1)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[field1=10]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeFieldNames(ReflectionToStringBuilder_GenTest.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetIncludeFieldNames -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <TestClass@<hashcode>(field1=1)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[field1=10]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetIncludeFieldNames(ReflectionToStringBuilder_GenTest.java:97)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetExcludeFieldNames:104 expected: <TestClass@<hashcode>(field1=1)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[field1=10]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetIncludeFieldNames:97 expected: <TestClass@<hashcode>(field1=1)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[field1=10]>
+[ERROR] Tests run: 10, Failures: 2, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w13/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

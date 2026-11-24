@@ -1,0 +1,97 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDoubleNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> exclusiveBetween(1.0, 2.0, 1.5));
+    }
+
+    @Test
+    public void testExclusiveBetweenLongNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> exclusiveBetween(1L, 2L, 1L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDoubleNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> inclusiveBetween(1.0, 2.0, 2.5));
+    }
+
+    @Test
+    public void testInclusiveBetweenLongNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> inclusiveBetween(1L, 2L, 3L));
+    }
+
+    @Test
+    public void testIsAssignableFromNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOfNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> isInstanceOf(Integer.class, "string"));
+    }
+
+    @Test
+    public void testMatchesPatternNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> matchesPattern("123", "[a-z]+"));
+    }
+
+    @Test
+    public void testNoNullElementsCollectionNegative_2() {
+        Collection<String> collection = Arrays.asList("a", null, "c");
+        assertThrows(IllegalArgumentException.class, () -> noNullElements(collection));
+    }
+
+    @Test
+    public void testNoNullElementsArrayNegative_2() {
+        String[] array = {"a", null, "c"};
+        assertThrows(IllegalArgumentException.class, () -> noNullElements(array));
+    }
+
+    @Test
+    public void testNotBlankNegative_2() {
+        assertThrows(IllegalArgumentException.class, () -> notBlank(" "));
+    }
+
+    @Test
+    public void testNotEmptyCollectionNegative_2() {
+        Collection<String> collection = Arrays.asList();
+        assertThrows(IllegalArgumentException.class, () -> notEmpty(collection));
+    }
+
+    @Test
+    public void testNotEmptyMapNegative_2() {
+        Map<String, String> map = new HashMap<>();
+        assertThrows(IllegalArgumentException.class, () -> notEmpty(map));
+    }
+
+    @Test
+    public void testNotEmptyArrayNegative_2() {
+        String[] array = {};
+        assertThrows(IllegalArgumentException.class, () -> notEmpty(array));
+    }
+
+    @Test
+    public void testValidIndexCollectionNegative_2() {
+        Collection<String> collection = Arrays.asList("a", "b");
+        assertThrows(IndexOutOfBoundsException.class, () -> validIndex(collection, 2));
+    }
+
+    @Test
+    public void testValidIndexArrayNegative_2() {
+        String[] array = {"a", "b"};
+        assertThrows(IndexOutOfBoundsException.class, () -> validIndex(array, 2));
+    }
+}
+```

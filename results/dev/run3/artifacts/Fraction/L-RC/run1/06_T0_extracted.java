@@ -1,0 +1,427 @@
+package org.apache.commons.lang3.math;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Fraction_GenTest {
+
+    @Test
+    void testGetFractionFromDouble() {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(0.5);
+
+        // Assert
+        assertEquals(Fraction.ONE_HALF, fraction);
+    }
+
+    @Test
+    void testGetFractionFromDoubleNegative() {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(-0.25);
+
+        // Assert
+        assertEquals(new Fraction(-1, 4), fraction);
+    }
+
+    @Test
+    void testGetFractionFromDoubleZero() {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(0.0);
+
+        // Assert
+        assertEquals(Fraction.ZERO, fraction);
+    }
+
+    @Test
+    void testGetFractionFromDoubleOne() {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(1.0);
+
+        // Assert
+        assertEquals(Fraction.ONE, fraction);
+    }
+
+    @Test
+    void testGetFractionFromDoubleBoundaryValue() {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(Integer.MAX_VALUE);
+
+        // Assert
+        assertEquals(new Fraction(Integer.MAX_VALUE, 1), fraction);
+    }
+
+    @Test
+    void testGetFractionFromDoubleThrowsExceptionOnNaN() {
+        // Arrange & Act & Assert
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Double.NaN));
+    }
+
+    @Test
+    void testGetFractionFromDoubleThrowsExceptionOnTooLargeValue() {
+        // Arrange & Act & Assert
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MAX_VALUE + 1.0));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, 2, 1/2",
+            "-1, 2, -1/2",
+            "3, 4, 3/4",
+            "0, 5, 0"
+    })
+    void testGetFractionFromInts(int numerator, int denominator, String expected) {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(numerator, denominator);
+
+        // Assert
+        assertEquals(expected, fraction.toString());
+    }
+
+    @Test
+    void testGetFractionFromIntsThrowsExceptionOnZeroDenominator() {
+        // Arrange & Act & Assert
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, 0));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, 2, 3, 5/2",
+            "-1, 2, 3, -1/2",
+            "0, 0, 1, 0"
+    })
+    void testGetFractionFromWholeAndInts(int whole, int numerator, int denominator, String expected) {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(whole, numerator, denominator);
+
+        // Assert
+        assertEquals(expected, fraction.toString());
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsThrowsExceptionOnZeroDenominator() {
+        // Arrange & Act & Assert
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, 2, 0));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsThrowsExceptionOnNegativeDenominator() {
+        // Arrange & Act & Assert
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, 2, -3));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsThrowsExceptionOnNegativeNumerator() {
+        // Arrange & Act & Assert
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, -2, 3));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1/2", "-1/2", "3/4", "0", "5", "2 1/3"})
+    void testGetFractionFromString(String input) {
+        // Arrange & Act
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Assert
+        assertEquals(input.replace(" ", "_"), fraction.toString().replace(" ", "_"));
+    }
+
+    @Test
+    void testGetFractionFromStringThrowsExceptionOnInvalidFormat() {
+        // Arrange & Act & Assert
+        assertThrows(NumberFormatException.class, () -> Fraction.getFraction("invalid"));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1, 2, 1/2",
+            "-1, 2, -1/2",
+            "3, 4, 3/4",
+            "0, 5, 0"
+    })
+    void testGetReducedFraction(int numerator, int denominator, String expected) {
+        // Arrange & Act
+        Fraction fraction = Fraction.getReducedFraction(numerator, denominator);
+
+        // Assert
+        assertEquals(expected, fraction.toString());
+    }
+
+    @Test
+    void testGetReducedFractionThrowsExceptionOnZeroDenominator() {
+        // Arrange & Act & Assert
+        assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(1, 0));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 1/2",
+            "-1/2, -1/2",
+            "3/4, 3/4",
+            "0, 0"
+    })
+    void testAbs(String input, String expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        Fraction result = fraction.abs();
+
+        // Assert
+        assertEquals(expected, result.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 3/4, 5/4",
+            "-1/2, 3/4, 1/4",
+            "1/2, -3/4, -1/4",
+            "-1/2, -3/4, -5/4"
+    })
+    void testAdd(String input1, String input2, String expected) {
+        // Arrange
+        Fraction fraction1 = Fraction.getFraction(input1);
+        Fraction fraction2 = Fraction.getFraction(input2);
+
+        // Act
+        Fraction result = fraction1.add(fraction2);
+
+        // Assert
+        assertEquals(expected, result.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 3/4, -1/4",
+            "-1/2, 3/4, -5/4",
+            "1/2, -3/4, 5/4",
+            "-1/2, -3/4, 1/4"
+    })
+    void testSubtract(String input1, String input2, String expected) {
+        // Arrange
+        Fraction fraction1 = Fraction.getFraction(input1);
+        Fraction fraction2 = Fraction.getFraction(input2);
+
+        // Act
+        Fraction result = fraction1.subtract(fraction2);
+
+        // Assert
+        assertEquals(expected, result.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 3/4, 3/8",
+            "-1/2, 3/4, -3/8",
+            "1/2, -3/4, -3/8",
+            "-1/2, -3/4, 3/8"
+    })
+    void testMultiplyBy(String input1, String input2, String expected) {
+        // Arrange
+        Fraction fraction1 = Fraction.getFraction(input1);
+        Fraction fraction2 = Fraction.getFraction(input2);
+
+        // Act
+        Fraction result = fraction1.multiplyBy(fraction2);
+
+        // Assert
+        assertEquals(expected, result.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 3/4, 2/3",
+            "-1/2, 3/4, -2/3",
+            "1/2, -3/4, -2/3",
+            "-1/2, -3/4, 2/3"
+    })
+    void testDivideBy(String input1, String input2, String expected) {
+        // Arrange
+        Fraction fraction1 = Fraction.getFraction(input1);
+        Fraction fraction2 = Fraction.getFraction(input2);
+
+        // Act
+        Fraction result = fraction1.divideBy(fraction2);
+
+        // Assert
+        assertEquals(expected, result.toString());
+    }
+
+    @Test
+    void testDivideByThrowsExceptionOnZeroDenominator() {
+        // Arrange
+        Fraction fraction1 = Fraction.ONE_HALF;
+        Fraction fraction2 = Fraction.ZERO;
+
+        // Act & Assert
+        assertThrows(ArithmeticException.class, () -> fraction1.divideBy(fraction2));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 0.5",
+            "-1/2, -0.5",
+            "3/4, 0.75",
+            "0, 0"
+    })
+    void testDoubleValue(String input, double expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        double result = fraction.doubleValue();
+
+        // Assert
+        assertEquals(expected, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 0.5",
+            "-1/2, -0.5",
+            "3/4, 0.75",
+            "0, 0"
+    })
+    void testFloatValue(String input, float expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        float result = fraction.floatValue();
+
+        // Assert
+        assertEquals(expected, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 0",
+            "-1/2, 0",
+            "3/4, 0",
+            "5/2, 2",
+            "-5/2, -2"
+    })
+    void testIntValue(String input, int expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        int result = fraction.intValue();
+
+        // Assert
+        assertEquals(expected, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 0",
+            "-1/2, 0",
+            "3/4, 0",
+            "5/2, 2",
+            "-5/2, -2"
+    })
+    void testLongValue(String input, long expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        long result = fraction.longValue();
+
+        // Assert
+        assertEquals(expected, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 2",
+            "-1/2, -2",
+            "3/4, 4/3",
+            "0, Error"
+    })
+    void testInvert(String input, String expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act & Assert
+        if (expected.equals("Error")) {
+            assertThrows(ArithmeticException.class, fraction::invert);
+        } else {
+            assertEquals(expected, fraction.invert().toString());
+        }
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 1/4",
+            "-1/2, 1/4",
+            "3/4, 9/16",
+            "0, 0"
+    })
+    void testPow(String input, String expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        Fraction result = fraction.pow(2);
+
+        // Assert
+        assertEquals(expected, result.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 1/2",
+            "-1/2, -1/2",
+            "3/4, 3/4",
+            "0, 0"
+    })
+    void testReduce(String input, String expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        Fraction result = fraction.reduce();
+
+        // Assert
+        assertEquals(expected, result.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 1/2",
+            "-1/2, -1/2",
+            "5/2, 2 1/2",
+            "0, 0"
+    })
+    void testToProperString(String input, String expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        String result = fraction.toProperString();
+
+        // Assert
+        assertEquals(expected, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1/2, 1/2",
+            "-1/2, -1/2",
+            "5/2, 5/2",
+            "0, 0"
+    })
+    void testToString(String input, String expected) {
+        // Arrange
+        Fraction fraction = Fraction.getFraction(input);
+
+        // Act
+        String result = fraction.toString();
+
+        // Assert
+        assertEquals(expected, result);
+    }
+}

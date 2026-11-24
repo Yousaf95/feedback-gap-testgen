@@ -1,0 +1,856 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class DiffBuilder_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of DiffBuilder shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 25: org.apache.commons.lang3.builder.Diff<capture#1 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Boolean>
+    code: assertTrue(diffs.get(0) instanceof Diff<Boolean>);
+line 38: org.apache.commons.lang3.builder.Diff<capture#2 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Boolean[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Boolean[]>);
+line 49: org.apache.commons.lang3.builder.Diff<capture#3 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Byte>
+    code: assertTrue(diffs.get(0) instanceof Diff<Byte>);
+line 62: org.apache.commons.lang3.builder.Diff<capture#4 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Byte[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Byte[]>);
+line 73: org.apache.commons.lang3.builder.Diff<capture#5 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Character>
+    code: assertTrue(diffs.get(0) instanceof Diff<Character>);
+line 86: org.apache.commons.lang3.builder.Diff<capture#6 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Character[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Character[]>);
+line 97: org.apache.commons.lang3.builder.Diff<capture#7 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Double>
+    code: assertTrue(diffs.get(0) instanceof Diff<Double>);
+line 110: org.apache.commons.lang3.builder.Diff<capture#8 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Double[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Double[]>);
+line 121: org.apache.commons.lang3.builder.Diff<capture#9 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Float>
+    code: assertTrue(diffs.get(0) instanceof Diff<Float>);
+line 134: org.apache.commons.lang3.builder.Diff<capture#10 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Float[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Float[]>);
+line 145: org.apache.commons.lang3.builder.Diff<capture#11 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Integer>
+    code: assertTrue(diffs.get(0) instanceof Diff<Integer>);
+line 158: org.apache.commons.lang3.builder.Diff<capture#12 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Integer[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Integer[]>);
+line 169: org.apache.commons.lang3.builder.Diff<capture#13 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Long>
+    code: assertTrue(diffs.get(0) instanceof Diff<Long>);
+line 182: org.apache.commons.lang3.builder.Diff<capture#14 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Long[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Long[]>);
+line 195: org.apache.commons.lang3.builder.Diff<capture#15 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Object>
+    code: assertTrue(diffs.get(0) instanceof Diff<Object>);
+line 215: org.apache.commons.lang3.builder.Diff<capture#16 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Short>
+    code: assertTrue(diffs.get(0) instanceof Diff<Short>);
+line 228: org.apache.commons.lang3.builder.Diff<capture#17 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Short[]>
+    code: assertTrue(diffs.get(0) instanceof Diff<Short[]>);
+line 239: org.apache.commons.lang3.builder.Diff<capture#18 of ?> cannot be safely cast to org.apache.commons.lang3.builder.Diff<java.lang.Object>
+    code: assertTrue(diffs.get(0) instanceof Diff<Object>);
+
+Current test class (DiffBuilder_GenTest.java):
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class DiffBuilder_GenTest {
+
+    private DiffBuilder<Object> diffBuilder;
+
+    @BeforeEach
+    public void setUp() {
+        diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+    }
+
+    @Test
+    public void testAppendBoolean() {
+        diffBuilder.append("booleanField", true, false);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Boolean>);
+        assertEquals("booleanField", diffs.get(0).getFieldName());
+        assertEquals(Boolean.valueOf(true), diffs.get(0).getLeft());
+        assertEquals(Boolean.valueOf(false), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendBooleanArray() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {false, true};
+        diffBuilder.append("booleanArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Boolean[]>);
+        assertEquals("booleanArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Boolean[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Boolean[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendByte() {
+        diffBuilder.append("byteField", (byte) 1, (byte) 2);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Byte>);
+        assertEquals("byteField", diffs.get(0).getFieldName());
+        assertEquals(Byte.valueOf((byte) 1), diffs.get(0).getLeft());
+        assertEquals(Byte.valueOf((byte) 2), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendByteArray() {
+        byte[] lhs = {1, 2};
+        byte[] rhs = {2, 3};
+        diffBuilder.append("byteArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Byte[]>);
+        assertEquals("byteArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Byte[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Byte[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendChar() {
+        diffBuilder.append("charField", 'a', 'b');
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Character>);
+        assertEquals("charField", diffs.get(0).getFieldName());
+        assertEquals(Character.valueOf('a'), diffs.get(0).getLeft());
+        assertEquals(Character.valueOf('b'), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendCharArray() {
+        char[] lhs = {'a', 'b'};
+        char[] rhs = {'b', 'c'};
+        diffBuilder.append("charArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Character[]>);
+        assertEquals("charArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Character[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Character[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDouble() {
+        diffBuilder.append("doubleField", 1.1, 2.2);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Double>);
+        assertEquals("doubleField", diffs.get(0).getFieldName());
+        assertEquals(Double.valueOf(1.1), diffs.get(0).getLeft());
+        assertEquals(Double.valueOf(2.2), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDoubleArray() {
+        double[] lhs = {1.1, 2.2};
+        double[] rhs = {2.2, 3.3};
+        diffBuilder.append("doubleArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Double[]>);
+        assertEquals("doubleArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Double[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Double[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendFloat() {
+        diffBuilder.append("floatField", 1.1f, 2.2f);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Float>);
+        assertEquals("floatField", diffs.get(0).getFieldName());
+        assertEquals(Float.valueOf(1.1f), diffs.get(0).getLeft());
+        assertEquals(Float.valueOf(2.2f), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendFloatArray() {
+        float[] lhs = {1.1f, 2.2f};
+        float[] rhs = {2.2f, 3.3f};
+        diffBuilder.append("floatArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Float[]>);
+        assertEquals("floatArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Float[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Float[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendInt() {
+        diffBuilder.append("intField", 1, 2);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Integer>);
+        assertEquals("intField", diffs.get(0).getFieldName());
+        assertEquals(Integer.valueOf(1), diffs.get(0).getLeft());
+        assertEquals(Integer.valueOf(2), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendIntArray() {
+        int[] lhs = {1, 2};
+        int[] rhs = {2, 3};
+        diffBuilder.append("intArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Integer[]>);
+        assertEquals("intArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Integer[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Integer[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendLong() {
+        diffBuilder.append("longField", 1L, 2L);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Long>);
+        assertEquals("longField", diffs.get(0).getFieldName());
+        assertEquals(Long.valueOf(1L), diffs.get(0).getLeft());
+        assertEquals(Long.valueOf(2L), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendLongArray() {
+        long[] lhs = {1L, 2L};
+        long[] rhs = {2L, 3L};
+        diffBuilder.append("longArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Long[]>);
+        assertEquals("longArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Long[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Long[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendObject() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        diffBuilder.append("objectField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Object>);
+        assertEquals("objectField", diffs.get(0).getFieldName());
+        assertEquals(lhs, diffs.get(0).getLeft());
+        assertEquals(rhs, diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendObjectArray() {
+        Object[] lhs = {new Object(), new Object()};
+        Object[] rhs = {new Object(), new Object()};
+        diffBuilder.append("objectArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(0, diffs.size());
+    }
+
+    @Test
+    public void testAppendShort() {
+        diffBuilder.append("shortField", (short) 1, (short) 2);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Short>);
+        assertEquals("shortField", diffs.get(0).getFieldName());
+        assertEquals(Short.valueOf((short) 1), diffs.get(0).getLeft());
+        assertEquals(Short.valueOf((short) 2), diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendShortArray() {
+        short[] lhs = {1, 2};
+        short[] rhs = {2, 3};
+        diffBuilder.append("shortArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Short[]>);
+        assertEquals("shortArrayField", diffs.get(0).getFieldName());
+        assertArrayEquals(ArrayUtils.toObject(lhs), (Short[]) diffs.get(0).getLeft());
+        assertArrayEquals(ArrayUtils.toObject(rhs), (Short[]) diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendNull() {
+        diffBuilder.append("nullField", null, new Object());
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(1, diffs.size());
+        assertTrue(diffs.get(0) instanceof Diff<Object>);
+        assertEquals("nullField", diffs.get(0).getFieldName());
+        assertNull(diffs.get(0).getLeft());
+        assertNotNull(diffs.get(0).getRight());
+    }
+
+    @Test
+    public void testAppendEmptyArray() {
+        Object[] lhs = {};
+        Object[] rhs = {};
+        diffBuilder.append("emptyArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(0, diffs.size());
+    }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.builder.DiffBuilder):
+```java
+package org.apache.commons.lang3.builder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+
+/** Assists in implementing {@link Diffable#diff(Object)} methods. */
+public class DiffBuilder<T> implements Builder<DiffResult<T>> {
+    private final List<Diff<?>> diffs;
+    private final boolean objectsTriviallyEqual;
+    private final T left;
+    private final T right;
+    private final ToStringStyle style;
+    /** Constructs a builder for the specified objects with the specified style. */
+    public DiffBuilder(final T lhs, final T rhs,
+            final ToStringStyle style) {
+
+            this(lhs, rhs, style, true);
+    }
+    /** Constructs a builder for the specified objects with the specified style. */
+    public DiffBuilder(final T lhs, final T rhs,
+            final ToStringStyle style, final boolean testTriviallyEqual) {
+
+        Objects.requireNonNull(lhs, "lhs");
+        Objects.requireNonNull(rhs, "rhs");
+
+        this.diffs = new ArrayList<>();
+        this.left = lhs;
+        this.right = rhs;
+        this.style = style;
+
+        // Don't compare any fields if objects equal
+        this.objectsTriviallyEqual = testTriviallyEqual && Objects.equals(lhs, rhs);
+    }
+    /** Test if two {@code boolean}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final boolean lhs,
+            final boolean rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Boolean>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Boolean getLeft() {
+                    return Boolean.valueOf(lhs);
+                }
+
+                @Override
+                public Boolean getRight() {
+                    return Boolean.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code boolean[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final boolean[] lhs,
+            final boolean[] rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Boolean[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Boolean[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Boolean[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code byte}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final byte lhs,
+            final byte rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Byte>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Byte getLeft() {
+                    return Byte.valueOf(lhs);
+                }
+
+                @Override
+                public Byte getRight() {
+                    return Byte.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code byte[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final byte[] lhs,
+            final byte[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Byte[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Byte[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Byte[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code char}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final char lhs,
+            final char rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Character>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Character getLeft() {
+                    return Character.valueOf(lhs);
+                }
+
+                @Override
+                public Character getRight() {
+                    return Character.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code char[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final char[] lhs,
+            final char[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Character[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Character[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Character[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Append diffs from another {@link DiffResult}. */
+    public DiffBuilder<T> append(final String fieldName, final DiffResult<T> diffResult) {
+        validateFieldNameNotNull(fieldName);
+        Objects.requireNonNull(diffResult, "diffResult");
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        diffResult.getDiffs().forEach(diff -> append(fieldName + "." + diff.getFieldName(), diff.getLeft(), diff.getRight()));
+        return this;
+    }
+    /** Test if two {@code double}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final double lhs,
+            final double rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (Double.doubleToLongBits(lhs) != Double.doubleToLongBits(rhs)) {
+            diffs.add(new Diff<Double>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Double getLeft() {
+                    return Double.valueOf(lhs);
+                }
+
+                @Override
+                public Double getRight() {
+                    return Double.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code double[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final double[] lhs,
+            final double[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Double[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Double[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Double[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code float}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final float lhs,
+            final float rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (Float.floatToIntBits(lhs) != Float.floatToIntBits(rhs)) {
+            diffs.add(new Diff<Float>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Float getLeft() {
+                    return Float.valueOf(lhs);
+                }
+
+                @Override
+                public Float getRight() {
+                    return Float.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code float[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final float[] lhs,
+            final float[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Float[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Float[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Float[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code int}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final int lhs,
+            final int rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Integer>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Integer getLeft() {
+                    return Integer.valueOf(lhs);
+                }
+
+                @Override
+                public Integer getRight() {
+                    return Integer.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code int[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final int[] lhs,
+            final int[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Integer[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Integer[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Integer[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code long}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final long lhs,
+            final long rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Long>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Long getLeft() {
+                    return Long.valueOf(lhs);
+                }
+
+                @Override
+                public Long getRight() {
+                    return Long.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code long[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final long[] lhs,
+            final long[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Long[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Long[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Long[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@link Objects}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final Object lhs,
+            final Object rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+
+        final Object objectToTest;
+        if (lhs != null) {
+            objectToTest = lhs;
+        } else {
+            // rhs cannot be null, as lhs != rhs
+            objectToTest = rhs;
+        }
+
+        if (ObjectUtils.isArray(objectToTest)) {
+            if (objectToTest instanceof boolean[]) {
+                return append(fieldName, (boolean[]) lhs, (boolean[]) rhs);
+            }
+            if (objectToTest instanceof byte[]) {
+                return append(fieldName, (byte[]) lhs, (byte[]) rhs);
+            }
+            if (objectToTest instanceof char[]) {
+                return append(fieldName, (char[]) lhs, (char[]) rhs);
+            }
+            if (objectToTest instanceof double[]) {
+                return append(fieldName, (double[]) lhs, (double[]) rhs);
+            }
+            if (objectToTest instanceof float[]) {
+                return append(fieldName, (float[]) lhs, (float[]) rhs);
+            }
+            if (objectToTest instanceof int[]) {
+                return append(fieldName, (int[]) lhs, (int[]) rhs);
+            }
+            if (objectToTest instanceof long[]) {
+                return append(fieldName, (long[]) lhs, (long[]) rhs);
+            }
+            if (objectToTest instanceof short[]) {
+                return append(fieldName, (short[]) lhs, (short[]) rhs);
+            }
+
+            return append(fieldName, (Object[]) lhs, (Object[]) rhs);
+        }
+
+        // Not array type
+        if (Objects.equals(lhs, rhs)) {
+            return this;
+        }
+
+        diffs.add(new Diff<Object>(fieldName) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public Object getLeft() {
+                return lhs;
+            }
+
+            @Override
+            public Object getRight() {
+                return rhs;
+            }
+        });
+
+        return this;
+    }
+    /** Test if two {@code Object[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final Object[] lhs,
+            final Object[] rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Object[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Object[] getLeft() {
+                    return lhs;
+                }
+
+                @Override
+                public Object[] getRight() {
+                    return rhs;
+                }
+            });
+        }
+
+        return this;
+    }
+    /** Test if two {@code short}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final short lhs,
+            final short rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Short>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Short getLeft() {
+                    return Short.valueOf(lhs);
+                }
+
+                @Override
+                public Short getRight() {
+                    return Short.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code short[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final short[] lhs,
+            final short[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Short[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Short[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Short[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Builds a {@link DiffResult} based on the differences appended to this builder. */
+    @Override
+    public DiffResult<T> build() {
+        return new DiffResult<>(left, right, diffs, style);
+    }
+    // non-public helper methods (signatures only)
+    private void validateFieldNameNotNull(final String fieldName);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

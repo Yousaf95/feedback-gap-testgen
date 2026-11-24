@@ -1,0 +1,72 @@
+package org.apache.commons.lang3;
+
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value();
+    }
+
+    @Test
+    public void testEquals_withEqualAnnotations() {
+        TestAnnotation a1 = new TestAnnotationImpl("test");
+        TestAnnotation a2 = new TestAnnotationImpl("test");
+        assertTrue(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    public void testEquals_withDifferentAnnotations() {
+        TestAnnotation a1 = new TestAnnotationImpl("test");
+        TestAnnotation a2 = new TestAnnotationImpl("different");
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"test", "", "a"})
+    public void testHashCode_withValidValues(String value) {
+        TestAnnotation a = new TestAnnotationImpl(value);
+        int hashCode = AnnotationUtils.hashCode(a);
+        assertEquals(hashCode, Arrays.asList("value").hashCode() + value.hashCode());
+    }
+
+    @Test
+    public void testToString_withValidValues(String value) {
+        TestAnnotation a = new TestAnnotationImpl(value);
+        String result = AnnotationUtils.toString(a);
+        assertEquals("@TestAnnotation(value=" + value + ")", result);
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_withValidTypes() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(String.class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(int.class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(TestAnnotation.class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(Class[].class));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_withInvalidTypes() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(Object.class));
+    }
+
+    private static class TestAnnotationImpl implements TestAnnotation {
+        private final String value;
+
+        public TestAnnotationImpl(String value) {
+            this.value = value;
+        }
+
+        
+        @Override
+        public String value() {
+            return value;
+        }
+    }
+}

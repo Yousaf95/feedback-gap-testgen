@@ -1,0 +1,81 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[499,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: boolean[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[505,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: byte[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[511,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: char[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[517,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: double[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[523,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: float[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[529,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: int[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[535,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: long[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[541,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+    reason: inference variable T has incompatible bounds
+      equality constraints: java.lang.Object[]
+      lower bounds: short[]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[499,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: boolean[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[505,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: byte[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[511,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: char[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[517,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: double[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[523,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: float[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[529,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: int[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[535,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: long[]
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/builder/DiffBuilder_GenTest.java:[541,64] incompatible types: cannot infer type arguments for org.apache.commons.lang3.builder.DiffBuilder<>
+[ERROR]     reason: inference variable T has incompatible bounds
+[ERROR]       equality constraints: java.lang.Object[]
+[ERROR]       lower bounds: short[]
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+

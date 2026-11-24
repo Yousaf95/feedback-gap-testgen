@@ -1,0 +1,39 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[166,44] incompatible types: java.lang.String[] cannot be converted to java.lang.Class<?>
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,13] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    java.lang.Object,boolean,org.apache.commons.lang3.builder.HashCodeBuilder,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[180,13] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    java.lang.Object,boolean,org.apache.commons.lang3.builder.HashCodeBuilder,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[187,13] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    java.lang.Object,boolean,org.apache.commons.lang3.builder.HashCodeBuilder,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[232,50] reference to reflectionHashCode is ambiguous
+  both method reflectionHashCode(java.lang.Object,java.util.Collection<java.lang.String>) in org.apache.commons.lang3.builder.HashCodeBuilder and method reflectionHashCode(java.lang.Object,java.lang.String...) in org.apache.commons.lang3.builder.HashCodeBuilder match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[166,44] incompatible types: java.lang.String[] cannot be converted to java.lang.Class<?>
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,13] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    java.lang.Object,boolean,org.apache.commons.lang3.builder.HashCodeBuilder,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[180,13] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    java.lang.Object,boolean,org.apache.commons.lang3.builder.HashCodeBuilder,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[187,13] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    java.lang.Object,boolean,org.apache.commons.lang3.builder.HashCodeBuilder,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[232,50] reference to reflectionHashCode is ambiguous
+[ERROR]   both method reflectionHashCode(java.lang.Object,java.util.Collection<java.lang.String>) in org.apache.commons.lang3.builder.HashCodeBuilder and method reflectionHashCode(java.lang.Object,java.lang.String...) in org.apache.commons.lang3.builder.HashCodeBuilder match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

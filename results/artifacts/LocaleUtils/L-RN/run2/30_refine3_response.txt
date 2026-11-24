@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testCountriesByLanguageWithNonExistentCode() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("xyz");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountryWithNonExistentCode() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("XYZ");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    void testLocaleLookupListWithNullLocaleAndDefaultLocale() {
+        List<Locale> lookupList = LocaleUtils.localeLookupList(null, Locale.US);
+        assertEquals(List.of(Locale.US), lookupList);
+    }
+
+    @Test
+    void testLocaleLookupListWithVariantLocale() {
+        Locale locale = new Locale("en", "US", "POSIX");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale);
+        assertEquals(List.of(locale, new Locale("en", "US"), new Locale("en")), lookupList);
+    }
+
+    @Test
+    void testLocaleLookupListWithCountryOnlyLocale() {
+        Locale locale = new Locale("", "FR");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale);
+        assertEquals(List.of(locale, new Locale("")), lookupList);
+    }
+
+    @Test
+    void testLocaleLookupListWithLanguageOnlyLocale() {
+        Locale locale = new Locale("es");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale);
+        assertEquals(List.of(locale), lookupList);
+    }
+
+    @Test
+    void testToLocalWithHashInStringAtEnd() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US#"));
+    }
+
+    @Test
+    void testToLocalWithInvalidCountryCodeTooLong() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_ABCD"));
+    }
+
+    @Test
+    void testToLocalWithInvalidLanguageCodeTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("e_US"));
+    }
+
+    @Test
+    void testToLocalWithInvalidCountryCodeTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_U"));
+    }
+}
+```

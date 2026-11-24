@@ -1,0 +1,85 @@
+```java
+package org.apache.commons.lang3.math;
+
+import org.junit.jupiter.api.Test;
+import java.math.BigInteger;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class Fraction_GenTest {
+
+    @Test
+    void testAddAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MAX_VALUE, 1).add(Fraction.ONE));
+    }
+
+    @Test
+    void testSubAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).subtract(Fraction.ONE));
+    }
+
+    @Test
+    void testGetFractionFromDoubleUnableToConvert() {
+        double value = 0.3333333333333333;
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(value * 10000));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsNegativeDenominator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, -1, 2));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsNegativeNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, 1, -2));
+    }
+
+    @Test
+    void testGetFractionFromStringXYOverZFormatInvalid() {
+        assertThrows(NumberFormatException.class, () -> Fraction.getFraction("1 2/"));
+    }
+
+    @Test
+    void testGreatestCommonDivisorOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.greatestCommonDivisor(Integer.MIN_VALUE, 0));
+    }
+
+    @Test
+    void testMulPosAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MAX_VALUE, 1).multiplyBy(Fraction.ONE));
+    }
+
+    @Test
+    void testGetReducedFractionNegativeNumeratorDenominator() {
+        assertEquals(Fraction.ONE_HALF, Fraction.getReducedFraction(-2, -4));
+    }
+
+    @Test
+    void testAbsPositiveNumerator() {
+        assertEquals(Fraction.ONE, Fraction.ONE.abs());
+    }
+
+    @Test
+    void testCompareToSameInstance() {
+        Fraction fraction = Fraction.ONE;
+        assertEquals(0, fraction.compareTo(fraction));
+    }
+
+    @Test
+    void testCompareToEqualFractions() {
+        assertEquals(0, Fraction.ONE_HALF.compareTo(Fraction.getFraction(2, 4)));
+    }
+
+    @Test
+    void testEqualsDifferentObject() {
+        assertFalse(Fraction.ONE.equals("1/1"));
+    }
+
+    @Test
+    void testEqualsSameInstance() {
+        Fraction fraction = Fraction.ONE;
+        assertTrue(fraction.equals(fraction));
+    }
+}
+```

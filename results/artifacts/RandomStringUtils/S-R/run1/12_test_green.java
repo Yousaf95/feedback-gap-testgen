@@ -1,0 +1,62 @@
+package org.apache.commons.lang3;
+
+import java.util.Random;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithCountZero() {
+        assertEquals("", RandomStringUtils.random(0));
+    }
+
+    @Test
+    public void testRandomWithNegativeCountThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(-1));
+    }
+
+    @Test
+    public void testRandomWithEmptyCharsArrayThrowsException() {
+        char[] emptyChars = {};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, emptyChars));
+    }
+
+    @Test
+    public void testRandomAlphabetic() {
+        String result = RandomStringUtils.randomAlphabetic(10);
+        assertTrue(result.matches("[a-zA-Z]{10}"));
+    }
+
+    @Test
+    public void testRandomAlphanumeric() {
+        String result = RandomStringUtils.randomAlphanumeric(10);
+        assertTrue(result.matches("[a-zA-Z0-9]{10}"));
+    }
+
+    @Test
+    public void testRandomAscii() {
+        String result = RandomStringUtils.randomAscii(10);
+        assertTrue(result.matches("[\\x20-\\x7F]{10}"));
+    }
+
+    
+    @Test
+    public void testRandomNumeric() {
+        String result = RandomStringUtils.randomNumeric(10);
+        assertTrue(result.matches("\\d{10}"));
+    }
+
+    @Test
+    public void testRandomPrint() {
+        String result = RandomStringUtils.randomPrint(10);
+        assertTrue(result.matches("[\\x20-\\x7E]{10}"));
+    }
+
+    @Test
+    public void testRandomWithCustomChars() {
+        char[] customChars = {'a', 'b', 'c'};
+        String result = RandomStringUtils.random(5, customChars);
+        assertTrue(result.matches("[abc]{5}"));
+    }
+}

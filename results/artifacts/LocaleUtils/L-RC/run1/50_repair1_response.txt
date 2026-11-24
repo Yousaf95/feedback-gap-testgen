@@ -1,0 +1,60 @@
+```java
+package org.apache.commons.lang3;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import static org.junit.jupiter.api.Assertions.*;
+
+class LocaleUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testSyncAvoidInitialization_3() {
+        // This test ensures that the SyncAvoid class is initialized
+        assertNotNull(LocaleUtils.availableLocaleList());
+    }
+
+    @Test
+    void testLocaleLookupList_withNullLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(null);
+        assertEquals(1, result.size());
+        assertEquals(Locale.getDefault(), result.get(0));
+    }
+
+    @Test
+    void testLocaleLookupList_withEmptyCountryAndVariant() {
+        Locale locale = new Locale("en", "", "");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(1, result.size());
+        assertEquals(locale, result.get(0));
+    }
+
+    @Test
+    void testParseLocale_withInvalidFormatShortCountryCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US"));
+    }
+
+    @Test
+    void testParseLocale_withInvalidFormatMissingSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_USA"));
+    }
+
+    @Test
+    void testParseLocale_withInvalidFormatShortVariant() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US_V"));
+    }
+
+    @Test
+    void testParseLocale_withEmptyString_2() {
+        assertEquals(new Locale("", ""), LocaleUtils.toLocale(""));
+    }
+
+    @Test
+    void testParseLocale_withHashCharacter_2() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US#Variant"));
+    }
+}
+```

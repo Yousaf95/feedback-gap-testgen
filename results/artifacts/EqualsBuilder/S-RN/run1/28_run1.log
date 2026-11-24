@@ -1,0 +1,176 @@
+[ERROR] Tests run: 29, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.176 s <<< FAILURE! -- in org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithNullValues -- Time elapsed: 0.008 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithNullValues(EqualsBuilder_GenTest.java:151)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed(EqualsBuilder_GenTest.java:173)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValues -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValues(EqualsBuilder_GenTest.java:165)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed2 -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed2(EqualsBuilder_GenTest.java:180)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed3 -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed3(EqualsBuilder_GenTest.java:187)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed4 -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed4(EqualsBuilder_GenTest.java:194)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed5 -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed5(EqualsBuilder_GenTest.java:201)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed6 -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed6(EqualsBuilder_GenTest.java:208)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed7 -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed7(EqualsBuilder_GenTest.java:215)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed8 -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed8(EqualsBuilder_GenTest.java:222)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed9 -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed9(EqualsBuilder_GenTest.java:229)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullValues -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullValues(EqualsBuilder_GenTest.java:158)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed10 -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:209)
+	at java.base/java.util.ImmutableCollections$Map1.<init>(ImmutableCollections.java:1105)
+	at java.base/java.util.Map.of(Map.java:1353)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed10(EqualsBuilder_GenTest.java:236)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValues:165 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed:173 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed10:236 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed2:180 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed3:187 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed4:194 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed5:201 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed6:208 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed7:215 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed8:222 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullAndNonNullValuesReversed9:229 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithDifferentNullValues:158 » NullPointer
+[ERROR]   EqualsBuilder_GenTest.testAppendMapWithNullValues:151 » NullPointer
+[ERROR] Tests run: 29, Failures: 0, Errors: 13, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w7/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

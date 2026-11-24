@@ -1,0 +1,48 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+Write a JUnit 5 test class named CharSequenceUtils_GenTest in package org.apache.commons.lang3 for the class CharSequenceUtils shown below.
+
+Constraints:
+- Use only the public API shown below. Do not use reflection and do not access private or package-private members.
+- No mocks and no mocking frameworks. Use only JUnit 5 (org.junit.jupiter.api.*, org.junit.jupiter.params.*) and the JDK.
+- Follow Arrange-Act-Assert. One behaviour per test method.
+- Use meaningful assertions on concrete expected values (assertEquals, assertTrue, assertNull, assertArrayEquals, ...).
+- Cover normal cases, edge cases (null, empty, boundary values) and exceptions (use assertThrows).
+- The code must compile with Java 17.
+
+Output: a single ```java code block containing the complete test class (package declaration, imports, class). No explanations.
+
+Class under test (org.apache.commons.lang3.CharSequenceUtils):
+```java
+package org.apache.commons.lang3;
+
+/** Operations on {@link CharSequence} that are {@code null} safe. */
+public class CharSequenceUtils {
+    private static final int NOT_FOUND = -1;
+    static final int TO_STRING_LIMIT = 16;
+    /** Returns a new {@link CharSequence} that is a subsequence of this sequence starting with the {@code char} value at the specified index. */
+    public static CharSequence subSequence(final CharSequence cs, final int start) {
+        return cs == null ? null : cs.subSequence(start, cs.length());
+    }
+    /** Converts the given CharSequence to a char[]. */
+    public static char[] toCharArray(final CharSequence source) {
+        final int len = StringUtils.length(source);
+        if (len == 0) {
+            return ArrayUtils.EMPTY_CHAR_ARRAY;
+        }
+        if (source instanceof String) {
+            return ((String) source).toCharArray();
+        }
+        final char[] array = new char[len];
+        for (int i = 0; i < len; i++) {
+            array[i] = source.charAt(i);
+        }
+        return array;
+    }
+    /** {@link CharSequenceUtils} instances should NOT be constructed in standard programming. */
+    public CharSequenceUtils() {
+    }
+}
+```

@@ -1,0 +1,183 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+class CompareToBuilder_GenTest {
+
+    @Test
+    void testAppendBooleanTrueFalse() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(true, false));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendBooleanArrayNulls() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((boolean[]) null, (boolean[]) null));
+        assertEquals(0, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new boolean[]{true}, (boolean[]) null));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((boolean[]) null, new boolean[]{false}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendBooleanArrayDifferentLengths() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new boolean[]{true}, new boolean[]{}));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new boolean[]{}, new boolean[]{false}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendByteArrayNulls() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((byte[]) null, (byte[]) null));
+        assertEquals(0, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new byte[]{1}, (byte[]) null));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((byte[]) null, new byte[]{2}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendByteArrayDifferentLengths() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new byte[]{1}, new byte[]{}));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new byte[]{}, new byte[]{2}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendCharArrayNulls() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((char[]) null, (char[]) null));
+        assertEquals(0, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new char[]{'a'}, (char[]) null));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((char[]) null, new char[]{'b'}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendCharArrayDifferentLengths() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new char[]{'a'}, new char[]{}));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new char[]{}, new char[]{'b'}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendDoubleArrayNulls() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((double[]) null, (double[]) null));
+        assertEquals(0, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new double[]{1.0}, (double[]) null));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((double[]) null, new double[]{2.0}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendDoubleArrayDifferentLengths() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new double[]{1.0}, new double[]{}));
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new double[]{}, new double[]{2.0}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testReflectionCompareWithSuperclass() {
+        class Parent {
+            int value;
+
+            Parent(int value) {
+                this.value = value;
+            }
+        }
+
+        class Child extends Parent {
+            int anotherValue;
+
+            Child(int value, int anotherValue) {
+                super(value);
+                this.anotherValue = anotherValue;
+            }
+        }
+
+        Child child1 = new Child(1, 2);
+        Child child2 = new Child(1, 3);
+
+        assertEquals(-1, CompareToBuilder.reflectionCompare(child1, child2, true, Parent.class));
+    }
+
+    @Test
+    void testReflectionCompareWithExcludeFields() {
+        class TestClass {
+            int value;
+            transient int transientValue;
+
+            TestClass(int value, int transientValue) {
+                this.value = value;
+                this.transientValue = transientValue;
+            }
+        }
+
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(1, 3);
+
+        assertEquals(0, CompareToBuilder.reflectionCompare(obj1, obj2, false, null, "transientValue"));
+    }
+
+    @Test
+    void testReflectionCompareWithExcludeFieldsCollection() {
+        class TestClass {
+            int value;
+            transient int transientValue;
+
+            TestClass(int value, int transientValue) {
+                this.value = value;
+                this.transientValue = transientValue;
+            }
+        }
+
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(1, 3);
+
+        assertEquals(0, CompareToBuilder.reflectionCompare(obj1, obj2, Collections.singleton("transientValue")));
+    }
+}
+```

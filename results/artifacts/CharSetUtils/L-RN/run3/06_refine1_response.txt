@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_withSingleCharSet() {
+        assertTrue(CharSetUtils.containsAny("hello", "e"));
+        assertFalse(CharSetUtils.containsAny("world", "x"));
+    }
+
+    @Test
+    public void testCount_withSingleCharSet() {
+        assertEquals(2, CharSetUtils.count("banana", "a"));
+        assertEquals(0, CharSetUtils.count("apple", "z"));
+    }
+
+    @Test
+    public void testDelete_withSingleCharSet() {
+        assertEquals("hll", CharSetUtils.delete("hello", "e"));
+        assertEquals("world", CharSetUtils.delete("world", "x"));
+    }
+
+    @Test
+    public void testKeep_withSingleCharSet() {
+        assertEquals("ee", CharSetUtils.keep("hello", "e"));
+        assertEquals("", CharSetUtils.keep("world", "x"));
+    }
+
+    @Test
+    public void testSqueeze_withSingleCharSet() {
+        assertEquals("helo", CharSetUtils.squeeze("heelloo", "e"));
+        assertEquals("world", CharSetUtils.squeeze("world", "x"));
+    }
+
+    @Test
+    public void testContainsAny_withMultipleCharSets() {
+        assertTrue(CharSetUtils.containsAny("hello", "a", "e"));
+        assertFalse(CharSetUtils.containsAny("world", "x", "y"));
+    }
+
+    @Test
+    public void testCount_withMultipleCharSets() {
+        assertEquals(3, CharSetUtils.count("banana", "a", "n"));
+        assertEquals(0, CharSetUtils.count("apple", "z", "x"));
+    }
+
+    @Test
+    public void testDelete_withMultipleCharSets() {
+        assertEquals("hllo", CharSetUtils.delete("hello", "e", "o"));
+        assertEquals("world", CharSetUtils.delete("world", "x", "y"));
+    }
+
+    @Test
+    public void testKeep_withMultipleCharSets() {
+        assertEquals("ea", CharSetUtils.keep("hello", "e", "a"));
+        assertEquals("", CharSetUtils.keep("world", "x", "y"));
+    }
+
+    @Test
+    public void testSqueeze_withMultipleCharSets() {
+        assertEquals("helo", CharSetUtils.squeeze("heelloo", "e", "l"));
+        assertEquals("world", CharSetUtils.squeeze("world", "x", "y"));
+    }
+}
+```

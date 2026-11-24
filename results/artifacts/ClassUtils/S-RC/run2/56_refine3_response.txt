@@ -1,0 +1,61 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testGetAbbreviatedNameWithNegativeLengthHint() {
+        assertThrows(IllegalArgumentException.class, () -> ClassUtils.getAbbreviatedName(null, -1));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithNullClassName() {
+        assertEquals("", ClassUtils.getAbbreviatedName(null, 5));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithEmptyClassName() {
+        assertEquals("", ClassUtils.getAbbreviatedName("", 5));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithShortClassName() {
+        assertEquals("java.lang.String", ClassUtils.getAbbreviatedName("java.lang.String", 20));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithNullClass() {
+        assertNull(ClassUtils.getAllInterfaces(null));
+    }
+
+    @Test
+    public void testGetCanonicalNameWithNullObject() {
+        assertEquals("", ClassUtils.getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    public void testGetClassNameWithNonNullClassLoaderAndEmptyClassName() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass(nullClassLoader(), ""));
+    }
+
+    @Test
+    public void testGetNameWithNull() {
+        assertEquals("", ClassUtils.getName((Class<?>) null, "default"));
+    }
+
+    @Test
+    public void testGetPackageCanonicalNameWithNullObject() {
+        assertEquals("", ClassUtils.getPackageCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    public void testGetPackageNameWithNull() {
+        assertEquals("", ClassUtils.getPackageName((Class<?>) null, "default"));
+    }
+}
+```

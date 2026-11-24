@@ -1,0 +1,124 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    void testAnd_BooleanArray_withNulls() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.and((Boolean[]) null));
+    }
+
+    @Test
+    void testOr_BooleanArray_withNulls() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.or((Boolean[]) null));
+    }
+
+    @Test
+    void testToBoolean_IntegerWithTrueValueNullAndFalseValueNotNull() {
+        assertFalse(BooleanUtils.toBoolean(null, null, 1));
+    }
+
+    @Test
+    void testToBoolean_IntegerWithTrueValueNotNullAndFalseValueNull() {
+        assertTrue(BooleanUtils.toBoolean(0, 0, null));
+    }
+
+    @Test
+    void testToBoolean_IntegerNoMatch_3() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(2, 0, 1));
+    }
+
+    @Test
+    void testToBoolean_StringWithTrueStringNullAndFalseStringNotNull() {
+        assertFalse(BooleanUtils.toBoolean("false", null, "false"));
+    }
+
+    @Test
+    void testToBoolean_StringWithTrueStringNotNullAndFalseStringNull() {
+        assertTrue(BooleanUtils.toBoolean("true", "true", null));
+    }
+
+    @Test
+    void testToBoolean_StringNoMatch_2() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean("maybe", "true", "false"));
+    }
+
+    @Test
+    void testToBooleanObject_IntegerWithTrueValueNullAndFalseValueNotNull() {
+        assertNull(BooleanUtils.toBooleanObject(null, null, 1));
+    }
+
+    @Test
+    void testToBooleanObject_IntegerWithTrueValueNotNullAndFalseValueNull() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(0, 0, null));
+    }
+
+    @Test
+    void testToBooleanObject_IntegerNoMatch_4() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject(2, 0, 1));
+    }
+
+    @Test
+    void testToBooleanObject_StringWithTrueStringNullAndFalseStringNotNull() {
+        assertNull(BooleanUtils.toBooleanObject("false", null, "false"));
+    }
+
+    @Test
+    void testToBooleanObject_StringWithTrueStringNotNullAndFalseStringNull() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("true", "true", null));
+    }
+
+    @Test
+    void testToBooleanObject_StringNoMatch_3() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject("maybe", "true", "false"));
+    }
+
+    @Test
+    void testToBooleanObject_StringExactMatchTrueLongerCase() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("trUe"));
+    }
+
+    @Test
+    void testToBooleanObject_StringFalseLongerCase_2() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("faLse"));
+    }
+
+    @Test
+    void testToBooleanObject_StringNotMatch_2() {
+        assertNull(BooleanUtils.toBooleanObject("unknown"));
+    }
+
+    @Test
+    void testToInteger_trueWithCustomValuesAndNullValue() {
+        assertEquals(10, BooleanUtils.toInteger(true, 10, 20, 30));
+    }
+
+    @Test
+    void testToInteger_falseWithCustomValuesAndNullValue() {
+        assertEquals(20, BooleanUtils.toInteger(false, 10, 20, 30));
+    }
+
+    @Test
+    void testToInteger_nullWithCustomValuesAndNullValue() {
+        assertEquals(30, BooleanUtils.toInteger(null, 10, 20, 30));
+    }
+
+    @Test
+    void testToIntegerObject_trueWithCustomValuesAndNullValue() {
+        assertEquals(NumberUtils.INTEGER_TEN, BooleanUtils.toIntegerObject(true, NumberUtils.INTEGER_TEN, NumberUtils.INTEGER_TWENTY, NumberUtils.INTEGER_THIRTY));
+    }
+
+    @Test
+    void testToIntegerObject_falseWithCustomValuesAndNullValue() {
+        assertEquals(NumberUtils.INTEGER_TWENTY, BooleanUtils.toIntegerObject(false, NumberUtils.INTEGER_TEN, NumberUtils.INTEGER_TWENTY, NumberUtils.INTEGER_THIRTY));
+    }
+
+    @Test
+    void testToIntegerObject_nullWithCustomValuesAndNullValue() {
+        assertEquals(NumberUtils.INTEGER_THIRTY, BooleanUtils.toIntegerObject(null, NumberUtils.INTEGER_TEN, NumberUtils.INTEGER_TWENTY, NumberUtils.INTEGER_THIRTY));
+    }
+}
+```

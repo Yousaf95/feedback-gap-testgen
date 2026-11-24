@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N icect_control
+#PBS -q shortCPUQ
+#PBS -l select=1:ncpus=32:mem=128gb
+#PBS -l walltime=05:59:00
+#PBS -j oe
+source $HOME/ICECT/env.sh
+export MAVEN_OPTS="-Xmx1g"
+cd $HOME/ICECT/scripts
+H=S=$(cat $HOME/ICECT/logs/ollama_host_S.txt),L=$(cat $HOME/ICECT/logs/ollama_host_L.txt)
+echo "node $(hostname) hosts $H start $(date)"
+python -I run_control.py --config $HOME/ICECT/scripts/config.json --runs $HOME/ICECT/results/raw/runs.jsonl \
+  --out $HOME/ICECT/results/raw/runs_control.jsonl --art $HOME/ICECT/results/artifacts \
+  --host $H --workers 16 --work $TMPDIR/icect_ctrl 2>&1 | tee -a $HOME/ICECT/results/raw/runs_control.progress.log
+echo "end $(date)"

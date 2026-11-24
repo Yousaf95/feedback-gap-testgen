@@ -1,0 +1,104 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    void testAppendBooleanArray() {
+        boolean[] array1 = {true, false};
+        boolean[] array2 = {true, false};
+        boolean[] array3 = {false, true};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testAppendByteArray() {
+        byte[] array1 = {1, 2};
+        byte[] array2 = {1, 2};
+        byte[] array3 = {2, 1};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testAppendCharArray() {
+        char[] array1 = {'a', 'b'};
+        char[] array2 = {'a', 'b'};
+        char[] array3 = {'b', 'a'};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testAppendDoubleArray() {
+        double[] array1 = {1.0, 2.0};
+        double[] array2 = {1.0, 2.0};
+        double[] array3 = {2.0, 1.0};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testAppendFloatArray() {
+        float[] array1 = {1.0f, 2.0f};
+        float[] array2 = {1.0f, 2.0f};
+        float[] array3 = {2.0f, 1.0f};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testAppendIntArray() {
+        int[] array1 = {1, 2};
+        int[] array2 = {1, 2};
+        int[] array3 = {2, 1};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testAppendLongArray() {
+        long[] array1 = {1L, 2L};
+        long[] array2 = {1L, 2L};
+        long[] array3 = {2L, 1L};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testAppendShortArray() {
+        short[] array1 = {1, 2};
+        short[] array2 = {1, 2};
+        short[] array3 = {2, 1};
+
+        assertTrue(new EqualsBuilder().append(array1, array2).isEquals());
+        assertFalse(new EqualsBuilder().append(array1, array3).isEquals());
+    }
+
+    @Test
+    void testSetBypassReflectionClassesWithNull() {
+        assertThrows(NullPointerException.class, () -> new EqualsBuilder().setBypassReflectionClasses(null));
+    }
+
+    @Test
+    void testSetExcludeFieldsWithNull() {
+        assertThrows(NullPointerException.class, () -> new EqualsBuilder().setExcludeFields((String[]) null));
+    }
+
+    @Test
+    void testSetReflectUpToClassWithNull() {
+        assertEquals(new EqualsBuilder(), new EqualsBuilder().setReflectUpToClass(null));
+    }
+}
+```

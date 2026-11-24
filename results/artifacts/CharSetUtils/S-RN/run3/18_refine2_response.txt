@@ -1,0 +1,84 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_emptySet() {
+        assertFalse(CharSetUtils.containsAny("abc", new String[]{}));
+    }
+
+    @Test
+    public void testCount_emptySet() {
+        assertEquals(0, CharSetUtils.count("abc", new String[]{}));
+    }
+
+    @Test
+    public void testDelete_emptySet() {
+        assertEquals("abc", CharSetUtils.delete("abc", new String[]{}));
+    }
+
+    @Test
+    public void testKeep_emptySet() {
+        assertEquals("", CharSetUtils.keep("abc", new String[]{}));
+    }
+
+    @Test
+    public void testSqueeze_emptySet() {
+        assertEquals("abc", CharSetUtils.squeeze("abc", new String[]{}));
+    }
+
+    @Test
+    public void testContainsAny_singleCharacter_setNotInString() {
+        assertFalse(CharSetUtils.containsAny("abc", "d"));
+    }
+
+    @Test
+    public void testCount_singleCharacter_setNotInString() {
+        assertEquals(0, CharSetUtils.count("abc", "d"));
+    }
+
+    @Test
+    public void testDelete_singleCharacter_setNotInString() {
+        assertEquals("abc", CharSetUtils.delete("abc", "d"));
+    }
+
+    @Test
+    public void testKeep_singleCharacter_setNotInString() {
+        assertEquals("", CharSetUtils.keep("abc", "d"));
+    }
+
+    @Test
+    public void testSqueeze_singleCharacter_setNotInString() {
+        assertEquals("abc", CharSetUtils.squeeze("abc", "d"));
+    }
+
+    @Test
+    public void testContainsAny_multipleCharacters_setNotInString() {
+        assertFalse(CharSetUtils.containsAny("abc", "def"));
+    }
+
+    @Test
+    public void testCount_multipleCharacters_setNotInString() {
+        assertEquals(0, CharSetUtils.count("abc", "def"));
+    }
+
+    @Test
+    public void testDelete_multipleCharacters_setNotInString() {
+        assertEquals("abc", CharSetUtils.delete("abc", "def"));
+    }
+
+    @Test
+    public void testKeep_multipleCharacters_setNotInString() {
+        assertEquals("", CharSetUtils.keep("abc", "def"));
+    }
+
+    @Test
+    public void testSqueeze_multipleCharacters_setNotInString() {
+        assertEquals("abc", CharSetUtils.squeeze("abc", "def"));
+    }
+}
+```

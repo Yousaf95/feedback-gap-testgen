@@ -1,0 +1,35 @@
+[ERROR] Tests run: 12, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.220 s <<< FAILURE! -- in org.apache.commons.lang3.CharSequenceUtils_GenTest
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withEmptyCharSequence(int)[2] -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: begin 1, end 0, length 0
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4606)
+	at java.base/java.lang.String.substring(String.java:2709)
+	at java.base/java.lang.String.subSequence(String.java:2747)
+	at org.apache.commons.lang3.CharSequenceUtils.subSequence(CharSequenceUtils.java:355)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withEmptyCharSequence(CharSequenceUtils_GenTest.java:31)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withEmptyCharSequence(int)[3] -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: begin 2, end 0, length 0
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4606)
+	at java.base/java.lang.String.substring(String.java:2709)
+	at java.base/java.lang.String.subSequence(String.java:2747)
+	at org.apache.commons.lang3.CharSequenceUtils.subSequence(CharSequenceUtils.java:355)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withEmptyCharSequence(CharSequenceUtils_GenTest.java:31)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   CharSequenceUtils_GenTest.testSubSequence_withEmptyCharSequence:31 » StringIndexOutOfBounds begin 1, end 0, length 0
+[ERROR]   CharSequenceUtils_GenTest.testSubSequence_withEmptyCharSequence:31 » StringIndexOutOfBounds begin 2, end 0, length 0
+[ERROR] Tests run: 12, Failures: 0, Errors: 2, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w11/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

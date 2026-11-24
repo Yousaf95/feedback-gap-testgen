@@ -1,0 +1,152 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testAsRuntimeException() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.asRuntimeException(throwable);
+        assertEquals(RuntimeException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testGetCauseWithNullThrowable() {
+        Throwable cause = ExceptionUtils.getCause(null);
+        assertNull(cause);
+    }
+
+    @Test
+    public void testGetCauseWithNoCause() {
+        Throwable throwable = new RuntimeException();
+        Throwable cause = ExceptionUtils.getCause(throwable);
+        assertNull(cause);
+    }
+
+    @Test
+    public void testGetCauseWithCause() {
+        Throwable cause = new IllegalArgumentException("test");
+        Throwable throwable = new RuntimeException(cause);
+        Throwable result = ExceptionUtils.getCause(throwable);
+        assertEquals(IllegalArgumentException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testGetRootCauseWithNullThrowable() {
+        Throwable rootCause = ExceptionUtils.getRootCause(null);
+        assertNull(rootCause);
+    }
+
+    @Test
+    public void testGetRootCauseWithNoCause() {
+        Throwable throwable = new RuntimeException();
+        Throwable rootCause = ExceptionUtils.getRootCause(throwable);
+        assertEquals(RuntimeException.class, rootCause.getClass());
+        assertEquals("RuntimeException", rootCause.getMessage());
+    }
+
+    @Test
+    public void testGetRootCauseWithCause() {
+        Throwable cause = new IllegalArgumentException("test");
+        Throwable throwable = new RuntimeException(cause);
+        Throwable rootCause = ExceptionUtils.getRootCause(throwable);
+        assertEquals(IllegalArgumentException.class, rootCause.getClass());
+        assertEquals("test", rootCause.getMessage());
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNullThrowable() {
+        String message = ExceptionUtils.getRootCauseMessage(null);
+        assertTrue(message.startsWith("RuntimeException: null"));
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNoCause() {
+        Throwable throwable = new RuntimeException();
+        String message = ExceptionUtils.getRootCauseMessage(throwable);
+        assertTrue(message.startsWith("RuntimeException: null"));
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithCause() {
+        Throwable cause = new IllegalArgumentException("test");
+        Throwable throwable = new RuntimeException(cause);
+        String message = ExceptionUtils.getRootCauseMessage(throwable);
+        assertTrue(message.startsWith("IllegalArgumentException: test"));
+    }
+
+    @Test
+    public void testGetStackTraceWithNullThrowable() {
+        String stackTrace = ExceptionUtils.getStackTrace(null);
+        assertEquals("", stackTrace);
+    }
+
+    @Test
+    public void testHasCauseWithNullThrowable() {
+        boolean result = ExceptionUtils.hasCause(null, RuntimeException.class);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNullThrowable() {
+        int index = ExceptionUtils.indexOfThrowable(null, RuntimeException.class);
+        assertEquals(-1, index);
+    }
+
+    @Test
+    public void testIsCheckedWithNullThrowable() {
+        boolean result = ExceptionUtils.isChecked(null);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testIsUncheckedWithNullThrowable() {
+        boolean result = ExceptionUtils.isUnchecked(null);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintWriter writer = new PrintWriter(out);
+        ExceptionUtils.printRootCauseStackTrace(null, writer);
+        assertTrue(out.toString().isEmpty());
+    }
+
+    @Test
+    public void testRethrow() {
+        Throwable throwable = new RuntimeException("test");
+        assertThrows(RuntimeException.class, () -> ExceptionUtils.rethrow(throwable));
+    }
+
+    @Test
+    public void testThrowableOfThrowable() {
+        Throwable cause = new IllegalArgumentException("test");
+        Throwable throwable = new RuntimeException(cause);
+        IllegalArgumentException result = ExceptionUtils.throwableOfThrowable(throwable, IllegalArgumentException.class);
+        assertEquals(IllegalArgumentException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+    @Test
+    public void testThrowableOfType() {
+        Throwable cause = new IllegalArgumentException("test");
+        Throwable throwable = new RuntimeException(cause);
+        IllegalArgumentException result = ExceptionUtils.throwableOfType(throwable, IllegalArgumentException.class);
+        assertEquals(IllegalArgumentException.class, result.getClass());
+        assertEquals("test", result.getMessage());
+    }
+
+}
+```

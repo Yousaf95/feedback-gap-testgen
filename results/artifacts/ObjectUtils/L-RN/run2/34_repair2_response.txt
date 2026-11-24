@@ -1,0 +1,113 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ObjectUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testClone_withNull() {
+        assertNull(ObjectUtils.clone(null));
+    }
+
+    @Test
+    void testCloneIfPossible_withNull() {
+        assertNull(ObjectUtils.cloneIfPossible(null));
+    }
+
+    @Test
+    void testCompare_withBothNulls() {
+        assertEquals(0, ObjectUtils.compare(null, null));
+    }
+
+    @Test
+    void testCompare_withFirstNullAndNullGreaterFalse() {
+        assertEquals(-1, ObjectUtils.compare(null, "a", false));
+    }
+
+    @Test
+    void testCompare_withSecondNullAndNullGreaterTrue() {
+        assertEquals(1, ObjectUtils.compare("a", null, true));
+    }
+
+    @Test
+    void testCONST_BYTE_withBoundaryValueMin() {
+        assertEquals(Byte.MIN_VALUE, ObjectUtils.CONST_BYTE(Byte.MIN_VALUE));
+    }
+
+    @Test
+    void testCONST_BYTE_withBoundaryValueMax() {
+        assertEquals(Byte.MAX_VALUE, ObjectUtils.CONST_BYTE(Byte.MAX_VALUE));
+    }
+
+    @Test
+    void testCONST_SHORT_withBoundaryValueMin() {
+        assertEquals(Short.MIN_VALUE, ObjectUtils.CONST_SHORT(Short.MIN_VALUE));
+    }
+
+    @Test
+    void testCONST_SHORT_withBoundaryValueMax() {
+        assertEquals(Short.MAX_VALUE, ObjectUtils.CONST_SHORT(Short.MAX_VALUE));
+    }
+
+    @Test
+    void testDefaultIfNull_withBothNulls() {
+        assertNull(ObjectUtils.defaultIfNull(null, null));
+    }
+
+    @Test
+    void testFirstNonNull_withAllNullSuppliers() {
+        assertNull(ObjectUtils.getFirstNonNull(() -> null, () -> null));
+    }
+
+    @Test
+    void testGetClass_withArrayObject_2() {
+        assertEquals(String[].class, ObjectUtils.getClass(new String[0]));
+    }
+
+    @Test
+    void testHashCodeMulti_withSingleNonNullValue() {
+        assertEquals(31 * java.util.Objects.hashCode("a"), ObjectUtils.hashCodeMulti("a"));
+    }
+
+    @Test
+    void testIdentityToString_withAppendableAndNull() {
+        assertThrows(NullPointerException.class, () -> ObjectUtils.identityToString((Appendable) null, new Object()));
+    }
+
+    @Test
+    void testMedian_withComparatorAndSingleItem() {
+        assertEquals("a", ObjectUtils.median(Comparator.naturalOrder(), "a"));
+    }
+
+    @Test
+    void testMode_withSingleItem_2() {
+        assertEquals("a", ObjectUtils.mode("a"));
+    }
+
+    @Test
+    void testRequireNonEmpty_withNullObject() {
+        assertThrows(NullPointerException.class, () -> ObjectUtils.requireNonEmpty(null));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyString_3() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(""));
+    }
+
+    @Test
+    void testToString_withSupplierAndNullSupplier() {
+        assertEquals("default", ObjectUtils.toString((java.util.function.Supplier<Object>) null, () -> "default"));
+    }
+
+    @Test
+    void testToString_withSupplierReturningNull() {
+        assertEquals("default", ObjectUtils.toString(() -> null, () -> "default"));
+    }
+}
+```

@@ -1,0 +1,379 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class ReflectionToStringBuilder_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of ReflectionToStringBuilder shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testToNoNullStringArrayWithNonEmptyCollection_2: cannot find symbol (symbol:   class Collection; location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest)
+    code: Collection<String> collection = Arrays.asList("a", "b", null, "c");
+in method testIsExcludeNullValues_2: incompatible types: void cannot be converted to org.apache.commons.lang3.builder.ReflectionToStringBuilder
+    code: ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object()).setExcludeNullValues(true);
+in method testSetUpToClassWithValidClass: incompatible types: void cannot be converted to org.apache.commons.lang3.builder.ReflectionToStringBuilder
+    code: ReflectionToStringBuilder builder = new ReflectionToStringBuilder(object).setUpToClass(TestClass.class);
+in method testValidateWithIntersectingExcludeInclude: validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+    code: assertThrows(IllegalStateException.class, () -> builder.validate());
+
+Current test class (ReflectionToStringBuilder_GenTest.java):
+```java
+package org.apache.commons.lang3.builder;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+class ReflectionToStringBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testToNoNullStringArrayWithEmptyCollection_2() {
+            String[] result = ReflectionToStringBuilder.toNoNullStringArray(Collections.emptyList());
+            assertTrue(Arrays.equals(new String[0], result));
+        }
+
+    @Test
+        public void testToNoNullStringArrayWithNonEmptyCollection_2() {
+            Collection<String> collection = Arrays.asList("a", "b", null, "c");
+            String[] result = ReflectionToStringBuilder.toNoNullStringArray(collection);
+            assertTrue(Arrays.equals(new String[]{"a", "b", "c"}, result));
+        }
+
+    @Test
+        public void testToStringWithEmptyClass_2() {
+            Object object = new Object();
+            assertEquals("org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$1@" + Integer.toHexString(object.hashCode()), ReflectionToStringBuilder.toString(object, ToStringStyle.SHORT_PREFIX_STYLE));
+        }
+
+    @Test
+        public void testToStringWithTransientField_2_2() throws Exception {
+            class TestClass {
+                private transient int transientField = 42;
+            }
+            Object object = new TestClass();
+            assertEquals("org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@" + Integer.toHexString(object.hashCode()) + "[transientField=42]", ReflectionToStringBuilder.toString(object, ToStringStyle.SHORT_PREFIX_STYLE));
+        }
+
+    @Test
+        public void testToStringWithStaticField_2_2() throws Exception {
+            class TestClass {
+                private static int staticField = 42;
+            }
+            Object object = new TestClass();
+            assertEquals("org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@" + Integer.toHexString(object.hashCode()) + "[staticField=42]", ReflectionToStringBuilder.toString(object, ToStringStyle.SHORT_PREFIX_STYLE));
+        }
+
+    @Test
+        public void testAppendFieldsInWithNonArray_2() throws Exception {
+            class TestClass {
+                private int field = 42;
+            }
+            Object object = new TestClass();
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(object);
+            builder.appendFieldsIn(TestClass.class);
+            assertEquals("field=42", builder.toString());
+        }
+
+    @Test
+        public void testGetExcludeFieldNames_2() {
+            String[] excludeFieldNames = {"exclude1", "exclude2"};
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object()).setExcludeFieldNames(excludeFieldNames);
+            assertArrayEquals(excludeFieldNames, builder.getExcludeFieldNames());
+        }
+
+    @Test
+        public void testGetIncludeFieldNames_2() {
+            String[] includeFieldNames = {"include1", "include2"};
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object()).setIncludeFieldNames(includeFieldNames);
+            assertArrayEquals(includeFieldNames, builder.getIncludeFieldNames());
+        }
+
+    @Test
+        public void testIsExcludeNullValues_2() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object()).setExcludeNullValues(true);
+            assertTrue(builder.isExcludeNullValues());
+        }
+
+    @Test
+        public void testSetUpToClassWithValidClass() throws Exception {
+            class TestClass {}
+            Object object = new TestClass();
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(object).setUpToClass(TestClass.class);
+            assertEquals(TestClass.class, builder.getUpToClass());
+        }
+
+    @Test
+        public void testValidateWithIntersectingExcludeInclude() throws Exception {
+            class TestClass {}
+            Object object = new TestClass();
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(object).setExcludeFieldNames("exclude").setIncludeFieldNames("exclude");
+            assertThrows(IllegalStateException.class, () -> builder.validate());
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.builder.ReflectionToStringBuilder):
+```java
+package org.apache.commons.lang3.builder;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Objects;
+import org.apache.commons.lang3.ArraySorter;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ClassUtils;
+import org.apache.commons.lang3.stream.Streams;
+
+/** Assists in implementing {@link Object#toString()} methods using reflection. */
+public class ReflectionToStringBuilder extends ToStringBuilder {
+    /** Builds a {@code toString} value using the default {@link ToStringStyle} through reflection. */
+    public static String toString(final Object object) {
+        return toString(object, null, false, false, null);
+    }
+    /** Builds a {@code toString} value through reflection. */
+    public static String toString(final Object object, final ToStringStyle style) {
+        return toString(object, style, false, false, null);
+    }
+    /** Builds a {@code toString} value through reflection. */
+    public static String toString(final Object object, final ToStringStyle style, final boolean outputTransients) {
+        return toString(object, style, outputTransients, false, null);
+    }
+    /** Builds a {@code toString} value through reflection. */
+    public static String toString(final Object object, final ToStringStyle style, final boolean outputTransients, final boolean outputStatics) {
+        return toString(object, style, outputTransients, outputStatics, null);
+    }
+    /** Builds a {@code toString} value through reflection. */
+    public static <T> String toString(
+            final T object, final ToStringStyle style, final boolean outputTransients,
+            final boolean outputStatics, final boolean excludeNullValues, final Class<? super T> reflectUpToClass) {
+        return new ReflectionToStringBuilder(object, style, null, reflectUpToClass, outputTransients, outputStatics, excludeNullValues)
+                .toString();
+    }
+    /** Builds a {@code toString} value through reflection. */
+    public static <T> String toString(
+            final T object, final ToStringStyle style, final boolean outputTransients,
+            final boolean outputStatics, final Class<? super T> reflectUpToClass) {
+        return new ReflectionToStringBuilder(object, style, null, reflectUpToClass, outputTransients, outputStatics)
+                .toString();
+    }
+    /** Builds a String for a toString method excluding the given field names. */
+    public static String toStringExclude(final Object object, final Collection<String> excludeFieldNames) {
+        return toStringExclude(object, toNoNullStringArray(excludeFieldNames));
+    }
+    /** Builds a String for a toString method excluding the given field names. */
+    public static String toStringExclude(final Object object, final String... excludeFieldNames) {
+        return new ReflectionToStringBuilder(object).setExcludeFieldNames(excludeFieldNames).toString();
+    }
+    /** Builds a String for a toString method including the given field names. */
+    public static String toStringInclude(final Object object, final Collection<String> includeFieldNames) {
+        return toStringInclude(object, toNoNullStringArray(includeFieldNames));
+    }
+    /** Builds a String for a toString method including the given field names. */
+    public static String toStringInclude(final Object object, final String... includeFieldNames) {
+        return new ReflectionToStringBuilder(object).setIncludeFieldNames(includeFieldNames).toString();
+    }
+    /** Whether or not to append static fields. */
+    private boolean appendStatics;
+    /** Whether or not to append transient fields. */
+    private boolean appendTransients;
+    /** Whether or not to append fields that are null. */
+    private boolean excludeNullValues;
+    /** Which field names to exclude from output. */
+    protected String[] excludeFieldNames;
+    /** Field names that will be included in the output. */
+    protected String[] includeFieldNames;
+    /** The last super class to stop appending fields for. */
+    private Class<?> upToClass;
+    /** Constructs a new instance. */
+    public ReflectionToStringBuilder(final Object object) {
+        super(object);
+    }
+    /** Constructs a new instance. */
+    public ReflectionToStringBuilder(final Object object, final ToStringStyle style) {
+        super(object, style);
+    }
+    /** Constructs a new instance. */
+    public ReflectionToStringBuilder(final Object object, final ToStringStyle style, final StringBuffer buffer) {
+        super(object, style, buffer);
+    }
+    /** Constructs a new instance. */
+    public <T> ReflectionToStringBuilder(
+            final T object, final ToStringStyle style, final StringBuffer buffer,
+            final Class<? super T> reflectUpToClass, final boolean outputTransients, final boolean outputStatics) {
+        super(object, style, buffer);
+        this.setUpToClass(reflectUpToClass);
+        this.setAppendTransients(outputTransients);
+        this.setAppendStatics(outputStatics);
+    }
+    /** Constructs a new instance. */
+    public <T> ReflectionToStringBuilder(
+            final T object, final ToStringStyle style, final StringBuffer buffer,
+            final Class<? super T> reflectUpToClass, final boolean outputTransients, final boolean outputStatics,
+            final boolean excludeNullValues) {
+        super(object, style, buffer);
+        this.setUpToClass(reflectUpToClass);
+        this.setAppendTransients(outputTransients);
+        this.setAppendStatics(outputStatics);
+        this.setExcludeNullValues(excludeNullValues);
+    }
+    /** Returns whether or not to append the given {@link Field}. */
+    protected boolean accept(final Field field) {
+        if (field.getName().indexOf(ClassUtils.INNER_CLASS_SEPARATOR_CHAR) != -1) {
+            // Reject field from inner class.
+            return false;
+        }
+        if (Modifier.isTransient(field.getModifiers()) && !this.isAppendTransients()) {
+            // Reject transient fields.
+            return false;
+        }
+        if (Modifier.isStatic(field.getModifiers()) && !this.isAppendStatics()) {
+            // Reject static fields.
+            return false;
+        }
+
+        if (this.excludeFieldNames != null
+            && Arrays.binarySearch(this.excludeFieldNames, field.getName()) >= 0) {
+            // Reject fields from the getExcludeFieldNames list.
+            return false;
+        }
+
+        if (ArrayUtils.isNotEmpty(includeFieldNames)) {
+            // Accept fields from the getIncludeFieldNames list. {@code null} or empty means all fields are included. All fields are included by default.
+            return Arrays.binarySearch(this.includeFieldNames, field.getName()) >= 0;
+        }
+
+        return !field.isAnnotationPresent(ToStringExclude.class);
+    }
+    /** Appends the fields and values defined by the given object of the given Class. */
+    protected void appendFieldsIn(final Class<?> clazz) {
+        if (clazz.isArray()) {
+            this.reflectionAppendArray(this.getObject());
+            return;
+        }
+        // The elements in the returned array are not sorted and are not in any particular order.
+        final Field[] fields = ArraySorter.sort(clazz.getDeclaredFields(), Comparator.comparing(Field::getName));
+        AccessibleObject.setAccessible(fields, true);
+        for (final Field field : fields) {
+            final String fieldName = field.getName();
+            if (this.accept(field)) {
+                try {
+                    // Warning: Field.get(Object) creates wrappers objects
+                    // for primitive types.
+                    final Object fieldValue = this.getValue(field);
+                    if (!excludeNullValues || fieldValue != null) {
+                        this.append(fieldName, fieldValue, !field.isAnnotationPresent(ToStringSummary.class));
+                    }
+                } catch (final IllegalAccessException e) {
+                    // this can't happen. Would get a Security exception instead throw a runtime exception in case the
+                    // impossible happens.
+                    throw new IllegalStateException(e);
+                }
+            }
+        }
+    }
+    /** Gets the excludeFieldNames. */
+    public String[] getExcludeFieldNames() {
+        return this.excludeFieldNames.clone();
+    }
+    /** Gets the includeFieldNames */
+    public String[] getIncludeFieldNames() {
+        return this.includeFieldNames.clone();
+    }
+    /** Gets the last super class to stop appending fields for. */
+    public Class<?> getUpToClass() {
+        return this.upToClass;
+    }
+    /** Calls {@code java.lang.reflect.Field.get(Object)}. */
+    protected Object getValue(final Field field) throws IllegalAccessException {
+        return field.get(this.getObject());
+    }
+    /** Gets whether or not to append static fields. */
+    public boolean isAppendStatics() {
+        return this.appendStatics;
+    }
+    /** Gets whether or not to append transient fields. */
+    public boolean isAppendTransients() {
+        return this.appendTransients;
+    }
+    /** Gets whether or not to append fields whose values are null. */
+    public boolean isExcludeNullValues() {
+        return this.excludeNullValues;
+    }
+    /** Appends to the {@code toString} an {@link Object} array. */
+    public ReflectionToStringBuilder reflectionAppendArray(final Object array) {
+        this.getStyle().reflectionAppendArrayDetail(this.getStringBuffer(), null, array);
+        return this;
+    }
+    /** Sets whether or not to append static fields. */
+    public void setAppendStatics(final boolean appendStatics) {
+        this.appendStatics = appendStatics;
+    }
+    /** Sets whether or not to append transient fields. */
+    public void setAppendTransients(final boolean appendTransients) {
+        this.appendTransients = appendTransients;
+    }
+    /** Sets the field names to exclude. */
+    public ReflectionToStringBuilder setExcludeFieldNames(final String... excludeFieldNamesParam) {
+        if (excludeFieldNamesParam == null) {
+            this.excludeFieldNames = null;
+        } else {
+            // clone and remove nulls
+            this.excludeFieldNames = ArraySorter.sort(toNoNullStringArray(excludeFieldNamesParam));
+        }
+        return this;
+    }
+    /** Sets whether or not to append fields whose values are null. */
+    public void setExcludeNullValues(final boolean excludeNullValues) {
+        this.excludeNullValues = excludeNullValues;
+    }
+    /** Sets the field names to include. */
+    public ReflectionToStringBuilder setIncludeFieldNames(final String... includeFieldNamesParam) {
+        if (includeFieldNamesParam == null) {
+            this.includeFieldNames = null;
+        } else {
+            // clone and remove nulls
+            this.includeFieldNames = ArraySorter.sort(toNoNullStringArray(includeFieldNamesParam));
+        }
+        return this;
+    }
+    /** Sets the last super class to stop appending fields for. */
+    public void setUpToClass(final Class<?> clazz) {
+        if (clazz != null) {
+            final Object object = getObject();
+            if (object != null && !clazz.isInstance(object)) {
+                throw new IllegalArgumentException("Specified class is not a superclass of the object");
+            }
+        }
+        this.upToClass = clazz;
+    }
+    /** Gets the String built by this builder. */
+    @Override
+    public String toString() {
+        if (this.getObject() == null) {
+            return this.getStyle().getNullText();
+        }
+
+        validate();
+
+        Class<?> clazz = this.getObject().getClass();
+        this.appendFieldsIn(clazz);
+        while (clazz.getSuperclass() != null && clazz != this.getUpToClass()) {
+            clazz = clazz.getSuperclass();
+            this.appendFieldsIn(clazz);
+        }
+        return super.toString();
+    }
+    // non-public helper methods (signatures only)
+    static String[] toNoNullStringArray(final Collection<String> collection);
+    static String[] toNoNullStringArray(final Object[] array);
+    private void validate();
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

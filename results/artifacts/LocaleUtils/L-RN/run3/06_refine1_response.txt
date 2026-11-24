@@ -1,0 +1,122 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testCountriesByLanguageWithNonExistentLanguage() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("xyz");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountryWithNonExistentCountry() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("XY");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    void testLocaleLookupListWithNullLocaleAndDefaultLocale() {
+        List<Locale> lookupList = LocaleUtils.localeLookupList(null, Locale.US);
+        assertEquals(1, lookupList.size());
+        assertEquals(Locale.US, lookupList.get(0));
+    }
+
+    @Test
+    void testLocaleLookupListWithFullLocale() {
+        Locale locale = new Locale("en", "US", "POSIX");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale);
+        assertEquals(4, lookupList.size());
+        assertEquals(new Locale("en", "US", "POSIX"), lookupList.get(0));
+        assertEquals(new Locale("en", "US"), lookupList.get(1));
+        assertEquals(new Locale("en"), lookupList.get(2));
+        assertEquals(Locale.getDefault(), lookupList.get(3));
+    }
+
+    @Test
+    void testLocaleLookupListWithLanguageAndCountry() {
+        Locale locale = new Locale("fr", "FR");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale);
+        assertEquals(3, lookupList.size());
+        assertEquals(new Locale("fr", "FR"), lookupList.get(0));
+        assertEquals(new Locale("fr"), lookupList.get(1));
+        assertEquals(Locale.getDefault(), lookupList.get(2));
+    }
+
+    @Test
+    void testLocaleLookupListWithLanguageOnly() {
+        Locale locale = new Locale("de");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale);
+        assertEquals(2, lookupList.size());
+        assertEquals(new Locale("de"), lookupList.get(0));
+        assertEquals(Locale.getDefault(), lookupList.get(1));
+    }
+
+    @Test
+    void testIsLanguageUndeterminedWithNullLocale() {
+        assertTrue(LocaleUtils.isLanguageUndetermined(null));
+    }
+
+    @Test
+    void testIsLanguageUndeterminedWithUndeterminedLocale() {
+        Locale undeterminedLocale = new Locale("und");
+        assertTrue(LocaleUtils.isLanguageUndetermined(undeterminedLocale));
+    }
+
+    @Test
+    void testIsLanguageUndeterminedWithDeterminedLocale() {
+        Locale determinedLocale = new Locale("en", "US");
+        assertFalse(LocaleUtils.isLanguageUndetermined(determinedLocale));
+    }
+
+    @Test
+    void testToLocaleWithNullString() {
+        assertNull(LocaleUtils.toLocale((String) null));
+    }
+
+    @Test
+    void testToLocaleWithEmptyString() {
+        Locale locale = LocaleUtils.toLocale("");
+        assertEquals(new Locale("", ""), locale);
+    }
+
+    @Test
+    void testToLocaleWithInvalidFormatTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("a"));
+    }
+
+    @Test
+    void testToLocaleWithInvalidFormatStartsWithUnderscore() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US"));
+    }
+
+    @Test
+    void testToLocaleWithInvalidFormatStartsWithDash() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("-US"));
+    }
+
+    @Test
+    void testToLocaleWithValidCountryCodeOnly() {
+        Locale locale = LocaleUtils.toLocale("_FR");
+        assertEquals(new Locale("", "FR"), locale);
+    }
+
+    @Test
+    void testToLocaleWithValidLanguageAndCountryCode() {
+        Locale locale = LocaleUtils.toLocale("en_US");
+        assertEquals(new Locale("en", "US"), locale);
+    }
+
+    @Test
+    void testToLocaleWithValidLanguageCountryAndVariant() {
+        Locale locale = LocaleUtils.toLocale("en_US_POSIX");
+        assertEquals(new Locale("en", "US", "POSIX"), locale);
+    }
+}
+```

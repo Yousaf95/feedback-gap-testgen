@@ -1,0 +1,42 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class BooleanUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("oneHotProvider")
+    public void testOneHot(boolean[] array, boolean expected) {
+        assertEquals(expected, BooleanUtils.oneHot(array));
+    }
+
+    private static Stream<Arguments> oneHotProvider() {
+        return Stream.of(
+            Arguments.arguments(new boolean[]{true, false}, true),
+            Arguments.arguments(new boolean[]{false, true}, false),
+            Arguments.arguments(new boolean[]{true, true, false}, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("xorProvider")
+    public void testXor(boolean[] array, boolean expected) {
+        assertEquals(expected, BooleanUtils.xor(array));
+    }
+
+    private static Stream<Arguments> xorProvider() {
+        return Stream.of(
+            Arguments.arguments(new boolean[]{true, false}, true),
+            Arguments.arguments(new boolean[]{false, false}, false),
+            Arguments.arguments(new boolean[]{true, true, false}, true)
+        );
+    }
+}
+```

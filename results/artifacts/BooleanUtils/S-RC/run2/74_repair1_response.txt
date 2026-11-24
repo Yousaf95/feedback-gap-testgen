@@ -1,0 +1,102 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class BooleanUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideArraysForAnd")
+    public void testAnd_withArray(boolean[] array, boolean expected) {
+        assertEquals(expected, BooleanUtils.and(array));
+    }
+
+    private static Stream<Arguments> provideArraysForAnd() {
+        return Stream.of(
+            Arguments.arguments(new boolean[]{true, true}, true),
+            Arguments.arguments(new boolean[]{false, false}, false),
+            Arguments.arguments(new boolean[]{true, false}, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArraysForOr")
+    public void testOr_withArray(boolean[] array, boolean expected) {
+        assertEquals(expected, BooleanUtils.or(array));
+    }
+
+    private static Stream<Arguments> provideArraysForOr() {
+        return Stream.of(
+            Arguments.arguments(new boolean[]{false, false}, false),
+            Arguments.arguments(new boolean[]{true, true}, true),
+            Arguments.arguments(new boolean[]{false, true}, true)
+        );
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueValue_2_2() {
+        assertTrue(BooleanUtils.toBooleanObject(1, 1, 0, -1));
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseValue_2_2() {
+        assertFalse(BooleanUtils.toBooleanObject(0, 1, 0, -1));
+    }
+
+    @Test
+    public void testToBooleanObject_withNullValue_2() {
+        assertNull(BooleanUtils.toBooleanObject(-1, 1, 0, -1));
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueValue_andNullValue() {
+        assertTrue(BooleanUtils.toBooleanObject(1, 1, 0, null));
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseValue_andNullValue() {
+        assertFalse(BooleanUtils.toBooleanObject(0, 1, 0, null));
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueValue_andNonMatchingNullValue() {
+        assertTrue(BooleanUtils.toBooleanObject(1, 1, 0, -2));
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseValue_andNonMatchingNullValue() {
+        assertFalse(BooleanUtils.toBooleanObject(0, 1, 0, -2));
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueString_andNullValue() {
+        assertTrue(BooleanUtils.toBooleanObject("true", "true", "false", null));
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseString_andNullValue() {
+        assertFalse(BooleanUtils.toBooleanObject("false", "true", "false", null));
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueString_andNonMatchingNullValue() {
+        assertTrue(BooleanUtils.toBooleanObject("true", "true", "false", "other"));
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseString_andNonMatchingNullValue() {
+        assertFalse(BooleanUtils.toBooleanObject("false", "true", "false", "other"));
+    }
+
+    @Test
+    public void testForEach() {
+        BooleanUtils.forEach(System.out::println);
+    }
+}
+```

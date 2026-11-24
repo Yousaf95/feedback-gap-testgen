@@ -1,0 +1,85 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.CharSetUtils.*;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_withEmptyCharSet() {
+        assertFalse(containsAny("abc", ""));
+    }
+
+    @Test
+    public void testCount_withEmptyCharSet() {
+        assertEquals(0, count("abc", ""));
+    }
+
+    @Test
+    public void testDelete_withEmptyCharSet() {
+        assertEquals("abc", delete("abc", ""));
+    }
+
+    @Test
+    public void testKeep_withEmptyCharSet() {
+        assertEquals("", keep("abc", ""));
+    }
+
+    @Test
+    public void testSqueeze_withEmptyCharSet() {
+        assertEquals("abc", squeeze("abc", ""));
+    }
+
+    @Test
+    public void testContainsAny_withNullCharSet() {
+        assertFalse(containsAny("abc", (String[]) null));
+    }
+
+    @Test
+    public void testCount_withNullCharSet() {
+        assertEquals(0, count("abc", (String[]) null));
+    }
+
+    @Test
+    public void testDelete_withNullCharSet() {
+        assertEquals("abc", delete("abc", (String[]) null));
+    }
+
+    @Test
+    public void testKeep_withNullCharSet() {
+        assertEquals("", keep("abc", (String[]) null));
+    }
+
+    @Test
+    public void testSqueeze_withNullCharSet() {
+        assertEquals("abc", squeeze("abc", (String[]) null));
+    }
+
+    @Test
+    public void testContainsAny_withNoMatchingChars() {
+        assertFalse(containsAny("abc", "def"));
+    }
+
+    @Test
+    public void testCount_withNoMatchingChars() {
+        assertEquals(0, count("abc", "def"));
+    }
+
+    @Test
+    public void testDelete_withNoMatchingChars() {
+        assertEquals("abc", delete("abc", "def"));
+    }
+
+    @Test
+    public void testKeep_withNoMatchingChars() {
+        assertEquals("abc", keep("abc", "def"));
+    }
+
+    @Test
+    public void testSqueeze_withNoMatchingChars() {
+        assertEquals("abc", squeeze("abc", "def"));
+    }
+}
+```

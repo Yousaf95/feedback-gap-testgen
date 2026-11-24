@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[245,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[251,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[264,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[271,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[272,63] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$12> is not abstract and does not override abstract method number() in org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[283,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[284,63] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$13> is not abstract and does not override abstract method number() in org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[295,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[296,49] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.AnotherTestAnnotation is not a functional interface
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[245,41] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[251,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[264,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[271,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[272,63] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$12> is not abstract and does not override abstract method number() in org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[283,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[284,63] <anonymous org.apache.commons.lang3.AnnotationUtils_GenTest$13> is not abstract and does not override abstract method number() in org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[295,42] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[296,49] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.AnotherTestAnnotation is not a functional interface
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

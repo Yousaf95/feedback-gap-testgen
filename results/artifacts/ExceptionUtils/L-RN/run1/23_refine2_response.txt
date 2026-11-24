@@ -1,0 +1,102 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    void testGetMessage_withEmptyMessage() {
+        Throwable throwable = new RuntimeException();
+        assertEquals("RuntimeException: ", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    void testIsChecked_withNullThrowable() {
+        assertFalse(ExceptionUtils.isChecked(null));
+    }
+
+    @Test
+    void testIsUnchecked_withNullThrowable() {
+        assertFalse(ExceptionUtils.isUnchecked(null));
+    }
+
+    @Test
+    void testHasCause_withExactMatch() {
+        Throwable cause = new IllegalArgumentException();
+        Throwable throwable = new RuntimeException(cause);
+        assertTrue(ExceptionUtils.hasCause(throwable, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOfThrowable_withNoMatch() {
+        Throwable throwable = new RuntimeException(new IllegalArgumentException());
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(throwable, NullPointerException.class));
+    }
+
+    @Test
+    void testIndexOfType_withNoMatch() {
+        Throwable throwable = new RuntimeException(new IllegalArgumentException());
+        assertEquals(-1, ExceptionUtils.indexOfType(throwable, NullPointerException.class));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withSingleException() {
+        Throwable throwable = new RuntimeException();
+        assertEquals("RuntimeException: ", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    void testGetThrowableCount_withNullThrowable() {
+        assertEquals(0, ExceptionUtils.getThrowableCount(null));
+    }
+
+    @Test
+    void testGetThrowableList_withSingleException() {
+        Throwable throwable = new RuntimeException();
+        List<Throwable> list = ExceptionUtils.getThrowableList(throwable);
+        assertEquals(1, list.size());
+        assertEquals(throwable, list.get(0));
+    }
+
+    @Test
+    void testGetStackFrames_withEmptyStackTrace() {
+        Throwable throwable = new RuntimeException();
+        String[] frames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(frames.length > 0); // At least one frame should be present
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withSingleException() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        Throwable throwable = new RuntimeException("test");
+        ExceptionUtils.printRootCauseStackTrace(throwable, ps);
+        String output = baos.toString().trim();
+        assertTrue(output.contains("RuntimeException: test"));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withNoCommonFrames() {
+        List<String> causeFrames = List.of("Frame1", "Frame2");
+        List<String> wrapperFrames = List.of("Frame3", "Frame4");
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(List.of("Frame1", "Frame2"), causeFrames);
+    }
+
+    @Test
+    void testStream_withSingleException() {
+        Throwable throwable = new RuntimeException();
+        long count = ExceptionUtils.stream(throwable).count();
+        assertEquals(1, count);
+    }
+}
+```

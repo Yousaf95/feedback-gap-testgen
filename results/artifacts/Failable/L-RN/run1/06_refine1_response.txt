@@ -1,0 +1,77 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.io.IOException;
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testGetAsBooleanNormalCase() {
+        boolean result = Failable.getAsBoolean(() -> true);
+        assertEquals(true, result);
+    }
+
+    @Test
+    public void testGetAsBooleanThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> 
+            Failable.getAsBoolean(() -> { throw new IOException("test"); })
+        );
+    }
+
+    @Test
+    public void testGetAsDoubleNormalCase() {
+        double result = Failable.getAsDouble(() -> 1.0);
+        assertEquals(1.0, result, 0.0);
+    }
+
+    @Test
+    public void testGetAsDoubleThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> 
+            Failable.getAsDouble(() -> { throw new IOException("test"); })
+        );
+    }
+
+    @Test
+    public void testGetAsIntNormalCase() {
+        int result = Failable.getAsInt(() -> 1);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testGetAsIntThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> 
+            Failable.getAsInt(() -> { throw new IOException("test"); })
+        );
+    }
+
+    @Test
+    public void testGetAsLongNormalCase() {
+        long result = Failable.getAsLong(() -> 1L);
+        assertEquals(1L, result);
+    }
+
+    @Test
+    public void testGetAsLongThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> 
+            Failable.getAsLong(() -> { throw new IOException("test"); })
+        );
+    }
+
+    @Test
+    public void testGetAsShortNormalCase() {
+        short result = Failable.getAsShort(() -> (short) 1);
+        assertEquals((short) 1, result);
+    }
+
+    @Test
+    public void testGetAsShortThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> 
+            Failable.getAsShort(() -> { throw new IOException("test"); })
+        );
+    }
+}
+```

@@ -1,0 +1,109 @@
+```java
+package org.apache.commons.lang3.time;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
+import org.junit.jupiter.api.Test;
+
+public class DateUtils_GenTest {
+
+    @Test
+    void testDateIteratorNextThrowsNoSuchElementException() {
+        Calendar start = Calendar.getInstance();
+        Calendar end = (Calendar) start.clone();
+        Iterator<Calendar> iterator = new DateUtils.DateIterator(start, end);
+        assertThrows(NoSuchElementException.class, iterator::next);
+    }
+
+    @Test
+    void testCeilingObjectDateBranches() {
+        Date date = new Date();
+        assertEquals(date, DateUtils.ceiling(date, Calendar.YEAR));
+        assertThrows(ClassCastException.class, () -> DateUtils.ceiling("not a date", Calendar.YEAR));
+    }
+
+    @Test
+    void testCeilingObjectCalendarBranches() {
+        Calendar calendar = Calendar.getInstance();
+        assertEquals(calendar.getTime(), DateUtils.ceiling(calendar, Calendar.YEAR).getTime());
+        assertThrows(ClassCastException.class, () -> DateUtils.ceiling("not a calendar", Calendar.YEAR));
+    }
+
+    @Test
+    void testGetFragmentInDaysYear() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_YEAR, 1);
+        assertEquals(0, DateUtils.getFragmentInDays(calendar, Calendar.YEAR));
+    }
+
+    @Test
+    void testGetFragmentInDaysMonth() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        assertEquals(0, DateUtils.getFragmentInDays(calendar, Calendar.MONTH));
+    }
+
+    @Test
+    void testGetFragmentMillisecondsBranches() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MILLISECOND, 500);
+        assertEquals(500, DateUtils.getFragmentInMilliseconds(calendar, Calendar.MILLISECOND));
+    }
+
+    @Test
+    void testIsSameLocalTimeBranches() {
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = (Calendar) cal1.clone();
+        assertTrue(DateUtils.isSameLocalTime(cal1, cal2));
+
+        cal2.add(Calendar.SECOND, 1);
+        assertFalse(DateUtils.isSameLocalTime(cal1, cal2));
+    }
+
+    @Test
+    void testIteratorMonthSunday() {
+        Calendar calendar = Calendar.getInstance();
+        Iterator<Calendar> iterator = DateUtils.iterator(calendar, DateUtils.RANGE_MONTH_SUNDAY);
+        assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    void testIteratorMonthMonday() {
+        Calendar calendar = Calendar.getInstance();
+        Iterator<Calendar> iterator = DateUtils.iterator(calendar, DateUtils.RANGE_MONTH_MONDAY);
+        assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    void testIteratorWeekSunday() {
+        Calendar calendar = Calendar.getInstance();
+        Iterator<Calendar> iterator = DateUtils.iterator(calendar, DateUtils.RANGE_WEEK_SUNDAY);
+        assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    void testIteratorWeekMonday() {
+        Calendar calendar = Calendar.getInstance();
+        Iterator<Calendar> iterator = DateUtils.iterator(calendar, DateUtils.RANGE_WEEK_MONDAY);
+        assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    void testIteratorWeekRelative() {
+        Calendar calendar = Calendar.getInstance();
+        Iterator<Calendar> iterator = DateUtils.iterator(calendar, DateUtils.RANGE_WEEK_RELATIVE);
+        assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    void testIteratorWeekCenter() {
+        Calendar calendar = Calendar.getInstance();
+        Iterator<Calendar> iterator = DateUtils.iterator(calendar, DateUtils.RANGE_WEEK_CENTER);
+        assertTrue(iterator.hasNext());
+    }
+}
+```

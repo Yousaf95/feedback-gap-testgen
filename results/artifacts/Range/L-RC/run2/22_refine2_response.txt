@@ -1,0 +1,51 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    void testContainsRangeWithSameRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.containsRange(range));
+    }
+
+    @Test
+    void testEqualsWithSameInstance() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.equals(range));
+    }
+
+    @Test
+    void testEqualsWithNullObject() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.equals(null));
+    }
+
+    @Test
+    void testEqualsWithDifferentClass() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.equals("not a range"));
+    }
+
+    @Test
+    void testIntersectionWithSameRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(range, range.intersectionWith(range));
+    }
+
+    @Test
+    void testIsOverlappedByWithNullRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isOverlappedBy(null));
+    }
+
+    @Test
+    void testToStringWhenNotCached() {
+        Range<Integer> range = new Range<>(1, 5, null) {};
+        assertEquals("[1..5]", range.toString());
+    }
+}
+```

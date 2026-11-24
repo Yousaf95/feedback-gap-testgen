@@ -1,0 +1,18 @@
+The JUnit 5 test class {test_class} below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of {simple_name} shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+{errors}
+
+Current test class ({test_class}.java):
+```java
+{test_code}
+```
+
+Class under test ({fqn}):
+```java
+{context}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

@@ -1,0 +1,64 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    void testIsAsciiAlpha() {
+        assertTrue(CharUtils.isAsciiAlpha('a'));
+        assertTrue(CharUtils.isAsciiAlpha('Z'));
+        assertFalse(CharUtils.isAsciiAlpha('9'));
+        assertFalse(CharUtils.isAsciiAlpha('@'));
+    }
+
+    @Test
+    void testIsAsciiAlphanumeric() {
+        assertTrue(CharUtils.isAsciiAlphanumeric('a'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('Z'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('9'));
+        assertFalse(CharUtils.isAsciiAlphanumeric('@'));
+    }
+
+    @Test
+    void testIsAsciiControl() {
+        assertTrue(CharUtils.isAsciiControl('\0'));
+        assertTrue(CharUtils.isAsciiControl('\n'));
+        assertTrue(CharUtils.isAsciiControl((char) 127));
+        assertFalse(CharUtils.isAsciiControl('a'));
+    }
+
+    @Test
+    void testIsAsciiPrintable() {
+        assertTrue(CharUtils.isAsciiPrintable(' '));
+        assertTrue(CharUtils.isAsciiPrintable('a'));
+        assertTrue(CharUtils.isAsciiPrintable('~'));
+        assertFalse(CharUtils.isAsciiPrintable('\0'));
+        assertFalse(CharUtils.isAsciiPrintable((char) 127));
+    }
+
+    @Test
+    void testToCharacterObject_Character() {
+        assertEquals(Character.valueOf('a'), CharUtils.toCharacterObject('a'));
+        assertNull(CharUtils.toCharacterObject(null));
+    }
+
+    @Test
+    void testToIntValue_Char_DefaultValue() {
+        assertEquals(5, CharUtils.toIntValue('5', 0));
+        assertEquals(0, CharUtils.toIntValue('a', 0));
+    }
+
+    @Test
+    void testToString_Char_OutOfBounds() {
+        assertEquals(String.valueOf((char) 128), CharUtils.toString((char) 128));
+    }
+
+    @Test
+    void testUnicodeEscaped_Character_Null() {
+        assertNull(CharUtils.unicodeEscaped(null));
+    }
+}
+```

@@ -1,0 +1,96 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("asciiAlphaLowerProvider")
+    public void testIsAsciiAlphaLower_2_2(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiAlphaLower(ch));
+    }
+
+    static Stream<Arguments> asciiAlphaLowerProvider() {
+        return Stream.of(
+            arguments('A', false),
+            arguments('a', true),
+            arguments('9', false),
+            arguments('\0', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("asciiControlProvider")
+    public void testIsAsciiControl_2_2(int code, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiControl((char) code));
+    }
+
+    static Stream<Arguments> asciiControlProvider() {
+        return Stream.of(
+            arguments(31, true),
+            arguments(32, false),
+            arguments(126, true),
+            arguments(127, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("asciiPrintableProvider")
+    public void testIsAsciiPrintable_2_2(int code, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiPrintable((char) code));
+    }
+
+    static Stream<Arguments> asciiPrintableProvider() {
+        return Stream.of(
+            arguments(31, false),
+            arguments(32, true),
+            arguments(126, true),
+            arguments(127, false)
+        );
+    }
+
+    @Test
+    public void testToChar_CharacterNonNull_2_2() {
+        assertEquals('A', CharUtils.toChar(Character.valueOf('A')));
+    }
+
+    @Test
+    public void testToChar_StringDefault_2_2() {
+        assertEquals('A', CharUtils.toChar("AB", 'A'));
+        assertEquals('B', CharUtils.toChar("", 'B'));
+    }
+
+    @Test
+    public void testToCharacterObject_2() {
+        assertNotNull(CharUtils.toCharacterObject('A'));
+        assertNull(CharUtils.toCharacterObject(""));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNonNull_2() {
+        assertEquals(0, CharUtils.toIntValue(Character.valueOf('0')));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefault_2() {
+        assertEquals(5, CharUtils.toIntValue(null, 5));
+    }
+
+    @Test
+    public void testToString_Character_2() {
+        assertEquals("A", CharUtils.toString(Character.valueOf('A')));
+        assertNull(CharUtils.toString(null));
+    }
+
+    @Test
+    public void testUnicodeEscaped_Character_2() {
+        assertEquals("\\u0041", CharUtils.unicodeEscaped(Character.valueOf('A')));
+        assertNull(CharUtils.unicodeEscaped(null));
+    }
+}
+```

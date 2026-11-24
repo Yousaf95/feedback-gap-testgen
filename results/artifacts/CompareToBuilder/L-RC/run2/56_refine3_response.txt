@@ -1,0 +1,117 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testReflectionCompareWithNullExcludeFields() {
+        assertEquals(0, CompareToBuilder.reflectionCompare(new Object(), new Object(), false, null));
+    }
+
+    @Test
+    public void testAppendBooleanAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(true, false));
+    }
+
+    @Test
+    public void testAppendBooleanArrayAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(new boolean[]{true}, new boolean[]{false}));
+    }
+
+    @Test
+    public void testAppendByteAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append((byte) 1, (byte) 2));
+    }
+
+    @Test
+    public void testAppendByteArrayAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(new byte[]{1}, new byte[]{2}));
+    }
+
+    @Test
+    public void testAppendCharAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append('a', 'b'));
+    }
+
+    @Test
+    public void testAppendCharArrayAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(new char[]{'a'}, new char[]{'b'}));
+    }
+
+    @Test
+    public void testAppendDoubleAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(1.0, 2.0));
+    }
+
+    @Test
+    public void testAppendDoubleArrayAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(new double[]{1.0}, new double[]{2.0}));
+    }
+
+    @Test
+    public void testAppendFloatAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(1.0f, 2.0f));
+    }
+
+    @Test
+    public void testAppendFloatArrayAlreadyCompared() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.comparison = 1;
+        assertEquals(builder, builder.append(new float[]{1.0f}, new float[]{2.0f}));
+    }
+
+    @Test
+    public void testAppendDoubleArrayDifferentLengths() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new double[]{1.0, 2.0}, new double[]{1.0});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArrayNulls() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((float[]) null, (float[]) null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArrayLeftNull() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(null, new float[]{1.0f});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendFloatArrayRightNull() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new float[]{1.0f}, null);
+        assertEquals(1, builder.toComparison());
+    }
+}
+```

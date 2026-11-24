@@ -1,0 +1,31 @@
+[ERROR] Tests run: 23, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.222 s <<< FAILURE! -- in org.apache.commons.lang3.time.DurationFormatUtils_GenTest
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustmentsForNegativeValues -- Time elapsed: 0.038 s <<< ERROR!
+java.lang.IllegalArgumentException: startMillis must not be greater than endMillis
+	at org.apache.commons.lang3.Validate.isTrue(Validate.java:572)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:509)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustmentsForNegativeValues(DurationFormatUtils_GenTest.java:235)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustmentsForNegativeMillisecondsOnly -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: startMillis must not be greater than endMillis
+	at org.apache.commons.lang3.Validate.isTrue(Validate.java:572)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:509)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testAdjustmentsForNegativeMillisecondsOnly(DurationFormatUtils_GenTest.java:246)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   DurationFormatUtils_GenTest.testAdjustmentsForNegativeMillisecondsOnly:246 » IllegalArgument startMillis must not be greater than endMillis
+[ERROR]   DurationFormatUtils_GenTest.testAdjustmentsForNegativeValues:235 » IllegalArgument startMillis must not be greater than endMillis
+[ERROR] Tests run: 23, Failures: 0, Errors: 2, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w3/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

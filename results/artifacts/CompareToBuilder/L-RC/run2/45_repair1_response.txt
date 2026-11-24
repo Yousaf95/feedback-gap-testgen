@@ -1,0 +1,83 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class CompareToBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testReflectionCompareWithNullExcludeFields() {
+        assertEquals(0, CompareToBuilder.reflectionCompare("test", "test", false, null));
+    }
+
+    @Test
+    public void testAppendBooleanFalseTrue() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(false, true));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendBooleanArrayNulls() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((boolean[]) null, (boolean[]) null));
+    }
+
+    @Test
+    public void testAppendBooleanArrayLeftNull() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(null, new boolean[]{true}));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendBooleanArrayRightNull() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new boolean[]{true}, null));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendBooleanArrayDifferentLengths_2() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new boolean[]{true}, new boolean[]{}));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleDifferentValues() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(1.0, 2.0));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArrayNulls() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append((double[]) null, (double[]) null));
+    }
+
+    @Test
+    public void testAppendDoubleArrayLeftNull() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(null, new double[]{1.0}));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArrayRightNull() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new double[]{1.0}, null));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendDoubleArrayDifferentLengths() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new double[]{1.0}, new double[]{}));
+        assertEquals(1, builder.toComparison());
+    }
+}
+```

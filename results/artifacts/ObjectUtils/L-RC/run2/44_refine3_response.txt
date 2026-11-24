@@ -1,0 +1,148 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.io.StringWriter;
+import java.time.Duration;
+import java.util.Optional;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testReadResolve() {
+        ObjectUtils.Null nullInstance = new ObjectUtils.Null();
+        assertSame(ObjectUtils.NULL, nullInstance);
+    }
+
+    @Test
+    void testClone_NoCloneMethod() throws CloneNotSupportedException {
+        class NonClonableObject implements Cloneable {}
+        NonClonableObject obj = new NonClonableObject();
+        Exception exception = assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(obj));
+        assertTrue(exception.getMessage().contains("has no clone method"));
+    }
+
+    @Test
+    void testClone_IllegalAccessException() throws NoSuchMethodException {
+        class NonAccessibleCloneObject implements Cloneable {
+            protected Object clone() throws CloneNotSupportedException {
+                return super.clone();
+            }
+        }
+        NonAccessibleCloneObject obj = new NonAccessibleCloneObject();
+        Exception exception = assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(obj));
+        assertTrue(exception.getMessage().contains("Cannot clone Cloneable type"));
+    }
+
+    @Test
+    void testGetFirstNonNull_PartialBranch() {
+        Supplier<String> supplier1 = () -> null;
+        Supplier<String> supplier2 = () -> "value";
+        assertEquals("value", ObjectUtils.getFirstNonNull(supplier1, supplier2));
+    }
+
+    @Test
+    void testHashCodeMulti_NullArray() {
+        assertEquals(1, ObjectUtils.hashCodeMulti((Object[]) null));
+    }
+
+    @Test
+    void testIdentityToString_Appendable() throws IOException {
+        StringWriter writer = new StringWriter();
+        Object obj = new Object();
+        ObjectUtils.identityToString(writer, obj);
+        assertEquals(obj.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(obj)), writer.toString());
+    }
+
+    @Test
+    void testIdentityToString_StringBuilder() {
+        StringBuilder builder = new StringBuilder();
+        Object obj = new Object();
+        ObjectUtils.identityToString(builder, obj);
+        assertEquals(obj.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(obj)), builder.toString());
+    }
+
+    @Test
+    void testIdentityToString_StrBuilder() {
+        StrBuilder builder = new StrBuilder();
+        Object obj = new Object();
+        ObjectUtils.identityToString(builder, obj);
+        assertEquals(obj.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(obj)), builder.toString());
+    }
+
+    @Test
+    void testIdentityToString_StringBuffer() {
+        StringBuffer buffer = new StringBuffer();
+        Object obj = new Object();
+        ObjectUtils.identityToString(buffer, obj);
+        assertEquals(obj.getClass().getName() + "@" + Integer.toHexString(System.identityHashCode(obj)), buffer.toString());
+    }
+
+    @Test
+    void testIsEmpty_EmptyOptional() {
+        assertTrue(ObjectUtils.isEmpty(Optional.empty()));
+    }
+
+    @Test
+    void testIsEmpty_NonEmptyOptional() {
+        assertFalse(ObjectUtils.isEmpty(Optional.of("value")));
+    }
+
+    @Test
+    void testMax_NullArray() {
+        assertNull(ObjectUtils.max((String[]) null));
+    }
+
+    @Test
+    void testMin_NullArray() {
+        assertNull(ObjectUtils.min((String[]) null));
+    }
+
+    @Test
+    void testMode_NoItems() {
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    void testToString_ObjectNullStr() {
+        assertEquals("nullStr", ObjectUtils.toString(null, "nullStr"));
+    }
+
+    @Test
+    void testToString_SupplierNullStr() {
+        Supplier<Object> objSupplier = () -> null;
+        Supplier<String> strSupplier = () -> "nullStr";
+        assertEquals("nullStr", ObjectUtils.toString(objSupplier, strSupplier));
+    }
+
+    @Test
+    void testToString_ObjectSupplierNullStr() {
+        Supplier<String> strSupplier = () -> "nullStr";
+        assertEquals("nullStr", ObjectUtils.toString((String) null, strSupplier));
+    }
+
+    @Test
+    void testWait_WithDuration() throws InterruptedException {
+        Object obj = new Object();
+        Duration duration = Duration.ofMillis(10);
+        Thread thread = new Thread(() -> {
+            try {
+                synchronized (obj) {
+                    ObjectUtils.wait(obj, duration);
+                }
+            } catch (InterruptedException e) {
+                fail("Thread was interrupted");
+            }
+        });
+        thread.start();
+        thread.join();
+    }
+
+    @Test
+    void testConstructor() {
+        assertNotNull(new ObjectUtils());
+    }
+}
+```

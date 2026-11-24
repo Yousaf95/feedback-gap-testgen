@@ -1,0 +1,175 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToNoNullStringArrayWithNonNullCollection() {
+        java.util.Collection<String> collection = Arrays.asList("field1", "field2");
+        String[] result = ReflectionToStringBuilder.toNoNullStringArray(collection);
+        assertArrayEquals(new String[]{"field1", "field2"}, result);
+    }
+
+    @Test
+    public void testToStringWithFullConstructor() {
+        Object obj = new Object();
+        ToStringStyle style = ToStringStyle.SHORT_PREFIX_STYLE;
+        boolean outputTransients = true;
+        boolean outputStatics = true;
+        boolean excludeNullValues = true;
+        Class<?> reflectUpToClass = Object.class;
+        String result = ReflectionToStringBuilder.toString(obj, style, outputTransients, outputStatics, excludeNullValues, reflectUpToClass);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testToStringExcludeWithCollection() {
+        Object obj = new Object();
+        java.util.Collection<String> excludeFieldNames = Arrays.asList("field1", "field2");
+        String result = ReflectionToStringBuilder.toStringExclude(obj, excludeFieldNames);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testToStringIncludeWithCollection() {
+        Object obj = new Object();
+        java.util.Collection<String> includeFieldNames = Arrays.asList("field1", "field2");
+        String result = ReflectionToStringBuilder.toStringInclude(obj, includeFieldNames);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testConstructorWithStyleAndBuffer() {
+        Object obj = new Object();
+        ToStringStyle style = ToStringStyle.SHORT_PREFIX_STYLE;
+        StringBuffer buffer = new StringBuffer();
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj, style, buffer);
+        assertNotNull(builder);
+    }
+
+    @Test
+    public void testConstructorWithFullParameters() {
+        Object obj = new Object();
+        ToStringStyle style = ToStringStyle.SHORT_PREFIX_STYLE;
+        StringBuffer buffer = new StringBuffer();
+        Class<?> reflectUpToClass = Object.class;
+        boolean outputTransients = true;
+        boolean outputStatics = true;
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj, style, buffer, reflectUpToClass, outputTransients, outputStatics);
+        assertNotNull(builder);
+    }
+
+    @Test
+    public void testAcceptWithTransientField() {
+        class TestClass { transient int field; }
+        Field field;
+        try {
+            field = TestClass.class.getDeclaredField("field");
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass());
+        builder.setAppendTransients(false);
+        assertFalse(builder.accept(field));
+    }
+
+    @Test
+    public void testAcceptWithStaticField() {
+        class TestClass { static int field; }
+        Field field;
+        try {
+            field = TestClass.class.getDeclaredField("field");
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass());
+        builder.setAppendStatics(false);
+        assertFalse(builder.accept(field));
+    }
+
+    @Test
+    public void testAcceptWithExcludedFieldName() {
+        class TestClass { int field; }
+        Field field;
+        try {
+            field = TestClass.class.getDeclaredField("field");
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass());
+        builder.setExcludeFieldNames("field");
+        assertFalse(builder.accept(field));
+    }
+
+    @Test
+    public void testAcceptWithIncludedFieldName() {
+        class TestClass { int field; }
+        Field field;
+        try {
+            field = TestClass.class.getDeclaredField("field");
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass());
+        builder.setIncludeFieldNames("field");
+        assertTrue(builder.accept(field));
+    }
+
+    @Test
+    public void testAppendFieldsInWithArray() {
+        int[] array = {1, 2, 3};
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(array);
+        builder.appendFieldsIn(int[].class);
+        assertNotNull(builder.toString());
+    }
+
+    @Test
+    public void testGetExcludeFieldNames() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeFieldNames("field1", "field2");
+        assertArrayEquals(new String[]{"field1", "field2"}, builder.getExcludeFieldNames());
+    }
+
+    @Test
+    public void testGetIncludeFieldNames() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setIncludeFieldNames("field1", "field2");
+        assertArrayEquals(new String[]{"field1", "field2"}, builder.getIncludeFieldNames());
+    }
+
+    @Test
+    public void testReflectionAppendArray() {
+        int[] array = {1, 2, 3};
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(array);
+        builder.reflectionAppendArray(array);
+        assertNotNull(builder.toString());
+    }
+
+    @Test
+    public void testSetExcludeFieldNamesWithNull() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeFieldNames((String[]) null);
+        assertNull(builder.getExcludeFieldNames());
+    }
+
+    @Test
+    public void testSetIncludeFieldNamesWithNull() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setIncludeFieldNames((String[]) null);
+        assertNull(builder.getIncludeFieldNames());
+    }
+
+    @Test
+    public void testSetUpToClassWithValidClass() {
+        class TestClass {}
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass());
+        assertDoesNotThrow(() -> builder.setUpToClass(TestClass.class));
+    }
+}
+```

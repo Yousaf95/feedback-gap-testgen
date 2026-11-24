@@ -1,0 +1,109 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    void testConstructorWithComparator() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        Range<Integer> range = Range.of(5, 10, comparator);
+        assertEquals(5, range.getMinimum());
+        assertEquals(10, range.getMaximum());
+        assertSame(comparator, range.getComparator());
+
+        Range<Integer> reversedRange = Range.of(10, 5, comparator);
+        assertEquals(5, reversedRange.getMinimum());
+        assertEquals(10, reversedRange.getMaximum());
+    }
+
+    @Test
+    void testContainsRangeWithNonOverlapping() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertFalse(range1.containsRange(range2));
+        assertFalse(range2.containsRange(range1));
+    }
+
+    @Test
+    void testEqualsWithSameInstance() {
+        Range<Integer> range = Range.between(1, 5);
+        assertTrue(range.equals(range));
+    }
+
+    @Test
+    void testEqualsWithNullAndDifferentClass() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.equals(null));
+        assertFalse(range.equals("string"));
+    }
+
+    @Test
+    void testHashCodeCalculation() {
+        Range<Integer> range = Range.between(1, 5);
+        int hashCode = range.hashCode();
+        assertEquals(hashCode, range.hashCode());
+    }
+
+    @Test
+    void testIntersectionWithSameRange() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        assertSame(range1, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIsAfterElementNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isAfter(null));
+    }
+
+    @Test
+    void testIsAfterRangeNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    void testIsBeforeElementNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isBefore(null));
+    }
+
+    @Test
+    void testIsBeforeRangeNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    void testIsEndedByElementNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    void testIsOverlappedByWithNonOverlapping() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertFalse(range1.isOverlappedBy(range2));
+        assertFalse(range2.isOverlappedBy(range1));
+    }
+
+    @Test
+    void testIsStartedByElementNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    void testToStringWithFormat() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals("[1..5]", range.toString());
+        assertEquals("Min: 1 Max: 5", range.toString("Min: %s Max: %s"));
+    }
+}
+```

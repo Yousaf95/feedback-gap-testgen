@@ -1,0 +1,861 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class ObjectUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of ObjectUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 221: ')' expected
+    code: (Object) new int[]{1, 2, 3}, true}
+line 222: illegal start of type
+    code: ).map(Arguments::arguments);
+line 222: invalid method declaration; return type required
+    code: ).map(Arguments::arguments);
+line 222: <identifier> expected
+    code: ).map(Arguments::arguments);
+line 227: class, interface, enum, or record expected
+    code: public void testIsEmpty(Object object, boolean expected) {
+line 229: class, interface, enum, or record expected
+    code: }
+line 239: class, interface, enum, or record expected
+    code: }
+line 243: class, interface, enum, or record expected
+    code: public void testIsNotEmpty(Object object, boolean expected) {
+line 245: class, interface, enum, or record expected
+    code: }
+line 255: class, interface, enum, or record expected
+    code: }
+line 259: class, interface, enum, or record expected
+    code: public void testMax(T... values) {
+line 261: class, interface, enum, or record expected
+    code: }
+line 268: class, interface, enum, or record expected
+    code: }
+line 272: class, interface, enum, or record expected
+    code: public void testMedian(T... items) {
+line 274: class, interface, enum, or record expected
+    code: }
+line 281: class, interface, enum, or record expected
+    code: }
+line 285: class, interface, enum, or record expected
+    code: public void testMin(T... values) {
+line 287: class, interface, enum, or record expected
+    code: }
+line 294: class, interface, enum, or record expected
+    code: }
+line 298: class, interface, enum, or record expected
+    code: public void testMode(T... items) {
+line 301: class, interface, enum, or record expected
+    code: }
+line 308: class, interface, enum, or record expected
+    code: }
+line 312: class, interface, enum, or record expected
+    code: public void testNotEqual(Object object1, Object object2, boolean expected) {
+line 314: class, interface, enum, or record expected
+    code: }
+line 322: class, interface, enum, or record expected
+    code: }
+line 326: class, interface, enum, or record expected
+    code: public void testRequireNonEmpty(T obj, String message) {
+line 327: <identifier> expected
+    code: assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(obj, message));
+line 328: class, interface, enum, or record expected
+    code: }
+line 335: class, interface, enum, or record expected
+    code: }
+line 339: class, interface, enum, or record expected
+    code: public void testToString(Object obj, String nullStr, String expected) {
+
+Current test class (ObjectUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class ObjectUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideAllNotNullData")
+    public void testAllNotNull(Object[] values, boolean expected) {
+        assertEquals(expected, ObjectUtils.allNotNull(values));
+    }
+
+    private static Stream<Arguments> provideAllNotNullData() {
+        return Arrays.stream(new Object[][]{
+            {new Object[]{1, 2, 3}, true},
+            {new Object[]{null, 2, 3}, false},
+            {new Object[]{}, true},
+            {new Object[]{null}, false}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAllNullData")
+    public void testAllNull(Object[] values, boolean expected) {
+        assertEquals(expected, ObjectUtils.allNull(values));
+    }
+
+    private static Stream<Arguments> provideAllNullData() {
+        return Arrays.stream(new Object[][]{
+            {new Object[]{1, 2, 3}, false},
+            {new Object[]{null, null, null}, true},
+            {new Object[]{}, true},
+            {new Object[]{null}, true}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAnyNotNullData")
+    public void testAnyNotNull(Object[] values, boolean expected) {
+        assertEquals(expected, ObjectUtils.anyNotNull(values));
+    }
+
+    private static Stream<Arguments> provideAnyNotNullData() {
+        return Arrays.stream(new Object[][]{
+            {new Object[]{1, 2, 3}, true},
+            {new Object[]{null, null, null}, false},
+            {new Object[]{}, false},
+            {new Object[]{null}, false}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAnyNullData")
+    public void testAnyNull(Object[] values, boolean expected) {
+        assertEquals(expected, ObjectUtils.anyNull(values));
+    }
+
+    private static Stream<Arguments> provideAnyNullData() {
+        return Arrays.stream(new Object[][]{
+            {new Object[]{1, 2, 3}, false},
+            {new Object[]{null, null, null}, true},
+            {new Object[]{}, true},
+            {new Object[]{null}, true}
+        }).map(Arguments::arguments);
+    }
+
+    @Test
+    public void testClone() {
+        String original = "test";
+        String clone = ObjectUtils.clone(original);
+        assertEquals(original, clone);
+        assertNotSame(original, clone);
+    }
+
+    @Test
+    public void testCloneIfPossible() {
+        String original = "test";
+        String clone = ObjectUtils.cloneIfPossible(original);
+        assertEquals(original, clone);
+        assertNotSame(original, clone);
+
+        Object nullObject = null;
+        assertNull(ObjectUtils.cloneIfPossible(nullObject));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCompareData")
+    public void testCompare(T c1, T c2, boolean nullGreater, int expected) {
+        assertEquals(expected, ObjectUtils.compare(c1, c2, nullGreater));
+    }
+
+    private static Stream<Arguments> provideCompareData() {
+        return Arrays.stream(new Object[][]{
+            {Integer.valueOf(1), Integer.valueOf(2), false, -1},
+            {Integer.valueOf(2), Integer.valueOf(1), false, 1},
+            {Integer.valueOf(1), Integer.valueOf(1), false, 0},
+            {null, null, false, 0},
+            {null, Integer.valueOf(1), false, -1},
+            {Integer.valueOf(1), null, false, 1},
+            {null, null, true, 0},
+            {null, Integer.valueOf(1), true, 1},
+            {Integer.valueOf(1), null, true, -1}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDefaultIfNullData")
+    public void testDefaultIfNull(T object, T defaultValue, T expected) {
+        assertEquals(expected, ObjectUtils.defaultIfNull(object, defaultValue));
+    }
+
+    private static Stream<Arguments> provideDefaultIfNullData() {
+        return Arrays.stream(new Object[][]{
+            {null, "default", "default"},
+            {"value", "default", "value"}
+        }).map(Arguments::arguments);
+    }
+
+    @Test
+    public void testFirstNonNull() {
+        String result = ObjectUtils.firstNonNull(null, "default");
+        assertEquals("default", result);
+
+        result = ObjectUtils.firstNonNull("value", null);
+        assertEquals("value", result);
+
+        result = ObjectUtils.firstNonNull(null, null, "default");
+        assertEquals("default", result);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetClassData")
+    public void testGetClass(T object, Class<?> expected) {
+        assertEquals(expected, ObjectUtils.getClass(object));
+    }
+
+    private static Stream<Arguments> provideGetClassData() {
+        return Arrays.stream(new Object[][]{
+            {null, null},
+            {"test", String.class},
+            (Object) new Integer(1), Integer.class
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetFirstNonNullData")
+    public void testGetFirstNonNull(Supplier<T>... suppliers) {
+        assertEquals("value", ObjectUtils.getFirstNonNull(() -> null, () -> "value"));
+    }
+
+    private static Stream<Arguments> provideGetFirstNonNullData() {
+        return Arrays.stream(new Object[][]{
+            {arguments((Supplier<String>) () -> null, (Supplier<String>) () -> "value")},
+            {arguments((Supplier<String>) () -> "value", (Supplier<String>) () -> null)}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideGetIfNullData")
+    public void testGetIfNull(T object, Supplier<T> defaultSupplier, T expected) {
+        assertEquals(expected, ObjectUtils.getIfNull(object, defaultSupplier));
+    }
+
+    private static Stream<Arguments> provideGetIfNullData() {
+        return Arrays.stream(new Object[][]{
+            {null, () -> "default", "default"},
+            {"value", () -> "default", "value"}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideHashCodeHexData")
+    public void testHashCodeHex(Object object, String expected) {
+        assertEquals(expected, ObjectUtils.hashCodeHex(object));
+    }
+
+    private static Stream<Arguments> provideHashCodeHexData() {
+        return Arrays.stream(new Object[][]{
+            {null, "0"},
+            {"test", Integer.toHexString("test".hashCode())},
+            (Object) new Integer(1), Integer.toHexString(Integer.valueOf(1).hashCode())
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIdentityToStringData")
+    public void testIdentityToString(Object object, String expected) {
+        assertEquals(expected, ObjectUtils.identityToString(object));
+    }
+
+    private static Stream<Arguments> provideIdentityToStringData() {
+        return Arrays.stream(new Object[][]{
+            {null, null},
+            {"test", "test@" + Integer.toHexString(System.identityHashCode("test"))},
+            (Object) new Integer(1), "java.lang.Integer@" + Integer.toHexString(System.identityHashCode(Integer.valueOf(1)))
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsArrayData")
+    public void testIsArray(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isArray(object));
+    }
+
+    private static Stream<Arguments> provideIsArrayData() {
+        return Arrays.stream(new Object[][]{
+            {null, false},
+            {"test", false},
+            (Object) new Integer[]{1, 2, 3}, true},
+            (Object) new int[]{1, 2, 3}, true}
+        ).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsEmptyData")
+    public void testIsEmpty(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsEmptyData() {
+        return Arrays.stream(new Object[][]{
+            {null, true},
+            {"", true},
+            {"test", false},
+            (Object) new Integer[]{}, true},
+            (Object) new int[]{1, 2, 3}, false}
+        ).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsNotEmptyData")
+    public void testIsNotEmpty(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isNotEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsNotEmptyData() {
+        return Arrays.stream(new Object[][]{
+            {null, false},
+            {"", false},
+            {"test", true},
+            (Object) new Integer[]{}, false},
+            (Object) new int[]{1, 2, 3}, true}
+        ).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMaxData")
+    public void testMax(T... values) {
+        assertEquals(ObjectUtils.max(values), Arrays.stream(values).max().orElse(null));
+    }
+
+    private static Stream<Arguments> provideMaxData() {
+        return Arrays.stream(new Object[][]{
+            {Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)}, Integer.valueOf(3),
+            {Integer.valueOf(3), Integer.valueOf(2), Integer.valueOf(1)}, Integer.valueOf(3)
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMedianData")
+    public void testMedian(T... items) {
+        assertEquals(ObjectUtils.median(items), Arrays.stream(items).sorted().skip((items.length - 1) / 2).findFirst().orElse(null));
+    }
+
+    private static Stream<Arguments> provideMedianData() {
+        return Arrays.stream(new Object[][]{
+            {Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)}, Integer.valueOf(2),
+            {Integer.valueOf(3), Integer.valueOf(2), Integer.valueOf(1)}, Integer.valueOf(2)
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideMinData")
+    public void testMin(T... values) {
+        assertEquals(ObjectUtils.min(values), Arrays.stream(values).min().orElse(null));
+    }
+
+    private static Stream<Arguments> provideMinData() {
+        return Arrays.stream(new Object[][]{
+            {Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)}, Integer.valueOf(1),
+            {Integer.valueOf(3), Integer.valueOf(2), Integer.valueOf(1)}, Integer.valueOf(1)
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideModeData")
+    public void testMode(T... items) {
+        assertEquals(ObjectUtils.mode(items), Arrays.stream(items).collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+                .max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(null));
+    }
+
+    private static Stream<Arguments> provideModeData() {
+        return Arrays.stream(new Object[][]{
+            {Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3)}, null,
+            {Integer.valueOf(1), Integer.valueOf(1), Integer.valueOf(2)}, Integer.valueOf(1)
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNotEqualData")
+    public void testNotEqual(Object object1, Object object2, boolean expected) {
+        assertEquals(expected, ObjectUtils.notEqual(object1, object2));
+    }
+
+    private static Stream<Arguments> provideNotEqualData() {
+        return Arrays.stream(new Object[][]{
+            {null, null, false},
+            {"test", "test", false},
+            {"test", "other", true}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRequireNonEmptyData")
+    public void testRequireNonEmpty(T obj, String message) {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(obj, message));
+    }
+
+    private static Stream<Arguments> provideRequireNonEmptyData() {
+        return Arrays.stream(new Object[][]{
+            {null, "object"},
+            {"", "object"}
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideToStringData")
+    public void testToString(Object obj, String nullStr, String expected) {
+        assertEquals(expected, ObjectUtils.toString(obj, nullStr));
+    }
+
+    private static Stream<Arguments> provideToStringData() {
+        return Arrays.stream(new Object[][]{
+            {null, "default", "default"},
+            {"test", "default", "test"}
+        }).map(Arguments::arguments);
+    }
+
+    @Test
+    public void testWait() throws InterruptedException {
+        Object obj = new Object();
+        Duration duration = Duration.ofMillis(100);
+        ObjectUtils.wait(obj, duration);
+        assertTrue(duration.toNanos() <= System.nanoTime() - obj.hashCode());
+    }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.ObjectUtils):
+```java
+package org.apache.commons.lang3;
+import java.io.IOException;
+import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.TreeSet;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.apache.commons.lang3.exception.CloneFailedException;
+import org.apache.commons.lang3.function.Suppliers;
+import org.apache.commons.lang3.mutable.MutableInt;
+import org.apache.commons.lang3.stream.Streams;
+import org.apache.commons.lang3.text.StrBuilder;
+import org.apache.commons.lang3.time.DurationUtils;
+
+@SuppressWarnings("deprecation") // deprecated class StrBuilder is imported
+// because it is part of the signature of deprecated methods
+public class ObjectUtils {
+    /** Class used as a null placeholder where {@code null} has another meaning. */
+    public static class Null implements Serializable {
+        /** Required for serialization support. */
+        private static final long serialVersionUID = 7092611880189329093L;
+        /** Restricted constructor - singleton. */
+        Null() {
+        }
+    }
+    private static final char AT_SIGN = '@';
+    /** Singleton used as a {@code null} placeholder where {@code null} has another meaning. */
+    public static final Null NULL = new Null();
+    /** Checks if all values in the array are not {@code nulls}. */
+    public static boolean allNotNull(final Object... values) {
+        return values != null && Stream.of(values).noneMatch(Objects::isNull);
+    }
+    /** Checks if all values in the given array are {@code null}. */
+    public static boolean allNull(final Object... values) {
+        return !anyNotNull(values);
+    }
+    /** Checks if any value in the given array is not {@code null}. */
+    public static boolean anyNotNull(final Object... values) {
+        return firstNonNull(values) != null;
+    }
+    /** Checks if any value in the given array is {@code null}. */
+    public static boolean anyNull(final Object... values) {
+        return !allNotNull(values);
+    }
+    /** Clone an object. */
+    public static <T> T clone(final T obj) {
+        if (obj instanceof Cloneable) {
+            final Object result;
+            if (isArray(obj)) {
+                final Class<?> componentType = obj.getClass().getComponentType();
+                if (componentType.isPrimitive()) {
+                    int length = Array.getLength(obj);
+                    result = Array.newInstance(componentType, length);
+                    while (length-- > 0) {
+                        Array.set(result, length, Array.get(obj, length));
+                    }
+                } else {
+                    result = ((Object[]) obj).clone();
+                }
+            } else {
+                try {
+                    final Method clone = obj.getClass().getMethod("clone");
+                    result = clone.invoke(obj);
+                } catch (final NoSuchMethodException e) {
+                    throw new CloneFailedException("Cloneable type "
+                        + obj.getClass().getName()
+                        + " has no clone method", e);
+                } catch (final IllegalAccessException e) {
+                    throw new CloneFailedException("Cannot clone Cloneable type "
+                        + obj.getClass().getName(), e);
+                } catch (final InvocationTargetException e) {
+                    throw new CloneFailedException("Exception cloning Cloneable type "
+                        + obj.getClass().getName(), e.getCause());
+                }
+            }
+            @SuppressWarnings("unchecked") // OK because input is of type T
+            final T checked = (T) result;
+            return checked;
+        }
+
+        return null;
+    }
+    /** Clone an object if possible. */
+    public static <T> T cloneIfPossible(final T obj) {
+        final T clone = clone(obj);
+        return clone == null ? obj : clone;
+    }
+    /** Null safe comparison of Comparables. */
+    public static <T extends Comparable<? super T>> int compare(final T c1, final T c2) {
+        return compare(c1, c2, false);
+    }
+    /** Null safe comparison of Comparables. */
+    public static <T extends Comparable<? super T>> int compare(final T c1, final T c2, final boolean nullGreater) {
+        if (c1 == c2) {
+            return 0;
+        }
+        if (c1 == null) {
+            return nullGreater ? 1 : -1;
+        }
+        if (c2 == null) {
+            return nullGreater ? -1 : 1;
+        }
+        return c1.compareTo(c2);
+    }
+    /** This method returns the provided value unchanged. */
+    public static boolean CONST(final boolean v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static byte CONST(final byte v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static char CONST(final char v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static double CONST(final double v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static float CONST(final float v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static int CONST(final int v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static long CONST(final long v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static short CONST(final short v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static <T> T CONST(final T v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static byte CONST_BYTE(final int v) {
+        if (v < Byte.MIN_VALUE || v > Byte.MAX_VALUE) {
+            throw new IllegalArgumentException("Supplied value must be a valid byte literal between -128 and 127: [" + v + "]");
+        }
+        return (byte) v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static short CONST_SHORT(final int v) {
+        if (v < Short.MIN_VALUE || v > Short.MAX_VALUE) {
+            throw new IllegalArgumentException("Supplied value must be a valid byte literal between -32768 and 32767: [" + v + "]");
+        }
+        return (short) v;
+    }
+    /** Returns a default value if the object passed is {@code null}. */
+    public static <T> T defaultIfNull(final T object, final T defaultValue) {
+        return object != null ? object : defaultValue;
+    }
+    /** Compares two objects for equality, where either one or both objects may be {@code null}. */
+    @Deprecated
+    public static boolean equals(final Object object1, final Object object2) {
+        return Objects.equals(object1, object2);
+    }
+    /** Returns the first value in the array which is not {@code null}. */
+    @SafeVarargs
+    public static <T> T firstNonNull(final T... values) {
+        return Streams.of(values).filter(Objects::nonNull).findFirst().orElse(null);
+    }
+    /** Delegates to {@link Object#getClass()} using generics. */
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getClass(final T object) {
+        return object == null ? null : (Class<T>) object.getClass();
+    }
+    /** Executes the given suppliers in order and returns the first return value where a value other than {@code null} is returned. */
+    @SafeVarargs
+    public static <T> T getFirstNonNull(final Supplier<T>... suppliers) {
+        return Streams.of(suppliers).map(s -> s != null ? s.get() : null).filter(Objects::nonNull).findFirst().orElse(null);
+    }
+    /** Returns the given {@code object} is it is non-null, otherwise returns the Supplier's {@link Supplier#get()} value. */
+    public static <T> T getIfNull(final T object, final Supplier<T> defaultSupplier) {
+        return object != null ? object : Suppliers.get(defaultSupplier);
+    }
+    /** Gets the hash code of an object returning zero when the object is {@code null}. */
+    @Deprecated
+    public static int hashCode(final Object obj) {
+        // hashCode(Object) for performance vs. hashCodeMulti(Object[]), as hash code is often critical
+        return Objects.hashCode(obj);
+    }
+    /** Returns the hexadecimal hash code for the given object per {@link Objects#hashCode(Object)}. */
+    public static String hashCodeHex(final Object object) {
+        return Integer.toHexString(Objects.hashCode(object));
+    }
+    /** Gets the hash code for multiple objects. */
+    @Deprecated
+    public static int hashCodeMulti(final Object... objects) {
+        int hash = 1;
+        if (objects != null) {
+            for (final Object object : objects) {
+                final int tmpHash = Objects.hashCode(object);
+                hash = hash * 31 + tmpHash;
+            }
+        }
+        return hash;
+    }
+    /** Returns the hexadecimal hash code for the given object per {@link System#identityHashCode(Object)}. */
+    public static String identityHashCodeHex(final Object object) {
+        return Integer.toHexString(System.identityHashCode(object));
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static void identityToString(final Appendable appendable, final Object object) throws IOException {
+        Objects.requireNonNull(object, "object");
+        appendable.append(object.getClass().getName())
+              .append(AT_SIGN)
+              .append(identityHashCodeHex(object));
+    }
+    /** Gets the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static String identityToString(final Object object) {
+        if (object == null) {
+            return null;
+        }
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        final StringBuilder builder = new StringBuilder(name.length() + 1 + hexString.length());
+        // @formatter:off
+        builder.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+        // @formatter:on
+        return builder.toString();
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    @Deprecated
+    public static void identityToString(final StrBuilder builder, final Object object) {
+        Objects.requireNonNull(object, "object");
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        builder.ensureCapacity(builder.length() +  name.length() + 1 + hexString.length());
+        builder.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static void identityToString(final StringBuffer buffer, final Object object) {
+        Objects.requireNonNull(object, "object");
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        buffer.ensureCapacity(buffer.length() + name.length() + 1 + hexString.length());
+        buffer.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static void identityToString(final StringBuilder builder, final Object object) {
+        Objects.requireNonNull(object, "object");
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        builder.ensureCapacity(builder.length() +  name.length() + 1 + hexString.length());
+        builder.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+    }
+    /** Tests whether the given object is an Object array or a primitive array in a null-safe manner. */
+    public static boolean isArray(final Object object) {
+        return object != null && object.getClass().isArray();
+    }
+    /** Tests if an Object is empty or null. */
+    public static boolean isEmpty(final Object object) {
+        if (object == null) {
+            return true;
+        }
+        if (object instanceof CharSequence) {
+            return ((CharSequence) object).length() == 0;
+        }
+        if (isArray(object)) {
+            return Array.getLength(object) == 0;
+        }
+        if (object instanceof Collection<?>) {
+            return ((Collection<?>) object).isEmpty();
+        }
+        if (object instanceof Map<?, ?>) {
+            return ((Map<?, ?>) object).isEmpty();
+        }
+        if (object instanceof Optional<?>) {
+            // TODO Java 11 Use Optional#isEmpty()
+            return !((Optional<?>) object).isPresent();
+        }
+        return false;
+    }
+    /** Tests if an Object is not empty and not null. */
+    public static boolean isNotEmpty(final Object object) {
+        return !isEmpty(object);
+    }
+    /** Null safe comparison of Comparables. */
+    @SafeVarargs
+    public static <T extends Comparable<? super T>> T max(final T... values) {
+        T result = null;
+        if (values != null) {
+            for (final T value : values) {
+                if (compare(value, result, false) > 0) {
+                    result = value;
+                }
+            }
+        }
+        return result;
+    }
+    /** Find the "best guess" middle value among comparables. */
+    @SafeVarargs
+    public static <T> T median(final Comparator<T> comparator, final T... items) {
+        Validate.notEmpty(items, "null/empty items");
+        Validate.noNullElements(items);
+        Objects.requireNonNull(comparator, "comparator");
+        final TreeSet<T> treeSet = new TreeSet<>(comparator);
+        Collections.addAll(treeSet, items);
+        @SuppressWarnings("unchecked") //we know all items added were T instances
+        final T result = (T) treeSet.toArray()[(treeSet.size() - 1) / 2];
+        return result;
+    }
+    /** Find the "best guess" middle value among comparables. */
+    @SafeVarargs
+    public static <T extends Comparable<? super T>> T median(final T... items) {
+        Validate.notEmpty(items);
+        Validate.noNullElements(items);
+        final TreeSet<T> sort = new TreeSet<>();
+        Collections.addAll(sort, items);
+        @SuppressWarnings("unchecked") //we know all items added were T instances
+        final T result = (T) sort.toArray()[(sort.size() - 1) / 2];
+        return result;
+    }
+    /** Null safe comparison of Comparables. */
+    @SafeVarargs
+    public static <T extends Comparable<? super T>> T min(final T... values) {
+        T result = null;
+        if (values != null) {
+            for (final T value : values) {
+                if (compare(value, result, true) < 0) {
+                    result = value;
+                }
+            }
+        }
+        return result;
+    }
+    /** Find the most frequently occurring item. */
+    @SafeVarargs
+    public static <T> T mode(final T... items) {
+        if (ArrayUtils.isNotEmpty(items)) {
+            final HashMap<T, MutableInt> occurrences = new HashMap<>(items.length);
+            for (final T t : items) {
+                final MutableInt count = occurrences.get(t);
+                if (count == null) {
+                    occurrences.put(t, new MutableInt(1));
+                } else {
+                    count.increment();
+                }
+            }
+            T result = null;
+            int max = 0;
+            for (final Map.Entry<T, MutableInt> e : occurrences.entrySet()) {
+                final int cmp = e.getValue().intValue();
+                if (cmp == max) {
+                    result = null;
+                } else if (cmp > max) {
+                    max = cmp;
+                    result = e.getKey();
+                }
+            }
+            return result;
+        }
+        return null;
+    }
+    /** Compares two objects for inequality, where either one or both objects may be {@code null}. */
+    public static boolean notEqual(final Object object1, final Object object2) {
+        return !Objects.equals(object1, object2);
+    }
+    /** Checks that the specified object reference is not {@code null} or empty per {@link #isEmpty(Object)}. */
+    public static <T> T  requireNonEmpty(final T obj) {
+        return requireNonEmpty(obj, "object");
+    }
+    /** Checks that the specified object reference is not {@code null} or empty per {@link #isEmpty(Object)}. */
+    public static <T> T requireNonEmpty(final T obj, final String message) {
+        // check for null first to give the most precise exception.
+        Objects.requireNonNull(obj, message);
+        if (isEmpty(obj)) {
+            throw new IllegalArgumentException(message);
+        }
+        return obj;
+    }
+    /** Gets the {@code toString} of an {@link Object} returning an empty string ("") if {@code null} input. */
+    @Deprecated
+    public static String toString(final Object obj) {
+        return obj == null ? StringUtils.EMPTY : obj.toString();
+    }
+    /** Gets the {@code toString} of an {@link Object} returning a specified text if {@code null} input. */
+    @Deprecated
+    public static String toString(final Object obj, final String nullStr) {
+        return obj == null ? nullStr : obj.toString();
+    }
+    /** Gets the {@code toString} of an {@link Supplier}'s {@link Supplier#get()} returning a specified text if {@code null} input. */
+    public static String toString(final Supplier<Object> obj, final Supplier<String> supplier) {
+        return obj == null ? Suppliers.get(supplier) : toString(obj.get(), supplier);
+    }
+    /** Gets the {@code toString} of an {@link Object} returning a specified text if {@code null} input. */
+    public static <T> String toString(final T obj, final Supplier<String> supplier) {
+        return obj == null ? Suppliers.get(supplier) : obj.toString();
+    }
+    /** Calls {@link Object#wait(long, int)} for the given Duration. */
+    public static void wait(final Object obj, final Duration duration) throws InterruptedException {
+        DurationUtils.accept(obj::wait, DurationUtils.zeroIfNull(duration));
+    }
+    /** {@link ObjectUtils} instances should NOT be constructed in standard programming. */
+    public ObjectUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

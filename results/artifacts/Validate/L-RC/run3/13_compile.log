@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[359,48] DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[367,48] DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[380,37] getMessage(java.lang.String,java.lang.Object...) has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[421,48] DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[429,48] DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[445,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[453,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[461,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[477,48] DEFAULT_IS_INSTANCE_OF_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[485,48] DEFAULT_IS_INSTANCE_OF_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[501,34] DEFAULT_IS_TRUE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[533,48] DEFAULT_MATCHES_PATTERN_EX has private access in org.apache.commons.lang3.Validate
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[359,48] DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[367,48] DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[380,37] getMessage(java.lang.String,java.lang.Object...) has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[421,48] DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[429,48] DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[445,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[453,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[461,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[477,48] DEFAULT_IS_INSTANCE_OF_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[485,48] DEFAULT_IS_INSTANCE_OF_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[501,34] DEFAULT_IS_TRUE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[533,48] DEFAULT_MATCHES_PATTERN_EX has private access in org.apache.commons.lang3.Validate
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

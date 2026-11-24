@@ -1,0 +1,71 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[20,9] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[20,37] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[51,41] CAUSE_METHOD_NAMES has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[111,9] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[166,9] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[166,40] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[169,9] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[169,42] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[188,9] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[189,9] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[220,38] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[20,9] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[20,37] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[51,41] CAUSE_METHOD_NAMES has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[111,9] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[166,9] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[166,40] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[169,9] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[169,42] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[188,9] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[189,9] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[220,38] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

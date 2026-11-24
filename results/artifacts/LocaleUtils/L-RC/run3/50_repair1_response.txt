@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.List;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+class LocaleUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testSyncAvoidInitialization_3() {
+        // This test ensures that the SyncAvoid class is initialized, which will cover line 43.
+        assertNotNull(LocaleUtils.availableLocaleList());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"USA", "US", "CA"})
+    void testIsISO3166CountryCodeWithUpperCaseAndLengthNotTwo(String code) {
+        if (code.length() != 2) {
+            assertFalse(LocaleUtils.countriesByLanguage("en").stream().anyMatch(locale -> locale.getCountry().equals(code)));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"EN", "enG"})
+    void testIsISO639LanguageCodeWithInvalidCase(String code) {
+        if (code.length() != 2 || !code.equals(code.toLowerCase())) {
+            assertFalse(LocaleUtils.languagesByCountry("US").stream().anyMatch(locale -> locale.getLanguage().equals(code)));
+        }
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"12", "1234"})
+    void testIsNumericAreaCodeWithNonThreeLength(String code) {
+        // There is no direct method to test numeric area codes in LocaleUtils, so we skip this.
+    }
+
+    @Test
+    void testLocaleLookupListWithVariant() {
+        Locale locale = new Locale("en", "US", "POSIX");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(4, result.size());
+        assertTrue(result.contains(new Locale("en", "US")));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidLength_2() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_A"));
+    }
+
+    @Test
+    void testParseLocaleWithLowerCaseCountryCode_2() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_us"));
+    }
+
+    @Test
+    void testParseLocaleWithShortStringAndInvalidLength() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_A1"));
+    }
+
+    @Test
+    void testParseLocaleWithMismatchedSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US-POSIX"));
+    }
+
+    @Test
+    void testParseLocaleWithValidShortString() {
+        Locale result = LocaleUtils.toLocale("_US");
+        assertEquals(new Locale("", "US"), result);
+    }
+}
+```

@@ -1,0 +1,121 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    void testGetComponentType_withNullArrayClass() {
+        assertNull(ClassUtils.getComponentType(null));
+    }
+
+    @Test
+    void testGetComponentType_withValidArrayClass() {
+        assertEquals(Integer.class, ClassUtils.getComponentType(int[].class));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withObjectClass() {
+        assertEquals("java.lang", ClassUtils.getPackageName(Object.class));
+    }
+
+    @Test
+    void testGetShortClassName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortClassName((Class<?>) null));
+    }
+
+    @Test
+    void testGetShortClassName_withValidClass() {
+        assertEquals("String", ClassUtils.getShortClassName(String.class));
+    }
+
+    @Test
+    void testGetSimpleName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getSimpleName((Class<?>) null));
+    }
+
+    @Test
+    void testGetSimpleName_withObjectClass() {
+        assertEquals("Object", ClassUtils.getSimpleName(Object.class));
+    }
+
+    @Test
+    void testIsInnerClass_withStaticNestedClass() {
+        assertFalse(ClassUtils.isInnerClass(Outer.StaticNested.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withVoidType() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(void.class));
+    }
+
+    @Test
+    void testGetCanonicalName_withArrayClass() {
+        assertEquals("int[]", ClassUtils.getCanonicalName(int[].class));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withValidClass() {
+        assertEquals("String", ClassUtils.getShortCanonicalName(String.class));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Object) null));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withValidObject() {
+        assertEquals("java.lang", ClassUtils.getPackageCanonicalName(new Object()));
+    }
+
+    @Test
+    void testGetAbbreviatedName_withLengthHintEqualToClassNameLength() {
+        assertEquals("java.lang.String", ClassUtils.getAbbreviatedName(String.class, 17));
+    }
+
+    @Test
+    void testGetAllInterfaces_withClassHavingNoInterfaces() {
+        assertTrue(ClassUtils.getAllInterfaces(Object.class).isEmpty());
+    }
+
+    @Test
+    void testIsPublic_withAnonymousInnerClass() {
+        assertFalse(ClassUtils.isPublic(new Object(){}.getClass()));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveType() {
+        assertEquals("int", ClassUtils.getCanonicalName(int.class));
+    }
+
+    @Test
+    void testGetShortClassName_withArrayClass() {
+        assertEquals("int[]", ClassUtils.getShortClassName(int[].class));
+    }
+
+    @Test
+    void testGetPackageName_withValidObjectHavingInnerClass() {
+        assertEquals("org.apache.commons.lang3", ClassUtils.getPackageName(new Outer.Inner()));
+    }
+
+    static class Outer {
+        static class StaticNested {}
+        class Inner {}
+    }
+}
+```

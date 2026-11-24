@@ -1,0 +1,120 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class DiffBuilder_GenTest {
+
+    private DiffBuilder<Object> diffBuilder;
+
+    @BeforeEach
+    public void setUp() {
+        // Initialize if needed
+    }
+
+    @Test
+    public void testAppendEmptyShortArray_2() {
+        DiffResult<Short[]> result = new DiffBuilder<>(new Short[]{}, new Short[] {}, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNonEmptyShortArray() {
+        DiffResult<Short[]> result = new DiffBuilder<>(new Short[]{1, 2, 3}, new Short[]{4, 5, 6}, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(3, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNullShortArray() {
+        assertThrows(NullPointerException.class, () -> 
+            new DiffBuilder<>(new Short[]{1, 2, 3}, null, ToStringStyle.SHORT_PREFIX_STYLE)
+        );
+    }
+
+    @Test
+    public void testAppendEmptyObjectArrayWithNullElements() {
+        Object[] lhs = {null, null};
+        Object[] rhs = {null, null};
+        DiffResult<Object[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNonEmptyObjectArrayWithNullElements() {
+        Object[] lhs = {1, null, 3};
+        Object[] rhs = {4, null, 6};
+        DiffResult<Object[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(2, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendEmptyStringArrayWithNullElements() {
+        String[] lhs = {null, null};
+        String[] rhs = {null, null};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNonEmptyStringArrayWithNullElements() {
+        String[] lhs = {"a", null, "c"};
+        String[] rhs = {"d", null, "f"};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(2, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendEmptyStringArrayWithEmptyStrings() {
+        String[] lhs = {"", ""};
+        String[] rhs = {"", ""};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendNonEmptyStringArrayWithEmptyStrings() {
+        String[] lhs = {"a", "", "c"};
+        String[] rhs = {"d", "", "f"};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(2, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendEmptyStringArrayWithNonEmptyStrings() {
+        String[] lhs = {"a", "b", "c"};
+        String[] rhs = {""};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(3, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNonEmptyStringArrayWithNonEmptyStrings() {
+        String[] lhs = {"a", "b", "c"};
+        String[] rhs = {"d", "e", "f"};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(3, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendEmptyStringArrayWithMixedContent() {
+        String[] lhs = {"a", null, ""};
+        String[] rhs = {null, "b", "c"};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(3, result.getDiffs().size());
+    }
+
+    @Test
+    public void testAppendNonEmptyStringArrayWithMixedContent() {
+        String[] lhs = {"a", null, "c"};
+        String[] rhs = {null, "b", "f"};
+        DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.SHORT_PREFIX_STYLE).build();
+        assertEquals(2, result.getDiffs().size());
+    }
+}
+```

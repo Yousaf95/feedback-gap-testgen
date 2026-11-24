@@ -1,0 +1,115 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[163,13] cannot find symbol
+  symbol:   method forEach(java.lang.Throwable,(t)->asser[...]s(t)))
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[175,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[187,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[198,50] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[199,38] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[205,26] cannot find symbol
+  symbol:   variable StringUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[223,38] cannot find symbol
+  symbol:   variable ArrayUtils
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[228,35] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[236,26] cannot find symbol
+  symbol:   variable NOT_FOUND
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[242,26] cannot find symbol
+  symbol:   variable NOT_FOUND
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[265,18] cannot find symbol
+  symbol:   class StringWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[265,40] cannot find symbol
+  symbol:   class StringWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[266,18] cannot find symbol
+  symbol:   class PrintStream
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[266,39] cannot find symbol
+  symbol:   class PrintStream
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[275,18] cannot find symbol
+  symbol:   class StringWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[275,40] cannot find symbol
+  symbol:   class StringWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[276,18] cannot find symbol
+  symbol:   class PrintWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[276,39] cannot find symbol
+  symbol:   class PrintWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[163,13] cannot find symbol
+[ERROR]   symbol:   method forEach(java.lang.Throwable,(t)->asser[...]s(t)))
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[175,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[187,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[198,50] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[199,38] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[205,26] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[223,38] cannot find symbol
+[ERROR]   symbol:   variable ArrayUtils
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[228,35] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[236,26] cannot find symbol
+[ERROR]   symbol:   variable NOT_FOUND
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[242,26] cannot find symbol
+[ERROR]   symbol:   variable NOT_FOUND
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[265,18] cannot find symbol
+[ERROR]   symbol:   class StringWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[265,40] cannot find symbol
+[ERROR]   symbol:   class StringWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[266,18] cannot find symbol
+[ERROR]   symbol:   class PrintStream
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[266,39] cannot find symbol
+[ERROR]   symbol:   class PrintStream
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[275,18] cannot find symbol
+[ERROR]   symbol:   class StringWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[275,40] cannot find symbol
+[ERROR]   symbol:   class StringWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[276,18] cannot find symbol
+[ERROR]   symbol:   class PrintWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[276,39] cannot find symbol
+[ERROR]   symbol:   class PrintWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

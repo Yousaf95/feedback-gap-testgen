@@ -1,0 +1,77 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Optional;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testCompare_withNullGreater() {
+        Integer nullValue = null;
+        Integer nonNullValue = 10;
+        assertEquals(1, ObjectUtils.compare(nullValue, nonNullValue, true));
+        assertEquals(-1, ObjectUtils.compare(nonNullValue, nullValue, true));
+    }
+
+    @Test
+    void testCompare_withBothNull() {
+        Integer nullValue1 = null;
+        Integer nullValue2 = null;
+        assertEquals(0, ObjectUtils.compare(nullValue1, nullValue2, false));
+        assertEquals(0, ObjectUtils.compare(nullValue1, nullValue2, true));
+    }
+
+    @Test
+    void testMedian_withNaturalOrderAndEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median());
+    }
+
+    @Test
+    void testMedian_withComparatorAndEmptyArray() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median(comparator));
+    }
+
+    @Test
+    void testMode_withNoValues() {
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    void testGetClass_withNullObjectAndEmptyArray() {
+        assertNull(ObjectUtils.getClass((Object[]) null));
+    }
+
+    @Test
+    void testIsEmpty_withNonEmptyCollection() {
+        assertFalse(ObjectUtils.isEmpty(Collections.singletonList("element")));
+    }
+
+    @Test
+    void testIsNotEmpty_withEmptyMap() {
+        assertFalse(ObjectUtils.isNotEmpty(new HashMap<>()));
+    }
+
+    @Test
+    void testRequireNonEmpty_withNullObject() {
+        assertThrows(NullPointerException.class, () -> ObjectUtils.requireNonEmpty((String) null));
+    }
+
+    @Test
+    void testToString_withSupplierReturningNonNull() {
+        Supplier<Object> supplier = () -> "non-null";
+        assertEquals("non-null", ObjectUtils.toString(supplier, () -> "default"));
+    }
+
+    @Test
+    void testWait_withNullDuration() {
+        final Object obj = new Object();
+        assertDoesNotThrow(() -> ObjectUtils.wait(obj, null));
+    }
+}
+```

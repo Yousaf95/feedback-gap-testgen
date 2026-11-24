@@ -1,0 +1,100 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    void testRandomWithNullCharsArray() {
+        String result = RandomStringUtils.random(5, (char[]) null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    void testRandomWithStartEndZeroAndNoLettersOrNumbers() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> RandomStringUtils.random(5, 0, 0, false, false));
+        assertEquals("Parameter end (126) must be greater then (48) for generating digits or greater then (65) for generating letters.", exception.getMessage());
+    }
+
+    @Test
+    void testRandomWithStartEndZeroAndLetters() {
+        String result = RandomStringUtils.random(5, 0, 0, true, false);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    void testRandomWithStartEndZeroAndNumbers() {
+        String result = RandomStringUtils.random(5, 0, 0, false, true);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    void testRandomWithInvalidStartEndRange() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> RandomStringUtils.random(5, 10, 5, false, false));
+        assertEquals("Parameter end (5) must be greater than start (10)", exception.getMessage());
+    }
+
+    @Test
+    void testRandomWithNullStringChars() {
+        String result = RandomStringUtils.random(5, (String) null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    void testRandomAlphabeticWithRange() {
+        String result = RandomStringUtils.randomAlphabetic(2, 5);
+        assertTrue(result.length() >= 2 && result.length() < 5);
+        assertTrue(result.matches("[a-zA-Z]+"));
+    }
+
+    @Test
+    void testRandomAlphanumericWithRange() {
+        String result = RandomStringUtils.randomAlphanumeric(2, 5);
+        assertTrue(result.length() >= 2 && result.length() < 5);
+        assertTrue(result.matches("[a-zA-Z0-9]+"));
+    }
+
+    @Test
+    void testRandomAsciiWithRange() {
+        String result = RandomStringUtils.randomAscii(2, 5);
+        assertTrue(result.length() >= 2 && result.length() < 5);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 126));
+    }
+
+    @Test
+    void testRandomGraphWithRange() {
+        String result = RandomStringUtils.randomGraph(2, 5);
+        assertTrue(result.length() >= 2 && result.length() < 5);
+        assertTrue(result.chars().allMatch(c -> c >= 33 && c <= 126));
+    }
+
+    @Test
+    void testRandomNumericWithRange() {
+        String result = RandomStringUtils.randomNumeric(2, 5);
+        assertTrue(result.length() >= 2 && result.length() < 5);
+        assertTrue(result.matches("[0-9]+"));
+    }
+
+    @Test
+    void testRandomPrintWithRange() {
+        String result = RandomStringUtils.randomPrint(2, 5);
+        assertTrue(result.length() >= 2 && result.length() < 5);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 126));
+    }
+
+    @Test
+    void testConstructorIsPrivate() {
+        assertThrows(IllegalAccessException.class, () -> {
+            RandomStringUtils.class.getDeclaredConstructor().newInstance();
+        });
+    }
+}
+```

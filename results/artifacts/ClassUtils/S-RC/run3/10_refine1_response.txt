@@ -1,0 +1,176 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ClassUtils_GenTest {
+
+    @org.junit.jupiter.api.Test
+    public void testInterfacesEnum() {
+        assertEquals(ClassUtils.Interfaces.INCLUDE, ClassUtils.Interfaces.valueOf("INCLUDE"));
+        assertEquals(ClassUtils.Interfaces.EXCLUDE, ClassUtils.Interfaces.valueOf("EXCLUDE"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testComparator() {
+        Comparator<Class<?>> comparator = ClassUtils.comparator();
+        assertNotNull(comparator);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassesToClassNames_nullInput() {
+        List<String> result = ClassUtils.convertClassesToClassNames(null);
+        assertNull(result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassesToClassNames_emptyList() {
+        List<Class<?>> classes = Collections.emptyList();
+        List<String> result = ClassUtils.convertClassesToClassNames(classes);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassesToClassNames_nonEmptyList() {
+        List<Class<?>> classes = Arrays.asList(String.class, Integer.class);
+        List<String> result = ClassUtils.convertClassesToClassNames(classes);
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertTrue(result.contains("java.lang.String"));
+        assertTrue(result.contains("java.lang.Integer"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassNamesToClasses_nullInput() {
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(null);
+        assertNull(result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassNamesToClasses_emptyList() {
+        List<String> classNames = Collections.emptyList();
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(classNames);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassNamesToClasses_nonEmptyList() {
+        List<String> classNames = Arrays.asList("java.lang.String", "java.lang.Integer");
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(classNames);
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(String.class));
+        assertTrue(result.contains(Integer.class));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassNamesToClasses_invalidClassName() {
+        List<String> classNames = Arrays.asList("java.lang.String", "invalid.className");
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(classNames);
+        assertNotNull(result);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(String.class));
+        assertNull(result.get(1));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAbbreviatedName_nullInput() {
+        String result = ClassUtils.getAbbreviatedName(null, 5);
+        assertEquals("", result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAbbreviatedName_emptyString() {
+        String result = ClassUtils.getAbbreviatedName("", 5);
+        assertEquals("", result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAbbreviatedName_lengthHintLessThanOne() {
+        assertThrows(IllegalArgumentException.class, () -> ClassUtils.getAbbreviatedName("test", 0));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAbbreviatedName_lengthHintGreaterThanStringLength() {
+        String result = ClassUtils.getAbbreviatedName("test", 10);
+        assertEquals("test", result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAbbreviatedName_shortClassName() {
+        String result = ClassUtils.getAbbreviatedName("java.lang.String", 5);
+        assertEquals("String", result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAbbreviatedName_longClassName() {
+        String result = ClassUtils.getAbbreviatedName("com.example.MyVeryLongClassName", 10);
+        assertEquals("MyVe...Class", result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAllInterfaces_nullInput() {
+        List<Class<?>> result = ClassUtils.getAllInterfaces(null);
+        assertNull(result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAllInterfaces_emptyClass() {
+        List<Class<?>> result = ClassUtils.getAllInterfaces(Object.class);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAllInterfaces_nonEmptyClass() {
+        List<Class<?>> result = ClassUtils.getAllInterfaces(List.class);
+        assertNotNull(result);
+        assertTrue(result.contains(Collection.class));
+        assertTrue(result.contains(Iterable.class));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAllSuperclasses_nullInput() {
+        List<Class<?>> result = ClassUtils.getAllSuperclasses(null);
+        assertNull(result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAllSuperclasses_emptyClass() {
+        List<Class<?>> result = ClassUtils.getAllSuperclasses(Object.class);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAllSuperclasses_nonEmptyClass() {
+        List<Class<?>> result = ClassUtils.getAllSuperclasses(ArrayList.class);
+        assertNotNull(result);
+        assertTrue(result.contains(List.class));
+        assertTrue(result.contains(Collection.class));
+        assertTrue(result.contains(Iterable.class));
+        assertTrue(result.contains(Object.class));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetCanonicalName_nullInput() {
+        String result = ClassUtils.getCanonicalName(null, "default");
+        assertEquals("default", result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetCanonicalName_emptyString() {
+        String result = ClassUtils.getCanonicalName("", "default");
+        assertEquals("default", result);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetCanonicalName_nonEmptyString() {
+        String result = ClassUtils.getCanonicalName("java.lang.String", "default");
+        assertEquals("java.lang.String", result);
+    }
+}
+```

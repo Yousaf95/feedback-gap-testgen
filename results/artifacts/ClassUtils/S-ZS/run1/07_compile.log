@@ -1,0 +1,101 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[13,9] cannot find symbol
+  symbol:   class Comparator
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[74,35] reference to getAbbreviatedName is ambiguous
+  both method getAbbreviatedName(java.lang.Class<?>,int) in org.apache.commons.lang3.ClassUtils and method getAbbreviatedName(java.lang.String,int) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[137,63] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,35] reference to getPackageCanonicalName is ambiguous
+  both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[217,35] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[223,35] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[229,35] reference to getPackageName is ambiguous
+  both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[241,35] reference to getShortCanonicalName is ambiguous
+  both method getShortCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[253,35] no suitable method found for getShortCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[259,35] no suitable method found for getShortCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[265,35] reference to getShortClassName is ambiguous
+  both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[277,35] no suitable method found for getShortClassName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[283,35] no suitable method found for getShortClassName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[13,9] cannot find symbol
+[ERROR]   symbol:   class Comparator
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[74,35] reference to getAbbreviatedName is ambiguous
+[ERROR]   both method getAbbreviatedName(java.lang.Class<?>,int) in org.apache.commons.lang3.ClassUtils and method getAbbreviatedName(java.lang.String,int) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[137,63] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[205,35] reference to getPackageCanonicalName is ambiguous
+[ERROR]   both method getPackageCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[217,35] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[223,35] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[229,35] reference to getPackageName is ambiguous
+[ERROR]   both method getPackageName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getPackageName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[241,35] reference to getShortCanonicalName is ambiguous
+[ERROR]   both method getShortCanonicalName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortCanonicalName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[253,35] no suitable method found for getShortCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[259,35] no suitable method found for getShortCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[265,35] reference to getShortClassName is ambiguous
+[ERROR]   both method getShortClassName(java.lang.Class<?>) in org.apache.commons.lang3.ClassUtils and method getShortClassName(java.lang.String) in org.apache.commons.lang3.ClassUtils match
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[277,35] no suitable method found for getShortClassName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[283,35] no suitable method found for getShortClassName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

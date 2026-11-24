@@ -1,0 +1,230 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    void testReflectionEqualsWithNulls() {
+        assertFalse(EqualsBuilder.reflectionEquals(null, null, false));
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), null, false));
+        assertFalse(EqualsBuilder.reflectionEquals(null, new Object(), false));
+    }
+
+    @Test
+    void testReflectionEqualsWithSameObjectReference() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj, false));
+    }
+
+    @Test
+    void testReflectionEqualsWithDifferentObjects() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object(), false));
+    }
+
+    @Test
+    void testReflectionEqualsWithExcludeFields() {
+        class TestClass {
+            private int field1;
+            private int field2;
+
+            public TestClass(int field1, int field2) {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+        }
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(1, 3);
+        assertTrue(EqualsBuilder.reflectionEquals(obj1, obj2, Arrays.asList("field2")));
+    }
+
+    @Test
+    void testReflectionEqualsWithExcludeFieldsCollection() {
+        class TestClass {
+            private int field1;
+            private int field2;
+
+            public TestClass(int field1, int field2) {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+        }
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(1, 3);
+        assertTrue(EqualsBuilder.reflectionEquals(obj1, obj2, Collections.singleton("field2")));
+    }
+
+    @Test
+    void testAppendBooleanWhenNotEqual() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(true, false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendBooleanArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((boolean[]) null, (boolean[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new boolean[]{true}, (boolean[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendByteArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((byte[]) null, (byte[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new byte[]{1}, (byte[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendCharArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((char[]) null, (char[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new char[]{'a'}, (char[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendDoubleArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((double[]) null, (double[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new double[]{1.0}, (double[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendFloatArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((float[]) null, (float[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new float[]{1.0f}, (float[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendIntArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((int[]) null, (int[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new int[]{1}, (int[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendLongArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((long[]) null, (long[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new long[]{1L}, (long[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendObjectArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((Object[]) null, (Object[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new Object[]{new Object()}, (Object[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendShortArrayWithNulls() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((short[]) null, (short[]) null);
+        assertTrue(builder.isEquals());
+
+        builder = new EqualsBuilder();
+        builder.append(new short[]{(short) 1}, (short[]) null);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendBooleanArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new boolean[]{true, false}, new boolean[]{true});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendByteArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new byte[]{1, 2}, new byte[]{1});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendCharArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new char[]{'a', 'b'}, new char[]{'a'});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendDoubleArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new double[]{1.0, 2.0}, new double[]{1.0});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendFloatArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new float[]{1.0f, 2.0f}, new float[]{1.0f});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendIntArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new int[]{1, 2}, new int[]{1});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendLongArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new long[]{1L, 2L}, new long[]{1L});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendObjectArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new Object[]{new Object(), new Object()}, new Object[]{new Object()});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendShortArrayWithDifferentLengths() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new short[]{(short) 1, (short) 2}, new short[]{(short) 1});
+        assertFalse(builder.isEquals());
+    }
+}
+```

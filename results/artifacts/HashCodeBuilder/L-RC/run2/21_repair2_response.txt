@@ -1,0 +1,138 @@
+```java
+package org.apache.commons.lang3.builder;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Collections;
+
+class HashCodeBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testIsRegisteredNotRegistered() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    void testReflectionHashCodeDefaultValues() {
+        int hashCode = HashCodeBuilder.reflectionHashCode(new Object());
+        assertEquals(hashCode, new HashCodeBuilder().toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithTransients() {
+        int hashCode = HashCodeBuilder.reflectionHashCode(new Object(), true);
+        assertEquals(hashCode, new HashCodeBuilder().toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludeFieldsCollection() {
+        int hashCode = HashCodeBuilder.reflectionHashCode(new Object(), Collections.emptyList());
+        assertEquals(hashCode, new HashCodeBuilder().toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludeFieldsArray() {
+        int hashCode = HashCodeBuilder.reflectionHashCode(new Object(), new String[0]);
+        assertEquals(hashCode, new HashCodeBuilder().toHashCode());
+    }
+
+    @Test
+    void testAppendArrayBoolean() {
+        int initialHash = 17;
+        int multiplier = 37;
+        boolean[] array = {true, false};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append(true).append(false).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayByte() {
+        int initialHash = 17;
+        int multiplier = 37;
+        byte[] array = {1, 2};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append((byte) 1).append((byte) 2).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayChar() {
+        int initialHash = 17;
+        int multiplier = 37;
+        char[] array = {'a', 'b'};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append('a').append('b').toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayDouble() {
+        int initialHash = 17;
+        int multiplier = 37;
+        double[] array = {1.0, 2.0};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append(1.0).append(2.0).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayFloat() {
+        int initialHash = 17;
+        int multiplier = 37;
+        float[] array = {1.0f, 2.0f};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append(1.0f).append(2.0f).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayInt() {
+        int initialHash = 17;
+        int multiplier = 37;
+        int[] array = {1, 2};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append(1).append(2).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayLong() {
+        int initialHash = 17;
+        int multiplier = 37;
+        long[] array = {1L, 2L};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append(1L).append(2L).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayShort() {
+        int initialHash = 17;
+        int multiplier = 37;
+        short[] array = {1, 2};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append((short) 1).append((short) 2).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+
+    @Test
+    void testAppendArrayObject() {
+        int initialHash = 17;
+        int multiplier = 37;
+        Object[] array = {new Object(), new Object()};
+        int expectedHash = new HashCodeBuilder(initialHash, multiplier)
+                .append(array[0]).append(array[1]).toHashCode();
+        assertEquals(expectedHash, new HashCodeBuilder(initialHash, multiplier)
+                .append(array).toHashCode());
+    }
+}
+```

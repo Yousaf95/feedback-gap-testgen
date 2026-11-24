@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+class CharSequenceUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testSubSequence_withStartIndexLessThanZero() {
+        assertEquals("abc", CharSequenceUtils.subSequence("abc", -1));
+    }
+
+    @Test
+    void testToCharArray_withNonEmptyStringBuilder() {
+        char[] expected = {'a', 'b', 'c'};
+        assertArrayEquals(expected, CharSequenceUtils.toCharArray(new StringBuilder("abc")));
+    }
+
+    @Test
+    void testToCharArray_withNonEmptyStringBuffer() {
+        char[] expected = {'a', 'b', 'c'};
+        assertArrayEquals(expected, CharSequenceUtils.toCharArray(new StringBuffer("abc")));
+    }
+
+    @Test
+    void testIndexOf_withNonSpecificInstance_2() {
+        assertEquals(1, CharSequenceUtils.indexOf(new StringBuilder("abc"), "b", 0));
+    }
+
+    @Test
+    void testIndexOf_withStartLessThanZeroAndMatch() {
+        assertEquals(0, CharSequenceUtils.indexOf(new StringBuilder("abc"), 'a', -1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0x1F600}) // Grinning Face Emoji
+    void testIndexOf_withSupplementaryCharacterMatch(int supplementaryChar) {
+        String str = new String(Character.toChars(supplementaryChar));
+        assertEquals(0, CharSequenceUtils.indexOf(str, Character.toString((char) supplementaryChar), 0));
+    }
+
+    @Test
+    void testLastIndexOf_withNonSpecificInstance_2_2() {
+        assertEquals(1, CharSequenceUtils.lastIndexOf(new StringBuilder("abc"), "b", 2));
+    }
+
+    @Test
+    void testLastIndexOf_withStartGreaterThanLength_2_2() {
+        assertEquals(2, CharSequenceUtils.lastIndexOf(new StringBuilder("abc"), 'c', 5));
+    }
+
+    @Test
+    void testLastIndexOf_withEmptySearchChar_2() {
+        assertThrows(StringIndexOutOfBoundsException.class, () -> CharSequenceUtils.lastIndexOf("abc", "", 1));
+    }
+
+    @Test
+    void testLastIndexOf_withStartLessThanZero() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf(new StringBuilder("abc"), 'a', -1));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0x1F600}) // Grinning Face Emoji
+    void testLastIndexOf_withSupplementaryCharacterMatch(int supplementaryChar) {
+        String str = new String(Character.toChars(supplementaryChar));
+        assertEquals(0, CharSequenceUtils.lastIndexOf(str, Character.toString((char) supplementaryChar), 2));
+    }
+}
+```

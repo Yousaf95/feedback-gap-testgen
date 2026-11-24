@@ -1,0 +1,59 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.nio.CharBuffer;
+
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testSubSequence_withNegativeStartIndexAndNullCharSequence() {
+        assertThrows(NullPointerException.class, () -> CharSequenceUtils.subSequence(null, -1));
+    }
+
+    @Test
+    public void testToCharArray_withStringBuilder() {
+        StringBuilder sb = new StringBuilder("test");
+        char[] expected = {'t', 'e', 's', 't'};
+        assertEquals(expected, CharSequenceUtils.toCharArray(sb));
+    }
+
+    @Test
+    public void testToCharArray_withStringBuffer() {
+        StringBuffer sb = new StringBuffer("test");
+        char[] expected = {'t', 'e', 's', 't'};
+        assertEquals(expected, CharSequenceUtils.toCharArray(sb));
+    }
+
+    @Test
+    public void testToCharArray_withCharBuffer() {
+        CharBuffer cb = CharBuffer.wrap("test");
+        char[] expected = {'t', 'e', 's', 't'};
+        assertEquals(expected, CharSequenceUtils.toCharArray(cb));
+    }
+
+    @Test
+    public void testSubSequence_withNegativeStartIndexAndEmptyString() {
+        assertEquals("", CharSequenceUtils.subSequence("", -1));
+    }
+
+    @Test
+    public void testSubSequence_withNegativeStartIndexAndNonEmptyString() {
+        assertEquals("test", CharSequenceUtils.subSequence("test", -1));
+    }
+
+    @Test
+    public void testSubSequence_withStartIndexEqualToLength() {
+        assertEquals("", CharSequenceUtils.subSequence("test", 4));
+    }
+
+    @Test
+    public void testSubSequence_withStartIndexGreaterThanLength() {
+        assertEquals("", CharSequenceUtils.subSequence("test", 5));
+    }
+}
+```

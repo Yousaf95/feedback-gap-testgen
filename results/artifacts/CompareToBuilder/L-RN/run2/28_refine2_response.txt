@@ -1,0 +1,96 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Comparator;
+
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppendBoolean() {
+        assertEquals(0, new CompareToBuilder().append(true, true).toComparison());
+        assertEquals(-1, new CompareToBuilder().append(false, true).toComparison());
+        assertEquals(1, new CompareToBuilder().append(true, false).toComparison());
+    }
+
+    @Test
+    public void testAppendByte() {
+        assertEquals(0, new CompareToBuilder().append((byte) 5, (byte) 5).toComparison());
+        assertEquals(-1, new CompareToBuilder().append((byte) 3, (byte) 5).toComparison());
+        assertEquals(1, new CompareToBuilder().append((byte) 7, (byte) 5).toComparison());
+    }
+
+    @Test
+    public void testAppendChar() {
+        assertEquals(0, new CompareToBuilder().append('a', 'a').toComparison());
+        assertEquals(-1, new CompareToBuilder().append('b', 'c').toComparison());
+        assertEquals(1, new CompareToBuilder().append('d', 'c').toComparison());
+    }
+
+    @Test
+    public void testAppendDouble() {
+        assertEquals(0, new CompareToBuilder().append(5.0, 5.0).toComparison());
+        assertEquals(-1, new CompareToBuilder().append(3.0, 5.0).toComparison());
+        assertEquals(1, new CompareToBuilder().append(7.0, 5.0).toComparison());
+    }
+
+    @Test
+    public void testAppendFloat() {
+        assertEquals(0, new CompareToBuilder().append(5.0f, 5.0f).toComparison());
+        assertEquals(-1, new CompareToBuilder().append(3.0f, 5.0f).toComparison());
+        assertEquals(1, new CompareToBuilder().append(7.0f, 5.0f).toComparison());
+    }
+
+    @Test
+    public void testAppendInt() {
+        assertEquals(0, new CompareToBuilder().append(5, 5).toComparison());
+        assertEquals(-1, new CompareToBuilder().append(3, 5).toComparison());
+        assertEquals(1, new CompareToBuilder().append(7, 5).toComparison());
+    }
+
+    @Test
+    public void testAppendLong() {
+        assertEquals(0, new CompareToBuilder().append(5L, 5L).toComparison());
+        assertEquals(-1, new CompareToBuilder().append(3L, 5L).toComparison());
+        assertEquals(1, new CompareToBuilder().append(7L, 5L).toComparison());
+    }
+
+    @Test
+    public void testAppendShort() {
+        assertEquals(0, new CompareToBuilder().append((short) 5, (short) 5).toComparison());
+        assertEquals(-1, new CompareToBuilder().append((short) 3, (short) 5).toComparison());
+        assertEquals(1, new CompareToBuilder().append((short) 7, (short) 5).toComparison());
+    }
+
+    @Test
+    public void testAppendObjectWithComparator() {
+        Comparator<String> lengthComparator = Comparator.comparingInt(String::length);
+        assertEquals(0, new CompareToBuilder().append("abc", "def", lengthComparator).toComparison());
+        assertEquals(-1, new CompareToBuilder().append("ab", "def", lengthComparator).toComparison());
+        assertEquals(1, new CompareToBuilder().append("abcd", "def", lengthComparator).toComparison());
+    }
+
+    @Test
+    public void testAppendObjectArrayWithNullComparator() {
+        assertEquals(0, new CompareToBuilder().append(new String[]{"a", "b"}, new String[]{"a", "b"}).toComparison());
+        assertEquals(-1, new CompareToBuilder().append(new String[]{"a", "b"}, new String[]{"c", "d"}).toComparison());
+        assertEquals(1, new CompareToBuilder().append(new String[]{"c", "d"}, new String[]{"a", "b"}).toComparison());
+    }
+
+    @Test
+    public void testAppendSuper() {
+        assertEquals(0, new CompareToBuilder().appendSuper(0).toComparison());
+        assertEquals(-1, new CompareToBuilder().appendSuper(-1).toComparison());
+        assertEquals(1, new CompareToBuilder().appendSuper(1).toComparison());
+    }
+
+    @Test
+    public void testReflectionCompareWithClassCastException() {
+        assertThrows(ClassCastException.class, () -> CompareToBuilder.reflectionCompare("string", 123));
+    }
+}
+```

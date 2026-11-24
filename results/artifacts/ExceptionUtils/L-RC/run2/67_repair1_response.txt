@@ -1,0 +1,92 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.lang.reflect.Method;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    void testAsRuntimeException() {
+        IllegalArgumentException exception = new IllegalArgumentException("test");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(exception));
+        assertEquals("test", runtimeException.getMessage());
+    }
+
+    @Test
+    void testGetRootCauseStackTraceList_withNullThrowable_2() {
+        assertTrue(ExceptionUtils.getRootCauseStackTraceList(null).isEmpty());
+    }
+
+    @Test
+    void testGetRootCauseStackTraceList_withSingleThrowable() {
+        Throwable throwable = new Exception("test");
+        List<String> stackTrace = ExceptionUtils.getRootCauseStackTraceList(throwable);
+        assertFalse(stackTrace.isEmpty());
+        assertEquals("java.lang.Exception: test", stackTrace.get(0));
+    }
+
+    @Test
+    void testGetRootCauseStackTraceList_withNestedThrowables() {
+        Throwable cause = new IllegalArgumentException("cause");
+        Throwable throwable = new Exception("test", cause);
+        List<String> stackTrace = ExceptionUtils.getRootCauseStackTraceList(throwable);
+        assertFalse(stackTrace.isEmpty());
+        assertEquals("java.lang.Exception: test", stackTrace.get(0));
+        assertTrue(stackTrace.get(1).contains(" [wrapped] java.lang.IllegalArgumentException: cause"));
+    }
+
+    @Test
+    void testGetStackFrameList_withNullThrowable_2() {
+        assertNull(ExceptionUtils.getStackFrameList(null));
+    }
+
+    @Test
+    void testHasCause_withUndeclaredThrowableException_2() {
+        Throwable undeclared = new UndeclaredThrowableException(new IllegalArgumentException("cause"));
+        assertTrue(ExceptionUtils.hasCause(undeclared, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOfThrowable_withNullThrowable_2() {
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(null, Exception.class));
+    }
+
+    @Test
+    void testIndexOfType_withNullThrowable_2() {
+        assertEquals(-1, ExceptionUtils.indexOfType(null, Exception.class));
+    }
+
+    @Test
+    void testIsChecked_withNullThrowable_2() {
+        assertFalse(ExceptionUtils.isChecked(null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintStream_2() {
+        Throwable throwable = new Exception("test");
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullThrowableAndPrintWriter_2() {
+        Throwable throwable = new Exception("test");
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintWriter) null));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withEmptyLists_2() {
+        List<String> causeFrames = new ArrayList<>();
+        List<String> wrapperFrames = new ArrayList<>();
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+        assertTrue(wrapperFrames.isEmpty());
+    }
+}
+```

@@ -1,0 +1,39 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class JavaVersion_GenTest {
+
+    @Test
+    public void testGetWithVersion0_9Point5() {
+        assertEquals(JavaVersion.JAVA_RECENT, JavaVersion.get("0.9.5"));
+    }
+
+    @Test
+    public void testGetWithVersion1_8Point9() {
+        assertEquals(JavaVersion.JAVA_RECENT, JavaVersion.get("1.8.9"));
+    }
+
+    @Test
+    public void testGetWithVersion10Point5() {
+        assertEquals(JavaVersion.JAVA_RECENT, JavaVersion.get("10.5"));
+    }
+
+    @Test
+    public void testGetWithVersion22() {
+        assertEquals(JavaVersion.JAVA_RECENT, JavaVersion.get("22"));
+    }
+
+    @Test
+    public void testGetWithVersion9Point0() {
+        assertEquals(JavaVersion.JAVA_9, JavaVersion.get("9.0"));
+    }
+
+    @Test
+    public void testGetWithVersion1_0() {
+        assertNull(JavaVersion.get("1.0"));
+    }
+}
+```

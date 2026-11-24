@@ -1,0 +1,79 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[140,47] cannot find symbol
+  symbol:   variable OS_NAME_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[149,47] cannot find symbol
+  symbol:   variable OS_NAME_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[158,47] cannot find symbol
+  symbol:   variable USER_NAME_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[167,47] cannot find symbol
+  symbol:   variable USER_NAME_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[176,47] cannot find symbol
+  symbol:   variable JAVA_SPECIFICATION_VERSION_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[184,47] cannot find symbol
+  symbol:   variable JAVA_SPECIFICATION_VERSION_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[192,47] cannot find symbol
+  symbol:   variable OS_NAME_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[193,47] cannot find symbol
+  symbol:   variable OS_VERSION_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[201,47] cannot find symbol
+  symbol:   variable OS_NAME_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[209,47] cannot find symbol
+  symbol:   variable OS_VERSION_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[217,47] cannot find symbol
+  symbol:   variable JAVA_AWT_HEADLESS_KEY
+  location: class org.apache.commons.lang3.SystemProperties
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[140,47] cannot find symbol
+[ERROR]   symbol:   variable OS_NAME_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[149,47] cannot find symbol
+[ERROR]   symbol:   variable OS_NAME_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[158,47] cannot find symbol
+[ERROR]   symbol:   variable USER_NAME_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[167,47] cannot find symbol
+[ERROR]   symbol:   variable USER_NAME_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[176,47] cannot find symbol
+[ERROR]   symbol:   variable JAVA_SPECIFICATION_VERSION_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[184,47] cannot find symbol
+[ERROR]   symbol:   variable JAVA_SPECIFICATION_VERSION_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[192,47] cannot find symbol
+[ERROR]   symbol:   variable OS_NAME_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[193,47] cannot find symbol
+[ERROR]   symbol:   variable OS_VERSION_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[201,47] cannot find symbol
+[ERROR]   symbol:   variable OS_NAME_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[209,47] cannot find symbol
+[ERROR]   symbol:   variable OS_VERSION_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/SystemUtils_GenTest.java:[217,47] cannot find symbol
+[ERROR]   symbol:   variable JAVA_AWT_HEADLESS_KEY
+[ERROR]   location: class org.apache.commons.lang3.SystemProperties
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

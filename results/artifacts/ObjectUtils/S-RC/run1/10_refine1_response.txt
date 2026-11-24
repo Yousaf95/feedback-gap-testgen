@@ -1,0 +1,233 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    public void testReadResolve() {
+        Null nullObject = new Null();
+        assertSame(nullObject, nullObject.readResolve());
+    }
+
+    @Test
+    public void testAllNotNull() {
+        assertTrue(ObjectUtils.allNotNull(1, "test", 3.14));
+        assertFalse(ObjectUtils.allNotNull(1, null, 3.14));
+        assertFalse(ObjectUtils.allNotNull((Object) null));
+    }
+
+    @Test
+    public void testAllNull() {
+        assertTrue(ObjectUtils.allNull(null, null, null));
+        assertFalse(ObjectUtils.allNull(1, "test", 3.14));
+        assertFalse(ObjectUtils.allNull());
+    }
+
+    @Test
+    public void testAnyNotNull() {
+        assertTrue(ObjectUtils.anyNotNull(1, null, 3.14));
+        assertFalse(ObjectUtils.anyNotNull((Object) null));
+    }
+
+    @Test
+    public void testAnyNull() {
+        assertTrue(ObjectUtils.anyNull(1, null, 3.14));
+        assertFalse(ObjectUtils.anyNull());
+    }
+
+    @Test
+    public void testClone() {
+        String original = "test";
+        String cloned = ObjectUtils.clone(original);
+        assertSame(original, cloned);
+
+        Integer[] array = {1, 2, 3};
+        Integer[] clonedArray = ObjectUtils.clone(array);
+        assertArrayEquals(array, clonedArray);
+
+        CustomObject obj = new CustomObject();
+        CustomObject clonedObj = ObjectUtils.clone(obj);
+        assertSame(obj, clonedObj);
+    }
+
+    @Test
+    public void testCloneIfPossible() {
+        String original = "test";
+        String cloned = ObjectUtils.cloneIfPossible(original);
+        assertSame(original, cloned);
+
+        Integer[] array = {1, 2, 3};
+        Integer[] clonedArray = ObjectUtils.cloneIfPossible(array);
+        assertArrayEquals(array, clonedArray);
+
+        CustomObject obj = new CustomObject();
+        CustomObject clonedObj = ObjectUtils.cloneIfPossible(obj);
+        assertSame(obj, clonedObj);
+    }
+
+    @Test
+    public void testCompare() {
+        assertEquals(0, ObjectUtils.compare("a", "a"));
+        assertTrue(ObjectUtils.compare("b", "a") > 0);
+        assertTrue(ObjectUtils.compare("a", "b") < 0);
+
+        assertTrue(ObjectUtils.compare("a", "a", true) == 0);
+        assertTrue(ObjectUtils.compare("b", "a", true) > 0);
+        assertTrue(ObjectUtils.compare("a", "b", true) < 0);
+    }
+
+    @Test
+    public void testCONST() {
+        assertEquals(true, ObjectUtils.CONST(true));
+        assertEquals('a', ObjectUtils.CONST('a'));
+        assertEquals(123, ObjectUtils.CONST(123));
+        assertEquals(123.45, ObjectUtils.CONST(123.45f));
+        assertEquals(123.456, ObjectUtils.CONST(123.456));
+        assertEquals(123L, ObjectUtils.CONST(123L));
+        assertEquals((short) 123, ObjectUtils.CONST((short) 123));
+    }
+
+    @Test
+    public void testCONST_BYTE() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(-129));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(128));
+        assertEquals((byte) -128, ObjectUtils.CONST_BYTE(-128));
+        assertEquals((byte) 0, ObjectUtils.CONST_BYTE(0));
+        assertEquals((byte) 127, ObjectUtils.CONST_BYTE(127));
+    }
+
+    @Test
+    public void testCONST_SHORT() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(-32769));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(32768));
+        assertEquals((short) -32768, ObjectUtils.CONST_SHORT(-32768));
+        assertEquals((short) 0, ObjectUtils.CONST_SHORT(0));
+        assertEquals((short) 32767, ObjectUtils.CONST_SHORT(32767));
+    }
+
+    @Test
+    public void testFirstNonNull() {
+        assertEquals("test", ObjectUtils.firstNonNull(null, "test"));
+        assertNull(ObjectUtils.firstNonNull((Object) null));
+    }
+
+    @Test
+    public void testGetClass() {
+        assertEquals(String.class, ObjectUtils.getClass("test"));
+        assertNull(ObjectUtils.getClass((Object) null));
+    }
+
+    @Test
+    public void testGetFirstNonNull() {
+        assertEquals("test", ObjectUtils.getFirstNonNull(() -> "test", () -> null));
+        assertNull(ObjectUtils.getFirstNonNull(() -> null, () -> null));
+    }
+
+    @Test
+    public void testGetIfNull() {
+        assertEquals("default", ObjectUtils.getIfNull(null, () -> "default"));
+        assertEquals("value", ObjectUtils.getIfNull("value", () -> "default"));
+    }
+
+    @Test
+    public void testHashCode() {
+        assertEquals(0, ObjectUtils.hashCode(null));
+        assertEquals("0".hashCode(), ObjectUtils.hashCodeHex(null).hashCode());
+    }
+
+    @Test
+    public void testIdentityToString() throws IOException {
+        String result = ObjectUtils.identityToString(new StringBuilder(), new CustomObject());
+        assertTrue(result.contains(CustomObject.class.getName()));
+        assertTrue(result.contains(Integer.toHexString(System.identityHashCode(new CustomObject()))));
+    }
+
+    @Test
+    public void testIsArray() {
+        assertTrue(ObjectUtils.isArray(new int[]{}));
+        assertFalse(ObjectUtils.isArray("test"));
+    }
+
+    @Test
+    public void testIsEmpty() {
+        assertTrue(ObjectUtils.isEmpty(null));
+        assertTrue(ObjectUtils.isEmpty(""));
+        assertTrue(ObjectUtils.isEmpty(new Object[0]));
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+        assertFalse(ObjectUtils.isEmpty("test"));
+        assertFalse(ObjectUtils.isEmpty(new Object[]{1}));
+        assertFalse(ObjectUtils.isEmpty(Collections.singletonList(1)));
+    }
+
+    @Test
+    public void testIsNotEmpty() {
+        assertTrue(ObjectUtils.isNotEmpty("test"));
+        assertTrue(ObjectUtils.isNotEmpty(new Object[]{1}));
+        assertTrue(ObjectUtils.isNotEmpty(Collections.singletonList(1)));
+        assertFalse(ObjectUtils.isNotEmpty(null));
+        assertFalse(ObjectUtils.isNotEmpty(""));
+        assertFalse(ObjectUtils.isNotEmpty(new Object[0]));
+        assertFalse(ObjectUtils.isNotEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    public void testMax() {
+        assertEquals("c", ObjectUtils.max("a", "b", "c"));
+        assertNull(ObjectUtils.max());
+    }
+
+    @Test
+    public void testMedian() {
+        assertEquals(2, (int) ObjectUtils.median(1, 2, 3));
+        assertEquals(2.0, ObjectUtils.median(1.0, 2.0, 3.0));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median());
+    }
+
+    @Test
+    public void testMin() {
+        assertEquals("a", ObjectUtils.min("c", "b", "a"));
+        assertNull(ObjectUtils.min());
+    }
+
+    @Test
+    public void testMode() {
+        assertEquals(1, (int) ObjectUtils.mode(1, 2, 3, 1));
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    public void testNotEqual() {
+        assertTrue(ObjectUtils.notEqual("a", "b"));
+        assertFalse(ObjectUtils.notEqual("a", "a"));
+    }
+
+    @Test
+    public void testRequireNonEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(null));
+        assertEquals("test", ObjectUtils.requireNonEmpty("test"));
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals("", ObjectUtils.toString(null));
+        assertEquals("test", ObjectUtils.toString("test"));
+    }
+
+    @Test
+    public void testWait() throws InterruptedException {
+        Object lock = new Object();
+        ObjectUtils.wait(lock, Duration.ofMillis(100));
+    }
+
+    private static class CustomObject implements Cloneable {
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            return super.clone();
+        }
+    }
+}
+```

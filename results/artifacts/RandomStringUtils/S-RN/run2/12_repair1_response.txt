@@ -1,0 +1,49 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Random;
+import static org.junit.jupiter.api.Assertions.*;
+
+class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithCustomChars() {
+        String result = RandomStringUtils.random(5, new char[]{'a', 'b', 'c'});
+        assertTrue(result.matches("[abc]{5}"));
+    }
+
+    @Test
+    public void testRandomWithLargeRange() {
+        String result = RandomStringUtils.random(10, 0, Character.MAX_CODE_POINT);
+        assertEquals(10, result.length());
+    }
+
+    @Test
+    public void testRandomWithNegativeStartThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, -1, 10)
+        );
+    }
+
+    @Test
+    public void testRandomWithLargeEndThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, 0, Character.MAX_CODE_POINT + 1)
+        );
+    }
+
+    @Test
+    public void testRandomWithNonAlphabeticAndNonNumericChars() {
+        String result = RandomStringUtils.random(5, new char[]{'!', '@', '#'});
+        assertTrue(result.matches("[!@#]{5}"));
+    }
+
+    @Test
+    public void testRandomWithEmptyCustomCharsThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, new char[]{})
+        );
+    }
+}
+```

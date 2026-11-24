@@ -1,0 +1,64 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Comparator;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class Range_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideRanges")
+    public void testIsNaturalOrdering(Range<Integer> range) {
+        assertTrue(range.isNaturalOrdering());
+    }
+
+    private static Stream<Arguments> provideRanges() {
+        return Stream.of(
+            Arguments.of(Range.between(1, 5)),
+            Arguments.of(Range.is(3))
+        );
+    }
+
+    @Test
+    public void testIsNotNaturalOrdering() {
+        Comparator<Integer> reverseComparator = (a, b) -> b.compareTo(a);
+        Range<Integer> range = Range.between(1, 5, reverseComparator);
+        assertFalse(range.isNaturalOrdering());
+    }
+
+    @Test
+    public void testIntersectionWithEmptyRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(Range.between(6, 10)));
+    }
+
+    @Test
+    public void testFitElementBelowRange() {
+        Range<Integer> range = Range.between(3, 7);
+        assertEquals(Integer.valueOf(3), range.fit(2));
+    }
+
+    @Test
+    public void testFitElementAboveRange() {
+        Range<Integer> range = Range.between(3, 7);
+        assertEquals(Integer.valueOf(7), range.fit(8));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRanges")
+    public void testGetComparatorForNaturalOrdering(Range<Integer> range) {
+        Comparator<Integer> comparator = range.getComparator();
+        assertTrue(comparator instanceof ComparableComparator);
+    }
+
+    private static Stream<Arguments> provideComparators() {
+        return Stream.of(
+            Arguments.of((Comparator<Integer>) (a, b) -> b.compareTo(a))
+        );
+    }
+}
+```

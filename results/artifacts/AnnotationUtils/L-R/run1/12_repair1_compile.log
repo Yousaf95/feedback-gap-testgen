@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[123,39] method getAnnotation in class java.lang.reflect.Method cannot be applied to given types;
+  required: java.lang.Class<T>
+  found:    java.lang.Class<capture#1 of ?>
+  reason: inference variable T has incompatible bounds
+    equality constraints: capture#1 of ?
+    lower bounds: java.lang.annotation.Annotation
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[123,39] method getAnnotation in class java.lang.reflect.Method cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T>
+[ERROR]   found:    java.lang.Class<capture#1 of ?>
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     equality constraints: capture#1 of ?
+[ERROR]     lower bounds: java.lang.annotation.Annotation
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

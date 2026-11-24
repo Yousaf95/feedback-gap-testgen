@@ -1,0 +1,99 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.io.File;
+import java.security.SecurityException;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class SystemUtils_GenTest {
+
+    @BeforeEach
+    public void setUp() {
+        // Mock the System.getenv method to return specific values for testing
+        mockStatic(System.class);
+    }
+
+    @Test
+    public void testGetJavaHome() {
+        when(System.getenv("JAVA_HOME")).thenReturn("/mock/java/home");
+        assertEquals(new File("/mock/java/home"), SystemUtils.getJavaHome());
+    }
+
+    @Test
+    public void testGetUserNameWithDefaultValue() {
+        when(System.getenv("USER")).thenReturn(null);
+        assertEquals("defaultUser", SystemUtils.getUserName("defaultUser"));
+    }
+
+    @Test
+    public void testIsJavaVersionAtLeast() {
+        when(System.getProperty("java.specification.version")).thenReturn("17");
+        assertTrue(SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_17));
+    }
+
+    @Test
+    public void testIsJavaVersionAtMost() {
+        when(System.getProperty("java.specification.version")).thenReturn("17");
+        assertTrue(SystemUtils.isJavaVersionAtMost(JavaVersion.JAVA_17));
+    }
+
+    @Test
+    public void testGetEnvironmentVariableDefaultValue() {
+        when(System.getenv("NON_EXISTENT_VAR")).thenReturn(null);
+        assertEquals("defaultValue", SystemUtils.getEnvironmentVariable("NON_EXISTENT_VAR", "defaultValue"));
+    }
+
+    @Test
+    public void testGetHostNameWindows() {
+        when(System.getenv("COMPUTERNAME")).thenReturn("MockComputer");
+        assertEquals("MockComputer", SystemUtils.getHostName());
+    }
+
+    @Test
+    public void testGetHostNameUnix() {
+        when(System.getenv("HOSTNAME")).thenReturn("MockHost");
+        assertEquals("MockHost", SystemUtils.getHostName());
+    }
+
+    @Test
+    public void testGetJavaIoTmpDir() {
+        when(System.getProperty("java.io.tmpdir")).thenReturn("/mock/tmp/dir");
+        assertEquals(new File("/mock/tmp/dir"), SystemUtils.getJavaIoTmpDir());
+    }
+
+    @Test
+    public void testGetUserDir() {
+        when(System.getProperty("user.dir")).thenReturn("/mock/user/dir");
+        assertEquals(new File("/mock/user/dir"), SystemUtils.getUserDir());
+    }
+
+    @Test
+    public void testGetUserHome() {
+        when(System.getProperty("user.home")).thenReturn("/mock/user/home");
+        assertEquals(new File("/mock/user/home"), SystemUtils.getUserHome());
+    }
+
+    @Test
+    public void testIsJavaAwtHeadlessTrue() {
+        when(System.getenv("JAVA_AWT_HEADLESS")).thenReturn("true");
+        assertTrue(SystemUtils.isJavaAwtHeadless());
+    }
+
+    @Test
+    public void testIsJavaAwtHeadlessFalse() {
+        when(System.getenv("JAVA_AWT_HEADLESS")).thenReturn("false");
+        assertFalse(SystemUtils.isJavaAwtHeadless());
+    }
+
+    @Test
+    public void testGetUserNameSecurityException() {
+        doThrow(new SecurityException()).when(System.class).getenv(anyString());
+        assertEquals("", SystemUtils.getUserName(""));
+    }
+}
+```

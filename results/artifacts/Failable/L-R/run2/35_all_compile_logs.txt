@@ -1,0 +1,100 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[104,9] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[117,9] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[129,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[129,42] cannot find symbol
+  symbol:   variable List
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[130,9] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[104,9] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[117,9] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[129,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[129,42] cannot find symbol
+[ERROR]   symbol:   variable List
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[130,9] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[132,9] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[132,9] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[135,33] cannot find symbol
+  symbol:   method mapToInt(Integer::intValue)
+  location: variable failableStream of type org.apache.commons.lang3.stream.Streams.FailableStream<java.lang.Integer>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[135,33] cannot find symbol
+[ERROR]   symbol:   method mapToInt(Integer::intValue)
+[ERROR]   location: variable failableStream of type org.apache.commons.lang3.stream.Streams.FailableStream<java.lang.Integer>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[135,33] cannot find symbol
+  symbol:   method mapToInt((i)->i)
+  location: variable failableStream of type org.apache.commons.lang3.stream.Streams.FailableStream<java.lang.Integer>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[135,33] cannot find symbol
+[ERROR]   symbol:   method mapToInt((i)->i)
+[ERROR]   location: variable failableStream of type org.apache.commons.lang3.stream.Streams.FailableStream<java.lang.Integer>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

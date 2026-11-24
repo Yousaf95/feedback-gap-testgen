@@ -1,0 +1,29 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_withMatchingCharacters() {
+        assertTrue(CharSetUtils.containsAny("abc", "a"));
+    }
+
+    @Test
+    public void testCount_withMatchingCharacters() {
+        assertEquals(2, CharSetUtils.count("abac", "a"));
+    }
+
+    @Test
+    public void testSqueeze_withRepeatingCharactersInSet() {
+        assertEquals("ab", CharSetUtils.squeeze("aabbaa", "a"));
+    }
+
+    @Test
+    public void testCharSetUtilsConstructor() {
+        assertDoesNotThrow(CharSetUtils::new);
+    }
+}
+```

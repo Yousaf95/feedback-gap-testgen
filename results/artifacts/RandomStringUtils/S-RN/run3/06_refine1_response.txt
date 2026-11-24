@@ -1,0 +1,51 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Random;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithEmptyCharsArrayThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, new char[0]));
+    }
+
+    @Test
+    public void testRandomAlphabeticRange() {
+        String result = RandomStringUtils.randomAlphabetic(10);
+        assertTrue(result.matches("[a-zA-Z]+"));
+    }
+
+    @Test
+    public void testRandomAlphanumericRange() {
+        String result = RandomStringUtils.randomAlphanumeric(10);
+        assertTrue(result.matches("[a-zA-Z0-9]+"));
+    }
+
+    @Test
+    public void testRandomAsciiRange() {
+        String result = RandomStringUtils.randomAscii(10);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 127));
+    }
+
+    @Test
+    public void testRandomGraphRange() {
+        String result = RandomStringUtils.randomGraph(10);
+        assertTrue(result.chars().allMatch(c -> c > 32 && c < 127));
+    }
+
+    @Test
+    public void testRandomNumericRange() {
+        String result = RandomStringUtils.randomNumeric(10);
+        assertTrue(result.matches("[0-9]+"));
+    }
+
+    @Test
+    public void testRandomPrintRange() {
+        String result = RandomStringUtils.randomPrint(10);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 126));
+    }
+}
+```

@@ -1,0 +1,194 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[103,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,R,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+      (cannot infer type-variable(s) T,R,E
+        (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[127,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[134,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[140,86] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[142,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[148,86] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[150,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[103,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,R,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,R,E
+[ERROR]         (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[127,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[134,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[140,86] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[142,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[148,86] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[150,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[98,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,R,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+      (cannot infer type-variable(s) T,R,E
+        (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[104,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[98,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,R,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,R,E
+[ERROR]         (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[104,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[97,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,R,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+      (cannot infer type-variable(s) T,R,E
+        (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[103,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[97,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,R,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,R,E
+[ERROR]         (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[103,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[97,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,R,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+      (cannot infer type-variable(s) T,R,E
+        (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[103,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+    method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+      (cannot infer type-variable(s) T,U,E
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+      (cannot infer type-variable(s) T,E
+        (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[97,37] no suitable method found for apply(java.util.function.Function<java.lang.String,java.lang.Integer>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,R,E>apply(org.apache.commons.lang3.function.FailableBiFunction<T,U,R,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,R,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,R,E>apply(org.apache.commons.lang3.function.FailableFunction<T,R,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,R,E
+[ERROR]         (argument mismatch; java.util.function.Function<java.lang.String,java.lang.Integer> cannot be converted to org.apache.commons.lang3.function.FailableFunction<T,R,E>))
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[103,32] no suitable method found for test(java.util.function.Predicate<java.lang.String>,java.lang.String)
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,U,E>test(org.apache.commons.lang3.function.FailableBiPredicate<T,U,E>,T,U) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,U,E
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.function.Failable.<T,E>test(org.apache.commons.lang3.function.FailablePredicate<T,E>,T) is not applicable
+[ERROR]       (cannot infer type-variable(s) T,E
+[ERROR]         (argument mismatch; java.util.function.Predicate<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailablePredicate<T,E>))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

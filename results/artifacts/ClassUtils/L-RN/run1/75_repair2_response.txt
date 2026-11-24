@@ -1,0 +1,71 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    void testGetComponentType_withNonArrayClass() {
+        assertEquals(null, ClassUtils.getComponentType((Class<Integer[]>) null));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortCanonicalName((Object) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetShortClassName_withNullObject_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortClassName((Object) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetSimpleName_withNullClass_3() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getSimpleName((Class<?>) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveTypeArray() {
+        assertEquals("[I", ClassUtils.getCanonicalName(int[].class));
+    }
+
+    @Test
+    void testGetShortClassName_withPrimitiveArrayType() {
+        assertEquals("int[]", ClassUtils.getShortClassName(int[].class));
+    }
+
+    @Test
+    void testGetComponentType_withValidArrayClass() {
+        assertEquals(Integer.class, ClassUtils.getComponentType((Class<Integer[]>) new Integer[0].getClass()));
+    }
+
+    @Test
+    void testGetPackageName_withObjectClass_2() {
+        assertEquals("java.lang", ClassUtils.getPackageName(Object.class));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withNullClass_3() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetAbbreviatedName_withLengthHintEqualToClassNameLength_2() {
+        assertEquals("java.lang.String", ClassUtils.getAbbreviatedName(String.class.getName(), 17));
+    }
+
+    @Test
+    void testGetAllInterfaces_withInterfaceClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(Comparable.class);
+        assertTrue(interfaces.isEmpty());
+    }
+}
+```

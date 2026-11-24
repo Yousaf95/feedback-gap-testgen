@@ -1,0 +1,83 @@
+[ERROR] Tests run: 88, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.320 s <<< FAILURE! -- in org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testToBoolean_StringIgnoreCaseFalse -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.IllegalArgumentException: The String did not match either specified value
+	at org.apache.commons.lang3.BooleanUtils.toBoolean(BooleanUtils.java:542)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testToBoolean_StringIgnoreCaseFalse(BooleanUtils_GenTest.java:645)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testOr_BooleanArray_withNulls -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testOr_BooleanArray_withNulls(BooleanUtils_GenTest.java:590)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: array
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1278)
+	at org.apache.commons.lang3.BooleanUtils.or(BooleanUtils.java:368)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.lambda$testOr_BooleanArray_withNulls$3(BooleanUtils_GenTest.java:590)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testAnd_BooleanArray_withNulls -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testAnd_BooleanArray_withNulls(BooleanUtils_GenTest.java:585)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: array
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.ObjectUtils.requireNonEmpty(ObjectUtils.java:1278)
+	at org.apache.commons.lang3.BooleanUtils.and(BooleanUtils.java:133)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.lambda$testAnd_BooleanArray_withNulls$2(BooleanUtils_GenTest.java:585)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testToBoolean_StringIgnoreCaseTrue -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: The String did not match either specified value
+	at org.apache.commons.lang3.BooleanUtils.toBoolean(BooleanUtils.java:542)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testToBoolean_StringIgnoreCaseTrue(BooleanUtils_GenTest.java:640)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.BooleanUtils_GenTest.testToBoolean_IntegerWithFalseValueNull -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: The Integer did not match either specified value
+	at org.apache.commons.lang3.BooleanUtils.toBoolean(BooleanUtils.java:477)
+	at org.apache.commons.lang3.BooleanUtils_GenTest.testToBoolean_IntegerWithFalseValueNull(BooleanUtils_GenTest.java:600)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   BooleanUtils_GenTest.testAnd_BooleanArray_withNulls:585 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+[ERROR]   BooleanUtils_GenTest.testOr_BooleanArray_withNulls:590 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+[ERROR] Errors: 
+[ERROR]   BooleanUtils_GenTest.testToBoolean_IntegerWithFalseValueNull:600 » IllegalArgument The Integer did not match either specified value
+[ERROR]   BooleanUtils_GenTest.testToBoolean_StringIgnoreCaseFalse:645 » IllegalArgument The String did not match either specified value
+[ERROR]   BooleanUtils_GenTest.testToBoolean_StringIgnoreCaseTrue:640 » IllegalArgument The String did not match either specified value
+[ERROR] Tests run: 88, Failures: 2, Errors: 3, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w13/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

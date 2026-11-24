@@ -1,0 +1,40 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClassUtils_GenTest {
+
+    @org.junit.jupiter.api.Test
+    public void testComparator() {
+        Comparator<Class<?>> comparator = ClassUtils.comparator();
+        assertNotNull(comparator);
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassesToClassNamesEmptyList() {
+        List<Class<?>> classes = new ArrayList<>();
+        List<String> result = ClassUtils.convertClassesToClassNames(classes);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testConvertClassNamesToClassesEmptyList() {
+        List<String> classNames = new ArrayList<>();
+        List<Class<?>> result = ClassUtils.convertClassNamesToClasses(classNames);
+        assertNotNull(result);
+        assertTrue(result.isEmpty());
+    }
+
+    @org.junit.jupiter.api.Test
+    public void testGetAbbreviatedNameWithNull() {
+        String result = ClassUtils.getAbbreviatedName(null, 10);
+        assertEquals("", result);
+    }
+}
+```

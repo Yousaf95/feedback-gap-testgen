@@ -1,0 +1,19 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[215,37] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ?>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#1 of ?> cannot be converted to java.lang.Class<T[]>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[215,37] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ?>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#1 of ?> cannot be converted to java.lang.Class<T[]>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

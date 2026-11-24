@@ -1,0 +1,506 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class ExceptionUtils_GenTest for ExceptionUtils currently achieves 78.7% line coverage and 70.0% branch coverage of ExceptionUtils.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+  132:     public static <T extends RuntimeException> T asRuntimeException(final Throwable throwable) {
+  133:         // claim that the typeErasure invocation throws a RuntimeException
+  134:         return ExceptionUtils.<T, RuntimeException>eraseType(throwable);  // <-- NOT COVERED
+  135:     }
+  136: 
+    ...
+  217:             return null;
+  218:         }
+  219:         if (methodNames == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  220:             final Throwable cause = throwable.getCause();
+  221:             if (cause != null) {
+    ...
+  236:     // TODO: Remove in Lang 4
+  237:     private static Throwable getCauseUsingMethodName(final Throwable throwable, final String methodName) {
+  238:         if (methodName != null) {  // <-- PARTIAL (1 of 2 branches missed)
+  239:             Method method = null;
+  240:             try {
+    ...
+  244:             }
+  245: 
+  246:             if (method != null && Throwable.class.isAssignableFrom(method.getReturnType())) {  // <-- PARTIAL (1 of 4 branches missed)
+  247:                 try {
+  248:                     return (Throwable) method.invoke(throwable);
+  249:                 } catch (final IllegalAccessException | IllegalArgumentException | InvocationTargetException ignored) {  // <-- NOT COVERED
+  250:                     // exception ignored
+  251:                 }
+    ...
+  323:     public static String getRootCauseMessage(final Throwable throwable) {
+  324:         final Throwable root = getRootCause(throwable);
+  325:         return getMessage(root == null ? throwable : root);  // <-- PARTIAL (1 of 2 branches missed)
+  326:     }
+  327: 
+    ...
+  511:     public static List<Throwable> getThrowableList(Throwable throwable) {
+  512:         final List<Throwable> list = new ArrayList<>();
+  513:         while (throwable != null && !list.contains(throwable)) {  // <-- PARTIAL (1 of 4 branches missed)
+  514:             list.add(throwable);
+  515:             throwable = throwable.getCause();
+    ...
+  556:     public static boolean hasCause(Throwable chain,
+  557:             final Class<? extends Throwable> type) {
+  558:         if (chain instanceof UndeclaredThrowableException) {  // <-- NOT COVERED
+  559:             chain = chain.getCause();  // <-- NOT COVERED
+  560:         }
+  561:         return type.isInstance(chain);  // <-- NOT COVERED
+  562:     }
+  563: 
+    ...
+  574:      */
+  575:     private static int indexOf(final Throwable throwable, final Class<? extends Throwable> type, int fromIndex, final boolean subclass) {
+  576:         if (throwable == null || type == null) {  // <-- PARTIAL (2 of 4 branches missed)
+  577:             return NOT_FOUND;  // <-- NOT COVERED
+  578:         }
+  579:         if (fromIndex < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  580:             fromIndex = 0;  // <-- NOT COVERED
+  581:         }
+  582:         final Throwable[] throwables = getThrowables(throwable);
+  583:         if (fromIndex >= throwables.length) {  // <-- PARTIAL (1 of 2 branches missed)
+  584:             return NOT_FOUND;  // <-- NOT COVERED
+  585:         }
+  586:         if (subclass) {
+  587:             for (int i = fromIndex; i < throwables.length; i++) {  // <-- PARTIAL (1 of 2 branches missed)
+  588:                 if (type.isAssignableFrom(throwables[i].getClass())) {  // <-- PARTIAL (1 of 2 branches missed)
+  589:                     return i;
+  590:                 }
+  591:             }
+  592:         } else {
+  593:             for (int i = fromIndex; i < throwables.length; i++) {  // <-- PARTIAL (1 of 2 branches missed)
+  594:                 if (type.equals(throwables[i].getClass())) {
+  595:                     return i;
+    ...
+  597:             }
+  598:         }
+  599:         return NOT_FOUND;  // <-- NOT COVERED
+  600:     }
+  601: 
+    ...
+  638:      */
+  639:     public static int indexOfThrowable(final Throwable throwable, final Class<? extends Throwable> clazz, final int fromIndex) {
+  640:         return indexOf(throwable, clazz, fromIndex, false);  // <-- NOT COVERED
+  641:     }
+  642: 
+    ...
+  681:      */
+  682:     public static int indexOfType(final Throwable throwable, final Class<? extends Throwable> type, final int fromIndex) {
+  683:         return indexOf(throwable, type, fromIndex, true);  // <-- NOT COVERED
+  684:     }
+  685: 
+    ...
+  693:      */
+  694:     public static boolean isChecked(final Throwable throwable) {
+  695:         return throwable != null && !(throwable instanceof Error) && !(throwable instanceof RuntimeException);  // <-- PARTIAL (3 of 6 branches missed)
+  696:     }
+  697: 
+    ...
+  705:      */
+  706:     public static boolean isUnchecked(final Throwable throwable) {
+  707:         return throwable != null && (throwable instanceof Error || throwable instanceof RuntimeException);  // <-- PARTIAL (1 of 6 branches missed)
+  708:     }
+  709: 
+    ...
+  751:     @SuppressWarnings("resource")
+  752:     public static void printRootCauseStackTrace(final Throwable throwable, final PrintStream printStream) {
+  753:         if (throwable == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  754:             return;
+  755:         }
+  756:         Objects.requireNonNull(printStream, "printStream");  // <-- NOT COVERED
+  757:         getRootCauseStackTraceList(throwable).forEach(printStream::println);  // <-- NOT COVERED
+  758:         printStream.flush();  // <-- NOT COVERED
+  759:     }  // <-- NOT COVERED
+  760: 
+  761:     /**
+    ...
+  780:     @SuppressWarnings("resource")
+  781:     public static void printRootCauseStackTrace(final Throwable throwable, final PrintWriter printWriter) {
+  782:         if (throwable == null) {  // <-- NOT COVERED
+  783:             return;  // <-- NOT COVERED
+  784:         }
+  785:         Objects.requireNonNull(printWriter, "printWriter");  // <-- NOT COVERED
+  786:         getRootCauseStackTraceList(throwable).forEach(printWriter::println);  // <-- NOT COVERED
+  787:         printWriter.flush();  // <-- NOT COVERED
+  788:     }  // <-- NOT COVERED
+  789: 
+  790:     /**
+    ...
+  801:         int causeFrameIndex = causeFrames.size() - 1;
+  802:         int wrapperFrameIndex = wrapperFrames.size() - 1;
+  803:         while (causeFrameIndex >= 0 && wrapperFrameIndex >= 0) {  // <-- PARTIAL (1 of 4 branches missed)
+  804:             // Remove the frame from the cause trace if it is the same
+  805:             // as in the wrapper trace
+    ...
+  876:     public static <T> T rethrow(final Throwable throwable) {
+  877:         // claim that the typeErasure invocation throws a RuntimeException
+  878:         return ExceptionUtils.<T, RuntimeException>eraseType(throwable);  // <-- NOT COVERED
+  879:     }
+  880: 
+    ...
+  914:      */
+  915:     private static <T extends Throwable> T throwableOf(final Throwable throwable, final Class<T> type, int fromIndex, final boolean subclass) {
+  916:         if (throwable == null || type == null) {  // <-- PARTIAL (2 of 4 branches missed)
+  917:             return null;  // <-- NOT COVERED
+  918:         }
+  919:         if (fromIndex < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  920:             fromIndex = 0;  // <-- NOT COVERED
+  921:         }
+  922:         final Throwable[] throwables = getThrowables(throwable);
+  923:         if (fromIndex >= throwables.length) {  // <-- PARTIAL (1 of 2 branches missed)
+  924:             return null;  // <-- NOT COVERED
+  925:         }
+  926:         if (subclass) {
+  927:             for (int i = fromIndex; i < throwables.length; i++) {  // <-- PARTIAL (1 of 2 branches missed)
+  928:                 if (type.isAssignableFrom(throwables[i].getClass())) {  // <-- PARTIAL (1 of 2 branches missed)
+  929:                     return type.cast(throwables[i]);
+  930:                 }
+  931:             }
+  932:         } else {
+  933:             for (int i = fromIndex; i < throwables.length; i++) {  // <-- PARTIAL (1 of 2 branches missed)
+  934:                 if (type.equals(throwables[i].getClass())) {
+  935:                     return type.cast(throwables[i]);
+    ...
+  937:             }
+  938:         }
+  939:         return null;  // <-- NOT COVERED
+  940:     }
+  941: 
+    ...
+  982:      */
+  983:     public static <T extends Throwable> T throwableOfThrowable(final Throwable throwable, final Class<T> clazz, final int fromIndex) {
+  984:         return throwableOf(throwable, clazz, fromIndex, false);  // <-- NOT COVERED
+  985:     }
+  986: 
+    ...
+ 1027:      */
+ 1028:     public static <T extends Throwable> T throwableOfType(final Throwable throwable, final Class<T> type, final int fromIndex) {
+ 1029:         return throwableOf(throwable, type, fromIndex, true);  // <-- NOT COVERED
+ 1030:     }
+ 1031: 
+    ...
+ 1041:     @Deprecated
+ 1042:     public static <T> T throwUnchecked(final T throwable) {
+ 1043:         if (throwable instanceof RuntimeException) {  // <-- NOT COVERED
+ 1044:             throw (RuntimeException) throwable;  // <-- NOT COVERED
+ 1045:         }
+ 1046:         if (throwable instanceof Error) {  // <-- NOT COVERED
+ 1047:             throw (Error) throwable;  // <-- NOT COVERED
+ 1048:         }
+ 1049:         return throwable;  // <-- NOT COVERED
+ 1050:     }
+ 1051: 
+    ...
+ 1060:     public static <T extends Throwable> T throwUnchecked(final T throwable) {
+ 1061:         if (isUnchecked(throwable)) {
+ 1062:             throw asRuntimeException(throwable);  // <-- NOT COVERED
+ 1063:         }
+ 1064:         return throwable;
+    ...
+ 1098:      */
+ 1099:     @Deprecated
+ 1100:     public ExceptionUtils() {  // <-- NOT COVERED
+ 1101:     }  // <-- NOT COVERED
+ 1102: }
+
+Existing test methods (do not duplicate them):
+testForEach_withNullThrowable, testGetCause_withNullThrowable, testGetDefaultCauseMethodNames, testGetMessage_withNullThrowable, testGetRootCause_withNestedExceptions, testGetRootCauseMessage_withNullThrowable, testGetRootCauseStackTrace_withNullThrowable, testGetStackFrames_withNullThrowable, testGetStackTrace_withNullThrowable, testGetThrowableCount_withNestedExceptions, testGetThrowableList_withNullThrowable, testIndexOfThrowable_withExactMatch, testIndexOfType_withSubclassMatch, testIsChecked_withRuntimeException, testIsUnchecked_withError, testPrintRootCauseStackTrace_withNullThrowable, testRemoveCommonFrames_withIdenticalStackTraces, testStream_withNullThrowable, testThrowableOfThrowable_withExactMatch, testThrowableOfType_withSubclassMatch, testThrowUnchecked_withRuntimeException, testWrapAndThrow_withCheckedException, testAsRuntimeException_withNullPointerException, testGetCause_withNullMethodNamesAndNonNullThrowableWithCause, testGetCause_withNullMethodNamesAndNonNullThrowableWithoutCause, testGetMessage_withNonNullThrowable, testGetRootCauseStackTraceList_withNonNullThrowable, testGetStackFrameList_withNonNullThrowable, testGetStackFrames_withNonNullThrowable
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class ExceptionUtils_GenTest (package org.apache.commons.lang3.exception) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.exception.ExceptionUtils):
+```java
+package org.apache.commons.lang3.exception;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.StringTokenizer;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ClassUtils;
+import org.apache.commons.lang3.StringUtils;
+
+/** Provides utilities for manipulating and examining {@link Throwable} objects. */
+public class ExceptionUtils {
+    private static final String[] CAUSE_METHOD_NAMES = {
+        "getCause",
+        "getNextException",
+        "getTargetException",
+        "getException",
+        "getSourceException",
+        "getRootCause",
+        "getCausedByException",
+        "getNested",
+        "getLinkedException",
+        "getNestedException",
+        "getLinkedCause",
+        "getThrowable",
+    };
+    private static final int NOT_FOUND = -1;
+    /** Used when printing stack frames to denote the start of a wrapped exception. */
+    static final String WRAPPED_MARKER = " [wrapped] ";
+    /** Use to throws a checked exception without adding the exception to the throws clause of the calling method. */
+    public static <T extends RuntimeException> T asRuntimeException(final Throwable throwable) {
+        // claim that the typeErasure invocation throws a RuntimeException
+        return ExceptionUtils.<T, RuntimeException>eraseType(throwable);
+    }
+    /** Performs an action for each Throwable causes of the given Throwable. */
+    public static void forEach(final Throwable throwable, final Consumer<Throwable> consumer) {
+        stream(throwable).forEach(consumer);
+    }
+    /** Introspects the {@link Throwable} to obtain the cause. */
+    @Deprecated
+    public static Throwable getCause(final Throwable throwable) {
+        return getCause(throwable, null);
+    }
+    /** Introspects the {@link Throwable} to obtain the cause. */
+    @Deprecated
+    public static Throwable getCause(final Throwable throwable, String[] methodNames) {
+        if (throwable == null) {
+            return null;
+        }
+        if (methodNames == null) {
+            final Throwable cause = throwable.getCause();
+            if (cause != null) {
+                return cause;
+            }
+            methodNames = CAUSE_METHOD_NAMES;
+        }
+        return Stream.of(methodNames).map(m -> getCauseUsingMethodName(throwable, m)).filter(Objects::nonNull).findFirst().orElse(null);
+    }
+    /** Gets the default names used when searching for the cause of an exception. */
+    @Deprecated
+    public static String[] getDefaultCauseMethodNames() {
+        return ArrayUtils.clone(CAUSE_METHOD_NAMES);
+    }
+    /** Gets a short message summarizing the exception. */
+    public static String getMessage(final Throwable th) {
+        if (th == null) {
+            return StringUtils.EMPTY;
+        }
+        final String clsName = ClassUtils.getShortClassName(th, null);
+        return clsName + ": " + StringUtils.defaultString(th.getMessage());
+    }
+    /** Introspects the {@link Throwable} to obtain the root cause. */
+    public static Throwable getRootCause(final Throwable throwable) {
+        final List<Throwable> list = getThrowableList(throwable);
+        return list.isEmpty() ? null : list.get(list.size() - 1);
+    }
+    /** Gets a short message summarizing the root cause exception. */
+    public static String getRootCauseMessage(final Throwable throwable) {
+        final Throwable root = getRootCause(throwable);
+        return getMessage(root == null ? throwable : root);
+    }
+    /** Gets a compact stack trace for the root cause of the supplied {@link Throwable}. */
+    public static String[] getRootCauseStackTrace(final Throwable throwable) {
+        return getRootCauseStackTraceList(throwable).toArray(ArrayUtils.EMPTY_STRING_ARRAY);
+    }
+    /** Gets a compact stack trace for the root cause of the supplied {@link Throwable}. */
+    public static List<String> getRootCauseStackTraceList(final Throwable throwable) {
+        if (throwable == null) {
+            return Collections.emptyList();
+        }
+        final Throwable[] throwables = getThrowables(throwable);
+        final int count = throwables.length;
+        final List<String> frames = new ArrayList<>();
+        List<String> nextTrace = getStackFrameList(throwables[count - 1]);
+        for (int i = count; --i >= 0;) {
+            final List<String> trace = nextTrace;
+            if (i != 0) {
+                nextTrace = getStackFrameList(throwables[i - 1]);
+                removeCommonFrames(trace, nextTrace);
+            }
+            if (i == count - 1) {
+                frames.add(throwables[i].toString());
+            } else {
+                frames.add(WRAPPED_MARKER + throwables[i].toString());
+            }
+            frames.addAll(trace);
+        }
+        return frames;
+    }
+    /** Gets the stack trace associated with the specified {@link Throwable} object, decomposing it into a list of stack frames. */
+    public static String[] getStackFrames(final Throwable throwable) {
+        if (throwable == null) {
+            return ArrayUtils.EMPTY_STRING_ARRAY;
+        }
+        return getStackFrames(getStackTrace(throwable));
+    }
+    /** Gets the stack trace from a Throwable as a String. */
+    public static String getStackTrace(final Throwable throwable) {
+        if (throwable == null) {
+            return StringUtils.EMPTY;
+        }
+        final StringWriter sw = new StringWriter();
+        throwable.printStackTrace(new PrintWriter(sw, true));
+        return sw.toString();
+    }
+    /** Gets a count of the number of {@link Throwable} objects in the exception chain. */
+    public static int getThrowableCount(final Throwable throwable) {
+        return getThrowableList(throwable).size();
+    }
+    /** Gets the list of {@link Throwable} objects in the exception chain. */
+    public static List<Throwable> getThrowableList(Throwable throwable) {
+        final List<Throwable> list = new ArrayList<>();
+        while (throwable != null && !list.contains(throwable)) {
+            list.add(throwable);
+            throwable = throwable.getCause();
+        }
+        return list;
+    }
+    /** Gets the list of {@link Throwable} objects in the exception chain. */
+    public static Throwable[] getThrowables(final Throwable throwable) {
+        return getThrowableList(throwable).toArray(ArrayUtils.EMPTY_THROWABLE_ARRAY);
+    }
+    /** Tests if the throwable's causal chain have an immediate or wrapped exception of the given type? */
+    public static boolean hasCause(Throwable chain,
+            final Class<? extends Throwable> type) {
+        if (chain instanceof UndeclaredThrowableException) {
+            chain = chain.getCause();
+        }
+        return type.isInstance(chain);
+    }
+    /** Returns the (zero-based) index of the first {@link Throwable} that matches the specified class (exactly) in the exception chain. */
+    public static int indexOfThrowable(final Throwable throwable, final Class<? extends Throwable> clazz) {
+        return indexOf(throwable, clazz, 0, false);
+    }
+    /** Returns the (zero-based) index of the first {@link Throwable} that matches the specified type in the exception chain from a specified index. */
+    public static int indexOfThrowable(final Throwable throwable, final Class<? extends Throwable> clazz, final int fromIndex) {
+        return indexOf(throwable, clazz, fromIndex, false);
+    }
+    /** Returns the (zero-based) index of the first {@link Throwable} that matches the specified class or subclass in the exception chain. */
+    public static int indexOfType(final Throwable throwable, final Class<? extends Throwable> type) {
+        return indexOf(throwable, type, 0, true);
+    }
+    /** Returns the (zero-based) index of the first {@link Throwable} that matches the specified type in the exception chain from a specified index. */
+    public static int indexOfType(final Throwable throwable, final Class<? extends Throwable> type, final int fromIndex) {
+        return indexOf(throwable, type, fromIndex, true);
+    }
+    /** Checks if a throwable represents a checked exception */
+    public static boolean isChecked(final Throwable throwable) {
+        return throwable != null && !(throwable instanceof Error) && !(throwable instanceof RuntimeException);
+    }
+    /** Checks if a throwable represents an unchecked exception */
+    public static boolean isUnchecked(final Throwable throwable) {
+        return throwable != null && (throwable instanceof Error || throwable instanceof RuntimeException);
+    }
+    /** Prints a compact stack trace for the root cause of a throwable to {@code System.err}. */
+    public static void printRootCauseStackTrace(final Throwable throwable) {
+        printRootCauseStackTrace(throwable, System.err);
+    }
+    /** Prints a compact stack trace for the root cause of a throwable. */
+    @SuppressWarnings("resource")
+    public static void printRootCauseStackTrace(final Throwable throwable, final PrintStream printStream) {
+        if (throwable == null) {
+            return;
+        }
+        Objects.requireNonNull(printStream, "printStream");
+        getRootCauseStackTraceList(throwable).forEach(printStream::println);
+        printStream.flush();
+    }
+    /** Prints a compact stack trace for the root cause of a throwable. */
+    @SuppressWarnings("resource")
+    public static void printRootCauseStackTrace(final Throwable throwable, final PrintWriter printWriter) {
+        if (throwable == null) {
+            return;
+        }
+        Objects.requireNonNull(printWriter, "printWriter");
+        getRootCauseStackTraceList(throwable).forEach(printWriter::println);
+        printWriter.flush();
+    }
+    /** Removes common frames from the cause trace given the two stack traces. */
+    public static void removeCommonFrames(final List<String> causeFrames, final List<String> wrapperFrames) {
+        Objects.requireNonNull(causeFrames, "causeFrames");
+        Objects.requireNonNull(wrapperFrames, "wrapperFrames");
+        int causeFrameIndex = causeFrames.size() - 1;
+        int wrapperFrameIndex = wrapperFrames.size() - 1;
+        while (causeFrameIndex >= 0 && wrapperFrameIndex >= 0) {
+            // Remove the frame from the cause trace if it is the same
+            // as in the wrapper trace
+            final String causeFrame = causeFrames.get(causeFrameIndex);
+            final String wrapperFrame = wrapperFrames.get(wrapperFrameIndex);
+            if (causeFrame.equals(wrapperFrame)) {
+                causeFrames.remove(causeFrameIndex);
+            }
+            causeFrameIndex--;
+            wrapperFrameIndex--;
+        }
+    }
+    /** Use to throw a checked exception without adding the exception to the throws clause of the calling method. */
+    @Deprecated
+    public static <T> T rethrow(final Throwable throwable) {
+        // claim that the typeErasure invocation throws a RuntimeException
+        return ExceptionUtils.<T, RuntimeException>eraseType(throwable);
+    }
+    /** Streams causes of a Throwable. */
+    public static Stream<Throwable> stream(final Throwable throwable) {
+        // No point building a custom Iterable as it would keep track of visited elements to avoid infinite loops
+        return getThrowableList(throwable).stream();
+    }
+    /** Returns the first {@link Throwable} that matches the specified class (exactly) in the exception chain. */
+    public static <T extends Throwable> T throwableOfThrowable(final Throwable throwable, final Class<T> clazz) {
+        return throwableOf(throwable, clazz, 0, false);
+    }
+    /** Returns the first {@link Throwable} that matches the specified type in the exception chain from a specified index. */
+    public static <T extends Throwable> T throwableOfThrowable(final Throwable throwable, final Class<T> clazz, final int fromIndex) {
+        return throwableOf(throwable, clazz, fromIndex, false);
+    }
+    /** Returns the throwable of the first {@link Throwable} that matches the specified class or subclass in the exception chain. */
+    public static <T extends Throwable> T throwableOfType(final Throwable throwable, final Class<T> type) {
+        return throwableOf(throwable, type, 0, true);
+    }
+    /** Returns the first {@link Throwable} that matches the specified type in the exception chain from a specified index. */
+    public static <T extends Throwable> T throwableOfType(final Throwable throwable, final Class<T> type, final int fromIndex) {
+        return throwableOf(throwable, type, fromIndex, true);
+    }
+    /** Tests whether the specified {@link Throwable} is unchecked and throws it if so. */
+    @Deprecated
+    public static <T> T throwUnchecked(final T throwable) {
+        if (throwable instanceof RuntimeException) {
+            throw (RuntimeException) throwable;
+        }
+        if (throwable instanceof Error) {
+            throw (Error) throwable;
+        }
+        return throwable;
+    }
+    /** Tests whether the specified {@link Throwable} is unchecked and throws it if so. */
+    public static <T extends Throwable> T throwUnchecked(final T throwable) {
+        if (isUnchecked(throwable)) {
+            throw asRuntimeException(throwable);
+        }
+        return throwable;
+    }
+    /** Throws a checked exception without adding the exception to the throws clause of the calling method. */
+    public static <R> R wrapAndThrow(final Throwable throwable) {
+        throw new UndeclaredThrowableException(throwUnchecked(throwable));
+    }
+    /** Public constructor allows an instance of {@link ExceptionUtils} to be created, although that is not normally necessary. */
+    @Deprecated
+    public ExceptionUtils() {
+    }
+    // non-public helper methods (signatures only)
+    @SuppressWarnings("unchecked")
+    private static <R, T extends Throwable> R eraseType(final Throwable throwable) throws T;
+    private static Throwable getCauseUsingMethodName(final Throwable throwable, final String methodName);
+    static List<String> getStackFrameList(final Throwable throwable);
+    static String[] getStackFrames(final String stackTrace);
+    private static int indexOf(final Throwable throwable, final Class<? extends Throwable> type, int fromIndex, final boolean subclass);
+    private static <T extends Throwable> T throwableOf(final Throwable throwable, final Class<T> type, int fromIndex, final boolean subclass);
+}
+```

@@ -1,0 +1,424 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class Failable_GenTest for Failable currently achieves 41.8% line coverage and 50.0% branch coverage of Failable.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+   83:     public static <T, U, E extends Throwable> void accept(final FailableBiConsumer<T, U, E> consumer, final T object1,
+   84:         final U object2) {
+   85:         run(() -> consumer.accept(object1, object2));  // <-- NOT COVERED
+   86:     }  // <-- NOT COVERED
+   87: 
+   88:     /**
+    ...
+  106:      */
+  107:     public static <E extends Throwable> void accept(final FailableDoubleConsumer<E> consumer, final double value) {
+  108:         run(() -> consumer.accept(value));  // <-- NOT COVERED
+  109:     }  // <-- NOT COVERED
+  110: 
+  111:     /**
+    ...
+  117:      */
+  118:     public static <E extends Throwable> void accept(final FailableIntConsumer<E> consumer, final int value) {
+  119:         run(() -> consumer.accept(value));  // <-- NOT COVERED
+  120:     }  // <-- NOT COVERED
+  121: 
+  122:     /**
+    ...
+  128:      */
+  129:     public static <E extends Throwable> void accept(final FailableLongConsumer<E> consumer, final long value) {
+  130:         run(() -> consumer.accept(value));  // <-- NOT COVERED
+  131:     }  // <-- NOT COVERED
+  132: 
+  133:     /**
+    ...
+  145:     public static <T, U, R, E extends Throwable> R apply(final FailableBiFunction<T, U, R, E> function, final T input1,
+  146:         final U input2) {
+  147:         return get(() -> function.apply(input1, input2));  // <-- NOT COVERED
+  148:     }
+  149: 
+    ...
+  173:     public static <E extends Throwable> double applyAsDouble(final FailableDoubleBinaryOperator<E> function,
+  174:         final double left, final double right) {
+  175:         return getAsDouble(() -> function.applyAsDouble(left, right));  // <-- NOT COVERED
+  176:     }
+  177: 
+    ...
+  185:      */
+  186:     public static <T, U> BiConsumer<T, U> asBiConsumer(final FailableBiConsumer<T, U, ?> consumer) {
+  187:         return (input1, input2) -> accept(consumer, input1, input2);  // <-- NOT COVERED
+  188:     }
+  189: 
+    ...
+  198:      */
+  199:     public static <T, U, R> BiFunction<T, U, R> asBiFunction(final FailableBiFunction<T, U, R, ?> function) {
+  200:         return (input1, input2) -> apply(function, input1, input2);  // <-- NOT COVERED
+  201:     }
+  202: 
+    ...
+  210:      */
+  211:     public static <T, U> BiPredicate<T, U> asBiPredicate(final FailableBiPredicate<T, U, ?> predicate) {
+  212:         return (input1, input2) -> test(predicate, input1, input2);  // <-- NOT COVERED
+  213:     }
+  214: 
+    ...
+  221:      */
+  222:     public static <V> Callable<V> asCallable(final FailableCallable<V, ?> callable) {
+  223:         return () -> call(callable);  // <-- NOT COVERED
+  224:     }
+  225: 
+    ...
+  303:             return supplier.get();
+  304:         } catch (final Throwable t) {
+  305:             throw rethrow(t);  // <-- NOT COVERED
+  306:         }
+  307:     }
+    ...
+  317:         try {
+  318:             return supplier.getAsBoolean();
+  319:         } catch (final Throwable t) {  // <-- NOT COVERED
+  320:             throw rethrow(t);  // <-- NOT COVERED
+  321:         }
+  322:     }
+    ...
+  331:     public static <E extends Throwable> double getAsDouble(final FailableDoubleSupplier<E> supplier) {
+  332:         try {
+  333:             return supplier.getAsDouble();  // <-- NOT COVERED
+  334:         } catch (final Throwable t) {  // <-- NOT COVERED
+  335:             throw rethrow(t);  // <-- NOT COVERED
+  336:         }
+  337:     }
+    ...
+  346:     public static <E extends Throwable> int getAsInt(final FailableIntSupplier<E> supplier) {
+  347:         try {
+  348:             return supplier.getAsInt();  // <-- NOT COVERED
+  349:         } catch (final Throwable t) {  // <-- NOT COVERED
+  350:             throw rethrow(t);  // <-- NOT COVERED
+  351:         }
+  352:     }
+    ...
+  361:     public static <E extends Throwable> long getAsLong(final FailableLongSupplier<E> supplier) {
+  362:         try {
+  363:             return supplier.getAsLong();  // <-- NOT COVERED
+  364:         } catch (final Throwable t) {  // <-- NOT COVERED
+  365:             throw rethrow(t);  // <-- NOT COVERED
+  366:         }
+  367:     }
+    ...
+  376:     public static <E extends Throwable> short getAsShort(final FailableShortSupplier<E> supplier) {
+  377:         try {
+  378:             return supplier.getAsShort();  // <-- NOT COVERED
+  379:         } catch (final Throwable t) {  // <-- NOT COVERED
+  380:             throw rethrow(t);  // <-- NOT COVERED
+  381:         }
+  382:     }
+    ...
+  410:         Objects.requireNonNull(throwable, "throwable");
+  411:         ExceptionUtils.throwUnchecked(throwable);
+  412:         if (throwable instanceof IOException) {  // <-- PARTIAL (1 of 2 branches missed)
+  413:             throw new UncheckedIOException((IOException) throwable);
+  414:         }
+  415:         throw new UndeclaredThrowableException(throwable);  // <-- NOT COVERED
+  416:     }
+  417: 
+    ...
+  426:             runnable.run();
+  427:         } catch (final Throwable t) {
+  428:             throw rethrow(t);  // <-- NOT COVERED
+  429:         }
+  430:     }
+    ...
+  443:      */
+  444:     public static <E> FailableStream<E> stream(final Collection<E> collection) {
+  445:         return new FailableStream<>(collection.stream());  // <-- NOT COVERED
+  446:     }
+  447: 
+    ...
+  457:      */
+  458:     public static <T> FailableStream<T> stream(final Stream<T> stream) {
+  459:         return new FailableStream<>(stream);  // <-- NOT COVERED
+  460:     }
+  461: 
+    ...
+  473:     public static <T, U, E extends Throwable> boolean test(final FailableBiPredicate<T, U, E> predicate,
+  474:         final T object1, final U object2) {
+  475:         return getAsBoolean(() -> predicate.test(object1, object2));  // <-- NOT COVERED
+  476:     }
+  477: 
+    ...
+  513:         final FailableRunnable<? extends Throwable>... resources) {
+  514:         final FailableConsumer<Throwable, ? extends Throwable> actualErrorHandler;
+  515:         if (errorHandler == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  516:             actualErrorHandler = Failable::rethrow;  // <-- NOT COVERED
+  517:         } else {
+  518:             actualErrorHandler = errorHandler;
+    ...
+  522:         try {
+  523:             action.run();
+  524:         } catch (final Throwable t) {  // <-- NOT COVERED
+  525:             th = t;  // <-- NOT COVERED
+  526:         }
+  527:         if (resources != null) {  // <-- PARTIAL (1 of 2 branches missed)
+  528:             for (final FailableRunnable<?> runnable : resources) {
+  529:                 try {
+  530:                     runnable.run();
+  531:                 } catch (final Throwable t) {  // <-- NOT COVERED
+  532:                     if (th == null) {  // <-- NOT COVERED
+  533:                         th = t;  // <-- NOT COVERED
+  534:                     }
+  535:                 }
+  536:             }
+  537:         }
+  538:         if (th != null) {  // <-- PARTIAL (1 of 2 branches missed)
+  539:             try {
+  540:                 actualErrorHandler.accept(th);  // <-- NOT COVERED
+  541:             } catch (final Throwable t) {  // <-- NOT COVERED
+  542:                 throw rethrow(t);  // <-- NOT COVERED
+  543:             }  // <-- NOT COVERED
+  544:         }
+  545:     }
+    ...
+  565:     public static void tryWithResources(final FailableRunnable<? extends Throwable> action,
+  566:         final FailableRunnable<? extends Throwable>... resources) {
+  567:         tryWithResources(action, null, resources);  // <-- NOT COVERED
+  568:     }  // <-- NOT COVERED
+  569: 
+  570:     private Failable() {
+
+Existing test methods (do not duplicate them):
+testAcceptConsumerNormalCase, testAcceptConsumerThrowsException, testApplyFunctionNormalCase, testApplyFunctionThrowsException, testGetSupplierNormalCase, testGetSupplierThrowsException, testRunRunnableNormalCase, testRunRunnableThrowsException, testCallCallableNormalCase, testCallCallableThrowsException, testAsConsumerNormalCase, testAsFunctionNormalCase, testAsPredicateNormalCase, testAsRunnableNormalCase, testAsSupplierNormalCase, testTryWithResourcesNormalCase
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class Failable_GenTest (package org.apache.commons.lang3.function) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.function.Failable):
+```java
+package org.apache.commons.lang3.function;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.Collection;
+import java.util.Objects;
+import java.util.concurrent.Callable;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.stream.Streams;
+import org.apache.commons.lang3.stream.Streams.FailableStream;
+
+/** This class provides utility functions, and classes for working with the {@code java.util.function} package, or more generally, with Java 8 lambdas. */
+public class Failable {
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, E extends Throwable> void accept(final FailableBiConsumer<T, U, E> consumer, final T object1,
+        final U object2) {
+        run(() -> consumer.accept(object1, object2));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, E extends Throwable> void accept(final FailableConsumer<T, E> consumer, final T object) {
+        run(() -> consumer.accept(object));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableDoubleConsumer<E> consumer, final double value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableIntConsumer<E> consumer, final int value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableLongConsumer<E> consumer, final long value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, R, E extends Throwable> R apply(final FailableBiFunction<T, U, R, E> function, final T input1,
+        final U input2) {
+        return get(() -> function.apply(input1, input2));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, R, E extends Throwable> R apply(final FailableFunction<T, R, E> function, final T input) {
+        return get(() -> function.apply(input));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> double applyAsDouble(final FailableDoubleBinaryOperator<E> function,
+        final double left, final double right) {
+        return getAsDouble(() -> function.applyAsDouble(left, right));
+    }
+    /** Converts the given {@link FailableBiConsumer} into a standard {@link BiConsumer}. */
+    public static <T, U> BiConsumer<T, U> asBiConsumer(final FailableBiConsumer<T, U, ?> consumer) {
+        return (input1, input2) -> accept(consumer, input1, input2);
+    }
+    /** Converts the given {@link FailableBiFunction} into a standard {@link BiFunction}. */
+    public static <T, U, R> BiFunction<T, U, R> asBiFunction(final FailableBiFunction<T, U, R, ?> function) {
+        return (input1, input2) -> apply(function, input1, input2);
+    }
+    /** Converts the given {@link FailableBiPredicate} into a standard {@link BiPredicate}. */
+    public static <T, U> BiPredicate<T, U> asBiPredicate(final FailableBiPredicate<T, U, ?> predicate) {
+        return (input1, input2) -> test(predicate, input1, input2);
+    }
+    /** Converts the given {@link FailableCallable} into a standard {@link Callable}. */
+    public static <V> Callable<V> asCallable(final FailableCallable<V, ?> callable) {
+        return () -> call(callable);
+    }
+    /** Converts the given {@link FailableConsumer} into a standard {@link Consumer}. */
+    public static <T> Consumer<T> asConsumer(final FailableConsumer<T, ?> consumer) {
+        return input -> accept(consumer, input);
+    }
+    /** Converts the given {@link FailableFunction} into a standard {@link Function}. */
+    public static <T, R> Function<T, R> asFunction(final FailableFunction<T, R, ?> function) {
+        return input -> apply(function, input);
+    }
+    /** Converts the given {@link FailablePredicate} into a standard {@link Predicate}. */
+    public static <T> Predicate<T> asPredicate(final FailablePredicate<T, ?> predicate) {
+        return input -> test(predicate, input);
+    }
+    /** Converts the given {@link FailableRunnable} into a standard {@link Runnable}. */
+    public static Runnable asRunnable(final FailableRunnable<?> runnable) {
+        return () -> run(runnable);
+    }
+    /** Converts the given {@link FailableSupplier} into a standard {@link Supplier}. */
+    public static <T> Supplier<T> asSupplier(final FailableSupplier<T, ?> supplier) {
+        return () -> get(supplier);
+    }
+    /** Calls a callable and rethrows any exception as a {@link RuntimeException}. */
+    public static <V, E extends Throwable> V call(final FailableCallable<V, E> callable) {
+        return get(callable::call);
+    }
+    /** Invokes a supplier, and returns the result. */
+    public static <T, E extends Throwable> T get(final FailableSupplier<T, E> supplier) {
+        try {
+            return supplier.get();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a boolean supplier, and returns the result. */
+    public static <E extends Throwable> boolean getAsBoolean(final FailableBooleanSupplier<E> supplier) {
+        try {
+            return supplier.getAsBoolean();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a double supplier, and returns the result. */
+    public static <E extends Throwable> double getAsDouble(final FailableDoubleSupplier<E> supplier) {
+        try {
+            return supplier.getAsDouble();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes an int supplier, and returns the result. */
+    public static <E extends Throwable> int getAsInt(final FailableIntSupplier<E> supplier) {
+        try {
+            return supplier.getAsInt();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a long supplier, and returns the result. */
+    public static <E extends Throwable> long getAsLong(final FailableLongSupplier<E> supplier) {
+        try {
+            return supplier.getAsLong();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a short supplier, and returns the result. */
+    public static <E extends Throwable> short getAsShort(final FailableShortSupplier<E> supplier) {
+        try {
+            return supplier.getAsShort();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Rethrows a {@link Throwable} as an unchecked exception. */
+    public static RuntimeException rethrow(final Throwable throwable) {
+        Objects.requireNonNull(throwable, "throwable");
+        ExceptionUtils.throwUnchecked(throwable);
+        if (throwable instanceof IOException) {
+            throw new UncheckedIOException((IOException) throwable);
+        }
+        throw new UndeclaredThrowableException(throwable);
+    }
+    /** Runs a runnable and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void run(final FailableRunnable<E> runnable) {
+        try {
+            runnable.run();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Converts the given collection into a {@link FailableStream}. */
+    public static <E> FailableStream<E> stream(final Collection<E> collection) {
+        return new FailableStream<>(collection.stream());
+    }
+    /** Converts the given stream into a {@link FailableStream}. */
+    public static <T> FailableStream<T> stream(final Stream<T> stream) {
+        return new FailableStream<>(stream);
+    }
+    /** Tests a predicate and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, E extends Throwable> boolean test(final FailableBiPredicate<T, U, E> predicate,
+        final T object1, final U object2) {
+        return getAsBoolean(() -> predicate.test(object1, object2));
+    }
+    /** Tests a predicate and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, E extends Throwable> boolean test(final FailablePredicate<T, E> predicate, final T object) {
+        return getAsBoolean(() -> predicate.test(object));
+    }
+    /** A simple try-with-resources implementation, that can be used, if your objects do not implement the {@link AutoCloseable} interface. */
+    @SafeVarargs
+    public static void tryWithResources(final FailableRunnable<? extends Throwable> action,
+        final FailableConsumer<Throwable, ? extends Throwable> errorHandler,
+        final FailableRunnable<? extends Throwable>... resources) {
+        final FailableConsumer<Throwable, ? extends Throwable> actualErrorHandler;
+        if (errorHandler == null) {
+            actualErrorHandler = Failable::rethrow;
+        } else {
+            actualErrorHandler = errorHandler;
+        }
+        Streams.of(resources).forEach(r -> Objects.requireNonNull(r, "runnable"));
+        Throwable th = null;
+        try {
+            action.run();
+        } catch (final Throwable t) {
+            th = t;
+        }
+        if (resources != null) {
+            for (final FailableRunnable<?> runnable : resources) {
+                try {
+                    runnable.run();
+                } catch (final Throwable t) {
+                    if (th == null) {
+                        th = t;
+                    }
+                }
+            }
+        }
+        if (th != null) {
+            try {
+                actualErrorHandler.accept(th);
+            } catch (final Throwable t) {
+                throw rethrow(t);
+            }
+        }
+    }
+    /** A simple try-with-resources implementation, that can be used, if your objects do not implement the {@link AutoCloseable} interface. */
+    @SafeVarargs
+    public static void tryWithResources(final FailableRunnable<? extends Throwable> action,
+        final FailableRunnable<? extends Throwable>... resources) {
+        tryWithResources(action, null, resources);
+    }
+    private Failable() {
+        // empty
+    }
+}
+```

@@ -1,0 +1,65 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testAvailableLocaleListNotEmpty() {
+        assertFalse(LocaleUtils.availableLocaleList().isEmpty());
+    }
+
+    @Test
+    public void testAvailableLocaleSetNotEmpty() {
+        assertFalse(LocaleUtils.availableLocaleSet().isEmpty());
+    }
+
+    @Test
+    public void testCountriesByLanguageEmptyInput() {
+        assertTrue(LocaleUtils.countriesByLanguage("").isEmpty());
+    }
+
+    @Test
+    public void testIsAvailableLocaleNull() {
+        assertFalse(LocaleUtils.isAvailableLocale(null));
+    }
+
+    @Test
+    public void testIsLanguageUndeterminedNull() {
+        assertTrue(LocaleUtils.isLanguageUndetermined(null));
+    }
+
+    @Test
+    public void testLanguagesByCountryEmptyInput() {
+        assertTrue(LocaleUtils.languagesByCountry("").isEmpty());
+    }
+
+    @Test
+    public void testToLocaleWithNull() {
+        assertEquals(Locale.getDefault(), LocaleUtils.toLocale(null));
+    }
+
+    @Test
+    public void testToLocaleWithEmptyString() {
+        assertEquals(new Locale(StringUtils.EMPTY, StringUtils.EMPTY), LocaleUtils.toLocale(""));
+    }
+
+    @Test
+    public void testToLocaleWithInvalidFormat() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en#US"));
+    }
+
+    @Test
+    public void testToLocaleWithShortLanguageCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("e"));
+    }
+
+    @Test
+    public void testToLocaleWithInvalidCountryCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en-XX"));
+    }
+}
+```

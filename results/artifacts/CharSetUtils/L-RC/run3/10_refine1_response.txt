@@ -1,0 +1,31 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testDelete_withNonEmptyStringAndSet() {
+        assertEquals("hll", CharSetUtils.delete("hello", "e"));
+    }
+
+    @Test
+    public void testKeep_withNonEmptyStringAndSet() {
+        assertEquals("ell", CharSetUtils.keep("hello", "e"));
+    }
+
+    @Test
+    public void testSqueeze_withRepeatingCharactersInSet() {
+        assertEquals("helo", CharSetUtils.squeeze("heelloo", "eo"));
+    }
+
+    @Test
+    public void testConstructor() {
+        new CharSetUtils(); // Just to ensure constructor is covered
+    }
+}
+```

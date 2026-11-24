@@ -1,0 +1,145 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetStackFramesWithNull() {
+        String[] stackFrames = ExceptionUtils.getStackFrames(null);
+        assertTrue(Arrays.equals(ArrayUtils.EMPTY_STRING_ARRAY, stackFrames));
+    }
+
+    @Test
+    public void testGetStackTraceWithNull() {
+        String stackTrace = ExceptionUtils.getStackTrace(null);
+        assertEquals(StringUtils.EMPTY, stackTrace);
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNull() {
+        String rootCauseMessage = ExceptionUtils.getRootCauseMessage(null);
+        assertEquals(StringUtils.EMPTY, rootCauseMessage);
+    }
+
+    @Test
+    public void testGetRootCauseStackTraceListWithNull() {
+        List<String> stackTraceList = ExceptionUtils.getRootCauseStackTraceList(null);
+        assertTrue(stackTraceList.isEmpty());
+    }
+
+    @Test
+    public void testGetThrowableCountWithNull() {
+        int throwableCount = ExceptionUtils.getThrowableCount(null);
+        assertEquals(0, throwableCount);
+    }
+
+    @Test
+    public void testGetThrowableListWithNull() {
+        List<Throwable> throwableList = ExceptionUtils.getThrowableList(null);
+        assertTrue(throwableList.isEmpty());
+    }
+
+    @Test
+    public void testGetThrowablesWithNull() {
+        Throwable[] throwables = ExceptionUtils.getThrowables(null);
+        assertTrue(Arrays.equals(ArrayUtils.EMPTY_THROWABLE_ARRAY, throwables));
+    }
+
+    @Test
+    public void testHasCauseWithNullThrowable() {
+        boolean hasCause = ExceptionUtils.hasCause(null, NullPointerException.class);
+        assertFalse(hasCause);
+    }
+
+    @Test
+    public void testHasCauseWithNullType() {
+        Throwable throwable = new NullPointerException();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.hasCause(throwable, null));
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNullThrowable() {
+        int index = ExceptionUtils.indexOfThrowable(null, NullPointerException.class);
+        assertEquals(NOT_FOUND, index);
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNullType() {
+        Throwable throwable = new NullPointerException();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.indexOfThrowable(throwable, null));
+    }
+
+    @Test
+    public void testIndexOfTypeWithNullThrowable() {
+        int index = ExceptionUtils.indexOfType(null, NullPointerException.class);
+        assertEquals(NOT_FOUND, index);
+    }
+
+    @Test
+    public void testIndexOfTypeWithNullType() {
+        Throwable throwable = new NullPointerException();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.indexOfType(throwable, null));
+    }
+
+    @Test
+    public void testIsCheckedWithNullThrowable() {
+        boolean isChecked = ExceptionUtils.isChecked(null);
+        assertFalse(isChecked);
+    }
+
+    @Test
+    public void testIsUncheckedWithNullThrowable() {
+        boolean isUnchecked = ExceptionUtils.isUnchecked(null);
+        assertFalse(isUnchecked);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable() {
+        assertDoesNotThrow(() -> ExceptionUtils.printRootCauseStackTrace(null));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullPrintStream() {
+        Throwable throwable = new NullPointerException();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, null));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullPrintWriter() {
+        Throwable throwable = new NullPointerException();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, null));
+    }
+
+    @Test
+    public void testRemoveCommonFramesWithEmptyLists() {
+        List<String> causeFrames = new ArrayList<>();
+        List<String> wrapperFrames = new ArrayList<>();
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+        assertTrue(wrapperFrames.isEmpty());
+    }
+
+    @Test
+    public void testStreamWithNullThrowable() {
+        Stream<Throwable> stream = ExceptionUtils.stream(null);
+        assertTrue(stream.collect(Collectors.toList()).isEmpty());
+    }
+
+    @Test
+    public void testThrowUncheckedWithNullThrowable() {
+        assertDoesNotThrow(() -> ExceptionUtils.throwUnchecked((Throwable) null));
+    }
+
+    @Test
+    public void testWrapAndThrowWithNullThrowable() {
+        assertThrows(UndeclaredThrowableException.class, () -> ExceptionUtils.wrapAndThrow(null));
+    }
+}
+```

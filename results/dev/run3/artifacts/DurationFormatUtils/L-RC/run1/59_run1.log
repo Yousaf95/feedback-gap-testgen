@@ -1,0 +1,100 @@
+[ERROR] Tests run: 34, Failures: 5, Errors: 1, Skipped: 0, Time elapsed: 0.237 s <<< FAILURE! -- in org.apache.commons.lang3.time.DurationFormatUtils_GenTest
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithNegativeMillisecondsInAdjustment -- Time elapsed: 0.037 s <<< ERROR!
+java.lang.IllegalArgumentException: Unmatched quote in format: d'H'm's'S'
+	at org.apache.commons.lang3.time.DurationFormatUtils.lexx(DurationFormatUtils.java:740)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:518)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithNegativeMillisecondsInAdjustment(DurationFormatUtils_GenTest.java:318)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWordsWithoutSuppressingZeros -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1 days> but was: <1 day 0 hours 0 minutes 0 seconds>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWordsWithoutSuppressingZeros(DurationFormatUtils_GenTest.java:274)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatPeriodWithOptionalTokens_2 -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0s> but was: <0001>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatPeriodWithOptionalTokens_2(DurationFormatUtils_GenTest.java:244)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithOptionalTokens_2 -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <> but was: <000>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithOptionalTokens_2(DurationFormatUtils_GenTest.java:236)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testSuppressLeadingZeroElementsWithDays -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1 day> but was: <1 day 0 hours 0 minutes 0 seconds>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testSuppressLeadingZeroElementsWithDays(DurationFormatUtils_GenTest.java:250)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testSuppressTrailingZeroElementsWithSeconds -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1 second> but was: <0 days 0 hours 0 minutes 1 second>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testSuppressTrailingZeroElementsWithSeconds(DurationFormatUtils_GenTest.java:256)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   DurationFormatUtils_GenTest.testFormatDurationWithOptionalTokens_2:236 expected: <> but was: <000>
+[ERROR]   DurationFormatUtils_GenTest.testFormatDurationWordsWithoutSuppressingZeros:274 expected: <1 days> but was: <1 day 0 hours 0 minutes 0 seconds>
+[ERROR]   DurationFormatUtils_GenTest.testFormatPeriodWithOptionalTokens_2:244 expected: <0s> but was: <0001>
+[ERROR]   DurationFormatUtils_GenTest.testSuppressLeadingZeroElementsWithDays:250 expected: <1 day> but was: <1 day 0 hours 0 minutes 0 seconds>
+[ERROR]   DurationFormatUtils_GenTest.testSuppressTrailingZeroElementsWithSeconds:256 expected: <1 second> but was: <0 days 0 hours 0 minutes 1 second>
+[ERROR] Errors: 
+[ERROR]   DurationFormatUtils_GenTest.testFormatDurationWithNegativeMillisecondsInAdjustment:318 » IllegalArgument Unmatched quote in format: d'H'm's'S'
+[ERROR] Tests run: 34, Failures: 5, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w3/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,49 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[142,85] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[143,68] no suitable method found for noNullElements(java.util.Map<capture#1 of ?,capture#2 of ?>)
+    method org.apache.commons.lang3.Validate.<T>noNullElements(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.Iterable<?>
+        lower bounds: java.util.Map<capture#1 of ?,capture#2 of ?>)
+    method org.apache.commons.lang3.Validate.<T>noNullElements(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>noNullElements(T[]) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; java.util.Map<capture#1 of ?,capture#2 of ?> cannot be converted to T[]))
+    method org.apache.commons.lang3.Validate.<T>noNullElements(T[],java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; java.util.Map<capture#1 of ?,capture#2 of ?> cannot be converted to T[]))
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[186,81] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[142,85] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[143,68] no suitable method found for noNullElements(java.util.Map<capture#1 of ?,capture#2 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>noNullElements(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.Iterable<?>
+[ERROR]         lower bounds: java.util.Map<capture#1 of ?,capture#2 of ?>)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>noNullElements(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>noNullElements(T[]) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; java.util.Map<capture#1 of ?,capture#2 of ?> cannot be converted to T[]))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>noNullElements(T[],java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; java.util.Map<capture#1 of ?,capture#2 of ?> cannot be converted to T[]))
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[186,81] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

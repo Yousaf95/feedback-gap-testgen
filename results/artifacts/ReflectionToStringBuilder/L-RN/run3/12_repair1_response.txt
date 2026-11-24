@@ -1,0 +1,38 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReflectionToStringBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testSetIncludeFieldNames() {
+        TestClass obj = new TestClass();
+        String result = ReflectionToStringBuilder.toStringInclude(obj, "field1");
+        assertEquals("TestClass@<hashcode>(field1=1)", result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testSetExcludeFieldNames() {
+        TestClass obj = new TestClass();
+        String result = ReflectionToStringBuilder.toStringExclude(obj, "field2");
+        assertEquals("TestClass@<hashcode>(field1=1)", result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testReflectUpToClassWithNull() {
+        TestClass obj = new TestClass();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, (Class<?>) null);
+        assertEquals("TestClass@<hashcode>(field1=1, field2=2)", result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testReflectUpToClassWithInvalidClassThrowsException() {
+        TestClass obj = new TestClass();
+        assertThrows(IllegalArgumentException.class, () -> ReflectionToStringBuilder.toString(obj, null, false, false, String.class));
+    }
+}
+```

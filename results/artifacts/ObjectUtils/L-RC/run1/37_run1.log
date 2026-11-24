@@ -1,0 +1,51 @@
+[ERROR] Tests run: 87, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.289 s <<< FAILURE! -- in org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] org.apache.commons.lang3.ObjectUtils_GenTest.testMedian_EmptyItems -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.testMedian_EmptyItems(ObjectUtils_GenTest.java:465)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.NullPointerException: null/empty items
+	at java.base/java.util.Objects.requireNonNull(Objects.java:336)
+	at org.apache.commons.lang3.Validate.notEmpty(Validate.java:957)
+	at org.apache.commons.lang3.ObjectUtils.median(ObjectUtils.java:1109)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.lambda$testMedian_EmptyItems$11(ObjectUtils_GenTest.java:465)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.ObjectUtils_GenTest.testWait_WithNullDuration -- Time elapsed: 0.011 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.IllegalMonitorStateException: current thread is not owner
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:84)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:53)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:36)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3168)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.testWait_WithNullDuration(ObjectUtils_GenTest.java:495)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.base/java.lang.Object.wait(Native Method)
+	at java.base/java.lang.Object.wait(Object.java:472)
+	at org.apache.commons.lang3.time.DurationUtils.accept(DurationUtils.java:58)
+	at org.apache.commons.lang3.ObjectUtils.wait(ObjectUtils.java:1399)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.lambda$testWait_WithNullDuration$15(ObjectUtils_GenTest.java:495)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:49)
+	... 8 more
+
+[ERROR] Failures: 
+[ERROR]   ObjectUtils_GenTest.testMedian_EmptyItems:465 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.NullPointerException>
+[ERROR]   ObjectUtils_GenTest.testWait_WithNullDuration:495 Unexpected exception thrown: java.lang.IllegalMonitorStateException: current thread is not owner
+[ERROR] Tests run: 87, Failures: 2, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w14/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

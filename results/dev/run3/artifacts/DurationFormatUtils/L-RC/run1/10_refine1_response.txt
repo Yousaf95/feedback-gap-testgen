@@ -1,0 +1,117 @@
+```java
+package org.apache.commons.lang3.time;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
+import org.junit.jupiter.api.Test;
+
+public class DurationFormatUtils_GenTest {
+
+    @Test
+    public void testTokenConstructorWithOptional() {
+        Token token = new Token(new StringBuilder("test"), true, 1);
+        assertEquals(1, token.optionalIndex);
+    }
+
+    @Test
+    public void testTokenEqualsDifferentClass() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        assertFalse(token1.equals("not a token"));
+    }
+
+    @Test
+    public void testTokenEqualsDifferentValueClass() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        Token token2 = new Token(123, false, -1);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    public void testTokenEqualsDifferentCount() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        Token token2 = new Token(new StringBuilder("test"), false, -1);
+        token2.count = 2;
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    public void testTokenEqualsStringBuilder() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        Token token2 = new Token(new StringBuilder("test"), false, -1);
+        assertTrue(token1.equals(token2));
+    }
+
+    @Test
+    public void testTokenEqualsNumber() {
+        Token token1 = new Token(123, false, -1);
+        Token token2 = new Token(123, false, -1);
+        assertTrue(token1.equals(token2));
+    }
+
+    @Test
+    public void testTokenEqualsSameObject() {
+        Token token1 = new Token(new StringBuilder("test"), false, -1);
+        assertTrue(token1.equals(token1));
+    }
+
+    @Test
+    public void testTokenHashCode() {
+        Token token = new Token(123, false, -1);
+        assertEquals(Integer.valueOf(123).hashCode(), token.hashCode());
+    }
+
+    @Test
+    public void testTokenToString() {
+        Token token = new Token(new StringBuilder("test"), false, 3);
+        assertEquals("testtesttest", token.toString());
+    }
+
+    @Test
+    public void testFormatDurationWithOptionalTokens() {
+        String result = DurationFormatUtils.formatDuration(1000, "H'H'm'M's'S'", true);
+        assertEquals("0H0M1S", result);
+    }
+
+    @Test
+    public void testFormatPeriodWithOptionalTokens() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis + 3600000; // one hour later
+        String result = DurationFormatUtils.formatPeriod(startMillis, endMillis, "H'H'm'M's'S'", true);
+        assertEquals("1H0M0S", result);
+    }
+
+    @Test
+    public void testSuppressLeadingZeroElements() {
+        String result = DurationFormatUtils.formatDurationWords(3600000, true, false);
+        assertEquals("1 hour 0 minutes 0 seconds", result);
+    }
+
+    @Test
+    public void testSuppressTrailingZeroElements() {
+        String result = DurationFormatUtils.formatDurationWords(3600000, false, true);
+        assertEquals("1 hour", result);
+    }
+
+    @Test
+    public void testAdjustMillisecondsNegative() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis - 500; // half a second earlier
+        String result = DurationFormatUtils.formatPeriod(startMillis, endMillis, "H'H'm'M's.SSS'S'", true);
+        assertEquals("23H59M59.500S", result);
+    }
+
+    @Test
+    public void testAdjustSecondsNegative() {
+        long startMillis = Calendar.getInstance().getTimeInMillis();
+        long endMillis = startMillis - 61000; // one minute and one second earlier
+        String result = DurationFormatUtils.formatPeriod(startMillis, endMillis, "H'H'm'M's.SSS'S'", true);
+        assertEquals("23H58M59.000S", result);
+    }
+}
+```

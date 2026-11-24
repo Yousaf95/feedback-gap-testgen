@@ -1,0 +1,193 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.HashMap;
+import java.util.Map;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class Validate_GenTest {
+
+    @Test
+    void testInclusiveBetweenDoubleLowerBound_2_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1.0, 3.0, 0.5, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleUpperBound_2_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1.0, 3.0, 4.0, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenLongLowerBound_2_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1L, 3L, 0L, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenLongUpperBound_2_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1L, 3L, 4L, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenComparableLowerBound_2_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween("b", "d", "a", "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenComparableUpperBound_2_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween("b", "d", "e", "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testIsAssignableFromWithMessageNotAssignable_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isAssignableFrom(Number.class, String.class, "Custom message");
+        });
+        assertEquals(String.format(Validate.DEFAULT_IS_ASSIGNABLE_EX_MESSAGE, ClassUtils.getName(String.class, "null type"), ClassUtils.getName(Number.class, "null type")), exception.getMessage());
+    }
+
+    @Test
+    void testIsInstanceWithMessageNotAssignable_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isInstanceOf(Number.class, "string", "Custom message");
+        });
+        assertEquals(String.format(Validate.DEFAULT_IS_INSTANCE_OF_EX_MESSAGE, Number.class.getName(), ClassUtils.getName("string", "null")), exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseWithDoubleValue_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Custom message %f", 1.0);
+        });
+        assertEquals("Custom message 1.0", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseWithLongValue_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Custom message %d", 1L);
+        });
+        assertEquals("Custom message 1", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseWithValues_3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Custom message %s %s", "value1", "value2");
+        });
+        assertEquals("Custom message value1 value2", exception.getMessage());
+    }
+
+    @Test
+    void testMatchesPatternMismatch_4() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.matchesPattern("abc", "def", "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsWithNullElement_3() {
+        String[] array = {"a", null, "c"};
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(array);
+        });
+        assertEquals(String.format(Validate.DEFAULT_NO_NULL_ELEMENTS_ARRAY_EX_MESSAGE, 1), exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsWithMessageAndNullElement_3() {
+        String[] array = {"a", null, "c"};
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(array, "Custom message %d");
+        });
+        assertEquals("Custom message 1", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsEmptyIterable_3() {
+        Iterable<String> iterable = Collections.emptyList();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(iterable);
+        });
+        assertEquals(String.format(Validate.DEFAULT_NO_NULL_ELEMENTS_COLLECTION_EX_MESSAGE, 0), exception.getMessage());
+    }
+
+    @Test
+    void testNotBlankWithEmptyString_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("");
+        });
+        assertEquals(Validate.DEFAULT_NOT_BLANK_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotBlankWithWhitespaceOnly_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("   ");
+        });
+        assertEquals(Validate.DEFAULT_NOT_BLANK_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyMapEmpty_3() {
+        Map<String, String> map = new HashMap<>();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(map);
+        });
+        assertEquals(Validate.DEFAULT_NOT_EMPTY_MAP_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCollectionEmpty_3() {
+        java.util.Collection<String> collection = Collections.emptyList();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(collection);
+        });
+        assertEquals(Validate.DEFAULT_NOT_EMPTY_COLLECTION_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyArrayEmpty_3() {
+        String[] array = {};
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(array);
+        });
+        assertEquals(Validate.DEFAULT_NOT_EMPTY_ARRAY_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotNaNNormal_2() {
+        assertDoesNotThrow(() -> Validate.notNaN(1.0));
+    }
+
+    @Test
+    void testNotNaNWithMessageNormal_2() {
+        assertDoesNotThrow(() -> Validate.notNaN(1.0, "Custom message"));
+    }
+}
+```

@@ -1,0 +1,75 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testCountriesByLanguage_withInvalidCode() {
+        List<Locale> result = LocaleUtils.countriesByLanguage("invalid");
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountry_withEmptyCode() {
+        List<Locale> result = LocaleUtils.languagesByCountry("");
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountry_withInvalidCode() {
+        List<Locale> result = LocaleUtils.languagesByCountry("invalid");
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testLocaleLookupList_withNullLocaleAndDefault() {
+        List<Locale> result = LocaleUtils.localeLookupList(null, Locale.US);
+        assertEquals(List.of(Locale.US), result);
+    }
+
+    @Test
+    void testLocaleLookupList_withVariantLocale() {
+        Locale localeWithVariant = new Locale("en", "US", "POSIX");
+        List<Locale> expected = List.of(localeWithVariant, new Locale("en", "US"), new Locale("en"));
+        List<Locale> result = LocaleUtils.localeLookupList(localeWithVariant);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void testLocaleLookupList_withCountryLocale() {
+        Locale localeWithCountry = new Locale("fr", "FR");
+        List<Locale> expected = List.of(localeWithCountry, new Locale("fr"));
+        List<Locale> result = LocaleUtils.localeLookupList(localeWithCountry);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void testToString_withValidLocaleString() {
+        String result = LocaleUtils.toString(Locale.US);
+        assertEquals("en_US", result);
+    }
+
+    @Test
+    void testToString_withEmptyLocale() {
+        String result = LocaleUtils.toString(new Locale("", "", ""));
+        assertEquals("", result);
+    }
+
+    @Test
+    void testToString_withCountryOnlyLocale() {
+        String result = LocaleUtils.toString(new Locale("", "FR"));
+        assertEquals("_FR", result);
+    }
+
+    @Test
+    void testToString_withLanguageAndVariantLocale() {
+        String result = LocaleUtils.toString(new Locale("en", "", "POSIX"));
+        assertEquals("en__POSIX", result);
+    }
+}
+```

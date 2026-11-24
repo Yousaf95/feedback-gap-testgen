@@ -1,0 +1,69 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    void testCheckLaterThan1_NotEqual() {
+        assertFalse(CharSequenceUtils.checkLaterThan1("abcde", "abfde", 5, 0));
+    }
+
+    @Test
+    void testCheckLaterThan1_Equal() {
+        assertTrue(CharSequenceUtils.checkLaterThan1("abcba", "abcba", 5, 0));
+    }
+
+    @Test
+    void testIndexOf_StringBufferInstance() {
+        assertEquals(2, CharSequenceUtils.indexOf(new StringBuffer("abcdef"), "cde"));
+    }
+
+    @Test
+    void testIndexOf_DefaultToString() {
+        assertEquals(2, CharSequenceUtils.indexOf(new StringBuilder("abcdef"), "cde"));
+    }
+
+    @Test
+    void testIndexOf_StartLessThanZero() {
+        assertEquals(0, CharSequenceUtils.indexOf("abc", "a", -1));
+    }
+
+    @Test
+    void testIndexOf_SupplementaryCharacterNotFound() {
+        assertEquals(-1, CharSequenceUtils.indexOf("\uD835\uDC9C", "\uD835\uDC9D"));
+    }
+
+    @Test
+    void testIndexOf_StringAndSearchSequence_NotFound() {
+        assertEquals(-1, CharSequenceUtils.indexOf("abc", "d"));
+    }
+
+    @Test
+    void testLastIndexOf_StringBufferInstance() {
+        assertEquals(2, CharSequenceUtils.lastIndexOf(new StringBuffer("abcdef"), "cde"));
+    }
+
+    @Test
+    void testLastIndexOf_DefaultToString() {
+        assertEquals(2, CharSequenceUtils.lastIndexOf(new StringBuilder("abcdef"), "cde"));
+    }
+
+    @Test
+    void testLastIndexOf_StartLessThanZero() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("abc", "a", -1));
+    }
+
+    @Test
+    void testLastIndexOf_SupplementaryCharacterNotFound() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("\uD835\uDC9C", "\uD835\uDC9D"));
+    }
+
+    @Test
+    void testLastIndexOf_StringAndSearchSequence_NotFound() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("abc", "d"));
+    }
+}
+```

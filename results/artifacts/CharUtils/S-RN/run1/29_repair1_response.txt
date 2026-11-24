@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.CharUtils.*;
+
+class CharUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testIsAsciiExtended_2() {
+        assertTrue(CharUtils.isAsciiExtended('\u007F'));
+        assertFalse(CharUtils.isAsciiExtended('\u0080'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaExtended_2() {
+        assertTrue(CharUtils.isAsciiAlphaExtended('A'));
+        assertTrue(CharUtils.isAsciiAlphaExtended('z'));
+        assertFalse(CharUtils.isAsciiAlphaExtended('\u007F'));
+        assertFalse(CharUtils.isAsciiAlphaExtended('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumericExtended_2() {
+        assertTrue(CharUtils.isAsciiAlphanumericExtended('A'));
+        assertTrue(CharUtils.isAsciiAlphanumericExtended('z'));
+        assertTrue(CharUtils.isAsciiAlphanumericExtended('0'));
+        assertFalse(CharUtils.isAsciiAlphanumericExtended('\u007F'));
+        assertFalse(CharUtils.isAsciiAlphanumericExtended('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiNumericExtended_2() {
+        assertTrue(CharUtils.isAsciiNumericExtended('0'));
+        assertTrue(CharUtils.isAsciiNumericExtended('9'));
+        assertFalse(CharUtils.isAsciiNumericExtended('\u007F'));
+        assertFalse(CharUtils.isAsciiNumericExtended('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiPrintableExtended_2() {
+        assertTrue(CharUtils.isAsciiPrintableExtended('A'));
+        assertTrue(CharUtils.isAsciiPrintableExtended('z'));
+        assertTrue(CharUtils.isAsciiPrintableExtended('0'));
+        assertTrue(CharUtils.isAsciiPrintableExtended('\u007F'));
+        assertFalse(CharUtils.isAsciiPrintableExtended('\u0100'));
+    }
+
+    @Test
+    public void testToChar_CharacterNull_2() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar(null));
+    }
+
+    @Test
+    public void testToCharacterObject_StringEmpty_2() {
+        assertNull(CharUtils.toCharacterObject(""));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNonNumeric_2() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToIntValue_CharacterNonNumericDefaultValue_2() {
+        assertEquals(42, CharUtils.toIntValue('a', 42));
+    }
+
+    @Test
+    public void testUnicodeEscaped_CharacterExtended_2() {
+        assertEquals("\\u0100", CharUtils.unicodeEscaped('\u0100'));
+    }
+}
+```

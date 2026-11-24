@@ -1,0 +1,94 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Properties;
+
+public class SystemUtils_GenTest {
+
+    @Test
+    public void testIsOSLinux() {
+        Properties props = new Properties();
+        props.setProperty("os.name", "Linux");
+        System.setProperties(props);
+        assertTrue(SystemUtils.IS_OS_LINUX);
+    }
+
+    @Test
+    public void testIsOSLinux_LinuxCaseInsensitive() {
+        Properties props = new Properties();
+        props.setProperty("os.name", "linux");
+        System.setProperties(props);
+        assertTrue(SystemUtils.IS_OS_LINUX);
+    }
+
+    @Test
+    public void testIsOSUnix() {
+        Properties props = new Properties();
+        props.setProperty("os.name", "Linux");
+        System.setProperties(props);
+        assertTrue(SystemUtils.IS_OS_UNIX);
+    }
+
+    @Test
+    public void testGetEnvironmentVariableDefaultValue() {
+        String value = SystemUtils.getEnvironmentVariable("NON_EXISTENT_VAR", "defaultValue");
+        assertEquals("defaultValue", value);
+    }
+
+    @Test
+    public void testGetHostName_Windows() {
+        Properties props = new Properties();
+        props.setProperty("os.name", "Windows 10");
+        System.setProperties(props);
+        String hostName = SystemUtils.getHostName();
+        assertNotNull(hostName);
+    }
+
+    @Test
+    public void testGetHostName_NotWindows() {
+        Properties props = new Properties();
+        props.setProperty("os.name", "Linux");
+        System.setProperties(props);
+        String hostName = SystemUtils.getHostName();
+        assertNotNull(hostName);
+    }
+
+    @Test
+    public void testGetUserName_DefaultValue() {
+        String userName = SystemUtils.getUserName("defaultValue");
+        assertNotNull(userName);
+    }
+
+    @Test
+    public void testIsJavaVersionAtLeast() {
+        assertTrue(SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_17));
+    }
+
+    @Test
+    public void testIsJavaVersionAtMost() {
+        assertTrue(SystemUtils.isJavaVersionAtMost(JavaVersion.JAVA_20));
+    }
+
+    @Test
+    public void testIsOSNameMatch() {
+        assertTrue(SystemUtils.isOSNameMatch("Windows 10", "Windows"));
+    }
+
+    @Test
+    public void testIsOSNameMatch_NotMatching() {
+        assertFalse(SystemUtils.isOSNameMatch("Linux", "Windows"));
+    }
+
+    @Test
+    public void testIsOSVersionMatch() {
+        assertTrue(SystemUtils.isOSVersionMatch("10.0", "10."));
+    }
+
+    @Test
+    public void testIsOSVersionMatch_NotMatching() {
+        assertFalse(SystemUtils.isOSVersionMatch("9.0", "10."));
+    }
+}
+```

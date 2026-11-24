@@ -1,0 +1,103 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    void testRandomWithNullCharsArray() {
+        assertEquals("", RandomStringUtils.random(0, (char[]) null));
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(-1, (char[]) null));
+        assertEquals(5, RandomStringUtils.random(5, (char[]) null).length());
+    }
+
+    @Test
+    void testRandomWithStartAndEndZero() {
+        assertEquals("", RandomStringUtils.random(0, 0, 0, false, false));
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(-1, 0, 0, false, false));
+        assertEquals(5, RandomStringUtils.random(5, 0, 0, false, false).length());
+    }
+
+    @Test
+    void testRandomWithInvalidEndForNumbers() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 48, 47, true, false));
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 0, 48, false, true));
+    }
+
+    @Test
+    void testRandomWithInvalidEndForLetters() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 65, 64, true, false));
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 0, 65, false, true));
+    }
+
+    @Test
+    void testRandomWithNullStringChars() {
+        assertEquals("", RandomStringUtils.random(0, (String) null));
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(-1, (String) null));
+        assertEquals(5, RandomStringUtils.random(5, (String) null).length());
+    }
+
+    @Test
+    void testRandomAlphabeticWithRange() {
+        int minLength = 3;
+        int maxLength = 7;
+        String result = RandomStringUtils.randomAlphabetic(minLength, maxLength);
+        assertTrue(result.length() >= minLength && result.length() < maxLength);
+        assertTrue(result.chars().allMatch(Character::isLetter));
+    }
+
+    @Test
+    void testRandomAlphanumericWithRange() {
+        int minLength = 3;
+        int maxLength = 7;
+        String result = RandomStringUtils.randomAlphanumeric(minLength, maxLength);
+        assertTrue(result.length() >= minLength && result.length() < maxLength);
+        assertTrue(result.chars().allMatch(c -> Character.isLetterOrDigit(c)));
+    }
+
+    @Test
+    void testRandomAsciiWithRange() {
+        int minLength = 3;
+        int maxLength = 7;
+        String result = RandomStringUtils.randomAscii(minLength, maxLength);
+        assertTrue(result.length() >= minLength && result.length() < maxLength);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 126));
+    }
+
+    @Test
+    void testRandomGraphWithRange() {
+        int minLength = 3;
+        int maxLength = 7;
+        String result = RandomStringUtils.randomGraph(minLength, maxLength);
+        assertTrue(result.length() >= minLength && result.length() < maxLength);
+        assertTrue(result.chars().allMatch(c -> c >= 33 && c <= 126));
+    }
+
+    @Test
+    void testRandomNumericWithRange() {
+        int minLength = 3;
+        int maxLength = 7;
+        String result = RandomStringUtils.randomNumeric(minLength, maxLength);
+        assertTrue(result.length() >= minLength && result.length() < maxLength);
+        assertTrue(result.chars().allMatch(Character::isDigit));
+    }
+
+    @Test
+    void testRandomPrintWithRange() {
+        int minLength = 3;
+        int maxLength = 7;
+        String result = RandomStringUtils.randomPrint(minLength, maxLength);
+        assertTrue(result.length() >= minLength && result.length() < maxLength);
+        assertTrue(result.chars().allMatch(c -> c >= 32 && c <= 126));
+    }
+
+    @Test
+    void testConstructorIsPrivate() {
+        assertThrows(UnsupportedOperationException.class, RandomStringUtils::new);
+    }
+}
+```

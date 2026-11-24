@@ -1,0 +1,55 @@
+[ERROR] Tests run: 38, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 0.209 s <<< FAILURE! -- in org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testSetExcludeFieldsWithNull -- Time elapsed: 0.014 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testSetExcludeFieldsWithNull(EqualsBuilder_GenTest.java:359)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testReflectionAppendWithDifferentObjects -- Time elapsed: 0.016 s <<< ERROR!
+java.lang.reflect.InaccessibleObjectException: Unable to make field private static final long java.util.ArrayList.serialVersionUID accessible: module java.base does not "opens java.util" to unnamed module @434a63ab
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+	at java.base/java.lang.reflect.AccessibleObject.setAccessible(AccessibleObject.java:130)
+	at org.apache.commons.lang3.builder.EqualsBuilder.reflectionAppend(EqualsBuilder.java:1020)
+	at org.apache.commons.lang3.builder.EqualsBuilder.reflectionAppend(EqualsBuilder.java:986)
+	at org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals(EqualsBuilder.java:236)
+	at org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals(EqualsBuilder.java:271)
+	at org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals(EqualsBuilder.java:322)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testReflectionAppendWithDifferentObjects(EqualsBuilder_GenTest.java:384)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testSetBypassReflectionClassesWithNull -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.builder.EqualsBuilder_GenTest.testSetBypassReflectionClassesWithNull(EqualsBuilder_GenTest.java:353)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   EqualsBuilder_GenTest.testSetBypassReflectionClassesWithNull:353 Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
+[ERROR]   EqualsBuilder_GenTest.testSetExcludeFieldsWithNull:359 Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
+[ERROR] Errors: 
+[ERROR]   EqualsBuilder_GenTest.testReflectionAppendWithDifferentObjects:384 » InaccessibleObject Unable to make field private static final long java.util.ArrayList.serialVersionUID accessible: module java.base does not "opens java.util" to unnamed module @434a63ab
+[ERROR] Tests run: 38, Failures: 2, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w5/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

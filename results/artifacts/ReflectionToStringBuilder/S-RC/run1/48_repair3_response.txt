@@ -1,0 +1,42 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.Arrays;
+import java.util.Collections;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithDefaultStyle_2() {
+        Object obj = new Object();
+        String result = ReflectionToStringBuilder.toString(obj);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testToStringExcludeFields_2() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringExclude(obj, "field2");
+        assertTrue(result.contains("field1=value1"));
+        assertFalse(result.contains("field2=null"));
+        assertTrue(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringIncludeFields_2() {
+        MyClass obj = new MyClass("value1", null, "value2");
+        String result = ReflectionToStringBuilder.toStringInclude(obj, "field2");
+        assertFalse(result.contains("field1=value1"));
+        assertTrue(result.contains("field2=null"));
+        assertFalse(result.contains("field3=value2"));
+    }
+
+    @Test
+    public void testToStringWithNullObject_2() {
+        String result = ReflectionToStringBuilder.toString(null);
+        assertEquals(ReflectionToStringStyle.DEFAULT_STYLE.getNullText(), result);
+    }
+}
+```

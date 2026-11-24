@@ -1,0 +1,35 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/CompareToBuilder_GenTest.java:[69,45] no suitable method found for reflectionCompare(java.lang.String,java.lang.String,boolean,java.lang.String[])
+    method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,boolean,java.lang.Class<?>,java.lang.String...) is not applicable
+      (argument mismatch; java.lang.String[] cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,java.lang.String...) is not applicable
+      (varargs mismatch; boolean cannot be converted to java.lang.String)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/CompareToBuilder_GenTest.java:[74,45] no suitable method found for reflectionCompare(java.lang.String,java.lang.String,boolean,java.lang.String[])
+    method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,boolean,java.lang.Class<?>,java.lang.String...) is not applicable
+      (argument mismatch; java.lang.String[] cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,java.lang.String...) is not applicable
+      (varargs mismatch; boolean cannot be converted to java.lang.String)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/CompareToBuilder_GenTest.java:[79,81] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.CompareToBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/CompareToBuilder_GenTest.java:[69,45] no suitable method found for reflectionCompare(java.lang.String,java.lang.String,boolean,java.lang.String[])
+[ERROR]     method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,boolean,java.lang.Class<?>,java.lang.String...) is not applicable
+[ERROR]       (argument mismatch; java.lang.String[] cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,java.lang.String...) is not applicable
+[ERROR]       (varargs mismatch; boolean cannot be converted to java.lang.String)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/CompareToBuilder_GenTest.java:[74,45] no suitable method found for reflectionCompare(java.lang.String,java.lang.String,boolean,java.lang.String[])
+[ERROR]     method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,boolean,java.lang.Class<?>,java.lang.String...) is not applicable
+[ERROR]       (argument mismatch; java.lang.String[] cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.builder.CompareToBuilder.reflectionCompare(java.lang.Object,java.lang.Object,java.lang.String...) is not applicable
+[ERROR]       (varargs mismatch; boolean cannot be converted to java.lang.String)
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/CompareToBuilder_GenTest.java:[79,81] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.CompareToBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

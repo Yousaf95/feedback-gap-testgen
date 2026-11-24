@@ -1,0 +1,41 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class RandomStringUtils_GenTest {
+
+    @Test
+    public void testRandomWithNullChars() {
+        String result = RandomStringUtils.random(5, (char[]) null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomWithEmptyChars() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, new char[0]));
+    }
+
+    @Test
+    public void testRandomWithStartAndEndZero() {
+        String result = RandomStringUtils.random(5, 0, 0, true, false);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomWithInvalidRange() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 'z', ' ', true, false));
+    }
+
+    @Test
+    public void testRandomNumericWithValidRange() {
+        String result = RandomStringUtils.randomNumeric(5, 0, 9);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+        assertTrue(result.chars().allMatch(Character::isDigit));
+    }
+}
+```

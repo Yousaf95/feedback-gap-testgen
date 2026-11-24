@@ -1,0 +1,45 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.reflect.Method;
+import java.lang.annotation.Annotation;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+
+class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value() default "";
+    }
+
+    @Test
+    void testEquals_nullAnnotations() {
+        assertFalse(AnnotationUtils.equals(null, null));
+    }
+
+    @Test
+    void testEquals_firstAnnotationNull() {
+        TestAnnotation annotation = this.getClass().getDeclaredAnnotationsByType(TestAnnotation.class)[0];
+        assertFalse(AnnotationUtils.equals(null, annotation));
+    }
+
+    @Test
+    void testEquals_secondAnnotationNull() {
+        TestAnnotation annotation = this.getClass().getDeclaredAnnotationsByType(TestAnnotation.class)[0];
+        assertFalse(AnnotationUtils.equals(annotation, null));
+    }
+
+    @Test
+    void testEquals_differentTypes() {
+        TestAnnotation annotation1 = this.getClass().getDeclaredAnnotationsByType(TestAnnotation.class)[0];
+        Retention retention = String.class.getAnnotation(Retention.class);
+        assertFalse(AnnotationUtils.equals(annotation1, retention));
+    }
+}
+```

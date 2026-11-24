@@ -1,0 +1,91 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testGetPackageNameEmptyClass_2() {
+        assertEquals("", ClassUtils.getPackageName(Object.class));
+    }
+
+    @Test
+    public void testGetPackageNameNullObject() {
+        assertNull(ClassUtils.getPackageName((Object) null));
+    }
+
+    @Test
+    public void testIsPublicNonPublicClass_2() {
+        assertFalse(ClassUtils.isPublic(Object.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperBooleanWrapper_2() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Boolean.class));
+    }
+
+    @Test
+    public void testPrimitivesToWrappersEmptyInput_2() {
+        assertArrayEquals(new Class<?>[0], ClassUtils.primitivesToWrappers());
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithNullElement_2() {
+        List<Class<?>> classes = Arrays.asList(String.class, null, Integer.class);
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertEquals(3, classNames.size());
+        assertEquals("java.lang.String", classNames.get(0));
+        assertNull(classNames.get(1));
+        assertEquals("java.lang.Integer", classNames.get(2));
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithInvalidClassName_2() {
+        List<String> classNames = Arrays.asList("java.lang.String", "invalid.class.name", "java.lang.Integer");
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertEquals(3, classes.size());
+        assertNotNull(classes.get(0));
+        assertNull(classes.get(1));
+        assertNotNull(classes.get(2));
+    }
+
+    @Test
+    public void testGetCanonicalNameNullObject_2_2() {
+        assertNull(ClassUtils.getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperBooleanClass_2() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(boolean.class));
+    }
+
+    @Test
+    public void testPrimitivesToWrappersSingleElement_2() {
+        Class<?>[] result = ClassUtils.primitivesToWrappers(int.class);
+        assertArrayEquals(new Class<?>[]{Integer.class}, result);
+    }
+
+    @Test
+    public void testToClassWithNullInput_2() {
+        assertNull(ClassUtils.toClass((Object) null));
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithEmptyList_2() {
+        List<Class<?>> classes = Collections.emptyList();
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertTrue(classNames.isEmpty());
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithEmptyList_2() {
+        List<String> classNames = Collections.emptyList();
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertTrue(classes.isEmpty());
+    }
+}
+```

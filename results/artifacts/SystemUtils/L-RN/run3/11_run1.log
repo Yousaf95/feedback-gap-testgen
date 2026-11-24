@@ -1,0 +1,36 @@
+[ERROR] Tests run: 18, Failures: 1, Errors: 1, Skipped: 1, Time elapsed: 0.223 s <<< FAILURE! -- in org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaAwtHeadless_whenTrue -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.NullPointerException: key can't be null
+	at java.base/java.lang.System.checkKey(System.java:1059)
+	at java.base/java.lang.System.setProperty(System.java:1005)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaAwtHeadless_whenTrue(SystemUtils_GenTest.java:159)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetUserName_withCustomDefault -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <custom_user> but was: <hafizmuhammad.yousaf>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetUserName_withCustomDefault(SystemUtils_GenTest.java:188)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   SystemUtils_GenTest.testGetUserName_withCustomDefault:188 expected: <custom_user> but was: <hafizmuhammad.yousaf>
+[ERROR] Errors: 
+[ERROR]   SystemUtils_GenTest.testIsJavaAwtHeadless_whenTrue:159 » NullPointer key can't be null
+[ERROR] Tests run: 18, Failures: 1, Errors: 1, Skipped: 1
+[ERROR] There are test failures.
+
+Please refer to /work/w7/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

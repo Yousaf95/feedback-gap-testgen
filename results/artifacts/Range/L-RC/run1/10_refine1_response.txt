@@ -1,0 +1,149 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+
+public class Range_GenTest {
+
+    @Test
+    void testConstructorWithComparator() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        Range<Integer> range = new Range<>(5, 10, comparator);
+        assertEquals(5, range.getMinimum());
+        assertEquals(10, range.getMaximum());
+    }
+
+    @Test
+    void testContainsRangeWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    void testElementCompareToWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertThrows(NullPointerException.class, () -> range.elementCompareTo(null));
+    }
+
+    @Test
+    void testElementCompareToWhenAfter() {
+        Range<Integer> range = Range.between(5, 10);
+        assertEquals(-1, range.elementCompareTo(3));
+    }
+
+    @Test
+    void testElementCompareToWhenBefore() {
+        Range<Integer> range = Range.between(5, 10);
+        assertEquals(1, range.elementCompareTo(12));
+    }
+
+    @Test
+    void testElementCompareToWhenInRange() {
+        Range<Integer> range = Range.between(5, 10);
+        assertEquals(0, range.elementCompareTo(7));
+    }
+
+    @Test
+    void testEqualsWithSameInstance() {
+        Range<Integer> range = Range.between(5, 10);
+        assertTrue(range.equals(range));
+    }
+
+    @Test
+    void testEqualsWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.equals(null));
+    }
+
+    @Test
+    void testEqualsWithDifferentClass() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.equals("not a range"));
+    }
+
+    @Test
+    void testEqualsWithDifferentMinimum() {
+        Range<Integer> range1 = Range.between(5, 10);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertFalse(range1.equals(range2));
+    }
+
+    @Test
+    void testEqualsWithDifferentMaximum() {
+        Range<Integer> range1 = Range.between(5, 10);
+        Range<Integer> range2 = Range.between(5, 9);
+        assertFalse(range1.equals(range2));
+    }
+
+    @Test
+    void testHashCode() {
+        Range<Integer> range = Range.between(5, 10);
+        int expectedHash = Objects.hash(Range.class, 5, 10);
+        assertEquals(expectedHash, range.hashCode());
+    }
+
+    @Test
+    void testIntersectionWithSameRange() {
+        Range<Integer> range1 = Range.between(5, 10);
+        Range<Integer> range2 = Range.between(5, 10);
+        assertSame(range1, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIsAfterWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.isAfter(null));
+    }
+
+    @Test
+    void testIsAfterRangeWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    void testIsBeforeWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.isBefore(null));
+    }
+
+    @Test
+    void testIsBeforeRangeWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    void testIsEndedByWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    void testIsOverlappedByWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.isOverlappedBy(null));
+    }
+
+    @Test
+    void testIsStartedByWithNull() {
+        Range<Integer> range = Range.between(5, 10);
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    void testToStringWhenNotCached() {
+        Range<Integer> range = new Range<>(5, 10, null);
+        assertEquals("[5..10]", range.toString());
+    }
+
+    @Test
+    void testToStringWithFormat() {
+        Range<Integer> range = Range.between(5, 10);
+        assertEquals("Range[5, 10, java.lang.Comparable$ComparableComparator@null]",
+                range.toString("Range[%s, %s, %s]"));
+    }
+}
+```

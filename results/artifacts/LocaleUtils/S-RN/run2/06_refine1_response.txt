@@ -1,0 +1,34 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_invalidLanguageCode() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("zz");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_invalidCountryCode() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("ZZ");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testToLocale_emptyString() {
+        Locale locale = LocaleUtils.toLocale("");
+        assertEquals(new Locale("", ""), locale);
+    }
+
+    @Test
+    public void testToLocale_scriptExtensions() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US#x-lvariant"));
+    }
+}
+```

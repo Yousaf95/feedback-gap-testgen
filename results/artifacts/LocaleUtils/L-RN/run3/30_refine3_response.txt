@@ -1,0 +1,94 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testCountriesByLanguageWithEmptyCountryList() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("xyz");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountryWithEmptyLanguageList() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("XYZ");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    void testLocaleLookupListWithNullLocaleAndDefaultLocale() {
+        List<Locale> lookupList = LocaleUtils.localeLookupList(null, null);
+        assertEquals(1, lookupList.size());
+        assertEquals(Locale.getDefault(), lookupList.get(0));
+    }
+
+    @Test
+    void testLocaleLookupListWithNullLocaleAndNonNullDefaultLocale() {
+        Locale defaultLocale = new Locale("fr", "FR");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(null, defaultLocale);
+        assertEquals(1, lookupList.size());
+        assertEquals(defaultLocale, lookupList.get(0));
+    }
+
+    @Test
+    void testLocaleLookupListWithNonNullLocaleAndNullDefaultLocale() {
+        Locale locale = new Locale("en", "US");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale, null);
+        assertEquals(4, lookupList.size());
+        assertEquals(locale, lookupList.get(0));
+        assertEquals(new Locale("en", "US"), lookupList.get(1));
+        assertEquals(new Locale("en", ""), lookupList.get(2));
+        assertEquals(Locale.getDefault(), lookupList.get(3));
+    }
+
+    @Test
+    void testLocaleLookupListWithCompleteLocaleAndDefaultLocale() {
+        Locale locale = new Locale("de", "DE", "POSIX");
+        Locale defaultLocale = new Locale("fr", "FR");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale, defaultLocale);
+        assertEquals(4, lookupList.size());
+        assertEquals(locale, lookupList.get(0));
+        assertEquals(new Locale("de", "DE"), lookupList.get(1));
+        assertEquals(new Locale("de", ""), lookupList.get(2));
+        assertEquals(defaultLocale, lookupList.get(3));
+    }
+
+    @Test
+    void testLocaleLookupListWithCompleteLocaleAndSameDefaultLocale() {
+        Locale locale = new Locale("de", "DE", "POSIX");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale, locale);
+        assertEquals(3, lookupList.size());
+        assertEquals(locale, lookupList.get(0));
+        assertEquals(new Locale("de", "DE"), lookupList.get(1));
+        assertEquals(new Locale("de", ""), lookupList.get(2));
+    }
+
+    @Test
+    void testLocaleLookupListWithCountryOnlyLocale() {
+        Locale locale = new Locale("", "US");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale, null);
+        assertEquals(2, lookupList.size());
+        assertEquals(locale, lookupList.get(0));
+        assertEquals(Locale.getDefault(), lookupList.get(1));
+    }
+
+    @Test
+    void testLocaleLookupListWithLanguageOnlyLocale() {
+        Locale locale = new Locale("fr", "");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale, null);
+        assertEquals(2, lookupList.size());
+        assertEquals(locale, lookupList.get(0));
+        assertEquals(Locale.getDefault(), lookupList.get(1));
+    }
+
+    @Test
+    void testToLocaleWithValidLanguageAndCountryCodeUsingMixedSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US-CA"));
+    }
+}
+```

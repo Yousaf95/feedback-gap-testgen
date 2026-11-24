@@ -1,0 +1,66 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetStackTraceWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        String stackTrace = ExceptionUtils.getStackTrace(checked);
+        assertTrue(stackTrace.contains(Exception.class.getName()));
+    }
+
+    @Test
+    public void testGetStackTraceWithUncheckedException() {
+        Throwable unchecked = new RuntimeException("Unchecked exception");
+        String stackTrace = ExceptionUtils.getStackTrace(unchecked);
+        assertTrue(stackTrace.contains(RuntimeException.class.getName()));
+    }
+
+    @Test
+    public void testGetStackTraceWithNestedCheckedExceptions() {
+        Throwable nestedChecked = new Exception("Nested checked exception");
+        Throwable rootChecked = new Exception("Root checked exception", nestedChecked);
+        String stackTrace = ExceptionUtils.getStackTrace(rootChecked);
+        assertTrue(stackTrace.contains(Exception.class.getName()));
+    }
+
+    @Test
+    public void testGetStackTraceWithNestedUncheckedExceptions() {
+        Throwable nestedUnchecked = new RuntimeException("Nested unchecked exception");
+        Throwable rootUnchecked = new RuntimeException("Root unchecked exception", nestedUnchecked);
+        String stackTrace = ExceptionUtils.getStackTrace(rootUnchecked);
+        assertTrue(stackTrace.contains(RuntimeException.class.getName()));
+    }
+
+    @Test
+    public void testGetStackTraceWithMixedNestedExceptions() {
+        Throwable nestedChecked = new Exception("Nested checked exception");
+        Throwable nestedUnchecked = new RuntimeException("Nested unchecked exception");
+        Throwable rootChecked = new Exception("Root checked exception", nestedChecked);
+        Throwable rootUnchecked = new RuntimeException("Root unchecked exception", nestedUnchecked);
+        String stackTrace = ExceptionUtils.getStackTrace(rootUnchecked);
+        assertTrue(stackTrace.contains(Exception.class.getName()));
+        assertTrue(stackTrace.contains(RuntimeException.class.getName()));
+    }
+
+    @Test
+    public void testGetStackTraceWithNullThrowable() {
+        String stackTrace = ExceptionUtils.getStackTrace(null);
+        assertEquals("", stackTrace);
+    }
+
+    @Test
+    public void testGetStackTraceWithEmptyThrowable_2() {
+        Throwable empty = new Exception();
+        String stackTrace = ExceptionUtils.getStackTrace(empty);
+        assertTrue(stackTrace.contains(Exception.class.getName()));
+    }
+}
+```

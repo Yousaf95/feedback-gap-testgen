@@ -1,0 +1,89 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testGetPackageName() {
+        assertEquals("org.apache.commons", ClassUtils.getPackageName(ClassUtils.class));
+        assertNull(ClassUtils.getPackageName(null));
+    }
+
+    @Test
+    public void testIsPublic() {
+        assertTrue(ClassUtils.isPublic(String.class));
+        assertFalse(ClassUtils.isPublic(new Object() {}).getClass());
+    }
+
+    @Test
+    public void testGetAllSuperclasses() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(List.class);
+        assertEquals(2, superclasses.size());
+        assertTrue(superclasses.contains(Object.class));
+        assertTrue(superclasses.contains(AbstractList.class));
+    }
+
+    @Test
+    public void testIsInnerClass() {
+        assertTrue(ClassUtils.isInnerClass(new Object() {}).getClass());
+        assertFalse(ClassUtils.isInnerClass(String.class));
+    }
+
+    @Test
+    public void testGetAllInterfaces() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(List.class);
+        assertEquals(2, interfaces.size());
+        assertTrue(interfaces.contains(Collection.class));
+        assertTrue(interfaces.contains(Iterable.class));
+    }
+
+    @Test
+    public void testConvertClassesToClassNames() {
+        List<Class<?>> classes = Arrays.asList(String.class, Integer.class);
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertEquals(Arrays.asList("java.lang.String", "java.lang.Integer"), classNames);
+    }
+
+    @Test
+    public void testConvertClassNamesToClasses() {
+        List<String> classNames = Arrays.asList("java.lang.String", "java.lang.Integer");
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertEquals(Arrays.asList(String.class, Integer.class), classes);
+    }
+
+    @Test
+    public void testGetCanonicalNameWithNull() {
+        assertNull(ClassUtils.getCanonicalName(null));
+    }
+
+    @Test
+    public void testGetShortClassName() {
+        assertEquals("String", ClassUtils.getShortClassName(String.class));
+        assertEquals("Object", ClassUtils.getShortClassName(new Object()));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapper() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(int.class));
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Integer.class));
+        assertFalse(ClassUtils.isPrimitiveOrWrapper(String.class));
+    }
+
+    @Test
+    public void testPrimitivesToWrappers() {
+        Class<?>[] wrappers = ClassUtils.primitivesToWrappers(int.class, boolean.class);
+        assertEquals(Arrays.asList(Integer.class, Boolean.class), Arrays.asList(wrappers));
+    }
+
+    @Test
+    public void testWrappersToPrimitives() {
+        Class<?>[] primitives = ClassUtils.wrappersToPrimitives(Integer.class, Boolean.class);
+        assertEquals(Arrays.asList(int.class, boolean.class), Arrays.asList(primitives));
+    }
+}
+```

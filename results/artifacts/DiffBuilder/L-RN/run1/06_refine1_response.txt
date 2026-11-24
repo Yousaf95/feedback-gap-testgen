@@ -1,0 +1,67 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.apache.commons.lang3.builder.DiffBuilder;
+import org.apache.commons.lang3.builder.DiffResult;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.junit.jupiter.api.Test;
+
+public class DiffBuilder_GenTest {
+
+    @Test
+    void testConstructorWithTriviallyEqualObjects() {
+        Object lhs = new Object();
+        Object rhs = lhs; // same instance, trivially equal
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE);
+        assertEquals(0, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    void testConstructorWithoutTrivialEqualityCheck() {
+        Object lhs = new Object();
+        Object rhs = new Object(); // different instances
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE, false);
+        assertEquals(0, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    void testAppendDiffResultFieldWithEmptyDiffs() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        DiffResult<Object> emptyDiffResult = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).build();
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE);
+        diffBuilder.append("nested", emptyDiffResult);
+        assertEquals(0, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    void testAppendDiffResultFieldWithNonEmptyDiffs() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        DiffResult<Object> nonEmptyDiffResult = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE)
+                .append("field", 1, 2).build();
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE);
+        diffBuilder.append("nested", nonEmptyDiffResult);
+        assertEquals(1, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    void testAppendWithNullFieldName() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE);
+        assertThrows(NullPointerException.class, () -> diffBuilder.append(null, 1, 2));
+    }
+
+    @Test
+    void testAppendWithNullDiffResult() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE);
+        assertThrows(NullPointerException.class, () -> diffBuilder.append("nested", null));
+    }
+}
+```

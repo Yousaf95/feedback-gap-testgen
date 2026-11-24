@@ -1,0 +1,77 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[68,46] cannot find symbol
+  symbol:   class Consumer
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[74,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    java.lang.Boolean[],(b)->assertTrue(b)
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[75,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    java.lang.Boolean[],(b)->assertFalse(b)
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,29] cannot find symbol
+  symbol:   variable ON
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,34] cannot find symbol
+  symbol:   variable OFF
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[423,29] cannot find symbol
+  symbol:   variable TRUE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[423,36] cannot find symbol
+  symbol:   variable FALSE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[436,29] cannot find symbol
+  symbol:   variable YES
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[436,35] cannot find symbol
+  symbol:   variable NO
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[449,20] cannot find symbol
+  symbol:   variable BOOLEAN_LIST
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[68,46] cannot find symbol
+[ERROR]   symbol:   class Consumer
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[74,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    java.lang.Boolean[],(b)->assertTrue(b)
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[75,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    java.lang.Boolean[],(b)->assertFalse(b)
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,29] cannot find symbol
+[ERROR]   symbol:   variable ON
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,34] cannot find symbol
+[ERROR]   symbol:   variable OFF
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[423,29] cannot find symbol
+[ERROR]   symbol:   variable TRUE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[423,36] cannot find symbol
+[ERROR]   symbol:   variable FALSE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[436,29] cannot find symbol
+[ERROR]   symbol:   variable YES
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[436,35] cannot find symbol
+[ERROR]   symbol:   variable NO
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[449,20] cannot find symbol
+[ERROR]   symbol:   variable BOOLEAN_LIST
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

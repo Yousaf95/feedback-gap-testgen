@@ -1,0 +1,181 @@
+[ERROR] Tests run: 18, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.126 s <<< FAILURE! -- in org.apache.commons.lang3.SystemUtils_GenTest
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaAwtHeadlessTrue -- Time elapsed: 0.034 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaAwtHeadlessTrue(SystemUtils_GenTest.java:217)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetJavaIoTmpDir -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.io.File.<init>(File.java:278)
+	at org.apache.commons.lang3.SystemUtils.getJavaIoTmpDir(SystemUtils.java:1942)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetJavaIoTmpDir(SystemUtils_GenTest.java:106)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetUserDir -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.io.File.<init>(File.java:278)
+	at org.apache.commons.lang3.SystemUtils.getUserDir(SystemUtils.java:1986)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetUserDir(SystemUtils_GenTest.java:112)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsOSVersionMatchTrue -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsOSVersionMatchTrue(SystemUtils_GenTest.java:209)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetJavaHome -- Time elapsed: 0.012 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.io.File.<init>(File.java:278)
+	at org.apache.commons.lang3.SystemUtils.getJavaHome(SystemUtils.java:1929)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetJavaHome(SystemUtils_GenTest.java:100)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetHostNameNonWindows -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetHostNameNonWindows(SystemUtils_GenTest.java:149)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetUserHome -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.io.File.<init>(File.java:278)
+	at org.apache.commons.lang3.SystemUtils.getUserHome(SystemUtils.java:1999)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetUserHome(SystemUtils_GenTest.java:118)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetHostNameWindows -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetHostNameWindows(SystemUtils_GenTest.java:140)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetUserNameDefault -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetUserNameDefault(SystemUtils_GenTest.java:167)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeastTrue -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtLeastTrue(SystemUtils_GenTest.java:176)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtMostTrue -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsJavaVersionAtMostTrue(SystemUtils_GenTest.java:184)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testIsOSMatchTrue -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testIsOSMatchTrue(SystemUtils_GenTest.java:192)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.SystemUtils_GenTest.testGetUserNameDeprecated -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(ConcurrentHashMap.java:1011)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(ConcurrentHashMap.java:1006)
+	at java.base/java.util.Properties.put(Properties.java:1301)
+	at java.base/java.util.Properties.setProperty(Properties.java:229)
+	at org.apache.commons.lang3.SystemUtils_GenTest.testGetUserNameDeprecated(SystemUtils_GenTest.java:158)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   SystemUtils_GenTest.testGetHostNameNonWindows:149 » NullPointer
+[ERROR]   SystemUtils_GenTest.testGetHostNameWindows:140 » NullPointer
+[ERROR]   SystemUtils_GenTest.testGetJavaHome:100 » NullPointer
+[ERROR]   SystemUtils_GenTest.testGetJavaIoTmpDir:106 » NullPointer
+[ERROR]   SystemUtils_GenTest.testGetUserDir:112 » NullPointer
+[ERROR]   SystemUtils_GenTest.testGetUserHome:118 » NullPointer
+[ERROR]   SystemUtils_GenTest.testGetUserNameDefault:167 » NullPointer
+[ERROR]   SystemUtils_GenTest.testGetUserNameDeprecated:158 » NullPointer
+[ERROR]   SystemUtils_GenTest.testIsJavaAwtHeadlessTrue:217 » NullPointer
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtLeastTrue:176 » NullPointer
+[ERROR]   SystemUtils_GenTest.testIsJavaVersionAtMostTrue:184 » NullPointer
+[ERROR]   SystemUtils_GenTest.testIsOSMatchTrue:192 » NullPointer
+[ERROR]   SystemUtils_GenTest.testIsOSVersionMatchTrue:209 » NullPointer
+[ERROR] Tests run: 18, Failures: 0, Errors: 13, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w2/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

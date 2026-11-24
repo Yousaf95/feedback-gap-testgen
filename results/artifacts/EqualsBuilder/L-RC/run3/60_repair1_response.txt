@@ -1,0 +1,90 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
+import java.util.Set;
+import org.apache.commons.lang3.tuple.Pair;
+
+class EqualsBuilder_GenTest {
+
+    @Test
+    void testRegistryContainsPair() {
+        Set<Pair<IDKey, IDKey>> registry = new HashSet<>();
+        Pair<IDKey, IDKey> pair = Pair.of(new IDKey("test1"), new IDKey("test2"));
+        registry.add(pair);
+        assertEquals(true, EqualsBuilder.containsInRegistry(pair, registry));
+    }
+
+    @Test
+    void testRegistryContainsSwappedPair() {
+        Set<Pair<IDKey, IDKey>> registry = new HashSet<>();
+        Pair<IDKey, IDKey> pair = Pair.of(new IDKey("test1"), new IDKey("test2"));
+        Pair<IDKey, IDKey> swappedPair = Pair.of(pair.getRight(), pair.getLeft());
+        registry.add(swappedPair);
+        assertEquals(true, EqualsBuilder.containsInRegistry(pair, registry));
+    }
+
+    @Test
+    void testRegistryNull() {
+        Pair<IDKey, IDKey> pair = Pair.of(new IDKey("test1"), new IDKey("test2"));
+        assertEquals(false, EqualsBuilder.containsInRegistry(pair, null));
+    }
+
+    @Test
+    void testAppendBooleanWhenNotEquals() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.isEquals(false);
+        assertEquals(builder, builder.append(true, false));
+    }
+
+    @Test
+    void testAppendBooleanArrayWithDifferentLengths() {
+        boolean[] lhs = {true};
+        boolean[] rhs = {};
+        EqualsBuilder builder = new EqualsBuilder().append(lhs, rhs);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendByteArrayWithDifferentLengths() {
+        byte[] lhs = {1};
+        byte[] rhs = {};
+        EqualsBuilder builder = new EqualsBuilder().append(lhs, rhs);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendCharArrayWithDifferentLengths() {
+        char[] lhs = {'a'};
+        char[] rhs = {};
+        EqualsBuilder builder = new EqualsBuilder().append(lhs, rhs);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendDoubleArrayWithDifferentLengths() {
+        double[] lhs = {1.0};
+        double[] rhs = {};
+        EqualsBuilder builder = new EqualsBuilder().append(lhs, rhs);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendFloatArrayWithDifferentLengths() {
+        float[] lhs = {1.0f};
+        float[] rhs = {};
+        EqualsBuilder builder = new EqualsBuilder().append(lhs, rhs);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendIntArrayWithDifferentLengths() {
+        int[] lhs = {1};
+        int[] rhs = {};
+        EqualsBuilder builder = new EqualsBuilder().append(lhs, rhs);
+        assertFalse(builder.isEquals());
+    }
+}
+```

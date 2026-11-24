@@ -1,0 +1,69 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_SingleCharacter() {
+        assertTrue(CharSetUtils.containsAny("abc", "b"));
+        assertFalse(CharSetUtils.containsAny("abc", "d"));
+    }
+
+    @Test
+    public void testCount_SingleCharacter() {
+        assertEquals(1, CharSetUtils.count("abc", "b"));
+        assertEquals(0, CharSetUtils.count("abc", "d"));
+    }
+
+    @Test
+    public void testDelete_SingleCharacter() {
+        assertEquals("ac", CharSetUtils.delete("abc", "b"));
+        assertEquals("abc", CharSetUtils.delete("abc", "d"));
+    }
+
+    @Test
+    public void testKeep_SingleCharacter() {
+        assertEquals("b", CharSetUtils.keep("abc", "b"));
+        assertEquals("", CharSetUtils.keep("abc", "d"));
+    }
+
+    @Test
+    public void testSqueeze_SingleCharacter() {
+        assertEquals("a", CharSetUtils.squeeze("aaabbbccc", "a"));
+        assertEquals("abc", CharSetUtils.squeeze("abc", "d"));
+    }
+
+    @Test
+    public void testContainsAny_MultipleCharacters() {
+        assertTrue(CharSetUtils.containsAny("abc", "b", "c"));
+        assertFalse(CharSetUtils.containsAny("abc", "d", "e"));
+    }
+
+    @Test
+    public void testCount_MultipleCharacters() {
+        assertEquals(2, CharSetUtils.count("abc", "a", "c"));
+        assertEquals(0, CharSetUtils.count("abc", "d", "e"));
+    }
+
+    @Test
+    public void testDelete_MultipleCharacters() {
+        assertEquals("ac", CharSetUtils.delete("abc", "b", "d"));
+        assertEquals("abc", CharSetUtils.delete("abc", "d", "e"));
+    }
+
+    @Test
+    public void testKeep_MultipleCharacters() {
+        assertEquals("bc", CharSetUtils.keep("abc", "b", "c"));
+        assertEquals("", CharSetUtils.keep("abc", "d", "e"));
+    }
+
+    @Test
+    public void testSqueeze_MultipleCharacters() {
+        assertEquals("a", CharSetUtils.squeeze("aaabbbccc", "a", "b"));
+        assertEquals("abc", CharSetUtils.squeeze("abc", "d", "e"));
+    }
+}
+```

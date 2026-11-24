@@ -1,0 +1,173 @@
+[ERROR] Tests run: 26, Failures: 3, Errors: 9, Skipped: 0, Time elapsed: 0.230 s <<< FAILURE! -- in org.apache.commons.lang3.builder.DiffBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLeftStringArray -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.NullPointerException: lhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:138)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLeftStringArray(DiffBuilder_GenTest.java:177)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyStringArray -- Time elapsed: 0.040 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <2> but was: <1>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyStringArray(DiffBuilder_GenTest.java:162)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullObject -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: lhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:138)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullObject(DiffBuilder_GenTest.java:251)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullString -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: lhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:138)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullString(DiffBuilder_GenTest.java:209)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullStringArray -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: lhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:138)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullStringArray(DiffBuilder_GenTest.java:169)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLeftObject -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: lhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:138)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLeftObject(DiffBuilder_GenTest.java:259)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLeftString -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: lhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:138)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLeftString(DiffBuilder_GenTest.java:217)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullRightObject -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullRightObject(DiffBuilder_GenTest.java:267)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullRightString -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullRightString(DiffBuilder_GenTest.java:225)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullRightStringArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullRightStringArray(DiffBuilder_GenTest.java:185)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendEmptyObject -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendEmptyObject(DiffBuilder_GenTest.java:234)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyObject -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyObject(DiffBuilder_GenTest.java:244)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   DiffBuilder_GenTest.testAppendEmptyObject:234 expected: <true> but was: <false>
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyObject:244 expected: <true> but was: <false>
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyStringArray:162 expected: <2> but was: <1>
+[ERROR] Errors: 
+[ERROR]   DiffBuilder_GenTest.testAppendNullLeftObject:259 » NullPointer lhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullLeftString:217 » NullPointer lhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullLeftStringArray:177 » NullPointer lhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullObject:251 » NullPointer lhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullRightObject:267 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullRightString:225 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullRightStringArray:185 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullString:209 » NullPointer lhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullStringArray:169 » NullPointer lhs
+[ERROR] Tests run: 26, Failures: 3, Errors: 9, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w11/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,110 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    void testGetComponentType_withNullArrayClass() {
+        assertEquals(null, ClassUtils.getComponentType((Class<int[]>) null));
+    }
+
+    @Test
+    void testGetComponentType_withValidArrayClass() {
+        assertEquals(int.class, ClassUtils.getComponentType(new int[0].getClass()));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withValidClass() {
+        assertEquals("java.lang", ClassUtils.getPackageCanonicalName(String.class));
+    }
+
+    @Test
+    void testGetPackageName_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Object) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetPackageName_withValidObject() {
+        assertEquals("java.lang", ClassUtils.getPackageName(new String(), StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortCanonicalName((Class<?>) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withValidClass() {
+        assertEquals("String", ClassUtils.getShortCanonicalName(String.class, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetShortClassName_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortClassName((Object) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetShortClassName_withValidObject() {
+        assertEquals("String", ClassUtils.getShortClassName(new String(), StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetSimpleName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getSimpleName((Class<?>) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetSimpleName_withValidClass() {
+        assertEquals("String", ClassUtils.getSimpleName(String.class, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetSimpleName_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getSimpleName((Object) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetSimpleName_withValidObject() {
+        assertEquals("String", ClassUtils.getSimpleName(new String(), StringUtils.EMPTY));
+    }
+
+    @Test
+    void testIsInnerClass_withNonInnerClass() {
+        assertFalse(ClassUtils.isInnerClass(String.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withPrimitiveType() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(int.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withWrapperType() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Integer.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withNonPrimitiveOrWrapperType() {
+        assertFalse(ClassUtils.isPrimitiveOrWrapper(String.class));
+    }
+
+    @Test
+    void testIsPublic_withPublicClass() {
+        assertTrue(ClassUtils.isPublic(String.class));
+    }
+
+    @Test
+    void testIsPublic_withPrivateClass() {
+        class PrivateClass {}
+        assertFalse(ClassUtils.isPublic(PrivateClass.class));
+    }
+}
+```

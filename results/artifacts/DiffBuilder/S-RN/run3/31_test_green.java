@@ -1,0 +1,184 @@
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class DiffBuilder_GenTest {
+
+    private DiffBuilder<Object> diffBuilder;
+
+    @BeforeEach
+    public void setUp() {
+        diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Test
+    public void testAppendEmptyArray() {
+        Object[] lhs = {};
+        Object[] rhs = {};
+        diffBuilder.append("emptyArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(0, diffs.size());
+    }
+
+    
+    @Test
+        public void testAppendEmptyObjectArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new Object[0], new Object[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyObjectArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new Object[]{"value1"}, new Object[]{"value2"});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new Object[]{"value1"}, (Object[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new Object[]{"value2"}, (Object[]) result.getDiffs().get(0).getRight());
+        }
+
+    
+    @Test
+        public void testAppendEmptyBooleanArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new boolean[0], new boolean[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    
+    @Test
+        public void testAppendEmptyByteArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new byte[0], new byte[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    
+    @Test
+        public void testAppendEmptyCharArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new char[0], new char[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    
+    @Test
+        public void testAppendEmptyDoubleArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new double[0], new double[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    
+    @Test
+        public void testAppendEmptyFloatArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new float[0], new float[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    
+    @Test
+        public void testAppendEmptyIntArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new int[0], new int[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    
+    @Test
+        public void testAppendEmptyLongArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new long[0], new long[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    
+    @Test
+        public void testAppendEmptyShortArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new short[0], new short[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testAppendEmptyStringArray() {
+            String[] lhs = {};
+            String[] rhs = {};
+            DiffResult<String[]> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("array", lhs, rhs).build();
+            assertTrue(result.getDiffs().isEmpty());
+        }
+
+    
+    
+    
+    
+    @Test
+        public void testAppendEmptyString() {
+            String lhs = "";
+            String rhs = "";
+            DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("string", lhs, rhs).build();
+            assertTrue(result.getDiffs().isEmpty());
+        }
+
+    @Test
+        public void testAppendNonEmptyString() {
+            String lhs = "abc";
+            String rhs = "def";
+            DiffResult<String> result = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE).append("string", lhs, rhs).build();
+            assertEquals(1, result.getDiffs().size());
+        }
+
+    
+    
+    
+    
+    
+    
+    
+    }

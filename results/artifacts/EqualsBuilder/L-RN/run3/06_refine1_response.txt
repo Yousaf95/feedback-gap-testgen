@@ -1,0 +1,60 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    void testAppendSuperWithFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendSuperWithTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(true);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testResetAfterFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(false, true);
+        assertFalse(builder.isEquals());
+        builder.reset();
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testResetAfterTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(true, true);
+        assertTrue(builder.isEquals());
+        builder.reset();
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testSetBypassReflectionClassesWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertThrows(NullPointerException.class, () -> builder.setBypassReflectionClasses(null));
+    }
+
+    @Test
+    void testSetExcludeFieldsWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertThrows(NullPointerException.class, () -> builder.setExcludeFields((String[]) null));
+    }
+
+    @Test
+    void testSetReflectUpToClassWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setReflectUpToClass(null);
+        assertNull(builder.reflectUpToClass);
+    }
+}
+```

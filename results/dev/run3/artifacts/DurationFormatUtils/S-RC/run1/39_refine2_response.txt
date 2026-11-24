@@ -1,0 +1,104 @@
+```java
+package org.apache.commons.lang3.time;
+
+import org.junit.jupiter.api.Test;
+import java.util.TimeZone;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DurationFormatUtils_GenTest {
+
+    @Test
+    public void testTokenEqualsDifferentClass() {
+        Token token1 = new Token("test", false, -1);
+        Token token2 = new Token(123, false, -1);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    public void testTokenEqualsDifferentCount() {
+        Token token1 = new Token("test", false, -1);
+        Token token2 = new Token("test", 2, -1);
+        assertFalse(token1.equals(token2));
+    }
+
+    @Test
+    public void testTokenHashCode() {
+        Token token = new Token("test", false, -1);
+        assertEquals("test".hashCode(), token.hashCode());
+    }
+
+    @Test
+    public void testTokenToString() {
+        Token token = new Token("test", false, -1);
+        assertEquals("testtesttest", token.toString());
+    }
+
+    @Test
+    public void testFormatDurationISO() {
+        String result = DurationFormatUtils.formatDurationISO(123456789L);
+        assertTrue(result.contains("PT"));
+    }
+
+    @Test
+    public void testFormatPeriodThrowsExceptionForStartAfterEnd() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            DurationFormatUtils.formatPeriod(2000, 1000, "P")
+        );
+    }
+
+    @Test
+    public void testFormatDurationWithOptionalToken() {
+        String result = DurationFormatUtils.formatDuration(123456789L, "'d' days 'H' hours 'm' minutes 's' seconds'");
+        assertTrue(result.contains("days"));
+    }
+
+    @Test
+    public void testFormatDurationWithNumberValue() {
+        String result = DurationFormatUtils.formatDuration(123456789L, "HH:mm:ss.SSS");
+        assertTrue(result.matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3}"));
+    }
+
+    @Test
+    public void testFormatDurationWithStringBuilderValue() {
+        String result = DurationFormatUtils.formatDuration(123456789L, "HH:mm:ss.SSS");
+        assertTrue(result.matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3}"));
+    }
+
+    @Test
+    public void testFormatPeriodWithOptionalToken() {
+        String result = DurationFormatUtils.formatPeriod(1000, 2000, "'d' days 'H' hours 'm' minutes 's' seconds'");
+        assertTrue(result.contains("days"));
+    }
+
+    @Test
+    public void testFormatPeriodWithNumberValue() {
+        String result = DurationFormatUtils.formatPeriod(1000, 2000, "HH:mm:ss.SSS");
+        assertTrue(result.matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3}"));
+    }
+
+    @Test
+    public void testFormatPeriodWithStringBuilderValue() {
+        String result = DurationFormatUtils.formatPeriod(1000, 2000, "HH:mm:ss.SSS");
+        assertTrue(result.matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3}"));
+    }
+
+    @Test
+    public void testFormatDurationWithOptionalTokenInTimeZone() {
+        String result = DurationFormatUtils.formatPeriod(1000, 2000, "'d' days 'H' hours 'm' minutes 's' seconds'", true, TimeZone.getTimeZone("UTC"));
+        assertTrue(result.contains("days"));
+    }
+
+    @Test
+    public void testFormatDurationWithNumberValueInTimeZone() {
+        String result = DurationFormatUtils.formatPeriod(1000, 2000, "HH:mm:ss.SSS", true, TimeZone.getTimeZone("UTC"));
+        assertTrue(result.matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3}"));
+    }
+
+    @Test
+    public void testFormatDurationWithStringBuilderValueInTimeZone() {
+        String result = DurationFormatUtils.formatPeriod(1000, 2000, "HH:mm:ss.SSS", true, TimeZone.getTimeZone("UTC"));
+        assertTrue(result.matches("\\d{2}:\\d{2}:\\d{2}\\.\\d{3}"));
+    }
+}
+```

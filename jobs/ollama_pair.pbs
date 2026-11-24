@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -N icect_ollama2
+#PBS -q shortGPUQ
+#PBS -l select=1:ncpus=8:ngpus=1:mem=96gb:gpu_type=H100
+#PBS -l walltime=07:59:00
+#PBS -j oe
+# Both model servers in one job: both servers on the job's GPU (7B port 11434, 32B port 11435); separate processes, so no model eviction.
+source /usr/share/Modules/init/bash
+module load CUDA/12.4.0
+export PATH=$HOME/ollama/bin:$PATH
+export OLLAMA_MODELS=$HOME/ollama/models OLLAMA_NUM_PARALLEL=8 OLLAMA_MAX_LOADED_MODELS=1 OLLAMA_KEEP_ALIVE=-1 OLLAMA_CONTEXT_LENGTH=20480
+L=$HOME/ICECT/logs
+(echo "pair job host=$(hostname)"; nvidia-smi --query-gpu=index,name,memory.total,memory.used --format=csv; ollama --version 2>&1) > $L/ollama_gpu_pair.txt
+CUDA_VISIBLE_DEVICES=0 OLLAMA_HOST=0.0.0.0:11434 ollama serve > $L/ollama_serve_S.log 2>&1 &
+CUDA_VISIBLE_DEVICES=0 OLLAMA_HOST=0.0.0.0:11435 ollama serve > $L/ollama_serve_L.log 2>&1 &
+sleep 10
+curl -s localhost:11434/api/generate -d '{"model":"qwen2.5-coder:7b-instruct","prompt":"hi","stream":false,"options":{"num_predict":1}}' > /dev/null
+curl -s localhost:11435/api/generate -d '{"model":"qwen2.5-coder:32b-instruct","prompt":"hi","stream":false,"options":{"num_predict":1}}' > /dev/null
+echo "$(hostname):11434" > $L/ollama_host_S.txt
+echo "$(hostname):11435" > $L/ollama_host_L.txt
+while true; do (date; OLLAMA_HOST=127.0.0.1:11434 ollama ps; OLLAMA_HOST=127.0.0.1:11435 ollama ps; nvidia-smi --query-gpu=index,utilization.gpu,memory.used --format=csv,noheader) > $L/ollama_ps_pair.txt 2>&1; sleep 30; done

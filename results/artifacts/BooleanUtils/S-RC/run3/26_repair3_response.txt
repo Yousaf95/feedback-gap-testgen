@@ -1,0 +1,99 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class BooleanUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("booleanArrayProvider")
+    public void testForEach(Consumer<Boolean> action) {
+        action.accept(true);
+        action.accept(false);
+    }
+
+    private static Stream<Arguments> booleanArrayProvider() {
+        return Stream.of(
+            arguments(new Boolean[]{true, false})
+        );
+    }
+
+    @Test
+    public void testOneHotBooleanArray() {
+        assertTrue(BooleanUtils.oneHot(new boolean[]{true, false}));
+        assertFalse(BooleanUtils.oneHot(new boolean[]{false, true}));
+        assertFalse(BooleanUtils.oneHot(new boolean[]{true, true}));
+        assertFalse(BooleanUtils.oneHot(new boolean[]{false, false}));
+    }
+
+    @Test
+    public void testOneHotBooleanObjectArray() {
+        assertTrue(BooleanUtils.oneHot(new Boolean[]{Boolean.TRUE, Boolean.FALSE}));
+        assertFalse(BooleanUtils.oneHot(new Boolean[]{Boolean.FALSE, Boolean.TRUE}));
+        assertFalse(BooleanUtils.oneHot(new Boolean[]{Boolean.TRUE, Boolean.TRUE}));
+        assertFalse(BooleanUtils.oneHot(new Boolean[]{Boolean.FALSE, Boolean.FALSE}));
+    }
+
+    @Test
+    public void testToBooleanIntegerValues_2() {
+        assertTrue(BooleanUtils.toBoolean(1, 1, 0));
+        assertFalse(BooleanUtils.toBoolean(0, 1, 0));
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(2, 1, 0));
+    }
+
+    @Test
+    public void testToBooleanIntegerObjectValues() {
+        assertTrue(BooleanUtils.toBoolean(Integer.valueOf(1), Integer.valueOf(1), Integer.valueOf(0)));
+        assertFalse(BooleanUtils.toBoolean(Integer.valueOf(0), Integer.valueOf(1), Integer.valueOf(0)));
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(Integer.valueOf(2), Integer.valueOf(1), Integer.valueOf(0)));
+    }
+
+    @Test
+    public void testToBooleanStringValues_2() {
+        assertTrue(BooleanUtils.toBoolean("true", "true", "false"));
+        assertFalse(BooleanUtils.toBoolean("false", "true", "false"));
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean("other", "true", "false"));
+    }
+
+    @Test
+    public void testToBooleanObjectStringValues() {
+        assertTrue(BooleanUtils.toBooleanObject("true", "true", "false") == Boolean.TRUE);
+        assertFalse(BooleanUtils.toBooleanObject("false", "true", "false") == Boolean.FALSE);
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject("other", "true", "false"));
+    }
+
+    @Test
+    public void testToBooleanStringPartialBranches() {
+        assertTrue(BooleanUtils.toBoolean("y"));
+        assertFalse(BooleanUtils.toBoolean("n"));
+        assertTrue(BooleanUtils.toBoolean("t"));
+        assertFalse(BooleanUtils.toBoolean("f"));
+        assertTrue(BooleanUtils.toBoolean("1"));
+        assertFalse(BooleanUtils.toBoolean("0"));
+    }
+
+    @Test
+    public void testToBooleanObjectStringPartialBranches() {
+        assertTrue(BooleanUtils.toBooleanObject("y") == Boolean.TRUE);
+        assertFalse(BooleanUtils.toBooleanObject("n") == Boolean.FALSE);
+        assertTrue(BooleanUtils.toBooleanObject("t") == Boolean.TRUE);
+        assertFalse(BooleanUtils.toBooleanObject("f") == Boolean.FALSE);
+        assertTrue(BooleanUtils.toBooleanObject("1") == Boolean.TRUE);
+        assertFalse(BooleanUtils.toBooleanObject("0") == Boolean.FALSE);
+    }
+
+    @Test
+    public void testToBooleanStringPartialBranchesNull() {
+        assertNull(BooleanUtils.toBoolean(null));
+        // Removed the following line as it is ambiguous and not applicable
+        // assertNull(BooleanUtils.toBooleanObject(null));
+    }
+}
+```

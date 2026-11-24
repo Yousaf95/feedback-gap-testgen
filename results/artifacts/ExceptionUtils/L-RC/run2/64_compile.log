@@ -1,0 +1,49 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[406,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[412,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[418,29] getCause() in TestClass cannot override getCause() in java.lang.Throwable
+  return type void is not compatible with java.lang.Throwable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[422,46] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[428,29] getCause() in TestClass cannot override getCause() in java.lang.Throwable
+  return type void is not compatible with java.lang.Throwable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[432,46] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[438,47] cannot find symbol
+  symbol:   class InvocationTargetException
+  location: class TestClass
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[438,29] getCause() in TestClass cannot override getCause() in java.lang.Throwable
+  return type void is not compatible with java.lang.Throwable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[438,85] cannot find symbol
+  symbol:   class InvocationTargetException
+  location: class TestClass
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[442,46] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[475,40] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[406,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[412,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[418,29] getCause() in TestClass cannot override getCause() in java.lang.Throwable
+[ERROR]   return type void is not compatible with java.lang.Throwable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[422,46] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[428,29] getCause() in TestClass cannot override getCause() in java.lang.Throwable
+[ERROR]   return type void is not compatible with java.lang.Throwable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[432,46] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[438,47] cannot find symbol
+[ERROR]   symbol:   class InvocationTargetException
+[ERROR]   location: class TestClass
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[438,29] getCause() in TestClass cannot override getCause() in java.lang.Throwable
+[ERROR]   return type void is not compatible with java.lang.Throwable
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[438,85] cannot find symbol
+[ERROR]   symbol:   class InvocationTargetException
+[ERROR]   location: class TestClass
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[442,46] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[475,40] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

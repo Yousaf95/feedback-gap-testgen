@@ -1,0 +1,55 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class HashCodeBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testReflectionHashCodeWithDefaultValues() {
+        SampleClass sample = new SampleClass(10, "test");
+        int hashCode = HashCodeBuilder.reflectionHashCode(sample);
+        assertEquals(hashCode, new HashCodeBuilder().append(10).append("test").toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithCustomInitialAndMultiplier() {
+        SampleClass sample = new SampleClass(10, "test");
+        int hashCode = HashCodeBuilder.reflectionHashCode(5, 7, sample);
+        assertEquals(hashCode, new HashCodeBuilder(5, 7).append(10).append("test").toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludedFields() {
+        SampleClass sample = new SampleClass(10, "test");
+        int hashCode = HashCodeBuilder.reflectionHashCode(sample, "value");
+        assertEquals(hashCode, new HashCodeBuilder().append("test").toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithNullObjectThrowsException() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null));
+    }
+}
+
+class SampleClass {
+    private int value;
+    private String text;
+
+    public SampleClass(int value, String text) {
+        this.value = value;
+        this.text = text;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public String getText() {
+        return text;
+    }
+}
+```

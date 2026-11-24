@@ -1,0 +1,51 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[28,78] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[50,78] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[72,78] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[91,78] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[113,78] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[192,78] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[204,78] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[28,78] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[50,78] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[72,78] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[91,78] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[113,78] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[192,78] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[204,78] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

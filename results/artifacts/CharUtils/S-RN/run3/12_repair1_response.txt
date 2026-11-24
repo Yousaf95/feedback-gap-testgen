@@ -1,0 +1,164 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiChars")
+    public void testIsAscii(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAscii(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiChars() {
+        return Stream.of(
+            arguments('\u007F', true),
+            arguments('\u0080', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiAlphaChars")
+    public void testIsAsciiAlpha(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiAlpha(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiAlphaChars() {
+        return Stream.of(
+            arguments('A', true),
+            arguments('z', true),
+            arguments('\u007F', false),
+            arguments('\u0080', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiAlphaLowerChars")
+    public void testIsAsciiAlphaLower(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiAlphaLower(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiAlphaLowerChars() {
+        return Stream.of(
+            arguments('a', true),
+            arguments('z', true),
+            arguments('A', false),
+            arguments('\u007F', false),
+            arguments('\u0080', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiAlphanumericChars")
+    public void testIsAsciiAlphanumeric(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiAlphanumeric(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiAlphanumericChars() {
+        return Stream.of(
+            arguments('A', true),
+            arguments('z', true),
+            arguments('0', true),
+            arguments('\u007F', false),
+            arguments('\u0080', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiAlphaUpperChars")
+    public void testIsAsciiAlphaUpper(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiAlphaUpper(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiAlphaUpperChars() {
+        return Stream.of(
+            arguments('A', true),
+            arguments('Z', true),
+            arguments('a', false),
+            arguments('\u007F', false),
+            arguments('\u0080', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiControlChars")
+    public void testIsAsciiControl(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiControl(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiControlChars() {
+        return Stream.of(
+            arguments('\r', true),
+            arguments('\n', true),
+            arguments('A', false),
+            arguments('\u007F', false),
+            arguments('\u0080', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiNumericChars")
+    public void testIsAsciiNumeric(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiNumeric(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiNumericChars() {
+        return Stream.of(
+            arguments('0', true),
+            arguments('9', true),
+            arguments('A', false),
+            arguments('\u007F', false),
+            arguments('\u0080', false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiPrintableChars")
+    public void testIsAsciiPrintable(char ch, boolean expected) {
+        assertEquals(expected, CharUtils.isAsciiPrintable(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiPrintableChars() {
+        return Stream.of(
+            arguments(' ', true),
+            arguments('~', true),
+            arguments('\r', false),
+            arguments('\n', false),
+            arguments('\u007F', false),
+            arguments('\u0080', false)
+        );
+    }
+
+    @Test
+    public void testToChar_CharacterNull() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar(null));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideNonNumericChars")
+    public void testToIntValue_CharNonNumeric(char ch) {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue(ch));
+    }
+
+    private static Stream<Arguments> provideNonNumericChars() {
+        return Stream.of(
+            arguments('A'),
+            arguments('z'),
+            arguments('\u007F'),
+            arguments('\u0080')
+        );
+    }
+
+    @Test
+    public void testToString_CharacterNull() {
+        assertNull(CharUtils.toString((Character) null));
+    }
+}
+```

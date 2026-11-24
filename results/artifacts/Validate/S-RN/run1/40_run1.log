@@ -1,0 +1,125 @@
+[ERROR] Tests run: 44, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.302 s <<< FAILURE! -- in org.apache.commons.lang3.Validate_GenTest
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexThrowsExceptionWithInvalidIndexInArray -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexThrowsExceptionWithInvalidIndexInArray(Validate_GenTest.java:248)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: The validated array index is invalid: 3
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1200)
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1174)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexThrowsExceptionWithInvalidIndexInArray$36(Validate_GenTest.java:248)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidStateThrowsExceptionWithFalseExpressionAndMessage -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IllegalStateException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidStateThrowsExceptionWithFalseExpressionAndMessage(Validate_GenTest.java:270)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalStateException: Custom message
+	at org.apache.commons.lang3.Validate.validState(Validate.java:1246)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidStateThrowsExceptionWithFalseExpressionAndMessage$40(Validate_GenTest.java:270)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexWithEmptyArray -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexWithEmptyArray(Validate_GenTest.java:235)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: The validated array index is invalid: 0
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1200)
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1174)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexWithEmptyArray$34(Validate_GenTest.java:235)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexThrowsExceptionWithInvalidIndex -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexThrowsExceptionWithInvalidIndex(Validate_GenTest.java:228)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: The validated collection index is invalid: 3
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1117)
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1064)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexThrowsExceptionWithInvalidIndex$33(Validate_GenTest.java:228)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidStateThrowsExceptionWithFalseExpression -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IllegalStateException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidStateThrowsExceptionWithFalseExpression(Validate_GenTest.java:259)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IllegalStateException: The validated state is false
+	at org.apache.commons.lang3.Validate.validState(Validate.java:1225)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidStateThrowsExceptionWithFalseExpression$38(Validate_GenTest.java:259)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexWithEmptyCollection -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexWithEmptyCollection(Validate_GenTest.java:215)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: The validated collection index is invalid: 0
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1117)
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1064)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexWithEmptyCollection$31(Validate_GenTest.java:215)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] Failures: 
+[ERROR]   Validate_GenTest.testValidIndexThrowsExceptionWithInvalidIndex:228 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexThrowsExceptionWithInvalidIndexInArray:248 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexWithEmptyArray:235 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexWithEmptyCollection:215 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidStateThrowsExceptionWithFalseExpression:259 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IllegalStateException>
+[ERROR]   Validate_GenTest.testValidStateThrowsExceptionWithFalseExpressionAndMessage:270 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IllegalStateException>
+[ERROR] Tests run: 44, Failures: 6, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w12/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

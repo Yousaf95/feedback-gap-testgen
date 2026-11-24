@@ -1,0 +1,23 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[155,46] readResolve() has private access in org.apache.commons.lang3.ObjectUtils.Null
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,83] cannot find symbol
+  symbol:   method get()
+  location: class java.lang.String
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[280,94] cannot find symbol
+  symbol:   method get()
+  location: class java.lang.String
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[155,46] readResolve() has private access in org.apache.commons.lang3.ObjectUtils.Null
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,83] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: class java.lang.String
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[280,94] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: class java.lang.String
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

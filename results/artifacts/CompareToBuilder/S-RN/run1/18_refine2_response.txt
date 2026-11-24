@@ -1,0 +1,42 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppendCustomComparator() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2, Comparator.reverseOrder());
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendNullWithComparator() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(null, "test", Comparator.naturalOrder());
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendNonComparableObjects() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(new Object(), new Object()));
+    }
+
+    @Test
+    public void testAppendCustomComparatorWithNull() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append("test", null, Comparator.nullsFirst(Comparator.naturalOrder()));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendCustomComparatorWithDifferentTypes() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(1, "test", Comparator.naturalOrder()));
+    }
+}
+```

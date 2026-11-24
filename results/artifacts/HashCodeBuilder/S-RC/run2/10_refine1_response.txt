@@ -1,0 +1,66 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testGetRegistry() {
+        // Ensure the registry is not null and can be retrieved
+        Set<IDKey> registry = HashCodeBuilder.getRegistry();
+        assertNotNull(registry);
+    }
+
+    @Test
+    public void testIsRegisteredWithNullValue() {
+        // Ensure isRegistered returns false for a null value
+        boolean result = HashCodeBuilder.isRegistered(null);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue() {
+        // Ensure isRegistered returns false for a non-registered value
+        Object value = new Object();
+        boolean result = HashCodeBuilder.isRegistered(value);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testRegisterAndUnregister() {
+        // Ensure register and unregister work correctly
+        Object value = new Object();
+        HashCodeBuilder.register(value);
+        Set<IDKey> registry = HashCodeBuilder.getRegistry();
+        assertTrue(registry.contains(new IDKey(value)));
+        HashCodeBuilder.unregister(value);
+        registry = HashCodeBuilder.getRegistry();
+        assertFalse(registry.contains(new IDKey(value)));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullArray() {
+        // Ensure reflectionAppend handles null arrays correctly
+        Object value = new Object();
+        HashCodeBuilder builder = new HashCodeBuilder(17, 37);
+        HashCodeBuilder reflectionAppendResult = HashCodeBuilder.reflectionAppend(value, value.getClass(), builder, false, null);
+        assertEquals(builder, reflectionAppendResult);
+    }
+
+    @Test
+    public void testReflectionHashCodeWithNullObject() {
+        // Ensure reflectionHashCode throws a NullPointerException for a null object
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null, true));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithDefaultValues() {
+        // Ensure reflectionHashCode works with default values
+        Object value = new Object();
+        int result = HashCodeBuilder.reflectionHashCode(value, true);
+        assertEquals(17 * 37 + value.hashCode(), result);
+    }
+}
+```

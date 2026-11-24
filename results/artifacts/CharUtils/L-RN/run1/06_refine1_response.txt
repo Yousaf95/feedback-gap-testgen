@@ -1,0 +1,65 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+class CharUtils_GenTest {
+
+    @Test
+    void testIsAscii_true() {
+        assertTrue(CharUtils.isAscii('a'));
+    }
+
+    @Test
+    void testIsAscii_false() {
+        assertFalse(CharUtils.isAscii('\u0100'));
+    }
+
+    @Test
+    void testToCharacterObject_Character_null_returnsNull() {
+        Character result = CharUtils.toCharacterObject((Character) null);
+        assertEquals(null, result);
+    }
+
+    @Test
+    void testToCharacterObject_String_empty_returnsNull() {
+        Character result = CharUtils.toCharacterObject("");
+        assertEquals(null, result);
+    }
+
+    @Test
+    void testToIntValue_char_nonNumeric_withDefaultValue_outOfRange() {
+        int result = CharUtils.toIntValue('a', -1);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    void testUnicodeEscaped_Character_maxValue() {
+        String result = CharUtils.unicodeEscaped(Character.MAX_VALUE);
+        assertEquals("\\uFFFF", result);
+    }
+
+    @Test
+    void testUnicodeEscaped_char_minValue() {
+        String result = CharUtils.unicodeEscaped(Character.MIN_VALUE);
+        assertEquals("\\u0000", result);
+    }
+
+    @Test
+    void testToString_char_maxValue() {
+        String result = CharUtils.toString(Character.MAX_VALUE);
+        assertEquals("\uFFFF", result);
+    }
+
+    @Test
+    void testToString_char_minValue() {
+        String result = CharUtils.toString(Character.MIN_VALUE);
+        assertEquals("\u0000", result);
+    }
+}
+```

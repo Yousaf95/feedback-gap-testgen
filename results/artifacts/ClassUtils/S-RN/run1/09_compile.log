@@ -1,0 +1,29 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[256,40] no suitable method found for getPackageName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[320,46] no suitable method found for getShortClassName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[256,40] no suitable method found for getPackageName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[320,46] no suitable method found for getShortClassName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getShortClassName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

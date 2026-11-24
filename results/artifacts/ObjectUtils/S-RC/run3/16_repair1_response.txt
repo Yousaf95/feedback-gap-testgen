@@ -1,0 +1,27 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testReadResolve() {
+        ObjectUtils.Null nullObject = new ObjectUtils.Null();
+        assertSame(nullObject, nullObject.readResolve());
+    }
+
+    @Test
+    public void testGetFirstNonNull() {
+        Supplier<String> supplier1 = () -> null;
+        Supplier<String> supplier2 = () -> "test";
+        Supplier<String> supplier3 = () -> null;
+
+        assertThrows(NullPointerException.class, () -> ObjectUtils.getFirstNonNull(supplier1));
+        assertEquals("test", ObjectUtils.getFirstNonNull(supplier1, supplier2).get());
+        assertEquals("test", ObjectUtils.getFirstNonNull(supplier1, supplier2, supplier3).get());
+    }
+}
+```

@@ -1,0 +1,147 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.junit.jupiter.api.Test;
+import org.apache.commons.lang3.builder.DiffBuilder;
+import org.apache.commons.lang3.builder.DiffResult;
+
+class DiffBuilder_GenTest {
+
+    // Mock classes for testing
+    private static class Person {
+        private final String name;
+        private final int age;
+
+        public Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+    }
+
+    private static class PersonContainer {
+        private final Person person;
+
+        public PersonContainer(Person person) {
+            this.person = person;
+        }
+
+        public Person getPerson() {
+            return person;
+        }
+    }
+
+    @Test
+    public void testAppendDiffResultFieldWithNestedDiffs() {
+        Person person1 = new Person("John", 30);
+        Person person2 = new Person("Jane", 25);
+
+        DiffResult<Person> nestedDiffResult = new DiffBuilder<>(person1, person2, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("name", person1.getName(), person2.getName())
+                .append("age", person1.getAge(), person2.getAge())
+                .build();
+
+        PersonContainer container1 = new PersonContainer(person1);
+        PersonContainer container2 = new PersonContainer(person2);
+
+        DiffResult<PersonContainer> diffResult = new DiffBuilder<>(container1, container2, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("person", nestedDiffResult)
+                .build();
+
+        assertEquals(2, diffResult.getDiffs().size());
+        assertEquals("person.name", diffResult.getDiffs().get(0).getFieldName());
+        assertEquals("John", ((Diff<?>) diffResult.getDiffs().get(0)).getLeft());
+        assertEquals("Jane", ((Diff<?>) diffResult.getDiffs().get(0)).getRight());
+
+        assertEquals("person.age", diffResult.getDiffs().get(1).getFieldName());
+        assertEquals(Integer.valueOf(30), ((Diff<?>) diffResult.getDiffs().get(1)).getLeft());
+        assertEquals(Integer.valueOf(25), ((Diff<?>) diffResult.getDiffs().get(1)).getRight());
+    }
+
+    @Test
+    public void testAppendWithEmptyFieldName() {
+        Person person1 = new Person("John", 30);
+        Person person2 = new Person("Jane", 25);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> 
+            new DiffBuilder<>(person1, person2, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("", person1.getName(), person2.getName())
+        );
+
+        assertEquals("fieldName cannot be null or empty", exception.getMessage());
+    }
+
+    @Test
+    public void testAppendWithBlankFieldName() {
+        Person person1 = new Person("John", 30);
+        Person person2 = new Person("Jane", 25);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> 
+            new DiffBuilder<>(person1, person2, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append(" ", person1.getName(), person2.getName())
+        );
+
+        assertEquals("fieldName cannot be null or empty", exception.getMessage());
+    }
+
+    @Test
+    public void testBuildWithNoDifferences() {
+        Person person = new Person("John", 30);
+
+        DiffResult<Person> diffResult = new DiffBuilder<>(person, person, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("name", person.getName(), person.getName())
+                .append("age", person.getAge(), person.getAge())
+                .build();
+
+        assertTrue(diffResult.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testBuildWithMultipleDifferences() {
+        Person person1 = new Person("John", 30);
+        Person person2 = new Person("Jane", 25);
+
+        DiffResult<Person> diffResult = new DiffBuilder<>(person1, person2, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("name", person1.getName(), person2.getName())
+                .append("age", person1.getAge(), person2.getAge())
+                .build();
+
+        assertEquals(2, diffResult.getDiffs().size());
+        assertEquals("name", diffResult.getDiffs().get(0).getFieldName());
+        assertEquals("John", ((Diff<?>) diffResult.getDiffs().get(0)).getLeft());
+        assertEquals("Jane", ((Diff<?>) diffResult.getDiffs().get(0)).getRight());
+
+        assertEquals("age", diffResult.getDiffs().get(1).getFieldName());
+        assertEquals(Integer.valueOf(30), ((Diff<?>) diffResult.getDiffs().get(1)).getLeft());
+        assertEquals(Integer.valueOf(25), ((Diff<?>) diffResult.getDiffs().get(1)).getRight());
+    }
+
+    @Test
+    public void testAppendObjectArrayFieldWithNullElements() {
+        Person person1 = new Person("John", 30);
+        Person person2 = new Person("Jane", 25);
+
+        DiffResult<Person> diffResult = new DiffBuilder<>(person1, person2, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("people", new Object[]{null, person1}, new Object[]{person2, null})
+                .build();
+
+        assertEquals(2, diffResult.getDiffs().size());
+        assertEquals("people[0]", diffResult.getDiffs().get(0).getFieldName());
+        assertNull(((Diff<?>) diffResult.getDiffs().get(0)).getLeft());
+        assertNotNull(((Diff<?>) diffResult.getDiffs().get(0)).getRight());
+
+        assertEquals("people[1]", diffResult.getDiffs().get(1).getFieldName());
+        assertNotNull(((Diff<?>) diffResult.getDiffs().get(1)).getLeft());
+        assertNull(((Diff<?>) diffResult.getDiffs().get(1)).getRight());
+    }
+}
+```

@@ -1,0 +1,101 @@
+```java
+package org.apache.commons.lang3.builder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+import org.apache.commons.lang3.ArrayUtils;
+
+class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithStyle() {
+        String result = ReflectionToStringBuilder.toString(new Object(), ToStringStyle.SHORT_PREFIX_STYLE);
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testToStringWithStyleAndOutputTransients() {
+        String result = ReflectionToStringBuilder.toString(new Object(), ToStringStyle.SHORT_PREFIX_STYLE, true);
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testToStringWithStyleAndOutputTransientsAndStatics() {
+        String result = ReflectionToStringBuilder.toString(new Object(), ToStringStyle.SHORT_PREFIX_STYLE, true, true);
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testToStringWithAllParameters() {
+        String result = ReflectionToStringBuilder.toString(
+                new Object(), ToStringStyle.SHORT_PREFIX_STYLE, true, true, false, Object.class);
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testToStringExcludeWithCollection() {
+        String result = ReflectionToStringBuilder.toStringExclude(new Object(), Collections.singletonList("fieldName"));
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testToStringExcludeWithVarargs() {
+        String result = ReflectionToStringBuilder.toStringExclude(new Object(), "fieldName");
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testToStringIncludeWithCollection() {
+        String result = ReflectionToStringBuilder.toStringInclude(new Object(), Collections.singletonList("fieldName"));
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testToStringIncludeWithVarargs() {
+        String result = ReflectionToStringBuilder.toStringInclude(new Object(), "fieldName");
+        assertEquals("Object@<hashcode>", result.replaceFirst("@\\p{XDigit}+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testReflectionToStringBuilderConstructorWithAllParameters_2() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(
+                new Object(), ToStringStyle.SHORT_PREFIX_STYLE, null, Object.class, true, true, false);
+        assertNotNull(builder);
+    }
+
+    @Test
+    public void testSetExcludeFieldNamesWithNull() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeFieldNames((String[]) null);
+        assertNull(builder.getExcludeFieldNames());
+    }
+
+    @Test
+    public void testSetIncludeFieldNamesWithNull() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setIncludeFieldNames((String[]) null);
+        assertNull(builder.getIncludeFieldNames());
+    }
+
+    @Test
+    public void testSetUpToClassWithValidClass() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        assertDoesNotThrow(() -> builder.setUpToClass(Object.class));
+    }
+
+    @Test
+    public void testToStringWithNullObjectAndStyle() {
+        String result = ReflectionToStringBuilder.toString(null, ToStringStyle.SHORT_PREFIX_STYLE);
+        assertEquals(ToStringStyle.SHORT_PREFIX_STYLE.getNullText(), result);
+    }
+
+    @Test
+    public void testAppendFieldsInWithArrayClass() {
+        int[] array = {1, 2, 3};
+        String result = new ReflectionToStringBuilder(array).toString();
+        assertTrue(result.contains("int[]"));
+    }
+}
+```

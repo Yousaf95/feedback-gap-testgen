@@ -1,0 +1,42 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testSubSequence_StartIndexAtBeginning() {
+        CharSequence cs = "Hello, World!";
+        CharSequence result = CharSequenceUtils.subSequence(cs, 0);
+        assertEquals("Hello, World!", result);
+    }
+
+    @Test
+    public void testSubSequence_EndIndexAtStart() {
+        CharSequence cs = "Hello, World!";
+        assertThrows(StringIndexOutOfBoundsException.class, () -> CharSequenceUtils.subSequence(cs, cs.length()));
+    }
+
+    @Test
+    public void testToCharArray_NullInput() {
+        char[] result = CharSequenceUtils.toCharArray(null);
+        assertNull(result);
+    }
+
+    @Test
+    public void testToCharArray_SingleCharacter() {
+        CharSequence cs = "A";
+        char[] result = CharSequenceUtils.toCharArray(cs);
+        assertArrayEquals(new char[]{'A'}, result);
+    }
+
+    @Test
+    public void testToCharArray_MultipleCharacters() {
+        CharSequence cs = "Hello, World!";
+        char[] result = CharSequenceUtils.toCharArray(cs);
+        assertArrayEquals("Hello, World!".toCharArray(), result);
+    }
+}
+```

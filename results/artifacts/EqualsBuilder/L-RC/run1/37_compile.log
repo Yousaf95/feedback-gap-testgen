@@ -1,0 +1,89 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[556,17] cannot find symbol
+  symbol:   class Pair
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[557,13] cannot find symbol
+  symbol:   variable REGISTRY
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[558,29] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[563,13] cannot find symbol
+  symbol:   variable REGISTRY
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[564,13] cannot find symbol
+  symbol:   method register(java.lang.Object,java.lang.Object)
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[565,27] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[570,13] cannot find symbol
+  symbol:   variable REGISTRY
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[570,30] cannot find symbol
+  symbol:   class HashSet
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[571,13] cannot find symbol
+  symbol:   method unregister(java.lang.Object,java.lang.Object)
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[572,24] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[578,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[585,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[592,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[599,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[606,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[613,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[620,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[627,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[634,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[659,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[556,17] cannot find symbol
+[ERROR]   symbol:   class Pair
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[557,13] cannot find symbol
+[ERROR]   symbol:   variable REGISTRY
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[558,29] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[563,13] cannot find symbol
+[ERROR]   symbol:   variable REGISTRY
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[564,13] cannot find symbol
+[ERROR]   symbol:   method register(java.lang.Object,java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[565,27] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[570,13] cannot find symbol
+[ERROR]   symbol:   variable REGISTRY
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[570,30] cannot find symbol
+[ERROR]   symbol:   class HashSet
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[571,13] cannot find symbol
+[ERROR]   symbol:   method unregister(java.lang.Object,java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[572,24] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[578,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[585,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[592,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[599,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[606,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[613,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[620,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[627,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[634,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[659,20] isEquals has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

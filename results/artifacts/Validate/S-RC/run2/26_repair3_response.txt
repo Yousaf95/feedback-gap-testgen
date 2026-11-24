@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDouble_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 2.0, 0.5));
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 2.0, 2.5));
+    }
+
+    @Test
+    public void testExclusiveBetweenComparable_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween("A", "C", "A"));
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween("A", "C", "C"));
+    }
+
+    @Test
+    public void testFiniteDouble_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.finite(Double.NaN));
+        assertThrows(IllegalArgumentException.class, () -> Validate.finite(Double.POSITIVE_INFINITY));
+    }
+
+    @Test
+    public void testInclusiveBetweenDouble_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 2.0, -1.0));
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 2.0, 3.0));
+    }
+
+    @Test
+    public void testInclusiveBetweenLong_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 2L, -1L));
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 2L, 3L));
+    }
+
+    @Test
+    public void testInclusiveBetweenComparable_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween("A", "C", "Z"));
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween("A", "C", "a"));
+    }
+
+    @Test
+    public void testIsAssignableFrom_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOf_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(Integer.class, "123"));
+    }
+
+    @Test
+    public void testMatchesPattern() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("abc", "[0-9]"));
+    }
+
+    @Test
+    public void testNoNullElementsIterable() {
+        List<String> list = Arrays.asList("A", null, "C");
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(list));
+    }
+
+    @Test
+    public void testNoNullElementsArray() {
+        String[] array = {"A", null, "C"};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+    }
+}
+```

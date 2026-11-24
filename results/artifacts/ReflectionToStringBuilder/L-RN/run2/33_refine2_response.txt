@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testDefaultToStringStyle() {
+        TestObject obj = new TestObject("test", 123);
+        String result = ReflectionToStringBuilder.toString(obj);
+        assertEquals("org.apache.commons.lang3.builder.ReflectionToStringBuilder$TestObject@<hashcode>(name=test, value=123)", 
+                     result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testCustomToStringStyle() {
+        TestObject obj = new TestObject("test", 123);
+        String result = ReflectionToStringBuilder.toString(obj, ToStringStyle.SHORT_PREFIX_STYLE);
+        assertEquals("TestObject(name=test,value=123)", 
+                     result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testExcludeNullValuesTrue() {
+        TestObject obj = new TestObject(null, 123);
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, true);
+        assertEquals("org.apache.commons.lang3.builder.ReflectionToStringBuilder$TestObject@<hashcode>(value=123)", 
+                     result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testExcludeNullValuesFalse() {
+        TestObject obj = new TestObject(null, 123);
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, false);
+        assertEquals("org.apache.commons.lang3.builder.ReflectionToStringBuilder$TestObject@<hashcode>(name=<null>,value=123)", 
+                     result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testReflectUpToClass() {
+        SubTestObject obj = new SubTestObject("test", 123, "sub");
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, null, TestObject.class);
+        assertEquals("org.apache.commons.lang3.builder.ReflectionToStringBuilder$SubTestObject@<hashcode>(subName=sub)", 
+                     result.replaceAll("@[0-9a-fA-F]+", "@<hashcode>"));
+    }
+
+    @Test
+    public void testReflectUpToClassInvalid() {
+        TestObject obj = new TestObject("test", 123);
+        assertThrows(IllegalArgumentException.class, () -> ReflectionToStringBuilder.toString(obj, null, false, false, null, SubTestObject.class));
+    }
+
+    private static class TestObject {
+        private String name;
+        private int value;
+
+        public TestObject(String name, int value) {
+            this.name = name;
+            this.value = value;
+        }
+    }
+
+    private static class SubTestObject extends TestObject {
+        private String subName;
+
+        public SubTestObject(String name, int value, String subName) {
+            super(name, value);
+            this.subName = subName;
+        }
+    }
+}
+```

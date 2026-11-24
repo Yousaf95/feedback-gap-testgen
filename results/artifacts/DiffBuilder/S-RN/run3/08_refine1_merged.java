@@ -1,0 +1,318 @@
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class DiffBuilder_GenTest {
+
+    private DiffBuilder<Object> diffBuilder;
+
+    @BeforeEach
+    public void setUp() {
+        diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Test
+    public void testAppendEmptyArray() {
+        Object[] lhs = {};
+        Object[] rhs = {};
+        diffBuilder.append("emptyArrayField", lhs, rhs);
+        List<Diff<?>> diffs = diffBuilder.build().getDiffs();
+        assertEquals(0, diffs.size());
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testAppendNullArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (String[]) null, new String[]{"value"});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new String[]{"value"}, (String[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyObjectArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new Object[0], new Object[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyObjectArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new Object[]{"value1"}, new Object[]{"value2"});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new Object[]{"value1"}, (Object[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new Object[]{"value2"}, (Object[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullBooleanArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (boolean[]) null, new boolean[]{true});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new boolean[]{true}, (boolean[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyBooleanArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new boolean[0], new boolean[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyBooleanArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new boolean[]{true}, new boolean[]{false});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new boolean[]{true}, (boolean[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new boolean[]{false}, (boolean[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullByteArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (byte[]) null, new byte[]{1});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new byte[]{1}, (byte[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyByteArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new byte[0], new byte[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyByteArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new byte[]{1}, new byte[]{2});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new byte[]{1}, (byte[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new byte[]{2}, (byte[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullCharArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (char[]) null, new char[]{'a'});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new char[]{'a'}, (char[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyCharArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new char[0], new char[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyCharArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new char[]{'a'}, new char[]{'b'});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new char[]{'a'}, (char[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new char[]{'b'}, (char[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullDoubleArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (double[]) null, new double[]{1.0});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new double[]{1.0}, (double[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyDoubleArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new double[0], new double[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyDoubleArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new double[]{1.0}, new double[]{2.0});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new double[]{1.0}, (double[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new double[]{2.0}, (double[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullFloatArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (float[]) null, new float[]{1.0f});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new float[]{1.0f}, (float[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyFloatArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new float[0], new float[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyFloatArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new float[]{1.0f}, new float[]{2.0f});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new float[]{1.0f}, (float[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new float[]{2.0f}, (float[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullIntArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (int[]) null, new int[]{1});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new int[]{1}, (int[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyIntArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new int[0], new int[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyIntArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new int[]{1}, new int[]{2});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new int[]{1}, (int[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new int[]{2}, (int[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullLongArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (long[]) null, new long[]{1L});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new long[]{1L}, (long[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyLongArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new long[0], new long[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyLongArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new long[]{1L}, new long[]{2L});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new long[]{1L}, (long[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new long[]{2L}, (long[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendNullShortArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", null, ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", (short[]) null, new short[]{1});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertNull(result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new short[]{1}, (short[]) result.getDiffs().get(0).getRight());
+        }
+
+    @Test
+        public void testAppendEmptyShortArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new short[0], new short[0]);
+            DiffResult<String> result = builder.build();
+            assertEquals(0, result.getDiffs().size());
+        }
+
+    @Test
+        public void testAppendNonEmptyShortArray() {
+            DiffBuilder<String> builder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+            builder.append("arrayField", new short[]{1}, new short[]{2});
+            DiffResult<String> result = builder.build();
+            assertEquals(1, result.getDiffs().size());
+            assertEquals("arrayField", result.getDiffs().get(0).getFieldName());
+            assertArrayEquals(new short[]{1}, (short[]) result.getDiffs().get(0).getLeft());
+            assertArrayEquals(new short[]{2}, (short[]) result.getDiffs().get(0).getRight());
+        }
+}

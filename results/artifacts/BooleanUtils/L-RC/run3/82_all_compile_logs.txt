@@ -1,0 +1,513 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[446,36] reference to toBoolean is ambiguous
+  both method toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBoolean(java.lang.String,java.lang.String,java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[476,36] reference to toBoolean is ambiguous
+  both method toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBoolean(java.lang.String,java.lang.String,java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[506,52] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[511,53] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[521,52] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[526,53] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[536,52] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[446,36] reference to toBoolean is ambiguous
+[ERROR]   both method toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBoolean(java.lang.String,java.lang.String,java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[476,36] reference to toBoolean is ambiguous
+[ERROR]   both method toBoolean(java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBoolean(java.lang.String,java.lang.String,java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[506,52] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[511,53] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[521,52] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[526,53] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[536,52] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[496,52] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[501,53] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[511,52] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[516,53] no suitable method found for toBooleanObject(int,int,int)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[496,52] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[501,53] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[511,52] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[516,53] no suitable method found for toBooleanObject(int,int,int)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[409,36] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[410,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[411,37] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[518,69] cannot find symbol
+  symbol:   variable TRUE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[523,36] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[538,69] cannot find symbol
+  symbol:   variable ON
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[543,69] cannot find symbol
+  symbol:   variable YES
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[548,69] cannot find symbol
+  symbol:   variable TRUE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[553,70] cannot find symbol
+  symbol:   variable FALSE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[518,69] cannot find symbol
+[ERROR]   symbol:   variable TRUE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[523,36] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[538,69] cannot find symbol
+[ERROR]   symbol:   variable ON
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[543,69] cannot find symbol
+[ERROR]   symbol:   variable YES
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[548,69] cannot find symbol
+[ERROR]   symbol:   variable TRUE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[553,70] cannot find symbol
+[ERROR]   symbol:   variable FALSE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[611,52] no suitable method found for toBooleanObject(int,java.lang.Integer,java.lang.Integer)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[616,53] no suitable method found for toBooleanObject(int,java.lang.Integer,java.lang.Integer)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[621,44] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(int,int,int,int) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[631,44] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[701,77] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[701,102] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[706,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[706,86] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[706,111] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[711,26] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[711,88] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[711,113] cannot find symbol
+  symbol:   variable NumberUtils
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[611,52] no suitable method found for toBooleanObject(int,java.lang.Integer,java.lang.Integer)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[616,53] no suitable method found for toBooleanObject(int,java.lang.Integer,java.lang.Integer)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.BooleanUtils.toBooleanObject(java.lang.String,java.lang.String,java.lang.String,java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[621,44] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(int,int,int,int) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[631,44] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[701,77] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[701,102] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[706,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[706,86] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[706,111] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[711,26] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[711,88] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[711,113] cannot find symbol
+[ERROR]   symbol:   variable NumberUtils
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[616,44] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[616,44] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

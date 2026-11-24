@@ -1,0 +1,492 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class DurationFormatUtils_GenTest for DurationFormatUtils currently achieves 75.8% line coverage and 56.7% branch coverage of DurationFormatUtils.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+  113:             this.value = Objects.requireNonNull(value, "value");
+  114:             this.count = 1;
+  115:             if (optional) {  // <-- PARTIAL (1 of 2 branches missed)
+  116:                 this.optionalIndex = optionalIndex;  // <-- NOT COVERED
+  117:             }
+  118:         }
+    ...
+  126:         @Override
+  127:         public boolean equals(final Object obj2) {
+  128:             if (obj2 instanceof Token) {  // <-- NOT COVERED
+  129:                 final Token tok2 = (Token) obj2;  // <-- NOT COVERED
+  130:                 if (this.value.getClass() != tok2.value.getClass()) {  // <-- NOT COVERED
+  131:                     return false;  // <-- NOT COVERED
+  132:                 }
+  133:                 if (this.count != tok2.count) {  // <-- NOT COVERED
+  134:                     return false;  // <-- NOT COVERED
+  135:                 }
+  136:                 if (this.value instanceof StringBuilder) {  // <-- NOT COVERED
+  137:                     return this.value.toString().equals(tok2.value.toString());  // <-- NOT COVERED
+  138:                 }
+  139:                 if (this.value instanceof Number) {  // <-- NOT COVERED
+  140:                     return this.value.equals(tok2.value);  // <-- NOT COVERED
+  141:                 }
+  142:                 return this.value == tok2.value;  // <-- NOT COVERED
+  143:             }
+  144:             return false;  // <-- NOT COVERED
+  145:         }
+  146: 
+    ...
+  172:         @Override
+  173:         public int hashCode() {
+  174:             return this.value.hashCode();  // <-- NOT COVERED
+  175:         }
+  176: 
+    ...
+  189:         @Override
+  190:         public String toString() {
+  191:             return StringUtils.repeat(this.value.toString(), this.count);  // <-- NOT COVERED
+  192:         }
+  193:     }
+    ...
+  244:             final boolean isLiteral = value instanceof StringBuilder;
+  245:             final int count = token.getCount();
+  246:             if (optionalIndex != token.optionalIndex) {  // <-- PARTIAL (1 of 2 branches missed)
+  247:               optionalIndex = token.optionalIndex;  // <-- NOT COVERED
+  248:               if (optionalIndex > -1) {  // <-- NOT COVERED
+  249:                 //entering new optional block
+  250:                 optionalStart = buffer.length();  // <-- NOT COVERED
+  251:                 lastOutputZero = false;  // <-- NOT COVERED
+  252:                 inOptional = true;  // <-- NOT COVERED
+  253:                 firstOptionalNonLiteral = false;  // <-- NOT COVERED
+  254:               } else {
+  255:                 //leaving optional block
+  256:                 inOptional = false;  // <-- NOT COVERED
+  257:               }
+  258:             }
+  259:             if (isLiteral) {
+  260:                if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  261:                      buffer.append(value.toString());
+  262:                }
+  263:             } else if (value.equals(y)) {
+  264:                 lastOutputSeconds = false;
+  265:                 lastOutputZero = years == 0;  // <-- PARTIAL (1 of 2 branches missed)
+  266:                 if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  267:                     buffer.append(paddedValue(years, padWithZeros, count));
+  268:                 }
+  269:             } else if (value.equals(M)) {
+  270:                 lastOutputSeconds = false;
+  271:                 lastOutputZero = months == 0;  // <-- PARTIAL (1 of 2 branches missed)
+  272:                 if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  273:                     buffer.append(paddedValue(months, padWithZeros, count));
+  274:                 }
+    ...
+  276:                 lastOutputSeconds = false;
+  277:                 lastOutputZero = days == 0;
+  278:                 if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  279:                     buffer.append(paddedValue(days, padWithZeros, count));
+  280:                 }
+    ...
+  282:                 lastOutputSeconds = false;
+  283:                 lastOutputZero = hours == 0;
+  284:                 if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  285:                     buffer.append(paddedValue(hours, padWithZeros, count));
+  286:                 }
+  287:             } else if (value.equals(m)) {
+  288:                 lastOutputSeconds = false;
+  289:                 lastOutputZero = minutes == 0;  // <-- PARTIAL (1 of 2 branches missed)
+  290:                 if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  291:                     buffer.append(paddedValue(minutes, padWithZeros, count));
+  292:                 }
+    ...
+  294:                 lastOutputSeconds = true;
+  295:                 lastOutputZero = seconds == 0;
+  296:                 if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  297:                     buffer.append(paddedValue(seconds, padWithZeros, count));
+  298:                 }
+  299:             } else if (value.equals(S)) {  // <-- PARTIAL (1 of 2 branches missed)
+  300:                 lastOutputZero = milliseconds == 0;  // <-- PARTIAL (1 of 2 branches missed)
+  301:                 if (!inOptional || !lastOutputZero) {  // <-- PARTIAL (3 of 4 branches missed)
+  302:                     if (lastOutputSeconds) {  // <-- PARTIAL (1 of 2 branches missed)
+  303:                         // ensure at least 3 digits are displayed even if padding is not selected
+  304:                         final int width = padWithZeros ? Math.max(3, count) : 3;
+  305:                         buffer.append(paddedValue(milliseconds, true, width));
+  306:                     } else {
+  307:                         buffer.append(paddedValue(milliseconds, padWithZeros, count));  // <-- NOT COVERED
+  308:                     }
+  309:                 }
+    ...
+  311:             }
+  312:             //as soon as we hit first nonliteral in optional, check for literal prefix
+  313:             if (inOptional && !isLiteral && !firstOptionalNonLiteral){  // <-- PARTIAL (5 of 6 branches missed)
+  314:                 firstOptionalNonLiteral = true;  // <-- NOT COVERED
+  315:                 if (lastOutputZero) {  // <-- NOT COVERED
+  316:                     buffer.delete(optionalStart, buffer.length());  // <-- NOT COVERED
+  317:                 }
+  318:             }
+    ...
+  432:             duration = " " + duration;
+  433:             String tmp = StringUtils.replaceOnce(duration, " 0 days", StringUtils.EMPTY);
+  434:             if (tmp.length() != duration.length()) {  // <-- PARTIAL (1 of 2 branches missed)
+  435:                 duration = tmp;
+  436:                 tmp = StringUtils.replaceOnce(duration, " 0 hours", StringUtils.EMPTY);
+    ...
+  441:                 }
+  442:             }
+  443:             if (!duration.isEmpty()) {  // <-- PARTIAL (1 of 2 branches missed)
+  444:                 // strip the space off again
+  445:                 duration = duration.substring(1);
+    ...
+  451:                 duration = tmp;
+  452:                 tmp = StringUtils.replaceOnce(duration, " 0 minutes", StringUtils.EMPTY);
+  453:                 if (tmp.length() != duration.length()) {  // <-- PARTIAL (1 of 2 branches missed)
+  454:                     duration = tmp;
+  455:                     tmp = StringUtils.replaceOnce(duration, " 0 hours", StringUtils.EMPTY);
+  456:                     if (tmp.length() != duration.length()) {  // <-- PARTIAL (1 of 2 branches missed)
+  457:                         duration = StringUtils.replaceOnce(tmp, " 0 days", StringUtils.EMPTY);
+  458:                     }
+    ...
+  535: 
+  536:         // each initial estimate is adjusted in case it is under 0
+  537:         while (milliseconds < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  538:             milliseconds += 1000;  // <-- NOT COVERED
+  539:             seconds -= 1;  // <-- NOT COVERED
+  540:         }
+  541:         while (seconds < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  542:             seconds += 60;  // <-- NOT COVERED
+  543:             minutes -= 1;  // <-- NOT COVERED
+  544:         }
+  545:         while (minutes < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  546:             minutes += 60;  // <-- NOT COVERED
+  547:             hours -= 1;  // <-- NOT COVERED
+  548:         }
+  549:         while (hours < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  550:             hours += 24;  // <-- NOT COVERED
+  551:             days -= 1;  // <-- NOT COVERED
+  552:         }
+  553: 
+  554:         if (Token.containsTokenWithValue(tokens, M)) {
+  555:             while (days < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  556:                 days += start.getActualMaximum(Calendar.DAY_OF_MONTH);
+  557:                 months -= 1;
+
+Existing test methods (do not duplicate them):
+testFormatDurationHMS_withZeroMillis, testFormatDurationHMS_withOneSecond, testFormatDurationISO_withZeroMillis, testFormatDurationISO_withOneSecond, testFormatDurationWords_withZeroMillis, testFormatDurationWords_withOneSecond, testFormatPeriodISO_withOneSecondDifference, testFormatDuration_withNegativeDuration, testFormatPeriod_withStartAfterEnd, testFormatDuration_withNullPattern, testFormatPeriod_withNullPattern, testFormatDuration_withEmptyPattern, testFormatPeriod_withEmptyPattern, testFormatDurationWords_withoutSuppressingZeros, testSuppressLeadingZeroElements, testFormatDurationWithOptionalTokens, testFormatPeriodWithOptionalTokens, testSuppressLeadingZeroElements_2, testSuppressTrailingZeroElements, testFormatPeriodWithNegativeDifference, testFormatDurationWithNegativeMilliseconds
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class DurationFormatUtils_GenTest (package org.apache.commons.lang3.time) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.time.DurationFormatUtils):
+```java
+package org.apache.commons.lang3.time;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Objects;
+import java.util.TimeZone;
+import java.util.stream.Stream;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
+
+/** Duration formatting utilities and constants. */
+public class DurationFormatUtils {
+    /** Element that is parsed from the format pattern. */
+    static class Token {
+        /** Empty array. */
+        private static final Token[] EMPTY_ARRAY = {};
+        private final Object value;
+        private int count;
+        private int optionalIndex = -1;
+        /** Wraps a token around a value. */
+        Token(final Object value, final boolean optional, final int optionalIndex) {
+            this.value = Objects.requireNonNull(value, "value");
+            this.count = 1;
+            if (optional) {
+                this.optionalIndex = optionalIndex;
+            }
+        }
+        /** Supports equality of this Token to another Token. */
+        @Override
+        public boolean equals(final Object obj2) {
+            if (obj2 instanceof Token) {
+                final Token tok2 = (Token) obj2;
+                if (this.value.getClass() != tok2.value.getClass()) {
+                    return false;
+                }
+                if (this.count != tok2.count) {
+                    return false;
+                }
+                if (this.value instanceof StringBuilder) {
+                    return this.value.toString().equals(tok2.value.toString());
+                }
+                if (this.value instanceof Number) {
+                    return this.value.equals(tok2.value);
+                }
+                return this.value == tok2.value;
+            }
+            return false;
+        }
+        /** Returns a hash code for the token equal to the hash code for the token's value. */
+        @Override
+        public int hashCode() {
+            return this.value.hashCode();
+        }
+        /** Represents this token as a String. */
+        @Override
+        public String toString() {
+            return StringUtils.repeat(this.value.toString(), this.count);
+        }
+    }
+    /** Pattern used with {@link FastDateFormat} and {@link SimpleDateFormat} for the ISO 8601 period format used in durations. */
+    public static final String ISO_EXTENDED_FORMAT_PATTERN = "'P'yyyy'Y'M'M'd'DT'H'H'm'M's.SSS'S'";
+    static final String y = "y";
+    static final String M = "M";
+    static final String d = "d";
+    static final String H = "H";
+    static final String m = "m";
+    static final String s = "s";
+    static final String S = "S";
+    /** Formats the time gap as a string, using the specified format, and padding with zeros. */
+    public static String formatDuration(final long durationMillis, final String format) {
+        return formatDuration(durationMillis, format, true);
+    }
+    /** Formats the time gap as a string, using the specified format. */
+    public static String formatDuration(final long durationMillis, final String format, final boolean padWithZeros) {
+        Validate.inclusiveBetween(0, Long.MAX_VALUE, durationMillis, "durationMillis must not be negative");
+
+        final Token[] tokens = lexx(format);
+
+        long days = 0;
+        long hours = 0;
+        long minutes = 0;
+        long seconds = 0;
+        long milliseconds = durationMillis;
+
+        if (Token.containsTokenWithValue(tokens, d)) {
+            days = milliseconds / DateUtils.MILLIS_PER_DAY;
+            milliseconds = milliseconds - (days * DateUtils.MILLIS_PER_DAY);
+        }
+        if (Token.containsTokenWithValue(tokens, H)) {
+            hours = milliseconds / DateUtils.MILLIS_PER_HOUR;
+            milliseconds = milliseconds - (hours * DateUtils.MILLIS_PER_HOUR);
+        }
+        if (Token.containsTokenWithValue(tokens, m)) {
+            minutes = milliseconds / DateUtils.MILLIS_PER_MINUTE;
+            milliseconds = milliseconds - (minutes * DateUtils.MILLIS_PER_MINUTE);
+        }
+        if (Token.containsTokenWithValue(tokens, s)) {
+            seconds = milliseconds / DateUtils.MILLIS_PER_SECOND;
+            milliseconds = milliseconds - (seconds * DateUtils.MILLIS_PER_SECOND);
+        }
+
+        return format(tokens, 0, 0, days, hours, minutes, seconds, milliseconds, padWithZeros);
+    }
+    /** Formats the time gap as a string. */
+    public static String formatDurationHMS(final long durationMillis) {
+        return formatDuration(durationMillis, "HH:mm:ss.SSS");
+    }
+    /** Formats the time gap as a string. */
+    public static String formatDurationISO(final long durationMillis) {
+        return formatDuration(durationMillis, ISO_EXTENDED_FORMAT_PATTERN, false);
+    }
+    /** Formats an elapsed time into a pluralization correct string. */
+    public static String formatDurationWords(
+        final long durationMillis,
+        final boolean suppressLeadingZeroElements,
+        final boolean suppressTrailingZeroElements) {
+
+        // This method is generally replaceable by the format method, but
+        // there are a series of tweaks and special cases that require
+        // trickery to replicate.
+        String duration = formatDuration(durationMillis, "d' days 'H' hours 'm' minutes 's' seconds'");
+        if (suppressLeadingZeroElements) {
+            // this is a temporary marker on the front. Like ^ in regexp.
+            duration = " " + duration;
+            String tmp = StringUtils.replaceOnce(duration, " 0 days", StringUtils.EMPTY);
+            if (tmp.length() != duration.length()) {
+                duration = tmp;
+                tmp = StringUtils.replaceOnce(duration, " 0 hours", StringUtils.EMPTY);
+                if (tmp.length() != duration.length()) {
+                    duration = tmp;
+                    tmp = StringUtils.replaceOnce(duration, " 0 minutes", StringUtils.EMPTY);
+                    duration = tmp;
+                }
+            }
+            if (!duration.isEmpty()) {
+                // strip the space off again
+                duration = duration.substring(1);
+            }
+        }
+        if (suppressTrailingZeroElements) {
+            String tmp = StringUtils.replaceOnce(duration, " 0 seconds", StringUtils.EMPTY);
+            if (tmp.length() != duration.length()) {
+                duration = tmp;
+                tmp = StringUtils.replaceOnce(duration, " 0 minutes", StringUtils.EMPTY);
+                if (tmp.length() != duration.length()) {
+                    duration = tmp;
+                    tmp = StringUtils.replaceOnce(duration, " 0 hours", StringUtils.EMPTY);
+                    if (tmp.length() != duration.length()) {
+                        duration = StringUtils.replaceOnce(tmp, " 0 days", StringUtils.EMPTY);
+                    }
+                }
+            }
+        }
+        // handle plurals
+        duration = " " + duration;
+        duration = StringUtils.replaceOnce(duration, " 1 seconds", " 1 second");
+        duration = StringUtils.replaceOnce(duration, " 1 minutes", " 1 minute");
+        duration = StringUtils.replaceOnce(duration, " 1 hours", " 1 hour");
+        duration = StringUtils.replaceOnce(duration, " 1 days", " 1 day");
+        return duration.trim();
+    }
+    /** Formats the time gap as a string, using the specified format. */
+    public static String formatPeriod(final long startMillis, final long endMillis, final String format) {
+        return formatPeriod(startMillis, endMillis, format, true, TimeZone.getDefault());
+    }
+    /** <p>Formats the time gap as a string, using the specified format. */
+    public static String formatPeriod(final long startMillis, final long endMillis, final String format, final boolean padWithZeros,
+            final TimeZone timezone) {
+        Validate.isTrue(startMillis <= endMillis, "startMillis must not be greater than endMillis");
+
+
+        // Used to optimise for differences under 28 days and
+        // called formatDuration(millis, format); however this did not work
+        // over leap years.
+        // TODO: Compare performance to see if anything was lost by
+        // losing this optimisation.
+
+        final Token[] tokens = lexx(format);
+
+        // time zones get funky around 0, so normalizing everything to GMT
+        // stops the hours being off
+        final Calendar start = Calendar.getInstance(timezone);
+        start.setTime(new Date(startMillis));
+        final Calendar end = Calendar.getInstance(timezone);
+        end.setTime(new Date(endMillis));
+
+        // initial estimates
+        int milliseconds = end.get(Calendar.MILLISECOND) - start.get(Calendar.MILLISECOND);
+        int seconds = end.get(Calendar.SECOND) - start.get(Calendar.SECOND);
+        int minutes = end.get(Calendar.MINUTE) - start.get(Calendar.MINUTE);
+        int hours = end.get(Calendar.HOUR_OF_DAY) - start.get(Calendar.HOUR_OF_DAY);
+        int days = end.get(Calendar.DAY_OF_MONTH) - start.get(Calendar.DAY_OF_MONTH);
+        int months = end.get(Calendar.MONTH) - start.get(Calendar.MONTH);
+        int years = end.get(Calendar.YEAR) - start.get(Calendar.YEAR);
+
+        // each initial estimate is adjusted in case it is under 0
+        while (milliseconds < 0) {
+            milliseconds += 1000;
+            seconds -= 1;
+        }
+        while (seconds < 0) {
+            seconds += 60;
+            minutes -= 1;
+        }
+        while (minutes < 0) {
+            minutes += 60;
+            hours -= 1;
+        }
+        while (hours < 0) {
+            hours += 24;
+            days -= 1;
+        }
+
+        if (Token.containsTokenWithValue(tokens, M)) {
+            while (days < 0) {
+                days += start.getActualMaximum(Calendar.DAY_OF_MONTH);
+                months -= 1;
+                start.add(Calendar.MONTH, 1);
+            }
+
+            while (months < 0) {
+                months += 12;
+                years -= 1;
+            }
+
+            if (!Token.containsTokenWithValue(tokens, y) && years != 0) {
+                while (years != 0) {
+                    months += 12 * years;
+                    years = 0;
+                }
+            }
+        } else {
+            // there are no M's in the format string
+
+            if (!Token.containsTokenWithValue(tokens, y)) {
+                int target = end.get(Calendar.YEAR);
+                if (months < 0) {
+                    // target is end-year -1
+                    target -= 1;
+                }
+
+                while (start.get(Calendar.YEAR) != target) {
+                    days += start.getActualMaximum(Calendar.DAY_OF_YEAR) - start.get(Calendar.DAY_OF_YEAR);
+
+                    // Not sure I grok why this is needed, but the brutal tests show it is
+                    if (start instanceof GregorianCalendar &&
+                            start.get(Calendar.MONTH) == Calendar.FEBRUARY &&
+                            start.get(Calendar.DAY_OF_MONTH) == 29) {
+                        days += 1;
+                    }
+
+                    start.add(Calendar.YEAR, 1);
+
+                    days += start.get(Calendar.DAY_OF_YEAR);
+                }
+
+                years = 0;
+            }
+
+            while (start.get(Calendar.MONTH) != end.get(Calendar.MONTH)) {
+                days += start.getActualMaximum(Calendar.DAY_OF_MONTH);
+                start.add(Calendar.MONTH, 1);
+            }
+
+            months = 0;
+
+            while (days < 0) {
+                days += start.getActualMaximum(Calendar.DAY_OF_MONTH);
+                months -= 1;
+                start.add(Calendar.MONTH, 1);
+            }
+
+        }
+
+        // The rest of this code adds in values that
+        // aren't requested. This allows the user to ask for the
+        // number of months and get the real count and not just 0->11.
+
+        if (!Token.containsTokenWithValue(tokens, d)) {
+            hours += 24 * days;
+            days = 0;
+        }
+        if (!Token.containsTokenWithValue(tokens, H)) {
+            minutes += 60 * hours;
+            hours = 0;
+        }
+        if (!Token.containsTokenWithValue(tokens, m)) {
+            seconds += 60 * minutes;
+            minutes = 0;
+        }
+        if (!Token.containsTokenWithValue(tokens, s)) {
+            milliseconds += 1000 * seconds;
+            seconds = 0;
+        }
+
+        return format(tokens, years, months, days, hours, minutes, seconds, milliseconds, padWithZeros);
+    }
+    /** Formats the time gap as a string. */
+    public static String formatPeriodISO(final long startMillis, final long endMillis) {
+        return formatPeriod(startMillis, endMillis, ISO_EXTENDED_FORMAT_PATTERN, false, TimeZone.getDefault());
+    }
+    /** DurationFormatUtils instances should NOT be constructed in standard programming. */
+    public DurationFormatUtils() {
+    }
+    // non-public helper methods (signatures only)
+    static String format(final Token[] tokens, final long years, final long months, final long days, final long hours, final long minutes,
+            final long seconds,
+            final long milliseconds, final boolean padWithZeros);
+    static Token[] lexx(final String format);
+}
+```

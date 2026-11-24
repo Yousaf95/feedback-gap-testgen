@@ -1,0 +1,79 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+public class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    private @interface TestAnnotation {
+        String value();
+        int number() default 42;
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    private @interface AnotherTestAnnotation {
+        String value();
+    }
+
+    @Test
+    void testToString_nonNullAnnotation() {
+        TestAnnotation annotation = () -> "test";
+        assertEquals("@TestAnnotation(value=test, number=42)", AnnotationUtils.toString(annotation));
+    }
+
+    @Test
+    void testHashCode_sameInstanceAnnotations() {
+        TestAnnotation annotation1 = () -> "test";
+        TestAnnotation annotation2 = annotation1;
+        assertEquals(AnnotationUtils.hashCode(annotation1), AnnotationUtils.hashCode(annotation2));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_invalidTypes() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(new Object().getClass()));
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(Object[].class));
+    }
+
+    @Test
+    void testEquals_sameInstanceAnnotations() {
+        TestAnnotation annotation1 = () -> "test";
+        TestAnnotation annotation2 = annotation1;
+        assertTrue(AnnotationUtils.equals(annotation1, annotation2));
+    }
+
+    @Test
+    void testHashCode_differentAnnotationsWithSameValues() {
+        TestAnnotation annotation1 = () -> "test";
+        TestAnnotation annotation2 = new TestAnnotation() {
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+        assertEquals(AnnotationUtils.hashCode(annotation1), AnnotationUtils.hashCode(annotation2));
+    }
+
+    @Test
+    void testEquals_differentAnnotationsWithSameValues() {
+        TestAnnotation annotation1 = () -> "test";
+        TestAnnotation annotation2 = new TestAnnotation() {
+            @Override
+            public String value() {
+                return "test";
+            }
+        };
+        assertTrue(AnnotationUtils.equals(annotation1, annotation2));
+    }
+
+    @Test
+    void testEquals_annotationsWithDifferentTypes() {
+        TestAnnotation annotation1 = () -> "test";
+        AnotherTestAnnotation annotation2 = () -> "test";
+        assertFalse(AnnotationUtils.equals(annotation1, annotation2));
+    }
+}
+```

@@ -1,0 +1,137 @@
+[ERROR] Tests run: 70, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.280 s <<< FAILURE! -- in org.apache.commons.lang3.Validate_GenTest
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexArrayWithNegativeIndexAndCustomMessage -- Time elapsed: 0.009 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexArrayWithNegativeIndexAndCustomMessage(Validate_GenTest.java:586)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: Custom message for index -1
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1200)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexArrayWithNegativeIndexAndCustomMessage$57(Validate_GenTest.java:586)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testIsTrueWithDoubleValue -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Value is 123.45> but was: <Value is 123.450000>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.Validate_GenTest.testIsTrueWithDoubleValue(Validate_GenTest.java:530)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexCharSequenceWithTooLargeIndexAndCustomMessage -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexCharSequenceWithTooLargeIndexAndCustomMessage(Validate_GenTest.java:617)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: Custom message for index 3
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1146)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexCharSequenceWithTooLargeIndexAndCustomMessage$62(Validate_GenTest.java:617)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexCharSequenceWithNegativeIndexAndCustomMessage -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexCharSequenceWithNegativeIndexAndCustomMessage(Validate_GenTest.java:611)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: Custom message for index -1
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1146)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexCharSequenceWithNegativeIndexAndCustomMessage$61(Validate_GenTest.java:611)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexCollectionWithTooLargeIndexAndCustomMessage -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexCollectionWithTooLargeIndexAndCustomMessage(Validate_GenTest.java:605)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: Custom message for index 3
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1117)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexCollectionWithTooLargeIndexAndCustomMessage$60(Validate_GenTest.java:605)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexArrayWithTooLargeIndexAndCustomMessage -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexArrayWithTooLargeIndexAndCustomMessage(Validate_GenTest.java:593)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: Custom message for index 3
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1200)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexArrayWithTooLargeIndexAndCustomMessage$58(Validate_GenTest.java:593)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] org.apache.commons.lang3.Validate_GenTest.testValidIndexCollectionWithNegativeIndexAndCustomMessage -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.Validate_GenTest.testValidIndexCollectionWithNegativeIndexAndCustomMessage(Validate_GenTest.java:599)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.IndexOutOfBoundsException: Custom message for index -1
+	at org.apache.commons.lang3.Validate.validIndex(Validate.java:1117)
+	at org.apache.commons.lang3.Validate_GenTest.lambda$testValidIndexCollectionWithNegativeIndexAndCustomMessage$59(Validate_GenTest.java:599)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 8 more
+
+[ERROR] Failures: 
+[ERROR]   Validate_GenTest.testIsTrueWithDoubleValue:530 expected: <Value is 123.45> but was: <Value is 123.450000>
+[ERROR]   Validate_GenTest.testValidIndexArrayWithNegativeIndexAndCustomMessage:586 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexArrayWithTooLargeIndexAndCustomMessage:593 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexCharSequenceWithNegativeIndexAndCustomMessage:611 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexCharSequenceWithTooLargeIndexAndCustomMessage:617 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexCollectionWithNegativeIndexAndCustomMessage:599 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR]   Validate_GenTest.testValidIndexCollectionWithTooLargeIndexAndCustomMessage:605 Unexpected exception type thrown, expected: <java.lang.IllegalArgumentException> but was: <java.lang.IndexOutOfBoundsException>
+[ERROR] Tests run: 70, Failures: 7, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w8/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

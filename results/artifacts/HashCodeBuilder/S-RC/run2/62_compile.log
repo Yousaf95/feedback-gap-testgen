@@ -1,0 +1,39 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[156,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,13] cannot find symbol
+  symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[185,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[187,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[194,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[196,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[203,13] cannot find symbol
+  symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[210,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[212,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[156,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,13] cannot find symbol
+[ERROR]   symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[185,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[187,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[194,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[196,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[203,13] cannot find symbol
+[ERROR]   symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[210,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[212,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

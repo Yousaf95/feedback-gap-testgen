@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Collection;
+import java.util.List;
+
+class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDouble_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 2.0, 0.5));
+    }
+
+    @Test
+    public void testExclusiveBetweenLong_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 2L, 0L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDouble_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 2.0, -1.0));
+    }
+
+    @Test
+    public void testInclusiveBetweenLong_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 2L, -1L));
+    }
+
+    @Test
+    public void testExclusiveBetweenComparable_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween("A", "C", "B"));
+    }
+
+    @Test
+    public void testInclusiveBetweenComparable_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween("A", "C", "D"));
+    }
+
+    @Test
+    public void testIsAssignableFrom_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOf_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(Integer.class, "test"));
+    }
+
+    @Test
+    public void testIsTrue_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isTrue(false));
+    }
+
+    @Test
+    public void testMatchesPattern_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("abc", "\\d+"));
+    }
+
+    @Test
+    public void testNoNullElementsArray_2() {
+        String[] array = {"a", null, "c"};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNoNullElementsCollection() {
+        Collection<String> collection = List.of("a", null, "c");
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(collection));
+    }
+}
+```

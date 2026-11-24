@@ -1,0 +1,614 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testAppendNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        int hashCode = builder.append((Object) null).toHashCode();
+        assertEquals(17, hashCode);
+    }
+
+    @Test
+    public void testAppendArrayWithNullElements() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Integer[] array = { 1, null, 3 };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given array
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Integer[] array = {};
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(17, hashCode);
+    }
+
+    @Test
+    public void testAppendString() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append("test");
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the string "test"
+    }
+
+    @Test
+    public void testAppendBooleanArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        boolean[] array = { true, false, true };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given boolean array
+    }
+
+    @Test
+    public void testAppendCharArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        char[] array = { 'a', 'b', 'c' };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given character array
+    }
+
+    @Test
+    public void testAppendByteArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        byte[] array = { 1, 2, 3 };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given byte array
+    }
+
+    @Test
+    public void testAppendShortArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        short[] array = { 1, 2, 3 };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given short array
+    }
+
+    @Test
+    public void testAppendLongArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        long[] array = { 1L, 2L, 3L };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given long array
+    }
+
+    @Test
+    public void testAppendFloatArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        float[] array = { 1.0f, 2.0f, 3.0f };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given float array
+    }
+
+    @Test
+    public void testAppendDoubleArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        double[] array = { 1.0, 2.0, 3.0 };
+        builder.append(array);
+        int hashCode = builder.toHashCode();
+        assertEquals(-20648897, hashCode); // Example hash code for the given double array
+    }
+
+    @Test
+    public void testAppendObjectWithCustomHashCode() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        };
+        builder.append(obj);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithNullField() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(null);
+        builder.append(obj, "field");
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithNonTransientField() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private transient Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        builder.append(obj, "field");
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludedField() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        builder.append(obj, "otherField");
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithReflectUpToClass() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        builder.append(obj, null, Object.class, "field");
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFields() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        builder.append(obj, "field");
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        builder.append(obj, new String[] { "field" });
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        Collection<String> excludeFields = List.of("field");
+        builder.append(obj, excludeFields);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = List.of("otherField");
+        builder.append(obj, excludeFieldsArray, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        builder.append(obj, excludeFieldsArray, null);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsCollectionAndNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        Collection<String> excludeFieldsCollection = List.of("field");
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndEmptyCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, excludeFieldsArray, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsCollectionAndEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = {};
+        Collection<String> excludeFieldsCollection = List.of("field");
+        builder.append(obj, excludeFieldsArray, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        builder.append(obj, excludeFieldsArray, null);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsCollectionAndNullArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        Collection<String> excludeFieldsCollection = List.of("field");
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndEmptyCollectionAndNullArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, excludeFieldsArray, null);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsCollectionAndEmptyArrayAndNullCollection() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = {};
+        Collection<String> excludeFieldsCollection = List.of("field");
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArrayAndNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArrayAndNullAndEmpty() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArrayAndNullAndEmptyAndNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArrayAndNullAndEmptyAndNullAndEmpty() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArrayAndNullAndEmptyAndNullAndEmptyAndNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArrayAndNullAndEmptyAndNullAndEmptyAndNullAndEmpty() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField() {
+                return field;
+            }
+
+            public void setField(Integer field) {
+                this.field = field;
+            }
+        };
+        obj.setField(42);
+        String[] excludeFieldsArray = { "field" };
+        Collection<String> excludeFieldsCollection = Collections.emptyList();
+        builder.append(obj, null, excludeFieldsCollection);
+        int hashCode = builder.toHashCode();
+        assertEquals(17 * 37 + 42, hashCode);
+    }
+
+    @Test
+    public void testAppendObjectWithExcludeFieldsArrayAndNullCollectionAndEmptyArrayAndNullAndEmptyAndNullAndEmptyAndNullAndEmptyAndNull() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        Object obj = new Object() {
+            private Integer field;
+
+            public Integer getField

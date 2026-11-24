@@ -1,0 +1,75 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    void testGetPackageName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withValidClass() {
+        assertEquals("org.apache.commons.lang3", ClassUtils.getPackageName(ClassUtils.class));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Object) null));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withValidObject() {
+        assertEquals("org.apache.commons.lang3", ClassUtils.getPackageCanonicalName(new ClassUtils()));
+    }
+
+    @Test
+    void testGetComponentType_withArrayClass() {
+        assertEquals(Integer.class, ClassUtils.getComponentType(int[].class));
+    }
+
+    @Test
+    void testGetComponentType_withNonArrayClass() {
+        assertNull(ClassUtils.getComponentType(String.class));
+    }
+
+    @Test
+    void testGetShortClassName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortClassName((Class<?>) null));
+    }
+
+    @Test
+    void testGetShortClassName_withValidClass() {
+        assertEquals("ClassUtils", ClassUtils.getShortClassName(ClassUtils.class));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortCanonicalName((Object) null));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withValidObject() {
+        assertEquals("ClassUtils", ClassUtils.getShortCanonicalName(new ClassUtils()));
+    }
+
+    @Test
+    void testIsInnerClass_withInnerClass() {
+        assertTrue(ClassUtils.isInnerClass(InnerTestClass.class));
+    }
+
+    @Test
+    void testIsPublic_withNonPublicClass() {
+        assertFalse(ClassUtils.isPublic(NonPublicClass.class));
+    }
+
+    static class InnerTestClass {}
+
+    private static class NonPublicClass {}
+}
+```

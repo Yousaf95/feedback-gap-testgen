@@ -1,0 +1,57 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.BeforeEach;
+
+class HashCodeBuilder_GenTest {
+
+    @BeforeEach
+    public void setUp() {
+        // Clear the registry before each test to ensure a clean state
+        HashCodeBuilder.clearRegistry();
+    }
+
+    @Test
+    public void testGetRegistry() {
+        assertNotNull(HashCodeBuilder.getRegistry());
+    }
+
+    @Test
+    public void testIsRegistered() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {17, 37})
+    public void testRegisterAndUnregister(int initialValue) {
+        Object obj = new Object();
+        HashCodeBuilder builder = new HashCodeBuilder(initialValue, 37);
+        builder.register(obj);
+        assertTrue(HashCodeBuilder.isRegistered(obj));
+        builder.unregister(obj);
+        assertFalse(HashCodeBuilder.isRegistered(obj));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(null, Object.class, builder, false, null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithEmptyArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new int[0], builder, false, null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCodeWithNullObject() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null));
+    }
+}
+```

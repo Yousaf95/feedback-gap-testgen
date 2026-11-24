@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N icect_devbase
+#PBS -q shortCPUQ
+#PBS -l select=1:ncpus=12:mem=48gb
+#PBS -l walltime=03:00:00
+#PBS -j oe
+source $HOME/ICECT/env.sh
+export MAVEN_OPTS="-Xmx2g"
+cd $HOME/ICECT
+python -I scripts/dev_baseline.py results/classes.json commons-lang-src harness $TMPDIR/devwork results/extra/developer_baseline 4 > logs/devbaseline.log 2>&1
+echo "exit $?" >> logs/devbaseline.log

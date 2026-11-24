@@ -1,0 +1,201 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSetUtils_GenTest for CharSetUtils currently achieves 41.1% line coverage and 37.5% branch coverage of CharSetUtils.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+   52:      */
+   53:     public static boolean containsAny(final String str, final String... set) {
+   54:         if (StringUtils.isEmpty(str) || deepEmpty(set)) {  // <-- PARTIAL (1 of 4 branches missed)
+   55:             return false;
+   56:         }
+   57:         final CharSet chars = CharSet.getInstance(set);
+   58:         for (final char c : str.toCharArray()) {  // <-- PARTIAL (1 of 2 branches missed)
+   59:             if (chars.contains(c)) {
+   60:                 return true;
+   61:             }
+   62:         }
+   63:         return false;  // <-- NOT COVERED
+   64:     }
+   65: 
+    ...
+   83:      */
+   84:     public static int count(final String str, final String... set) {
+   85:         if (StringUtils.isEmpty(str) || deepEmpty(set)) {  // <-- PARTIAL (1 of 4 branches missed)
+   86:             return 0;
+   87:         }
+    ...
+  126:      */
+  127:     public static String delete(final String str, final String... set) {
+  128:         if (StringUtils.isEmpty(str) || deepEmpty(set)) {  // <-- PARTIAL (3 of 4 branches missed)
+  129:             return str;
+  130:         }
+  131:         return modify(str, set, false);  // <-- NOT COVERED
+  132:     }
+  133: 
+    ...
+  155:             return null;
+  156:         }
+  157:         if (str.isEmpty() || deepEmpty(set)) {  // <-- PARTIAL (3 of 4 branches missed)
+  158:             return StringUtils.EMPTY;
+  159:         }
+  160:         return modify(str, set, true);  // <-- NOT COVERED
+  161:     }
+  162: 
+    ...
+  170:      */
+  171:     private static String modify(final String str, final String[] set, final boolean expect) {
+  172:         final CharSet chars = CharSet.getInstance(set);  // <-- NOT COVERED
+  173:         final StringBuilder buffer = new StringBuilder(str.length());  // <-- NOT COVERED
+  174:         final char[] chrs = str.toCharArray();  // <-- NOT COVERED
+  175:         for (final char chr : chrs) {  // <-- NOT COVERED
+  176:             if (chars.contains(chr) == expect) {  // <-- NOT COVERED
+  177:                 buffer.append(chr);  // <-- NOT COVERED
+  178:             }
+  179:         }
+  180:         return buffer.toString();  // <-- NOT COVERED
+  181:     }
+  182: 
+    ...
+  200:      */
+  201:     public static String squeeze(final String str, final String... set) {
+  202:         if (StringUtils.isEmpty(str) || deepEmpty(set)) {  // <-- PARTIAL (3 of 4 branches missed)
+  203:             return str;
+  204:         }
+  205:         final CharSet chars = CharSet.getInstance(set);  // <-- NOT COVERED
+  206:         final StringBuilder buffer = new StringBuilder(str.length());  // <-- NOT COVERED
+  207:         final char[] chrs = str.toCharArray();  // <-- NOT COVERED
+  208:         final int sz = chrs.length;  // <-- NOT COVERED
+  209:         char lastChar = chrs[0];  // <-- NOT COVERED
+  210:         char ch;
+  211:         Character inChars = null;  // <-- NOT COVERED
+  212:         Character notInChars = null;  // <-- NOT COVERED
+  213:         buffer.append(lastChar);  // <-- NOT COVERED
+  214:         for (int i = 1; i < sz; i++) {  // <-- NOT COVERED
+  215:             ch = chrs[i];  // <-- NOT COVERED
+  216:             if (ch == lastChar) {  // <-- NOT COVERED
+  217:                 if (inChars != null && ch == inChars) {  // <-- NOT COVERED
+  218:                     continue;  // <-- NOT COVERED
+  219:                 }
+  220:                 if (notInChars == null || ch != notInChars) {  // <-- NOT COVERED
+  221:                     if (chars.contains(ch)) {  // <-- NOT COVERED
+  222:                         inChars = ch;  // <-- NOT COVERED
+  223:                         continue;  // <-- NOT COVERED
+  224:                     }
+  225:                     notInChars = ch;  // <-- NOT COVERED
+  226:                 }
+  227:             }
+  228:             buffer.append(ch);  // <-- NOT COVERED
+  229:             lastChar = ch;  // <-- NOT COVERED
+  230:         }
+  231:         return buffer.toString();  // <-- NOT COVERED
+  232:     }
+  233: 
+    ...
+  239:      * to operate.</p>
+  240:      */
+  241:     public CharSetUtils() {  // <-- NOT COVERED
+  242:     }  // <-- NOT COVERED
+  243: }
+
+Existing test methods (do not duplicate them):
+testContainsAny_normal, testContainsAny_emptyString, testContainsAny_nullString, testCount_normal, testCount_emptyString, testCount_nullString, testDelete_emptyString, testDelete_nullString, testKeep_emptyString, testKeep_nullString, testSqueeze_emptyString, testSqueeze_nullString
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class CharSetUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.CharSetUtils):
+```java
+package org.apache.commons.lang3;
+import org.apache.commons.lang3.stream.Streams;
+
+/** Operations on {@link CharSet} instances. */
+public class CharSetUtils {
+    /** Takes an argument in set-syntax, see evaluateSet, and identifies whether any of the characters are present in the specified string. */
+    public static boolean containsAny(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return false;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and returns the number of characters present in the specified string. */
+    public static int count(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return 0;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        int count = 0;
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and deletes any of characters present in the specified string. */
+    public static String delete(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        return modify(str, set, false);
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and keeps any of characters present in the specified string. */
+    public static String keep(final String str, final String... set) {
+        if (str == null) {
+            return null;
+        }
+        if (str.isEmpty() || deepEmpty(set)) {
+            return StringUtils.EMPTY;
+        }
+        return modify(str, set, true);
+    }
+    /** Squeezes any repetitions of a character that is mentioned in the supplied set. */
+    public static String squeeze(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        final StringBuilder buffer = new StringBuilder(str.length());
+        final char[] chrs = str.toCharArray();
+        final int sz = chrs.length;
+        char lastChar = chrs[0];
+        char ch;
+        Character inChars = null;
+        Character notInChars = null;
+        buffer.append(lastChar);
+        for (int i = 1; i < sz; i++) {
+            ch = chrs[i];
+            if (ch == lastChar) {
+                if (inChars != null && ch == inChars) {
+                    continue;
+                }
+                if (notInChars == null || ch != notInChars) {
+                    if (chars.contains(ch)) {
+                        inChars = ch;
+                        continue;
+                    }
+                    notInChars = ch;
+                }
+            }
+            buffer.append(ch);
+            lastChar = ch;
+        }
+        return buffer.toString();
+    }
+    /** CharSetUtils instances should NOT be constructed in standard programming. */
+    public CharSetUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static boolean deepEmpty(final String[] strings);
+    private static String modify(final String str, final String[] set, final boolean expect);
+}
+```

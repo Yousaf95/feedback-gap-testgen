@@ -1,0 +1,35 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testGetFirstNonNull() {
+        Supplier<String> supplier1 = () -> null;
+        Supplier<String> supplier2 = () -> "value";
+        String result = ObjectUtils.getFirstNonNull(supplier1, supplier2);
+        assertEquals("value", result);
+
+        Supplier<Integer> supplier3 = () -> 10;
+        Integer intResult = ObjectUtils.getFirstNonNull(supplier1, supplier3);
+        assertEquals(10, intResult);
+    }
+
+    @Test
+    public void testMedian() {
+        List<Double> doubleList = Arrays.asList(1.0, 2.0, 3.0);
+        Double median = ObjectUtils.median(doubleList);
+        assertEquals(2.0, median);
+
+        List<Integer> integerList = Arrays.asList(3, 1, 2);
+        Integer intMedian = ObjectUtils.median(integerList);
+        assertEquals(2, intMedian);
+    }
+}
+```

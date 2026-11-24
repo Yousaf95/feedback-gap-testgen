@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    @BeforeEach
+    public void setUp() {
+        // Clear the registry before each test to ensure a clean state
+        HashCodeBuilder.clearRegistry();
+    }
+
+    @Test
+    public void testIsRegisteredWithNullValue() {
+        assertFalse(HashCodeBuilder.isRegistered(null));
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue() {
+        Object value = new Object();
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(null, Object.class, builder, false, null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCodeWithNullObject() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode((Object) null));
+    }
+
+    @Test
+    public void testIsRegisteredWithNullValue_2() {
+        Object value = new Object();
+        HashCodeBuilder.register(value);
+        assertTrue(HashCodeBuilder.isRegistered(value));
+        HashCodeBuilder.unregister(value);
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue_2() {
+        Object value = new Object();
+        HashCodeBuilder.register(value);
+        assertTrue(HashCodeBuilder.isRegistered(value));
+        HashCodeBuilder.unregister(value);
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        reflectionAppend(null, Object.class, builder, false, null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testRegisterAndUnregister() {
+        Object value = new Object();
+        HashCodeBuilder.register(value);
+        assertTrue(HashCodeBuilder.isRegistered(value));
+        HashCodeBuilder.unregister(value);
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+}
+```

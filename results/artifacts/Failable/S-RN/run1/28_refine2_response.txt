@@ -1,0 +1,58 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testAcceptWithConsumerThrowsException() {
+        FailableBiConsumer<String, String, IOException> consumer = (s1, s2) -> {
+            throw new IOException("Expected exception");
+        };
+        assertThrows(RuntimeException.class, () -> Failable.accept(consumer, "test", "test"));
+    }
+
+    @Test
+    public void testApplyWithFunctionThrowsException() {
+        FailableBiFunction<String, String, Integer, IOException> function = (s1, s2) -> {
+            throw new IOException("Expected exception");
+        };
+        assertThrows(RuntimeException.class, () -> Failable.apply(function, "test", "test"));
+    }
+
+    @Test
+    public void testRunWithRunnableThrowsException() {
+        FailableRunnable<IOException> runnable = () -> {
+            throw new IOException("Expected exception");
+        };
+        assertThrows(RuntimeException.class, () -> Failable.run(runnable));
+    }
+
+    @Test
+    public void testCallWithCallableThrowsException() {
+        FailableCallable<String, IOException> callable = () -> {
+            throw new IOException("Expected exception");
+        };
+        assertThrows(RuntimeException.class, () -> Failable.call(callable));
+    }
+
+    @Test
+    public void testGetWithSupplierThrowsException() {
+        FailableSupplier<String, IOException> supplier = () -> {
+            throw new IOException("Expected exception");
+        };
+        assertThrows(RuntimeException.class, () -> Failable.get(supplier));
+    }
+
+    @Test
+    public void testTestWithPredicateThrowsException() {
+        FailableBiPredicate<String, String, IOException> predicate = (s1, s2) -> {
+            throw new IOException("Expected exception");
+        };
+        assertThrows(RuntimeException.class, () -> Failable.test(predicate, "test", "test"));
+    }
+
+}
+```

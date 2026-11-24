@@ -1,0 +1,23 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[275,44] bypassReflectionClasses has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[288,49] excludeFields has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[301,47] reflectUpToClass has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[311,27] testRecursive has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[314,28] testRecursive has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[324,27] testTransients has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[327,28] testTransients has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[275,44] bypassReflectionClasses has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[288,49] excludeFields has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[301,47] reflectUpToClass has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[311,27] testRecursive has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[314,28] testRecursive has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[324,27] testTransients has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[327,28] testTransients has private access in org.apache.commons.lang3.builder.EqualsBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

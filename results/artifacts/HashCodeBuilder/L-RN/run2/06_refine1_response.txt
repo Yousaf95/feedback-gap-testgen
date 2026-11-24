@@ -1,0 +1,63 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    void testReflectionHashCodeWithDefaultValues() {
+        SampleClass sample = new SampleClass(10, "test");
+        int hashCode = HashCodeBuilder.reflectionHashCode(sample);
+        assertEquals(hashCode, new HashCodeBuilder().append(10).append("test").toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithCustomInitialAndMultiplier() {
+        SampleClass sample = new SampleClass(10, "test");
+        int hashCode = HashCodeBuilder.reflectionHashCode(5, 7, sample);
+        assertEquals(hashCode, new HashCodeBuilder(5, 7).append(10).append("test").toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludedFields() {
+        SampleClass sample = new SampleClass(10, "test");
+        int hashCode = HashCodeBuilder.reflectionHashCode(sample, "value");
+        assertEquals(hashCode, new HashCodeBuilder().append("test").toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithTransientFields() {
+        TransientSampleClass sample = new TransientSampleClass(10, "test");
+        int hashCode = HashCodeBuilder.reflectionHashCode(sample, true);
+        assertEquals(hashCode, new HashCodeBuilder().append("test").toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCodeWithNullObjectThrowsException() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null));
+    }
+
+    private static class SampleClass {
+        private int value;
+        private String text;
+
+        public SampleClass(int value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+    }
+
+    private static class TransientSampleClass {
+        private transient int value;
+        private String text;
+
+        public TransientSampleClass(int value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+    }
+}
+```

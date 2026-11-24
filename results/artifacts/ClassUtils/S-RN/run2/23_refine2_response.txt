@@ -1,0 +1,114 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testGetPackageNameWithEmptyClassName() {
+        assertEquals("", ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    public void testGetPackageNameWithNull() {
+        assertNull(ClassUtils.getPackageName(null));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithBooleanClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Boolean.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithByteClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Byte.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithCharacterClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Character.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithShortClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Short.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithIntegerClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Integer.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithLongClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Long.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithDoubleClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Double.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithFloatClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Float.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithVoidClass() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Void.class));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithNonPrimitiveClass() {
+        assertFalse(ClassUtils.isPrimitiveOrWrapper(String.class));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithEmptyClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(Object.class);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithNull() {
+        assertNull(ClassUtils.getAllSuperclasses(null));
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithEmptyList() {
+        List<String> classNames = ClassUtils.convertClassesToClassNames(Collections.emptyList());
+        assertTrue(classNames.isEmpty());
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithInvalidClassName() {
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(Arrays.asList("java.lang.String", "com.example.NonExistentClass"));
+        assertEquals(2, classes.size());
+        assertNotNull(classes.get(0));
+        assertNull(classes.get(1));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithNegativeLengthHint() {
+        assertThrows(IllegalArgumentException.class, () -> ClassUtils.getAbbreviatedName("java.lang.String", -1));
+    }
+
+    @Test
+    public void testIsInnerClassWithStaticNestedClass() {
+        assertTrue(ClassUtils.isInnerClass(String.class));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithInterface() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(List.class);
+        assertEquals(2, interfaces.size());
+        assertTrue(interfaces.contains(Collection.class));
+        assertTrue(interfaces.contains(Iterable.class));
+    }
+}
+```

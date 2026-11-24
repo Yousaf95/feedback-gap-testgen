@@ -1,0 +1,37 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[98,13] cannot find symbol
+  symbol:   class Null
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[98,35] cannot find symbol
+  symbol:   class Null
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[127,42] no suitable method found for median(java.util.List<java.lang.Double>)
+    method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; no instance(s) of type variable(s) T exist so that java.util.List<T> conforms to java.util.Comparator<T>))
+    method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.Comparable<? super T>
+        lower bounds: java.util.List<T>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[98,13] cannot find symbol
+[ERROR]   symbol:   class Null
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[98,35] cannot find symbol
+[ERROR]   symbol:   class Null
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[127,42] no suitable method found for median(java.util.List<java.lang.Double>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; no instance(s) of type variable(s) T exist so that java.util.List<T> conforms to java.util.Comparator<T>))
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.Comparable<? super T>
+[ERROR]         lower bounds: java.util.List<T>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

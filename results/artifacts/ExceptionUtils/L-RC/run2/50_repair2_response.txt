@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.lang.reflect.Method;
+
+class ExceptionUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testAsRuntimeException() {
+        IllegalArgumentException exception = new IllegalArgumentException("test");
+        RuntimeException runtimeException = ExceptionUtils.asRuntimeException(exception);
+        assertEquals(IllegalArgumentException.class, runtimeException.getClass());
+        assertEquals("test", runtimeException.getMessage());
+    }
+
+    @Test
+    void testGetRootCauseStackTraceList_withNullThrowable() {
+        assertTrue(ExceptionUtils.getRootCauseStackTraceList(null).isEmpty());
+    }
+
+    @Test
+    void testGetStackFrameList_withNullThrowable() {
+        assertTrue(ExceptionUtils.getStackFrameList(null).isEmpty());
+    }
+
+    @Test
+    void testHasCause_withUndeclaredThrowableException() {
+        Throwable undeclared = new java.lang.reflect.UndeclaredThrowableException(new IllegalArgumentException("test"));
+        assertTrue(ExceptionUtils.hasCause(undeclared, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOfThrowable_withNullThrowable() {
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(null, NullPointerException.class));
+    }
+
+    @Test
+    void testIndexOfType_withNullThrowable() {
+        assertEquals(-1, ExceptionUtils.indexOfType(null, NullPointerException.class));
+    }
+
+    @Test
+    void testIsChecked_withNullThrowable() {
+        assertFalse(ExceptionUtils.isChecked(null));
+    }
+
+    @Test
+    void testIsUnchecked_withNullThrowable() {
+        assertFalse(ExceptionUtils.isUnchecked(null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintStream() {
+        Throwable throwable = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullThrowableAndPrintWriter() {
+        ExceptionUtils.printRootCauseStackTrace(null, new PrintWriter(new ByteArrayOutputStream()));
+    }
+}
+```

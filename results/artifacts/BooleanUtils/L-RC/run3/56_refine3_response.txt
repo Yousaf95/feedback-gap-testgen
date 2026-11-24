@@ -1,0 +1,146 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    void testAndWithBooleanObjectArrayAllFalse() {
+        Boolean[] array = {Boolean.FALSE, Boolean.FALSE};
+        assertEquals(Boolean.FALSE, BooleanUtils.and(array));
+    }
+
+    @Test
+    void testOrWithBooleanObjectArrayAllTrue() {
+        Boolean[] array = {Boolean.TRUE, Boolean.TRUE};
+        assertEquals(Boolean.TRUE, BooleanUtils.or(array));
+    }
+
+    @Test
+    void testToBooleanWithNullBoolean() {
+        assertFalse(BooleanUtils.toBoolean((Boolean) null));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntTrueValue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 1, 0, -1));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntFalseValue() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, 1, 0, -1));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntNullValue() {
+        assertEquals(null, BooleanUtils.toBooleanObject(-1, 1, 0, -1));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerTrueValue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, Integer.valueOf(1), Integer.valueOf(0)));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerFalseValue() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, Integer.valueOf(1), Integer.valueOf(0)));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerNullValue() {
+        assertEquals(null, BooleanUtils.toBooleanObject(-1, Integer.valueOf(1), Integer.valueOf(0), Integer.valueOf(-1)));
+    }
+
+    @Test
+    void testToBooleanObjectWithTrueString() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("true"));
+    }
+
+    @Test
+    void testToBooleanObjectWithNullString() {
+        assertEquals(null, BooleanUtils.toBooleanObject(null));
+    }
+
+    @Test
+    void testToBooleanObjectWithShortTrueString() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("t"));
+    }
+
+    @Test
+    void testToBooleanObjectWithShortFalseString() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("f"));
+    }
+
+    @Test
+    void testToBooleanObjectWithTwoCharOnString() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("on"));
+    }
+
+    @Test
+    void testToBooleanObjectWithThreeCharYesString() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("yes"));
+    }
+
+    @Test
+    void testToBooleanObjectWithFourCharTrueString() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("true"));
+    }
+
+    @Test
+    void testToBooleanObjectWithFiveCharFalseString() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("false"));
+    }
+
+    @Test
+    void testToBooleanObjectWithCustomStringsMatchingTrueString() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("yes", "yes", "no", null));
+    }
+
+    @Test
+    void testToBooleanObjectWithCustomStringsMatchingFalseString() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("no", "yes", "no", null));
+    }
+
+    @Test
+    void testToBooleanObjectWithCustomStringsMatchingNullString() {
+        assertEquals(null, BooleanUtils.toBooleanObject(null, "yes", "no", null));
+    }
+
+    @Test
+    void testToBooleanObjectWithCustomStringsNotMatching() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject("maybe", "yes", "no", null));
+    }
+
+    @Test
+    void testToIntegerWithTrueValue() {
+        assertEquals(1, BooleanUtils.toInteger(true));
+    }
+
+    @Test
+    void testToIntegerWithFalseValue() {
+        assertEquals(0, BooleanUtils.toInteger(false));
+    }
+
+    @Test
+    void testToIntegerWithCustomValues() {
+        assertEquals(5, BooleanUtils.toInteger(true, 5, 10));
+    }
+
+    @Test
+    void testToIntegerObjectWithNullBoolean() {
+        assertEquals(null, BooleanUtils.toIntegerObject((Boolean) null, NumberUtils.INTEGER_ONE, NumberUtils.INTEGER_ZERO, null));
+    }
+
+    @Test
+    void testToIntegerObjectWithTrueValue() {
+        assertEquals(NumberUtils.INTEGER_ONE, BooleanUtils.toIntegerObject(true, NumberUtils.INTEGER_ONE, NumberUtils.INTEGER_ZERO));
+    }
+
+    @Test
+    void testToIntegerObjectWithFalseValue() {
+        assertEquals(NumberUtils.INTEGER_ZERO, BooleanUtils.toIntegerObject(false, NumberUtils.INTEGER_ONE, NumberUtils.INTEGER_ZERO));
+    }
+}
+```

@@ -1,0 +1,199 @@
+[ERROR] Tests run: 14, Failures: 12, Errors: 0, Skipped: 0, Time elapsed: 0.171 s <<< FAILURE! -- in org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringIncludeFields -- Time elapsed: 0.076 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[name=test]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringIncludeFields(ReflectionToStringBuilder_GenTest.java:96)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetAppendStatics -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetAppendStatics(ReflectionToStringBuilder_GenTest.java:171)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithOutputStatics -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithOutputStatics(ReflectionToStringBuilder_GenTest.java:70)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithDefaultStyle -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithDefaultStyle(ReflectionToStringBuilder_GenTest.java:31)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeFieldNames -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeFieldNames(ReflectionToStringBuilder_GenTest.java:111)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetUpToClass -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetUpToClass(ReflectionToStringBuilder_GenTest.java:186)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithCustomStyle -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <TestClass(name=test,age=123)> but was: <ReflectionToStringBuilder_GenTest.TestClass[age=123,name=test]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithCustomStyle(ReflectionToStringBuilder_GenTest.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringExcludeFields -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringExcludeFields(ReflectionToStringBuilder_GenTest.java:83)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeNullValues -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetExcludeNullValues(ReflectionToStringBuilder_GenTest.java:141)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetAppendTransients -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123,transientField=null)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test,transientField=<null>]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetAppendTransients(ReflectionToStringBuilder_GenTest.java:156)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithOutputTransients -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123,transientField=null)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test,transientField=<null>]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testToStringWithOutputTransients(ReflectionToStringBuilder_GenTest.java:57)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetIncludeFieldNames -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[name=test]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.testSetIncludeFieldNames(ReflectionToStringBuilder_GenTest.java:126)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetAppendStatics:171 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetAppendTransients:156 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123,transientField=null)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test,transientField=<null>]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetExcludeFieldNames:111 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetExcludeNullValues:141 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetIncludeFieldNames:126 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[name=test]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testSetUpToClass:186 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testToStringExcludeFields:83 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testToStringIncludeFields:96 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[name=test]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testToStringWithCustomStyle:45 expected: <TestClass(name=test,age=123)> but was: <ReflectionToStringBuilder_GenTest.TestClass[age=123,name=test]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testToStringWithDefaultStyle:31 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testToStringWithOutputStatics:70 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test]>
+[ERROR]   ReflectionToStringBuilder_GenTest.testToStringWithOutputTransients:57 expected: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>(name=test,age=123,transientField=null)> but was: <org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest$TestClass@<hashcode>[age=123,name=test,transientField=<null>]>
+[ERROR] Tests run: 14, Failures: 12, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w3/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

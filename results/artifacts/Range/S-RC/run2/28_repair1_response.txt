@@ -1,0 +1,161 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Comparator;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class Range_GenTest {
+
+    private Range<Integer> range;
+
+    private Comparator<Integer> comparator;
+
+    @BeforeEach
+    public void setUp() {
+        comparator = Comparator.naturalOrder();
+        range = new Range<>(1, 5, comparator);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForContainsRange")
+    public void testContainsRange(Range<Integer> otherRange, boolean expected) {
+        assertEquals(expected, range.containsRange(otherRange));
+    }
+
+    private static Stream<Arguments> provideArgumentsForContainsRange() {
+        return Stream.of(
+            arguments(new Range<>(2, 4, Comparator.naturalOrder()), true),
+            arguments(new Range<>(0, 1, Comparator.naturalOrder()), false),
+            arguments(new Range<>(5, 6, Comparator.naturalOrder()), false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsAfterRange")
+    public void testIsAfterRange(Range<Integer> otherRange, boolean expected) {
+        assertEquals(expected, range.isAfterRange(otherRange));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsAfterRange() {
+        return Stream.of(
+            arguments(new Range<>(6, 10, Comparator.naturalOrder()), false),
+            arguments(new Range<>(5, 5, Comparator.naturalOrder()), false),
+            arguments(new Range<>(4, 5, Comparator.naturalOrder()), true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsBeforeRange")
+    public void testIsBeforeRange(Range<Integer> otherRange, boolean expected) {
+        assertEquals(expected, range.isBeforeRange(otherRange));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsBeforeRange() {
+        return Stream.of(
+            arguments(new Range<>(0, 2, Comparator.naturalOrder()), false),
+            arguments(new Range<>(5, 5, Comparator.naturalOrder()), false),
+            arguments(new Range<>(6, 7, Comparator.naturalOrder()), true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsEndedBy")
+    public void testIsEndedBy(Integer element, boolean expected) {
+        assertEquals(expected, range.isEndedBy(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsEndedBy() {
+        return Stream.of(
+            arguments(5, true),
+            arguments(6, false),
+            arguments(1, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsStartedBy")
+    public void testIsStartedBy(Integer element, boolean expected) {
+        assertEquals(expected, range.isStartedBy(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsStartedBy() {
+        return Stream.of(
+            arguments(1, true),
+            arguments(0, false),
+            arguments(6, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForToString")
+    public void testToString(String format, String expected) {
+        assertEquals(expected, range.toString(format));
+    }
+
+    private static Stream<Arguments> provideArgumentsForToString() {
+        return Stream.of(
+            arguments(null, "[1..5]"),
+            arguments("%d to %d", "1 to 5")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForContainsNullElement")
+    public void testContainsNullElement(Integer element, boolean expected) {
+        assertEquals(expected, range.contains(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForContainsNullElement() {
+        return Stream.of(
+            arguments(null, false),
+            arguments(1, true),
+            arguments(6, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsAfterNullElement")
+    public void testIsAfterNullElement(Integer element, boolean expected) {
+        assertEquals(expected, range.isAfter(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsAfterNullElement() {
+        return Stream.of(
+            arguments(null, false),
+            arguments(0, false),
+            arguments(1, true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsBeforeNullElement")
+    public void testIsBeforeNullElement(Integer element, boolean expected) {
+        assertEquals(expected, range.isBefore(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsBeforeNullElement() {
+        return Stream.of(
+            arguments(null, false),
+            arguments(6, false),
+            arguments(5, true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForFit")
+    public void testFit(Integer element, Integer expected) {
+        assertEquals(expected, range.fit(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForFit() {
+        return Stream.of(
+            arguments(null, 1),
+            arguments(0, 1),
+            arguments(6, 5)
+        );
+    }
+}
+```

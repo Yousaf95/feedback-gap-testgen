@@ -1,0 +1,77 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.LocaleUtils.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testIsISO3166CountryCode() {
+        assertTrue(isISO3166CountryCode("US"));
+        assertFalse(isISO3166CountryCode("us"));
+        assertFalse(isISO3166CountryCode("U"));
+        assertThrows(IllegalArgumentException.class, () -> isISO3166CountryCode(null));
+    }
+
+    @Test
+    public void testIsISO639LanguageCode() {
+        assertTrue(isISO639LanguageCode("en"));
+        assertFalse(isISO639LanguageCode("EN"));
+        assertFalse(isISO639LanguageCode("eng"));
+        assertThrows(IllegalArgumentException.class, () -> isISO639LanguageCode(null));
+    }
+
+    @Test
+    public void testIsNumericAreaCode() {
+        assertTrue(isNumericAreaCode("123"));
+        assertFalse(isNumericAreaCode("abc"));
+        assertFalse(isNumericAreaCode("12"));
+        assertFalse(isNumericAreaCode("1234"));
+        assertThrows(IllegalArgumentException.class, () -> isNumericAreaCode(null));
+    }
+
+    @Test
+    public void testLocaleLookupList() {
+        List<Locale> list = localeLookupList(Locale.US);
+        assertEquals(4, list.size());
+        assertTrue(list.contains(Locale.US));
+        assertTrue(list.contains(new Locale("en", "US")));
+        assertTrue(list.contains(new Locale("en")));
+        assertTrue(list.contains(Locale.getDefault()));
+
+        list = localeLookupList(null, Locale.US);
+        assertEquals(4, list.size());
+        assertTrue(list.contains(Locale.US));
+        assertTrue(list.contains(new Locale("en", "US")));
+        assertTrue(list.contains(new Locale("en")));
+        assertTrue(list.contains(Locale.getDefault()));
+    }
+
+    @Test
+    public void testParseLocale() {
+        Locale locale = parseLocale("en_US");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+
+        locale = parseLocale("fr-FR");
+        assertEquals("fr", locale.getLanguage());
+        assertEquals("FR", locale.getCountry());
+
+        assertThrows(IllegalArgumentException.class, () -> parseLocale("invalid"));
+    }
+
+    @Test
+    public void testToLocaleWithEmptyString() {
+        Locale locale = toLocale("");
+        assertEquals(StringUtils.EMPTY, locale.getLanguage());
+        assertEquals(StringUtils.EMPTY, locale.getCountry());
+    }
+}
+```

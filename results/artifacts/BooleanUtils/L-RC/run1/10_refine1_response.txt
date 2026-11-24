@@ -1,0 +1,209 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    void testAnd_BooleanArray_withNulls() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.and((Boolean[]) null));
+    }
+
+    @Test
+    void testOr_BooleanArray_withNulls() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.or((Boolean[]) null));
+    }
+
+    @Test
+    void testToBoolean_IntegerWithTrueValueNull() {
+        assertTrue(BooleanUtils.toBoolean(null, null, 1));
+    }
+
+    @Test
+    void testToBoolean_IntegerWithFalseValueNull() {
+        assertFalse(BooleanUtils.toBoolean(0, 1, null));
+    }
+
+    @Test
+    void testToBoolean_IntegerNoMatch() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(2, 1, 0));
+    }
+
+    @Test
+    void testToBoolean_StringNotCovered() {
+        assertFalse(BooleanUtils.toBoolean("notTrue"));
+    }
+
+    @Test
+    void testToBoolean_StringWithTrueStringNull() {
+        assertTrue(BooleanUtils.toBoolean(null, null, "false"));
+    }
+
+    @Test
+    void testToBoolean_StringWithFalseStringNull() {
+        assertFalse(BooleanUtils.toBoolean(null, "true", null));
+    }
+
+    @Test
+    void testToBoolean_StringWithBothStringsNull() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean("true", null, null));
+    }
+
+    @Test
+    void testToBoolean_StringExactMatchTrue() {
+        assertTrue(BooleanUtils.toBoolean("true", "true", "false"));
+    }
+
+    @Test
+    void testToBoolean_StringExactMatchFalse() {
+        assertFalse(BooleanUtils.toBoolean("false", "true", "false"));
+    }
+
+    @Test
+    void testToBoolean_StringIgnoreCaseTrue() {
+        assertTrue(BooleanUtils.toBoolean("TRUE", "true", "false"));
+    }
+
+    @Test
+    void testToBoolean_StringIgnoreCaseFalse() {
+        assertFalse(BooleanUtils.toBoolean("FALSE", "true", "false"));
+    }
+
+    @Test
+    void testToBoolean_StringNoMatch() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean("maybe", "true", "false"));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNull_true() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(Boolean.TRUE, false));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNull_false() {
+        assertFalse(BooleanUtils.toBooleanDefaultIfNull(Boolean.FALSE, true));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNull_null() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(null, true));
+    }
+
+    @Test
+    void testToBooleanObject_intZero() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0));
+    }
+
+    @Test
+    void testToBooleanObject_intNonZero() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1));
+    }
+
+    @Test
+    void testToBooleanObject_intWithTrueFalseValues() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 1, 0));
+    }
+
+    @Test
+    void testToBooleanObject_intWithFalseValue() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, 1, 0));
+    }
+
+    @Test
+    void testToBooleanObject_intNoMatch() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject(2, 1, 0));
+    }
+
+    @Test
+    void testToBooleanObject_IntegerNullWithTrueValueNull() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(null, null, 1, 2));
+    }
+
+    @Test
+    void testToBooleanObject_IntegerNoMatch() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject(3, 1, 0, 2));
+    }
+
+    @Test
+    void testToBooleanObject_StringTrue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("true"));
+    }
+
+    @Test
+    void testToBooleanObject_StringFalse() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("false"));
+    }
+
+    @Test
+    void testToBooleanObject_StringNull() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+    }
+
+    @Test
+    void testToBooleanObject_StringY() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("y"));
+    }
+
+    @Test
+    void testToBooleanObject_StringN() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("n"));
+    }
+
+    @Test
+    void testToBooleanObject_StringT() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("t"));
+    }
+
+    @Test
+    void testToBooleanObject_StringF() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("f"));
+    }
+
+    @Test
+    void testToBooleanObject_String1() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("1"));
+    }
+
+    @Test
+    void testToBooleanObject_String0() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("0"));
+    }
+
+    @Test
+    void testToBooleanObject_StringOn() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("on"));
+    }
+
+    @Test
+    void testToBooleanObject_StringOff() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("off"));
+    }
+
+    @Test
+    void testToBooleanObject_StringYes() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("yes"));
+    }
+
+    @Test
+    void testToBooleanObject_StringNo() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("no"));
+    }
+
+    @Test
+    void testToBooleanObject_StringTrueLongerCase() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("TRUE"));
+    }
+
+    @Test
+    void testToBooleanObject_StringFalseLongerCase() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("FALSE"));
+    }
+
+    @Test
+    void testToBooleanObject_StringNotMatch() {
+        assertNull(BooleanUtils.toBooleanObject("maybe"));
+    }
+}
+```

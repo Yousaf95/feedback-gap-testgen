@@ -1,0 +1,175 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Comparator;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+class Range_GenTest {
+
+    private Range<Integer> range;
+
+    private Comparator<Integer> comparator;
+
+    @BeforeEach
+    public void setUp() {
+        comparator = Comparator.naturalOrder();
+        range = new Range<>(1, 5, comparator);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForContainsRange")
+    public void testContainsRange(Range<Integer> otherRange, boolean expected) {
+        assertEquals(expected, range.containsRange(otherRange));
+    }
+
+    private static Stream<Arguments> provideArgumentsForContainsRange() {
+        return Stream.of(
+            arguments(new Range<>(2, 4, null), true),
+            arguments(new Range<>(0, 1, null), false),
+            arguments(new Range<>(5, 6, null), false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsAfterRange")
+    public void testIsAfterRange(Range<Integer> otherRange, boolean expected) {
+        assertEquals(expected, range.isAfterRange(otherRange));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsAfterRange() {
+        return Stream.of(
+            arguments(new Range<>(6, 10, null), false),
+            arguments(new Range<>(5, 5, null), false),
+            arguments(new Range<>(4, 4, null), true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsBeforeRange")
+    public void testIsBeforeRange(Range<Integer> otherRange, boolean expected) {
+        assertEquals(expected, range.isBeforeRange(otherRange));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsBeforeRange() {
+        return Stream.of(
+            arguments(new Range<>(0, 4, null), false),
+            arguments(new Range<>(5, 5, null), false),
+            arguments(new Range<>(6, 6, null), true)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsEndedBy")
+    public void testIsEndedBy(Integer element, boolean expected) {
+        assertEquals(expected, range.isEndedBy(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsEndedBy() {
+        return Stream.of(
+            arguments(5, true),
+            arguments(4, false),
+            arguments(6, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForIsStartedBy")
+    public void testIsStartedBy(Integer element, boolean expected) {
+        assertEquals(expected, range.isStartedBy(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForIsStartedBy() {
+        return Stream.of(
+            arguments(1, true),
+            arguments(2, false),
+            arguments(0, false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForToString")
+    public void testToString(String format, String expected) {
+        assertEquals(expected, range.toString(format));
+    }
+
+    private static Stream<Arguments> provideArgumentsForToString() {
+        return Stream.of(
+            arguments(null, "[1..5]"),
+            arguments("%d to %d", "1 to 5")
+        );
+    }
+
+    @Test
+    public void testHashCode_NotCached() {
+        int hashCode = range.hashCode();
+        assertNotEquals(0, hashCode);
+        assertEquals(hashCode, range.hashCode());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForToString_Cached")
+    public void testToString_Cached(String expected) {
+        String toString = range.toString();
+        assertNotNull(toString);
+        assertEquals(expected, toString);
+    }
+
+    private static Stream<Arguments> provideArgumentsForToString_Cached() {
+        return Stream.of(
+            arguments("[1..5]")
+        );
+    }
+
+    @Test
+    public void testGetComparator_NaturalOrdering() {
+        assertTrue(range.isNaturalOrdering());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForFit")
+    public void testFit(Integer element, Integer expected) {
+        assertEquals(expected, range.fit(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForFit() {
+        return Stream.of(
+            arguments(0, 1),
+            arguments(3, 3),
+            arguments(6, 5)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForElementCompareTo")
+    public void testElementCompareTo(Integer element, int expected) {
+        assertEquals(expected, range.elementCompareTo(element));
+    }
+
+    private static Stream<Arguments> provideArgumentsForElementCompareTo() {
+        return Stream.of(
+            arguments(0, -1),
+            arguments(3, 0),
+            arguments(6, 1)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArgumentsForContainsNullElement")
+    public void testContainsNullElement(Boolean expected) {
+        assertEquals(expected, range.contains((Integer) null));
+    }
+
+    private static Stream<Arguments> provideArgumentsForContainsNullElement() {
+        return Stream.of(
+            arguments(false)
+        );
+    }
+}
+```

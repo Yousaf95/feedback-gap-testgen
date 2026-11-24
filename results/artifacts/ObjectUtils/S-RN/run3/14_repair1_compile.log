@@ -1,0 +1,49 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[162,44] method getFirstNonNull in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: java.util.function.Supplier<T>[]
+  found:    java.util.function.Supplier<java.lang.String>,java.util.function.Supplier<java.lang.Integer>
+  reason: inference variable T has incompatible equality constraints java.lang.Integer,java.lang.String
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[169,40] no suitable method found for median(java.util.List<java.lang.Double>)
+    method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; java.util.List<java.lang.Double> cannot be converted to java.util.Comparator<T>))
+    method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.Comparable<? super T>
+        lower bounds: java.util.List<java.lang.Double>)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[173,44] no suitable method found for median(java.util.List<java.lang.Integer>)
+    method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; java.util.List<java.lang.Integer> cannot be converted to java.util.Comparator<T>))
+    method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.Comparable<? super T>
+        lower bounds: java.util.List<java.lang.Integer>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[162,44] method getFirstNonNull in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: java.util.function.Supplier<T>[]
+[ERROR]   found:    java.util.function.Supplier<java.lang.String>,java.util.function.Supplier<java.lang.Integer>
+[ERROR]   reason: inference variable T has incompatible equality constraints java.lang.Integer,java.lang.String
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[169,40] no suitable method found for median(java.util.List<java.lang.Double>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; java.util.List<java.lang.Double> cannot be converted to java.util.Comparator<T>))
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.Comparable<? super T>
+[ERROR]         lower bounds: java.util.List<java.lang.Double>)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[173,44] no suitable method found for median(java.util.List<java.lang.Integer>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; java.util.List<java.lang.Integer> cannot be converted to java.util.Comparator<T>))
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.Comparable<? super T>
+[ERROR]         lower bounds: java.util.List<java.lang.Integer>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

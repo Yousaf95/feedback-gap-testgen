@@ -1,0 +1,226 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.HashMap;
+import static org.junit.jupiter.api.Assertions.*;
+
+class Validate_GenTest {
+
+    @Test
+    void testExclusiveBetweenDoubleUpperBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(1.0, 2.0, 2.0, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenLongUpperBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(1L, 2L, 2L, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenComparableLowerBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(1, 3, 1, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenComparableUpperBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween(1, 3, 3, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleLowerBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1.0, 2.0, 0.9, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleUpperBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1.0, 2.0, 2.1, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenLongLowerBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1L, 2L, 0L, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenLongUpperBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1L, 2L, 3L, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenComparableLowerBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1, 3, 0, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenComparableUpperBoundExceptionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween(1, 3, 4, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testIsAssignableFromNullSuperType() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isAssignableFrom(null, String.class);
+        });
+        assertEquals(String.format(Validate.DEFAULT_IS_ASSIGNABLE_EX_MESSAGE, "String", "null type"), exception.getMessage());
+    }
+
+    @Test
+    void testIsAssignableFromNullType() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isAssignableFrom(Object.class, null);
+        });
+        assertEquals(String.format(Validate.DEFAULT_IS_ASSIGNABLE_EX_MESSAGE, "null type", "Object"), exception.getMessage());
+    }
+
+    @Test
+    void testIsAssignableFromCustomMessageExceptionWithNullSuperType() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isAssignableFrom(null, String.class, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testIsAssignableFromCustomMessageExceptionWithNullType() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isAssignableFrom(Object.class, null, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testIsInstanceCustomMessageExceptionWithNullObject() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isInstanceOf(String.class, null, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseExceptionWithValuesMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Custom message %s", 123);
+        });
+        assertEquals("Custom message 123", exception.getMessage());
+    }
+
+    @Test
+    void testMatchesPatternNoMatchExceptionWithCustomMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.matchesPattern("abc", "def", "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testNotBlankBlankStringExceptionWithCustomMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("", "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyArrayNormalCaseWithCustomMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new Integer[0], "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCollectionNormalCaseWithCustomMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new ArrayList<>(), "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCharSequenceNormalCaseWithCustomMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty("", "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testIsEmptyMapExceptionWithCustomMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new HashMap<>(), "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testNotNaNNormalCase_2() {
+        Validate.notNaN(0.0);
+    }
+
+    @Test
+    void testNotNaNWithCustomMessage_2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notNaN(Double.NaN, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testNotNullNormalCase() {
+        Validate.notNull(new Object());
+    }
+
+    @Test
+    void testNotNullWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notNull(null, "Custom message");
+        });
+        assertEquals("Custom message", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCollectionNormalCase() {
+        List<String> list = new ArrayList<>();
+        list.add("test");
+        Validate.validIndex(list, 0);
+    }
+
+    @Test
+    void testValidIndexCharSequenceNormalCase() {
+        String str = "test";
+        Validate.validIndex(str, 0);
+    }
+}
+```

@@ -1,0 +1,198 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testAppendDouble() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(3.14);
+        assertEquals(26, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendDoubleArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new double[]{3.14, 2.71});
+        assertEquals(-85, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendFloatArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new float[]{3.14f, 2.71f});
+        assertEquals(69, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendLongArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new long[]{1L, 2L, 3L});
+        assertEquals(-104, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendShortArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new short[]{1, 2, 3});
+        assertEquals(87, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullObjectArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Object[]) null);
+        assertEquals(-50, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Object) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCodeWithNull() {
+        Object obj = new Object() {
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        };
+        assertEquals(42, HashCodeBuilder.reflectionHashCode(obj));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithTransientField() {
+        Object obj = new Object() {
+            private transient int transientField = 10;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        };
+        assertEquals(42, HashCodeBuilder.reflectionHashCode(obj));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithExcludeFields() {
+        Object obj = new Object() {
+            private int field1 = 10;
+            private int field2 = 20;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        };
+        assertEquals(42, HashCodeBuilder.reflectionHashCode(obj, "field1"));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithExcludeFieldsArray() {
+        Object obj = new Object() {
+            private int field1 = 10;
+            private int field2 = 20;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        };
+        assertEquals(42, HashCodeBuilder.reflectionHashCode(obj, new String[]{"field1"}));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithExcludeFieldsCollection() {
+        Object obj = new Object() {
+            private int field1 = 10;
+            private int field2 = 20;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        };
+        Set<String> excludeFields = new HashSet<>(Arrays.asList("field1"));
+        assertEquals(42, HashCodeBuilder.reflectionHashCode(obj, excludeFields));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithSuperClass() {
+        class Parent {
+            private int parentField = 30;
+        }
+        class Child extends Parent {
+            private int childField = 40;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        }
+        Child obj = new Child();
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithSuperClassExcludingFields() {
+        class Parent {
+            private int parentField = 30;
+        }
+        class Child extends Parent {
+            private int childField = 40;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        }
+        Child obj = new Child();
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, null, Parent.class));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithSuperClassExcludingFieldsArray() {
+        class Parent {
+            private int parentField = 30;
+        }
+        class Child extends Parent {
+            private int childField = 40;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        }
+        Child obj = new Child();
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, null, new Class<?>[]{Parent.class}));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithSuperClassExcludingFieldsCollection() {
+        class Parent {
+            private int parentField = 30;
+        }
+        class Child extends Parent {
+            private int childField = 40;
+
+            @Override
+            public int hashCode() {
+                return 42;
+            }
+        }
+        Child obj = new Child();
+        Set<Class<?>> excludeClasses = new HashSet<>(Arrays.asList(Parent.class));
+        assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, null, excludeClasses));
+    }
+
+}
+```

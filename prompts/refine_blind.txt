@@ -1,0 +1,14 @@
+The JUnit 5 test class {test_class} for {simple_name} already contains the test methods listed below.
+
+Existing test methods (do not duplicate them):
+{existing}
+
+Write ADDITIONAL test methods for {simple_name} that test behaviour not yet tested by the existing test methods.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class {test_class} (package {package}) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test ({fqn}):
+```java
+{context}
+```

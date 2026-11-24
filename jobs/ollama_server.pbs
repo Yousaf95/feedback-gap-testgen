@@ -1,0 +1,25 @@
+#!/bin/bash
+#PBS -N icect_ollama
+#PBS -q commonGPUQ
+#PBS -l select=1:ncpus=8:ngpus=1:mem=64gb
+#PBS -l walltime=30:00:00
+#PBS -j oe
+# One Ollama server per model (MK=S or L), one GPU each.
+source /usr/share/Modules/init/bash
+module load CUDA/12.4.0
+export PATH=$HOME/ollama/bin:$PATH
+export OLLAMA_MODELS=$HOME/ollama/models
+export OLLAMA_NUM_PARALLEL=8
+export OLLAMA_MAX_LOADED_MODELS=1
+export OLLAMA_KEEP_ALIVE=-1
+export OLLAMA_CONTEXT_LENGTH=20480
+[ "$MK" = "S" ] && PORT=11434 || PORT=11435
+export OLLAMA_HOST=0.0.0.0:$PORT
+L=$HOME/ICECT/logs
+[ "$MK" = "S" ] && MODEL=qwen2.5-coder:7b-instruct || MODEL=qwen2.5-coder:32b-instruct
+(echo "MK=$MK host=$(hostname) PBS CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES"; nvidia-smi --query-gpu=index,name,memory.total,memory.used,driver_version --format=csv; ollama --version 2>&1) > $L/ollama_gpu_$MK.txt
+ollama serve > $L/ollama_serve_$MK.log 2>&1 &
+sleep 10
+curl -s localhost:$PORT/api/generate -d "{\"model\":\"$MODEL\",\"prompt\":\"hi\",\"stream\":false,\"options\":{\"num_predict\":1}}" > /dev/null
+echo "$(hostname):$PORT" > $L/ollama_host_$MK.txt
+while true; do (date; OLLAMA_HOST=127.0.0.1:$PORT ollama ps; nvidia-smi --query-gpu=index,utilization.gpu,memory.used --format=csv,noheader) > $L/ollama_ps_$MK.txt 2>&1; sleep 30; done

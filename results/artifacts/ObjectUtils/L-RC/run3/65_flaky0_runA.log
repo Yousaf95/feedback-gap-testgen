@@ -1,0 +1,7 @@
+Exception in thread "Thread-2" java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.base/java.lang.Object.wait(Native Method)
+	at java.base/java.lang.Object.wait(Object.java:472)
+	at org.apache.commons.lang3.time.DurationUtils.accept(DurationUtils.java:58)
+	at org.apache.commons.lang3.ObjectUtils.wait(ObjectUtils.java:1399)
+	at org.apache.commons.lang3.ObjectUtils_GenTest.lambda$testWait_ZeroDuration$13(ObjectUtils_GenTest.java:513)
+	at java.base/java.lang.Thread.run(Thread.java:840)

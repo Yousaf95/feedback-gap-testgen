@@ -1,0 +1,133 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[178,33] cannot find symbol
+  symbol:   method isAsciiExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[179,34] cannot find symbol
+  symbol:   method isAsciiExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[184,33] cannot find symbol
+  symbol:   method isAsciiAlphaExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[185,33] cannot find symbol
+  symbol:   method isAsciiAlphaExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[186,34] cannot find symbol
+  symbol:   method isAsciiAlphaExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[187,34] cannot find symbol
+  symbol:   method isAsciiAlphaExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[192,33] cannot find symbol
+  symbol:   method isAsciiAlphanumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[193,33] cannot find symbol
+  symbol:   method isAsciiAlphanumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[194,33] cannot find symbol
+  symbol:   method isAsciiAlphanumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[195,34] cannot find symbol
+  symbol:   method isAsciiAlphanumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[196,34] cannot find symbol
+  symbol:   method isAsciiAlphanumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[201,33] cannot find symbol
+  symbol:   method isAsciiNumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[202,33] cannot find symbol
+  symbol:   method isAsciiNumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[203,34] cannot find symbol
+  symbol:   method isAsciiNumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[204,34] cannot find symbol
+  symbol:   method isAsciiNumericExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[209,33] cannot find symbol
+  symbol:   method isAsciiPrintableExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[210,33] cannot find symbol
+  symbol:   method isAsciiPrintableExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[211,33] cannot find symbol
+  symbol:   method isAsciiPrintableExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[212,33] cannot find symbol
+  symbol:   method isAsciiPrintableExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[213,34] cannot find symbol
+  symbol:   method isAsciiPrintableExtended(char)
+  location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[218,69] reference to toChar is ambiguous
+  both method toChar(java.lang.Character) in org.apache.commons.lang3.CharUtils and method toChar(java.lang.String) in org.apache.commons.lang3.CharUtils match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[178,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[179,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[184,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphaExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[185,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphaExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[186,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphaExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[187,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphaExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[192,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphanumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[193,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphanumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[194,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphanumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[195,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphanumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[196,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiAlphanumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[201,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiNumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[202,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiNumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[203,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiNumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[204,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiNumericExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[209,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiPrintableExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[210,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiPrintableExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[211,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiPrintableExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[212,33] cannot find symbol
+[ERROR]   symbol:   method isAsciiPrintableExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[213,34] cannot find symbol
+[ERROR]   symbol:   method isAsciiPrintableExtended(char)
+[ERROR]   location: class org.apache.commons.lang3.CharUtils
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/CharUtils_GenTest.java:[218,69] reference to toChar is ambiguous
+[ERROR]   both method toChar(java.lang.Character) in org.apache.commons.lang3.CharUtils and method toChar(java.lang.String) in org.apache.commons.lang3.CharUtils match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

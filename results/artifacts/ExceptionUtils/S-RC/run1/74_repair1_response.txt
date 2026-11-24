@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testGetCauseWithNullThrowable_3() {
+            Throwable throwable = null;
+            assertNull(ExceptionUtils.getCause(throwable));
+        }
+
+    @Test
+        public void testGetRootCauseWithNullThrowable_2() {
+            Throwable throwable = null;
+            assertNull(ExceptionUtils.getRootCause(throwable));
+        }
+
+    @Test
+        public void testGetRootCauseMessageWithNullThrowable_3() {
+            Throwable throwable = null;
+            assertEquals("", ExceptionUtils.getRootCauseMessage(throwable));
+        }
+
+    @Test
+        public void testGetStackTraceWithNullThrowable_3() {
+            Throwable throwable = null;
+            assertEquals("", ExceptionUtils.getStackTrace(throwable));
+        }
+
+    @Test
+        public void testGetThrowablesWithNullThrowable_2() {
+            Throwable throwable = null;
+            assertArrayEquals(new Throwable[0], ExceptionUtils.getThrowables(throwable));
+        }
+
+    @Test
+        public void testIndexOfThrowableWithNullThrowable_3() {
+            Throwable throwable = null;
+            assertEquals(-1, ExceptionUtils.indexOfThrowable(throwable, RuntimeException.class));
+        }
+
+    @Test
+        public void testIndexOfTypeWithNullThrowable_3() {
+            Throwable throwable = null;
+            assertEquals(-1, ExceptionUtils.indexOfType(throwable, RuntimeException.class));
+        }
+
+    @Test
+        public void testPrintRootCauseStackTraceWithNullThrowable_3() {
+            Throwable throwable = null;
+            ExceptionUtils.printRootCauseStackTrace(throwable);
+        }
+
+    @Test
+        public void testRethrowWithRuntimeException() {
+            RuntimeException exception = new RuntimeException("test");
+            assertThrows(RuntimeException.class, () -> ExceptionUtils.rethrow(exception));
+        }
+
+    @Test
+        public void testThrowableOfWithNullThrowable() {
+        }
+}
+```

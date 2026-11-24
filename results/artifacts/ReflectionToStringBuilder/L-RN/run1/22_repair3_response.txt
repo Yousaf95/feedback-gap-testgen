@@ -1,0 +1,35 @@
+```java
+package org.apache.commons.lang3.builder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReflectionToStringBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testToStringWithExcludeFieldNames() {
+        TestClass obj = new TestClass("value1", "value2");
+        String result = ReflectionToStringBuilder.toStringExclude(obj, Arrays.asList("field1"));
+        assertTrue(result.contains("field2=value2"));
+        assertFalse(result.contains("field1=value1"));
+    }
+
+    @Test
+    public void testToStringWithIncludeFieldNames() {
+        TestClass obj = new TestClass("value1", "value2");
+        String result = ReflectionToStringBuilder.toStringInclude(obj, Arrays.asList("field1"));
+        assertTrue(result.contains("field1=value1"));
+        assertFalse(result.contains("field2=value2"));
+    }
+
+    @Test
+    public void testToStringWithExcludeNullValues() {
+        TestClass obj = new TestClass(null, "value2");
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, true, null);
+        assertTrue(result.contains("field2=value2"));
+        assertFalse(result.contains("field1=null"));
+    }
+}
+```

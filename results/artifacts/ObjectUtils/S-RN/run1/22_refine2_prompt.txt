@@ -1,0 +1,441 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class ObjectUtils_GenTest for ObjectUtils already contains the test methods listed below.
+
+Existing test methods (do not duplicate them):
+testCompare, testDefaultIfNull, testAllNull, testCloneIfPossible, testCompare_2, testCompareWithNullGreater, testDefaultIfNull_2, testFirstNonNull, testGetFirstNonNull, testGetIfNull, testIsEmpty, testIsNotEmpty, testMax, testMedian, testMin, testMode, testNotEqual, testRequireNonEmpty, testToStringWithSupplier
+
+Write ADDITIONAL test methods for ObjectUtils that test behaviour not yet tested by the existing test methods.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class ObjectUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.ObjectUtils):
+```java
+package org.apache.commons.lang3;
+import java.io.IOException;
+import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.TreeSet;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.apache.commons.lang3.exception.CloneFailedException;
+import org.apache.commons.lang3.function.Suppliers;
+import org.apache.commons.lang3.mutable.MutableInt;
+import org.apache.commons.lang3.stream.Streams;
+import org.apache.commons.lang3.text.StrBuilder;
+import org.apache.commons.lang3.time.DurationUtils;
+
+@SuppressWarnings("deprecation") // deprecated class StrBuilder is imported
+// because it is part of the signature of deprecated methods
+public class ObjectUtils {
+    /** Class used as a null placeholder where {@code null} has another meaning. */
+    public static class Null implements Serializable {
+        /** Required for serialization support. */
+        private static final long serialVersionUID = 7092611880189329093L;
+        /** Restricted constructor - singleton. */
+        Null() {
+        }
+    }
+    private static final char AT_SIGN = '@';
+    /** Singleton used as a {@code null} placeholder where {@code null} has another meaning. */
+    public static final Null NULL = new Null();
+    /** Checks if all values in the array are not {@code nulls}. */
+    public static boolean allNotNull(final Object... values) {
+        return values != null && Stream.of(values).noneMatch(Objects::isNull);
+    }
+    /** Checks if all values in the given array are {@code null}. */
+    public static boolean allNull(final Object... values) {
+        return !anyNotNull(values);
+    }
+    /** Checks if any value in the given array is not {@code null}. */
+    public static boolean anyNotNull(final Object... values) {
+        return firstNonNull(values) != null;
+    }
+    /** Checks if any value in the given array is {@code null}. */
+    public static boolean anyNull(final Object... values) {
+        return !allNotNull(values);
+    }
+    /** Clone an object. */
+    public static <T> T clone(final T obj) {
+        if (obj instanceof Cloneable) {
+            final Object result;
+            if (isArray(obj)) {
+                final Class<?> componentType = obj.getClass().getComponentType();
+                if (componentType.isPrimitive()) {
+                    int length = Array.getLength(obj);
+                    result = Array.newInstance(componentType, length);
+                    while (length-- > 0) {
+                        Array.set(result, length, Array.get(obj, length));
+                    }
+                } else {
+                    result = ((Object[]) obj).clone();
+                }
+            } else {
+                try {
+                    final Method clone = obj.getClass().getMethod("clone");
+                    result = clone.invoke(obj);
+                } catch (final NoSuchMethodException e) {
+                    throw new CloneFailedException("Cloneable type "
+                        + obj.getClass().getName()
+                        + " has no clone method", e);
+                } catch (final IllegalAccessException e) {
+                    throw new CloneFailedException("Cannot clone Cloneable type "
+                        + obj.getClass().getName(), e);
+                } catch (final InvocationTargetException e) {
+                    throw new CloneFailedException("Exception cloning Cloneable type "
+                        + obj.getClass().getName(), e.getCause());
+                }
+            }
+            @SuppressWarnings("unchecked") // OK because input is of type T
+            final T checked = (T) result;
+            return checked;
+        }
+
+        return null;
+    }
+    /** Clone an object if possible. */
+    public static <T> T cloneIfPossible(final T obj) {
+        final T clone = clone(obj);
+        return clone == null ? obj : clone;
+    }
+    /** Null safe comparison of Comparables. */
+    public static <T extends Comparable<? super T>> int compare(final T c1, final T c2) {
+        return compare(c1, c2, false);
+    }
+    /** Null safe comparison of Comparables. */
+    public static <T extends Comparable<? super T>> int compare(final T c1, final T c2, final boolean nullGreater) {
+        if (c1 == c2) {
+            return 0;
+        }
+        if (c1 == null) {
+            return nullGreater ? 1 : -1;
+        }
+        if (c2 == null) {
+            return nullGreater ? -1 : 1;
+        }
+        return c1.compareTo(c2);
+    }
+    /** This method returns the provided value unchanged. */
+    public static boolean CONST(final boolean v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static byte CONST(final byte v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static char CONST(final char v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static double CONST(final double v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static float CONST(final float v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static int CONST(final int v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static long CONST(final long v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static short CONST(final short v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static <T> T CONST(final T v) {
+        return v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static byte CONST_BYTE(final int v) {
+        if (v < Byte.MIN_VALUE || v > Byte.MAX_VALUE) {
+            throw new IllegalArgumentException("Supplied value must be a valid byte literal between -128 and 127: [" + v + "]");
+        }
+        return (byte) v;
+    }
+    /** This method returns the provided value unchanged. */
+    public static short CONST_SHORT(final int v) {
+        if (v < Short.MIN_VALUE || v > Short.MAX_VALUE) {
+            throw new IllegalArgumentException("Supplied value must be a valid byte literal between -32768 and 32767: [" + v + "]");
+        }
+        return (short) v;
+    }
+    /** Returns a default value if the object passed is {@code null}. */
+    public static <T> T defaultIfNull(final T object, final T defaultValue) {
+        return object != null ? object : defaultValue;
+    }
+    /** Compares two objects for equality, where either one or both objects may be {@code null}. */
+    @Deprecated
+    public static boolean equals(final Object object1, final Object object2) {
+        return Objects.equals(object1, object2);
+    }
+    /** Returns the first value in the array which is not {@code null}. */
+    @SafeVarargs
+    public static <T> T firstNonNull(final T... values) {
+        return Streams.of(values).filter(Objects::nonNull).findFirst().orElse(null);
+    }
+    /** Delegates to {@link Object#getClass()} using generics. */
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getClass(final T object) {
+        return object == null ? null : (Class<T>) object.getClass();
+    }
+    /** Executes the given suppliers in order and returns the first return value where a value other than {@code null} is returned. */
+    @SafeVarargs
+    public static <T> T getFirstNonNull(final Supplier<T>... suppliers) {
+        return Streams.of(suppliers).map(s -> s != null ? s.get() : null).filter(Objects::nonNull).findFirst().orElse(null);
+    }
+    /** Returns the given {@code object} is it is non-null, otherwise returns the Supplier's {@link Supplier#get()} value. */
+    public static <T> T getIfNull(final T object, final Supplier<T> defaultSupplier) {
+        return object != null ? object : Suppliers.get(defaultSupplier);
+    }
+    /** Gets the hash code of an object returning zero when the object is {@code null}. */
+    @Deprecated
+    public static int hashCode(final Object obj) {
+        // hashCode(Object) for performance vs. hashCodeMulti(Object[]), as hash code is often critical
+        return Objects.hashCode(obj);
+    }
+    /** Returns the hexadecimal hash code for the given object per {@link Objects#hashCode(Object)}. */
+    public static String hashCodeHex(final Object object) {
+        return Integer.toHexString(Objects.hashCode(object));
+    }
+    /** Gets the hash code for multiple objects. */
+    @Deprecated
+    public static int hashCodeMulti(final Object... objects) {
+        int hash = 1;
+        if (objects != null) {
+            for (final Object object : objects) {
+                final int tmpHash = Objects.hashCode(object);
+                hash = hash * 31 + tmpHash;
+            }
+        }
+        return hash;
+    }
+    /** Returns the hexadecimal hash code for the given object per {@link System#identityHashCode(Object)}. */
+    public static String identityHashCodeHex(final Object object) {
+        return Integer.toHexString(System.identityHashCode(object));
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static void identityToString(final Appendable appendable, final Object object) throws IOException {
+        Objects.requireNonNull(object, "object");
+        appendable.append(object.getClass().getName())
+              .append(AT_SIGN)
+              .append(identityHashCodeHex(object));
+    }
+    /** Gets the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static String identityToString(final Object object) {
+        if (object == null) {
+            return null;
+        }
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        final StringBuilder builder = new StringBuilder(name.length() + 1 + hexString.length());
+        // @formatter:off
+        builder.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+        // @formatter:on
+        return builder.toString();
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    @Deprecated
+    public static void identityToString(final StrBuilder builder, final Object object) {
+        Objects.requireNonNull(object, "object");
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        builder.ensureCapacity(builder.length() +  name.length() + 1 + hexString.length());
+        builder.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static void identityToString(final StringBuffer buffer, final Object object) {
+        Objects.requireNonNull(object, "object");
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        buffer.ensureCapacity(buffer.length() + name.length() + 1 + hexString.length());
+        buffer.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+    }
+    /** Appends the toString that would be produced by {@link Object} if a class did not override toString itself. */
+    public static void identityToString(final StringBuilder builder, final Object object) {
+        Objects.requireNonNull(object, "object");
+        final String name = object.getClass().getName();
+        final String hexString = identityHashCodeHex(object);
+        builder.ensureCapacity(builder.length() +  name.length() + 1 + hexString.length());
+        builder.append(name)
+              .append(AT_SIGN)
+              .append(hexString);
+    }
+    /** Tests whether the given object is an Object array or a primitive array in a null-safe manner. */
+    public static boolean isArray(final Object object) {
+        return object != null && object.getClass().isArray();
+    }
+    /** Tests if an Object is empty or null. */
+    public static boolean isEmpty(final Object object) {
+        if (object == null) {
+            return true;
+        }
+        if (object instanceof CharSequence) {
+            return ((CharSequence) object).length() == 0;
+        }
+        if (isArray(object)) {
+            return Array.getLength(object) == 0;
+        }
+        if (object instanceof Collection<?>) {
+            return ((Collection<?>) object).isEmpty();
+        }
+        if (object instanceof Map<?, ?>) {
+            return ((Map<?, ?>) object).isEmpty();
+        }
+        if (object instanceof Optional<?>) {
+            // TODO Java 11 Use Optional#isEmpty()
+            return !((Optional<?>) object).isPresent();
+        }
+        return false;
+    }
+    /** Tests if an Object is not empty and not null. */
+    public static boolean isNotEmpty(final Object object) {
+        return !isEmpty(object);
+    }
+    /** Null safe comparison of Comparables. */
+    @SafeVarargs
+    public static <T extends Comparable<? super T>> T max(final T... values) {
+        T result = null;
+        if (values != null) {
+            for (final T value : values) {
+                if (compare(value, result, false) > 0) {
+                    result = value;
+                }
+            }
+        }
+        return result;
+    }
+    /** Find the "best guess" middle value among comparables. */
+    @SafeVarargs
+    public static <T> T median(final Comparator<T> comparator, final T... items) {
+        Validate.notEmpty(items, "null/empty items");
+        Validate.noNullElements(items);
+        Objects.requireNonNull(comparator, "comparator");
+        final TreeSet<T> treeSet = new TreeSet<>(comparator);
+        Collections.addAll(treeSet, items);
+        @SuppressWarnings("unchecked") //we know all items added were T instances
+        final T result = (T) treeSet.toArray()[(treeSet.size() - 1) / 2];
+        return result;
+    }
+    /** Find the "best guess" middle value among comparables. */
+    @SafeVarargs
+    public static <T extends Comparable<? super T>> T median(final T... items) {
+        Validate.notEmpty(items);
+        Validate.noNullElements(items);
+        final TreeSet<T> sort = new TreeSet<>();
+        Collections.addAll(sort, items);
+        @SuppressWarnings("unchecked") //we know all items added were T instances
+        final T result = (T) sort.toArray()[(sort.size() - 1) / 2];
+        return result;
+    }
+    /** Null safe comparison of Comparables. */
+    @SafeVarargs
+    public static <T extends Comparable<? super T>> T min(final T... values) {
+        T result = null;
+        if (values != null) {
+            for (final T value : values) {
+                if (compare(value, result, true) < 0) {
+                    result = value;
+                }
+            }
+        }
+        return result;
+    }
+    /** Find the most frequently occurring item. */
+    @SafeVarargs
+    public static <T> T mode(final T... items) {
+        if (ArrayUtils.isNotEmpty(items)) {
+            final HashMap<T, MutableInt> occurrences = new HashMap<>(items.length);
+            for (final T t : items) {
+                final MutableInt count = occurrences.get(t);
+                if (count == null) {
+                    occurrences.put(t, new MutableInt(1));
+                } else {
+                    count.increment();
+                }
+            }
+            T result = null;
+            int max = 0;
+            for (final Map.Entry<T, MutableInt> e : occurrences.entrySet()) {
+                final int cmp = e.getValue().intValue();
+                if (cmp == max) {
+                    result = null;
+                } else if (cmp > max) {
+                    max = cmp;
+                    result = e.getKey();
+                }
+            }
+            return result;
+        }
+        return null;
+    }
+    /** Compares two objects for inequality, where either one or both objects may be {@code null}. */
+    public static boolean notEqual(final Object object1, final Object object2) {
+        return !Objects.equals(object1, object2);
+    }
+    /** Checks that the specified object reference is not {@code null} or empty per {@link #isEmpty(Object)}. */
+    public static <T> T  requireNonEmpty(final T obj) {
+        return requireNonEmpty(obj, "object");
+    }
+    /** Checks that the specified object reference is not {@code null} or empty per {@link #isEmpty(Object)}. */
+    public static <T> T requireNonEmpty(final T obj, final String message) {
+        // check for null first to give the most precise exception.
+        Objects.requireNonNull(obj, message);
+        if (isEmpty(obj)) {
+            throw new IllegalArgumentException(message);
+        }
+        return obj;
+    }
+    /** Gets the {@code toString} of an {@link Object} returning an empty string ("") if {@code null} input. */
+    @Deprecated
+    public static String toString(final Object obj) {
+        return obj == null ? StringUtils.EMPTY : obj.toString();
+    }
+    /** Gets the {@code toString} of an {@link Object} returning a specified text if {@code null} input. */
+    @Deprecated
+    public static String toString(final Object obj, final String nullStr) {
+        return obj == null ? nullStr : obj.toString();
+    }
+    /** Gets the {@code toString} of an {@link Supplier}'s {@link Supplier#get()} returning a specified text if {@code null} input. */
+    public static String toString(final Supplier<Object> obj, final Supplier<String> supplier) {
+        return obj == null ? Suppliers.get(supplier) : toString(obj.get(), supplier);
+    }
+    /** Gets the {@code toString} of an {@link Object} returning a specified text if {@code null} input. */
+    public static <T> String toString(final T obj, final Supplier<String> supplier) {
+        return obj == null ? Suppliers.get(supplier) : obj.toString();
+    }
+    /** Calls {@link Object#wait(long, int)} for the given Duration. */
+    public static void wait(final Object obj, final Duration duration) throws InterruptedException {
+        DurationUtils.accept(obj::wait, DurationUtils.zeroIfNull(duration));
+    }
+    /** {@link ObjectUtils} instances should NOT be constructed in standard programming. */
+    public ObjectUtils() {
+    }
+}
+```

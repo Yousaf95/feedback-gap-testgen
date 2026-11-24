@@ -1,0 +1,36 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Collections;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testReadResolve() {
+        Null nullObject = new Null();
+        assertSame(nullObject, nullObject.readResolve());
+    }
+
+    @Test
+    public void testIdentityToString() throws IOException {
+        String result = ObjectUtils.identityToString(new StringBuilder(), new Object());
+        assertTrue(result.contains(Object.class.getName()));
+        assertTrue(result.contains(Integer.toHexString(System.identityHashCode(new Object()))));
+    }
+
+    @Test
+    public void testIsEmpty() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+        assertFalse(ObjectUtils.isEmpty(Collections.singletonList(1)));
+    }
+
+    @Test
+    public void testIsNotEmpty() {
+        assertTrue(ObjectUtils.isNotEmpty(Collections.singletonList(1)));
+        assertFalse(ObjectUtils.isNotEmpty(Collections.emptyList()));
+    }
+}
+```

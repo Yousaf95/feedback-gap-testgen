@@ -1,0 +1,92 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    void testGetPackageName_withNullClassName() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((String) null));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassName() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetPackageName_withSimpleClassName() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName("String"));
+    }
+
+    @Test
+    void testGetPackageName_withFullyQualifiedClassName() {
+        assertEquals("java.lang", ClassUtils.getPackageName("java.lang.String"));
+    }
+
+    @Test
+    void testGetShortClassName_withNullClass_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortClassName((Class<?>) null));
+    }
+
+    @Test
+    void testGetShortClassName_withSimpleClass() {
+        assertEquals("String", ClassUtils.getShortClassName(String.class));
+    }
+
+    @Test
+    void testGetComponentType_withNonArrayClass() {
+        assertNull(ClassUtils.getComponentType((Class<String[]>) null));
+    }
+
+    @Test
+    void testGetComponentType_withArrayClass() {
+        assertEquals(String.class, ClassUtils.getComponentType(String[].class));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClassName() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName((String) null));
+    }
+
+    @Test
+    void testGetCanonicalName_withEmptyClassName() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName(""));
+    }
+
+    @Test
+    void testGetCanonicalName_withSimpleClassName() {
+        assertEquals("java.lang.String", ClassUtils.getCanonicalName("String"));
+    }
+
+    @Test
+    void testGetCanonicalName_withFullyQualifiedClassName() {
+        assertEquals("java.lang.String", ClassUtils.getCanonicalName("java.lang.String"));
+    }
+
+    @Test
+    void testPrimitiveToWrapper_withNonPrimitiveType() {
+        assertNull(ClassUtils.primitiveToWrapper(String.class));
+    }
+
+    @Test
+    void testWrapperToPrimitive_withNonWrapperType() {
+        assertNull(ClassUtils.wrapperToPrimitive(String.class));
+    }
+
+    @Test
+    void testPrimitivesToWrappers_withNullArray() {
+        assertThrows(NullPointerException.class, () -> ClassUtils.primitivesToWrappers((Class<?>[]) null));
+    }
+
+    @Test
+    void testWrappersToPrimitives_withNullArray() {
+        assertThrows(NullPointerException.class, () -> ClassUtils.wrappersToPrimitives((Class<?>[]) null));
+    }
+}
+```

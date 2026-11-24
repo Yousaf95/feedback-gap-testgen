@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    void testAppendSuperWithFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendSuperWithTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(true);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testSetBypassReflectionClasses() {
+        EqualsBuilder builder = new EqualsBuilder();
+        List<Class<?>> bypassClasses = new ArrayList<>();
+        bypassClasses.add(Integer.class);
+        builder.setBypassReflectionClasses(bypassClasses);
+        assertEquals(bypassClasses, builder.bypassReflectionClasses);
+    }
+
+    @Test
+    void testSetExcludeFields() {
+        EqualsBuilder builder = new EqualsBuilder();
+        String[] excludeFields = {"field1", "field2"};
+        builder.setExcludeFields(excludeFields);
+        assertArrayEquals(excludeFields, builder.excludeFields);
+    }
+
+    @Test
+    void testSetReflectUpToClass() {
+        EqualsBuilder builder = new EqualsBuilder();
+        Class<?> reflectUpToClass = String.class;
+        builder.setReflectUpToClass(reflectUpToClass);
+        assertEquals(reflectUpToClass, builder.reflectUpToClass);
+    }
+
+    @Test
+    void testSetTestRecursiveTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestRecursive(true);
+        assertTrue(builder.testRecursive);
+    }
+
+    @Test
+    void testSetTestRecursiveFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestRecursive(false);
+        assertFalse(builder.testRecursive);
+    }
+
+    @Test
+    void testSetTestTransientsTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestTransients(true);
+        assertTrue(builder.testTransients);
+    }
+
+    @Test
+    void testSetTestTransientsFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestTransients(false);
+        assertFalse(builder.testTransients);
+    }
+}
+```

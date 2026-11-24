@@ -1,0 +1,137 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class CharUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiAlphaLowerChars")
+    public void testIsAsciiAlphaLower_NotCoveredBranch_2(char ch) {
+        assertTrue(CharUtils.isAsciiAlphaLower(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiAlphaLowerChars() {
+        return Stream.of(
+            arguments('a'), arguments('b'), arguments('c'), arguments('d'),
+            arguments('e'), arguments('f'), arguments('g'), arguments('h'),
+            arguments('i'), arguments('j'), arguments('k'), arguments('l'),
+            arguments('m'), arguments('n'), arguments('o'), arguments('p'),
+            arguments('q'), arguments('r'), arguments('s'), arguments('t'),
+            arguments('u'), arguments('v'), arguments('w'), arguments('x'),
+            arguments('y'), arguments('z')
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiPrintableChars")
+    public void testIsAsciiPrintable_NotCoveredBranch_2(char ch) {
+        assertTrue(CharUtils.isAsciiPrintable(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiPrintableChars() {
+        return Stream.of(
+            arguments(' '), arguments('!'), arguments('"'), arguments('#'),
+            arguments('$'), arguments('%'), arguments('&'), arguments("'"),
+            arguments('('), arguments(')'), arguments('*'), arguments('+'),
+            arguments(','), arguments('-'), arguments('.'), arguments('/'),
+            arguments('0'), arguments('1'), arguments('2'), arguments('3'),
+            arguments('4'), arguments('5'), arguments('6'), arguments('7'),
+            arguments('8'), arguments('9'), arguments(':'), arguments(';'),
+            arguments('<'), arguments('='), arguments('>'), arguments('?'),
+            arguments('@'), arguments('A'), arguments('B'), arguments('C'),
+            arguments('D'), arguments('E'), arguments('F'), arguments('G'),
+            arguments('H'), arguments('I'), arguments('J'), arguments('K'),
+            arguments('L'), arguments('M'), arguments('N'), arguments('O'),
+            arguments('P'), arguments('Q'), arguments('R'), arguments('S'),
+            arguments('T'), arguments('U'), arguments('V'), arguments('W'),
+            arguments('X'), arguments('Y'), arguments('Z'), arguments('['),
+            arguments('\\'), arguments(']'), arguments('^'), arguments('_'),
+            arguments('`'), arguments('a'), arguments('b'), arguments('c'),
+            arguments('d'), arguments('e'), arguments('f'), arguments('g'),
+            arguments('h'), arguments('i'), arguments('j'), arguments('k'),
+            arguments('l'), arguments('m'), arguments('n'), arguments('o'),
+            arguments('p'), arguments('q'), arguments('r'), arguments('s'),
+            arguments('t'), arguments('u'), arguments('v'), arguments('w'),
+            arguments('x'), arguments('y'), arguments('z'), arguments('{'),
+            arguments('|'), arguments('}'), arguments('~')
+        );
+    }
+
+    @Test
+    public void testToChar_CharacterNonNull_NotCovered_2() {
+        assertEquals('a', CharUtils.toChar(Character.valueOf('a')));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideEmptyStrings")
+    public void testToCharacterObject_Characters_NotCovered_2(String str) {
+        assertNull(CharUtils.toCharacterObject(str));
+    }
+
+    private static Stream<Arguments> provideEmptyStrings() {
+        return Stream.of(
+            arguments(""), arguments(" ")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiNumericChars")
+    public void testToIntValue_CharDefault_2_NotCoveredBranch_2(char ch) {
+        assertEquals(ch - 48, CharUtils.toIntValue(ch, 0));
+    }
+
+    private static Stream<Arguments> provideAsciiNumericChars() {
+        return Stream.of(
+            arguments('0'), arguments('1'), arguments('2'), arguments('3'),
+            arguments('4'), arguments('5'), arguments('6'), arguments('7'),
+            arguments('8'), arguments('9')
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiChars")
+    public void testToString_Character_2_NotCovered_2(char ch) {
+        assertEquals(String.valueOf(ch), CharUtils.toString(ch));
+    }
+
+    private static Stream<Arguments> provideAsciiChars() {
+        return Stream.of(
+            arguments(' '), arguments('!'), arguments('"'), arguments('#'),
+            arguments('$'), arguments('%'), arguments('&'), arguments("'"),
+            arguments('('), arguments(')'), arguments('*'), arguments('+'),
+            arguments(','), arguments('-'), arguments('.'), arguments('/'),
+            arguments('0'), arguments('1'), arguments('2'), arguments('3'),
+            arguments('4'), arguments('5'), arguments('6'), arguments('7'),
+            arguments('8'), arguments('9'), arguments(':'), arguments(';'),
+            arguments('<'), arguments('='), arguments('>'), arguments('?'),
+            arguments('@'), arguments('A'), arguments('B'), arguments('C'),
+            arguments('D'), arguments('E'), arguments('F'), arguments('G'),
+            arguments('H'), arguments('I'), arguments('J'), arguments('K'),
+            arguments('L'), arguments('M'), arguments('N'), arguments('O'),
+            arguments('P'), arguments('Q'), arguments('R'), arguments('S'),
+            arguments('T'), arguments('U'), arguments('V'), arguments('W'),
+            arguments('X'), arguments('Y'), arguments('Z'), arguments('['),
+            arguments('\\'), arguments(']'), arguments('^'), arguments('_'),
+            arguments('`'), arguments('a'), arguments('b'), arguments('c'),
+            arguments('d'), arguments('e'), arguments('f'), arguments('g'),
+            arguments('h'), arguments('i'), arguments('j'), arguments('k'),
+            arguments('l'), arguments('m'), arguments('n'), arguments('o'),
+            arguments('p'), arguments('q'), arguments('r'), arguments('s'),
+            arguments('t'), arguments('u'), arguments('v'), arguments('w'),
+            arguments('x'), arguments('y'), arguments('z'), arguments('{'),
+            arguments('|'), arguments('}'), arguments('~')
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideAsciiChars")
+    public void testUnicodeEscaped_Character_NotCoveredBranch_2(char ch) {
+        assertEquals("\\u" + String.format("%04x", (int) ch), CharUtils.unicodeEscaped(ch));
+    }
+}
+```

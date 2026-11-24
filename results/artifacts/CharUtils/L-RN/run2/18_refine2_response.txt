@@ -1,0 +1,49 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class CharUtils_GenTest {
+
+    @Test
+    void testIsAsciiAlpha_WithNonAlphabeticCharacter() {
+        assertFalse(CharUtils.isAsciiAlpha('1'));
+    }
+
+    @Test
+    void testIsAsciiAlphanumeric_WithSpecialCharacter() {
+        assertFalse(CharUtils.isAsciiAlphanumeric('@'));
+    }
+
+    @Test
+    void testIsAsciiControl_WithPrintableCharacter() {
+        assertFalse(CharUtils.isAsciiControl('A'));
+    }
+
+    @Test
+    void testIsAsciiPrintable_WithControlCharacter() {
+        assertFalse(CharUtils.isAsciiPrintable('\b'));
+    }
+
+    @Test
+    void testToChar_String_WithNull() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar((String) null));
+    }
+
+    @Test
+    void testToIntValue_Char_DefaultValue_WithNonNumericCharacter() {
+        assertEquals(42, CharUtils.toIntValue('A', 42));
+    }
+
+    @Test
+    void testToString_Char_OutOfBounds_High() {
+        assertEquals(String.valueOf((char) 128), CharUtils.toString((char) 128));
+    }
+
+    @Test
+    void testUnicodeEscaped_Character_WithNull() {
+        assertNull(CharUtils.unicodeEscaped((Character) null));
+    }
+}
+```

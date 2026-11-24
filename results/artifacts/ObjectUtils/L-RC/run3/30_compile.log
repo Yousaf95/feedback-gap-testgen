@@ -1,0 +1,51 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[468,55] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[426,48] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[439,48] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[452,48] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[500,44] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[505,48] cannot find symbol
+  symbol:   class Hashtable
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[510,44] cannot find symbol
+  symbol:   variable Optional
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[468,55] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[426,48] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[439,48] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[452,48] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[500,44] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[505,48] cannot find symbol
+[ERROR]   symbol:   class Hashtable
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[510,44] cannot find symbol
+[ERROR]   symbol:   variable Optional
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,43 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[518,69] cannot find symbol
+  symbol:   variable TRUE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[523,36] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[538,69] cannot find symbol
+  symbol:   variable ON
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[543,69] cannot find symbol
+  symbol:   variable YES
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[548,69] cannot find symbol
+  symbol:   variable TRUE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[553,70] cannot find symbol
+  symbol:   variable FALSE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[518,69] cannot find symbol
+[ERROR]   symbol:   variable TRUE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[523,36] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[538,69] cannot find symbol
+[ERROR]   symbol:   variable ON
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[543,69] cannot find symbol
+[ERROR]   symbol:   variable YES
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[548,69] cannot find symbol
+[ERROR]   symbol:   variable TRUE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[553,70] cannot find symbol
+[ERROR]   symbol:   variable FALSE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

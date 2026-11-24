@@ -1,0 +1,91 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[458,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[460,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[466,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[468,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[469,41] DEFAULT_INITIAL_VALUE has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[470,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[458,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[460,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[466,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[468,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[469,41] DEFAULT_INITIAL_VALUE has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[470,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[440,13] cannot find symbol
+  symbol:   class Set
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[441,44] cannot find symbol
+  symbol:   class HashSet
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[440,13] cannot find symbol
+[ERROR]   symbol:   class Set
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[441,44] cannot find symbol
+[ERROR]   symbol:   class HashSet
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[509,28] REGISTRY has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[511,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[512,41] DEFAULT_INITIAL_VALUE has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[517,73] cannot find symbol
+  symbol:   class TestObject
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[523,73] cannot find symbol
+  symbol:   class TestObject
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[529,65] cannot find symbol
+  symbol:   class TestObject
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[509,28] REGISTRY has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[511,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[512,41] DEFAULT_INITIAL_VALUE has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[517,73] cannot find symbol
+[ERROR]   symbol:   class TestObject
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[523,73] cannot find symbol
+[ERROR]   symbol:   class TestObject
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[529,65] cannot find symbol
+[ERROR]   symbol:   class TestObject
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

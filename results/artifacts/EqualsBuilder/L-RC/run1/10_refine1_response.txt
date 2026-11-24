@@ -1,0 +1,109 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    void testReflectionEqualsWithSameObject() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj));
+    }
+
+    @Test
+    void testReflectionEqualsWithNullObjects() {
+        assertFalse(EqualsBuilder.reflectionEquals(null, null, false, null));
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), null, false, null));
+        assertFalse(EqualsBuilder.reflectionEquals(null, new Object(), false, null));
+    }
+
+    @Test
+    void testReflectionEqualsWithDifferentObjects() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object()));
+    }
+
+    @Test
+    void testReflectionEqualsWithBooleanParameter() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object(), true));
+    }
+
+    @Test
+    void testReflectionEqualsWithClassParameter() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object(), false, String.class));
+    }
+
+    @Test
+    void testReflectionEqualsWithExcludeFields() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object(), "field1"));
+    }
+
+    @Test
+    void testReflectionEqualsWithCollectionExcludeFields() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object(), Collections.singletonList("field1")));
+    }
+
+    @Test
+    void testAppendBooleanWhenNotEqual() {
+        EqualsBuilder builder = new EqualsBuilder().append(true, false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendBooleanArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((boolean[]) null, new boolean[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new boolean[0], (boolean[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendByteArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((byte[]) null, new byte[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new byte[0], (byte[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendCharArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((char[]) null, new char[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new char[0], (char[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendDoubleArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((double[]) null, new double[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new double[0], (double[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendFloatArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((float[]) null, new float[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new float[0], (float[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendIntArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((int[]) null, new int[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new int[0], (int[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendLongArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((long[]) null, new long[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new long[0], (long[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendObjectArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((Object[]) null, new Object[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new Object[0], (Object[]) null).isEquals());
+    }
+
+    @Test
+    void testAppendShortArrayWithNulls() {
+        assertEquals(false, new EqualsBuilder().append((short[]) null, new short[0]).isEquals());
+        assertEquals(false, new EqualsBuilder().append(new short[0], (short[]) null).isEquals());
+    }
+}
+```

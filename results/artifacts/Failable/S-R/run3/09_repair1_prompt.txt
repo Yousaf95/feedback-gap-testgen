@@ -1,0 +1,491 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class Failable_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of Failable shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 50: cannot find symbol (symbol:   class BiFunction; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: public <T, U, R, E extends Throwable> void testApply(BiFunction<T, U, R> biFunction, T input1, U input2) {
+line 56: cannot find symbol (symbol:   class Function; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: public <T, R> void testApply(Function<T, R> function, T input) {
+line 110: cannot find symbol (symbol:   class Supplier; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: public <T, E extends Throwable> void testGet(Supplier<T> supplier) {
+line 148: cannot find symbol (symbol:   class BiFunction; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: arguments((BiFunction<String, Integer, String>) (s, i) -> s + i.toString(), "test", 123),
+line 149: cannot find symbol (symbol:   class BiFunction; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: arguments((BiFunction<List<String>, String, List<String>>) (list, s) -> { list.add(s); return list; }, Arrays.asList(), "item")
+line 155: cannot find symbol (symbol:   class Function; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: arguments((Function<String, Integer>) s -> s.length(), "test"),
+line 156: cannot find symbol (symbol:   class Function; location: class org.apache.commons.lang3.function.Failable_GenTest)
+    code: arguments((Function<List<String>, Integer>) list -> list.size(), Arrays.asList("item"))
+line 205: method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types; (required: java.lang.Object[]; found:    ()->{ thro[...]"); }; reason: varargs mismatch; java.lang.Object is not a functional interface)
+    code: arguments(() -> { throw new IOException("Test exception"); })
+line 211: method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types; (required: java.lang.Object[]; found:    ()->42; reason: varargs mismatch; java.lang.Object is not a functional interface)
+    code: arguments(() -> 42),
+line 212: method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types; (required: java.lang.Object[]; found:    ()->{ thro[...]"); }; reason: varargs mismatch; java.lang.Object is not a functional interface)
+    code: arguments(() -> { throw new IOException("Test exception"); })
+line 218: method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types; (required: java.lang.Object[]; found:    ()->"test"; reason: varargs mismatch; java.lang.Object is not a functional interface)
+    code: arguments(() -> "test"),
+line 219: method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types; (required: java.lang.Object[]; found:    ()->null; reason: varargs mismatch; java.lang.Object is not a functional interface)
+    code: arguments(() -> null)
+
+Current test class (Failable_GenTest.java):
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class Failable_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideBiConsumerData")
+    public <T, U> void testAccept(BiConsumer<T, U> biConsumer, T object1, U object2) {
+        Failable.accept((FailableBiConsumer<T, U, IOException>) biConsumer::accept, object1, object2);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideConsumerData")
+    public <T> void testAccept(Consumer<T> consumer, T object) {
+        Failable.accept((FailableConsumer<T, IOException>) consumer::accept, object);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDoubleConsumerData")
+    public <E extends Throwable> void testAccept(FailableDoubleConsumer<E> doubleConsumer, double value) {
+        Failable.accept(doubleConsumer, value);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIntConsumerData")
+    public <E extends Throwable> void testAccept(FailableIntConsumer<E> intConsumer, int value) {
+        Failable.accept(intConsumer, value);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideLongConsumerData")
+    public <E extends Throwable> void testAccept(FailableLongConsumer<E> longConsumer, long value) {
+        Failable.accept(longConsumer, value);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideBiFunctionData")
+    public <T, U, R, E extends Throwable> void testApply(BiFunction<T, U, R> biFunction, T input1, U input2) {
+        assertEquals(biFunction.apply(input1, input2), Failable.apply((FailableBiFunction<T, U, R, IOException>) biFunction::apply, input1, input2));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFunctionData")
+    public <T, R> void testApply(Function<T, R> function, T input) {
+        assertEquals(function.apply(input), Failable.apply((FailableFunction<T, R, IOException>) function::apply, input));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDoubleBinaryOperatorData")
+    public <E extends Throwable> void testApplyAsDouble(FailableDoubleBinaryOperator<E> doubleBinaryOperator, double left, double right) {
+        assertEquals(doubleBinaryOperator.applyAsDouble(left, right), Failable.applyAsDouble(doubleBinaryOperator, left, right));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideBooleanSupplierData")
+    public <E extends Throwable> void testGetAsBoolean(FailableBooleanSupplier<E> booleanSupplier) {
+        assertEquals(booleanSupplier.getAsBoolean(), Failable.getAsBoolean(booleanSupplier));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDoubleSupplierData")
+    public <E extends Throwable> void testGetAsDouble(FailableDoubleSupplier<E> doubleSupplier) {
+        assertEquals(doubleSupplier.getAsDouble(), Failable.getAsDouble(doubleSupplier));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIntSupplierData")
+    public <E extends Throwable> void testGetAsInt(FailableIntSupplier<E> intSupplier) {
+        assertEquals(intSupplier.getAsInt(), Failable.getAsInt(intSupplier));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideLongSupplierData")
+    public <E extends Throwable> void testGetAsLong(FailableLongSupplier<E> longSupplier) {
+        assertEquals(longSupplier.getAsLong(), Failable.getAsLong(longSupplier));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideShortSupplierData")
+    public <E extends Throwable> void testGetAsShort(FailableShortSupplier<E> shortSupplier) {
+        assertEquals(shortSupplier.getAsShort(), Failable.getAsShort(shortSupplier));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideRunnableData")
+    public <E extends Throwable> void testRun(FailableRunnable<E> runnable) {
+        assertDoesNotThrow(() -> Failable.run(runnable));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCallableData")
+    public <V, E extends Throwable> void testCall(FailableCallable<V, E> callable) throws IOException {
+        assertEquals(callable.call(), Failable.call(callable));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideSupplierData")
+    public <T, E extends Throwable> void testGet(Supplier<T> supplier) {
+        assertEquals(supplier.get(), Failable.get((FailableSupplier<T, IOException>) supplier::get));
+    }
+
+    private static Stream<Arguments> provideBiConsumerData() {
+        return Stream.of(
+            arguments((BiConsumer<String, Integer>) (s, i) -> {}, "test", 123),
+            arguments((BiConsumer<List<String>, String>) (list, s) -> list.add(s), Arrays.asList(), "item")
+        );
+    }
+
+    private static Stream<Arguments> provideConsumerData() {
+        return Stream.of(
+            arguments((Consumer<String>) s -> {}, "test"),
+            arguments((Consumer<List<String>>) list -> list.clear(), Arrays.asList("item"))
+        );
+    }
+
+    private static Stream<Arguments> provideDoubleConsumerData() {
+        return Stream.of(
+            arguments((FailableDoubleConsumer<IOException>) d -> {}, 123.45)
+        );
+    }
+
+    private static Stream<Arguments> provideIntConsumerData() {
+        return Stream.of(
+            arguments((FailableIntConsumer<IOException>) i -> {}, 123)
+        );
+    }
+
+    private static Stream<Arguments> provideLongConsumerData() {
+        return Stream.of(
+            arguments((FailableLongConsumer<IOException>) l -> {}, 123L)
+        );
+    }
+
+    private static Stream<Arguments> provideBiFunctionData() {
+        return Stream.of(
+            arguments((BiFunction<String, Integer, String>) (s, i) -> s + i.toString(), "test", 123),
+            arguments((BiFunction<List<String>, String, List<String>>) (list, s) -> { list.add(s); return list; }, Arrays.asList(), "item")
+        );
+    }
+
+    private static Stream<Arguments> provideFunctionData() {
+        return Stream.of(
+            arguments((Function<String, Integer>) s -> s.length(), "test"),
+            arguments((Function<List<String>, Integer>) list -> list.size(), Arrays.asList("item"))
+        );
+    }
+
+    private static Stream<Arguments> provideDoubleBinaryOperatorData() {
+        return Stream.of(
+            arguments((FailableDoubleBinaryOperator<IOException>) (d1, d2) -> d1 + d2, 1.0, 2.0),
+            arguments((FailableDoubleBinaryOperator<IOException>) (d1, d2) -> d1 * d2, 3.0, 4.0)
+        );
+    }
+
+    private static Stream<Arguments> provideBooleanSupplierData() {
+        return Stream.of(
+            arguments((FailableBooleanSupplier<IOException>) () -> true),
+            arguments((FailableBooleanSupplier<IOException>) () -> false)
+        );
+    }
+
+    private static Stream<Arguments> provideDoubleSupplierData() {
+        return Stream.of(
+            arguments((FailableDoubleSupplier<IOException>) () -> 1.0),
+            arguments((FailableDoubleSupplier<IOException>) () -> 2.0)
+        );
+    }
+
+    private static Stream<Arguments> provideIntSupplierData() {
+        return Stream.of(
+            arguments((FailableIntSupplier<IOException>) () -> 1),
+            arguments((FailableIntSupplier<IOException>) () -> 2)
+        );
+    }
+
+    private static Stream<Arguments> provideLongSupplierData() {
+        return Stream.of(
+            arguments((FailableLongSupplier<IOException>) () -> 1L),
+            arguments((FailableLongSupplier<IOException>) () -> 2L)
+        );
+    }
+
+    private static Stream<Arguments> provideShortSupplierData() {
+        return Stream.of(
+            arguments((FailableShortSupplier<IOException>) () -> (short) 1),
+            arguments((FailableShortSupplier<IOException>) () -> (short) 2)
+        );
+    }
+
+    private static Stream<Arguments> provideRunnableData() {
+        return Stream.of(
+            arguments((FailableRunnable<IOException>) () -> {}),
+            arguments(() -> { throw new IOException("Test exception"); })
+        );
+    }
+
+    private static Stream<Arguments> provideCallableData() throws IOException {
+        return Stream.of(
+            arguments(() -> 42),
+            arguments(() -> { throw new IOException("Test exception"); })
+        );
+    }
+
+    private static Stream<Arguments> provideSupplierData() {
+        return Stream.of(
+            arguments(() -> "test"),
+            arguments(() -> null)
+        );
+    }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.function.Failable):
+```java
+package org.apache.commons.lang3.function;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.Collection;
+import java.util.Objects;
+import java.util.concurrent.Callable;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.commons.lang3.stream.Streams;
+import org.apache.commons.lang3.stream.Streams.FailableStream;
+
+/** This class provides utility functions, and classes for working with the {@code java.util.function} package, or more generally, with Java 8 lambdas. */
+public class Failable {
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, E extends Throwable> void accept(final FailableBiConsumer<T, U, E> consumer, final T object1,
+        final U object2) {
+        run(() -> consumer.accept(object1, object2));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, E extends Throwable> void accept(final FailableConsumer<T, E> consumer, final T object) {
+        run(() -> consumer.accept(object));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableDoubleConsumer<E> consumer, final double value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableIntConsumer<E> consumer, final int value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Consumes a consumer and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void accept(final FailableLongConsumer<E> consumer, final long value) {
+        run(() -> consumer.accept(value));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, R, E extends Throwable> R apply(final FailableBiFunction<T, U, R, E> function, final T input1,
+        final U input2) {
+        return get(() -> function.apply(input1, input2));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, R, E extends Throwable> R apply(final FailableFunction<T, R, E> function, final T input) {
+        return get(() -> function.apply(input));
+    }
+    /** Applies a function and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> double applyAsDouble(final FailableDoubleBinaryOperator<E> function,
+        final double left, final double right) {
+        return getAsDouble(() -> function.applyAsDouble(left, right));
+    }
+    /** Converts the given {@link FailableBiConsumer} into a standard {@link BiConsumer}. */
+    public static <T, U> BiConsumer<T, U> asBiConsumer(final FailableBiConsumer<T, U, ?> consumer) {
+        return (input1, input2) -> accept(consumer, input1, input2);
+    }
+    /** Converts the given {@link FailableBiFunction} into a standard {@link BiFunction}. */
+    public static <T, U, R> BiFunction<T, U, R> asBiFunction(final FailableBiFunction<T, U, R, ?> function) {
+        return (input1, input2) -> apply(function, input1, input2);
+    }
+    /** Converts the given {@link FailableBiPredicate} into a standard {@link BiPredicate}. */
+    public static <T, U> BiPredicate<T, U> asBiPredicate(final FailableBiPredicate<T, U, ?> predicate) {
+        return (input1, input2) -> test(predicate, input1, input2);
+    }
+    /** Converts the given {@link FailableCallable} into a standard {@link Callable}. */
+    public static <V> Callable<V> asCallable(final FailableCallable<V, ?> callable) {
+        return () -> call(callable);
+    }
+    /** Converts the given {@link FailableConsumer} into a standard {@link Consumer}. */
+    public static <T> Consumer<T> asConsumer(final FailableConsumer<T, ?> consumer) {
+        return input -> accept(consumer, input);
+    }
+    /** Converts the given {@link FailableFunction} into a standard {@link Function}. */
+    public static <T, R> Function<T, R> asFunction(final FailableFunction<T, R, ?> function) {
+        return input -> apply(function, input);
+    }
+    /** Converts the given {@link FailablePredicate} into a standard {@link Predicate}. */
+    public static <T> Predicate<T> asPredicate(final FailablePredicate<T, ?> predicate) {
+        return input -> test(predicate, input);
+    }
+    /** Converts the given {@link FailableRunnable} into a standard {@link Runnable}. */
+    public static Runnable asRunnable(final FailableRunnable<?> runnable) {
+        return () -> run(runnable);
+    }
+    /** Converts the given {@link FailableSupplier} into a standard {@link Supplier}. */
+    public static <T> Supplier<T> asSupplier(final FailableSupplier<T, ?> supplier) {
+        return () -> get(supplier);
+    }
+    /** Calls a callable and rethrows any exception as a {@link RuntimeException}. */
+    public static <V, E extends Throwable> V call(final FailableCallable<V, E> callable) {
+        return get(callable::call);
+    }
+    /** Invokes a supplier, and returns the result. */
+    public static <T, E extends Throwable> T get(final FailableSupplier<T, E> supplier) {
+        try {
+            return supplier.get();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a boolean supplier, and returns the result. */
+    public static <E extends Throwable> boolean getAsBoolean(final FailableBooleanSupplier<E> supplier) {
+        try {
+            return supplier.getAsBoolean();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a double supplier, and returns the result. */
+    public static <E extends Throwable> double getAsDouble(final FailableDoubleSupplier<E> supplier) {
+        try {
+            return supplier.getAsDouble();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes an int supplier, and returns the result. */
+    public static <E extends Throwable> int getAsInt(final FailableIntSupplier<E> supplier) {
+        try {
+            return supplier.getAsInt();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a long supplier, and returns the result. */
+    public static <E extends Throwable> long getAsLong(final FailableLongSupplier<E> supplier) {
+        try {
+            return supplier.getAsLong();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Invokes a short supplier, and returns the result. */
+    public static <E extends Throwable> short getAsShort(final FailableShortSupplier<E> supplier) {
+        try {
+            return supplier.getAsShort();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Rethrows a {@link Throwable} as an unchecked exception. */
+    public static RuntimeException rethrow(final Throwable throwable) {
+        Objects.requireNonNull(throwable, "throwable");
+        ExceptionUtils.throwUnchecked(throwable);
+        if (throwable instanceof IOException) {
+            throw new UncheckedIOException((IOException) throwable);
+        }
+        throw new UndeclaredThrowableException(throwable);
+    }
+    /** Runs a runnable and rethrows any exception as a {@link RuntimeException}. */
+    public static <E extends Throwable> void run(final FailableRunnable<E> runnable) {
+        try {
+            runnable.run();
+        } catch (final Throwable t) {
+            throw rethrow(t);
+        }
+    }
+    /** Converts the given collection into a {@link FailableStream}. */
+    public static <E> FailableStream<E> stream(final Collection<E> collection) {
+        return new FailableStream<>(collection.stream());
+    }
+    /** Converts the given stream into a {@link FailableStream}. */
+    public static <T> FailableStream<T> stream(final Stream<T> stream) {
+        return new FailableStream<>(stream);
+    }
+    /** Tests a predicate and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, U, E extends Throwable> boolean test(final FailableBiPredicate<T, U, E> predicate,
+        final T object1, final U object2) {
+        return getAsBoolean(() -> predicate.test(object1, object2));
+    }
+    /** Tests a predicate and rethrows any exception as a {@link RuntimeException}. */
+    public static <T, E extends Throwable> boolean test(final FailablePredicate<T, E> predicate, final T object) {
+        return getAsBoolean(() -> predicate.test(object));
+    }
+    /** A simple try-with-resources implementation, that can be used, if your objects do not implement the {@link AutoCloseable} interface. */
+    @SafeVarargs
+    public static void tryWithResources(final FailableRunnable<? extends Throwable> action,
+        final FailableConsumer<Throwable, ? extends Throwable> errorHandler,
+        final FailableRunnable<? extends Throwable>... resources) {
+        final FailableConsumer<Throwable, ? extends Throwable> actualErrorHandler;
+        if (errorHandler == null) {
+            actualErrorHandler = Failable::rethrow;
+        } else {
+            actualErrorHandler = errorHandler;
+        }
+        Streams.of(resources).forEach(r -> Objects.requireNonNull(r, "runnable"));
+        Throwable th = null;
+        try {
+            action.run();
+        } catch (final Throwable t) {
+            th = t;
+        }
+        if (resources != null) {
+            for (final FailableRunnable<?> runnable : resources) {
+                try {
+                    runnable.run();
+                } catch (final Throwable t) {
+                    if (th == null) {
+                        th = t;
+                    }
+                }
+            }
+        }
+        if (th != null) {
+            try {
+                actualErrorHandler.accept(th);
+            } catch (final Throwable t) {
+                throw rethrow(t);
+            }
+        }
+    }
+    /** A simple try-with-resources implementation, that can be used, if your objects do not implement the {@link AutoCloseable} interface. */
+    @SafeVarargs
+    public static void tryWithResources(final FailableRunnable<? extends Throwable> action,
+        final FailableRunnable<? extends Throwable>... resources) {
+        tryWithResources(action, null, resources);
+    }
+    private Failable() {
+        // empty
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

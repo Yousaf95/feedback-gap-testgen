@@ -1,0 +1,83 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testCheckLaterThan1_NotEqual() {
+        assertFalse(CharSequenceUtils.checkLaterThan1("abc", "def", 3, 0));
+    }
+
+    @Test
+    public void testCheckLaterThan1_Equal() {
+        assertTrue(CharSequenceUtils.checkLaterThan1("aba", "aba", 3, 0));
+    }
+
+    @Test
+    public void testIndexOf_String() {
+        assertEquals(2, CharSequenceUtils.indexOf("hello world", "world"));
+    }
+
+    @Test
+    public void testIndexOf_StringBuilder() {
+        StringBuilder sb = new StringBuilder("hello world");
+        assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+    }
+
+    @Test
+    public void testIndexOf_StringBuffer() {
+        StringBuffer sb = new StringBuffer("hello world");
+        assertEquals(6, CharSequenceUtils.indexOf(sb, "world"));
+    }
+
+    @Test
+    public void testIndexOf_NotFound() {
+        assertEquals(-1, CharSequenceUtils.indexOf("hello world", "java"));
+    }
+
+    @Test
+    public void testIndexOf_StartIndexNegative() {
+        assertEquals(2, CharSequenceUtils.indexOf("hello world", "world", -5));
+    }
+
+    @Test
+    public void testIndexOf_StartIndexGreaterThanLength() {
+        assertEquals(-1, CharSequenceUtils.indexOf("hello world", "world", 100));
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        assertEquals(6, CharSequenceUtils.lastIndexOf("hello world", "world"));
+    }
+
+    @Test
+    public void testLastIndexOf_StringBuilder() {
+        StringBuilder sb = new StringBuilder("hello world");
+        assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+    }
+
+    @Test
+    public void testLastIndexOf_StringBuffer() {
+        StringBuffer sb = new StringBuffer("hello world");
+        assertEquals(6, CharSequenceUtils.lastIndexOf(sb, "world"));
+    }
+
+    @Test
+    public void testLastIndexOf_NotFound() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("hello world", "java"));
+    }
+
+    @Test
+    public void testLastIndexOf_StartIndexNegative() {
+        assertEquals(-1, CharSequenceUtils.lastIndexOf("hello world", "world", -5));
+    }
+
+    @Test
+    public void testLastIndexOf_StartIndexGreaterThanLength() {
+        assertEquals(6, CharSequenceUtils.lastIndexOf("hello world", "world", 100));
+    }
+}
+```

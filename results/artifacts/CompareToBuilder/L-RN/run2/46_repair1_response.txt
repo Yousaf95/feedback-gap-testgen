@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Collections;
+import java.util.Comparator;
+
+class CompareToBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testAppendObjectWithNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("test", "test");
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectWithCustomComparator() {
+        final Comparator<String> customComparator = Collections.reverseOrder();
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("apple", "banana", customComparator);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectArrayWithNullComparator() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new String[]{"a", "b"}, new String[]{"a", "b"});
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectArrayWithCustomComparator() {
+        final Comparator<String> customComparator = Collections.reverseOrder();
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new String[]{"apple", "banana"}, new String[]{"banana", "apple"}, customComparator);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendSuperWithNonZeroValue() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.appendSuper(5);
+        assertEquals(5, builder.toComparison());
+    }
+
+    @Test
+    void testBuildWithNonZeroComparison() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2);
+        assertEquals(Integer.valueOf(-1), builder.build());
+    }
+
+    @Test
+    void testAppendWithComparableObjects() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        builder.append("apple", "banana");
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendWithNonComparableObjectsThrowsClassCastException() {
+        final CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(new Object(), "test"));
+    }
+}
+```

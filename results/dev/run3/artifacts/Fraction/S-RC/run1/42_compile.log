@@ -1,0 +1,45 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[178,34] cannot find symbol
+  symbol:   method valueOf(int,int)
+  location: class org.apache.commons.lang3.math.Fraction
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[193,45] cannot find symbol
+  symbol:   method addAndCheck(int,int)
+  location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[198,45] cannot find symbol
+  symbol:   method subAndCheck(int,int)
+  location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[203,59] cannot find symbol
+  symbol:   method mulAndCheck(int,int)
+  location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[208,59] cannot find symbol
+  symbol:   method mulPosAndCheck(int,int)
+  location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[213,38] cannot find symbol
+  symbol:   method greatestCommonDivisor(int,int)
+  location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[178,34] cannot find symbol
+[ERROR]   symbol:   method valueOf(int,int)
+[ERROR]   location: class org.apache.commons.lang3.math.Fraction
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[193,45] cannot find symbol
+[ERROR]   symbol:   method addAndCheck(int,int)
+[ERROR]   location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[198,45] cannot find symbol
+[ERROR]   symbol:   method subAndCheck(int,int)
+[ERROR]   location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[203,59] cannot find symbol
+[ERROR]   symbol:   method mulAndCheck(int,int)
+[ERROR]   location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[208,59] cannot find symbol
+[ERROR]   symbol:   method mulPosAndCheck(int,int)
+[ERROR]   location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] /work/w2/src/test/java/org/apache/commons/lang3/math/Fraction_GenTest.java:[213,38] cannot find symbol
+[ERROR]   symbol:   method greatestCommonDivisor(int,int)
+[ERROR]   location: class org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,54 @@
+[ERROR] Tests run: 11, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 0.145 s <<< FAILURE! -- in org.apache.commons.lang3.AnnotationUtils_GenTest
+[ERROR] org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_differentTypes -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_differentTypes(AnnotationUtils_GenTest.java:112)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_firstAnnotationNull -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_firstAnnotationNull(AnnotationUtils_GenTest.java:100)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_nullAnnotations -- Time elapsed: 0.005 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertFalse.failNotFalse(AssertFalse.java:63)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:36)
+	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:31)
+	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:231)
+	at org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_nullAnnotations(AnnotationUtils_GenTest.java:95)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_secondAnnotationNull -- Time elapsed: 0.010 s <<< ERROR!
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at org.apache.commons.lang3.AnnotationUtils_GenTest.testEquals_secondAnnotationNull(AnnotationUtils_GenTest.java:106)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   AnnotationUtils_GenTest.testEquals_nullAnnotations:95 expected: <false> but was: <true>
+[ERROR] Errors: 
+[ERROR]   AnnotationUtils_GenTest.testEquals_differentTypes:112 ArrayIndexOutOfBounds Index 0 out of bounds for length 0
+[ERROR]   AnnotationUtils_GenTest.testEquals_firstAnnotationNull:100 ArrayIndexOutOfBounds Index 0 out of bounds for length 0
+[ERROR]   AnnotationUtils_GenTest.testEquals_secondAnnotationNull:106 ArrayIndexOutOfBounds Index 0 out of bounds for length 0
+[ERROR] Tests run: 11, Failures: 1, Errors: 3, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w15/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

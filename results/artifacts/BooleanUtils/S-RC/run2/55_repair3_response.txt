@@ -1,0 +1,61 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    public void testAnd_withEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.and((Boolean[]) null));
+    }
+
+    @Test
+    public void testAnd_withAllTrue() {
+        assertTrue(BooleanUtils.and(true, true));
+    }
+
+    @Test
+    public void testAnd_withOneFalse() {
+        assertFalse(BooleanUtils.and(true, false));
+    }
+
+    @Test
+    public void testOr_withEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.or((Boolean[]) null));
+    }
+
+    @Test
+    public void testOr_withAllFalse() {
+        assertFalse(BooleanUtils.or(false, false));
+    }
+
+    @Test
+    public void testOr_withOneTrue() {
+        assertTrue(BooleanUtils.or(true, false));
+    }
+
+    @Test
+    public void testToBooleanObject_withNullValue() {
+        assertNull(BooleanUtils.toBooleanObject((Integer) null));
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueValue_2() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1));
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseValue_2() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0));
+    }
+}
+```

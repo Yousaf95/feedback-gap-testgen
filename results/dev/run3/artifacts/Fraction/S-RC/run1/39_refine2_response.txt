@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3.math;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+
+public class Fraction_GenTest {
+
+    @Test
+    public void testGetFractionDoubleException() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MAX_VALUE + 1.0));
+    }
+
+    @Test
+    public void testGetFractionStringDoubleFormat() {
+        assertEquals(Fraction.ONE_HALF, Fraction.getFraction("0.5"));
+    }
+
+    @Test
+    public void testGetFractionStringX_Y_ZFormat() {
+        assertEquals(Fraction.valueOf(3, 4), Fraction.getFraction("1 2/4"));
+    }
+
+    @Test
+    public void testGetFractionStringY_ZFormat() {
+        assertEquals(Fraction.ONE_HALF, Fraction.getFraction("1/2"));
+    }
+
+    @Test
+    public void testGetFractionDenominatorLarge() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+    }
+
+    @Test
+    public void testAddAndCheckOverflow() {
+        assertEquals(Integer.MAX_VALUE, addAndCheck(Integer.MAX_VALUE - 1, 2));
+    }
+
+    @Test
+    public void testSubtractAndCheckUnderflow() {
+        assertEquals(Integer.MIN_VALUE, subAndCheck(Integer.MIN_VALUE + 1, 2));
+    }
+
+    @Test
+    public void testMulAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> mulAndCheck(Integer.MAX_VALUE / 2, 3));
+    }
+
+    @Test
+    public void testMulPosAndCheckNegative() {
+        assertThrows(ArithmeticException.class, () -> mulPosAndCheck(Integer.MIN_VALUE, -1));
+    }
+
+    @Test
+    public void testGreatestCommonDivisorZeroDenominator() {
+        assertEquals(2147483647, greatestCommonDivisor(2147483647, 0));
+    }
+
+    @Test
+    public void testGetFractionNegativeNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(-1, 1));
+    }
+
+    @Test
+    public void testGetFractionNegativeDenominator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, -1));
+    }
+
+    @Test
+    public void testGetFractionLargeNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MAX_VALUE + 1, 1));
+    }
+}
+```

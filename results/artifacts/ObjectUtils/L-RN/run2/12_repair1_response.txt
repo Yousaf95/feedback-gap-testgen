@@ -1,0 +1,140 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    void testCONST_withBoolean() {
+        assertTrue(ObjectUtils.CONST(true));
+        assertFalse(ObjectUtils.CONST(false));
+    }
+
+    @Test
+    void testCONST_withByte() {
+        assertEquals((byte) 10, ObjectUtils.CONST((byte) 10));
+    }
+
+    @Test
+    void testCONST_withChar() {
+        assertEquals('a', ObjectUtils.CONST('a'));
+    }
+
+    @Test
+    void testCONST_withDouble() {
+        assertEquals(10.5, ObjectUtils.CONST(10.5), 0.0);
+    }
+
+    @Test
+    void testCONST_withFloat() {
+        assertEquals(10.5f, ObjectUtils.CONST(10.5f), 0.0);
+    }
+
+    @Test
+    void testCONST_withInt() {
+        assertEquals(10, ObjectUtils.CONST(10));
+    }
+
+    @Test
+    void testCONST_withLong() {
+        assertEquals(10L, ObjectUtils.CONST(10L));
+    }
+
+    @Test
+    void testCONST_withShort() {
+        assertEquals((short) 10, ObjectUtils.CONST((short) 10));
+    }
+
+    @Test
+    void testCONST_withObject() {
+        String testString = "test";
+        assertSame(testString, ObjectUtils.CONST(testString));
+    }
+
+    @Test
+    void testCONST_BYTE_withValidValue() {
+        assertEquals((byte) 127, ObjectUtils.CONST_BYTE(127));
+    }
+
+    @Test
+    void testCONST_BYTE_withInvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(130));
+    }
+
+    @Test
+    void testCONST_SHORT_withValidValue() {
+        assertEquals((short) 32767, ObjectUtils.CONST_SHORT(32767));
+    }
+
+    @Test
+    void testCONST_SHORT_withInvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(33000));
+    }
+
+    @Test
+    void testGetClass_withArrayObject() {
+        assertEquals(int[].class, ObjectUtils.getClass(new int[0]));
+    }
+
+    @Test
+    void testHashCodeMulti_withNullValues() {
+        assertEquals(1, ObjectUtils.hashCodeMulti((Object[]) null));
+    }
+
+    @Test
+    void testHashCodeMulti_withNonNullValues() {
+        assertEquals(31 * 42 + "test".hashCode(), ObjectUtils.hashCodeMulti("test", 42));
+    }
+
+    @Test
+    void testIdentityToString_withAppendable() throws IOException {
+        StringBuilder builder = new StringBuilder();
+        ObjectUtils.identityToString(builder, "test");
+        assertEquals("java.lang.String@" + Integer.toHexString(System.identityHashCode("test")), builder.toString());
+    }
+
+    @Test
+    void testMedian_withComparatorAndEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median(Comparator.naturalOrder(), new Integer[0]));
+    }
+
+    @Test
+    void testMedian_withComparatorAndNullElement() {
+        assertThrows(NullPointerException.class, () -> ObjectUtils.median(Comparator.naturalOrder(), 1, null, 3));
+    }
+
+    @Test
+    void testMode_withEmptyArray() {
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    void testMode_withSingleItem() {
+        assertEquals("a", ObjectUtils.mode("a"));
+    }
+
+    @Test
+    void testRequireNonEmpty_withNullObject() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty((String) null));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyString_2() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(""));
+    }
+
+    @Test
+    void testToString_withSupplierAndNonNullObject() {
+        assertEquals("test", ObjectUtils.toString(() -> "test", () -> "default"));
+    }
+
+    @Test
+    void testToString_withSupplierAndNullObject() {
+        assertEquals("default", ObjectUtils.toString((String) null, () -> "default"));
+    }
+}
+```

@@ -1,0 +1,128 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testAppendNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Object) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyArray_3() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new String[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((String[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyBooleanArray_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new boolean[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullBooleanArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((boolean[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyCharArray_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new char[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullCharArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((char[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyShortArray_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new short[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullShortArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((short[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyIntArray_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new int[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullIntArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((int[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyLongArray_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new long[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullLongArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((long[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyFloatArray_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new float[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullFloatArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((float[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendEmptyDoubleArray_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new double[0]);
+        assertEquals(17, builder.toHashCode());
+    }
+
+    @Test
+    public void testAppendNullDoubleArray() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((double[]) null);
+        assertEquals(17, builder.toHashCode());
+    }
+}
+```

@@ -1,0 +1,156 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    void testGetComponentType_withNull() {
+        assertNull(ClassUtils.getComponentType(null));
+    }
+
+    @Test
+    void testGetComponentType_withValidArrayClass() {
+        assertEquals(Integer.class, ClassUtils.getComponentType(int[].class));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withValidClass() {
+        assertEquals("java.lang", ClassUtils.getPackageCanonicalName(String.class));
+    }
+
+    @Test
+    void testGetPackageName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withValidClass() {
+        assertEquals("java.lang", ClassUtils.getPackageName(String.class));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withValidClass() {
+        assertEquals("String", ClassUtils.getShortCanonicalName(String.class));
+    }
+
+    @Test
+    void testGetShortClassName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getShortClassName((Class<?>) null));
+    }
+
+    @Test
+    void testGetShortClassName_withValidClass() {
+        assertEquals("String", ClassUtils.getShortClassName(String.class));
+    }
+
+    @Test
+    void testGetSimpleName_withNull() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getSimpleName((Class<?>) null));
+    }
+
+    @Test
+    void testGetSimpleName_withValidClass() {
+        assertEquals("String", ClassUtils.getSimpleName(String.class));
+    }
+
+    @Test
+    void testIsInnerClass_withNonInnerClass() {
+        assertFalse(ClassUtils.isInnerClass(String.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withPrimitiveType() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(int.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withWrapperType() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Integer.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withNonPrimitiveOrWrapperType() {
+        assertFalse(ClassUtils.isPrimitiveOrWrapper(String.class));
+    }
+
+    @Test
+    void testIsPrimitiveWrapper_withWrapperType() {
+        assertTrue(ClassUtils.isPrimitiveWrapper(Integer.class));
+    }
+
+    @Test
+    void testIsPrimitiveWrapper_withNonWrapperType() {
+        assertFalse(ClassUtils.isPrimitiveWrapper(int.class));
+    }
+
+    @Test
+    void testIsPublic_withPublicClass() {
+        assertTrue(ClassUtils.isPublic(String.class));
+    }
+
+    @Test
+    void testPrimitivesToWrappers_withNullArray() {
+        assertNull(ClassUtils.primitivesToWrappers((Class<?>[]) null));
+    }
+
+    @Test
+    void testPrimitivesToWrappers_withEmptyArray() {
+        assertArrayEquals(new Class<?>[0], ClassUtils.primitivesToWrappers());
+    }
+
+    @Test
+    void testPrimitivesToWrappers_withValidPrimitiveClasses() {
+        assertArrayEquals(new Class<?>[]{Integer.class, Boolean.class}, ClassUtils.primitivesToWrappers(int.class, boolean.class));
+    }
+
+    @Test
+    void testPrimitiveToWrapper_withNullClass() {
+        assertNull(ClassUtils.primitiveToWrapper(null));
+    }
+
+    @Test
+    void testPrimitiveToWrapper_withValidPrimitiveClass() {
+        assertEquals(Integer.class, ClassUtils.primitiveToWrapper(int.class));
+    }
+
+    @Test
+    void testWrappersToPrimitives_withNullArray() {
+        assertNull(ClassUtils.wrappersToPrimitives((Class<?>[]) null));
+    }
+
+    @Test
+    void testWrappersToPrimitives_withEmptyArray() {
+        assertArrayEquals(new Class<?>[0], ClassUtils.wrappersToPrimitives());
+    }
+
+    @Test
+    void testWrappersToPrimitives_withValidWrapperClasses() {
+        assertArrayEquals(new Class<?>[]{int.class, boolean.class}, ClassUtils.wrappersToPrimitives(Integer.class, Boolean.class));
+    }
+
+    @Test
+    void testWrapperToPrimitive_withNullClass() {
+        assertNull(ClassUtils.wrapperToPrimitive(null));
+    }
+
+    @Test
+    void testWrapperToPrimitive_withValidWrapperClass() {
+        assertEquals(int.class, ClassUtils.wrapperToPrimitive(Integer.class));
+    }
+}
+```

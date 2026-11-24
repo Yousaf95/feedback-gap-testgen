@@ -1,0 +1,41 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.Set;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testGetRegistry() {
+        Set<IDKey> registry = HashCodeBuilder.getRegistry();
+        assertNotNull(registry);
+    }
+
+    @Test
+    public void testIsRegisteredWithNullValue() {
+        boolean result = HashCodeBuilder.isRegistered(null);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue() {
+        Object value = new Object();
+        boolean result = HashCodeBuilder.isRegistered(value);
+        assertFalse(result);
+    }
+
+    @Test
+    public void testReflectionHashCodeWithNullObject() {
+        assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null, true));
+    }
+
+    @Test
+    public void testReflectionHashCodeWithDefaultValues() {
+        Object value = new Object();
+        int result = HashCodeBuilder.reflectionHashCode(value, true);
+        assertEquals(17 * 37 + value.hashCode(), result);
+    }
+}
+```

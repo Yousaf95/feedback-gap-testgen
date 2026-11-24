@@ -1,0 +1,56 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Locale;
+
+class LocaleUtils_GenTest {
+
+    @Test
+    void testCountriesByLanguage_withCountryHavingNoLanguages() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("xx");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountry_withCountryHavingNoLanguages() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("XX");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    void testLocaleLookupList_withNullLocaleAndDefaultLocale() {
+        List<Locale> lookupList = LocaleUtils.localeLookupList(null, Locale.US);
+        assertEquals(List.of(Locale.US), lookupList);
+    }
+
+    @Test
+    void testLocaleLookupList_withFullLocaleAndDifferentDefaultLocale() {
+        Locale locale = new Locale("fr", "FR", "EURO");
+        List<Locale> lookupList = LocaleUtils.localeLookupList(locale, Locale.US);
+        assertEquals(List.of(locale, new Locale("fr", "FR"), new Locale("fr"), Locale.US), lookupList);
+    }
+
+    @Test
+    void testToString_withValidLocaleStringHavingCountryAndVariant() {
+        String localeStr = "en_US_WIN";
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale(localeStr));
+    }
+
+    @Test
+    void testToString_withValidLocaleStringHavingLanguageAndCountryOnly() {
+        String localeStr = "fr_FR";
+        Locale result = LocaleUtils.toLocale(localeStr);
+        assertEquals(new Locale("fr", "FR"), result);
+    }
+
+    @Test
+    void testToString_withValidLocaleStringHavingLanguageOnly() {
+        String localeStr = "de";
+        Locale result = LocaleUtils.toLocale(localeStr);
+        assertEquals(new Locale("de"), result);
+    }
+}
+```

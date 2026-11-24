@@ -1,0 +1,449 @@
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Validate_GenTest {
+
+    @Test
+    void testExclusiveBetweenDoubleNormalCase() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 2.0;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.exclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testExclusiveBetweenDoubleLowerBound() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 1.0;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenDoubleUpperBound() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 3.0;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenLongNormalCase() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 2L;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.exclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testExclusiveBetweenLongLowerBound() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 1L;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenLongUpperBound() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 3L;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testFiniteNormalCase() {
+        // Arrange
+        double value = 2.0;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.finite(value));
+    }
+
+    @Test
+    void testFiniteNaN() {
+        // Arrange
+        double value = Double.NaN;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.finite(value));
+        assertEquals(String.format(Validate.DEFAULT_FINITE_EX_MESSAGE, value), exception.getMessage());
+    }
+
+    @Test
+    void testFiniteInfinity() {
+        // Arrange
+        double value = Double.POSITIVE_INFINITY;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.finite(value));
+        assertEquals(String.format(Validate.DEFAULT_FINITE_EX_MESSAGE, value), exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleNormalCase() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 2.0;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleLowerBound() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 1.0;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleUpperBound() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 3.0;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleBelowLowerBound() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 0.5;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleAboveUpperBound() {
+        // Arrange
+        double start = 1.0;
+        double end = 3.0;
+        double value = 4.0;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenLongNormalCase() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 2L;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testInclusiveBetweenLongLowerBound() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 1L;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testInclusiveBetweenLongUpperBound() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 3L;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(start, end, value));
+    }
+
+    @Test
+    void testInclusiveBetweenLongBelowLowerBound() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 0L;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenLongAboveUpperBound() {
+        // Arrange
+        long start = 1L;
+        long end = 3L;
+        long value = 4L;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(start, end, value));
+        assertEquals(String.format(Validate.DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, value, start, end), exception.getMessage());
+    }
+
+    @Test
+    void testIsAssignableFromNormalCase() {
+        // Arrange
+        Class<?> superType = Number.class;
+        Class<?> type = Integer.class;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.isAssignableFrom(superType, type));
+    }
+
+    @Test
+    void testIsAssignableFromIncompatibleTypes() {
+        // Arrange
+        Class<?> superType = String.class;
+        Class<?> type = Integer.class;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(superType, type));
+        assertEquals(String.format(Validate.DEFAULT_IS_ASSIGNABLE_EX_MESSAGE, "java.lang.Integer", "java.lang.String"), exception.getMessage());
+    }
+
+    @Test
+    void testIsInstanceNormalCase() {
+        // Arrange
+        Class<?> type = String.class;
+        Object obj = "test";
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.isInstanceOf(type, obj));
+    }
+
+    @Test
+    void testIsInstanceIncompatibleType() {
+        // Arrange
+        Class<?> type = Integer.class;
+        Object obj = "test";
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(type, obj));
+        assertEquals(String.format(Validate.DEFAULT_IS_INSTANCE_OF_EX_MESSAGE, "java.lang.Integer", "java.lang.String"), exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueNormalCase() {
+        // Arrange
+        boolean expression = true;
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.isTrue(expression));
+    }
+
+    @Test
+    void testIsTrueFalseExpression() {
+        // Arrange
+        boolean expression = false;
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.isTrue(expression));
+        assertEquals(Validate.DEFAULT_IS_TRUE_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testMatchesPatternNormalCase() {
+        // Arrange
+        CharSequence input = "test123";
+        String pattern = "\\w+";
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.matchesPattern(input, pattern));
+    }
+
+    @Test
+    void testMatchesPatternMismatch() {
+        // Arrange
+        CharSequence input = "test 123";
+        String pattern = "\\w+";
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern(input, pattern));
+        assertEquals(String.format(Validate.DEFAULT_MATCHES_PATTERN_EX, input, pattern), exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsArrayNormalCase() {
+        // Arrange
+        String[] array = {"a", "b", "c"};
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.noNullElements(array));
+    }
+
+    @Test
+    void testNoNullElementsArrayWithNull() {
+        // Arrange
+        String[] array = {"a", null, "c"};
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+        assertEquals(String.format(Validate.DEFAULT_NO_NULL_ELEMENTS_ARRAY_EX_MESSAGE, 1), exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsCollectionNormalCase() {
+        // Arrange
+        List<String> collection = Arrays.asList("a", "b", "c");
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.noNullElements(collection));
+    }
+
+    @Test
+    void testNoNullElementsCollectionWithNull() {
+        // Arrange
+        List<String> collection = Arrays.asList("a", null, "c");
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(collection));
+        assertEquals(String.format(Validate.DEFAULT_NO_NULL_ELEMENTS_COLLECTION_EX_MESSAGE, 1), exception.getMessage());
+    }
+
+    @Test
+    void testNotBlankNormalCase() {
+        // Arrange
+        String chars = "test";
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.notBlank(chars));
+    }
+
+    @Test
+    void testNotBlankEmptyString() {
+        // Arrange
+        String chars = "";
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.notBlank(chars));
+        assertEquals(Validate.DEFAULT_NOT_BLANK_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotBlankWhitespaceOnly() {
+        // Arrange
+        String chars = "   ";
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.notBlank(chars));
+        assertEquals(Validate.DEFAULT_NOT_BLANK_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyArrayNormalCase() {
+        // Arrange
+        String[] array = {"a", "b"};
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.notEmpty(array));
+    }
+
+    @Test
+    void testNotEmptyArrayEmpty() {
+        // Arrange
+        String[] array = {};
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(array));
+        assertEquals(Validate.DEFAULT_NOT_EMPTY_ARRAY_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCollectionNormalCase() {
+        // Arrange
+        List<String> collection = Arrays.asList("a", "b");
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.notEmpty(collection));
+    }
+
+    @Test
+    void testNotEmptyCollectionEmpty() {
+        // Arrange
+        List<String> collection = Collections.emptyList();
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(collection));
+        assertEquals(Validate.DEFAULT_NOT_EMPTY_COLLECTION_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyMapNormalCase() {
+        // Arrange
+        Map<String, String> map = Collections.singletonMap("key", "value");
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.notEmpty(map));
+    }
+
+    @Test
+    void testNotEmptyMapEmpty() {
+        // Arrange
+        Map<String, String> map = Collections.emptyMap();
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map));
+        assertEquals(Validate.DEFAULT_NOT_EMPTY_MAP_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCharSequenceNormalCase() {
+        // Arrange
+        String chars = "test";
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Validate.notEmpty(chars));
+    }
+
+    @Test
+    void testNotEmptyCharSequenceEmpty() {
+        // Arrange
+        String chars = "";
+
+        // Act & Assert
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(chars));
+        assertEquals(Validate.DEFAULT_NOT_EMPTY_CHAR_SEQUENCE_EX_MESSAGE, exception.getMessage());
+    }
+}

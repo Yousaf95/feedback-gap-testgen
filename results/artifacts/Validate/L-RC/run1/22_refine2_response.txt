@@ -1,0 +1,122 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class Validate_GenTest {
+
+    @Test
+    void testExclusiveBetweenDoubleLowerBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 3.0, 1.0, "Custom message"));
+    }
+
+    @Test
+    void testExclusiveBetweenDoubleUpperBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 3.0, 3.0, "Custom message"));
+    }
+
+    @Test
+    void testExclusiveBetweenLongLowerBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 3L, 1L, "Custom message"));
+    }
+
+    @Test
+    void testExclusiveBetweenLongUpperBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 3L, 3L, "Custom message"));
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleLowerBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 3.0, 0.9, "Custom message"));
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleUpperBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 3.0, 3.1, "Custom message"));
+    }
+
+    @Test
+    void testInclusiveBetweenLongLowerBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 3L, 0L, "Custom message"));
+    }
+
+    @Test
+    void testInclusiveBetweenLongUpperBound() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 3L, 4L, "Custom message"));
+    }
+
+    @Test
+    void testIsAssignableFromFalseWithMessage() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(Number.class, String.class, "Custom message"));
+    }
+
+    @Test
+    void testIsInstanceOfFalseWithMessage() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(String.class, 123, "Custom message"));
+    }
+
+    @Test
+    void testIsTrueFalseWithLongValue() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isTrue(false, "Custom message %d", 123L));
+    }
+
+    @Test
+    void testIsTrueFalseWithValues() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isTrue(false, "Custom message %s", "value"));
+    }
+
+    @Test
+    void testMatchesPatternNoMatchWithMessage() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("abc", "def", "Custom message"));
+    }
+
+    @Test
+    void testNotNaNValue() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notNaN(Double.NaN, "Custom message"));
+    }
+
+    @Test
+    void testNotNullDeprecated() {
+        assertThrows(NullPointerException.class, () -> Validate.notNull(null));
+    }
+
+    @Test
+    void testNotNullWithMessage() {
+        assertThrows(NullPointerException.class, () -> Validate.notNull(null, "Custom message"));
+    }
+
+    @Test
+    void testValidIndexCollectionLowerBound() {
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(Collections.emptyList(), -1));
+    }
+
+    @Test
+    void testValidIndexCollectionUpperBound() {
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(Collections.singletonList("a"), 1));
+    }
+
+    @Test
+    void testValidIndexCharSequenceLowerBound() {
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex("", -1));
+    }
+
+    @Test
+    void testValidIndexCharSequenceUpperBound() {
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex("a", 1));
+    }
+
+    @Test
+    void testValidStateFalse() {
+        assertThrows(IllegalStateException.class, () -> Validate.validState(false));
+    }
+
+    @Test
+    void testValidStateFalseWithMessage() {
+        assertThrows(IllegalStateException.class, () -> Validate.validState(false, "Custom message"));
+    }
+}
+```

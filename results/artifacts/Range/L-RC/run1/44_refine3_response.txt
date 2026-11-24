@@ -1,0 +1,57 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+
+class Range_GenTest {
+
+    @Test
+    void testConstructorWithComparatorSwapsElements() {
+        Comparator<Integer> reverseOrder = Comparator.reverseOrder();
+        Range<Integer> range = Range.of(1, 2, reverseOrder);
+        assertEquals(Integer.valueOf(1), range.getMaximum());
+        assertEquals(Integer.valueOf(2), range.getMinimum());
+    }
+
+    @Test
+    void testContainsRangeWithNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    void testHashCodeCalculation() {
+        Range<Integer> range = Range.between(1, 5);
+        int expectedHash = Objects.hash(Range.class, 1, 5);
+        assertEquals(expectedHash, range.hashCode());
+    }
+
+    @Test
+    void testIntersectionWithDifferentMinimumAndMaximum() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 7);
+        Range<Integer> intersection = range1.intersectionWith(range2);
+        assertEquals(Range.between(3, 5), intersection);
+    }
+
+    @Test
+    void testIsAfterRangeWithNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    void testIsBeforeRangeWithNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    void testIsOverlappedByWithNull() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isOverlappedBy(null));
+    }
+}
+```

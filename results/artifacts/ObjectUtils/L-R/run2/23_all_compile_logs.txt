@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[208,58] cannot find symbol
+  symbol:   class IOException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[184,22] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[194,42] cannot find symbol
+  symbol:   variable Objects
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[210,102] void cannot be dereferenced
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[208,58] cannot find symbol
+[ERROR]   symbol:   class IOException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[184,22] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[194,42] cannot find symbol
+[ERROR]   symbol:   variable Objects
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w0/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[210,102] void cannot be dereferenced
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

@@ -1,0 +1,78 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.security.Permission;
+
+public class SystemUtils_GenTest {
+
+    @Test
+    void testUserCountry_withUserRegion() {
+        System.setProperty(SystemProperties.USER_REGION, "US");
+        assertEquals("US", SystemUtils.USER_COUNTRY);
+        System.clearProperty(SystemProperties.USER_REGION);
+    }
+
+    @Test
+    void testIsOsLinux_withLowerCase() {
+        System.setProperty(SystemProperties.OS_NAME, "linux");
+        assertTrue(SystemUtils.IS_OS_LINUX);
+        System.clearProperty(SystemProperties.OS_NAME);
+    }
+
+    @Test
+    void testIsOsLinux_withUpperCase() {
+        System.setProperty(SystemProperties.OS_NAME, "LINUX");
+        assertTrue(SystemUtils.IS_OS_LINUX);
+        System.clearProperty(SystemProperties.OS_NAME);
+    }
+
+    @Test
+    void testIsOsUnix_withAix() {
+        System.setProperty(SystemProperties.OS_NAME, "AIX");
+        assertTrue(SystemUtils.IS_OS_UNIX);
+        System.clearProperty(SystemProperties.OS_NAME);
+    }
+
+    @Test
+    void testGetEnvironmentVariable_withSecurityException() {
+        SecurityManager originalSecurityManager = System.getSecurityManager();
+        try {
+            System.setSecurityManager(new SecurityManager() {
+                public void checkPermission(Permission perm) {
+                    if ("getenv.*".equals(perm.getName())) {
+                        throw new SecurityException("Not allowed to read environment variable.");
+                    }
+                }
+            });
+            assertEquals("default", SystemUtils.getEnvironmentVariable("SECURE_VAR", "default"));
+        } finally {
+            System.setSecurityManager(originalSecurityManager);
+        }
+    }
+
+    @Test
+    void testGetHostName_onWindows() {
+        System.setProperty(SystemProperties.OS_NAME, SystemUtils.OS_NAME_WINDOWS_PREFIX + " 10");
+        assertEquals(System.getenv("COMPUTERNAME"), SystemUtils.getHostName());
+        System.clearProperty(SystemProperties.OS_NAME);
+    }
+
+    @Test
+    void testIsOsMatch_withMatchingNameAndVersion() {
+        System.setProperty(SystemProperties.OS_NAME, "Mac OS X");
+        System.setProperty(SystemProperties.OS_VERSION, "10.15");
+        assertTrue(SystemUtils.isOSMatch("Mac OS X", "10.15"));
+        System.clearProperty(SystemProperties.OS_NAME);
+        System.clearProperty(SystemProperties.OS_VERSION);
+    }
+
+    @Test
+    void testIsOsNameMatch_withMatchingPrefix() {
+        System.setProperty(SystemProperties.OS_NAME, "Windows 10");
+        assertTrue(SystemUtils.isOSNameMatch("Windows", null));
+        System.clearProperty(SystemProperties.OS_NAME);
+    }
+}
+```

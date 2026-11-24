@@ -1,0 +1,85 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.function.Supplier;
+
+class ObjectUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testClone_withPrimitiveArray() {
+        int[] original = {1, 2, 3};
+        int[] cloned = ObjectUtils.clone(original);
+        assertNotSame(original, cloned);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    void testCloneIfPossible_withPrimitiveArray() {
+        int[] original = {1, 2, 3};
+        int[] cloned = ObjectUtils.cloneIfPossible(original);
+        assertNotSame(original, cloned);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    void testCompare_withComparatorAndNulls() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        assertEquals(0, ObjectUtils.compare(null, null));
+        assertTrue(ObjectUtils.compare(1, null) > 0);
+        assertTrue(ObjectUtils.compare(null, 1) < 0);
+    }
+
+    @Test
+    void testDefaultIfNull_withBothNulls_2() {
+        assertNull(ObjectUtils.defaultIfNull(null, null));
+    }
+
+    @Test
+    void testFirstNonNull_withAllNullSuppliers_2() {
+        Supplier<String> supplier1 = () -> null;
+        Supplier<String> supplier2 = () -> null;
+        assertNull(ObjectUtils.getFirstNonNull(supplier1, supplier2));
+    }
+
+    @Test
+    void testGetClass_withArrayObject_2_2() {
+        Object array = new int[]{};
+        assertEquals(int[].class, ObjectUtils.getClass(array));
+    }
+
+    @Test
+    void testIdentityToString_withAppendableAndNull_2() {
+        assertThrows(NullPointerException.class, () -> ObjectUtils.identityToString((Appendable) null, new Object()));
+    }
+
+    @Test
+    void testMedian_withComparatorAndEmptyArray_2() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median(comparator));
+    }
+
+    @Test
+    void testMode_withSingleItem_2_2() {
+        assertEquals("a", ObjectUtils.mode("a"));
+    }
+
+    @Test
+    void testRequireNonEmpty_withNullObject_2() {
+        assertThrows(NullPointerException.class, () -> ObjectUtils.requireNonEmpty((String) null));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyString_3_2() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(""));
+    }
+
+    @Test
+    void testToString_withSupplierAndNullSupplier_2() {
+        assertEquals("default", ObjectUtils.toString(() -> null, () -> "default"));
+    }
+}
+```

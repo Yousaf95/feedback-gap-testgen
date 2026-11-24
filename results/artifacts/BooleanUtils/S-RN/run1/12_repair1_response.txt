@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class BooleanUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideBooleans")
+    void testToIntegerDefaultIfNull(Boolean bool, int defaultValue) {
+        assertEquals(defaultValue, BooleanUtils.toIntegerDefaultIfNull(bool, defaultValue));
+    }
+
+    static Stream<Arguments> provideBooleans() {
+        return Stream.of(
+            Arguments.of(null, 0),
+            Arguments.of(Boolean.TRUE, 1),
+            Arguments.of(Boolean.FALSE, 0)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideBooleans")
+    void testToIntegerDefaultIfNullWithNullValue(Boolean bool) {
+        assertEquals(0, BooleanUtils.toIntegerDefaultIfNull(bool, 0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideStringsAndBools")
+    void testToStringOnOffDefaultIfNull(String str, String trueStr, String falseStr, String nullStr, String expected) {
+        assertEquals(expected, BooleanUtils.toStringOnOff(str, trueStr, falseStr, nullStr));
+    }
+
+    static Stream<Arguments> provideStringsAndBools() {
+        return Stream.of(
+            Arguments.of(null, "on", "off", null, null),
+            Arguments.of("true", "on", "off", null, "on"),
+            Arguments.of("false", "on", "off", null, "off")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideStringsAndBools")
+    void testToStringTrueFalseDefaultIfNull(String str, String trueStr, String falseStr, String nullStr, String expected) {
+        assertEquals(expected, BooleanUtils.toStringTrueFalse(str, trueStr, falseStr, nullStr));
+    }
+
+    static Stream<Arguments> provideStringsAndBoolsForTrueFalse() {
+        return Stream.of(
+            Arguments.of(null, "true", "false", null, null),
+            Arguments.of("true", "true", "false", null, "true"),
+            Arguments.of("false", "true", "false", null, "false")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideStringsAndBoolsForYesNo")
+    void testToStringYesNoDefaultIfNull(String str, String trueStr, String falseStr, String nullStr, String expected) {
+        assertEquals(expected, BooleanUtils.toStringYesNo(str, trueStr, falseStr, nullStr));
+    }
+
+    static Stream<Arguments> provideStringsAndBoolsForYesNo() {
+        return Stream.of(
+            Arguments.of(null, "yes", "no", null, null),
+            Arguments.of("true", "yes", "no", null, "yes"),
+            Arguments.of("false", "yes", "no", null, "no")
+        );
+    }
+}
+```

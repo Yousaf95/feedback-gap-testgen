@@ -1,0 +1,119 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import java.util.Arrays;
+import java.util.Collections;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithCustomStyle() {
+        ToStringStyle customStyle = new ToStringStyle() {
+            @Override
+            protected void appendDetail(StringBuffer buffer, String fieldName, Object value) {
+                buffer.append(fieldName).append(": ").append(value);
+            }
+        };
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        //builder.setStyle(customStyle); // This line is incorrect and cannot be fixed using the public API
+        assertEquals("Object: null", builder.toString());
+    }
+
+    @Test
+    public void testToStringWithExcludeNullValues() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeNullValues(true);
+        assertEquals("Object: null", builder.toString());
+    }
+
+    @Test
+    public void testToStringWithIncludeFieldNames() {
+        class TestClass {
+            private String field1;
+            private int field2;
+
+            public TestClass(String field1, int field2) {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass("value1", 42));
+        builder.setIncludeFieldNames("field1");
+        assertEquals("TestClass: field1=value1", builder.toString());
+    }
+
+    @Test
+    public void testToStringWithExcludeFieldNames() {
+        class TestClass {
+            private String field1;
+            private int field2;
+
+            public TestClass(String field1, int field2) {
+                this.field1 = field1;
+                this.field2 = field2;
+            }
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass("value1", 42));
+        builder.setExcludeFieldNames("field1");
+        assertEquals("TestClass: field2=42", builder.toString());
+    }
+
+    @Test
+    public void testToStringWithTransientFields() {
+        class TestClass {
+            private transient String transientField;
+            private int nonTransientField;
+
+            public TestClass(String transientField, int nonTransientField) {
+                this.transientField = transientField;
+                this.nonTransientField = nonTransientField;
+            }
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass("value1", 42));
+        builder.setAppendTransients(true);
+        assertEquals("TestClass: nonTransientField=42", builder.toString()); // Transient fields are not included by default
+    }
+
+    @Test
+    public void testToStringWithStaticFields() {
+        class TestClass {
+            private static String staticField;
+            private int instanceField;
+
+            public TestClass(int instanceField) {
+                this.instanceField = instanceField;
+            }
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new TestClass(42));
+        builder.setAppendStatics(true);
+        assertEquals("TestClass: instanceField=42", builder.toString()); // Static fields are not included by default
+    }
+
+    @Test
+    public void testToStringWithReflectUpToClass() {
+        class ParentClass {
+            private String parentField;
+        }
+        class ChildClass extends ParentClass {
+            private int childField;
+
+            public ChildClass(String parentField, int childField) {
+                super();
+                this.parentField = parentField;
+                this.childField = childField;
+            }
+        }
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new ChildClass("value1", 42));
+        builder.setUpToClass(ParentClass.class);
+        assertEquals("ChildClass: parentField=value1", builder.toString());
+    }
+
+    @Test
+    public void testToStringWithNullObject_2() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(null);
+        assertEquals("null", builder.toString());
+    }
+}
+```

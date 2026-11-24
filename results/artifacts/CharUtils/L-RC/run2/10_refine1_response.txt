@@ -1,0 +1,83 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class CharUtils_GenTest {
+
+    @Test
+    void testIsAscii_BranchCoverage() {
+        assertFalse(CharUtils.isAscii((char) 128));
+        assertTrue(CharUtils.isAscii('a'));
+    }
+
+    @Test
+    void testIsAsciiAlphaLower_BranchCoverage() {
+        assertFalse(CharUtils.isAsciiAlphaLower('A'));
+        assertFalse(CharUtils.isAsciiAlphaLower('9'));
+        assertTrue(CharUtils.isAsciiAlphaLower('z'));
+    }
+
+    @Test
+    void testIsAsciiAlphanumeric_BranchCoverage() {
+        assertFalse(CharUtils.isAsciiAlphanumeric('@'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('5'));
+        assertTrue(CharUtils.isAsciiAlphanumeric('b'));
+    }
+
+    @Test
+    void testIsAsciiControl_BranchCoverage() {
+        assertTrue(CharUtils.isAsciiControl((char) 31));
+        assertFalse(CharUtils.isAsciiControl(' '));
+        assertTrue(CharUtils.isAsciiControl((char) 127));
+    }
+
+    @Test
+    void testIsAsciiNumeric_BranchCoverage() {
+        assertFalse(CharUtils.isAsciiNumeric('a'));
+        assertTrue(CharUtils.isAsciiNumeric('9'));
+    }
+
+    @Test
+    void testIsAsciiPrintable_BranchCoverage() {
+        assertFalse(CharUtils.isAsciiPrintable((char) 31));
+        assertTrue(CharUtils.isAsciiPrintable(' '));
+        assertFalse(CharUtils.isAsciiPrintable((char) 127));
+    }
+
+    @Test
+    void testToCharacterObject_Char_NotCovered() {
+        assertEquals(Character.valueOf('a'), CharUtils.toCharacterObject('a'));
+    }
+
+    @Test
+    void testToCharacterObject_String_NotCovered() {
+        assertNull(CharUtils.toCharacterObject(""));
+        assertEquals(Character.valueOf('b'), CharUtils.toCharacterObject("b"));
+    }
+
+    @Test
+    void testToIntValue_Char_DefaultValue_BranchCoverage() {
+        assertEquals(5, CharUtils.toIntValue('a', 5));
+        assertEquals(3, CharUtils.toIntValue('3', 5));
+    }
+
+    @Test
+    void testToIntValue_Character_DefaultValue_BranchCoverage() {
+        assertEquals(5, CharUtils.toIntValue((Character) null, 5));
+        assertEquals(3, CharUtils.toIntValue(Character.valueOf('3'), 5));
+    }
+
+    @Test
+    void testToString_Char_NotCovered() {
+        assertEquals("a", CharUtils.toString('a'));
+        assertEquals(String.valueOf((char) 128), CharUtils.toString((char) 128));
+    }
+
+    @Test
+    void testConstructor_NotCovered() {
+        assertNotNull(new CharUtils());
+    }
+}
+```

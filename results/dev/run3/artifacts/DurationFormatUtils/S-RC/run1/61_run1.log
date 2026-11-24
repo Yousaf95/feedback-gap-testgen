@@ -1,0 +1,78 @@
+[ERROR] Tests run: 22, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.247 s <<< FAILURE! -- in org.apache.commons.lang3.time.DurationFormatUtils_GenTest
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationISO -- Time elapsed: 0.010 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationISO(DurationFormatUtils_GenTest.java:97)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testTokenToString -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <testtesttest> but was: <test>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testTokenToString(DurationFormatUtils_GenTest.java:91)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithOptionalToken_2 -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: Unmatched quote in format: 'd' days 'H' hours 'm' minutes 's' seconds'
+	at org.apache.commons.lang3.time.DurationFormatUtils.lexx(DurationFormatUtils.java:740)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatDuration(DurationFormatUtils.java:354)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatDuration(DurationFormatUtils.java:335)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithOptionalToken_2(DurationFormatUtils_GenTest.java:109)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithOptionalTokenInTimeZone -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.IllegalArgumentException: Unmatched quote in format: 'd' days 'H' hours 'm' minutes 's' seconds'
+	at org.apache.commons.lang3.time.DurationFormatUtils.lexx(DurationFormatUtils.java:740)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:518)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatDurationWithOptionalTokenInTimeZone(DurationFormatUtils_GenTest.java:141)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatPeriodWithOptionalToken -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.IllegalArgumentException: Unmatched quote in format: 'd' days 'H' hours 'm' minutes 's' seconds'
+	at org.apache.commons.lang3.time.DurationFormatUtils.lexx(DurationFormatUtils.java:740)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:518)
+	at org.apache.commons.lang3.time.DurationFormatUtils.formatPeriod(DurationFormatUtils.java:481)
+	at org.apache.commons.lang3.time.DurationFormatUtils_GenTest.testFormatPeriodWithOptionalToken(DurationFormatUtils_GenTest.java:125)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   DurationFormatUtils_GenTest.testFormatDurationISO:97 expected: <true> but was: <false>
+[ERROR]   DurationFormatUtils_GenTest.testTokenToString:91 expected: <testtesttest> but was: <test>
+[ERROR] Errors: 
+[ERROR]   DurationFormatUtils_GenTest.testFormatDurationWithOptionalTokenInTimeZone:141 » IllegalArgument Unmatched quote in format: 'd' days 'H' hours 'm' minutes 's' seconds'
+[ERROR]   DurationFormatUtils_GenTest.testFormatDurationWithOptionalToken_2:109 » IllegalArgument Unmatched quote in format: 'd' days 'H' hours 'm' minutes 's' seconds'
+[ERROR]   DurationFormatUtils_GenTest.testFormatPeriodWithOptionalToken:125 » IllegalArgument Unmatched quote in format: 'd' days 'H' hours 'm' minutes 's' seconds'
+[ERROR] Tests run: 22, Failures: 2, Errors: 3, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w0/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

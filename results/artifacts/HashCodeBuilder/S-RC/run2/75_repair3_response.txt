@@ -1,0 +1,33 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    @BeforeEach
+    public void setUp() {
+        // Clear the registry before each test to ensure a clean state
+        HashCodeBuilder.clearRegistry();
+    }
+
+    @Test
+    public void testIsRegisteredWithNullValue_3() {
+        assertFalse(HashCodeBuilder.isRegistered(null));
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue_3() {
+        Object value = new Object();
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject_2() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.reflectionAppend(null, Object.class);
+        assertEquals(17, builder.toHashCode());
+    }
+}
+```

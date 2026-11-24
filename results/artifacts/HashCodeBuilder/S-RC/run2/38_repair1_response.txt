@@ -1,0 +1,87 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Set;
+import java.util.HashSet;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testIsRegisteredWithNullValue_2() {
+        assertFalse(HashCodeBuilder.isRegistered(null));
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue_2() {
+        Object value = new Object();
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.reflectionAppend(null, null);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testReflectionAppendWithRegisteredObject() {
+        Object value = new Object();
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.register(value);
+        builder.reflectionAppend(value, value.getClass());
+        assertEquals(17 * 37, builder.toHashCode());
+        builder.unregister(value);
+    }
+
+    @Test
+    public void testRegisterWithNullValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.register(null);
+        assertNull(builder.getRegistry());
+    }
+
+    @Test
+    public void testRegisterWithNonRegisteredValue() {
+        Object value = new Object();
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.register(value);
+        assertNotNull(builder.getRegistry());
+        assertTrue(builder.getRegistry().contains(new IDKey(value)));
+        builder.unregister(value);
+    }
+
+    @Test
+    public void testUnregisterWithNullValue() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.unregister(null);
+        assertNull(builder.getRegistry());
+    }
+
+    @Test
+    public void testUnregisterWithNonRegisteredValue() {
+        Object value = new Object();
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.unregister(value);
+        assertNull(builder.getRegistry());
+    }
+
+    @Test
+    public void testHashCodeBuilderWithOddInitialNumberAndMultiplier() {
+        HashCodeBuilder builder = new HashCodeBuilder(17, 37);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testHashCodeBuilderWithEvenInitialNumberThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(2, 37));
+    }
+
+    @Test
+    public void testHashCodeBuilderWithEvenMultiplierThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(17, 4));
+    }
+}
+```

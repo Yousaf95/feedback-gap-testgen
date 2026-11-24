@@ -1,0 +1,164 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    void testIsRegistered_ObjectNotRegistered_ReturnsFalse() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    void testReflectionAppend_ObjectRegistered_ReturnsEarly() {
+        Set<IDKey> registry = new HashSet<>();
+        registry.add(new IDKey(new Object()));
+        HashCodeBuilder.REGISTRY.set(registry);
+        HashCodeBuilder reflectionAppendSpy = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(new Object(), Object.class, reflectionAppendSpy, false, null);
+        assertEquals(HashCodeBuilder.DEFAULT_INITIAL_VALUE, reflectionAppendSpy.toHashCode());
+    }
+
+    @Test
+    void testReflectionHashCode_DefaultValues() {
+        int result = HashCodeBuilder.reflectionHashCode(17, 37, new TestObject(), false, null);
+        assertEquals(2905984, result); // Expected hash code based on default values and fields of TestObject
+    }
+
+    @Test
+    void testReflectionHashCode_WithTransients() {
+        int result = HashCodeBuilder.reflectionHashCode(17, 37, new TestObject(), true, null);
+        assertEquals(2905984, result); // Expected hash code based on default values and fields of TestObject including transient
+    }
+
+    @Test
+    void testReflectionHashCode_WithExcludeFields() {
+        int result = HashCodeBuilder.reflectionHashCode(new TestObject(), "transientField");
+        assertEquals(2905984, result); // Expected hash code based on default values and fields of TestObject excluding transientField
+    }
+
+    @Test
+    void testAppendBoolean_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(true);
+        assertEquals(61, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendBooleanArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new boolean[]{true, false});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendDouble_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(1.0);
+        assertEquals(37, builder.toHashCode());
+    }
+
+    @Test
+    void testAppendDoubleArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new double[]{1.0, 2.0});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new int[]{1, 2, 3});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_LongArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new long[]{1L, 2L});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_IntArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new int[]{1, 2});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_ShortArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new short[]{1, 2});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_CharArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new char[]{'a', 'b'});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_ByteArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new byte[]{1, 2});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_DoubleArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new double[]{1.0, 2.0});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_FloatArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new float[]{1.0f, 2.0f});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_BooleanArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new boolean[]{true, false});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    @Test
+    void testAppendArray_ObjectArray_NotCovered() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(new Object[]{"a", "b"});
+        assertEquals(2905984, builder.toHashCode()); // Expected hash code based on array values
+    }
+
+    private static class TestObject {
+        private int field1 = 1;
+        private transient int transientField = 2;
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            TestObject that = (TestObject) obj;
+            return field1 == that.field1 && transientField == that.transientField;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(field1, transientField);
+        }
+    }
+}
+```

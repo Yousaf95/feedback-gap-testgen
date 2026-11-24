@@ -1,0 +1,75 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppend_nullArrays() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((Object[]) null, (Object[]) null);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_nullLeftArray() {
+        Object[] lhs = null;
+        Object[] rhs = {1};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_nullRightArray() {
+        Object[] lhs = {1};
+        Object[] rhs = null;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_differentLengthArrays() {
+        Object[] lhs = {1};
+        Object[] rhs = {1, 2};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_sameLengthDifferentElementsArrays() {
+        Object[] lhs = {1, 3};
+        Object[] rhs = {1, 2};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_sameLengthSameElementsArrays() {
+        Object[] lhs = {1, 2};
+        Object[] rhs = {1, 2};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator() {
+        Comparator<Integer> comparator = Integer::compare;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(1, 2, comparator);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_null() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(1, null, (Comparator<?>) null));
+    }
+}
+```

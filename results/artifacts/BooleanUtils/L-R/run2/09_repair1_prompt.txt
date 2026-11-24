@@ -1,0 +1,1086 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class BooleanUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of BooleanUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 634: reached end of file while parsing
+    code: assertEquals(bool ? BooleanUtils.TRUE : BooleanUtils.FALSE, result);
+
+Current test class (BooleanUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    void testAndWithBooleanArray() {
+        // Arrange
+        boolean[] array = {true, true, true};
+
+        // Act
+        boolean result = BooleanUtils.and(array);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @Test
+    void testAndWithBooleanArrayContainingFalse() {
+        // Arrange
+        boolean[] array = {true, false, true};
+
+        // Act
+        boolean result = BooleanUtils.and(array);
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @Test
+    void testAndWithEmptyBooleanArrayThrowsException() {
+        // Arrange & Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.and(new boolean[0]));
+    }
+
+    @Test
+    void testAndWithBooleanObjectArray() {
+        // Arrange
+        Boolean[] array = {Boolean.TRUE, Boolean.TRUE, Boolean.TRUE};
+
+        // Act
+        Boolean result = BooleanUtils.and(array);
+
+        // Assert
+        assertEquals(Boolean.TRUE, result);
+    }
+
+    @Test
+    void testAndWithBooleanObjectArrayContainingFalse() {
+        // Arrange
+        Boolean[] array = {Boolean.TRUE, Boolean.FALSE, Boolean.TRUE};
+
+        // Act
+        Boolean result = BooleanUtils.and(array);
+
+        // Assert
+        assertEquals(Boolean.FALSE, result);
+    }
+
+    @Test
+    void testAndWithEmptyBooleanObjectArrayThrowsException() {
+        // Arrange & Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.and(new Boolean[0]));
+    }
+
+    @Test
+    void testBooleanValues() {
+        // Arrange & Act
+        Boolean[] result = BooleanUtils.booleanValues();
+
+        // Assert
+        assertArrayEquals(new Boolean[]{Boolean.FALSE, Boolean.TRUE}, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,true",
+            "false,false"
+    })
+    void testCompare(boolean x, boolean y) {
+        // Arrange & Act
+        int result = BooleanUtils.compare(x, y);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,false",
+            "false,true"
+    })
+    void testCompareWithDifferentValues(boolean x, boolean y) {
+        // Arrange & Act
+        int result = BooleanUtils.compare(x, y);
+
+        // Assert
+        assertEquals(x ? 1 : -1, result);
+    }
+
+    @Test
+    void testForEach() {
+        // Arrange
+        StringBuilder sb = new StringBuilder();
+        Consumer<Boolean> action = b -> sb.append(b.toString());
+
+        // Act
+        BooleanUtils.forEach(action);
+
+        // Assert
+        assertEquals("falsetrue", sb.toString());
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testIsFalse(Boolean bool) {
+        // Arrange & Act
+        boolean result = BooleanUtils.isFalse(bool);
+
+        // Assert
+        assertEquals(Boolean.FALSE.equals(bool), result);
+    }
+
+    @Test
+    void testIsFalseWithNull() {
+        // Arrange & Act
+        boolean result = BooleanUtils.isFalse(null);
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testIsNotFalse(Boolean bool) {
+        // Arrange & Act
+        boolean result = BooleanUtils.isNotFalse(bool);
+
+        // Assert
+        assertEquals(!Boolean.FALSE.equals(bool), result);
+    }
+
+    @Test
+    void testIsNotFalseWithNull() {
+        // Arrange & Act
+        boolean result = BooleanUtils.isNotFalse(null);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testIsNotTrue(Boolean bool) {
+        // Arrange & Act
+        boolean result = BooleanUtils.isNotTrue(bool);
+
+        // Assert
+        assertEquals(!Boolean.TRUE.equals(bool), result);
+    }
+
+    @Test
+    void testIsNotTrueWithNull() {
+        // Arrange & Act
+        boolean result = BooleanUtils.isNotTrue(null);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testIsTrue(Boolean bool) {
+        // Arrange & Act
+        boolean result = BooleanUtils.isTrue(bool);
+
+        // Assert
+        assertEquals(Boolean.TRUE.equals(bool), result);
+    }
+
+    @Test
+    void testIsTrueWithNull() {
+        // Arrange & Act
+        boolean result = BooleanUtils.isTrue(null);
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testNegate(Boolean bool) {
+        // Arrange & Act
+        Boolean result = BooleanUtils.negate(bool);
+
+        // Assert
+        assertEquals(bool == null ? null : !bool, result);
+    }
+
+    @Test
+    void testNegateWithNull() {
+        // Arrange & Act
+        Boolean result = BooleanUtils.negate(null);
+
+        // Assert
+        assertNull(result);
+    }
+
+    @Test
+    void testOneHotWithBooleanArray() {
+        // Arrange
+        boolean[] array = {false, true, false};
+
+        // Act
+        boolean result = BooleanUtils.oneHot(array);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @Test
+    void testOneHotWithMultipleTrueValuesInBooleanArray() {
+        // Arrange
+        boolean[] array = {true, true, false};
+
+        // Act
+        boolean result = BooleanUtils.oneHot(array);
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @Test
+    void testOneHotWithEmptyBooleanArrayThrowsException() {
+        // Arrange & Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.oneHot(new boolean[0]));
+    }
+
+    @Test
+    void testOneHotWithBooleanObjectArray() {
+        // Arrange
+        Boolean[] array = {false, true, false};
+
+        // Act
+        Boolean result = BooleanUtils.oneHot(array);
+
+        // Assert
+        assertEquals(Boolean.TRUE, result);
+    }
+
+    @Test
+    void testOneHotWithMultipleTrueValuesInBooleanObjectArray() {
+        // Arrange
+        Boolean[] array = {true, true, false};
+
+        // Act
+        Boolean result = BooleanUtils.oneHot(array);
+
+        // Assert
+        assertEquals(Boolean.FALSE, result);
+    }
+
+    @Test
+    void testOneHotWithEmptyBooleanObjectArrayThrowsException() {
+        // Arrange & Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.oneHot(new Boolean[0]));
+    }
+
+    @Test
+    void testOrWithBooleanArray() {
+        // Arrange
+        boolean[] array = {false, false, true};
+
+        // Act
+        boolean result = BooleanUtils.or(array);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @Test
+    void testOrWithAllFalseInBooleanArray() {
+        // Arrange
+        boolean[] array = {false, false, false};
+
+        // Act
+        boolean result = BooleanUtils.or(array);
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @Test
+    void testOrWithEmptyBooleanArrayThrowsException() {
+        // Arrange & Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.or(new boolean[0]));
+    }
+
+    @Test
+    void testOrWithBooleanObjectArray() {
+        // Arrange
+        Boolean[] array = {false, false, true};
+
+        // Act
+        Boolean result = BooleanUtils.or(array);
+
+        // Assert
+        assertEquals(Boolean.TRUE, result);
+    }
+
+    @Test
+    void testOrWithAllFalseInBooleanObjectArray() {
+        // Arrange
+        Boolean[] array = {false, false, false};
+
+        // Act
+        Boolean result = BooleanUtils.or(array);
+
+        // Assert
+        assertEquals(Boolean.FALSE, result);
+    }
+
+    @Test
+    void testOrWithEmptyBooleanObjectArrayThrowsException() {
+        // Arrange & Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.or(new Boolean[0]));
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testToBoolean(Boolean bool) {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBoolean(bool);
+
+        // Assert
+        assertEquals(bool == null ? false : bool, result);
+    }
+
+    @Test
+    void testToBooleanWithNull() {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBoolean(null);
+
+        // Assert
+        assertFalse(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, -1})
+    void testToBooleanWithInt(int value) {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBoolean(value);
+
+        // Assert
+        assertEquals(value != 0, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,0",
+            "0,1,0",
+            "-1,1,-1"
+    })
+    void testToBooleanWithIntAndTrueFalseValues(int value, int trueValue, int falseValue) {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBoolean(value, trueValue, falseValue);
+
+        // Assert
+        assertEquals(value == trueValue, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,0",
+            "null,null,0",
+            "0,1,null"
+    })
+    void testToBooleanWithIntegerAndTrueFalseValues(Integer value, Integer trueValue, Integer falseValue) {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBoolean(value, trueValue, falseValue);
+
+        // Assert
+        assertEquals(value == null ? (trueValue == null) : value.equals(trueValue), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"true", "false", "yes", "no", "on", "off"})
+    void testToBooleanWithString(String str) {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBoolean(str);
+
+        // Assert
+        assertEquals(Boolean.TRUE.equals(BooleanUtils.toBooleanObject(str)), result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,true,false",
+            "false,true,false",
+            "yes,yes,no"
+    })
+    void testToBooleanWithStringAndTrueFalseValues(String str, String trueString, String falseString) {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBoolean(str, trueString, falseString);
+
+        // Assert
+        assertEquals(str.equals(trueString), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testToBooleanDefaultIfNull(Boolean bool) {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBooleanDefaultIfNull(bool, !bool);
+
+        // Assert
+        assertEquals(bool == null ? !bool : bool, result);
+    }
+
+    @Test
+    void testToBooleanDefaultIfNullWithNull() {
+        // Arrange & Act
+        boolean result = BooleanUtils.toBooleanDefaultIfNull(null, true);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, -1})
+    void testToBooleanObjectWithInt(int value) {
+        // Arrange & Act
+        Boolean result = BooleanUtils.toBooleanObject(value);
+
+        // Assert
+        assertEquals(value != 0 ? Boolean.TRUE : Boolean.FALSE, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,0,2",
+            "0,1,0,2",
+            "-1,1,-1,2"
+    })
+    void testToBooleanObjectWithIntAndTrueFalseNullValues(int value, int trueValue, int falseValue, int nullValue) {
+        // Arrange & Act
+        Boolean result = BooleanUtils.toBooleanObject(value, trueValue, falseValue, nullValue);
+
+        // Assert
+        assertEquals(value == trueValue ? Boolean.TRUE : (value == falseValue ? Boolean.FALSE : (value == nullValue ? null : value)), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, -1})
+    void testToBooleanObjectWithInteger(Integer value) {
+        // Arrange & Act
+        Boolean result = BooleanUtils.toBooleanObject(value);
+
+        // Assert
+        assertEquals(value == null ? null : (value != 0 ? Boolean.TRUE : Boolean.FALSE), result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,0,2",
+            "null,null,0,2",
+            "0,1,null,2"
+    })
+    void testToBooleanObjectWithIntegerAndTrueFalseNullValues(Integer value, Integer trueValue, Integer falseValue, Integer nullValue) {
+        // Arrange & Act
+        Boolean result = BooleanUtils.toBooleanObject(value, trueValue, falseValue, nullValue);
+
+        // Assert
+        assertEquals(value == null ? (trueValue == null ? Boolean.TRUE : (falseValue == null ? Boolean.FALSE : null)) : value.equals(trueValue) ? Boolean.TRUE : (value.equals(falseValue) ? Boolean.FALSE : (value.equals(nullValue) ? null : value)), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"true", "false", "yes", "no", "on", "off", "tRuE", "FaLsE", "yEs", "No", "oN", "OfF", "1", "0"})
+    void testToBooleanObjectWithString(String str) {
+        // Arrange & Act
+        Boolean result = BooleanUtils.toBooleanObject(str);
+
+        // Assert
+        assertEquals(Boolean.valueOf(str.equalsIgnoreCase("true") || str.equalsIgnoreCase("yes") || str.equalsIgnoreCase("on") || str.equals("1")), result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,true,false,null",
+            "false,true,false,null",
+            "null,true,false,null"
+    })
+    void testToBooleanObjectWithStringAndTrueFalseNullValues(String str, String trueString, String falseString, String nullString) {
+        // Arrange & Act
+        Boolean result = BooleanUtils.toBooleanObject(str, trueString, falseString, nullString);
+
+        // Assert
+        assertEquals(str == null ? (trueString == null ? Boolean.TRUE : (falseString == null ? Boolean.FALSE : null)) : str.equals(trueString) ? Boolean.TRUE : (str.equals(falseString) ? Boolean.FALSE : (str.equals(nullString) ? null : str)), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testToInteger(boolean bool) {
+        // Arrange & Act
+        int result = BooleanUtils.toInteger(bool);
+
+        // Assert
+        assertEquals(bool ? 1 : 0, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,1,0",
+            "false,1,0"
+    })
+    void testToIntegerWithTrueFalseValues(boolean bool, int trueValue, int falseValue) {
+        // Arrange & Act
+        int result = BooleanUtils.toInteger(bool, trueValue, falseValue);
+
+        // Assert
+        assertEquals(bool ? trueValue : falseValue, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,1,0,2",
+            "false,1,0,2",
+            "null,1,0,2"
+    })
+    void testToIntegerWithBooleanAndTrueFalseNullValues(Boolean bool, int trueValue, int falseValue, int nullValue) {
+        // Arrange & Act
+        int result = BooleanUtils.toInteger(bool, trueValue, falseValue, nullValue);
+
+        // Assert
+        assertEquals(bool == null ? nullValue : (bool ? trueValue : falseValue), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testToIntegerObject(boolean bool) {
+        // Arrange & Act
+        Integer result = BooleanUtils.toIntegerObject(bool);
+
+        // Assert
+        assertEquals(bool ? NumberUtils.INTEGER_ONE : NumberUtils.INTEGER_ZERO, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,1,0",
+            "false,1,0"
+    })
+    void testToIntegerObjectWithTrueFalseValues(boolean bool, Integer trueValue, Integer falseValue) {
+        // Arrange & Act
+        Integer result = BooleanUtils.toIntegerObject(bool, trueValue, falseValue);
+
+        // Assert
+        assertEquals(bool ? trueValue : falseValue, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,1,0,2",
+            "false,1,0,2",
+            "null,1,0,2"
+    })
+    void testToIntegerObjectWithBooleanAndTrueFalseNullValues(Boolean bool, Integer trueValue, Integer falseValue, Integer nullValue) {
+        // Arrange & Act
+        Integer result = BooleanUtils.toIntegerObject(bool, trueValue, falseValue, nullValue);
+
+        // Assert
+        assertEquals(bool == null ? nullValue : (bool ? trueValue : falseValue), result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,true,false",
+            "false,true,false"
+    })
+    void testToStringWithBooleanAndTrueFalseValues(boolean bool, String trueString, String falseString) {
+        // Arrange & Act
+        String result = BooleanUtils.toString(bool, trueString, falseString);
+
+        // Assert
+        assertEquals(bool ? trueString : falseString, result);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "true,true,false,null",
+            "false,true,false,null",
+            "null,true,false,null"
+    })
+    void testToStringWithBooleanObjectAndTrueFalseNullValues(Boolean bool, String trueString, String falseString, String nullString) {
+        // Arrange & Act
+        String result = BooleanUtils.toString(bool, trueString, falseString, nullString);
+
+        // Assert
+        assertEquals(bool == null ? nullString : (bool ? trueString : falseString), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testToStringOnOff(boolean bool) {
+        // Arrange & Act
+        String result = BooleanUtils.toStringOnOff(bool);
+
+        // Assert
+        assertEquals(bool ? BooleanUtils.ON : BooleanUtils.OFF, result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testToStringOnOffWithBooleanObject(Boolean bool) {
+        // Arrange & Act
+        String result = BooleanUtils.toStringOnOff(bool);
+
+        // Assert
+        assertEquals(bool == null ? null : (bool ? BooleanUtils.ON : BooleanUtils.OFF), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {true, false})
+    void testToStringTrueFalse(boolean bool) {
+        // Arrange & Act
+        String result = BooleanUtils.toStringTrueFalse(bool);
+
+        // Assert
+        assertEquals(bool ? BooleanUtils.TRUE : BooleanUtils.FALSE, result);
+
+```
+
+Class under test (org.apache.commons.lang3.BooleanUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Consumer;
+import org.apache.commons.lang3.math.NumberUtils;
+
+/** Operations on boolean primitives and Boolean objects. */
+public class BooleanUtils {
+    private static final List<Boolean> BOOLEAN_LIST = Collections.unmodifiableList(Arrays.asList(Boolean.FALSE, Boolean.TRUE));
+    /** The false String {@code "false"}. */
+    public static final String FALSE = "false";
+    /** The no String {@code "no"}. */
+    public static final String NO = "no";
+    /** The off String {@code "off"}. */
+    public static final String OFF = "off";
+    /** The on String {@code "on"}. */
+    public static final String ON = "on";
+    /** The true String {@code "true"}. */
+    public static final String TRUE = "true";
+    /** The yes String {@code "yes"}. */
+    public static final String YES = "yes";
+    /** Performs an 'and' operation on a set of booleans. */
+    public static boolean and(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        for (final boolean element : array) {
+            if (!element) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /** Performs an 'and' operation on an array of Booleans. */
+    public static Boolean and(final Boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        return and(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
+    }
+    /** Returns a new array of possible values (like an enum would). */
+    public static Boolean[] booleanValues() {
+        return new Boolean[] {Boolean.FALSE, Boolean.TRUE};
+    }
+    /** Compares two {@code boolean} values. */
+    public static int compare(final boolean x, final boolean y) {
+        if (x == y) {
+            return 0;
+        }
+        return x ? 1 : -1;
+    }
+    /** Performs the given action for each Boolean {@link BooleanUtils#values()}. */
+    public static void forEach(final Consumer<Boolean> action) {
+        values().forEach(action);
+    }
+    /** Checks if a {@link Boolean} value is {@code false}, handling {@code null} by returning {@code false}. */
+    public static boolean isFalse(final Boolean bool) {
+        return Boolean.FALSE.equals(bool);
+    }
+    /** Checks if a {@link Boolean} value is <i>not</i> {@code false}, handling {@code null} by returning {@code true}. */
+    public static boolean isNotFalse(final Boolean bool) {
+        return !isFalse(bool);
+    }
+    /** Checks if a {@link Boolean} value is <i>not</i> {@code true}, handling {@code null} by returning {@code true}. */
+    public static boolean isNotTrue(final Boolean bool) {
+        return !isTrue(bool);
+    }
+    /** Checks if a {@link Boolean} value is {@code true}, handling {@code null} by returning {@code false}. */
+    public static boolean isTrue(final Boolean bool) {
+        return Boolean.TRUE.equals(bool);
+    }
+    /** Negates the specified boolean. */
+    public static Boolean negate(final Boolean bool) {
+        if (bool == null) {
+            return null;
+        }
+        return bool.booleanValue() ? Boolean.FALSE : Boolean.TRUE;
+    }
+    /** Performs a one-hot on an array of booleans. */
+    public static boolean oneHot(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        boolean result = false;
+        for (final boolean element: array) {
+            if (element) {
+                if (result) {
+                    return false;
+                }
+                result = true;
+            }
+        }
+        return result;
+    }
+    /** Performs a one-hot on an array of booleans. */
+    public static Boolean oneHot(final Boolean... array) {
+        return Boolean.valueOf(oneHot(ArrayUtils.toPrimitive(array)));
+    }
+    /** Performs an 'or' operation on a set of booleans. */
+    public static boolean or(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        for (final boolean element : array) {
+            if (element) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /** Performs an 'or' operation on an array of Booleans. */
+    public static Boolean or(final Boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        return or(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
+    }
+    /** Returns a new array of possible values (like an enum would). */
+    public static boolean[] primitiveValues() {
+        return new boolean[] {false, true};
+    }
+    /** Converts a Boolean to a boolean handling {@code null} by returning {@code false}. */
+    public static boolean toBoolean(final Boolean bool) {
+        return bool != null && bool.booleanValue();
+    }
+    /** Converts an int to a boolean using the convention that {@code zero} is {@code false}, everything else is {@code true}. */
+    public static boolean toBoolean(final int value) {
+        return value != 0;
+    }
+    /** Converts an int to a boolean specifying the conversion values. */
+    public static boolean toBoolean(final int value, final int trueValue, final int falseValue) {
+        if (value == trueValue) {
+            return true;
+        }
+        if (value == falseValue) {
+            return false;
+        }
+        throw new IllegalArgumentException("The Integer did not match either specified value");
+    }
+    /** Converts an Integer to a boolean specifying the conversion values. */
+    public static boolean toBoolean(final Integer value, final Integer trueValue, final Integer falseValue) {
+        if (value == null) {
+            if (trueValue == null) {
+                return true;
+            }
+            if (falseValue == null) {
+                return false;
+            }
+        } else if (value.equals(trueValue)) {
+            return true;
+        } else if (value.equals(falseValue)) {
+            return false;
+        }
+        throw new IllegalArgumentException("The Integer did not match either specified value");
+    }
+    /** Converts a String to a boolean (optimised for performance). */
+    public static boolean toBoolean(final String str) {
+        return toBooleanObject(str) == Boolean.TRUE;
+    }
+    /** Converts a String to a Boolean throwing an exception if no match found. */
+    public static boolean toBoolean(final String str, final String trueString, final String falseString) {
+        if (str == trueString) {
+            return true;
+        }
+        if (str == falseString) {
+            return false;
+        }
+        if (str != null) {
+            if (str.equals(trueString)) {
+                return true;
+            }
+            if (str.equals(falseString)) {
+                return false;
+            }
+        }
+        throw new IllegalArgumentException("The String did not match either specified value");
+    }
+    /** Converts a Boolean to a boolean handling {@code null}. */
+    public static boolean toBooleanDefaultIfNull(final Boolean bool, final boolean valueIfNull) {
+        if (bool == null) {
+            return valueIfNull;
+        }
+        return bool.booleanValue();
+    }
+    /** Converts an int to a Boolean using the convention that {@code zero} is {@code false}, everything else is {@code true}. */
+    public static Boolean toBooleanObject(final int value) {
+        return value == 0 ? Boolean.FALSE : Boolean.TRUE;
+    }
+    /** Converts an int to a Boolean specifying the conversion values. */
+    public static Boolean toBooleanObject(final int value, final int trueValue, final int falseValue, final int nullValue) {
+        if (value == trueValue) {
+            return Boolean.TRUE;
+        }
+        if (value == falseValue) {
+            return Boolean.FALSE;
+        }
+        if (value == nullValue) {
+            return null;
+        }
+        throw new IllegalArgumentException("The Integer did not match any specified value");
+    }
+    /** Converts an Integer to a Boolean using the convention that {@code zero} is {@code false}, every other numeric value is {@code true}. */
+    public static Boolean toBooleanObject(final Integer value) {
+        if (value == null) {
+            return null;
+        }
+        return value.intValue() == 0 ? Boolean.FALSE : Boolean.TRUE;
+    }
+    /** Converts an Integer to a Boolean specifying the conversion values. */
+    public static Boolean toBooleanObject(final Integer value, final Integer trueValue, final Integer falseValue, final Integer nullValue) {
+        if (value == null) {
+            if (trueValue == null) {
+                return Boolean.TRUE;
+            }
+            if (falseValue == null) {
+                return Boolean.FALSE;
+            }
+            if (nullValue == null) {
+                return null;
+            }
+        } else if (value.equals(trueValue)) {
+            return Boolean.TRUE;
+        } else if (value.equals(falseValue)) {
+            return Boolean.FALSE;
+        } else if (value.equals(nullValue)) {
+            return null;
+        }
+        throw new IllegalArgumentException("The Integer did not match any specified value");
+    }
+    /** Converts a String to a Boolean. */
+    public static Boolean toBooleanObject(final String str) {
+        // Previously used equalsIgnoreCase, which was fast for interned 'true'.
+        // Non interned 'true' matched 15 times slower.
+        //
+        // Optimisation provides same performance as before for interned 'true'.
+        // Similar performance for null, 'false', and other strings not length 2/3/4.
+        // 'true'/'TRUE' match 4 times slower, 'tRUE'/'True' 7 times slower.
+        if (str == TRUE) {
+            return Boolean.TRUE;
+        }
+        if (str == null) {
+            return null;
+        }
+        switch (str.length()) {
+            case 1: {
+                final char ch0 = str.charAt(0);
+                if (ch0 == 'y' || ch0 == 'Y' ||
+                    ch0 == 't' || ch0 == 'T' ||
+                    ch0 == '1') {
+                    return Boolean.TRUE;
+                }
+                if (ch0 == 'n' || ch0 == 'N' ||
+                    ch0 == 'f' || ch0 == 'F' ||
+                    ch0 == '0') {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+            case 2: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                if ((ch0 == 'o' || ch0 == 'O') &&
+                    (ch1 == 'n' || ch1 == 'N') ) {
+                    return Boolean.TRUE;
+                }
+                if ((ch0 == 'n' || ch0 == 'N') &&
+                    (ch1 == 'o' || ch1 == 'O') ) {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+            case 3: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                final char ch2 = str.charAt(2);
+                if ((ch0 == 'y' || ch0 == 'Y') &&
+                    (ch1 == 'e' || ch1 == 'E') &&
+                    (ch2 == 's' || ch2 == 'S') ) {
+                    return Boolean.TRUE;
+                }
+                if ((ch0 == 'o' || ch0 == 'O') &&
+                    (ch1 == 'f' || ch1 == 'F') &&
+                    (ch2 == 'f' || ch2 == 'F') ) {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+            case 4: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                final char ch2 = str.charAt(2);
+                final char ch3 = str.charAt(3);
+                if ((ch0 == 't' || ch0 == 'T') &&
+                    (ch1 == 'r' || ch1 == 'R') &&
+                    (ch2 == 'u' || ch2 == 'U') &&
+                    (ch3 == 'e' || ch3 == 'E') ) {
+                    return Boolean.TRUE;
+                }
+                break;
+            }
+            case 5: {
+                final char ch0 = str.charAt(0);
+                final char ch1 = str.charAt(1);
+                final char ch2 = str.charAt(2);
+                final char ch3 = str.charAt(3);
+                final char ch4 = str.charAt(4);
+                if ((ch0 == 'f' || ch0 == 'F') &&
+                    (ch1 == 'a' || ch1 == 'A') &&
+                    (ch2 == 'l' || ch2 == 'L') &&
+                    (ch3 == 's' || ch3 == 'S') &&
+                    (ch4 == 'e' || ch4 == 'E') ) {
+                    return Boolean.FALSE;
+                }
+                break;
+            }
+        default:
+            break;
+        }
+
+        return null;
+    }
+    /** Converts a String to a Boolean throwing an exception if no match. */
+    public static Boolean toBooleanObject(final String str, final String trueString, final String falseString, final String nullString) {
+        if (str == null) {
+            if (trueString == null) {
+                return Boolean.TRUE;
+            }
+            if (falseString == null) {
+                return Boolean.FALSE;
+            }
+            if (nullString == null) {
+                return null;
+            }
+        } else if (str.equals(trueString)) {
+            return Boolean.TRUE;
+        } else if (str.equals(falseString)) {
+            return Boolean.FALSE;
+        } else if (str.equals(nullString)) {
+            return null;
+        }
+        // no match
+        throw new IllegalArgumentException("The String did not match any specified value");
+    }
+    /** Converts a boolean to an int using the convention that {@code true} is {@code 1} and {@code false} is {@code 0}. */
+    public static int toInteger(final boolean bool) {
+        return bool ? 1 : 0;
+    }
+    /** Converts a boolean to an int specifying the conversion values. */
+    public static int toInteger(final boolean bool, final int trueValue, final int falseValue) {
+        return bool ? trueValue : falseValue;
+    }
+    /** Converts a Boolean to an int specifying the conversion values. */
+    public static int toInteger(final Boolean bool, final int trueValue, final int falseValue, final int nullValue) {
+        if (bool == null) {
+            return nullValue;
+        }
+        return bool.booleanValue() ? trueValue : falseValue;
+    }
+    /** Converts a boolean to an Integer using the convention that {@code true} is {@code 1} and {@code false} is {@code 0}. */
+    public static Integer toIntegerObject(final boolean bool) {
+        return bool ? NumberUtils.INTEGER_ONE : NumberUtils.INTEGER_ZERO;
+    }
+    /** Converts a boolean to an Integer specifying the conversion values. */
+    public static Integer toIntegerObject(final boolean bool, final Integer trueValue, final Integer falseValue) {
+        return bool ? trueValue : falseValue;
+    }
+    /** Converts a Boolean to a Integer using the convention that {@code zero} is {@code false}. */
+    public static Integer toIntegerObject(final Boolean bool) {
+        if (bool == null) {
+            return null;
+        }
+        return bool.booleanValue() ? NumberUtils.INTEGER_ONE : NumberUtils.INTEGER_ZERO;
+    }
+    /** Converts a Boolean to an Integer specifying the conversion values. */
+    public static Integer toIntegerObject(final Boolean bool, final Integer trueValue, final Integer falseValue, final Integer nullValue) {
+        if (bool == null) {
+            return nullValue;
+        }
+        return bool.booleanValue() ? trueValue : falseValue;
+    }
+    /** Converts a boolean to a String returning one of the input Strings. */
+    public static String toString(final boolean bool, final String trueString, final String falseString) {
+        return bool ? trueString : falseString;
+    }
+    /** Converts a Boolean to a String returning one of the input Strings. */
+    public static String toString(final Boolean bool, final String trueString, final String falseString, final String nullString) {
+        if (bool == null) {
+            return nullString;
+        }
+        return bool.booleanValue() ? trueString : falseString;
+    }
+    /** Converts a boolean to a String returning {@code 'on'} or {@code 'off'}. */
+    public static String toStringOnOff(final boolean bool) {
+        return toString(bool, ON, OFF);
+    }
+    /** Converts a Boolean to a String returning {@code 'on'}, {@code 'off'}, or {@code null}. */
+    public static String toStringOnOff(final Boolean bool) {
+        return toString(bool, ON, OFF, null);
+    }
+    /** Converts a boolean to a String returning {@code 'true'} or {@code 'false'}. */
+    public static String toStringTrueFalse(final boolean bool) {
+        return toString(bool, TRUE, FALSE);
+    }
+    /** Converts a Boolean to a String returning {@code 'true'}, {@code 'false'}, or {@code null}. */
+    public static String toStringTrueFalse(final Boolean bool) {
+        return toString(bool, TRUE, FALSE, null);
+    }
+    /** Converts a boolean to a String returning {@code 'yes'} or {@code 'no'}. */
+    public static String toStringYesNo(final boolean bool) {
+        return toString(bool, YES, NO);
+    }
+    /** Converts a Boolean to a String returning {@code 'yes'}, {@code 'no'}, or {@code null}. */
+    public static String toStringYesNo(final Boolean bool) {
+        return toString(bool, YES, NO, null);
+    }
+    /** Returns an unmodifiable list of Booleans {@code [false, true]}. */
+    public static List<Boolean> values() {
+        return BOOLEAN_LIST;
+    }
+    /** Performs an xor on a set of booleans. */
+    public static boolean xor(final boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        // false if the neutral element of the xor operator
+        boolean result = false;
+        for (final boolean element : array) {
+            result ^= element;
+        }
+
+        return result;
+    }
+    /** Performs an xor on an array of Booleans. */
+    public static Boolean xor(final Boolean... array) {
+        ObjectUtils.requireNonEmpty(array, "array");
+        return xor(ArrayUtils.toPrimitive(array)) ? Boolean.TRUE : Boolean.FALSE;
+    }
+    /** {@link BooleanUtils} instances should NOT be constructed in standard programming. */
+    public BooleanUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

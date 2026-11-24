@@ -1,0 +1,55 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[24,20] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[39,20] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[54,20] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[69,20] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[103,20] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[123,20] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[148,20] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[152,13] incompatible types: java.lang.Object cannot be converted to java.lang.Object[]
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[152,45] incompatible types: java.lang.Class<java.lang.Integer> cannot be converted to java.lang.Object[]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[24,20] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[39,20] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[54,20] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[69,20] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[103,20] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[123,20] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[148,20] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[152,13] incompatible types: java.lang.Object cannot be converted to java.lang.Object[]
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[152,45] incompatible types: java.lang.Class<java.lang.Integer> cannot be converted to java.lang.Object[]
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

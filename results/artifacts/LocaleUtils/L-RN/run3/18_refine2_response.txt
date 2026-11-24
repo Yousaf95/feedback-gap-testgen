@@ -1,0 +1,89 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testCountriesByLanguageWithEmptyLanguageCode() {
+        List<Locale> result = LocaleUtils.countriesByLanguage("");
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testLanguagesByCountryWithEmptyCountryCode() {
+        List<Locale> result = LocaleUtils.languagesByCountry("");
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testLocaleLookupListWithNullLocaleAndDefaultLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(null, Locale.US);
+        assertEquals(1, result.size());
+        assertEquals(Locale.US, result.get(0));
+    }
+
+    @Test
+    void testLocaleLookupListWithVariantLocale() {
+        Locale locale = new Locale("en", "US", "POSIX");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(4, result.size());
+        assertEquals(locale, result.get(0));
+        assertEquals(new Locale("en", "US"), result.get(1));
+        assertEquals(new Locale("en"), result.get(2));
+        assertEquals(Locale.getDefault(), result.get(3));
+    }
+
+    @Test
+    void testLocaleLookupListWithCountryOnlyLocale() {
+        Locale locale = new Locale("fr", "FR");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(4, result.size());
+        assertEquals(locale, result.get(0));
+        assertEquals(new Locale("fr"), result.get(1));
+        assertEquals(Locale.getDefault(), result.get(2));
+    }
+
+    @Test
+    void testLocaleLookupListWithLanguageOnlyLocale() {
+        Locale locale = new Locale("de");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(4, result.size());
+        assertEquals(locale, result.get(0));
+        assertEquals(Locale.getDefault(), result.get(1));
+    }
+
+    @Test
+    void testToLocaleWithValidLanguageAndCountryCodeUsingDash() {
+        Locale result = LocaleUtils.toLocale("en-US");
+        assertEquals(new Locale("en", "US"), result);
+    }
+
+    @Test
+    void testToLocaleWithValidLanguageAndCountryCodeUsingUnderscore() {
+        Locale result = LocaleUtils.toLocale("en_US");
+        assertEquals(new Locale("en", "US"), result);
+    }
+
+    @Test
+    void testToLocaleWithInvalidFormatTooLong() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US_POSIX_EXTRA"));
+    }
+
+    @Test
+    void testToLocaleWithValidLanguageCountryAndVariantUsingDash() {
+        Locale result = LocaleUtils.toLocale("en-US-POSIX");
+        assertEquals(new Locale("en", "US", "POSIX"), result);
+    }
+
+    @Test
+    void testToLocaleWithValidLanguageCountryAndVariantUsingUnderscore() {
+        Locale result = LocaleUtils.toLocale("en_US_POSIX");
+        assertEquals(new Locale("en", "US", "POSIX"), result);
+    }
+}
+```

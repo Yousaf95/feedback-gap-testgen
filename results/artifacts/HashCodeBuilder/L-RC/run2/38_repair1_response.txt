@@ -1,0 +1,82 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Collections;
+import java.util.Arrays;
+
+class HashCodeBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testIsRegisteredNotRegistered_2() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    void testReflectionHashCodeDefaultValues_2() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object()));
+    }
+
+    @Test
+    void testReflectionHashCodeWithTransients_2() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object(), true));
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludeFieldsCollection_2() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object(), Collections.singletonList("field")));
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludeFieldsArray_2() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object(), new String[]{"field"}));
+    }
+
+    @Test
+    void testAppendArrayBoolean_2() {
+        new HashCodeBuilder().append((boolean[]) null);
+    }
+
+    @Test
+    void testAppendArrayByte_2() {
+        new HashCodeBuilder().append((byte[]) null);
+    }
+
+    @Test
+    void testAppendArrayChar_2() {
+        new HashCodeBuilder().append((char[]) null);
+    }
+
+    @Test
+    void testAppendArrayDouble_2() {
+        new HashCodeBuilder().append((double[]) null);
+    }
+
+    @Test
+    void testAppendArrayFloat_2() {
+        new HashCodeBuilder().append((float[]) null);
+    }
+
+    @Test
+    void testAppendArrayInt_2() {
+        new HashCodeBuilder().append((int[]) null);
+    }
+
+    @Test
+    void testAppendArrayLong_2() {
+        new HashCodeBuilder().append((long[]) null);
+    }
+
+    @Test
+    void testAppendArrayShort_2() {
+        new HashCodeBuilder().append((short[]) null);
+    }
+
+    @Test
+    void testAppendArrayObject_2() {
+        new HashCodeBuilder().append((Object[]) null);
+    }
+}
+```

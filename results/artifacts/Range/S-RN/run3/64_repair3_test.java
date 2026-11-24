@@ -1,0 +1,201 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Comparator;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @ParameterizedTest
+    @MethodSource("provideRangeCreationData")
+    public <T extends Comparable<? super T>> void testToString(T from, T to, Comparator<T> comparator) {
+        Range<T> range = Range.of(from, to, comparator);
+        assertEquals("[" + range.getMinimum() + ".." + range.getMaximum() + "]", range.toString());
+    }
+
+    private static Stream<Arguments> provideRangeCreationData() {
+        return Stream.of(
+            arguments(1, 5, null),
+            arguments(10.5, 20.5, Comparator.naturalOrder()),
+            arguments("a", "z", Comparator.reverseOrder())
+        );
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testContainsElement() {
+            Range<Integer> range = Range.between(1, 5);
+            assertTrue(range.contains(3));
+            assertFalse(range.contains(0));
+            assertFalse(range.contains(6));
+        }
+
+    @Test
+        public void testContainsRange() {
+            Range<Integer> range1 = Range.between(1, 5);
+            Range<Integer> range2 = Range.between(2, 4);
+            assertTrue(range1.containsRange(range2));
+            assertFalse(range2.containsRange(range1));
+        }
+
+    @Test
+        public void testElementCompareTo() {
+            Range<Integer> range = Range.between(1, 5);
+            assertEquals(-1, range.elementCompareTo(0));
+            assertEquals(0, range.elementCompareTo(3));
+            assertEquals(1, range.elementCompareTo(6));
+        }
+
+    @Test
+        public void testFitElement() {
+            Range<Integer> range = Range.between(1, 5);
+            assertEquals(1, (int) range.fit(0));
+            assertEquals(3, (int) range.fit(3));
+            assertEquals(5, (int) range.fit(6));
+        }
+
+    @Test
+        public void testGetComparator() {
+            Range<Integer> range = Range.between(1, 5);
+            assertNotNull(range.getComparator());
+        }
+
+    @Test
+        public void testGetMaximum() {
+            Range<Integer> range = Range.between(1, 5);
+            assertEquals(5, (int) range.getMaximum());
+        }
+
+    @Test
+        public void testGetMinimum() {
+            Range<Integer> range = Range.between(1, 5);
+            assertEquals(1, (int) range.getMinimum());
+        }
+
+    @Test
+        public void testIntersectionWithRange() {
+            Range<Integer> range1 = Range.between(1, 5);
+            Range<Integer> range2 = Range.between(3, 7);
+            Range<Integer> intersection = range1.intersectionWith(range2);
+            assertEquals(Range.between(3, 5), intersection);
+        }
+
+    @Test
+        public void testIntersectionWithNonOverlappingRange() {
+            Range<Integer> range1 = Range.between(1, 5);
+            Range<Integer> range2 = Range.between(6, 10);
+            assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+        }
+
+    @Test
+        public void testIsAfterElement() {
+            Range<Integer> range = Range.between(1, 5);
+            assertTrue(range.isAfter(0));
+            assertFalse(range.isAfter(3));
+            assertFalse(range.isAfter(6));
+        }
+
+    
+    
+    
+    @Test
+        public void testIsEndedByElement() {
+            Range<Integer> range = Range.between(1, 5);
+            assertFalse(range.isEndedBy(0));
+            assertTrue(range.isEndedBy(5));
+            assertFalse(range.isEndedBy(6));
+        }
+
+    
+    @Test
+        public void testIsStartedByElement() {
+            Range<Integer> range = Range.between(1, 5);
+            assertTrue(range.isStartedBy(1));
+            assertFalse(range.isStartedBy(3));
+            assertFalse(range.isStartedBy(6));
+        }
+
+    // ---- added by coverage-guided refinement ----
+    @ParameterizedTest
+        @MethodSource("provideRanges")
+        public void testIsNaturalOrdering(Range<Integer> range) {
+            assertTrue(range.isNaturalOrdering());
+        }
+
+    private static Stream<Arguments> provideRanges() {
+            return Stream.of(
+                Arguments.of(Range.between(1, 5)),
+                Arguments.of(Range.is(3))
+            );
+        }
+
+    @Test
+        public void testIsNotNaturalOrdering() {
+            Comparator<Integer> reverseComparator = (a, b) -> b.compareTo(a);
+            Range<Integer> range = Range.between(1, 5, reverseComparator);
+            assertFalse(range.isNaturalOrdering());
+        }
+
+    @Test
+        public void testIntersectionWithEmptyRange() {
+            Range<Integer> range = Range.between(1, 5);
+            assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(Range.between(6, 10)));
+        }
+
+    @Test
+        public void testFitElementBelowRange() {
+            Range<Integer> range = Range.between(3, 7);
+            assertEquals(Integer.valueOf(3), range.fit(2));
+        }
+
+    @Test
+        public void testFitElementAboveRange() {
+            Range<Integer> range = Range.between(3, 7);
+            assertEquals(Integer.valueOf(7), range.fit(8));
+        }
+
+    // ---- added by coverage-guided refinement ----
+    @ParameterizedTest
+        @MethodSource("provideEmptyRanges")
+        public void testIsEmptyRange(Range<Integer> range) {
+            assertTrue(range.isEmpty());
+        }
+
+    @ParameterizedTest
+        @MethodSource("provideNonEmptyRanges")
+        public void testIsNotEmptyRange(Range<Integer> range) {
+            assertFalse(range.isEmpty());
+        }
+
+    private static Stream<Arguments> provideEmptyRanges() {
+            return Stream.of(
+                arguments(Range.between(5, 4)),
+                arguments(Range.is(6))
+            );
+        }
+
+    private static Stream<Arguments> provideNonEmptyRanges() {
+            return Stream.of(
+                arguments(Range.between(1, 3)),
+                arguments(Range.between(3, 1, Comparator.reverseOrder()))
+            );
+        }
+}

@@ -1,0 +1,53 @@
+package org.apache.commons.lang3;
+import org.apache.commons.lang3.math.NumberUtils;
+
+/** An enum representing all the versions of the Java specification. */
+public enum JavaVersion {
+    JAVA_0_9(1.5f, "0.9"),
+    JAVA_1_1(1.1f, "1.1"),
+    JAVA_1_2(1.2f, "1.2"),
+    JAVA_1_3(1.3f, "1.3"),
+    JAVA_1_4(1.4f, "1.4"),
+    JAVA_1_5(1.5f, "1.5"),
+    JAVA_1_6(1.6f, "1.6"),
+    JAVA_1_7(1.7f, "1.7"),
+    JAVA_1_8(1.8f, "1.8"),
+    @Deprecated
+    JAVA_1_9(9.0f, "9"),
+    JAVA_9(9.0f, "9"),
+    JAVA_10(10.0f, "10"),
+    JAVA_11(11.0f, "11"),
+    JAVA_12(12.0f, "12"),
+    JAVA_13(13.0f, "13"),
+    JAVA_14(14.0f, "14"),
+    JAVA_15(15.0f, "15"),
+    JAVA_16(16.0f, "16"),
+    JAVA_17(17.0f, "17"),
+    JAVA_18(18.0f, "18"),
+    JAVA_19(19.0f, "19"),
+    JAVA_20(20, "20"),
+    JAVA_21(21, "21"),
+    JAVA_RECENT(maxVersion(), Float.toString(maxVersion())),
+    /** The float value. */
+    private final float value;
+    /** The standard name. */
+    private final String name;
+    /** Constructor. */
+    JavaVersion(final float value, final String name) {
+        this.value = value;
+        this.name = name;
+    }
+    /** Whether this version of Java is at least the version of Java passed in. */
+    public boolean atLeast(final JavaVersion requiredVersion) {
+        return this.value >= requiredVersion.value;
+    }
+    /** Whether this version of Java is at most the version of Java passed in. */
+    public boolean atMost(final JavaVersion requiredVersion) {
+        return this.value <= requiredVersion.value;
+    }
+    /** The string value is overridden to return the standard name. */
+    @Override
+    public String toString() {
+        return name;
+    }
+}

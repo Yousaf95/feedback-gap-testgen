@@ -1,0 +1,97 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.util.HashSet;
+import java.util.Set;
+
+class EqualsBuilder_GenTest {
+
+    private EqualsBuilder builder;
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testReflectionEquals_NullObjects() {
+            assertTrue(EqualsBuilder.reflectionEquals(null, null));
+            assertFalse(EqualsBuilder.reflectionEquals(new Object(), null));
+            assertFalse(EqualsBuilder.reflectionEquals(null, new Object()));
+        }
+
+    @Test
+        public void testReflectionEquals_SameObject() {
+            assertTrue(EqualsBuilder.reflectionEquals(new Object(), new Object()));
+        }
+
+    @Test
+        public void testReflectionEquals_TransientFields() {
+        // Assuming TransientClass is defined elsewhere and has a transient field named 'transientField'
+        TransientClass lhs = new TransientClass();
+        lhs.setTransientField(true);
+        TransientClass rhs = new TransientClass();
+        rhs.setTransientField(false);
+        assertFalse(EqualsBuilder.reflectionEquals(lhs, rhs, true));
+    }
+
+    @Test
+        public void testReflectionEquals_ExcludeFields() {
+        // Assuming ExcludeFieldsClass is defined elsewhere and has a field named 'excludedField'
+        ExcludeFieldsClass lhs = new ExcludeFieldsClass();
+        lhs.setExcludedField("exclude");
+        ExcludeFieldsClass rhs = new ExcludeFieldsClass();
+        rhs.setExcludedField("include");
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs, "excludedField"));
+    }
+
+    @Test
+        public void testReflectionEquals_Recursive() {
+        // Assuming RecursiveClass is defined elsewhere and has a field named 'child' of the same type
+        RecursiveClass lhs = new RecursiveClass();
+        lhs.setChild(new RecursiveClass());
+        RecursiveClass rhs = new RecursiveClass();
+        rhs.setChild(new RecursiveClass());
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs, false, null, true));
+    }
+
+    @Test
+        public void testReflectionEquals_ReflectUpToClass() {
+        // Assuming ReflectUpToClass is defined elsewhere and has a field named 'field'
+        ReflectUpToClass lhs = new ReflectUpToClass();
+        lhs.setField("value");
+        ReflectUpToClass rhs = new ReflectUpToClass();
+        rhs.setField("otherValue");
+        assertTrue(EqualsBuilder.reflectionEquals(lhs, rhs, null, ReflectUpToClass.class));
+    }
+
+    @Test
+        public void testAppendArray_NullArrays() {
+            boolean[] lhs = null;
+            boolean[] rhs = null;
+            assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+        }
+
+    @Test
+        public void testAppendArray_EmptyArrays() {
+            boolean[] lhs = new boolean[0];
+            boolean[] rhs = new boolean[0];
+            assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+        }
+
+    @Test
+        public void testAppendArray_DifferentLengths() {
+            boolean[] lhs = {true};
+            boolean[] rhs = {false, true};
+            assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+        }
+
+    @Test
+        public void testAppendArray_EqualArrays() {
+            boolean[] lhs = {true, false};
+            boolean[] rhs = {true, false};
+            assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+        }
+}
+```

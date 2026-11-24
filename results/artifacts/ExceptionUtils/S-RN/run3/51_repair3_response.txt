@@ -1,0 +1,65 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetStackTraceWithEmptyThrowable() {
+        String[] stackTrace = ExceptionUtils.getStackFrames(new Throwable());
+        assertTrue(stackTrace.length > 0);
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithCheckedException() {
+        Throwable checkedException = new IOException("Checked exception");
+        String rootCauseMessage = ExceptionUtils.getRootCauseMessage(checkedException);
+        assertEquals("java.io.IOException: Checked exception", rootCauseMessage);
+    }
+
+    @Test
+    public void testIsUncheckedWithRuntimeException() {
+        assertTrue(ExceptionUtils.isUnchecked(new RuntimeException()));
+    }
+
+    @Test
+    public void testIsCheckedWithError() {
+        assertFalse(ExceptionUtils.isChecked(new Error()));
+    }
+
+    @Test
+    public void testGetThrowableCountWithNestedExceptions() {
+        Throwable nestedException = new Exception("Nested exception");
+        Throwable rootException = new Exception("Root exception", nestedException);
+        assertEquals(2, ExceptionUtils.getThrowableCount(rootException));
+    }
+
+    @Test
+    public void testIndexOfTypeWithCheckedException() {
+        Throwable checkedException = new IOException("Checked exception");
+        int index = ExceptionUtils.indexOfType(checkedException, IOException.class);
+        assertEquals(0, index);
+    }
+
+    @Test
+    public void testGetThrowablesWithCheckedException() {
+        Throwable checkedException = new IOException("Checked exception");
+        Throwable[] throwables = ExceptionUtils.getThrowables(checkedException);
+        assertEquals(1, throwables.length);
+        assertTrue(throwables[0] instanceof IOException);
+    }
+
+    @Test
+    public void testHasCauseWithNestedExceptions() {
+        Throwable nestedException = new Exception("Nested exception");
+        Throwable rootException = new Exception("Root exception", nestedException);
+        assertTrue(ExceptionUtils.hasCause(rootException, Exception.class));
+    }
+}
+```

@@ -1,0 +1,101 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    void testGetMessage_withNonNullThrowable() {
+        Throwable throwable = new IllegalArgumentException("Invalid argument");
+        assertEquals("IllegalArgumentException: Invalid argument", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    void testIsChecked_withCheckedException() {
+        assertTrue(ExceptionUtils.isChecked(new IOException()));
+    }
+
+    @Test
+    void testIsUnchecked_withRuntimeExceptionSubclass() {
+        assertFalse(ExceptionUtils.isUnchecked(new NullPointerException()));
+    }
+
+    @Test
+    void testHasCause_withMatchingExactType() {
+        Throwable cause = new IllegalArgumentException();
+        Throwable throwable = new Exception(cause);
+        assertTrue(ExceptionUtils.hasCause(throwable, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testHasCause_withNonMatchingExactType() {
+        Throwable cause = new IOException();
+        Throwable throwable = new Exception(cause);
+        assertFalse(ExceptionUtils.hasCause(throwable, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testHasCause_withSubclassMatch() {
+        Throwable cause = new FileNotFoundException();
+        Throwable throwable = new Exception(cause);
+        assertTrue(ExceptionUtils.hasCause(throwable, IOException.class));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withNestedExceptions() {
+        Throwable rootCause = new SQLException("Database error");
+        Throwable nested = new RuntimeException(rootCause);
+        Throwable topLevel = new Exception(nested);
+        assertEquals("SQLException: Database error", ExceptionUtils.getRootCauseMessage(topLevel));
+    }
+
+    @Test
+    void testGetThrowableCount_withSingleException() {
+        Throwable throwable = new Exception();
+        assertEquals(1, ExceptionUtils.getThrowableCount(throwable));
+    }
+
+    @Test
+    void testGetThrowableList_withNestedExceptions() {
+        Throwable rootCause = new SQLException("Database error");
+        Throwable nested = new RuntimeException(rootCause);
+        Throwable topLevel = new Exception(nested);
+        List<Throwable> list = ExceptionUtils.getThrowableList(topLevel);
+        assertEquals(3, list.size());
+        assertSame(topLevel, list.get(0));
+        assertSame(nested, list.get(1));
+        assertSame(rootCause, list.get(2));
+    }
+
+    @Test
+    void testGetStackFrames_withNonNullThrowable() {
+        Throwable throwable = new Exception("Test exception");
+        String[] stackFrames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(stackFrames.length > 0);
+        assertTrue(stackFrames[0].contains("Exception: Test exception"));
+    }
+
+    @Test
+    void testGetStackTrace_withNonNullThrowable() {
+        Throwable throwable = new Exception("Test exception");
+        String stackTrace = ExceptionUtils.getStackTrace(throwable);
+        assertTrue(stackTrace.contains("Exception: Test exception"));
+    }
+
+    @Test
+    void testAsRuntimeException_withCheckedException() {
+        IOException checkedException = new IOException("IO error");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(checkedException));
+        assertEquals(checkedException, runtimeException.getCause());
+    }
+
+    @Test
+    void testWrapAndThrow_withCheckedException() {
+        IOException checkedException = new IOException("IO error");
+        UndeclaredThrowableException undeclaredThrowableException = assertThrows(UndeclaredThrowableException.class, () -> ExceptionUtils.wrapAndThrow(checkedException));
+        assertEquals(checkedException, undeclaredThrowableException.getCause().getCause());
+    }
+}
+```

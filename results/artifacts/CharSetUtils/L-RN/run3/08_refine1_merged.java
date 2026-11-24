@@ -1,0 +1,207 @@
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_withNullString() {
+        assertFalse(CharSetUtils.containsAny(null, "a-z"));
+    }
+
+    @Test
+    public void testContainsAny_withEmptyString() {
+        assertFalse(CharSetUtils.containsAny("", "a-z"));
+    }
+
+    @Test
+    public void testContainsAny_withNullSet() {
+        assertFalse(CharSetUtils.containsAny("abc", (String[]) null));
+    }
+
+    @Test
+    public void testContainsAny_withEmptySet() {
+        assertFalse(CharSetUtils.containsAny("abc", ""));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "abc, a-z, true",
+            "123, 0-9, true",
+            "xyz, a-m, false"
+    })
+    public void testContainsAny(String str, String set, boolean expected) {
+        assertEquals(expected, CharSetUtils.containsAny(str, set));
+    }
+
+    @Test
+    public void testCount_withNullString() {
+        assertEquals(0, CharSetUtils.count(null, "a-z"));
+    }
+
+    @Test
+    public void testCount_withEmptyString() {
+        assertEquals(0, CharSetUtils.count("", "a-z"));
+    }
+
+    @Test
+    public void testCount_withNullSet() {
+        assertEquals(0, CharSetUtils.count("abc", (String[]) null));
+    }
+
+    @Test
+    public void testCount_withEmptySet() {
+        assertEquals(0, CharSetUtils.count("abc", ""));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "abc, a-z, 3",
+            "123, 0-9, 3",
+            "xyz, a-m, 0"
+    })
+    public void testCount(String str, String set, int expected) {
+        assertEquals(expected, CharSetUtils.count(str, set));
+    }
+
+    @Test
+    public void testDelete_withNullString() {
+        assertNull(CharSetUtils.delete(null, "a-z"));
+    }
+
+    @Test
+    public void testDelete_withEmptyString() {
+        assertEquals("", CharSetUtils.delete("", "a-z"));
+    }
+
+    @Test
+    public void testDelete_withNullSet() {
+        assertEquals("abc", CharSetUtils.delete("abc", (String[]) null));
+    }
+
+    @Test
+    public void testDelete_withEmptySet() {
+        assertEquals("abc", CharSetUtils.delete("abc", ""));
+    }
+
+    
+    @Test
+    public void testKeep_withNullString() {
+        assertNull(CharSetUtils.keep(null, "a-z"));
+    }
+
+    @Test
+    public void testKeep_withEmptyString() {
+        assertEquals("", CharSetUtils.keep("", "a-z"));
+    }
+
+    @Test
+    public void testKeep_withNullSet() {
+        assertEquals("", CharSetUtils.keep("abc", (String[]) null));
+    }
+
+    @Test
+    public void testKeep_withEmptySet() {
+        assertEquals("", CharSetUtils.keep("abc", ""));
+    }
+
+    
+    @Test
+    public void testSqueeze_withNullString() {
+        assertNull(CharSetUtils.squeeze(null, "a-z"));
+    }
+
+    @Test
+    public void testSqueeze_withEmptyString() {
+        assertEquals("", CharSetUtils.squeeze("", "a-z"));
+    }
+
+    @Test
+    public void testSqueeze_withNullSet() {
+        assertEquals("aaabbb", CharSetUtils.squeeze("aaabbb", (String[]) null));
+    }
+
+    @Test
+    public void testSqueeze_withEmptySet() {
+        assertEquals("aaabbb", CharSetUtils.squeeze("aaabbb", ""));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "aaabbb, a-z, ab",
+            "12333, 0-9, 123",
+            "xxxyyy, x-y, xy"
+    })
+    public void testSqueeze(String str, String set, String expected) {
+        assertEquals(expected, CharSetUtils.squeeze(str, set));
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testContainsAny_withSingleCharSet() {
+            assertTrue(CharSetUtils.containsAny("hello", "e"));
+            assertFalse(CharSetUtils.containsAny("world", "x"));
+        }
+
+    @Test
+        public void testCount_withSingleCharSet() {
+            assertEquals(2, CharSetUtils.count("banana", "a"));
+            assertEquals(0, CharSetUtils.count("apple", "z"));
+        }
+
+    @Test
+        public void testDelete_withSingleCharSet() {
+            assertEquals("hll", CharSetUtils.delete("hello", "e"));
+            assertEquals("world", CharSetUtils.delete("world", "x"));
+        }
+
+    @Test
+        public void testKeep_withSingleCharSet() {
+            assertEquals("ee", CharSetUtils.keep("hello", "e"));
+            assertEquals("", CharSetUtils.keep("world", "x"));
+        }
+
+    @Test
+        public void testSqueeze_withSingleCharSet() {
+            assertEquals("helo", CharSetUtils.squeeze("heelloo", "e"));
+            assertEquals("world", CharSetUtils.squeeze("world", "x"));
+        }
+
+    @Test
+        public void testContainsAny_withMultipleCharSets() {
+            assertTrue(CharSetUtils.containsAny("hello", "a", "e"));
+            assertFalse(CharSetUtils.containsAny("world", "x", "y"));
+        }
+
+    @Test
+        public void testCount_withMultipleCharSets() {
+            assertEquals(3, CharSetUtils.count("banana", "a", "n"));
+            assertEquals(0, CharSetUtils.count("apple", "z", "x"));
+        }
+
+    @Test
+        public void testDelete_withMultipleCharSets() {
+            assertEquals("hllo", CharSetUtils.delete("hello", "e", "o"));
+            assertEquals("world", CharSetUtils.delete("world", "x", "y"));
+        }
+
+    @Test
+        public void testKeep_withMultipleCharSets() {
+            assertEquals("ea", CharSetUtils.keep("hello", "e", "a"));
+            assertEquals("", CharSetUtils.keep("world", "x", "y"));
+        }
+
+    @Test
+        public void testSqueeze_withMultipleCharSets() {
+            assertEquals("helo", CharSetUtils.squeeze("heelloo", "e", "l"));
+            assertEquals("world", CharSetUtils.squeeze("world", "x", "y"));
+        }
+}

@@ -1,0 +1,94 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    public void testAnd_withEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.and());
+    }
+
+    @Test
+    public void testAnd_withAllTrue() {
+        assertTrue(BooleanUtils.and(true, true));
+    }
+
+    @Test
+    public void testAnd_withMixedValues() {
+        assertFalse(BooleanUtils.and(true, false));
+    }
+
+    @Test
+    public void testOr_withEmptyArray() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.or());
+    }
+
+    @Test
+    public void testOr_withAllFalse() {
+        assertFalse(BooleanUtils.or(false, false));
+    }
+
+    @Test
+    public void testOr_withMixedValues() {
+        assertTrue(BooleanUtils.or(true, false));
+    }
+
+    @Test
+    public void testToBooleanObject_withNullValue() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueValue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1));
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseValue() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0));
+    }
+
+    @Test
+    public void testToBooleanObject_withNullTrueValue() {
+        assertTrue(BooleanUtils.toBooleanObject(null, 1, null) == Boolean.TRUE);
+    }
+
+    @Test
+    public void testToBooleanObject_withNullFalseValue() {
+        assertFalse(BooleanUtils.toBooleanObject(null, null, 0) == Boolean.FALSE);
+    }
+
+    @Test
+    public void testToBooleanObject_withNullNullValue() {
+        assertNull(BooleanUtils.toBooleanObject(null, null, null));
+    }
+
+    @Test
+    public void testToBooleanObject_withTrueString() {
+        assertTrue(BooleanUtils.toBooleanObject("true", "true", "false") == Boolean.TRUE);
+    }
+
+    @Test
+    public void testToBooleanObject_withFalseString() {
+        assertFalse(BooleanUtils.toBooleanObject("false", "true", "false") == Boolean.FALSE);
+    }
+
+    @Test
+    public void testToBooleanObject_withNullTrueString() {
+        assertTrue(BooleanUtils.toBooleanObject(null, "true", null) == Boolean.TRUE);
+    }
+
+    @Test
+    public void testToBooleanObject_withNullFalseString() {
+        assertFalse(BooleanUtils.toBooleanObject(null, null, "false") == Boolean.FALSE);
+    }
+
+    @Test
+    public void testToBooleanObject_withNullNullString() {
+        assertNull(BooleanUtils.toBooleanObject(null, null, null));
+    }
+}
+```

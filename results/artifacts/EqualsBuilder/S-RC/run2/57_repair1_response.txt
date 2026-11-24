@@ -1,0 +1,65 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class EqualsBuilder_GenTest {
+
+    private EqualsBuilder builder;
+
+    @BeforeEach
+    public void setUp() {
+        // Reset the registry before each test
+        REGISTRY.remove();
+    }
+
+    @Test
+    public void testReflectionEquals_NullObjects_3() {
+        assertTrue(EqualsBuilder.reflectionEquals(null, null));
+    }
+
+    @Test
+    public void testReflectionEquals_SameObject_3() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj));
+    }
+
+    @Test
+    public void testAppendArray_NullArrays_3() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((boolean[]) null, (boolean[]) null);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendArray_EmptyArrays_3() {
+        boolean[] lhs = {};
+        boolean[] rhs = {};
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendArray_DifferentLengths_3() {
+        boolean[] lhs = {true};
+        boolean[] rhs = {true, false};
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(lhs, rhs);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    public void testAppendArray_EqualArrays_3() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {true, false};
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+}
+```

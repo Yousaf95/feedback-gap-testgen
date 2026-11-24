@@ -1,0 +1,94 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import static org.junit.jupiter.api.Assertions.*;
+
+class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value();
+        int number() default 42;
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface AnotherTestAnnotation {
+        String value();
+    }
+
+    @Test
+    void testToString_nonNullAnnotation() {
+        TestAnnotation annotation = new TestAnnotation() {
+            @Override
+            public String value() {
+                return "testValue";
+            }
+        };
+        assertEquals("@TestAnnotation(value=testValue, number=42)", AnnotationUtils.toString(annotation));
+    }
+
+    @Test
+    void testHashCode_sameInstanceAnnotations() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public String value() {
+                return "testValue";
+            }
+        };
+        TestAnnotation annotation2 = annotation1;
+        assertEquals(AnnotationUtils.hashCode(annotation1), AnnotationUtils.hashCode(annotation2));
+    }
+
+    @Test
+    void testEquals_identicalAnnotations() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public String value() {
+                return "testValue";
+            }
+        };
+        TestAnnotation annotation2 = new TestAnnotation() {
+            @Override
+            public String value() {
+                return "testValue";
+            }
+        };
+        assertTrue(AnnotationUtils.equals(annotation1, annotation2));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_arrayOfValidTypes() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(String[].class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(int[].class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(Class[].class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(Enum[].class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(TestAnnotation[].class));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_arrayOfInvalidTypes() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(Object[].class));
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(String[][].class));
+    }
+
+    @Test
+    void testToString_differentAnnotations() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public String value() {
+                return "testValue";
+            }
+        };
+        AnotherTestAnnotation annotation2 = new AnotherTestAnnotation() {
+            @Override
+            public String value() {
+                return "anotherValue";
+            }
+        };
+        assertNotEquals(AnnotationUtils.toString(annotation1), AnnotationUtils.toString(annotation2));
+    }
+}
+```

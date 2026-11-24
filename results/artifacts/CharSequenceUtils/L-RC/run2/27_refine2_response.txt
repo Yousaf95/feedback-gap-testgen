@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.nio.CharBuffer;
+
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testSubSequence_withStartIndexGreaterThanLength() {
+        assertEquals("", CharSequenceUtils.subSequence("test", 10).toString());
+    }
+
+    @Test
+    public void testToCharArray_withEmptyCharSequence() {
+        char[] result = CharSequenceUtils.toCharArray("");
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testIndexOf_withStringBuilderNotFound() {
+        StringBuilder sb = new StringBuilder("test");
+        assertEquals(-1, CharSequenceUtils.indexOf(sb, "xyz", 0));
+    }
+
+    @Test
+    public void testIndexOf_withStringBufferNotFound() {
+        StringBuffer sb = new StringBuffer("test");
+        assertEquals(-1, CharSequenceUtils.indexOf(sb, "xyz", 0));
+    }
+
+    @Test
+    public void testIndexOf_withNonStringFound() {
+        CharBuffer cb = CharBuffer.wrap("test");
+        assertEquals(2, CharSequenceUtils.indexOf(cb, 's', 0));
+    }
+
+    @Test
+    public void testIndexOf_withSupplementaryCharacterNotFound() {
+        String str = "test";
+        assertEquals(-1, CharSequenceUtils.indexOf(str, Character.toChars(Character.MIN_SUPPLEMENTARY_CODE_POINT)[0], 0));
+    }
+
+    @Test
+    public void testLastIndexOf_withStringBuilderNotFound() {
+        StringBuilder sb = new StringBuilder("test");
+        assertEquals(-1, CharSequenceUtils.lastIndexOf(sb, "xyz", 0));
+    }
+
+    @Test
+    public void testLastIndexOf_withStringBufferNotFound() {
+        StringBuffer sb = new StringBuffer("test");
+        assertEquals(-1, CharSequenceUtils.lastIndexOf(sb, "xyz", 0));
+    }
+
+    @Test
+    public void testLastIndexOf_withNonStringFound() {
+        CharBuffer cb = CharBuffer.wrap("test");
+        assertEquals(2, CharSequenceUtils.lastIndexOf(cb, 's', 3));
+    }
+
+    @Test
+    public void testLastIndexOf_withSupplementaryCharacterNotFound() {
+        String str = "test";
+        assertEquals(-1, CharSequenceUtils.lastIndexOf(str, Character.toChars(Character.MIN_SUPPLEMENTARY_CODE_POINT)[0], 0));
+    }
+}
+```

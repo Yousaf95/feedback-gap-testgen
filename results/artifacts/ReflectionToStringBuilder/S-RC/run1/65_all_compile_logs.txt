@@ -1,0 +1,576 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[10,26] package org.mockito does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[54,56] reference to toNoNullStringArray is ambiguous
+  both method toNoNullStringArray(java.util.Collection<java.lang.String>) in org.apache.commons.lang3.builder.ReflectionToStringBuilder and method toNoNullStringArray(java.lang.Object[]) in org.apache.commons.lang3.builder.ReflectionToStringBuilder match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[10,26] package org.mockito does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[54,56] reference to toNoNullStringArray is ambiguous
+[ERROR]   both method toNoNullStringArray(java.util.Collection<java.lang.String>) in org.apache.commons.lang3.builder.ReflectionToStringBuilder and method toNoNullStringArray(java.lang.Object[]) in org.apache.commons.lang3.builder.ReflectionToStringBuilder match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[51,78] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[57,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[64,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[51,78] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[57,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[64,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[211,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[224,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[232,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[242,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[242,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[251,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[251,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[269,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[269,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[278,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[278,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[296,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[296,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[307,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[307,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[318,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[318,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[329,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[329,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[340,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[340,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[351,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[351,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[362,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[362,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[373,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[373,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[375,34] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[386,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[391,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[391,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[395,68] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[400,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[400,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[404,45] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[211,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[224,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[232,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[242,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[242,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[251,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[251,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[269,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[269,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[278,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[278,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[296,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[296,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[307,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[307,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[318,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[318,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[329,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[329,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[340,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[340,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[351,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[351,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[362,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[362,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[373,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[373,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[375,34] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[386,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[391,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[391,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[395,68] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[400,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[400,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[404,45] validate() has private access in org.apache.commons.lang3.builder.ReflectionToStringBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[193,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[193,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[202,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[202,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[212,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[243,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[243,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[254,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[254,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[265,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[265,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[276,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[276,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[298,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[298,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[193,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[193,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[202,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[202,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[212,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[243,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[243,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[254,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[254,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[265,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[265,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[276,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[276,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[287,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[298,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[298,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[211,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[227,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[227,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[238,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[238,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[249,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[249,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[271,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[271,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[211,49] package ReflectionToStringStyle does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[216,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[227,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[227,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[238,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[238,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[249,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[249,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[260,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[271,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[271,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,13] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,31] cannot find symbol
+  symbol:   class MyClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[211,49] package ReflectionToStringStyle does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,13] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[201,31] cannot find symbol
+[ERROR]   symbol:   class MyClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[211,49] package ReflectionToStringStyle does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

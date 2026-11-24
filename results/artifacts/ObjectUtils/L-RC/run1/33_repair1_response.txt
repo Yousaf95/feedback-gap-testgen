@@ -1,0 +1,99 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Collections;
+import java.util.Optional;
+import java.time.Duration;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    void testCONST_BYTE_InvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(-129));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(128));
+    }
+
+    @Test
+    void testCONST_SHORT_InvalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(-32769));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(32768));
+    }
+
+    @Test
+    void testGetFirstNonNull_NullSuppliers() {
+        Supplier<String> nullSupplier = () -> null;
+        assertNull(ObjectUtils.getFirstNonNull(nullSupplier, nullSupplier));
+    }
+
+    @Test
+    void testHashCodeMulti_NullArray() {
+        assertEquals(1, ObjectUtils.hashCodeMulti((Object[]) null));
+    }
+
+    @Test
+    void testIdentityToString_WithNullObject() {
+        assertNull(ObjectUtils.identityToString((Object) null));
+    }
+
+    @Test
+    void testIsEmpty_Array() {
+        assertTrue(ObjectUtils.isEmpty(new int[0]));
+        assertFalse(ObjectUtils.isEmpty(new int[]{1}));
+    }
+
+    @Test
+    void testIsEmpty_Collection() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+        assertFalse(ObjectUtils.isEmpty(Arrays.asList(1)));
+    }
+
+    @Test
+    void testIsEmpty_Map() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyMap()));
+        assertFalse(ObjectUtils.isEmpty(Collections.singletonMap("key", "value")));
+    }
+
+    @Test
+    void testIsEmpty_Optional() {
+        assertTrue(ObjectUtils.isEmpty(Optional.empty()));
+        assertFalse(ObjectUtils.isEmpty(Optional.of("value")));
+    }
+
+    @Test
+    void testMedian_EmptyItems() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median(Comparator.naturalOrder(), (Integer[]) null));
+    }
+
+    @Test
+    void testMedian_NullItems() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median(Comparator.naturalOrder(), (Integer) null));
+    }
+
+    @Test
+    void testMedian_NullComparator() {
+        Integer[] items = {1, 2, 3};
+        assertThrows(NullPointerException.class, () -> ObjectUtils.median(null, items));
+    }
+
+    @Test
+    void testMode_ArrayWithMultipleItems() {
+        assertNull(ObjectUtils.mode());
+        assertEquals("a", ObjectUtils.mode("a", "b", "a"));
+        assertNull(ObjectUtils.mode("a", "b", "c"));
+    }
+
+    @Test
+    void testToString_WithNullObjectAndSupplier() {
+        Supplier<String> supplier = () -> "default";
+        assertEquals("default", ObjectUtils.toString((String) null, supplier));
+    }
+
+    @Test
+    void testWait_WithNullDuration() throws InterruptedException {
+        final Object obj = new Object();
+        assertDoesNotThrow(() -> ObjectUtils.wait(obj, (Duration) null));
+    }
+}
+```

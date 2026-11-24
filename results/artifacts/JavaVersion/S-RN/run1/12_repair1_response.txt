@@ -1,0 +1,44 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class JavaVersion_GenTest {
+
+    @Test
+    public void testAtLeastMethodWithHigherVersion() {
+        assertTrue(JavaVersion.JAVA_17.atLeast(JavaVersion.JAVA_16));
+    }
+
+    @Test
+    public void testAtLeastMethodWithEqualVersion() {
+        assertTrue(JavaVersion.JAVA_17.atLeast(JavaVersion.JAVA_17));
+    }
+
+    @Test
+    public void testAtLeastMethodWithLowerVersion() {
+        assertFalse(JavaVersion.JAVA_16.atLeast(JavaVersion.JAVA_17));
+    }
+
+    @Test
+    public void testAtMostMethodWithLowerVersion() {
+        assertTrue(JavaVersion.JAVA_16.atMost(JavaVersion.JAVA_17));
+    }
+
+    @Test
+    public void testAtMostMethodWithEqualVersion() {
+        assertTrue(JavaVersion.JAVA_17.atMost(JavaVersion.JAVA_17));
+    }
+
+    @Test
+    public void testAtMostMethodWithHigherVersion() {
+        assertFalse(JavaVersion.JAVA_17.atMost(JavaVersion.JAVA_16));
+    }
+
+    @Test
+    public void testDeprecatedJavaVersion() {
+        assertEquals("9", JavaVersion.JAVA_1_9.toString());
+    }
+}
+```

@@ -1,0 +1,147 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class DiffBuilder_GenTest {
+
+    private DiffBuilder<Object> diffBuilder;
+
+    @BeforeEach
+    public void setUp() {
+        // Initialize any necessary setup here if needed
+    }
+
+    @Test
+    public void testAppendBooleanNotEqual_2() {
+        DiffBuilder<Boolean> builder = new DiffBuilder<>(true, false, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", true, false);
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendByteNotEqual_2() {
+        DiffBuilder<Byte> builder = new DiffBuilder<>((byte) 10, (byte) 20, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", (byte) 10, (byte) 20);
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendCharNotEqual_2() {
+        DiffBuilder<Character> builder = new DiffBuilder<>('a', 'b', ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", 'a', 'b');
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendDoubleNotEqual_2() {
+        DiffBuilder<Double> builder = new DiffBuilder<>(1.0, 2.0, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", 1.0, 2.0);
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendFloatNotEqual_2() {
+        DiffBuilder<Float> builder = new DiffBuilder<>(1.0f, 2.0f, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", 1.0f, 2.0f);
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendIntNotEqual_2() {
+        DiffBuilder<Integer> builder = new DiffBuilder<>(1, 2, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", 1, 2);
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendLongNotEqual_2() {
+        DiffBuilder<Long> builder = new DiffBuilder<>(1L, 2L, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", 1L, 2L);
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendShortNotEqual_2() {
+        DiffBuilder<Short> builder = new DiffBuilder<>((short) 10, (short) 20, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", (short) 10, (short) 20);
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendBooleanArrayNotEqual() {
+        DiffBuilder<Boolean[]> builder = new DiffBuilder<>(new Boolean[]{true}, new Boolean[]{false}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Boolean[]{true}, new Boolean[]{false});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendByteArrayNotEqual() {
+        DiffBuilder<Byte[]> builder = new DiffBuilder<>(new Byte[]{(byte) 10}, new Byte[]{(byte) 20}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Byte[]{(byte) 10}, new Byte[]{(byte) 20});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendCharArrayNotEqual() {
+        DiffBuilder<Character[]> builder = new DiffBuilder<>(new Character[]{'a'}, new Character[]{'b'}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Character[]{'a'}, new Character[]{'b'});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendDoubleArrayNotEqual() {
+        DiffBuilder<Double[]> builder = new DiffBuilder<>(new Double[]{1.0}, new Double[]{2.0}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Double[]{1.0}, new Double[]{2.0});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendFloatArrayNotEqual() {
+        DiffBuilder<Float[]> builder = new DiffBuilder<>(new Float[]{1.0f}, new Float[]{2.0f}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Float[]{1.0f}, new Float[]{2.0f});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendIntArrayNotEqual() {
+        DiffBuilder<Integer[]> builder = new DiffBuilder<>(new Integer[]{1}, new Integer[]{2}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Integer[]{1}, new Integer[]{2});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendLongArrayNotEqual() {
+        DiffBuilder<Long[]> builder = new DiffBuilder<>(new Long[]{1L}, new Long[]{2L}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Long[]{1L}, new Long[]{2L});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendShortArrayNotEqual() {
+        DiffBuilder<Short[]> builder = new DiffBuilder<>(new Short[]{(short) 10}, new Short[]{(short) 20}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Short[]{(short) 10}, new Short[]{(short) 20});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendObjectNotEqual() {
+        DiffBuilder<Object> builder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Object(), new Object());
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+
+    @Test
+    public void testAppendObjectArrayNotEqual() {
+        DiffBuilder<Object[]> builder = new DiffBuilder<>(new Object[]{new Object()}, new Object[]{new Object()}, ToStringStyle.DEFAULT_STYLE);
+        builder.append("test", new Object[]{new Object()}, new Object[]{new Object()});
+        assertEquals(1, builder.build().getDiffs().size());
+    }
+}
+```

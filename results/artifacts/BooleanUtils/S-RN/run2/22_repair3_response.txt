@@ -1,0 +1,69 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class BooleanUtils_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("booleanArrayProvider")
+    public void testXor(boolean[] array, boolean expected) {
+        assertEquals(expected, BooleanUtils.xor(array));
+    }
+
+    @ParameterizedTest
+    @MethodSource("booleanArrayProvider")
+    public void testOneHot(boolean[] array, boolean expected) {
+        assertEquals(expected, BooleanUtils.oneHot(array));
+    }
+
+    @ParameterizedTest
+    @MethodSource("compareValuesProvider")
+    public void testCompare(boolean x, boolean y, int expected) {
+        assertEquals(expected, BooleanUtils.compare(x, y));
+    }
+
+    @Test
+    public void testForEach() {
+        boolean[] captured = new boolean[2];
+        int index = 0;
+        BooleanUtils.forEach(b -> captured[index++] = b);
+        assertTrue(captured[0]);
+        assertFalse(captured[1]);
+
+        assertThrows(NullPointerException.class, () -> BooleanUtils.forEach((Consumer<Boolean>) null));
+    }
+
+    @Test
+    public void testToBooleanObjectWithNull() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject("unknown"));
+    }
+
+    private static Stream<Arguments> booleanArrayProvider() {
+        return Stream.of(
+            arguments(new boolean[]{true, false}, true),
+            arguments(new boolean[]{false, false}, false),
+            arguments(new boolean[]{true, true}, false),
+            arguments(new boolean[]{false, true}, true)
+        );
+    }
+
+    private static Stream<Arguments> compareValuesProvider() {
+        return Stream.of(
+            arguments(true, true, 0),
+            arguments(false, true, -1),
+            arguments(true, false, 1)
+        );
+    }
+}
+```

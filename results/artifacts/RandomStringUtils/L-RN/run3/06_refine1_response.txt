@@ -1,0 +1,370 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    void testRandomWithStartGreaterThanEndThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(5, 127, 33, false, false));
+    }
+
+    @Test
+    void testRandomAlphabeticWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphabetic(-1));
+    }
+
+    @Test
+    void testRandomAlphanumericWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAlphanumeric(-1));
+    }
+
+    @Test
+    void testRandomAsciiWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomAscii(-1));
+    }
+
+    @Test
+    void testRandomGraphWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomGraph(-1));
+    }
+
+    @Test
+    void testRandomNumericWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomNumeric(-1));
+    }
+
+    @Test
+    void testRandomPrintWithNegativeCountThrowsIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.randomPrint(-1));
+    }
+
+    @Test
+    void testRandomAlphabeticWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomAlphabetic(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomAlphanumericWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomAlphanumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomAsciiWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomAscii(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomGraphWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomGraph(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomNumericWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomNumeric(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomPrintWithRangeGeneratesStringOfCorrectLength() {
+        String result = RandomStringUtils.randomPrint(5, 10);
+        assertTrue(result.length() >= 5 && result.length() < 10);
+    }
+
+    @Test
+    void testRandomWithStartAndEndGeneratesStringUsingThoseBounds() {
+        String result = RandomStringUtils.random(10, 65, 91, false, false); // A-Z
+        assertTrue(result.chars().allMatch(ch -> ch >= 65 && ch < 91));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndGeneratesStringUsingThoseBounds() {
+        char[] chars = {'a', 'b', 'c'};
+        String result = RandomStringUtils.random(10, 0, 3, false, false, chars);
+        assertTrue(result.chars().allMatch(ch -> ch == 'a' || ch == 'b' || ch == 'c'));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndZeroGeneratesStringUsingThoseBounds() {
+        char[] chars = {'x', 'y', 'z'};
+        String result = RandomStringUtils.random(10, 0, 0, false, false, chars);
+        assertTrue(result.chars().allMatch(ch -> ch == 'x' || ch == 'y' || ch == 'z'));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroGeneratesStringUsingThoseBounds() {
+        char[] chars = {'a', 'b', 'c'};
+        String result = RandomStringUtils.random(10, 1, 3, false, false, chars);
+        assertTrue(result.chars().allMatch(ch -> ch == 'b' || ch == 'c'));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 4, 5, false, false, chars));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsReversedThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 5, 4, false, false, chars));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 4, 4, false, false, chars));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsNegativeStartThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, -1, 2, false, false, chars));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsNegativeEndThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 1, -2, false, false, chars));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsNegativeBothThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, -1, -2, false, false, chars));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueNegativeThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, -1, -1, false, false, chars));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueZeroThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 0, 0, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueOneThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 1, 1, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwoThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 2, 2, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThreeThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 3, 3, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueFourThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 4, 4, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueFiveThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 5, 5, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueSixThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 6, 6, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueSevenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 7, 7, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueEightThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 8, 8, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueNineThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 9, 9, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 10, 10, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueElevenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 11, 11, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwelveThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 12, 12, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirteenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 13, 13, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueFourteenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 14, 14, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueFifteenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 15, 15, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueSixteenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 16, 16, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueSeventeenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 17, 17, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueEighteenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 18, 18, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueNineteenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 19, 19, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 20, 20, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyOneThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 21, 21, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyTwoThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 22, 22, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyThreeThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 23, 23, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyFourThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 24, 24, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyFiveThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 25, 25, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentySixThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 26, 26, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentySevenThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 27, 27, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyEightThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 28, 28, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueTwentyNineThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 29, 29, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirtyThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 30, 30, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirtyOneThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 31, 31, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirtyTwoThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 32, 32, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirtyThreeThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 33, 33, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirtyFourThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 34, 34, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirtyFiveThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(10, 35, 35, false, false));
+    }
+
+    @Test
+    void testRandomWithCustomCharsArrayAndStartEndNonZeroExceedingBoundsSameValueThirtySixThrowsIllegalArgumentException() {
+        char[] chars = {'a', 'b', 'c'};
+        assertThrows(IllegalArgumentException.class, () ->

@@ -1,0 +1,90 @@
+```java
+package org.apache.commons.lang3.builder;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+
+class CompareToBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testAppendBooleanArrays() {
+        boolean[] lhs = {true, false};
+        boolean[] rhs = {true, true};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendByteArrays() {
+        byte[] lhs = {1, 2};
+        byte[] rhs = {1, 3};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendCharArrays() {
+        char[] lhs = {'a', 'b'};
+        char[] rhs = {'a', 'c'};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendDoubleArrays() {
+        double[] lhs = {1.0, 2.0};
+        double[] rhs = {1.0, 3.0};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendFloatArrays() {
+        float[] lhs = {1.0f, 2.0f};
+        float[] rhs = {1.0f, 3.0f};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendIntArrays() {
+        int[] lhs = {1, 2};
+        int[] rhs = {1, 3};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendLongArrays() {
+        long[] lhs = {1L, 2L};
+        long[] rhs = {1L, 3L};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendShortArrays() {
+        short[] lhs = {1, 2};
+        short[] rhs = {1, 3};
+        int result = new CompareToBuilder().append(lhs, rhs).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendObjectArraysWithComparator() {
+        String[] lhs = {"a", "b"};
+        String[] rhs = {"a", "c"};
+        Comparator<String> comparator = String::compareTo;
+        int result = new CompareToBuilder().append(lhs, rhs, comparator).toComparison();
+        assertEquals(-1, result);
+    }
+
+    @Test
+    public void testAppendSuperNonZero() {
+        int superCompareTo = 5;
+        int result = new CompareToBuilder().appendSuper(superCompareTo).toComparison();
+        assertEquals(5, result);
+    }
+}
+```

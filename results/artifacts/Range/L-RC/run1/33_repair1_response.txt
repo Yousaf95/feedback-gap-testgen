@@ -1,0 +1,71 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+import static org.junit.jupiter.api.Assertions.*;
+
+class Range_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testConstructorWithComparatorSwapsElements() {
+        Comparator<Integer> reverseOrder = (a, b) -> b.compareTo(a);
+        Range<Integer> range = Range.of(2, 1, reverseOrder);
+        assertEquals(Integer.valueOf(1), range.getMinimum());
+        assertEquals(Integer.valueOf(2), range.getMaximum());
+    }
+
+    @Test
+    void testContainsRangeWithNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    void testHashCodeCalculation() {
+        Range<Integer> range = Range.between(1, 5);
+        int expectedHash = java.util.Objects.hash(Range.class, 1, 5);
+        assertEquals(expectedHash, range.hashCode());
+    }
+
+    @Test
+    void testIntersectionWithDifferentMinimumAndMaximum() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 7);
+        Range<Integer> intersection = range1.intersectionWith(range2);
+        assertEquals(Range.between(3, 5), intersection);
+    }
+
+    @Test
+    void testIsAfterRangeWithNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    void testIsBeforeRangeWithNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    void testIsOverlappedByWithNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isOverlappedBy(null));
+    }
+
+    @Test
+    void testToStringWhenCached() {
+        Range<Integer> range = Range.between(1, 5);
+        String initialString = range.toString();
+        assertEquals(initialString, range.toString());
+    }
+
+    @Test
+    void testToStringWithFormat() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals("[1..5]", range.toString("[%s..%s]"));
+    }
+}
+```

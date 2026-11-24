@@ -1,0 +1,468 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[56,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[72,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[74,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[81,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[88,28] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[94,13] cannot find symbol
+  symbol:   class NonTransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[94,41] cannot find symbol
+  symbol:   class NonTransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[96,51] cannot find symbol
+  symbol:   class NonTransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[102,13] cannot find symbol
+  symbol:   class TransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[102,38] cannot find symbol
+  symbol:   class TransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[104,51] cannot find symbol
+  symbol:   class TransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[110,13] cannot find symbol
+  symbol:   class ExcludeClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[110,36] cannot find symbol
+  symbol:   class ExcludeClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[112,51] cannot find symbol
+  symbol:   class ExcludeClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[118,13] cannot find symbol
+  symbol:   class SubClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[118,32] cannot find symbol
+  symbol:   class SubClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[120,51] cannot find symbol
+  symbol:   class SubClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[131,13] cannot find symbol
+  symbol:   class ExcludeClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[131,36] cannot find symbol
+  symbol:   class ExcludeClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,13] cannot find symbol
+  symbol:   class NonTransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,41] cannot find symbol
+  symbol:   class NonTransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[143,13] cannot find symbol
+  symbol:   class TransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[143,38] cannot find symbol
+  symbol:   class TransientClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[149,13] cannot find symbol
+  symbol:   class ExcludeClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[149,36] cannot find symbol
+  symbol:   class ExcludeClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,13] cannot find symbol
+  symbol:   class SubClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,32] cannot find symbol
+  symbol:   class SubClass
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[56,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[72,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[74,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[81,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[88,28] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[94,13] cannot find symbol
+[ERROR]   symbol:   class NonTransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[94,41] cannot find symbol
+[ERROR]   symbol:   class NonTransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[96,51] cannot find symbol
+[ERROR]   symbol:   class NonTransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[102,13] cannot find symbol
+[ERROR]   symbol:   class TransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[102,38] cannot find symbol
+[ERROR]   symbol:   class TransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[104,51] cannot find symbol
+[ERROR]   symbol:   class TransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[110,13] cannot find symbol
+[ERROR]   symbol:   class ExcludeClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[110,36] cannot find symbol
+[ERROR]   symbol:   class ExcludeClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[112,51] cannot find symbol
+[ERROR]   symbol:   class ExcludeClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[118,13] cannot find symbol
+[ERROR]   symbol:   class SubClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[118,32] cannot find symbol
+[ERROR]   symbol:   class SubClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[120,51] cannot find symbol
+[ERROR]   symbol:   class SubClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[131,13] cannot find symbol
+[ERROR]   symbol:   class ExcludeClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[131,36] cannot find symbol
+[ERROR]   symbol:   class ExcludeClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,13] cannot find symbol
+[ERROR]   symbol:   class NonTransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,41] cannot find symbol
+[ERROR]   symbol:   class NonTransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[143,13] cannot find symbol
+[ERROR]   symbol:   class TransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[143,38] cannot find symbol
+[ERROR]   symbol:   class TransientClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[149,13] cannot find symbol
+[ERROR]   symbol:   class ExcludeClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[149,36] cannot find symbol
+[ERROR]   symbol:   class ExcludeClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,13] cannot find symbol
+[ERROR]   symbol:   class SubClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,32] cannot find symbol
+[ERROR]   symbol:   class SubClass
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[52,6] cannot find symbol
+  symbol:   class BeforeEach
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[55,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[71,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[73,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[80,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[87,28] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[52,6] cannot find symbol
+[ERROR]   symbol:   class BeforeEach
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[55,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[71,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[73,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[80,28] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[87,28] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[58,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[63,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[79,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[86,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[93,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[55,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[73,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[75,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[82,20] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[89,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[58,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[63,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[79,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[86,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[93,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[55,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[73,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[75,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[82,20] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[89,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[58,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[63,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[79,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[86,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[93,6] cannot find symbol
+  symbol:   class Test
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[55,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[73,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[75,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[82,20] no suitable method found for append(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[89,20] no suitable method found for append(int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+      (actual and formal argument lists differ in length)
+    method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[58,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[63,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[79,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[86,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[93,6] cannot find symbol
+[ERROR]   symbol:   class Test
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[55,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[73,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[75,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[82,20] no suitable method found for append(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[89,20] no suitable method found for append(int[],org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(boolean[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(byte[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(char[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(double[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(float[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(int[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(long[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(java.lang.Object[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method org.apache.commons.lang3.builder.HashCodeBuilder.append(short[]) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

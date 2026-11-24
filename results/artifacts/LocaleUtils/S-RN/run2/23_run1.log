@@ -1,0 +1,74 @@
+[ERROR] Tests run: 26, Failures: 2, Errors: 3, Skipped: 0, Time elapsed: 0.240 s <<< FAILURE! -- in org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLocaleWithScriptExtensions -- Time elapsed: 0.020 s <<< ERROR!
+java.lang.IllegalArgumentException: Invalid locale format: zh-Hans-CN
+	at org.apache.commons.lang3.LocaleUtils.parseLocale(LocaleUtils.java:269)
+	at org.apache.commons.lang3.LocaleUtils.toLocale(LocaleUtils.java:351)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLocaleWithScriptExtensions(LocaleUtils_GenTest.java:150)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testLanguagesByCountry_emptyCountryCode -- Time elapsed: 0.004 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testLanguagesByCountry_emptyCountryCode(LocaleUtils_GenTest.java:125)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLocaleWithScriptAndExtensions -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.IllegalArgumentException: Invalid locale format: zh-Hans-CN-x-macosx
+	at org.apache.commons.lang3.LocaleUtils.parseLocale(LocaleUtils.java:269)
+	at org.apache.commons.lang3.LocaleUtils.toLocale(LocaleUtils.java:351)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLocaleWithScriptAndExtensions(LocaleUtils_GenTest.java:167)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_invalidFormat_missingLanguage -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_invalidFormat_missingLanguage(LocaleUtils_GenTest.java:145)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLocaleWithExtensions -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.IllegalArgumentException: Invalid locale format: en-US-x-macosx
+	at org.apache.commons.lang3.LocaleUtils.parseLocale(LocaleUtils.java:269)
+	at org.apache.commons.lang3.LocaleUtils.toLocale(LocaleUtils.java:351)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testToLocale_validLocaleWithExtensions(LocaleUtils_GenTest.java:158)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   LocaleUtils_GenTest.testLanguagesByCountry_emptyCountryCode:125 expected: <true> but was: <false>
+[ERROR]   LocaleUtils_GenTest.testToLocale_invalidFormat_missingLanguage:145 Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+[ERROR] Errors: 
+[ERROR]   LocaleUtils_GenTest.testToLocale_validLocaleWithExtensions:158 » IllegalArgument Invalid locale format: en-US-x-macosx
+[ERROR]   LocaleUtils_GenTest.testToLocale_validLocaleWithScriptAndExtensions:167 » IllegalArgument Invalid locale format: zh-Hans-CN-x-macosx
+[ERROR]   LocaleUtils_GenTest.testToLocale_validLocaleWithScriptExtensions:150 » IllegalArgument Invalid locale format: zh-Hans-CN
+[ERROR] Tests run: 26, Failures: 2, Errors: 3, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w8/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

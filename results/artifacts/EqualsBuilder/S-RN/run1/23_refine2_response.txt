@@ -1,0 +1,130 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    public void testAppendMapNull() {
+        Map<String, String> map1 = null;
+        Map<String, String> map2 = new HashMap<>();
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapDifferentSize() {
+        Map<String, String> map1 = Map.of("key1", "value1");
+        Map<String, String> map2 = Map.of("key1", "value1", "key2", "value2");
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapDifferentValues() {
+        Map<String, String> map1 = Map.of("key1", "value1");
+        Map<String, String> map2 = Map.of("key1", "value2");
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapSameValues() {
+        Map<String, String> map1 = Map.of("key1", "value1");
+        Map<String, String> map2 = Map.of("key1", "value1");
+        assertTrue(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithNullValues() {
+        Map<String, String> map1 = Map.of("key1", null);
+        Map<String, String> map2 = Map.of("key1", null);
+        assertTrue(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullValues() {
+        Map<String, String> map1 = Map.of("key1", null);
+        Map<String, String> map2 = Map.of("key1", "value");
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValues() {
+        Map<String, String> map1 = Map.of("key1", null);
+        Map<String, String> map2 = Map.of("key1", "value");
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed2() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed3() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed4() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed5() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed6() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed7() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed8() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed9() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+
+    @Test
+    public void testAppendMapWithDifferentNullAndNonNullValuesReversed10() {
+        Map<String, String> map1 = Map.of("key1", "value");
+        Map<String, String> map2 = Map.of("key1", null);
+        assertFalse(new EqualsBuilder().append(map1, map2).isEquals());
+    }
+}
+```

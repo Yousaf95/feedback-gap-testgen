@@ -1,0 +1,686 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[240,28] cannot find symbol
+  symbol:   class Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[30,44] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[44,44] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[58,44] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[72,44] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[246,24] cannot find symbol
+  symbol:   class Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[246,39] cannot find symbol
+  symbol:   variable Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[247,24] cannot find symbol
+  symbol:   class Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[247,39] cannot find symbol
+  symbol:   variable Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[248,24] cannot find symbol
+  symbol:   class Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[248,39] cannot find symbol
+  symbol:   variable Comparator
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[255,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[255,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[297,9] cannot find symbol
+  symbol:   class Duration
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[297,29] cannot find symbol
+  symbol:   variable Duration
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[303,37] method max in interface java.util.stream.Stream<T> cannot be applied to given types;
+  required: java.util.Comparator<? super T>
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[307,37] method min in interface java.util.stream.Stream<T> cannot be applied to given types;
+  required: java.util.Comparator<? super T>
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[240,28] cannot find symbol
+[ERROR]   symbol:   class Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[30,44] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[44,44] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[58,44] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[72,44] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[246,24] cannot find symbol
+[ERROR]   symbol:   class Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[246,39] cannot find symbol
+[ERROR]   symbol:   variable Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[247,24] cannot find symbol
+[ERROR]   symbol:   class Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[247,39] cannot find symbol
+[ERROR]   symbol:   variable Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[248,24] cannot find symbol
+[ERROR]   symbol:   class Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[248,39] cannot find symbol
+[ERROR]   symbol:   variable Comparator
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[255,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[255,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[297,9] cannot find symbol
+[ERROR]   symbol:   class Duration
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[297,29] cannot find symbol
+[ERROR]   symbol:   variable Duration
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[303,37] method max in interface java.util.stream.Stream<T> cannot be applied to given types;
+[ERROR]   required: java.util.Comparator<? super T>
+[ERROR]   found:    no arguments
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[307,37] method min in interface java.util.stream.Stream<T> cannot be applied to given types;
+[ERROR]   required: java.util.Comparator<? super T>
+[ERROR]   found:    no arguments
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[199,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[202,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[217,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[220,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[275,16] cannot find symbol
+  symbol:   variable Arrays
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,16] cannot find symbol
+  symbol:   variable Arrays
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[199,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[202,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[217,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[220,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[275,16] cannot find symbol
+[ERROR]   symbol:   variable Arrays
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,16] cannot find symbol
+[ERROR]   symbol:   variable Arrays
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[199,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[202,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[217,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[220,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[275,16] cannot find symbol
+  symbol:   variable Arrays
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,16] cannot find symbol
+  symbol:   variable Arrays
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[199,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[202,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[217,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[220,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[275,16] cannot find symbol
+[ERROR]   symbol:   variable Arrays
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,16] cannot find symbol
+[ERROR]   symbol:   variable Arrays
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+  symbol:   class CloneFailedException
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+  symbol:   variable Suppliers
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[199,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[202,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[217,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[220,23] cannot find symbol
+  symbol:   variable Collections
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+  required: T[]
+  found:    java.lang.Comparable<?>[]
+  reason: inference variable T has incompatible bounds
+    lower bounds: java.lang.Comparable<? super T>
+    lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[275,16] cannot find symbol
+  symbol:   variable Arrays
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,16] cannot find symbol
+  symbol:   variable Arrays
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[77,36] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[84,46] cannot find symbol
+[ERROR]   symbol:   class CloneFailedException
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[133,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[134,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[135,50] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,23] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[136,51] cannot find symbol
+[ERROR]   symbol:   variable Suppliers
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[199,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[202,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[217,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[220,23] cannot find symbol
+[ERROR]   symbol:   variable Collections
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,22] method maxValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[227,51] method max in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,22] method minValue in class org.apache.commons.lang3.ObjectUtils_GenTest cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[241,51] method min in class org.apache.commons.lang3.ObjectUtils cannot be applied to given types;
+[ERROR]   required: T[]
+[ERROR]   found:    java.lang.Comparable<?>[]
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     lower bounds: java.lang.Comparable<? super T>
+[ERROR]     lower bounds: java.lang.Comparable<?>[]
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[275,16] cannot find symbol
+[ERROR]   symbol:   variable Arrays
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[279,16] cannot find symbol
+[ERROR]   symbol:   variable Arrays
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

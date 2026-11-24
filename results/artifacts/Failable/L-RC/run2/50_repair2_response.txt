@@ -1,0 +1,208 @@
+```java
+package org.apache.commons.lang3.function;
+
+import org.junit.jupiter.api.Test;
+import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.concurrent.Callable;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+class Failable_GenTest {
+
+    @Test
+    public void testAsCallableNormalCase() throws Exception {
+        Callable<String> callable = Failable.asCallable(() -> "result");
+        assertEquals("result", callable.call());
+    }
+
+    @Test
+    public void testAsCallableThrowsException() {
+        Callable<String> callable = Failable.asCallable(() -> { throw new IOException("test"); });
+        assertThrows(UncheckedIOException.class, callable::call);
+    }
+
+    @Test
+    public void testAsPredicateNormalCase() {
+        Predicate<String> predicate = Failable.asPredicate(s -> s.equals("test"));
+        assertTrue(predicate.test("test"));
+    }
+
+    @Test
+    public void testAsPredicateThrowsException() {
+        Predicate<String> predicate = Failable.asPredicate(s -> { throw new IOException("test"); });
+        assertThrows(UncheckedIOException.class, () -> predicate.test("test"));
+    }
+
+    @Test
+    public void testAsRunnableNormalCase() {
+        Runnable runnable = Failable.asRunnable(() -> {});
+        runnable.run();
+    }
+
+    @Test
+    public void testAsRunnableThrowsException() {
+        Runnable runnable = Failable.asRunnable(() -> { throw new IOException("test"); });
+        assertThrows(UncheckedIOException.class, runnable::run);
+    }
+
+    @Test
+    public void testAsSupplierNormalCase() {
+        Supplier<String> supplier = Failable.asSupplier(() -> "result");
+        assertEquals("result", supplier.get());
+    }
+
+    @Test
+    public void testAsSupplierThrowsException() {
+        Supplier<String> supplier = Failable.asSupplier(() -> { throw new IOException("test"); });
+        assertThrows(UncheckedIOException.class, supplier::get);
+    }
+
+    @Test
+    public void testCallNormalCase() throws Exception {
+        String result = Failable.call(() -> "result");
+        assertEquals("result", result);
+    }
+
+    @Test
+    public void testCallThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.call(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testGetThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.get(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testGetAsBooleanThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.getAsBoolean(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testGetAsDoubleThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.getAsDouble(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testGetAsIntThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.getAsInt(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testGetAsLongThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.getAsLong(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testGetAsShortThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.getAsShort(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testRethrowWithIOException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.rethrow(new IOException("test")));
+    }
+
+    @Test
+    public void testRethrowWithUndeclaredThrowableException() {
+        assertThrows(UndeclaredThrowableException.class, () -> Failable.rethrow(new Exception("test")));
+    }
+
+    @Test
+    public void testRunThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.run(() -> { throw new IOException("test"); }));
+    }
+
+    @Test
+    public void testTestPredicateNormalCase() {
+        boolean result = Failable.test(s -> s.equals("test"), "test");
+        assertTrue(result);
+    }
+
+    @Test
+    public void testTestPredicateThrowsException() {
+        assertThrows(UncheckedIOException.class, () -> Failable.test(s -> { throw new IOException("test"); }, "test"));
+    }
+
+    @Test
+    public void testTryWithResourcesNoErrorHandlerWithExceptionInAction() {
+        assertThrows(UncheckedIOException.class, () -> 
+            Failable.tryWithResources(() -> { throw new IOException("action"); })
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerNormalCase_2() {
+        Failable.tryWithResources(
+            () -> { throw new IOException("action"); },
+            th -> {},
+            () -> {}
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerThrowsExceptionInActionAndErrorHandler() {
+        assertThrows(UndeclaredThrowableException.class, () -> 
+            Failable.tryWithResources(
+                () -> { throw new Exception("action"); },
+                th -> { throw new Exception("error handler"); }
+            )
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerThrowsExceptionInResource() {
+        assertThrows(UndeclaredThrowableException.class, () -> 
+            Failable.tryWithResources(
+                () -> {},
+                th -> {},
+                () -> { throw new Exception("resource"); }
+            )
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerThrowsExceptionInActionAndResource() {
+        assertThrows(UndeclaredThrowableException.class, () -> 
+            Failable.tryWithResources(
+                () -> { throw new IOException("action"); },
+                th -> {},
+                () -> { throw new Exception("resource"); }
+            )
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandlerThrowsExceptionInActionAndErrorHandlerAndResource() {
+        assertThrows(UndeclaredThrowableException.class, () -> 
+            Failable.tryWithResources(
+                () -> { throw new IOException("action"); },
+                th -> { throw new Exception("error handler"); },
+                () -> { throw new Exception("resource"); }
+            )
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesNoErrorHandlerWithExceptionInResource() {
+        assertThrows(UndeclaredThrowableException.class, () -> 
+            Failable.tryWithResources(
+                () -> {},
+                () -> { throw new Exception("resource"); }
+            )
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesNoErrorHandlerWithExceptionInActionAndResource() {
+        assertThrows(UndeclaredThrowableException.class, () -> 
+            Failable.tryWithResources(
+                () -> { throw new IOException("action"); },
+                () -> { throw new Exception("resource"); }
+            )
+        );
+    }
+}
+```

@@ -1,0 +1,98 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testGetMessage_withNonNullThrowable() {
+        Throwable throwable = new IllegalArgumentException("Invalid argument");
+        assertEquals("IllegalArgumentException: Invalid argument", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withNestedException() {
+        Throwable nested = new NullPointerException("Null pointer");
+        Throwable root = new IllegalArgumentException("Illegal argument", nested);
+        assertEquals("NullPointerException: Null pointer", ExceptionUtils.getRootCauseMessage(root));
+    }
+
+    @Test
+    void testGetThrowableCount_withSingleThrowable() {
+        Throwable throwable = new RuntimeException();
+        assertEquals(1, ExceptionUtils.getThrowableCount(throwable));
+    }
+
+    @Test
+    void testGetThrowableList_withNestedThrowables() {
+        Throwable nested = new NullPointerException("Null pointer");
+        Throwable root = new IllegalArgumentException("Illegal argument", nested);
+        List<Throwable> list = ExceptionUtils.getThrowableList(root);
+        assertEquals(2, list.size());
+        assertSame(root, list.get(0));
+        assertSame(nested, list.get(1));
+    }
+
+    @Test
+    void testIndexOfThrowable_withExactMatch() {
+        Throwable target = new IllegalArgumentException("Illegal argument");
+        Throwable root = new RuntimeException(target);
+        assertEquals(1, ExceptionUtils.indexOfThrowable(root, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOfType_withSubclassMatch() {
+        Throwable target = new NullPointerException("Null pointer");
+        Throwable root = new RuntimeException(target);
+        assertEquals(1, ExceptionUtils.indexOfType(root, RuntimeException.class));
+    }
+
+    @Test
+    void testHasCause_withExactMatch() {
+        Throwable target = new IllegalArgumentException("Illegal argument");
+        Throwable root = new RuntimeException(target);
+        assertTrue(ExceptionUtils.hasCause(root, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testHasCause_withNoMatch() {
+        Throwable root = new RuntimeException();
+        assertFalse(ExceptionUtils.hasCause(root, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testThrowableOfThrowable_withExactMatch() {
+        Throwable target = new IllegalArgumentException("Illegal argument");
+        Throwable root = new RuntimeException(target);
+        assertSame(target, ExceptionUtils.throwableOfThrowable(root, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testThrowableOfType_withSubclassMatch() {
+        Throwable target = new NullPointerException("Null pointer");
+        Throwable root = new RuntimeException(target);
+        assertNotNull(ExceptionUtils.throwableOfType(root, RuntimeException.class));
+    }
+
+    @Test
+    void testWrapAndThrow_withCheckedException_2() throws Exception {
+        Exception checkedException = new Exception("Checked exception");
+        UndeclaredThrowableException undeclared = assertThrows(UndeclaredThrowableException.class, () -> ExceptionUtils.wrapAndThrow(checkedException));
+        assertEquals(checkedException, undeclared.getUndeclaredThrowable());
+    }
+
+    @Test
+    void testAsRuntimeException_withCheckedException() {
+        Exception checkedException = new Exception("Checked exception");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(checkedException));
+        assertEquals(checkedException, runtimeException.getCause());
+    }
+}
+```

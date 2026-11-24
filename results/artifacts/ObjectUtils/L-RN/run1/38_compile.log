@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[501,75] no suitable method found for median(java.util.Comparator<T>)
+    method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+      (inferred type does not conform to equality constraint(s)
+        inferred: T
+        equality constraints(s): T)
+    method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.Comparable<? super T>
+        lower bounds: java.util.Comparator<T>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w14/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[501,75] no suitable method found for median(java.util.Comparator<T>)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(java.util.Comparator<T>,T...) is not applicable
+[ERROR]       (inferred type does not conform to equality constraint(s)
+[ERROR]         inferred: T
+[ERROR]         equality constraints(s): T)
+[ERROR]     method org.apache.commons.lang3.ObjectUtils.<T>median(T...) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.Comparable<? super T>
+[ERROR]         lower bounds: java.util.Comparator<T>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

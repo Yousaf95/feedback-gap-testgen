@@ -1,0 +1,58 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    void testSetBypassReflectionClassesWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertThrows(NullPointerException.class, () -> builder.setBypassReflectionClasses(null));
+    }
+
+    @Test
+    void testSetExcludeFieldsWithNull() {
+        EqualsBuilder builder = new EqualsBuilder();
+        assertThrows(NullPointerException.class, () -> builder.setExcludeFields((String[]) null));
+    }
+
+    @Test
+    void testSetExcludeFieldsWithEmptyArray() {
+        EqualsBuilder builder = new EqualsBuilder().setExcludeFields(new String[0]);
+        assertEquals(0, builder.excludeFields.length);
+    }
+
+    @Test
+    void testSetReflectUpToClassWithObjectClass() {
+        EqualsBuilder builder = new EqualsBuilder().setReflectUpToClass(Object.class);
+        assertEquals(Object.class, builder.reflectUpToClass);
+    }
+
+    @Test
+    void testAppendSuperWithFalseAfterOtherAppends() {
+        EqualsBuilder builder = new EqualsBuilder()
+                .append(1, 2)
+                .appendSuper(false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendSuperWithTrueAfterOtherAppends() {
+        EqualsBuilder builder = new EqualsBuilder()
+                .append(1, 1)
+                .appendSuper(true);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testResetAfterMultipleAppends() {
+        EqualsBuilder builder = new EqualsBuilder()
+                .append(1, 2)
+                .append("a", "b")
+                .reset();
+        assertTrue(builder.isEquals());
+    }
+}
+```

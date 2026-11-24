@@ -1,0 +1,62 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAscii_true() {
+        assertTrue(CharUtils.isAscii('A'));
+    }
+
+    @Test
+    public void testIsAscii_false() {
+        assertFalse(CharUtils.isAscii((char) 128));
+    }
+
+    @Test
+    public void testIsAsciiAlphaLower_edgeCaseTrue() {
+        assertTrue(CharUtils.isAsciiAlphaLower('a'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaLower_edgeCaseFalse() {
+        assertFalse(CharUtils.isAsciiAlphaLower('z' + 1));
+    }
+
+    @Test
+    public void testToChar_Character_null_withDefaultValue_returnsDefaultValue() {
+        assertEquals('x', CharUtils.toChar(null, 'x'));
+    }
+
+    @Test
+    public void testToCharacterObject_char_returnsCharacterObject() {
+        assertEquals(Character.valueOf('A'), CharUtils.toCharacterObject('A'));
+    }
+
+    @Test
+    public void testToCharacterObject_string_empty_returnsNull() {
+        assertEquals(null, CharUtils.toCharacterObject(""));
+    }
+
+    @Test
+    public void testToIntValue_Character_null_withDefaultValue_returnsDefaultValue() {
+        assertEquals(5, CharUtils.toIntValue((Character) null, 5));
+    }
+
+    @Test
+    public void testToString_char_outOfBounds_returnsStringValue() {
+        assertEquals(String.valueOf((char) 128), CharUtils.toString((char) 128));
+    }
+
+    @Test
+    public void testCharUtils_constructor_exists() {
+        new CharUtils();
+    }
+}
+```

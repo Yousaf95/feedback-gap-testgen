@@ -1,0 +1,221 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class Validate_GenTest {
+
+    @Test
+    void testExclusiveBetweenDoubleUpperBound_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 5.0, 5.0));
+    }
+
+    @Test
+    void testExclusiveBetweenLongLowerBound_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 5L, 1L));
+    }
+
+    @Test
+    void testInclusiveBetweenDoubleUpperBound_3() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(1.0, 5.0, 5.0));
+    }
+
+    @Test
+    void testInclusiveBetweenLongLowerBound_3() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(1L, 5L, 1L));
+    }
+
+    @Test
+    void testExclusiveBetweenComparableLowerBound_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween("a", "c", (Comparable<String>) "a"));
+    }
+
+    @Test
+    void testExclusiveBetweenComparableUpperBound_2() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween("a", "c", (Comparable<String>) "c"));
+    }
+
+    @Test
+    void testInclusiveBetweenComparableLowerBound_2() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween("a", "c", (Comparable<String>) "a"));
+    }
+
+    @Test
+    void testInclusiveBetweenComparableUpperBound_2() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween("a", "c", (Comparable<String>) "c"));
+    }
+
+    @Test
+    void testIsAssignableFromFalseWithMessage_3() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isAssignableFrom(String.class, Integer.class, "Custom message %s", "Integer"));
+        assertEquals("Custom message Integer", exception.getMessage());
+    }
+
+    @Test
+    void testIsInstanceOfFalseWithMessage_3() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isInstanceOf(String.class, 123, "Custom message %s", "Integer"));
+        assertEquals("Custom message Integer", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseWithLongValue_3() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isTrue(false, "Custom message %s", 123L));
+        assertEquals("Custom message 123", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseWithValues_3() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isTrue(false, "Custom message %s and %s", "first", "second"));
+        assertEquals("Custom message first and second", exception.getMessage());
+    }
+
+    @Test
+    void testMatchesPatternNoMatchWithMessage_3() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.matchesPattern("abc", "^def$", "Custom message %s", "pattern"));
+        assertEquals("Custom message pattern", exception.getMessage());
+    }
+
+    @Test
+    void testNotNaNValue_3() {
+        assertDoesNotThrow(() -> Validate.notNaN(1.0));
+    }
+
+    @Test
+    void testNotNullDeprecated_3() {
+        assertDoesNotThrow(() -> Validate.notNull(new Object()));
+    }
+
+    @Test
+    void testNotNullWithMessage_3() {
+        assertDoesNotThrow(() -> Validate.notNull(new Object(), "Custom message %s", "object"));
+    }
+
+    @Test
+    void testValidIndexCollectionLowerBound_3() {
+        List<String> list = new ArrayList<>(List.of("a", "b", "c"));
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(list, -1));
+    }
+
+    @Test
+    void testValidIndexCharSequenceUpperBound_3() {
+        String str = "abc";
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(str, 3));
+    }
+
+    @Test
+    void testExclusiveBetweenDoubleLowerBound_4() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 5.0, 1.0, "Custom message"));
+    }
+
+    @Test
+    void testInclusiveBetweenLongUpperBound_4() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween(1L, 5L, 5L, "Custom message"));
+    }
+
+    @Test
+    void testExclusiveBetweenComparableLowerBound_3() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween("a", "c", (Comparable<String>) "a", "Custom message %s", "a"));
+    }
+
+    @Test
+    void testInclusiveBetweenComparableUpperBound_3() {
+        assertDoesNotThrow(() -> Validate.inclusiveBetween("a", "c", (Comparable<String>) "c", "Custom message %s", "c"));
+    }
+
+    @Test
+    void testIsAssignableFromFalseWithMessage_4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isAssignableFrom(String.class, Integer.class, "Custom message %s and %s", "Integer", "String"));
+        assertEquals("Custom message Integer and String", exception.getMessage());
+    }
+
+    @Test
+    void testIsInstanceOfFalseWithMessage_4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isInstanceOf(String.class, 123, "Custom message %s and %s", "Integer", "String"));
+        assertEquals("Custom message Integer and String", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseWithLongValue_4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isTrue(false, "Custom message %s and %s", 123L, "value"));
+        assertEquals("Custom message 123 and value", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueFalseWithValues_4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.isTrue(false, "Custom message %s, %s and %s", "first", "second", "third"));
+        assertEquals("Custom message first, second and third", exception.getMessage());
+    }
+
+    @Test
+    void testMatchesPatternNoMatchWithMessage_4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.matchesPattern("abc", "^def$", "Custom message %s and %s", "pattern", "input"));
+        assertEquals("Custom message pattern and input", exception.getMessage());
+    }
+
+    @Test
+    void testNotNaNValue_4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.notNaN(Double.NaN, "Custom message %s", "value"));
+        assertEquals("Custom message value", exception.getMessage());
+    }
+
+    @Test
+    void testNotNullDeprecated_4() {
+        assertDoesNotThrow(() -> Validate.notNull(new Object()));
+    }
+
+    @Test
+    void testNotNullWithMessage_4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.notNull(null, "Custom message %s", "object"));
+        assertEquals("Custom message object", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCollectionLowerBound_4() {
+        List<String> list = new ArrayList<>(List.of("a", "b", "c"));
+        IndexOutOfBoundsException exception = assertThrows(IndexOutOfBoundsException.class, 
+            () -> Validate.validIndex(list, -1, "Custom message %s", "-1"));
+        assertEquals("Custom message -1", exception.getMessage());
+    }
+
+    @Test
+    void testValidIndexCharSequenceUpperBound_4() {
+        String str = "abc";
+        IndexOutOfBoundsException exception = assertThrows(IndexOutOfBoundsException.class, 
+            () -> Validate.validIndex(str, 3, "Custom message %s", "3"));
+        assertEquals("Custom message 3", exception.getMessage());
+    }
+
+    @Test
+    void testValidStateFalse_2() {
+        IllegalStateException exception = assertThrows(IllegalStateException.class, 
+            () -> Validate.validState(false));
+        assertEquals(Validate.DEFAULT_VALID_STATE_EX_MESSAGE, exception.getMessage());
+    }
+
+    @Test
+    void testValidStateFalseWithMessage_3() {
+        IllegalStateException exception = assertThrows(IllegalStateException.class, 
+            () -> Validate.validState(false, "Custom message %s", "state"));
+        assertEquals("Custom message state", exception.getMessage());
+    }
+}
+```

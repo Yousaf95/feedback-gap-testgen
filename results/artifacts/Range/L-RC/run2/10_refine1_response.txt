@@ -1,0 +1,131 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+
+public class Range_GenTest {
+
+    @Test
+    void testConstructorWithComparator() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        Range<Integer> range = Range.of(5, 10, comparator);
+        assertEquals(5, range.getMinimum());
+        assertEquals(10, range.getMaximum());
+        assertSame(comparator, range.getComparator());
+
+        Range<Integer> reversedRange = Range.of(10, 5, comparator);
+        assertEquals(5, reversedRange.getMinimum());
+        assertEquals(10, reversedRange.getMaximum());
+    }
+
+    @Test
+    void testEqualsAndHashCode() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        Range<Integer> range3 = Range.between(2, 6);
+
+        assertEquals(range1, range2);
+        assertNotEquals(range1, range3);
+        assertEquals(range1.hashCode(), range2.hashCode());
+        assertNotEquals(range1.hashCode(), range3.hashCode());
+
+        Range<Integer> range4 = Range.of(1, 5, Integer::compareTo);
+        assertEquals(range1, range4);
+        assertEquals(range1.hashCode(), range4.hashCode());
+    }
+
+    @Test
+    void testContainsRange() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(2, 4);
+        Range<Integer> range3 = Range.between(0, 6);
+
+        assertTrue(range1.containsRange(range2));
+        assertFalse(range1.containsRange(range3));
+    }
+
+    @Test
+    void testIntersectionWith() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(4, 8);
+        Range<Integer> intersection = range1.intersectionWith(range2);
+
+        assertEquals(Range.between(4, 5), intersection);
+
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(Range.between(6, 10)));
+    }
+
+    @Test
+    void testIsAfter() {
+        Range<Integer> range = Range.between(3, 7);
+        assertTrue(range.isAfter(2));
+        assertFalse(range.isAfter(5));
+        assertFalse(range.isAfter(null));
+    }
+
+    @Test
+    void testIsAfterRange() {
+        Range<Integer> range1 = Range.between(3, 7);
+        Range<Integer> range2 = Range.between(1, 2);
+        Range<Integer> range3 = Range.between(6, 8);
+
+        assertTrue(range1.isAfterRange(range2));
+        assertFalse(range1.isAfterRange(range3));
+        assertFalse(range1.isAfterRange(null));
+    }
+
+    @Test
+    void testIsBefore() {
+        Range<Integer> range = Range.between(3, 7);
+        assertTrue(range.isBefore(8));
+        assertFalse(range.isBefore(5));
+        assertFalse(range.isBefore(null));
+    }
+
+    @Test
+    void testIsBeforeRange() {
+        Range<Integer> range1 = Range.between(3, 7);
+        Range<Integer> range2 = Range.between(8, 10);
+        Range<Integer> range3 = Range.between(1, 4);
+
+        assertTrue(range1.isBeforeRange(range2));
+        assertFalse(range1.isBeforeRange(range3));
+        assertFalse(range1.isBeforeRange(null));
+    }
+
+    @Test
+    void testIsStartedBy() {
+        Range<Integer> range = Range.between(3, 7);
+        assertTrue(range.isStartedBy(3));
+        assertFalse(range.isStartedBy(5));
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    void testIsEndedBy() {
+        Range<Integer> range = Range.between(3, 7);
+        assertTrue(range.isEndedBy(7));
+        assertFalse(range.isEndedBy(5));
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    void testIsOverlappedBy() {
+        Range<Integer> range1 = Range.between(3, 7);
+        Range<Integer> range2 = Range.between(5, 9);
+        Range<Integer> range3 = Range.between(8, 10);
+
+        assertTrue(range1.isOverlappedBy(range2));
+        assertFalse(range1.isOverlappedBy(range3));
+    }
+
+    @Test
+    void testToStringWithFormat() {
+        Range<Integer> range = Range.of(3, 7, Integer::compareTo);
+        assertEquals("[3..7]", range.toString());
+        assertEquals("Min: 3, Max: 7", range.toString("Min: %s, Max: %s"));
+    }
+}
+```

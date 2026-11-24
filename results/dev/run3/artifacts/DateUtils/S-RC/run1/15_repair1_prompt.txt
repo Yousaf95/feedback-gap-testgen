@@ -1,0 +1,694 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class DateUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of DateUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 9: package org.mockito does not exist
+    code: import static org.mockito.Mockito.*;
+line 175: cannot find symbol (symbol:   class DateIterator; location: class org.apache.commons.lang3.time.DateUtils_GenTest)
+    code: DateIterator iterator = new DateIterator(startCalendar, endCalendar);
+line 175: cannot find symbol (symbol:   class DateIterator; location: class org.apache.commons.lang3.time.DateUtils_GenTest)
+    code: DateIterator iterator = new DateIterator(startCalendar, endCalendar);
+line 244: no suitable method found for set(int,int,int,int,int,int,int) (method java.util.Calendar.set(int,int) is not applicable; (actual and formal argument lists differ in length); method java.util.Calendar.set(int,int,int) is not applicable)
+    code: calendar.set(2023, Calendar.JANUARY, 1, 0, 0, 0, 500);
+
+Current test class (DateUtils_GenTest.java):
+```java
+package org.apache.commons.lang3.time;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+
+public class DateUtils_GenTest {
+
+    private Calendar startCalendar;
+    private Calendar endCalendar;
+
+    @BeforeEach
+    public void setUp() {
+        startCalendar = Calendar.getInstance();
+        startCalendar.set(2023, Calendar.JANUARY, 1);
+        endCalendar = Calendar.getInstance();
+        endCalendar.set(2023, Calendar.DECEMBER, 31);
+    }
+
+    @Test
+    public void testAddDays() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.addDays(date, 5);
+        assertEquals(6, result.getDate());
+    }
+
+    
+    @Test
+    public void testAddMilliseconds() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.addMilliseconds(date, 500);
+        assertEquals(500, result.getTime() - date.getTime());
+    }
+
+    
+    @Test
+    public void testAddMonths() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.addMonths(date, 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(Calendar.FEBRUARY, cal.get(Calendar.MONTH));
+    }
+
+    
+    @Test
+    public void testAddWeeks() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.addWeeks(date, 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(8, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddYears() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.addYears(date, 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(2024, cal.get(Calendar.YEAR));
+    }
+
+    
+    
+    @Test
+    public void testIsSameDay() {
+        Date date1 = new Date(startCalendar.getTimeInMillis());
+        Date date2 = new Date(startCalendar.getTimeInMillis());
+        assertTrue(DateUtils.isSameDay(date1, date2));
+    }
+
+    @Test
+    public void testIsSameInstant() {
+        Date date1 = new Date(startCalendar.getTimeInMillis());
+        Date date2 = new Date(startCalendar.getTimeInMillis());
+        assertTrue(DateUtils.isSameInstant(date1, date2));
+    }
+
+    
+    
+    
+    
+    @Test
+    public void testRound() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.round(date, Calendar.DAY_OF_MONTH);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(1, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetDays() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.setDays(date, 15);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(15, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetHours() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.setHours(date, 12);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(12, cal.get(Calendar.HOUR_OF_DAY));
+    }
+
+    
+    @Test
+    public void testSetMinutes() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.setMinutes(date, 30);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(30, cal.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMonths() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.setMonths(date, 1);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(Calendar.FEBRUARY, cal.get(Calendar.MONTH));
+    }
+
+    
+    @Test
+    public void testSetYears() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.setYears(date, 2024);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(2024, cal.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testToCalendar() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Calendar result = DateUtils.toCalendar(date);
+        assertEquals(startCalendar.getTimeInMillis(), result.getTimeInMillis());
+    }
+
+    @Test
+    public void testTruncate() {
+        Date date = new Date(startCalendar.getTimeInMillis());
+        Date result = DateUtils.truncate(date, Calendar.DAY_OF_MONTH);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(result);
+        assertEquals(1, cal.get(Calendar.DAY_OF_MONTH));
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @BeforeEach
+        public void setUp_2() {
+            startCalendar = Calendar.getInstance();
+            startCalendar.set(2023, Calendar.JANUARY, 1);
+            endCalendar = Calendar.getInstance();
+            endCalendar.set(2023, Calendar.FEBRUARY, 1);
+        }
+
+    @Test
+        public void testDateIterator() {
+            DateIterator iterator = new DateIterator(startCalendar, endCalendar);
+            assertTrue(iterator.hasNext());
+            assertEquals(startCalendar.getTime(), iterator.next().getTime());
+            assertFalse(iterator.hasNext());
+            assertThrows(NoSuchElementException.class, () -> iterator.next());
+        }
+
+    @Test
+        public void testIsSameDay_2() {
+            Calendar cal1 = Calendar.getInstance();
+            cal1.set(2023, Calendar.JANUARY, 1);
+            Calendar cal2 = Calendar.getInstance();
+            cal2.set(2023, Calendar.JANUARY, 1);
+            assertTrue(DateUtils.isSameDay(cal1, cal2));
+    
+            cal2.set(2023, Calendar.JANUARY, 2);
+            assertFalse(DateUtils.isSameDay(cal1, cal2));
+        }
+
+    @Test
+        public void testIsSameInstant_2() {
+            Date date1 = new Date();
+            Date date2 = new Date(date1.getTime());
+            assertTrue(DateUtils.isSameInstant(date1, date2));
+    
+            date2.setTime(date1.getTime() + 1);
+            assertFalse(DateUtils.isSameInstant(date1, date2));
+        }
+
+    @Test
+        public void testAddHours() {
+            Date date = new Date();
+            Date result = DateUtils.addHours(date, 1);
+            assertEquals(date.getTime() + TimeUnit.HOURS.toMillis(1), result.getTime());
+        }
+
+    @Test
+        public void testAddMinutes() {
+            Date date = new Date();
+            Date result = DateUtils.addMinutes(date, 30);
+            assertEquals(date.getTime() + TimeUnit.MINUTES.toMillis(30), result.getTime());
+        }
+
+    @Test
+        public void testAddSeconds() {
+            Date date = new Date();
+            Date result = DateUtils.addSeconds(date, 60);
+            assertEquals(date.getTime() + TimeUnit.SECONDS.toMillis(60), result.getTime());
+        }
+
+    @Test
+        public void testGetFragmentInDays() {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2023, Calendar.JANUARY, 15);
+            long fragment = DateUtils.getFragmentInDays(calendar, Calendar.DAY_OF_MONTH);
+            assertEquals(15, fragment);
+        }
+
+    @Test
+        public void testGetFragmentInHours() {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2023, Calendar.JANUARY, 1, 12, 0, 0);
+            long fragment = DateUtils.getFragmentInHours(calendar, Calendar.HOUR_OF_DAY);
+            assertEquals(12, fragment);
+        }
+
+    @Test
+        public void testGetFragmentInMilliseconds() {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2023, Calendar.JANUARY, 1, 0, 0, 0, 500);
+            long fragment = DateUtils.getFragmentInMilliseconds(calendar, Calendar.MILLISECOND);
+            assertEquals(500, fragment);
+        }
+
+    @Test
+        public void testGetFragmentInMinutes() {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2023, Calendar.JANUARY, 1, 12, 30, 0);
+            long fragment = DateUtils.getFragmentInMinutes(calendar, Calendar.MINUTE);
+            assertEquals(30, fragment);
+        }
+
+    @Test
+        public void testGetFragmentInSeconds() {
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(2023, Calendar.JANUARY, 1, 12, 0, 45);
+            long fragment = DateUtils.getFragmentInSeconds(calendar, Calendar.SECOND);
+            assertEquals(45, fragment);
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.time.DateUtils):
+```java
+package org.apache.commons.lang3.time;
+import java.text.ParseException;
+import java.text.ParsePosition;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
+import org.apache.commons.lang3.LocaleUtils;
+
+/** A suite of utilities surrounding the use of the {@link java.util.Calendar} and {@link java.util.Date} object. */
+public class DateUtils {
+    /** Date iterator. */
+    static class DateIterator implements Iterator<Calendar> {
+        private final Calendar endFinal;
+        private final Calendar spot;
+        /** Constructs a DateIterator that ranges from one date to another. */
+        DateIterator(final Calendar startFinal, final Calendar endFinal) {
+            this.endFinal = endFinal;
+            spot = startFinal;
+            spot.add(Calendar.DATE, -1);
+        }
+        /** Has the iterator not reached the end date yet? */
+        @Override
+        public boolean hasNext() {
+            return spot.before(endFinal);
+        }
+        /** Returns the next calendar in the iteration */
+        @Override
+        public Calendar next() {
+            if (spot.equals(endFinal)) {
+                throw new NoSuchElementException();
+            }
+            spot.add(Calendar.DATE, 1);
+            return (Calendar) spot.clone();
+        }
+        /** Always throws UnsupportedOperationException. */
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+    }
+    private enum ModifyType { /* private nested type */ }
+    /** Number of milliseconds in a standard second. */
+    public static final long MILLIS_PER_SECOND = 1000;
+    /** Number of milliseconds in a standard minute. */
+    public static final long MILLIS_PER_MINUTE = 60 * MILLIS_PER_SECOND;
+    /** Number of milliseconds in a standard hour. */
+    public static final long MILLIS_PER_HOUR = 60 * MILLIS_PER_MINUTE;
+    /** Number of milliseconds in a standard day. */
+    public static final long MILLIS_PER_DAY = 24 * MILLIS_PER_HOUR;
+    /** This is half a month, so this represents whether a date is in the top or bottom half of the month. */
+    public static final int SEMI_MONTH = 1001;
+    private static final int[][] fields = {
+            {Calendar.MILLISECOND},
+            {Calendar.SECOND},
+            {Calendar.MINUTE},
+            {Calendar.HOUR_OF_DAY, Calendar.HOUR},
+            {Calendar.DATE, Calendar.DAY_OF_MONTH, Calendar.AM_PM
+                /* Calendar.DAY_OF_YEAR, Calendar.DAY_OF_WEEK, Calendar.DAY_OF_WEEK_IN_MONTH */
+            },
+            {Calendar.MONTH, SEMI_MONTH},
+            {Calendar.YEAR},
+            {Calendar.ERA}};
+    /** A week range, starting on Sunday. */
+    public static final int RANGE_WEEK_SUNDAY = 1;
+    /** A week range, starting on Monday. */
+    public static final int RANGE_WEEK_MONDAY = 2;
+    /** A week range, starting on the day focused. */
+    public static final int RANGE_WEEK_RELATIVE = 3;
+    /** A week range, centered around the day focused. */
+    public static final int RANGE_WEEK_CENTER = 4;
+    /** A month range, the week starting on Sunday. */
+    public static final int RANGE_MONTH_SUNDAY = 5;
+    /** A month range, the week starting on Monday. */
+    public static final int RANGE_MONTH_MONDAY = 6;
+    /** Adds a number of days to a date returning a new object. */
+    public static Date addDays(final Date date, final int amount) {
+        return add(date, Calendar.DAY_OF_MONTH, amount);
+    }
+    /** Adds a number of hours to a date returning a new object. */
+    public static Date addHours(final Date date, final int amount) {
+        return add(date, Calendar.HOUR_OF_DAY, amount);
+    }
+    /** Adds a number of milliseconds to a date returning a new object. */
+    public static Date addMilliseconds(final Date date, final int amount) {
+        return add(date, Calendar.MILLISECOND, amount);
+    }
+    /** Adds a number of minutes to a date returning a new object. */
+    public static Date addMinutes(final Date date, final int amount) {
+        return add(date, Calendar.MINUTE, amount);
+    }
+    /** Adds a number of months to a date returning a new object. */
+    public static Date addMonths(final Date date, final int amount) {
+        return add(date, Calendar.MONTH, amount);
+    }
+    /** Adds a number of seconds to a date returning a new object. */
+    public static Date addSeconds(final Date date, final int amount) {
+        return add(date, Calendar.SECOND, amount);
+    }
+    /** Adds a number of weeks to a date returning a new object. */
+    public static Date addWeeks(final Date date, final int amount) {
+        return add(date, Calendar.WEEK_OF_YEAR, amount);
+    }
+    /** Adds a number of years to a date returning a new object. */
+    public static Date addYears(final Date date, final int amount) {
+        return add(date, Calendar.YEAR, amount);
+    }
+    /** Gets a date ceiling, leaving the field specified as the most significant field. */
+    public static Calendar ceiling(final Calendar calendar, final int field) {
+        Objects.requireNonNull(calendar, "calendar");
+        return modify((Calendar) calendar.clone(), field, ModifyType.CEILING);
+    }
+    /** Gets a date ceiling, leaving the field specified as the most significant field. */
+    public static Date ceiling(final Date date, final int field) {
+        return modify(toCalendar(date), field, ModifyType.CEILING).getTime();
+    }
+    /** Gets a date ceiling, leaving the field specified as the most significant field. */
+    public static Date ceiling(final Object date, final int field) {
+        Objects.requireNonNull(date, "date");
+        if (date instanceof Date) {
+            return ceiling((Date) date, field);
+        }
+        if (date instanceof Calendar) {
+            return ceiling((Calendar) date, field).getTime();
+        }
+        throw new ClassCastException("Could not find ceiling of for type: " + date.getClass());
+    }
+    /** Returns the number of days within the fragment. */
+    public static long getFragmentInDays(final Calendar calendar, final int fragment) {
+        return getFragment(calendar, fragment, TimeUnit.DAYS);
+    }
+    /** Returns the number of days within the fragment. */
+    public static long getFragmentInDays(final Date date, final int fragment) {
+        return getFragment(date, fragment, TimeUnit.DAYS);
+    }
+    /** Returns the number of hours within the fragment. */
+    public static long getFragmentInHours(final Calendar calendar, final int fragment) {
+        return getFragment(calendar, fragment, TimeUnit.HOURS);
+    }
+    /** Returns the number of hours within the fragment. */
+    public static long getFragmentInHours(final Date date, final int fragment) {
+        return getFragment(date, fragment, TimeUnit.HOURS);
+    }
+    /** Returns the number of milliseconds within the fragment. */
+    public static long getFragmentInMilliseconds(final Calendar calendar, final int fragment) {
+    return getFragment(calendar, fragment, TimeUnit.MILLISECONDS);
+  }
+    /** Returns the number of milliseconds within the fragment. */
+    public static long getFragmentInMilliseconds(final Date date, final int fragment) {
+        return getFragment(date, fragment, TimeUnit.MILLISECONDS);
+    }
+    /** Returns the number of minutes within the fragment. */
+    public static long getFragmentInMinutes(final Calendar calendar, final int fragment) {
+        return getFragment(calendar, fragment, TimeUnit.MINUTES);
+    }
+    /** Returns the number of minutes within the fragment. */
+    public static long getFragmentInMinutes(final Date date, final int fragment) {
+        return getFragment(date, fragment, TimeUnit.MINUTES);
+    }
+    /** Returns the number of seconds within the fragment. */
+    public static long getFragmentInSeconds(final Calendar calendar, final int fragment) {
+        return getFragment(calendar, fragment, TimeUnit.SECONDS);
+    }
+    /** Returns the number of seconds within the fragment. */
+    public static long getFragmentInSeconds(final Date date, final int fragment) {
+        return getFragment(date, fragment, TimeUnit.SECONDS);
+    }
+    /** Checks if two calendar objects are on the same day ignoring time. */
+    public static boolean isSameDay(final Calendar cal1, final Calendar cal2) {
+        Objects.requireNonNull(cal1, "cal1");
+        Objects.requireNonNull(cal2, "cal2");
+        return cal1.get(Calendar.ERA) == cal2.get(Calendar.ERA) &&
+                cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);
+    }
+    /** Checks if two date objects are on the same day ignoring time. */
+    public static boolean isSameDay(final Date date1, final Date date2) {
+        return isSameDay(toCalendar(date1), toCalendar(date2));
+    }
+    /** Checks if two calendar objects represent the same instant in time. */
+    public static boolean isSameInstant(final Calendar cal1, final Calendar cal2) {
+        Objects.requireNonNull(cal1, "cal1");
+        Objects.requireNonNull(cal2, "cal2");
+        return cal1.getTime().getTime() == cal2.getTime().getTime();
+    }
+    /** Checks if two date objects represent the same instant in time. */
+    public static boolean isSameInstant(final Date date1, final Date date2) {
+        Objects.requireNonNull(date1, "date1");
+        Objects.requireNonNull(date2, "date2");
+        return date1.getTime() == date2.getTime();
+    }
+    /** Checks if two calendar objects represent the same local time. */
+    public static boolean isSameLocalTime(final Calendar cal1, final Calendar cal2) {
+        Objects.requireNonNull(cal1, "cal1");
+        Objects.requireNonNull(cal2, "cal2");
+        return cal1.get(Calendar.MILLISECOND) == cal2.get(Calendar.MILLISECOND) &&
+                cal1.get(Calendar.SECOND) == cal2.get(Calendar.SECOND) &&
+                cal1.get(Calendar.MINUTE) == cal2.get(Calendar.MINUTE) &&
+                cal1.get(Calendar.HOUR_OF_DAY) == cal2.get(Calendar.HOUR_OF_DAY) &&
+                cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR) &&
+                cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                cal1.get(Calendar.ERA) == cal2.get(Calendar.ERA) &&
+                cal1.getClass() == cal2.getClass();
+    }
+    /** Constructs an {@link Iterator} over each day in a date range defined by a focus date and range style. */
+    public static Iterator<Calendar> iterator(final Calendar calendar, final int rangeStyle) {
+        Objects.requireNonNull(calendar, "calendar");
+        final Calendar start;
+        final Calendar end;
+        int startCutoff = Calendar.SUNDAY;
+        int endCutoff = Calendar.SATURDAY;
+        switch (rangeStyle) {
+            case RANGE_MONTH_SUNDAY:
+            case RANGE_MONTH_MONDAY:
+                //Set start to the first of the month
+                start = truncate(calendar, Calendar.MONTH);
+                //Set end to the last of the month
+                end = (Calendar) start.clone();
+                end.add(Calendar.MONTH, 1);
+                end.add(Calendar.DATE, -1);
+                //Loop start back to the previous sunday or monday
+                if (rangeStyle == RANGE_MONTH_MONDAY) {
+                    startCutoff = Calendar.MONDAY;
+                    endCutoff = Calendar.SUNDAY;
+                }
+                break;
+            case RANGE_WEEK_SUNDAY:
+            case RANGE_WEEK_MONDAY:
+            case RANGE_WEEK_RELATIVE:
+            case RANGE_WEEK_CENTER:
+                //Set start and end to the current date
+                start = truncate(calendar, Calendar.DATE);
+                end = truncate(calendar, Calendar.DATE);
+                switch (rangeStyle) {
+                    case RANGE_WEEK_SUNDAY:
+                        //already set by default
+                        break;
+                    case RANGE_WEEK_MONDAY:
+                        startCutoff = Calendar.MONDAY;
+                        endCutoff = Calendar.SUNDAY;
+                        break;
+                    case RANGE_WEEK_RELATIVE:
+                        startCutoff = calendar.get(Calendar.DAY_OF_WEEK);
+                        endCutoff = startCutoff - 1;
+                        break;
+                    case RANGE_WEEK_CENTER:
+                        startCutoff = calendar.get(Calendar.DAY_OF_WEEK) - 3;
+                        endCutoff = calendar.get(Calendar.DAY_OF_WEEK) + 3;
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                throw new IllegalArgumentException("The range style " + rangeStyle + " is not valid.");
+        }
+        if (startCutoff < Calendar.SUNDAY) {
+            startCutoff += 7;
+        }
+        if (startCutoff > Calendar.SATURDAY) {
+            startCutoff -= 7;
+        }
+        if (endCutoff < Calendar.SUNDAY) {
+            endCutoff += 7;
+        }
+        if (endCutoff > Calendar.SATURDAY) {
+            endCutoff -= 7;
+        }
+        while (start.get(Calendar.DAY_OF_WEEK) != startCutoff) {
+            start.add(Calendar.DATE, -1);
+        }
+        while (end.get(Calendar.DAY_OF_WEEK) != endCutoff) {
+            end.add(Calendar.DATE, 1);
+        }
+        return new DateIterator(start, end);
+    }
+    /** Constructs an {@link Iterator} over each day in a date range defined by a focus date and range style. */
+    public static Iterator<Calendar> iterator(final Date focus, final int rangeStyle) {
+        return iterator(toCalendar(focus), rangeStyle);
+    }
+    /** Constructs an {@link Iterator} over each day in a date range defined by a focus date and range style. */
+    public static Iterator<?> iterator(final Object calendar, final int rangeStyle) {
+        Objects.requireNonNull(calendar, "calendar");
+        if (calendar instanceof Date) {
+            return iterator((Date) calendar, rangeStyle);
+        }
+        if (calendar instanceof Calendar) {
+            return iterator((Calendar) calendar, rangeStyle);
+        }
+        throw new ClassCastException("Could not iterate based on " + calendar);
+    }
+    /** Parses a string representing a date by trying a variety of different parsers, using the default date format symbols for the given locale. */
+    public static Date parseDate(final String str, final Locale locale, final String... parsePatterns) throws ParseException {
+        return parseDateWithLeniency(str, locale, parsePatterns, true);
+    }
+    /** Parses a string representing a date by trying a variety of different parsers. */
+    public static Date parseDate(final String str, final String... parsePatterns) throws ParseException {
+        return parseDate(str, null, parsePatterns);
+    }
+    /** Parses a string representing a date by trying a variety of different parsers, using the default date format symbols for the given locale.. */
+    public static Date parseDateStrictly(final String str, final Locale locale, final String... parsePatterns) throws ParseException {
+        return parseDateWithLeniency(str, locale, parsePatterns, false);
+    }
+    /** Parses a string representing a date by trying a variety of different parsers. */
+    public static Date parseDateStrictly(final String str, final String... parsePatterns) throws ParseException {
+        return parseDateStrictly(str, null, parsePatterns);
+    }
+    /** Rounds a date, leaving the field specified as the most significant field. */
+    public static Calendar round(final Calendar calendar, final int field) {
+        Objects.requireNonNull(calendar, "calendar");
+        return modify((Calendar) calendar.clone(), field, ModifyType.ROUND);
+    }
+    /** Rounds a date, leaving the field specified as the most significant field. */
+    public static Date round(final Date date, final int field) {
+        return modify(toCalendar(date), field, ModifyType.ROUND).getTime();
+    }
+    /** Rounds a date, leaving the field specified as the most significant field. */
+    public static Date round(final Object date, final int field) {
+        Objects.requireNonNull(date, "date");
+        if (date instanceof Date) {
+            return round((Date) date, field);
+        }
+        if (date instanceof Calendar) {
+            return round((Calendar) date, field).getTime();
+        }
+        throw new ClassCastException("Could not round " + date);
+    }
+    /** Sets the day of month field to a date returning a new object. */
+    public static Date setDays(final Date date, final int amount) {
+        return set(date, Calendar.DAY_OF_MONTH, amount);
+    }
+    /** Sets the hours field to a date returning a new object. */
+    public static Date setHours(final Date date, final int amount) {
+        return set(date, Calendar.HOUR_OF_DAY, amount);
+    }
+    /** Sets the milliseconds field to a date returning a new object. */
+    public static Date setMilliseconds(final Date date, final int amount) {
+        return set(date, Calendar.MILLISECOND, amount);
+    }
+    /** Sets the minute field to a date returning a new object. */
+    public static Date setMinutes(final Date date, final int amount) {
+        return set(date, Calendar.MINUTE, amount);
+    }
+    /** Sets the months field to a date returning a new object. */
+    public static Date setMonths(final Date date, final int amount) {
+        return set(date, Calendar.MONTH, amount);
+    }
+    /** Sets the seconds field to a date returning a new object. */
+    public static Date setSeconds(final Date date, final int amount) {
+        return set(date, Calendar.SECOND, amount);
+    }
+    /** Sets the years field to a date returning a new object. */
+    public static Date setYears(final Date date, final int amount) {
+        return set(date, Calendar.YEAR, amount);
+    }
+    /** Converts a {@link Date} into a {@link Calendar}. */
+    public static Calendar toCalendar(final Date date) {
+        final Calendar c = Calendar.getInstance();
+        c.setTime(Objects.requireNonNull(date, "date"));
+        return c;
+    }
+    /** Converts a {@link Date} of a given {@link TimeZone} into a {@link Calendar} */
+    public static Calendar toCalendar(final Date date, final TimeZone tz) {
+        final Calendar c = Calendar.getInstance(tz);
+        c.setTime(Objects.requireNonNull(date, "date"));
+        return c;
+    }
+    /** Truncates a date, leaving the field specified as the most significant field. */
+    public static Calendar truncate(final Calendar date, final int field) {
+        Objects.requireNonNull(date, "date");
+        return modify((Calendar) date.clone(), field, ModifyType.TRUNCATE);
+    }
+    /** Truncates a date, leaving the field specified as the most significant field. */
+    public static Date truncate(final Date date, final int field) {
+        return modify(toCalendar(date), field, ModifyType.TRUNCATE).getTime();
+    }
+    /** Truncates a date, leaving the field specified as the most significant field. */
+    public static Date truncate(final Object date, final int field);  // body omitted (context budget)
+    /** Determines how two calendars compare up to no more than the specified most significant field. */
+    public static int truncatedCompareTo(final Calendar cal1, final Calendar cal2, final int field);  // body omitted (context budget)
+    /** Determines how two dates compare up to no more than the specified most significant field. */
+    public static int truncatedCompareTo(final Date date1, final Date date2, final int field);  // body omitted (context budget)
+    /** Determines if two calendars are equal up to no more than the specified most significant field. */
+    public static boolean truncatedEquals(final Calendar cal1, final Calendar cal2, final int field);  // body omitted (context budget)
+    /** Determines if two dates are equal up to no more than the specified most significant field. */
+    public static boolean truncatedEquals(final Date date1, final Date date2, final int field);  // body omitted (context budget)
+    /** {@link DateUtils} instances should NOT be constructed in standard programming. */
+    public DateUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static Date add(final Date date, final int calendarField, final int amount);
+    private static long getFragment(final Calendar calendar, final int fragment, final TimeUnit unit);
+    private static long getFragment(final Date date, final int fragment, final TimeUnit unit);
+    private static Calendar modify(final Calendar val, final int field, final ModifyType modType);
+    private static Date parseDateWithLeniency(final String dateStr, final Locale locale, final String[] parsePatterns,
+        final boolean lenient) throws ParseException;
+    private static Date set(final Date date, final int calendarField, final int amount);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

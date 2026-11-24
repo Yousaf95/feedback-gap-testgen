@@ -1,0 +1,50 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class SystemUtils_GenTest {
+
+    @Test
+    void testGetEnvironmentVariable_withDefault() {
+        String nonExistingVar = "NON_EXISTING_ENV_VAR";
+        String defaultValue = "default_value";
+        assertEquals(defaultValue, SystemUtils.getEnvironmentVariable(nonExistingVar, defaultValue));
+    }
+
+    @Test
+    void testIsJavaAwtHeadless_whenTrue() {
+        System.setProperty(SystemUtils.JAVA_AWT_HEADLESS, "true");
+        assertTrue(SystemUtils.isJavaAwtHeadless());
+    }
+
+    @Test
+    void testGetHostName_onWindows() {
+        assumeTrue(SystemUtils.IS_OS_WINDOWS);
+        assertNotNull(SystemUtils.getHostName(), "HOSTNAME should not be null on Windows");
+    }
+
+    @Test
+    void testGetHostName_onNonWindows() {
+        assumeFalse(SystemUtils.IS_OS_WINDOWS);
+        assertNotNull(SystemUtils.getHostName(), "COMPUTERNAME should not be null on non-Windows systems");
+    }
+
+    @Test
+    void testIsJavaVersionAtLeast_withLowerVersion() {
+        assertTrue(SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_1_8));
+    }
+
+    @Test
+    void testIsJavaVersionAtMost_withHigherVersion() {
+        assertTrue(SystemUtils.isJavaVersionAtMost(JavaVersion.JAVA_RECENT));
+    }
+
+    @Test
+    void testGetUserName_withCustomDefault() {
+        String customDefault = "custom_user";
+        assertEquals(customDefault, SystemUtils.getUserName(customDefault));
+    }
+}
+```

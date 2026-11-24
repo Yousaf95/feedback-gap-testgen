@@ -1,0 +1,156 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class LocaleUtils_GenTest for LocaleUtils already contains the test methods listed below.
+
+Existing test methods (do not duplicate them):
+testAvailableLocaleList, testAvailableLocaleSet, testCountriesByLanguage, testIsAvailableLocale, testIsLanguageUndetermined, testLanguagesByCountry, testLocaleLookupList, testToLocaleWithLocale, testCountriesByLanguageWithNonExistentLanguage, testLanguagesByCountryWithNonExistentCountry, testIsLanguageUndeterminedWithNullLocale, testIsLanguageUndeterminedWithUndeterminedLocale, testIsLanguageUndeterminedWithDeterminedLocale, testToLocaleWithNullString, testToLocaleWithEmptyString, testToLocaleWithInvalidFormatTooShort, testToLocaleWithValidCountryCodeOnly, testToLocaleWithValidLanguageAndCountryCode, testToLocaleWithValidLanguageCountryAndVariant
+
+Write ADDITIONAL test methods for LocaleUtils that test behaviour not yet tested by the existing test methods.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class LocaleUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.LocaleUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+/** Operations to assist when working with a {@link Locale}. */
+public class LocaleUtils {
+    static class SyncAvoid {
+        /** Unmodifiable list of available locales. */
+        private static final List<Locale> AVAILABLE_LOCALE_LIST;
+        /** Unmodifiable set of available locales. */
+        private static final Set<Locale> AVAILABLE_LOCALE_SET;
+        static {
+            final List<Locale> list = new ArrayList<>(Arrays.asList(Locale.getAvailableLocales()));  // extra safe
+            AVAILABLE_LOCALE_LIST = Collections.unmodifiableList(list);
+            AVAILABLE_LOCALE_SET = Collections.unmodifiableSet(new HashSet<>(list));
+        }
+    }
+    private static final char UNDERSCORE = '_';
+    private static final String UNDETERMINED = "und";
+    private static final char DASH = '-';
+    /** Concurrent map of language locales by country. */
+    private static final ConcurrentMap<String, List<Locale>> cLanguagesByCountry =
+        new ConcurrentHashMap<>();
+    /** Concurrent map of country locales by language. */
+    private static final ConcurrentMap<String, List<Locale>> cCountriesByLanguage =
+        new ConcurrentHashMap<>();
+    /** Obtains an unmodifiable list of installed locales. */
+    public static List<Locale> availableLocaleList() {
+        return SyncAvoid.AVAILABLE_LOCALE_LIST;
+    }
+    /** Obtains an unmodifiable set of installed locales. */
+    public static Set<Locale> availableLocaleSet() {
+        return SyncAvoid.AVAILABLE_LOCALE_SET;
+    }
+    /** Obtains the list of countries supported for a given language. */
+    public static List<Locale> countriesByLanguage(final String languageCode) {
+        if (languageCode == null) {
+            return Collections.emptyList();
+        }
+        return cCountriesByLanguage.computeIfAbsent(languageCode, lc -> Collections.unmodifiableList(
+            availableLocaleList(locale -> languageCode.equals(locale.getLanguage()) && !locale.getCountry().isEmpty() && locale.getVariant().isEmpty())));
+    }
+    /** Checks if the locale specified is in the set of available locales. */
+    public static boolean isAvailableLocale(final Locale locale) {
+        return availableLocaleSet().contains(locale);
+    }
+    /** Tests whether a Locale's language is undetermined. */
+    public static boolean isLanguageUndetermined(final Locale locale) {
+        return locale == null || UNDETERMINED.equals(locale.toLanguageTag());
+    }
+    /** Obtains the list of languages supported for a given country. */
+    public static List<Locale> languagesByCountry(final String countryCode) {
+        if (countryCode == null) {
+            return Collections.emptyList();
+        }
+        return cLanguagesByCountry.computeIfAbsent(countryCode,
+            k -> Collections.unmodifiableList(availableLocaleList(locale -> countryCode.equals(locale.getCountry()) && locale.getVariant().isEmpty())));
+    }
+    /** Obtains the list of locales to search through when performing a locale search. */
+    public static List<Locale> localeLookupList(final Locale locale) {
+        return localeLookupList(locale, locale);
+    }
+    /** Obtains the list of locales to search through when performing a locale search. */
+    public static List<Locale> localeLookupList(final Locale locale, final Locale defaultLocale) {
+        final List<Locale> list = new ArrayList<>(4);
+        if (locale != null) {
+            list.add(locale);
+            if (!locale.getVariant().isEmpty()) {
+                list.add(new Locale(locale.getLanguage(), locale.getCountry()));
+            }
+            if (!locale.getCountry().isEmpty()) {
+                list.add(new Locale(locale.getLanguage(), StringUtils.EMPTY));
+            }
+            if (!list.contains(defaultLocale)) {
+                list.add(defaultLocale);
+            }
+        }
+        return Collections.unmodifiableList(list);
+    }
+    /** Returns the given locale if non-{@code null}, otherwise {@link Locale#getDefault()}. */
+    public static Locale toLocale(final Locale locale) {
+        return locale != null ? locale : Locale.getDefault();
+    }
+    /** Converts a String to a Locale. */
+    public static Locale toLocale(final String str) {
+        if (str == null) {
+            // TODO Should this return the default locale?
+            return null;
+        }
+        if (str.isEmpty()) { // LANG-941 - JDK 8 introduced an empty locale where all fields are blank
+            return new Locale(StringUtils.EMPTY, StringUtils.EMPTY);
+        }
+        if (str.contains("#")) { // LANG-879 - Cannot handle Java 7 script & extensions
+            throw new IllegalArgumentException("Invalid locale format: " + str);
+        }
+        final int len = str.length();
+        if (len < 2) {
+            throw new IllegalArgumentException("Invalid locale format: " + str);
+        }
+        final char ch0 = str.charAt(0);
+        if (ch0 == UNDERSCORE || ch0 == DASH) {
+            if (len < 3) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            final char ch1 = str.charAt(1);
+            final char ch2 = str.charAt(2);
+            if (!Character.isUpperCase(ch1) || !Character.isUpperCase(ch2)) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            if (len == 3) {
+                return new Locale(StringUtils.EMPTY, str.substring(1, 3));
+            }
+            if (len < 5) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            if (str.charAt(3) != ch0) {
+                throw new IllegalArgumentException("Invalid locale format: " + str);
+            }
+            return new Locale(StringUtils.EMPTY, str.substring(1, 3), str.substring(4));
+        }
+
+        return parseLocale(str);
+    }
+    /** {@link LocaleUtils} instances should NOT be constructed in standard programming. */
+    public LocaleUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static List<Locale> availableLocaleList(final Predicate<Locale> predicate);
+    private static Locale parseLocale(final String str);
+}
+```

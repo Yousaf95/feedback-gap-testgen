@@ -1,0 +1,235 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.File;
+import java.util.Properties;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+public class SystemUtils_GenTest {
+
+    private Properties systemProperties;
+
+    @BeforeEach
+    public void setUp() {
+        systemProperties = new Properties();
+        System.setProperties(systemProperties);
+    }
+
+    
+    
+    
+    
+    
+    @Test
+    public void testGetJavaHome() {
+        systemProperties.setProperty("java.home", "/path/to/java/home");
+        File expected = new File("/path/to/java/home");
+        assertEquals(expected, SystemUtils.getJavaHome());
+    }
+
+    @Test
+    public void testGetJavaIoTmpDir() {
+        systemProperties.setProperty("java.io.tmpdir", "/path/to/tmp");
+        File expected = new File("/path/to/tmp");
+        assertEquals(expected, SystemUtils.getJavaIoTmpDir());
+    }
+
+    @Test
+    public void testGetUserDir() {
+        systemProperties.setProperty("user.dir", "/path/to/user/dir");
+        File expected = new File("/path/to/user/dir");
+        assertEquals(expected, SystemUtils.getUserDir());
+    }
+
+    @Test
+    public void testGetUserHome() {
+        systemProperties.setProperty("user.home", "/path/to/user/home");
+        File expected = new File("/path/to/user/home");
+        assertEquals(expected, SystemUtils.getUserHome());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"en_US", "fr_FR"})
+    public void testGetUserName(String value) {
+        systemProperties.setProperty("user.name", value);
+        assertEquals(value, SystemUtils.getUserName());
+    }
+
+    
+    // ---- added by coverage-guided refinement ----
+    @Test
+        void testGetJavaAwtFonts() {
+            assertNotNull(SystemUtils.JAVA_AWT_FONTS);
+        }
+
+    @Test
+        void testGetJavaAwtGraphicsenv() {
+            assertNotNull(SystemUtils.JAVA_AWT_GRAPHICSENV);
+        }
+
+    @Test
+        void testGetJavaAwtHeadless() {
+            assertNotNull(SystemUtils.JAVA_AWT_HEADLESS);
+        }
+
+    @Test
+        void testGetJavaAwtPrinterjob() {
+            assertNotNull(SystemUtils.JAVA_AWT_PRINTERJOB);
+        }
+
+    @Test
+        void testGetJavaCompiler() {
+            assertNotNull(SystemUtils.JAVA_COMPILER);
+        }
+
+    @Test
+        void testGetJavaEndorsedDirs() {
+            assertNotNull(SystemUtils.JAVA_ENDORSED_DIRS);
+        }
+
+    @Test
+        void testGetJavaExtDirs() {
+            assertNotNull(SystemUtils.JAVA_EXT_DIRS);
+        }
+
+    @Test
+        void testGetJavaRuntimeName() {
+            assertNotNull(SystemUtils.JAVA_RUNTIME_NAME);
+        }
+
+    @Test
+        void testGetJavaRuntimeVersion() {
+            assertNotNull(SystemUtils.JAVA_RUNTIME_VERSION);
+        }
+
+    @Test
+        void testGetJavaSpecificationName() {
+            assertNotNull(SystemUtils.JAVA_SPECIFICATION_NAME);
+        }
+
+    @Test
+        void testGetJavaSpecificationVendor() {
+            assertNotNull(SystemUtils.JAVA_SPECIFICATION_VENDOR);
+        }
+
+    @Test
+        void testGetJavaUtilPrefsPreferencesFactory() {
+            assertNotNull(SystemUtils.JAVA_UTIL_PREFS_PREFERENCES_FACTORY);
+        }
+
+    @Test
+        void testGetJavaVendorUrl() {
+            assertNotNull(SystemUtils.JAVA_VENDOR_URL);
+        }
+
+    @Test
+        void testGetLineSeparator() {
+            assertNotNull(SystemUtils.LINE_SEPARATOR);
+        }
+
+    @Test
+        void testGetOsArch() {
+            assertNotNull(SystemUtils.OS_ARCH);
+        }
+
+    @Test
+        void testGetOsName() {
+            assertNotNull(SystemUtils.OS_NAME);
+        }
+
+    @Test
+        void testGetOsVersion() {
+            assertNotNull(SystemUtils.OS_VERSION);
+        }
+
+    @Test
+        void testGetPathSeparator() {
+            assertNotNull(SystemUtils.PATH_SEPARATOR);
+        }
+
+    @Test
+        void testGetUserCountry() {
+            assertNotNull(SystemUtils.USER_COUNTRY);
+        }
+
+    @Test
+        void testGetUserLanguage() {
+            assertNotNull(SystemUtils.USER_LANGUAGE);
+        }
+
+    @Test
+        void testIsJava1_9() {
+            // This is deprecated, but we are testing the method itself
+            assertTrue(SystemUtils.IS_JAVA_1_9);
+        }
+
+    @Test
+        void testIsJava20() {
+            assertTrue(SystemUtils.IS_JAVA_20);
+        }
+
+    @Test
+        void testIsJava21() {
+            assertTrue(SystemUtils.IS_JAVA_21);
+        }
+
+    @Test
+        void testIsOsAix() {
+            assertTrue(SystemUtils.IS_OS_AIX);
+        }
+
+    @Test
+        void testIsOsHp_Ux() {
+            assertTrue(SystemUtils.IS_OS_HP_UX);
+        }
+
+    @Test
+        void testIsOs400() {
+            assertTrue(SystemUtils.IS_OS_400);
+        }
+
+    @Test
+        void testIsOsIrix() {
+            assertTrue(SystemUtils.IS_OS_IRIX);
+        }
+
+    @Test
+        void testIsOsFree_Bsd() {
+            assertTrue(SystemUtils.IS_OS_FREE_BSD);
+        }
+
+    @Test
+        void testIsOsOpen_Bsd() {
+            assertTrue(SystemUtils.IS_OS_OPEN_BSD);
+        }
+
+    @Test
+        void testIsOsNet_Bsd() {
+            assertTrue(SystemUtils.IS_OS_NET_BSD);
+        }
+
+    @Test
+        void testIsOsOs2() {
+            assertTrue(SystemUtils.IS_OS_OS2);
+        }
+
+    @Test
+        void testIsOsSolaris() {
+            assertTrue(SystemUtils.IS_OS_SOLARIS);
+        }
+
+    @Test
+        void testIsOsSun_Os() {
+            assertTrue(SystemUtils.IS_OS_SUN_OS);
+        }
+
+    @Test
+        void testIsOsZos() {
+            assertTrue(SystemUtils.IS_OS_ZOS);
+        }
+}

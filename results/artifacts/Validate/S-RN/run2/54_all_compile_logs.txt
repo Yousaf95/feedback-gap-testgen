@@ -1,0 +1,200 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[109,13] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[126,13] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[144,13] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[109,13] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[126,13] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[144,13] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[196,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[213,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[231,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[196,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[213,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[231,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[161,64] cannot find symbol
+  symbol:   method exclusiveBetween(double,double,double)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[166,64] cannot find symbol
+  symbol:   method exclusiveBetween(long,long,long)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,64] cannot find symbol
+  symbol:   method inclusiveBetween(double,double,double)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,64] cannot find symbol
+  symbol:   method inclusiveBetween(long,long,long)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[181,64] cannot find symbol
+  symbol:   method isAssignableFrom(java.lang.Class<java.lang.String>,java.lang.Class<java.lang.Integer>)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[186,64] cannot find symbol
+  symbol:   method isInstanceOf(java.lang.Class<java.lang.Integer>,java.lang.String)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[191,64] cannot find symbol
+  symbol:   method matchesPattern(java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[197,64] cannot find symbol
+  symbol:   method noNullElements(java.util.Collection<java.lang.String>)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[203,64] cannot find symbol
+  symbol:   method noNullElements(java.lang.String[])
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[208,64] cannot find symbol
+  symbol:   method notBlank(java.lang.String)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[214,64] cannot find symbol
+  symbol:   method notEmpty(java.util.Collection<java.lang.String>)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[220,64] cannot find symbol
+  symbol:   method notEmpty(java.util.Map<java.lang.String,java.lang.String>)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[226,64] cannot find symbol
+  symbol:   method notEmpty(java.lang.String[])
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[232,65] cannot find symbol
+  symbol:   method validIndex(java.util.Collection<java.lang.String>,int)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[238,65] cannot find symbol
+  symbol:   method validIndex(java.lang.String[],int)
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[161,64] cannot find symbol
+[ERROR]   symbol:   method exclusiveBetween(double,double,double)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[166,64] cannot find symbol
+[ERROR]   symbol:   method exclusiveBetween(long,long,long)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,64] cannot find symbol
+[ERROR]   symbol:   method inclusiveBetween(double,double,double)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,64] cannot find symbol
+[ERROR]   symbol:   method inclusiveBetween(long,long,long)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[181,64] cannot find symbol
+[ERROR]   symbol:   method isAssignableFrom(java.lang.Class<java.lang.String>,java.lang.Class<java.lang.Integer>)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[186,64] cannot find symbol
+[ERROR]   symbol:   method isInstanceOf(java.lang.Class<java.lang.Integer>,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[191,64] cannot find symbol
+[ERROR]   symbol:   method matchesPattern(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[197,64] cannot find symbol
+[ERROR]   symbol:   method noNullElements(java.util.Collection<java.lang.String>)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[203,64] cannot find symbol
+[ERROR]   symbol:   method noNullElements(java.lang.String[])
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[208,64] cannot find symbol
+[ERROR]   symbol:   method notBlank(java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[214,64] cannot find symbol
+[ERROR]   symbol:   method notEmpty(java.util.Collection<java.lang.String>)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[220,64] cannot find symbol
+[ERROR]   symbol:   method notEmpty(java.util.Map<java.lang.String,java.lang.String>)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[226,64] cannot find symbol
+[ERROR]   symbol:   method notEmpty(java.lang.String[])
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[232,65] cannot find symbol
+[ERROR]   symbol:   method validIndex(java.util.Collection<java.lang.String>,int)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[238,65] cannot find symbol
+[ERROR]   symbol:   method validIndex(java.lang.String[],int)
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[195,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[212,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[230,13] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[195,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[212,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[230,13] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

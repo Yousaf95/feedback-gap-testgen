@@ -1,0 +1,96 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class JavaVersion_GenTest {
+
+    @Test
+    public void testGetJava11Decimal() {
+        assertEquals(JavaVersion.JAVA_11, JavaVersion.get("1.1"));
+    }
+
+    @Test
+    public void testGetJava12Decimal() {
+        assertEquals(JavaVersion.JAVA_12, JavaVersion.get("1.2"));
+    }
+
+    @Test
+    public void testGetJava13Decimal() {
+        assertEquals(JavaVersion.JAVA_13, JavaVersion.get("1.3"));
+    }
+
+    @Test
+    public void testGetJava14Decimal() {
+        assertEquals(JavaVersion.JAVA_14, JavaVersion.get("1.4"));
+    }
+
+    @Test
+    public void testGetJava15Decimal() {
+        assertEquals(JavaVersion.JAVA_15, JavaVersion.get("1.5"));
+    }
+
+    @Test
+    public void testGetJava16Decimal() {
+        assertEquals(JavaVersion.JAVA_16, JavaVersion.get("1.6"));
+    }
+
+    @Test
+    public void testGetJava17Decimal() {
+        assertEquals(JavaVersion.JAVA_17, JavaVersion.get("1.7"));
+    }
+
+    @Test
+    public void testGetJava18Decimal() {
+        assertEquals(JavaVersion.JAVA_18, JavaVersion.get("1.8"));
+    }
+
+    @Test
+    public void testGetJavaRecentForNewerVersion() {
+        assertEquals(JavaVersion.JAVA_RECENT, JavaVersion.get("22"));
+    }
+
+    @Test
+    public void testGetJavaNullInput() {
+        assertNull(JavaVersion.get(null));
+    }
+
+    @Test
+    public void testMaxVersionBranch1() {
+        System.setProperty("java.specification.version", "99.0");
+        assertEquals(99f, JavaVersion.maxVersion());
+    }
+
+    @Test
+    public void testMaxVersionBranch2() {
+        System.setProperty("java.specification.version", "0.9");
+        assertEquals(0.9f, JavaVersion.maxVersion());
+    }
+
+    @Test
+    public void testToFloatVersionBranch1() {
+        assertEquals(1.5f, JavaVersion.toFloatVersion("1.5"));
+    }
+
+    @Test
+    public void testToFloatVersionBranch2() {
+        assertEquals(9.0f, JavaVersion.toFloatVersion("9"));
+    }
+
+    @Test
+    public void testToFloatVersionBranch3() {
+        assertEquals(10.0f, JavaVersion.toFloatVersion("10"));
+    }
+
+    @Test
+    public void testToFloatVersionBranch4() {
+        assertEquals(21.0f, JavaVersion.toFloatVersion("21"));
+    }
+
+    @Test
+    public void testToFloatVersionBranch5() {
+        assertEquals(99.0f, JavaVersion.toFloatVersion("99.0"));
+    }
+}
+```

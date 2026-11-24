@@ -1,0 +1,67 @@
+[ERROR] Tests run: 52, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.238 s <<< FAILURE! -- in org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseMessageWithCheckedException_2 -- Time elapsed: 0.031 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Should return the same message for a non-wrapped checked exception ==> expected: <Checked Exception> but was: <Exception: Checked Exception>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseMessageWithCheckedException_2(ExceptionUtils_GenTest.java:361)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetThrowablesWithCheckedException_2 -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Should return an array containing the root cause ==> expected: [Ljava.lang.Throwable;@5a5f94c5<[java.lang.Exception: Checked Exception]> but was: [Ljava.lang.Throwable;@549871fe<[java.lang.Exception: Checked Exception]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetThrowablesWithCheckedException_2(ExceptionUtils_GenTest.java:389)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseWithCheckedException -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Should return null for a non-wrapped checked exception ==> expected: <null> but was: <java.lang.Exception: Checked Exception>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
+	at org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
+	at org.junit.jupiter.api.Assertions.assertNull(Assertions.java:287)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseWithCheckedException(ExceptionUtils_GenTest.java:354)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseStackTraceWithNoCause_2 -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Should return the stack trace of the root cause ==> expected: <[java.lang.RuntimeException]> but was: <[java.lang.RuntimeException, 	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseStackTraceWithNoCause_2(ExceptionUtils_GenTest.java:366), 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method), 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77), 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), 	at java.base/java.lang.reflect.Method.invoke(Method.java:569), 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728), 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60), 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131), 	at org.junit.jupiter.api.AssertTimeoutPreemptively.lambda$submitTask$3(AssertTimeoutPreemptively.java:95), 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264), 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136), 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635), 	at java.base/java.lang.Thread.run(Thread.java:840)]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseStackTraceWithNoCause_2(ExceptionUtils_GenTest.java:368)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   ExceptionUtils_GenTest.testGetRootCauseMessageWithCheckedException_2:361 Should return the same message for a non-wrapped checked exception ==> expected: <Checked Exception> but was: <Exception: Checked Exception>
+[ERROR]   ExceptionUtils_GenTest.testGetRootCauseStackTraceWithNoCause_2:368 Should return the stack trace of the root cause ==> expected: <[java.lang.RuntimeException]> but was: <[java.lang.RuntimeException, 	at org.apache.commons.lang3.exception.ExceptionUtils_GenTest.testGetRootCauseStackTraceWithNoCause_2(ExceptionUtils_GenTest.java:366), 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method), 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77), 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), 	at java.base/java.lang.reflect.Method.invoke(Method.java:569), 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728), 	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60), 	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131), 	at org.junit.jupiter.api.AssertTimeoutPreemptively.lambda$submitTask$3(AssertTimeoutPreemptively.java:95), 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264), 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136), 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635), 	at java.base/java.lang.Thread.run(Thread.java:840)]>
+[ERROR]   ExceptionUtils_GenTest.testGetRootCauseWithCheckedException:354 Should return null for a non-wrapped checked exception ==> expected: <null> but was: <java.lang.Exception: Checked Exception>
+[ERROR]   ExceptionUtils_GenTest.testGetThrowablesWithCheckedException_2:389 Should return an array containing the root cause ==> expected: [Ljava.lang.Throwable;@5a5f94c5<[java.lang.Exception: Checked Exception]> but was: [Ljava.lang.Throwable;@549871fe<[java.lang.Exception: Checked Exception]>
+[ERROR] Tests run: 52, Failures: 4, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w12/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

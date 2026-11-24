@@ -1,0 +1,136 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.function.Consumer;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    public void testAndEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.and());
+    }
+
+    @Test
+    public void testAndAllTrue() {
+        assertTrue(BooleanUtils.and(true, true, true));
+    }
+
+    @Test
+    public void testAndMixedBooleans() {
+        assertFalse(BooleanUtils.and(true, false, true));
+    }
+
+    @Test
+    public void testOrEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.or());
+    }
+
+    @Test
+    public void testOrAllFalse() {
+        assertFalse(BooleanUtils.or(false, false, false));
+    }
+
+    @Test
+    public void testOrMixedBooleans() {
+        assertTrue(BooleanUtils.or(true, false, true));
+    }
+
+    @Test
+    public void testOneHotEmptyArray() {
+        assertThrows(NullPointerException.class, () -> BooleanUtils.oneHot());
+    }
+
+    @Test
+    public void testOneHotAllFalse() {
+        assertFalse(BooleanUtils.oneHot(false, false, false));
+    }
+
+    @Test
+    public void testOneHotMixedBooleans() {
+        assertTrue(BooleanUtils.oneHot(true, false, true));
+    }
+
+    @Test
+    public void testToBooleanObjectNull() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+    }
+
+    @Test
+    public void testToBooleanObjectTrueString() {
+        assertTrue(BooleanUtils.toBooleanObject(TRUE));
+    }
+
+    @Test
+    public void testToBooleanObjectFalseString() {
+        assertFalse(BooleanUtils.toBooleanObject(FALSE));
+    }
+
+    @Test
+    public void testToBooleanObjectOtherString() {
+        assertNull(BooleanUtils.toBooleanObject("other"));
+    }
+
+    @Test
+    public void testToIntegerObjectNull() {
+        assertNull(BooleanUtils.toIntegerObject(null));
+    }
+
+    @Test
+    public void testToIntegerObjectTrue() {
+        assertEquals(NumberUtils.INTEGER_ONE, BooleanUtils.toIntegerObject(true));
+    }
+
+    @Test
+    public void testToIntegerObjectFalse() {
+        assertEquals(NumberUtils.INTEGER_ZERO, BooleanUtils.toIntegerObject(false));
+    }
+
+    @Test
+    public void testToStringOnOffNull() {
+        assertNull(BooleanUtils.toStringOnOff(null));
+    }
+
+    @Test
+    public void testToStringOnOffTrue() {
+        assertEquals(ON, BooleanUtils.toStringOnOff(true));
+    }
+
+    @Test
+    public void testToStringOnOffFalse() {
+        assertEquals(OFF, BooleanUtils.toStringOnOff(false));
+    }
+
+    @Test
+    public void testToStringTrueFalseNull() {
+        assertNull(BooleanUtils.toStringTrueFalse(null));
+    }
+
+    @Test
+    public void testToStringTrueFalseTrue() {
+        assertEquals(TRUE, BooleanUtils.toStringTrueFalse(true));
+    }
+
+    @Test
+    public void testToStringTrueFalseFalse() {
+        assertEquals(FALSE, BooleanUtils.toStringTrueFalse(false));
+    }
+
+    @Test
+    public void testToStringYesNoNull() {
+        assertNull(BooleanUtils.toStringYesNo(null));
+    }
+
+    @Test
+    public void testToStringYesNoTrue() {
+        assertEquals(YES, BooleanUtils.toStringYesNo(true));
+    }
+
+    @Test
+    public void testToStringYesNoFalse() {
+        assertEquals(NO, BooleanUtils.toStringYesNo(false));
+    }
+}
+```

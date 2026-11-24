@@ -1,0 +1,57 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testAppend_Comparator() {
+        Comparator<String> comparator = String::compareToIgnoreCase;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append("apple", "APPLE", comparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_nullLeft() {
+        Comparator<String> comparator = String::compareToIgnoreCase;
+        CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(NullPointerException.class, () -> builder.append(null, "APPLE", comparator));
+    }
+
+    @Test
+    public void testAppend_Comparator_nullRight() {
+        Comparator<String> comparator = String::compareToIgnoreCase;
+        CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(NullPointerException.class, () -> builder.append("apple", null, comparator));
+    }
+
+    @Test
+    public void testAppend_Comparator_differentLengthArrays() {
+        Comparator<Integer> comparator = Integer::compare;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Integer[]{1, 2}, new Integer[]{1, 2, 3}, comparator);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_sameLengthDifferentElementsArrays() {
+        Comparator<Integer> comparator = Integer::compare;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Integer[]{1, 2, 3}, new Integer[]{1, 4, 3}, comparator);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Comparator_sameLengthSameElementsArrays() {
+        Comparator<Integer> comparator = Integer::compare;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Integer[]{1, 2, 3}, new Integer[]{1, 2, 3}, comparator);
+        assertEquals(0, builder.toComparison());
+    }
+}
+```

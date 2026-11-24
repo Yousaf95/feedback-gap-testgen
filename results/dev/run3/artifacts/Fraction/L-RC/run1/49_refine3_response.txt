@@ -1,0 +1,106 @@
+```java
+package org.apache.commons.lang3.math;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class Fraction_GenTest {
+
+    @Test
+    void testAddAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MAX_VALUE, 1).add(Fraction.ONE));
+    }
+
+    @Test
+    void testSubAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).subtract(Fraction.ONE));
+    }
+
+    @Test
+    void testGetFractionFromDoubleThrowsExceptionOnTooLargeValue() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction((double) Integer.MAX_VALUE + 1));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsNegativeDenominator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(0, 1, -1));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsNegativeNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(0, -1, 1));
+    }
+
+    @Test
+    void testGetFractionFromStringXYOverZFormatInvalid() {
+        assertThrows(NumberFormatException.class, () -> Fraction.getFraction("3 4/"));
+    }
+
+    @Test
+    void testGetReducedFractionNegativeNumeratorDenominator() {
+        assertEquals(Fraction.ONE, Fraction.getReducedFraction(-1, -1));
+    }
+
+    @Test
+    void testAbsPositiveNumerator() {
+        assertEquals(Fraction.ONE, Fraction.ONE.abs());
+    }
+
+    @Test
+    void testAddZeroFraction() {
+        assertEquals(Fraction.ONE, Fraction.ONE.add(Fraction.ZERO));
+    }
+
+    @Test
+    void testSubtractZeroFraction() {
+        assertEquals(Fraction.ONE, Fraction.ONE.subtract(Fraction.ZERO));
+    }
+
+    @Test
+    void testGetFractionFromWholeAndIntsNegativeDenominator_2() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(0, 1, -1));
+    }
+
+    @Test
+    void testGetFractionFromStringXYOverZFormatInvalid_2() {
+        assertThrows(NumberFormatException.class, () -> Fraction.getFraction("3 /4"));
+    }
+
+    @Test
+    void testGreatestCommonDivisorOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.greatestCommonDivisor(Integer.MIN_VALUE, 1));
+    }
+
+    @Test
+    void testMulPosAndCheckOverflow() {
+        assertThrows(ArithmeticException.class, () -> Fraction.mulPosAndCheck(Integer.MAX_VALUE / 2 + 1, 2));
+    }
+
+    @Test
+    void testInvertZeroNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.ZERO.invert());
+    }
+
+    @Test
+    void testInvertMinValueNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE).invert());
+    }
+
+    @Test
+    void testNegateMinValueNumerator() {
+        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE).negate());
+    }
+
+    @Test
+    void testPowOnePower() {
+        assertEquals(Fraction.ONE, Fraction.ONE.pow(1));
+    }
+
+    @Test
+    void testHashCodeNotCached() {
+        Fraction fraction = new Fraction(1, 2);
+        fraction.hashCode = 0;
+        assertEquals(37 * (37 * 17 + 1) + 2, fraction.hashCode());
+    }
+}
+```

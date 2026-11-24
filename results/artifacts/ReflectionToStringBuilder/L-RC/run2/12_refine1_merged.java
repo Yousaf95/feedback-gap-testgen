@@ -1,0 +1,248 @@
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    
+    
+    
+    
+    
+    
+    
+    @Test
+    void testSetExcludeFieldNames() {
+        // Arrange
+        TestClass obj = new TestClass();
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setExcludeFieldNames("field1", "field2");
+
+        // Act
+        String result = builder.toString();
+
+        // Assert
+        assertFalse(result.contains("field1=10"));
+        assertFalse(result.contains("field2=null"));
+    }
+
+    @Test
+    void testSetIncludeFieldNames() {
+        // Arrange
+        TestClass obj = new TestClass();
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setIncludeFieldNames("field1");
+
+        // Act
+        String result = builder.toString();
+
+        // Assert
+        assertTrue(result.contains("field1=10"));
+        assertFalse(result.contains("field2=null"));
+    }
+
+    @Test
+    void testSetExcludeNullValues() {
+        // Arrange
+        TestClass obj = new TestClass();
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+        builder.setExcludeNullValues(true);
+
+        // Act
+        String result = builder.toString();
+
+        // Assert
+        assertTrue(result.contains("field1=10"));
+        assertFalse(result.contains("field2=null"));
+    }
+
+    
+    @Test
+    void testSetUpToClassWithInvalidClass() {
+        // Arrange
+        TestClass obj = new TestClass();
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(obj);
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> builder.setUpToClass(TestSubClass.class));
+    }
+
+    static class TestClass {
+        public int field1 = 10;
+        public String field2 = null;
+        transient int transientField = 20;
+
+        @Override
+        public String toString() {
+            return ReflectionToStringBuilder.toString(this);
+        }
+    }
+
+    static class TestSubClass extends TestClass {
+        public int subField = 30;
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testToNoNullStringArrayWithNullCollection() {
+            String[] result = ReflectionToStringBuilder.toNoNullStringArray((Collection<String>) null);
+            assertArrayEquals(ArrayUtils.EMPTY_STRING_ARRAY, result);
+        }
+
+    @Test
+        public void testToStringWithNullObject() {
+            String result = ReflectionToStringBuilder.toString(null);
+            assertEquals(ToStringStyle.DEFAULT_STYLE.getNullText(), result);
+        }
+
+    @Test
+        public void testToStringWithStyleAndNullObject() {
+            String result = ReflectionToStringBuilder.toString(null, ToStringStyle.JSON_STYLE);
+            assertEquals(ToStringStyle.JSON_STYLE.getNullText(), result);
+        }
+
+    @Test
+        public void testToStringWithStyleOutputTransientsAndNullObject() {
+            String result = ReflectionToStringBuilder.toString(null, ToStringStyle.JSON_STYLE, true);
+            assertEquals(ToStringStyle.JSON_STYLE.getNullText(), result);
+        }
+
+    @Test
+        public void testToStringWithStyleOutputTransientsOutputStaticsAndNullObject() {
+            String result = ReflectionToStringBuilder.toString(null, ToStringStyle.JSON_STYLE, true, true);
+            assertEquals(ToStringStyle.JSON_STYLE.getNullText(), result);
+        }
+
+    @Test
+        public void testToStringExcludeWithNullCollection() {
+            String result = ReflectionToStringBuilder.toStringExclude(new Object(), (Collection<String>) null);
+            assertEquals("ReflectionToStringBuilder_GenTest@<hashcode>", result.replaceAll("@\\p{XDigit}+", "@<hashcode>"));
+        }
+
+    @Test
+        public void testToStringIncludeWithNullCollection() {
+            String result = ReflectionToStringBuilder.toStringInclude(new Object(), (Collection<String>) null);
+            assertEquals("ReflectionToStringBuilder_GenTest@<hashcode>", result.replaceAll("@\\p{XDigit}+", "@<hashcode>"));
+        }
+
+    @Test
+        public void testConstructorWithStyleAndNullObject() {
+            assertThrows(IllegalArgumentException.class, () -> new ReflectionToStringBuilder(null, ToStringStyle.JSON_STYLE));
+        }
+
+    @Test
+        public void testConstructorWithStyleBufferAndNullObject() {
+            assertThrows(IllegalArgumentException.class, () -> new ReflectionToStringBuilder(null, ToStringStyle.JSON_STYLE, new StringBuffer()));
+        }
+
+    @Test
+        public void testConstructorWithAllParamsAndNullObject() {
+            assertThrows(IllegalArgumentException.class, () -> new ReflectionToStringBuilder(null, ToStringStyle.JSON_STYLE, new StringBuffer(), Object.class, true, true));
+        }
+
+    @Test
+        public void testConstructorWithAllParamsExcludeNullValuesAndNullObject() {
+            assertThrows(IllegalArgumentException.class, () -> new ReflectionToStringBuilder(null, ToStringStyle.JSON_STYLE, new StringBuffer(), Object.class, true, true, true));
+        }
+
+    @Test
+        public void testAcceptWithInnerClassField() {
+            class Inner {}
+            Field field = null;
+            try {
+                field = Inner.class.getDeclaredField("this$0");
+            } catch (NoSuchFieldException e) {
+                // Expected if the compiler doesn't generate this field
+            }
+            if (field != null) {
+                ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+                assertFalse(builder.accept(field));
+            }
+        }
+
+    @Test
+        public void testAcceptWithTransientField() {
+            Field field = Arrays.stream(SampleClass.class.getDeclaredFields())
+                    .filter(f -> Modifier.isTransient(f.getModifiers()))
+                    .findFirst()
+                    .orElseThrow(AssertionError::new);
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new SampleClass());
+            assertFalse(builder.accept(field));
+        }
+
+    @Test
+        public void testAcceptWithStaticField() {
+            Field field = Arrays.stream(SampleClass.class.getDeclaredFields())
+                    .filter(f -> Modifier.isStatic(f.getModifiers()))
+                    .findFirst()
+                    .orElseThrow(AssertionError::new);
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new SampleClass());
+            assertFalse(builder.accept(field));
+        }
+
+    @Test
+        public void testAppendFieldsInWithArray() {
+            String result = ReflectionToStringBuilder.toString(new int[]{1, 2, 3});
+            assertEquals("int@<hashcode>[{1,2,3}]", result.replaceAll("@\\p{XDigit}+", "@<hashcode>"));
+        }
+
+    @Test
+        public void testGetExcludeFieldNamesWithNull() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            builder.setExcludeFieldNames((String[]) null);
+            assertArrayEquals(null, builder.getExcludeFieldNames());
+        }
+
+    @Test
+        public void testGetIncludeFieldNamesWithNull() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            builder.setIncludeFieldNames((String[]) null);
+            assertArrayEquals(null, builder.getIncludeFieldNames());
+        }
+
+    @Test
+        public void testIsAppendStatics() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            assertFalse(builder.isAppendStatics());
+        }
+
+    @Test
+        public void testIsExcludeNullValues() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            assertFalse(builder.isExcludeNullValues());
+        }
+
+    @Test
+        public void testReflectionAppendArrayWithNull() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            assertThrows(IllegalArgumentException.class, () -> builder.reflectionAppendArray(null));
+        }
+
+    @Test
+        public void testSetAppendStatics() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            builder.setAppendStatics(true);
+            assertTrue(builder.isAppendStatics());
+        }
+
+    @Test
+        public void testSetAppendTransients() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            builder.setAppendTransients(true);
+            assertTrue(builder.isAppendTransients());
+        }
+
+    @Test
+        public void testSetUpToClassWithNull() {
+            ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+            builder.setUpToClass(null);
+            assertNull(builder.getUpToClass());
+        }
+}

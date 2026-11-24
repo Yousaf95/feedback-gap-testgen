@@ -1,0 +1,58 @@
+[ERROR] Tests run: 104, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 0.327 s <<< FAILURE! -- in org.apache.commons.lang3.CharUtils_GenTest
+[ERROR] org.apache.commons.lang3.CharUtils_GenTest.testToChar_StringExtended(String, char)[2] -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.IllegalArgumentException: The String must not be empty
+	at org.apache.commons.lang3.Validate.notEmpty(Validate.java:915)
+	at org.apache.commons.lang3.CharUtils.toChar(CharUtils.java:283)
+	at org.apache.commons.lang3.CharUtils_GenTest.testToChar_StringExtended(CharUtils_GenTest.java:478)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharUtils_GenTest.testToIntValue_CharExtended(char, int)[3] -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: The character A is not in the range '0' - '9'
+	at org.apache.commons.lang3.CharUtils.toIntValue(CharUtils.java:364)
+	at org.apache.commons.lang3.CharUtils_GenTest.testToIntValue_CharExtended(CharUtils_GenTest.java:492)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharUtils_GenTest.testToIntValue_CharExtended(char, int)[4] -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: The character  is not in the range '0' - '9'
+	at org.apache.commons.lang3.CharUtils.toIntValue(CharUtils.java:364)
+	at org.apache.commons.lang3.CharUtils_GenTest.testToIntValue_CharExtended(CharUtils_GenTest.java:492)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharUtils_GenTest.testIsAsciiControlExtended(char, boolean)[4] -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.CharUtils_GenTest.testIsAsciiControlExtended(CharUtils_GenTest.java:427)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   CharUtils_GenTest.testIsAsciiControlExtended:427 expected: <false> but was: <true>
+[ERROR] Errors: 
+[ERROR]   CharUtils_GenTest.testToChar_StringExtended:478 » IllegalArgument The String must not be empty
+[ERROR]   CharUtils_GenTest.testToIntValue_CharExtended:492 » IllegalArgument The character A is not in the range '0' - '9'
+[ERROR]   CharUtils_GenTest.testToIntValue_CharExtended:492 » IllegalArgument The character  is not in the range '0' - '9'
+[ERROR] Tests run: 104, Failures: 1, Errors: 3, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w0/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

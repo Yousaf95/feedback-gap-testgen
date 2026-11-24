@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N icect_extra2
+#PBS -q shortCPUQ
+#PBS -l select=1:ncpus=2:mem=16gb
+#PBS -l walltime=01:00:00
+#PBS -j oe
+source $HOME/ICECT/env.sh
+cd $HOME/ICECT
+python -I scripts/analyze.py results/raw/runs.jsonl results/artifacts results results/deviations.md > logs/analyze.log 2>&1
+echo "analyze exit $?" > logs/extra2.log
+python -I scripts/extra_analysis2.py results/raw/runs.jsonl results/artifacts results/classes.json commons-lang-src/src/test/java results/extra >> logs/extra2.log 2>&1
+echo "exit $?" >> logs/extra2.log

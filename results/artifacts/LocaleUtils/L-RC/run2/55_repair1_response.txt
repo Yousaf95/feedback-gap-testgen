@@ -1,0 +1,124 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class LocaleUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testSyncAvoidInitialization_3() {
+        // This test ensures that the SyncAvoid class is initialized
+        assertNotNull(LocaleUtils.availableLocaleList());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"USA", "U"})
+    void testIsISO3166CountryCodeWithInvalidLength(String code) {
+        assertFalse(isISO3166CountryCode(code));
+    }
+
+    @Test
+    void testIsISO3166CountryCodeWithLowerCase() {
+        assertFalse(isISO3166CountryCode("us"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"engg", "e"})
+    void testIsISO639LanguageCodeWithInvalidLength(String code) {
+        assertFalse(isISO639LanguageCode(code));
+    }
+
+    @Test
+    void testIsISO639LanguageCodeWithUpperCase() {
+        assertFalse(isISO639LanguageCode("EN"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"123"})
+    void testIsNumericAreaCodeWithValidCode(String code) {
+        assertTrue(isNumericAreaCode(code));
+    }
+
+    @Test
+    void testLocaleLookupListWithNullLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(null);
+        assertEquals(1, result.size());
+        assertEquals(Locale.getDefault(), result.get(0));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatTooShortUnderscorePrefixNonUpperCase() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_us"));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatDashPrefixNonUpperCase() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("-us"));
+    }
+
+    @Test
+    void testParseLocaleWithThreeLetterCountryAndVariant() {
+        assertEquals(new Locale("", "US", "POSIX"), LocaleUtils.toLocale("_US_POSIX"));
+    }
+
+    @Test
+    void testParseLocaleWithFourLetterCountryAndVariant_2() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US_ABCD"));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatTooShortUnderscorePrefixTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_U"));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatDashPrefixTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("-U"));
+    }
+
+    @Test
+    void testParseLocaleWithEmptyString() {
+        assertEquals(new Locale("", ""), LocaleUtils.toLocale(""));
+    }
+
+    @Test
+    void testConstructorIsPrivate() throws NoSuchMethodException {
+        assertNotNull(LocaleUtils.class.getDeclaredConstructor());
+        assertTrue(java.lang.reflect.Modifier.isPrivate(LocaleUtils.class.getDeclaredConstructor().getModifiers()));
+    }
+
+    // Helper methods to access private methods in LocaleUtils for testing purposes
+    private boolean isISO3166CountryCode(String code) {
+        try {
+            return (boolean) LocaleUtils.class.getDeclaredMethod("isISO3166CountryCode", String.class).invoke(null, code);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean isISO639LanguageCode(String code) {
+        try {
+            return (boolean) LocaleUtils.class.getDeclaredMethod("isISO639LanguageCode", String.class).invoke(null, code);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean isNumericAreaCode(String code) {
+        try {
+            return (boolean) LocaleUtils.class.getDeclaredMethod("isNumericAreaCode", String.class).invoke(null, code);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```

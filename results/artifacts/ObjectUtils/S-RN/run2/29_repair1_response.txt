@@ -1,0 +1,55 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Collections;
+import org.junit.jupiter.api.Test;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    public void testFirstNonNullWithEmptyArray() {
+        assertNull(ObjectUtils.firstNonNull(new String[]{}));
+    }
+
+    @Test
+    public void testGetFirstNonNullWithNullSuppliers_2() {
+        assertNull(ObjectUtils.getFirstNonNull((Supplier<String>) null, (Supplier<String>) null));
+    }
+
+    @Test
+    public void testGetIfNullWithNonEmptySupplier() {
+        assertEquals("default", ObjectUtils.getIfNull(null, () -> "default"));
+    }
+
+    @Test
+    public void testGetIfNullWithNullObjectAndNullSupplier_2() {
+        assertNull(ObjectUtils.getIfNull(null, (Supplier<String>) null));
+    }
+
+    @Test
+    public void testHashCodeHexForNull() {
+        assertEquals("0", ObjectUtils.hashCodeHex(null));
+    }
+
+    @Test
+    public void testIdentityToStringForNull() {
+        assertNull(ObjectUtils.identityToString((Object) null));
+    }
+
+    @Test
+    public void testIsArrayWithNonArrayObject() {
+        assertFalse(ObjectUtils.isArray(new Integer(1)));
+    }
+
+    @Test
+    public void testIsEmptyWithEmptyCollection() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    public void testIsNotEmptyWithEmptyCollection() {
+        assertFalse(ObjectUtils.isNotEmpty(Collections.emptyList()));
+    }
+}
+```

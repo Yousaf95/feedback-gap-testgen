@@ -1,0 +1,78 @@
+[ERROR] Tests run: 8, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.143 s <<< FAILURE! -- in org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] org.apache.commons.lang3.function.Failable_GenTest.testRun(FailableRunnable) -- Time elapsed: 0.039 s <<< ERROR!
+org.junit.platform.commons.PreconditionViolationException: Could not find factory method [provideRunnableData] in class [org.apache.commons.lang3.function.Failable_GenTest]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	Suppressed: org.junit.platform.commons.PreconditionViolationException: Configuration error: You must configure at least one set of arguments for this @ParameterizedTest
+		at java.base/java.util.stream.AbstractPipeline.close(AbstractPipeline.java:323)
+		at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+		... 9 more
+
+[ERROR] org.apache.commons.lang3.function.Failable_GenTest.testAccept(BiConsumer, Object, Object)[2] -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.AbstractList.add(AbstractList.java:153)
+	at java.base/java.util.AbstractList.add(AbstractList.java:111)
+	at org.apache.commons.lang3.function.Failable_GenTest.lambda$provideBiConsumerData$2(Failable_GenTest.java:67)
+	at org.apache.commons.lang3.function.Failable.lambda$accept$0(Failable.java:85)
+	at org.apache.commons.lang3.function.Failable.run(Failable.java:426)
+	at org.apache.commons.lang3.function.Failable.accept(Failable.java:85)
+	at org.apache.commons.lang3.function.Failable_GenTest.testAccept(Failable_GenTest.java:21)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.function.Failable_GenTest.testAccept(Consumer, Object)[2] -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.AbstractList.remove(AbstractList.java:167)
+	at java.base/java.util.AbstractList$Itr.remove(AbstractList.java:387)
+	at java.base/java.util.AbstractList.removeRange(AbstractList.java:598)
+	at java.base/java.util.AbstractList.clear(AbstractList.java:243)
+	at org.apache.commons.lang3.function.Failable_GenTest.lambda$provideConsumerData$4(Failable_GenTest.java:74)
+	at org.apache.commons.lang3.function.Failable.lambda$accept$1(Failable.java:97)
+	at org.apache.commons.lang3.function.Failable.run(Failable.java:426)
+	at org.apache.commons.lang3.function.Failable.accept(Failable.java:97)
+	at org.apache.commons.lang3.function.Failable_GenTest.testAccept(Failable_GenTest.java:27)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   Failable_GenTest.testAccept:21->lambda$provideBiConsumerData$2:67 » UnsupportedOperation
+[ERROR]   Failable_GenTest.testAccept:27->lambda$provideConsumerData$4:74 » UnsupportedOperation
+[ERROR]   Failable_GenTest.testRun(FailableRunnable) » PreconditionViolation Could not find factory method [provideRunnableData] in class [org.apache.commons.lang3.function.Failable_GenTest]
+[ERROR] Tests run: 8, Failures: 0, Errors: 3, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w3/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,127 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.io.Serializable;
+import java.time.Duration;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testReadResolve() {
+        ObjectUtils.Null nullInstance = new ObjectUtils.Null();
+        assertEquals(ObjectUtils.NULL, nullInstance);
+    }
+
+    @Test
+    void testClone_NoCloneMethod() {
+        assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(new Object()));
+    }
+
+    @Test
+    void testClone_IllegalAccessException() {
+        class NonAccessibleClone implements Cloneable {
+            private final int value;
+
+            public NonAccessibleClone(int value) {
+                this.value = value;
+            }
+
+            @Override
+            protected Object clone() throws CloneNotSupportedException {
+                throw new IllegalAccessException();
+            }
+        }
+        assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(new NonAccessibleClone(1)));
+    }
+
+    @Test
+    void testClone_InvocationTargetException() {
+        class ThrowingClone implements Cloneable {
+            private final int value;
+
+            public ThrowingClone(int value) {
+                this.value = value;
+            }
+
+            @Override
+            protected Object clone() throws CloneNotSupportedException {
+                throw new RuntimeException("Intentional exception");
+            }
+        }
+        assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(new ThrowingClone(1)));
+    }
+
+    @Test
+    void testGetFirstNonNull_OneNullSupplier() {
+        Supplier<String> nullSupplier = () -> null;
+        Supplier<String> nonNullSupplier = () -> "non-null";
+        assertEquals("non-null", ObjectUtils.getFirstNonNull(nullSupplier, nonNullSupplier));
+    }
+
+    @Test
+    void testHashCodeMulti_EmptyArray() {
+        assertEquals(1, ObjectUtils.hashCodeMulti());
+    }
+
+    @Test
+    void testIdentityToString_WithNullObject() {
+        assertNull(ObjectUtils.identityToString((Object) null));
+    }
+
+    @Test
+    void testIsEmpty_ArrayEmpty() {
+        assertTrue(ObjectUtils.isEmpty(new int[0]));
+    }
+
+    @Test
+    void testIsEmpty_CollectionEmpty() {
+        assertTrue(ObjectUtils.isEmpty(new ArrayList<>()));
+    }
+
+    @Test
+    void testIsEmpty_MapEmpty() {
+        assertTrue(ObjectUtils.isEmpty(new HashMap<>()));
+    }
+
+    @Test
+    void testIsEmpty_OptionalEmpty() {
+        assertTrue(ObjectUtils.isEmpty(Optional.empty()));
+    }
+
+    @Test
+    void testMedian_NullItems() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.median((Integer[]) null));
+    }
+
+    @Test
+    void testMedian_NullComparator() {
+        Integer[] items = {1, 2, 3};
+        assertThrows(NullPointerException.class, () -> ObjectUtils.median(null, items));
+    }
+
+    @Test
+    void testMin_EmptyArray() {
+        assertNull(ObjectUtils.min());
+    }
+
+    @Test
+    void testToString_WithNullObjectAndSupplier() {
+        Supplier<String> supplier = () -> "default";
+        assertEquals("default", ObjectUtils.toString((String) null, supplier));
+    }
+
+    @Test
+    void testWait_NullDuration() throws InterruptedException {
+        final Object obj = new Object();
+        assertDoesNotThrow(() -> ObjectUtils.wait(obj, null));
+    }
+
+    @Test
+    void testObjectUtilsConstructor() {
+        assertNotNull(new ObjectUtils());
+    }
+}
+```

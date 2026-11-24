@@ -1,0 +1,361 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[129,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[132,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[142,69] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[142,86] incompatible types: void cannot be converted to org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[129,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[132,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[142,69] reflectionAppend(java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[142,86] incompatible types: void cannot be converted to org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[103,13] cannot find symbol
+  symbol:   class Set
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[103,13] cannot find symbol
+[ERROR]   symbol:   class Set
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,13] cannot find symbol
+  symbol:   method reflectionAppend(<nulltype>,<nulltype>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[144,13] cannot find symbol
+  symbol:   method register(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[146,13] cannot find symbol
+  symbol:   method reflectionAppend(java.lang.Object,java.lang.Class<capture#1 of ? extends java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[148,13] cannot find symbol
+  symbol:   method unregister(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[153,13] cannot find symbol
+  symbol:   method register(<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[154,24] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[160,13] cannot find symbol
+  symbol:   method register(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[161,27] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[162,24] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[163,13] cannot find symbol
+  symbol:   method unregister(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[168,13] cannot find symbol
+  symbol:   method unregister(<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[169,24] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[175,13] cannot find symbol
+  symbol:   method unregister(java.lang.Object)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[176,24] cannot find symbol
+  symbol:   method getRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,13] cannot find symbol
+[ERROR]   symbol:   method reflectionAppend(<nulltype>,<nulltype>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[144,13] cannot find symbol
+[ERROR]   symbol:   method register(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[146,13] cannot find symbol
+[ERROR]   symbol:   method reflectionAppend(java.lang.Object,java.lang.Class<capture#1 of ? extends java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[148,13] cannot find symbol
+[ERROR]   symbol:   method unregister(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[153,13] cannot find symbol
+[ERROR]   symbol:   method register(<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[154,24] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[160,13] cannot find symbol
+[ERROR]   symbol:   method register(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[161,27] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[162,24] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[163,13] cannot find symbol
+[ERROR]   symbol:   method unregister(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[168,13] cannot find symbol
+[ERROR]   symbol:   method unregister(<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[169,24] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[175,13] cannot find symbol
+[ERROR]   symbol:   method unregister(java.lang.Object)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[176,24] cannot find symbol
+[ERROR]   symbol:   method getRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    <nulltype>,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[145,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[146,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    java.lang.Object,java.lang.Class<capture#1 of ? extends java.lang.Object>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[148,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[154,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[162,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[165,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[171,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[179,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    <nulltype>,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[145,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[146,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    java.lang.Object,java.lang.Class<capture#1 of ? extends java.lang.Object>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[148,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[154,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[162,20] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[165,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[171,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[179,20] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,20] reference to append is ambiguous
+  both method append(java.lang.Object[]) in org.apache.commons.lang3.builder.HashCodeBuilder and method append(short[]) in org.apache.commons.lang3.builder.HashCodeBuilder match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[137,20] reference to append is ambiguous
+[ERROR]   both method append(java.lang.Object[]) in org.apache.commons.lang3.builder.HashCodeBuilder and method append(short[]) in org.apache.commons.lang3.builder.HashCodeBuilder match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[156,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,13] cannot find symbol
+  symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[185,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[187,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[194,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[196,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[203,13] cannot find symbol
+  symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[210,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[212,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[156,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,13] cannot find symbol
+[ERROR]   symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[185,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[187,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[194,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[196,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[203,13] cannot find symbol
+[ERROR]   symbol:   method reflectionAppend(<nulltype>,java.lang.Class<java.lang.Object>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,<nulltype>)
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[210,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[212,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[152,6] cannot find symbol
+  symbol:   class BeforeEach
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[172,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    <nulltype>,java.lang.Class<java.lang.Object>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[184,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[186,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[193,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[195,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[202,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    <nulltype>,java.lang.Class<java.lang.Object>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[209,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[211,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[152,6] cannot find symbol
+[ERROR]   symbol:   class BeforeEach
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[172,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    <nulltype>,java.lang.Class<java.lang.Object>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[184,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[186,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[193,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[195,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[202,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    <nulltype>,java.lang.Class<java.lang.Object>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[209,28] register(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[211,28] unregister(java.lang.Object) has private access in org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[156,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    <nulltype>,java.lang.Class<java.lang.Object>
+  reason: actual and formal argument lists differ in length
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[156,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[173,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    <nulltype>,java.lang.Class<java.lang.Object>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[152,6] cannot find symbol
+  symbol:   class BeforeEach
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,28] cannot find symbol
+  symbol:   method clearRegistry()
+  location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[172,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+  required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+  found:    <nulltype>,java.lang.Class<java.lang.Object>
+  reason: actual and formal argument lists differ in length
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[152,6] cannot find symbol
+[ERROR]   symbol:   class BeforeEach
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder_GenTest
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[155,28] cannot find symbol
+[ERROR]   symbol:   method clearRegistry()
+[ERROR]   location: class org.apache.commons.lang3.builder.HashCodeBuilder
+[ERROR] /work/w1/src/test/java/org/apache/commons/lang3/builder/HashCodeBuilder_GenTest.java:[172,20] method reflectionAppend in class org.apache.commons.lang3.builder.HashCodeBuilder cannot be applied to given types;
+[ERROR]   required: java.lang.Object,java.lang.Class<?>,org.apache.commons.lang3.builder.HashCodeBuilder,boolean,java.lang.String[]
+[ERROR]   found:    <nulltype>,java.lang.Class<java.lang.Object>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

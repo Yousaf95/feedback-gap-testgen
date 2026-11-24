@@ -1,0 +1,227 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSequenceUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CharSequenceUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testCheckLaterThan1_withMismatch: checkLaterThan1(java.lang.CharSequence,java.lang.CharSequence,int,int) has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(false, CharSequenceUtils.checkLaterThan1(cs, searchChar, len2, start1));
+in method testCheckLaterThan1_withMatch: checkLaterThan1(java.lang.CharSequence,java.lang.CharSequence,int,int) has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(true, CharSequenceUtils.checkLaterThan1(cs, searchChar, len2, start1));
+in method testIndexOf_withSingleCharNotFound: NOT_FOUND has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.indexOf(cs, searchChar, 0));
+in method testIndexOf_withSupplementaryCharacterNotFound: NOT_FOUND has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.indexOf(cs, searchChar, 0));
+in method testLastIndexOf_withNullSearchChar: NOT_FOUND has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+in method testLastIndexOf_withNullCs: NOT_FOUND has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+in method testLastIndexOf_withSearchCharLongerThanCs: NOT_FOUND has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, searchChar, 2));
+in method testLastIndexOf_withSingleCharNotFound: NOT_FOUND has private access in org.apache.commons.lang3.CharSequenceUtils
+    code: assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, (char) searchChar, 5));
+
+Current test class (CharSequenceUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class CharSequenceUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        void testCheckLaterThan1_withMismatch() {
+            CharSequence cs = "abcdef";
+            CharSequence searchChar = "xyz";
+            int len2 = searchChar.length();
+            int start1 = 0;
+            assertEquals(false, CharSequenceUtils.checkLaterThan1(cs, searchChar, len2, start1));
+        }
+
+    @Test
+        void testCheckLaterThan1_withMatch() {
+            CharSequence cs = "abccba";
+            CharSequence searchChar = "abc";
+            int len2 = searchChar.length();
+            int start1 = 0;
+            assertEquals(true, CharSequenceUtils.checkLaterThan1(cs, searchChar, len2, start1));
+        }
+
+    @Test
+        void testIndexOf_withString() {
+            CharSequence cs = "hello";
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testIndexOf_withStringBuilder() {
+            CharSequence cs = new StringBuilder("hello");
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testIndexOf_withStringBuffer() {
+            CharSequence cs = new StringBuffer("hello");
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testIndexOf_withNonString() {
+            CharSequence cs = "hello";
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testIndexOf_withSingleCharFound() {
+            CharSequence cs = "hello";
+            int searchChar = 'l';
+            assertEquals(2, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testIndexOf_withSingleCharNotFound() {
+            CharSequence cs = "hello";
+            int searchChar = 'z';
+            assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testIndexOf_withSupplementaryCharacterFound() {
+            CharSequence cs = "\uD835\uDC00\uD835\uDC01";
+            int searchChar = Character.toCodePoint('\uD835', '\uDC00');
+            assertEquals(0, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testIndexOf_withSupplementaryCharacterNotFound() {
+            CharSequence cs = "\uD835\uDC00\uD835\uDC01";
+            int searchChar = Character.toCodePoint('\uD835', '\uDC02');
+            assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.indexOf(cs, searchChar, 0));
+        }
+
+    @Test
+        void testLastIndexOf_withNullSearchChar() {
+            CharSequence cs = "hello";
+            CharSequence searchChar = null;
+            assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withNullCs() {
+            CharSequence cs = null;
+            CharSequence searchChar = "ll";
+            assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withString() {
+            CharSequence cs = "hello";
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withStringBuilder() {
+            CharSequence cs = new StringBuilder("hello");
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withStringBuffer() {
+            CharSequence cs = new StringBuffer("hello");
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withNonString() {
+            CharSequence cs = "hello";
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withStartGreaterThanLength() {
+            CharSequence cs = "hello";
+            CharSequence searchChar = "ll";
+            assertEquals(2, CharSequenceUtils.lastIndexOf(cs, searchChar, 10));
+        }
+
+    @Test
+        void testLastIndexOf_withEmptySearchChar() {
+            CharSequence cs = "hello";
+            CharSequence searchChar = "";
+            assertEquals(5, CharSequenceUtils.lastIndexOf(cs, searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withSearchCharLongerThanCs() {
+            CharSequence cs = "he";
+            CharSequence searchChar = "hello";
+            assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, searchChar, 2));
+        }
+
+    @Test
+        void testLastIndexOf_withSingleCharFound() {
+            CharSequence cs = "hello";
+            int searchChar = 'l';
+            assertEquals(3, CharSequenceUtils.lastIndexOf(cs, (char) searchChar, 5));
+        }
+
+    @Test
+        void testLastIndexOf_withSingleCharNotFound() {
+            CharSequence cs = "hello";
+            int searchChar = 'z';
+            assertEquals(CharSequenceUtils.NOT_FOUND, CharSequenceUtils.lastIndexOf(cs, (char) searchChar, 5));
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.CharSequenceUtils):
+```java
+package org.apache.commons.lang3;
+
+/** Operations on {@link CharSequence} that are {@code null} safe. */
+public class CharSequenceUtils {
+    private static final int NOT_FOUND = -1;
+    static final int TO_STRING_LIMIT = 16;
+    /** Returns a new {@link CharSequence} that is a subsequence of this sequence starting with the {@code char} value at the specified index. */
+    public static CharSequence subSequence(final CharSequence cs, final int start) {
+        return cs == null ? null : cs.subSequence(start, cs.length());
+    }
+    /** Converts the given CharSequence to a char[]. */
+    public static char[] toCharArray(final CharSequence source) {
+        final int len = StringUtils.length(source);
+        if (len == 0) {
+            return ArrayUtils.EMPTY_CHAR_ARRAY;
+        }
+        if (source instanceof String) {
+            return ((String) source).toCharArray();
+        }
+        final char[] array = new char[len];
+        for (int i = 0; i < len; i++) {
+            array[i] = source.charAt(i);
+        }
+        return array;
+    }
+    /** {@link CharSequenceUtils} instances should NOT be constructed in standard programming. */
+    public CharSequenceUtils() {
+    }
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

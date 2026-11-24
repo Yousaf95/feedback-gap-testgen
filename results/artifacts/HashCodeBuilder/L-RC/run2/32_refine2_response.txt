@@ -1,0 +1,93 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    void testIsRegisteredNotRegistered() {
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    void testReflectionAppendWithRegisteredObject() {
+        Object obj = new Object();
+        HashCodeBuilder.register(obj);
+        HashCodeBuilder.reflectionAppend(obj, obj.getClass(), new HashCodeBuilder(), false, null);
+        HashCodeBuilder.unregister(obj);
+    }
+
+    @Test
+    void testReflectionHashCodeDefaultValues() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object()));
+    }
+
+    @Test
+    void testReflectionHashCodeWithTransients() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object(), true));
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludeFieldsCollection() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object(), Collections.singletonList("field")));
+    }
+
+    @Test
+    void testReflectionHashCodeWithExcludeFieldsArray() {
+        assertEquals(17, HashCodeBuilder.reflectionHashCode(new Object(), new String[]{"field"}));
+    }
+
+    @Test
+    void testAppendArrayBoolean() {
+        new HashCodeBuilder().append((boolean[]) null);
+    }
+
+    @Test
+    void testAppendArrayByte() {
+        new HashCodeBuilder().append((byte[]) null);
+    }
+
+    @Test
+    void testAppendArrayChar() {
+        new HashCodeBuilder().append((char[]) null);
+    }
+
+    @Test
+    void testAppendArrayDouble() {
+        new HashCodeBuilder().append((double[]) null);
+    }
+
+    @Test
+    void testAppendArrayFloat() {
+        new HashCodeBuilder().append((float[]) null);
+    }
+
+    @Test
+    void testAppendArrayInt() {
+        new HashCodeBuilder().append((int[]) null);
+    }
+
+    @Test
+    void testAppendArrayLong() {
+        new HashCodeBuilder().append((long[]) null);
+    }
+
+    @Test
+    void testAppendArrayShort() {
+        new HashCodeBuilder().append((short[]) null);
+    }
+
+    @Test
+    void testAppendArrayObject() {
+        new HashCodeBuilder().append((Object[]) null);
+    }
+}
+```

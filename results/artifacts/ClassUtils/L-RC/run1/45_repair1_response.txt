@@ -1,0 +1,193 @@
+```java
+package org.apache.commons.lang3;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class ClassUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testGetAbbreviatedName_withNullClass_3() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getAbbreviatedName((Class<?>) null, 10));
+    }
+
+    @Test
+    void testGetAbbreviatedName_withValidClass() {
+        assertEquals("java.la...", ClassUtils.getAbbreviatedName(String.class, 10));
+    }
+
+    @Test
+    void testGetAllSuperclasses_withNull_2_2() {
+        assertNull(ClassUtils.getAllSuperclasses(null));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClass_2_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalNameForObject_withNullObject_2_2() {
+        assertEquals("default", ClassUtils.getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass_2_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass_2_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageNameForObject_withNullObject_2_2() {
+        assertEquals("default", ClassUtils.getPackageName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveClass_2_2() {
+        assertEquals("int", ClassUtils.getCanonicalName(int.class));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassName_2_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetPackageName_withArrayClassName_2() {
+        assertEquals("java.lang", ClassUtils.getPackageName("[Ljava.lang.String;"));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClass_3() {
+        assertEquals("default", ClassUtils.getCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalNameForObject_withNullObject_3() {
+        assertEquals("default", ClassUtils.getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass_3() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass_3() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageNameForObject_withNullObject_3() {
+        assertEquals("default", ClassUtils.getPackageName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveClass_3() {
+        assertEquals("int", ClassUtils.getCanonicalName(int.class));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassName_3() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetAllInterfaces_withNull_3() {
+        assertNull(ClassUtils.getAllInterfaces(null));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClass_4() {
+        assertEquals("default", ClassUtils.getCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalNameForObject_withNullObject_4() {
+        assertEquals("default", ClassUtils.getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass_4() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass_4() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageNameForObject_withNullObject_4() {
+        assertEquals("default", ClassUtils.getPackageName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveClass_4() {
+        assertEquals("int", ClassUtils.getCanonicalName(int.class));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassName_4() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClass_5() {
+        assertEquals("default", ClassUtils.getCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalNameForObject_withNullObject_5() {
+        assertEquals("default", ClassUtils.getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass_5() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass_5() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageNameForObject_withNullObject_5() {
+        assertEquals("default", ClassUtils.getPackageName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveClass_5() {
+        assertEquals("int", ClassUtils.getCanonicalName(int.class));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassName_5() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetAllSuperclasses_withObjectClass_3() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(String.class);
+        assertEquals(1, superclasses.size());
+        assertEquals(Object.class, superclasses.get(0));
+    }
+
+    @Test
+    void testGetPublicMethod_withNonExistentMethod() {
+        assertThrows(NoSuchMethodException.class, () -> 
+            ClassUtils.getPublicMethod(String.class, "nonExistentMethod"));
+    }
+}
+```

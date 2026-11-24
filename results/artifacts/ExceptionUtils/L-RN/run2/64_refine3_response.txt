@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    void testGetMessage_withNullMessage() {
+        Throwable throwable = new NullPointerException();
+        assertEquals("NullPointerException", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    void testGetRootCause_withSameThrowable() {
+        Throwable throwable = new IllegalArgumentException("test");
+        assertSame(throwable, ExceptionUtils.getRootCause(throwable));
+    }
+
+    @Test
+    void testIndexOfType_withExactMatchAtStart() {
+        Throwable cause = new NullPointerException();
+        Throwable throwable = new IllegalArgumentException(cause);
+        assertEquals(1, ExceptionUtils.indexOfThrowable(throwable, NullPointerException.class));
+    }
+
+    @Test
+    void testHasCause_withExactMatch() {
+        Throwable cause = new NullPointerException();
+        Throwable throwable = new IllegalArgumentException(cause);
+        assertTrue(ExceptionUtils.hasCause(throwable, NullPointerException.class));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withSameThrowable() {
+        Throwable throwable = new IllegalArgumentException("test");
+        assertEquals("IllegalArgumentException: test", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    void testGetThrowableCount_withNestedThrowablesDifferentTypes() {
+        Throwable cause = new NullPointerException();
+        Throwable throwable = new IllegalArgumentException(cause);
+        assertEquals(2, ExceptionUtils.getThrowableCount(throwable));
+    }
+
+    @Test
+    void testGetThrowableList_withSameThrowable() {
+        Throwable throwable = new IllegalArgumentException("test");
+        List<Throwable> list = ExceptionUtils.getThrowableList(throwable);
+        assertEquals(1, list.size());
+        assertSame(throwable, list.get(0));
+    }
+
+    @Test
+    void testStream_withSingleThrowable() {
+        Throwable throwable = new IllegalArgumentException();
+        long count = ExceptionUtils.stream(throwable).count();
+        assertEquals(1, count);
+    }
+
+    @Test
+    void testGetRootCauseStackTrace_withSameThrowable() {
+        Throwable throwable = new IllegalArgumentException("test");
+        String[] stackTrace = ExceptionUtils.getRootCauseStackTrace(throwable);
+        assertTrue(stackTrace.length > 0);
+        assertTrue(stackTrace[0].contains("IllegalArgumentException: test"));
+    }
+}
+```

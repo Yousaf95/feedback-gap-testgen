@@ -1,0 +1,683 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CompareToBuilder_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CompareToBuilder shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+in method testAppendBooleanWithComparisonAlreadySet: comparison has private access in org.apache.commons.lang3.builder.CompareToBuilder
+    code: builder.comparison = 1;
+in method testAppendBooleanArrayWithComparisonAlreadySet: comparison has private access in org.apache.commons.lang3.builder.CompareToBuilder
+    code: builder.comparison = 1;
+in method testAppendBooleanArrayNulls: reference to append is ambiguous (both method append(java.lang.Object[],java.lang.Object[]) in org.apache.commons.lang3.builder.CompareToBuilder and method append(short[],short[]) in org.apache.commons.lang3.builder.CompareToBuilder match)
+    code: assertEquals(builder, builder.append(null, null));
+in method testAppendByteArrayWithComparisonAlreadySet: comparison has private access in org.apache.commons.lang3.builder.CompareToBuilder
+    code: builder.comparison = 1;
+in method testAppendByteArrayNulls: reference to append is ambiguous (both method append(java.lang.Object[],java.lang.Object[]) in org.apache.commons.lang3.builder.CompareToBuilder and method append(short[],short[]) in org.apache.commons.lang3.builder.CompareToBuilder match)
+    code: assertEquals(builder, builder.append(null, null));
+in method testAppendCharArrayWithComparisonAlreadySet: comparison has private access in org.apache.commons.lang3.builder.CompareToBuilder
+    code: builder.comparison = 1;
+in method testAppendCharArrayNulls: reference to append is ambiguous (both method append(java.lang.Object[],java.lang.Object[]) in org.apache.commons.lang3.builder.CompareToBuilder and method append(short[],short[]) in org.apache.commons.lang3.builder.CompareToBuilder match)
+    code: assertEquals(builder, builder.append(null, null));
+in method testAppendDoubleArrayWithComparisonAlreadySet: comparison has private access in org.apache.commons.lang3.builder.CompareToBuilder
+    code: builder.comparison = 1;
+in method testAppendDoubleArrayNulls: reference to append is ambiguous (both method append(java.lang.Object[],java.lang.Object[]) in org.apache.commons.lang3.builder.CompareToBuilder and method append(short[],short[]) in org.apache.commons.lang3.builder.CompareToBuilder match)
+    code: assertEquals(builder, builder.append(null, null));
+
+Current test class (CompareToBuilder_GenTest.java):
+```java
+package org.apache.commons.lang3.builder;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class CompareToBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        void testAppendBooleanWithComparisonAlreadySet() {
+            CompareToBuilder builder = new CompareToBuilder();
+            builder.comparison = 1;
+            assertEquals(builder, builder.append(true, false));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendBooleanTrueFalse() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(true, false));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendBooleanArrayWithComparisonAlreadySet() {
+            CompareToBuilder builder = new CompareToBuilder();
+            builder.comparison = 1;
+            assertEquals(builder, builder.append(new boolean[]{true}, new boolean[]{false}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendBooleanArrayNulls() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, null));
+            assertEquals(0, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new boolean[]{true}, null));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, new boolean[]{false}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendBooleanArrayDifferentLengths() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new boolean[]{true}, new boolean[]{}));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new boolean[]{}, new boolean[]{false}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendByteArrayWithComparisonAlreadySet() {
+            CompareToBuilder builder = new CompareToBuilder();
+            builder.comparison = 1;
+            assertEquals(builder, builder.append(new byte[]{1}, new byte[]{2}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendByteArrayNulls() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, null));
+            assertEquals(0, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new byte[]{1}, null));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, new byte[]{2}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendByteArrayDifferentLengths() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new byte[]{1}, new byte[]{}));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new byte[]{}, new byte[]{2}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendCharArrayWithComparisonAlreadySet() {
+            CompareToBuilder builder = new CompareToBuilder();
+            builder.comparison = 1;
+            assertEquals(builder, builder.append(new char[]{'a'}, new char[]{'b'}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendCharArrayNulls() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, null));
+            assertEquals(0, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new char[]{'a'}, null));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, new char[]{'b'}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendCharArrayDifferentLengths() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new char[]{'a'}, new char[]{}));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new char[]{}, new char[]{'b'}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendDoubleArrayWithComparisonAlreadySet() {
+            CompareToBuilder builder = new CompareToBuilder();
+            builder.comparison = 1;
+            assertEquals(builder, builder.append(new double[]{1.0}, new double[]{2.0}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendDoubleArrayNulls() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, null));
+            assertEquals(0, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new double[]{1.0}, null));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(null, new double[]{2.0}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testAppendDoubleArrayDifferentLengths() {
+            CompareToBuilder builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new double[]{1.0}, new double[]{}));
+            assertEquals(-1, builder.toComparison());
+    
+            builder = new CompareToBuilder();
+            assertEquals(builder, builder.append(new double[]{}, new double[]{2.0}));
+            assertEquals(1, builder.toComparison());
+        }
+
+    @Test
+        void testReflectionCompareWithSuperclass() {
+            class Parent {
+                int value;
+    
+                Parent(int value) {
+                    this.value = value;
+                }
+            }
+    
+            class Child extends Parent {
+                int anotherValue;
+    
+                Child(int value, int anotherValue) {
+                    super(value);
+                    this.anotherValue = anotherValue;
+                }
+            }
+    
+            Child child1 = new Child(1, 2);
+            Child child2 = new Child(1, 3);
+    
+            assertEquals(-1, CompareToBuilder.reflectionCompare(child1, child2, true, Parent.class));
+        }
+
+    @Test
+        void testReflectionCompareWithExcludeFields() {
+            class TestClass {
+                int value;
+                transient int transientValue;
+    
+                TestClass(int value, int transientValue) {
+                    this.value = value;
+                    this.transientValue = transientValue;
+                }
+            }
+    
+            TestClass obj1 = new TestClass(1, 2);
+            TestClass obj2 = new TestClass(1, 3);
+    
+            assertEquals(0, CompareToBuilder.reflectionCompare(obj1, obj2, false, null, "transientValue"));
+        }
+
+    @Test
+        void testReflectionCompareWithExcludeFieldsCollection() {
+            class TestClass {
+                int value;
+                transient int transientValue;
+    
+                TestClass(int value, int transientValue) {
+                    this.value = value;
+                    this.transientValue = transientValue;
+                }
+            }
+    
+            TestClass obj1 = new TestClass(1, 2);
+            TestClass obj2 = new TestClass(1, 3);
+    
+            assertEquals(0, CompareToBuilder.reflectionCompare(obj1, obj2, Collections.singleton("transientValue")));
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.builder.CompareToBuilder):
+```java
+package org.apache.commons.lang3.builder;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Objects;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+
+/** Assists in implementing {@link java.lang.Comparable#compareTo(Object)} methods. */
+public class CompareToBuilder implements Builder<Integer> {
+    /** Compares two {@link Object}s via reflection. */
+    public static int reflectionCompare(final Object lhs, final Object rhs) {
+        return reflectionCompare(lhs, rhs, false, null);
+    }
+    /** Compares two {@link Object}s via reflection. */
+    public static int reflectionCompare(final Object lhs, final Object rhs, final boolean compareTransients) {
+        return reflectionCompare(lhs, rhs, compareTransients, null);
+    }
+    /** Compares two {@link Object}s via reflection. */
+    public static int reflectionCompare(
+        final Object lhs,
+        final Object rhs,
+        final boolean compareTransients,
+        final Class<?> reflectUpToClass,
+        final String... excludeFields) {
+
+        if (lhs == rhs) {
+            return 0;
+        }
+        Objects.requireNonNull(lhs, "lhs");
+        Objects.requireNonNull(rhs, "rhs");
+
+        Class<?> lhsClazz = lhs.getClass();
+        if (!lhsClazz.isInstance(rhs)) {
+            throw new ClassCastException();
+        }
+        final CompareToBuilder compareToBuilder = new CompareToBuilder();
+        reflectionAppend(lhs, rhs, lhsClazz, compareToBuilder, compareTransients, excludeFields);
+        while (lhsClazz.getSuperclass() != null && lhsClazz != reflectUpToClass) {
+            lhsClazz = lhsClazz.getSuperclass();
+            reflectionAppend(lhs, rhs, lhsClazz, compareToBuilder, compareTransients, excludeFields);
+        }
+        return compareToBuilder.toComparison();
+    }
+    /** Compares two {@link Object}s via reflection. */
+    public static int reflectionCompare(final Object lhs, final Object rhs, final Collection<String> excludeFields) {
+        return reflectionCompare(lhs, rhs, ReflectionToStringBuilder.toNoNullStringArray(excludeFields));
+    }
+    /** Compares two {@link Object}s via reflection. */
+    public static int reflectionCompare(final Object lhs, final Object rhs, final String... excludeFields) {
+        return reflectionCompare(lhs, rhs, false, null, excludeFields);
+    }
+    /** Current state of the comparison as appended fields are checked. */
+    private int comparison;
+    /** Constructor for CompareToBuilder. */
+    public CompareToBuilder() {
+        comparison = 0;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code booleans}s. */
+    public CompareToBuilder append(final boolean lhs, final boolean rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs) {
+            comparison = 1;
+        } else {
+            comparison = -1;
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code boolean} arrays. */
+    public CompareToBuilder append(final boolean[] lhs, final boolean[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code byte}s. */
+    public CompareToBuilder append(final byte lhs, final byte rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = Byte.compare(lhs, rhs);
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code byte} arrays. */
+    public CompareToBuilder append(final byte[] lhs, final byte[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code char}s. */
+    public CompareToBuilder append(final char lhs, final char rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = Character.compare(lhs, rhs);
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code char} arrays. */
+    public CompareToBuilder append(final char[] lhs, final char[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code double}s. */
+    public CompareToBuilder append(final double lhs, final double rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = Double.compare(lhs, rhs);
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code double} arrays. */
+    public CompareToBuilder append(final double[] lhs, final double[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code float}s. */
+    public CompareToBuilder append(final float lhs, final float rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = Float.compare(lhs, rhs);
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code float} arrays. */
+    public CompareToBuilder append(final float[] lhs, final float[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code int}s. */
+    public CompareToBuilder append(final int lhs, final int rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = Integer.compare(lhs, rhs);
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code int} arrays. */
+    public CompareToBuilder append(final int[] lhs, final int[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code long}s. */
+    public CompareToBuilder append(final long lhs, final long rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = Long.compare(lhs, rhs);
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code long} arrays. */
+    public CompareToBuilder append(final long[] lhs, final long[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@link Object}s. */
+    public CompareToBuilder append(final Object lhs, final Object rhs) {
+        return append(lhs, rhs, null);
+    }
+    /** Appends to the {@code builder} the comparison of two {@link Object}s. */
+    public CompareToBuilder append(final Object lhs, final Object rhs, final Comparator<?> comparator) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (ObjectUtils.isArray(lhs)) {
+            // factor out array case in order to keep method small enough to be inlined
+            appendArray(lhs, rhs, comparator);
+        } else // the simple case, not an array, just test the element
+        if (comparator == null) {
+            @SuppressWarnings("unchecked") // assume this can be done; if not throw CCE as per Javadoc
+            final Comparable<Object> comparable = (Comparable<Object>) lhs;
+            comparison = comparable.compareTo(rhs);
+        } else {
+            @SuppressWarnings("unchecked") // assume this can be done; if not throw CCE as per Javadoc
+            final Comparator<Object> comparator2 = (Comparator<Object>) comparator;
+            comparison = comparator2.compare(lhs, rhs);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@link Object} arrays. */
+    public CompareToBuilder append(final Object[] lhs, final Object[] rhs) {
+        return append(lhs, rhs, null);
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@link Object} arrays. */
+    public CompareToBuilder append(final Object[] lhs, final Object[] rhs, final Comparator<?> comparator) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i], comparator);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the comparison of two {@code short}s. */
+    public CompareToBuilder append(final short lhs, final short rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = Short.compare(lhs, rhs);
+        return this;
+    }
+    /** Appends to the {@code builder} the deep comparison of two {@code short} arrays. */
+    public CompareToBuilder append(final short[] lhs, final short[] rhs) {
+        if (comparison != 0) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+        if (lhs == null) {
+            comparison = -1;
+            return this;
+        }
+        if (rhs == null) {
+            comparison = 1;
+            return this;
+        }
+        if (lhs.length != rhs.length) {
+            comparison = lhs.length < rhs.length ? -1 : 1;
+            return this;
+        }
+        for (int i = 0; i < lhs.length && comparison == 0; i++) {
+            append(lhs[i], rhs[i]);
+        }
+        return this;
+    }
+    /** Appends to the {@code builder} the {@code compareTo(Object)} result of the superclass. */
+    public CompareToBuilder appendSuper(final int superCompareTo) {
+        if (comparison != 0) {
+            return this;
+        }
+        comparison = superCompareTo;
+        return this;
+    }
+    /** Returns a negative Integer, a positive Integer, or zero as the {@code builder} has judged the "left-hand" side as less than, greater than, or equal to the "right-hand" side. */
+    @Override
+    public Integer build() {
+        return Integer.valueOf(toComparison());
+    }
+    /** Returns a negative integer, a positive integer, or zero as the {@code builder} has judged the "left-hand" side as less than, greater than, or equal to the "right-hand" side. */
+    public int toComparison() {
+        return comparison;
+    }
+    // non-public helper methods (signatures only)
+    private static void reflectionAppend(
+        final Object lhs,
+        final Object rhs,
+        final Class<?> clazz,
+        final CompareToBuilder builder,
+        final boolean useTransients,
+        final String[] excludeFields);
+    private void appendArray(final Object lhs, final Object rhs, final Comparator<?> comparator);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

@@ -1,0 +1,137 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.io.PrintWriter;
+import java.util.stream.Collectors;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testAsRuntimeException() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.asRuntimeException(throwable);
+        assertEquals(throwable, result);
+    }
+
+    @Test
+    public void testGetCauseWithNullThrowable_4() {
+        assertNull(ExceptionUtils.getCause(null));
+    }
+
+    @Test
+    public void testGetCauseWithNoCause_3() {
+        Throwable throwable = new RuntimeException("test");
+        assertNull(ExceptionUtils.getCause(throwable));
+    }
+
+    @Test
+    public void testGetCauseWithCause_3() {
+        Throwable cause = new Exception("cause");
+        Throwable throwable = new RuntimeException("test", cause);
+        assertSame(cause, ExceptionUtils.getCause(throwable));
+    }
+
+    @Test
+    public void testGetRootCauseWithNullThrowable_3() {
+        assertNull(ExceptionUtils.getRootCause(null));
+    }
+
+    @Test
+    public void testGetRootCauseWithNoCause_2() {
+        Throwable throwable = new RuntimeException("test");
+        assertSame(throwable, ExceptionUtils.getRootCause(throwable));
+    }
+
+    @Test
+    public void testGetRootCauseWithCause_3() {
+        Throwable cause = new Exception("cause");
+        Throwable throwable = new RuntimeException("test", cause);
+        assertSame(cause, ExceptionUtils.getRootCause(throwable));
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNullThrowable_2() {
+        assertEquals("", ExceptionUtils.getRootCauseMessage(null));
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithNoCause_2() {
+        Throwable throwable = new RuntimeException("test");
+        assertEquals("RuntimeException: test", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithCause_3() {
+        Throwable cause = new Exception("cause");
+        Throwable throwable = new RuntimeException("test", cause);
+        assertEquals("Exception: cause", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    public void testGetStackTraceWithNullThrowable_3() {
+        assertEquals("", ExceptionUtils.getStackTrace(null));
+    }
+
+    @Test
+    public void testHasCauseWithNullThrowable_3() {
+        assertFalse(ExceptionUtils.hasCause(null, RuntimeException.class));
+    }
+
+    @Test
+    public void testIndexOfThrowableWithNullThrowable_3() {
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(null, RuntimeException.class));
+    }
+
+    @Test
+    public void testIsCheckedWithNullThrowable_3() {
+        assertFalse(ExceptionUtils.isChecked(null));
+    }
+
+    @Test
+    public void testIsUncheckedWithNullThrowable_3() {
+        assertTrue(ExceptionUtils.isUnchecked(null));
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithNullThrowable_3() {
+        ExceptionUtils.printRootCauseStackTrace(null);
+    }
+
+    @Test
+    public void testRethrow_3() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.rethrow(throwable);
+        assertEquals(throwable, result);
+    }
+
+    @Test
+    public void testThrowableOfThrowable_2() {
+        Throwable cause = new Exception("cause");
+        Throwable throwable = new RuntimeException("test", cause);
+        assertSame(cause, ExceptionUtils.throwableOfThrowable(throwable, Exception.class));
+    }
+
+    @Test
+    public void testThrowableOfType_2() {
+        Throwable cause = new Exception("cause");
+        Throwable throwable = new RuntimeException("test", cause);
+        assertSame(cause, ExceptionUtils.throwableOfType(throwable, Exception.class));
+    }
+
+    @Test
+    public void testThrowUnchecked() {
+        Throwable throwable = new RuntimeException("test");
+        RuntimeException result = ExceptionUtils.throwUnchecked(throwable);
+        assertEquals(throwable, result);
+    }
+}
+```

@@ -1,0 +1,127 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    void testGetPackageName_withNullClass_2() {
+        assertNull(ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetComponentType_withNonArrayClass_2() {
+        assertNull(ClassUtils.getComponentType(String.class));
+    }
+
+    @Test
+    void testGetComponentType_withMultiDimensionalArrayClass() {
+        assertEquals(Integer.class, ClassUtils.getComponentType(int[][].class));
+    }
+
+    @Test
+    void testGetShortClassName_withNullObject() {
+        assertEquals("", ClassUtils.getShortClassName((Object) null));
+    }
+
+    @Test
+    void testGetSimpleName_withNullObject_2() {
+        assertEquals("", ClassUtils.getSimpleName((Object) null));
+    }
+
+    @Test
+    void testIsInnerClass_withStaticNestedClass() {
+        assertFalse(ClassUtils.isInnerClass(Outer.StaticNested.class));
+    }
+
+    @Test
+    void testIsPrimitiveOrWrapper_withVoidType() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(void.class));
+    }
+
+    @Test
+    void testPrimitivesToWrappers_withNullArray() {
+        assertNull(ClassUtils.primitivesToWrappers((Class<?>[]) null));
+    }
+
+    @Test
+    void testWrappersToPrimitives_withNullArray() {
+        assertNull(ClassUtils.wrappersToPrimitives((Class<?>[]) null));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClassName_2() {
+        assertEquals("", ClassUtils.getCanonicalName((String) null));
+    }
+
+    @Test
+    void testGetShortClassName_withFullyQualifiedClassName() {
+        assertEquals("ClassUtils_GenTest", ClassUtils.getShortClassName(ClassUtils_GenTest.class.getName()));
+    }
+
+    @Test
+    void testGetPackageName_withSimpleClassName() {
+        assertEquals("", ClassUtils.getPackageName("SimpleClassName"));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullObject_2() {
+        assertEquals("", ClassUtils.getPackageCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetShortCanonicalName_withFullyQualifiedClassName() {
+        assertEquals("ClassUtils_GenTest", ClassUtils.getShortCanonicalName(ClassUtils_GenTest.class.getName()));
+    }
+
+    @Test
+    void testGetAbbreviatedName_withLengthHintEqualToClassNameLength() {
+        String className = "org.apache.commons.lang3.ClassUtils";
+        assertEquals(className, ClassUtils.getAbbreviatedName(className, className.length()));
+    }
+
+    @Test
+    void testGetAllInterfaces_withClassHavingNoInterfaces() {
+        assertTrue(ClassUtils.getAllInterfaces(String.class).isEmpty());
+    }
+
+    @Test
+    void testIsPublic_withNonPublicClass() {
+        assertFalse(ClassUtils.isPublic(Outer.NonPublicInner.class));
+    }
+
+    @Test
+    void testGetCanonicalName_withArrayClassName() {
+        assertEquals("int[]", ClassUtils.getCanonicalName(int[].class.getName()));
+    }
+
+    @Test
+    void testGetPackageName_withFullyQualifiedClassName_2() {
+        assertEquals("org.apache.commons.lang3", ClassUtils.getPackageName(ClassUtils_GenTest.class.getName()));
+    }
+
+    @Test
+    void testIsPrimitiveWrapper_withVoidType() {
+        assertFalse(ClassUtils.isPrimitiveWrapper(void.class));
+    }
+
+    @Test
+    void testGetClass_withNullClassName() {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass((String) null));
+    }
+
+    @Test
+    void testGetClass_withInvalidClassName() {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass("NonExistentClass"));
+    }
+
+    static class Outer {
+        public static class StaticNested {}
+        private class NonPublicInner {}
+    }
+}
+```

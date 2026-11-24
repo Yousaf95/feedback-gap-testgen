@@ -1,0 +1,390 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[252,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ?>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#1 of ?> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[257,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<int[]>
+  reason: inference variable T has incompatible bounds
+    equality constraints: int
+    lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[327,61] package MutableObject does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[252,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ?>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#1 of ?> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[257,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<int[]>
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     equality constraints: int
+[ERROR]     lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[327,61] package MutableObject does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[249,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<int[]>
+  reason: inference variable T has incompatible bounds
+    equality constraints: int
+    lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[254,47] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends int[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends int[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[249,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<int[]>
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     equality constraints: int
+[ERROR]     lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[254,47] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends int[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends int[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[249,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<int[]>
+  reason: inference variable T has incompatible bounds
+    equality constraints: int
+    lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[254,47] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends int[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends int[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[249,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<int[]>
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     equality constraints: int
+[ERROR]     lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[254,47] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends int[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends int[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[249,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<int[]>
+  reason: inference variable T has incompatible bounds
+    equality constraints: int
+    lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[254,47] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends int[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends int[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[249,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<int[]>
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     equality constraints: int
+[ERROR]     lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[254,47] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends int[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends int[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<int[]>
+  reason: inference variable T has incompatible bounds
+    equality constraints: int
+    lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[378,54] package Outer does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[408,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[438,89] package Outer does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<int[]>
+[ERROR]   reason: inference variable T has incompatible bounds
+[ERROR]     equality constraints: int
+[ERROR]     lower bounds: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[378,54] package Outer does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[408,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[438,89] package Outer does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[398,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[398,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[398,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[398,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[398,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+    method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+      (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[343,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[398,55] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[403,49] no suitable method found for getPackageCanonicalName(java.lang.Object)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.Class<?>) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.Class<?>)
+[ERROR]     method org.apache.commons.lang3.ClassUtils.getPackageCanonicalName(java.lang.String) is not applicable
+[ERROR]       (argument mismatch; java.lang.Object cannot be converted to java.lang.String)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,60] illegal start of expression
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,64] ')' expected
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,65] illegal start of expression
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,67] <identifier> expected
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,73] ';' expected
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,60] illegal start of expression
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,64] ')' expected
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,65] illegal start of expression
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,67] <identifier> expected
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[491,73] ';' expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[425,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<java.lang.String>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<java.lang.String> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[450,48] cannot find symbol
+  symbol:   class StaticNestedClass
+  location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[465,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+  required: java.lang.Class<T[]>
+  found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+  reason: cannot infer type-variable(s) T
+    (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[425,42] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<java.lang.String>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<java.lang.String> cannot be converted to java.lang.Class<T[]>)
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[450,48] cannot find symbol
+[ERROR]   symbol:   class StaticNestedClass
+[ERROR]   location: class org.apache.commons.lang3.ClassUtils_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/ClassUtils_GenTest.java:[465,51] method getComponentType in class org.apache.commons.lang3.ClassUtils cannot be applied to given types;
+[ERROR]   required: java.lang.Class<T[]>
+[ERROR]   found:    java.lang.Class<capture#1 of ? extends java.lang.Integer[]>
+[ERROR]   reason: cannot infer type-variable(s) T
+[ERROR]     (argument mismatch; java.lang.Class<capture#2 of ? extends java.lang.Integer[]> cannot be converted to java.lang.Class<T[]>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

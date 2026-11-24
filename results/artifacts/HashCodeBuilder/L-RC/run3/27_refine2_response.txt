@@ -1,0 +1,131 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testIsRegisteredWithNullRegistry() {
+        REGISTRY.remove();
+        assertFalse(HashCodeBuilder.isRegistered(new Object()));
+    }
+
+    @Test
+    public void testReflectionAppendWithRegisteredObject() {
+        Object obj = new Object();
+        HashCodeBuilder.register(obj);
+        HashCodeBuilder.reflectionAppend(obj, Object.class, new HashCodeBuilder(), false, null);
+        REGISTRY.remove(); // Clean up
+    }
+
+    @Test
+    public void testFieldExclusionInReflectionAppend() {
+        class TestClass {
+            private int field1;
+            private transient int field2;
+            private static int field3;
+            @HashCodeExclude
+            private int field4;
+
+            public TestClass(int f1, int f2, int f3, int f4) {
+                this.field1 = f1;
+                this.field2 = f2;
+                this.field3 = f3;
+                this.field4 = f4;
+            }
+        }
+
+        TestClass testObject = new TestClass(1, 2, 3, 4);
+        HashCodeBuilder builder = new HashCodeBuilder();
+        HashCodeBuilder.reflectionAppend(testObject, TestClass.class, builder, false, null);
+
+        assertEquals(builder.toHashCode(), new HashCodeBuilder().append(1).toHashCode());
+    }
+
+    @Test
+    public void testReflectionHashCodeWithInitialAndMultiplierNullObject() {
+        assertThrows(NullPointerException.class, () -> 
+            HashCodeBuilder.reflectionHashCode(17, 37, null, false)
+        );
+    }
+
+    @Test
+    public void testReflectionHashCodeWithExcludeFieldsNullObject() {
+        assertThrows(NullPointerException.class, () -> 
+            HashCodeBuilder.reflectionHashCode(null, new String[]{"field"})
+        );
+    }
+
+    @Test
+    public void testRegisterAndUnregisterWithNullValue() {
+        HashCodeBuilder.register(null);
+        HashCodeBuilder.unregister(null);
+    }
+
+    @Test
+    public void testAppendArrayWithLongArray() {
+        long[] array = {1L, 2L};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append(1L).append(2L).toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithIntArray() {
+        int[] array = {1, 2};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append(1).append(2).toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithShortArray() {
+        short[] array = {1, 2};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append((int)1).append((int)2).toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithCharArray() {
+        char[] array = {'a', 'b'};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append((int)'a').append((int)'b').toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithByteArray() {
+        byte[] array = {1, 2};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append((int)1).append((int)2).toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithDoubleArray() {
+        double[] array = {1.0, 2.0};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append(1.0).append(2.0).toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithFloatArray() {
+        float[] array = {1.0f, 2.0f};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append(1.0f).append(2.0f).toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithBooleanArray() {
+        boolean[] array = {true, false};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append(true).append(false).toHashCode());
+    }
+
+    @Test
+    public void testAppendArrayWithObjectArray() {
+        Object[] array = {"a", "b"};
+        assertEquals(new HashCodeBuilder().append(array).toHashCode(), 
+                     new HashCodeBuilder().append("a").append("b").toHashCode());
+    }
+}
+```

@@ -1,0 +1,21 @@
+[ERROR] Tests run: 75, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.302 s <<< FAILURE! -- in org.apache.commons.lang3.math.Fraction_GenTest
+[ERROR] org.apache.commons.lang3.math.Fraction_GenTest.testGetFractionFromDoubleUnableToConvert -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.ArithmeticException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.math.Fraction_GenTest.testGetFractionFromDoubleUnableToConvert(Fraction_GenTest.java:367)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   Fraction_GenTest.testGetFractionFromDoubleUnableToConvert:367 Expected java.lang.ArithmeticException to be thrown, but nothing was thrown.
+[ERROR] Tests run: 75, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w5/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

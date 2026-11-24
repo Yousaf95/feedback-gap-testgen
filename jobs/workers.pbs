@@ -1,0 +1,14 @@
+#!/bin/bash
+#PBS -N icect_workers
+#PBS -l select=1:ncpus=32:mem=96gb
+#PBS -j oe
+# vars: SET, MODELS, SEEDS, WORKERS, OUT, ART, CONFIG, TAG
+source $HOME/ICECT/env.sh
+source $JOBENV
+export MAVEN_OPTS="-Xmx1g"
+cd $HOME/ICECT/scripts
+H=S=$(cat $HOME/ICECT/logs/ollama_host_S.txt):11434,L=$(cat $HOME/ICECT/logs/ollama_host_L.txt):11434
+echo "node $(hostname) ncpu $(nproc) ollama $H start $(date)"
+python -I run_all.py --config $CONFIG --set $SET --models $MODELS ${SEEDS:+--seeds $SEEDS} \
+  --workers $WORKERS --out $OUT --art $ART --host $H --work $TMPDIR/icect_work 2>&1 | tee -a $OUT.progress.log
+echo "end $(date)"

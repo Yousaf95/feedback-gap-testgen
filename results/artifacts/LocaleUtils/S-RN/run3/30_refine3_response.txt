@@ -1,0 +1,40 @@
+```java
+package org.apache.commons.lang3;
+
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_EmptyLocale() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_EmptyLocale() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testToLocale_NullString() {
+        Locale locale = LocaleUtils.toLocale((String) null);
+        assertEquals(Locale.getDefault(), locale);
+    }
+
+    @Test
+    public void testToLocale_EmptyString_3() {
+        Locale locale = LocaleUtils.toLocale("");
+        assertEquals(new Locale(StringUtils.EMPTY, StringUtils.EMPTY), locale);
+    }
+
+    @Test
+    public void testToLocale_InvalidFormat_6() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en-US#script"));
+    }
+}
+```

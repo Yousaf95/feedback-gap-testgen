@@ -1,0 +1,63 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class SystemUtils_GenTest {
+
+    @Test
+    void testGetEnvironmentVariable_withDefault() {
+        String defaultValue = "default";
+        assertEquals(defaultValue, SystemUtils.getEnvironmentVariable("NON_EXISTENT_VARIABLE", defaultValue));
+    }
+
+    @Test
+    void testIsJavaAwtHeadless_whenTrue() {
+        System.setProperty(SystemUtils.JAVA_AWT_HEADLESS, "true");
+        assertTrue(SystemUtils.isJavaAwtHeadless());
+    }
+
+    @Test
+    void testGetUserName_withCustomDefault() {
+        String customDefault = "customUser";
+        assertEquals(customDefault, SystemUtils.getUserName(customDefault));
+    }
+
+    @Test
+    void testIsOsWindows() {
+        boolean isWindows = System.getProperty("os.name").toLowerCase().startsWith("win");
+        assertEquals(isWindows, SystemUtils.IS_OS_WINDOWS);
+    }
+
+    @Test
+    void testIsJavaVersionAtLeast_withLowerVersion() {
+        assertTrue(SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_1_8));
+    }
+
+    @Test
+    void testIsJavaVersionAtMost_withHigherVersion() {
+        assertTrue(SystemUtils.isJavaVersionAtMost(JavaVersion.JAVA_RECENT));
+    }
+
+    @Test
+    void testGetJavaHome_notNull() {
+        assertNotNull(SystemUtils.getJavaHome());
+    }
+
+    @Test
+    void testGetJavaIoTmpDir_notNull() {
+        assertNotNull(SystemUtils.getJavaIoTmpDir());
+    }
+
+    @Test
+    void testGetUserDir_notNull() {
+        assertNotNull(SystemUtils.getUserDir());
+    }
+
+    @Test
+    void testGetUserHome_notNull() {
+        assertNotNull(SystemUtils.getUserHome());
+    }
+}
+```

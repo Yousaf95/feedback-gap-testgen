@@ -1,0 +1,63 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    public void testXor() {
+        assertTrue(BooleanUtils.xor(true, false));
+        assertFalse(BooleanUtils.xor(false, false));
+        assertTrue(BooleanUtils.xor(true, true));
+        assertFalse(BooleanUtils.xor(false, true));
+
+        assertTrue(BooleanUtils.xor(new Boolean[]{true, false}));
+        assertFalse(BooleanUtils.xor(new Boolean[]{false, false}));
+        assertTrue(BooleanUtils.xor(new Boolean[]{true, true}));
+        assertFalse(BooleanUtils.xor(new Boolean[]{false, true}));
+
+        assertThrows(NullPointerException.class, () -> BooleanUtils.xor((Boolean[]) null));
+    }
+
+    @Test
+    public void testOneHot() {
+        assertTrue(BooleanUtils.oneHot(true, false));
+        assertFalse(BooleanUtils.oneHot(false, true));
+
+        assertTrue(BooleanUtils.oneHot(new boolean[]{true, false}));
+        assertFalse(BooleanUtils.oneHot(new boolean[]{false, true}));
+
+        assertThrows(NullPointerException.class, () -> BooleanUtils.oneHot((boolean[]) null));
+    }
+
+    @Test
+    public void testCompare() {
+        assertEquals(0, BooleanUtils.compare(true, true));
+        assertEquals(-1, BooleanUtils.compare(false, true));
+        assertEquals(1, BooleanUtils.compare(true, false));
+
+        assertThrows(NullPointerException.class, () -> BooleanUtils.compare(null, true));
+        assertThrows(NullPointerException.class, () -> BooleanUtils.compare(true, null));
+    }
+
+    @Test
+    public void testForEach() {
+        boolean[] captured = new boolean[2];
+        int index = 0;
+        BooleanUtils.forEach(b -> captured[index++] = b);
+        assertTrue(captured[0]);
+        assertFalse(captured[1]);
+
+        assertThrows(NullPointerException.class, () -> BooleanUtils.forEach((Consumer<Boolean>) null));
+    }
+
+    @Test
+    public void testToBooleanObjectWithNull() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject("unknown"));
+    }
+}
+```

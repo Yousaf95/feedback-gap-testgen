@@ -1,0 +1,43 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[29,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[53,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[77,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[101,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[125,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[149,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[173,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[187,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[201,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[225,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[261,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[278,9] cannot find symbol
+  symbol:   class List
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[278,44] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[29,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[53,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[77,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[101,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[125,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[149,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[173,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[187,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[201,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[225,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[261,36] void cannot be dereferenced
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[278,9] cannot find symbol
+[ERROR]   symbol:   class List
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/builder/EqualsBuilder_GenTest.java:[278,44] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.builder.EqualsBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

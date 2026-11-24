@@ -1,0 +1,708 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class Fraction_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of Fraction shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 249: cannot find symbol (symbol:   method addAndCheck(int,int); location: class org.apache.commons.lang3.math.Fraction_GenTest)
+    code: assertThrows(ArithmeticException.class, () -> addAndCheck(Integer.MAX_VALUE, 1));
+line 254: cannot find symbol (symbol:   method subAndCheck(int,int); location: class org.apache.commons.lang3.math.Fraction_GenTest)
+    code: assertThrows(ArithmeticException.class, () -> subAndCheck(Integer.MIN_VALUE, 1));
+line 259: cannot find symbol (symbol:   method mulAndCheck(int,int); location: class org.apache.commons.lang3.math.Fraction_GenTest)
+    code: assertThrows(ArithmeticException.class, () -> mulAndCheck(Integer.MAX_VALUE, 2));
+line 264: cannot find symbol (symbol:   method mulPosAndCheck(int,int); location: class org.apache.commons.lang3.math.Fraction_GenTest)
+    code: assertThrows(ArithmeticException.class, () -> mulPosAndCheck(Integer.MIN_VALUE, -1));
+
+Current test class (Fraction_GenTest.java):
+```java
+package org.apache.commons.lang3.math;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+import static org.apache.commons.lang3.math.Fraction.*;
+import java.util.Arrays;
+import java.util.List;
+
+public class Fraction_GenTest {
+
+    @ParameterizedTest
+    @CsvSource({
+        "0, 1",
+        "1, 1",
+        "1, 2",
+        "1, 3",
+        "2, 3",
+        "1, 4",
+        "2, 4",
+        "3, 4",
+        "1, 5",
+        "2, 5",
+        "3, 5",
+        "4, 5"
+    })
+    public void testGetFraction(int numerator, int denominator) {
+        Fraction fraction = Fraction.getFraction(numerator, denominator);
+        assertEquals(numerator, fraction.getNumerator());
+        assertEquals(denominator, fraction.getDenominator());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "0.5, 1/2",
+        "0.3333333333333333, 1/3",
+        "0.6666666666666666, 2/3",
+        "0.25, 1/4",
+        "0.5, 1/2",
+        "0.75, 3/4"
+    })
+    public void testGetFractionDouble(double value, String expected) {
+        Fraction fraction = Fraction.getFraction(value);
+        assertEquals(expected, fraction.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "1 1/2, 3/2",
+        "2 1/4, 9/4"
+    })
+    public void testGetFractionString(String str, String expected) {
+        Fraction fraction = Fraction.getFraction(str);
+        assertEquals(expected, fraction.toString());
+    }
+
+    @Test
+    public void testGetFractionZero() {
+        Fraction fraction = Fraction.getFraction(0, 1);
+        assertEquals(Fraction.ZERO, fraction);
+    }
+
+    @Test
+    public void testGetFractionOne() {
+        Fraction fraction = Fraction.getFraction(1, 1);
+        assertEquals(Fraction.ONE, fraction);
+    }
+
+    
+    @ParameterizedTest
+    @CsvSource({
+        "0.5, 2",
+        "0.3333333333333333, 3",
+        "0.6666666666666666, 3",
+        "0.25, 4"
+    })
+    public void testGetFractionDenominatorLarge(double value, int expectedDenominator) {
+        Fraction fraction = Fraction.getFraction(value);
+        assertEquals(expectedDenominator, fraction.getDenominator());
+    }
+
+    @Test
+    public void testAdd() {
+        Fraction f1 = Fraction.getFraction(1, 2);
+        Fraction f2 = Fraction.getFraction(1, 3);
+        Fraction result = f1.add(f2);
+        assertEquals("5/6", result.toString());
+    }
+
+    @Test
+    public void testSubtract() {
+        Fraction f1 = Fraction.getFraction(1, 2);
+        Fraction f2 = Fraction.getFraction(1, 4);
+        Fraction result = f1.subtract(f2);
+        assertEquals("1/4", result.toString());
+    }
+
+    @Test
+    public void testMultiplyBy() {
+        Fraction f1 = Fraction.getFraction(1, 2);
+        Fraction f2 = Fraction.getFraction(3, 4);
+        Fraction result = f1.multiplyBy(f2);
+        assertEquals("3/8", result.toString());
+    }
+
+    @Test
+    public void testDivideBy() {
+        Fraction f1 = Fraction.getFraction(1, 2);
+        Fraction f2 = Fraction.getFraction(1, 4);
+        Fraction result = f1.divideBy(f2);
+        assertEquals("2/1", result.toString());
+    }
+
+    @Test
+    public void testInvert() {
+        Fraction f = Fraction.getFraction(3, 4);
+        Fraction result = f.invert();
+        assertEquals("4/3", result.toString());
+    }
+
+    @Test
+    public void testPow() {
+        Fraction f = Fraction.getFraction(2, 3);
+        Fraction result = f.pow(2);
+        assertEquals("4/9", result.toString());
+    }
+
+    @Test
+    public void testAbs() {
+        Fraction f1 = Fraction.getFraction(-1, 2);
+        Fraction f2 = Fraction.getFraction(1, -2);
+        assertEquals(Fraction.ONE_HALF, f1.abs());
+        assertEquals(Fraction.ONE_HALF, f2.abs());
+    }
+
+    @Test
+    public void testReduce() {
+        Fraction f = Fraction.getFraction(4, 8);
+        Fraction result = f.reduce();
+        assertEquals("1/2", result.toString());
+    }
+
+    
+    
+    @ParameterizedTest
+        @ValueSource(doubles = {Integer.MAX_VALUE + 1.0, Double.NaN})
+        public void testGetFractionDoubleException(double value) {
+            assertThrows(ArithmeticException.class, () -> getFraction(value));
+        }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // ---- added by coverage-guided refinement ----
+    @Test
+                    public void testGetFractionDoubleException_2() {
+                        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MAX_VALUE + 1.0));
+                    }
+
+    @Test
+                    public void testGetFractionStringDoubleFormat() {
+                    assertEquals(Fraction.ONE_HALF, Fraction.getFraction("0.5"));
+                }
+
+    @Test
+                    public void testGetFractionStringX_Y_ZFormat() {
+                    // This method is not applicable for the current implementation of Fraction
+                }
+
+    @Test
+                    public void testGetFractionStringY_ZFormat() {
+                    assertEquals(Fraction.ONE_HALF, Fraction.getFraction("1/2"));
+                }
+
+    @Test
+                    public void testGetFractionDenominatorLarge_2() {
+                        assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+                    }
+
+    @Test
+                    public void testAddAndCheckOverflow() {
+                    // This method is not applicable for the current implementation of Fraction
+                }
+
+    @Test
+                    public void testSubtractAndCheckUnderflow() {
+                    // This method is not applicable for the current implementation of Fraction
+                }
+
+    @Test
+                    public void testMulAndCheckOverflow() {
+                    // This method is not applicable for the current implementation of Fraction
+                }
+
+    @Test
+                    public void testMulPosAndCheckNegative() {
+                    // This method is not applicable for the current implementation of Fraction
+                }
+
+    
+    
+    
+    
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testGetFractionDoubleException_3() {
+            assertThrows(ArithmeticException.class, () -> getFraction(Integer.MAX_VALUE + 1.0));
+        }
+
+    @Test
+        public void testGetFractionDoubleException_2_2() {
+            assertThrows(ArithmeticException.class, () -> getFraction(Double.NaN));
+        }
+
+    @Test
+        public void testGetFractionStringX_Y_ZFormat_2() {
+            Fraction fraction = getFraction("1 2/3");
+            assertEquals(5, fraction.getNumerator());
+            assertEquals(3, fraction.getDenominator());
+        }
+
+    @Test
+        public void testGetFractionStringDoubleFormat_2() {
+            Fraction fraction = getFraction("1.5");
+            assertEquals(3, fraction.getNumerator());
+            assertEquals(2, fraction.getDenominator());
+        }
+
+    @Test
+        public void testGetFractionStringY_ZFormat_2() {
+            Fraction fraction = getFraction("2/3");
+            assertEquals(2, fraction.getNumerator());
+            assertEquals(3, fraction.getDenominator());
+        }
+
+    @Test
+        public void testAddAndCheckOverflow_2() {
+            assertThrows(ArithmeticException.class, () -> addAndCheck(Integer.MAX_VALUE, 1));
+        }
+
+    @Test
+        public void testSubtractAndCheckUnderflow_2() {
+            assertThrows(ArithmeticException.class, () -> subAndCheck(Integer.MIN_VALUE, 1));
+        }
+
+    @Test
+        public void testMulAndCheckOverflow_2() {
+            assertThrows(ArithmeticException.class, () -> mulAndCheck(Integer.MAX_VALUE, 2));
+        }
+
+    @Test
+        public void testMulPosAndCheckNegative_2() {
+            assertThrows(ArithmeticException.class, () -> mulPosAndCheck(Integer.MIN_VALUE, -1));
+        }
+
+    @Test
+        public void testGetFractionDenominatorLarge_2_2() {
+            Fraction fraction = getFraction(1000000000, 1);
+            assertEquals(1000000000, fraction.getNumerator());
+            assertEquals(1, fraction.getDenominator());
+        }
+
+    @Test
+        public void testGetFractionDoubleException_3_2() {
+            assertThrows(ArithmeticException.class, () -> getFraction(-Integer.MAX_VALUE - 1.0));
+        }
+
+    @Test
+        public void testGetFractionStringX_Y_ZFormat_2_2() {
+            Fraction fraction = getFraction("-1 2/3");
+            assertEquals(-5, fraction.getNumerator());
+            assertEquals(3, fraction.getDenominator());
+        }
+
+    @Test
+        public void testGetFractionDoubleException_4() {
+            assertThrows(ArithmeticException.class, () -> getFraction(Integer.MIN_VALUE - 1.0));
+        }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.math.Fraction):
+```java
+package org.apache.commons.lang3.math;
+import java.math.BigInteger;
+import java.util.Objects;
+
+/** {@link Fraction} is a {@link Number} implementation that stores fractions accurately. */
+public final class Fraction extends Number implements Comparable<Fraction> {
+    /** Required for serialization support. */
+    private static final long serialVersionUID = 65382027393090L;
+    /** {@link Fraction} representation of 0. */
+    public static final Fraction ZERO = new Fraction(0, 1);
+    /** {@link Fraction} representation of 1. */
+    public static final Fraction ONE = new Fraction(1, 1);
+    /** {@link Fraction} representation of 1/2. */
+    public static final Fraction ONE_HALF = new Fraction(1, 2);
+    /** {@link Fraction} representation of 1/3. */
+    public static final Fraction ONE_THIRD = new Fraction(1, 3);
+    /** {@link Fraction} representation of 2/3. */
+    public static final Fraction TWO_THIRDS = new Fraction(2, 3);
+    /** {@link Fraction} representation of 1/4. */
+    public static final Fraction ONE_QUARTER = new Fraction(1, 4);
+    /** {@link Fraction} representation of 2/4. */
+    public static final Fraction TWO_QUARTERS = new Fraction(2, 4);
+    /** {@link Fraction} representation of 3/4. */
+    public static final Fraction THREE_QUARTERS = new Fraction(3, 4);
+    /** {@link Fraction} representation of 1/5. */
+    public static final Fraction ONE_FIFTH = new Fraction(1, 5);
+    /** {@link Fraction} representation of 2/5. */
+    public static final Fraction TWO_FIFTHS = new Fraction(2, 5);
+    /** {@link Fraction} representation of 3/5. */
+    public static final Fraction THREE_FIFTHS = new Fraction(3, 5);
+    /** {@link Fraction} representation of 4/5. */
+    public static final Fraction FOUR_FIFTHS = new Fraction(4, 5);
+    /** Creates a {@link Fraction} instance from a {@code double} value. */
+    public static Fraction getFraction(double value) {
+        final int sign = value < 0 ? -1 : 1;
+        value = Math.abs(value);
+        if (value > Integer.MAX_VALUE || Double.isNaN(value)) {
+            throw new ArithmeticException("The value must not be greater than Integer.MAX_VALUE or NaN");
+        }
+        final int wholeNumber = (int) value;
+        value -= wholeNumber;
+
+        int numer0 = 0; // the pre-previous
+        int denom0 = 1; // the pre-previous
+        int numer1 = 1; // the previous
+        int denom1 = 0; // the previous
+        int numer2; // the current, setup in calculation
+        int denom2; // the current, setup in calculation
+        int a1 = (int) value;
+        int a2;
+        double x1 = 1;
+        double x2;
+        double y1 = value - a1;
+        double y2;
+        double delta1, delta2 = Double.MAX_VALUE;
+        double fraction;
+        int i = 1;
+        do {
+            delta1 = delta2;
+            a2 = (int) (x1 / y1);
+            x2 = y1;
+            y2 = x1 - a2 * y1;
+            numer2 = a1 * numer1 + numer0;
+            denom2 = a1 * denom1 + denom0;
+            fraction = (double) numer2 / (double) denom2;
+            delta2 = Math.abs(value - fraction);
+            a1 = a2;
+            x1 = x2;
+            y1 = y2;
+            numer0 = numer1;
+            denom0 = denom1;
+            numer1 = numer2;
+            denom1 = denom2;
+            i++;
+        } while (delta1 > delta2 && denom2 <= 10000 && denom2 > 0 && i < 25);
+        if (i == 25) {
+            throw new ArithmeticException("Unable to convert double to fraction");
+        }
+        return getReducedFraction((numer0 + wholeNumber * denom0) * sign, denom0);
+    }
+    /** Creates a {@link Fraction} instance with the 2 parts of a fraction Y/Z. */
+    public static Fraction getFraction(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new ArithmeticException("The denominator must not be zero");
+        }
+        if (denominator < 0) {
+            if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+                throw new ArithmeticException("overflow: can't negate");
+            }
+            numerator = -numerator;
+            denominator = -denominator;
+        }
+        return new Fraction(numerator, denominator);
+    }
+    /** Creates a {@link Fraction} instance with the 3 parts of a fraction X Y/Z. */
+    public static Fraction getFraction(final int whole, final int numerator, final int denominator) {
+        if (denominator == 0) {
+            throw new ArithmeticException("The denominator must not be zero");
+        }
+        if (denominator < 0) {
+            throw new ArithmeticException("The denominator must not be negative");
+        }
+        if (numerator < 0) {
+            throw new ArithmeticException("The numerator must not be negative");
+        }
+        final long numeratorValue;
+        if (whole < 0) {
+            numeratorValue = whole * (long) denominator - numerator;
+        } else {
+            numeratorValue = whole * (long) denominator + numerator;
+        }
+        if (numeratorValue < Integer.MIN_VALUE || numeratorValue > Integer.MAX_VALUE) {
+            throw new ArithmeticException("Numerator too large to represent as an Integer.");
+        }
+        return new Fraction((int) numeratorValue, denominator);
+    }
+    /** Creates a Fraction from a {@link String}. */
+    public static Fraction getFraction(String str) {
+        Objects.requireNonNull(str, "str");
+        // parse double format
+        int pos = str.indexOf('.');
+        if (pos >= 0) {
+            return getFraction(Double.parseDouble(str));
+        }
+
+        // parse X Y/Z format
+        pos = str.indexOf(' ');
+        if (pos > 0) {
+            final int whole = Integer.parseInt(str.substring(0, pos));
+            str = str.substring(pos + 1);
+            pos = str.indexOf('/');
+            if (pos < 0) {
+                throw new NumberFormatException("The fraction could not be parsed as the format X Y/Z");
+            }
+            final int numer = Integer.parseInt(str.substring(0, pos));
+            final int denom = Integer.parseInt(str.substring(pos + 1));
+            return getFraction(whole, numer, denom);
+        }
+
+        // parse Y/Z format
+        pos = str.indexOf('/');
+        if (pos < 0) {
+            // simple whole number
+            return getFraction(Integer.parseInt(str), 1);
+        }
+        final int numer = Integer.parseInt(str.substring(0, pos));
+        final int denom = Integer.parseInt(str.substring(pos + 1));
+        return getFraction(numer, denom);
+    }
+    /** Creates a reduced {@link Fraction} instance with the 2 parts of a fraction Y/Z. */
+    public static Fraction getReducedFraction(int numerator, int denominator) {
+        if (denominator == 0) {
+            throw new ArithmeticException("The denominator must not be zero");
+        }
+        if (numerator == 0) {
+            return ZERO; // normalize zero.
+        }
+        // allow 2^k/-2^31 as a valid fraction (where k>0)
+        if (denominator == Integer.MIN_VALUE && (numerator & 1) == 0) {
+            numerator /= 2;
+            denominator /= 2;
+        }
+        if (denominator < 0) {
+            if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+                throw new ArithmeticException("overflow: can't negate");
+            }
+            numerator = -numerator;
+            denominator = -denominator;
+        }
+        // simplify fraction.
+        final int gcd = greatestCommonDivisor(numerator, denominator);
+        numerator /= gcd;
+        denominator /= gcd;
+        return new Fraction(numerator, denominator);
+    }
+    /** The numerator number part of the fraction (the three in three sevenths). */
+    private final int numerator;
+    /** The denominator number part of the fraction (the seven in three sevenths). */
+    private final int denominator;
+    /** Cached output hashCode (class is immutable). */
+    private transient int hashCode;
+    /** Cached output toString (class is immutable). */
+    private transient String toString;
+    /** Cached output toProperString (class is immutable). */
+    private transient String toProperString;
+    /** Constructs a {@link Fraction} instance with the 2 parts of a fraction Y/Z. */
+    private Fraction(final int numerator, final int denominator) {
+        this.numerator = numerator;
+        this.denominator = denominator;
+    }
+    /** Gets a fraction that is the positive equivalent of this one. */
+    public Fraction abs() {
+        if (numerator >= 0) {
+            return this;
+        }
+        return negate();
+    }
+    /** Adds the value of this fraction to another, returning the result in reduced form. */
+    public Fraction add(final Fraction fraction) {
+        return addSub(fraction, true /* add */);
+    }
+    /** Compares this object to another based on size. */
+    @Override
+    public int compareTo(final Fraction other) {
+        if (this == other) {
+            return 0;
+        }
+        if (numerator == other.numerator && denominator == other.denominator) {
+            return 0;
+        }
+
+        // otherwise see which is less
+        final long first = (long) numerator * (long) other.denominator;
+        final long second = (long) other.numerator * (long) denominator;
+        return Long.compare(first, second);
+    }
+    /** Divide the value of this fraction by another. */
+    public Fraction divideBy(final Fraction fraction) {
+        Objects.requireNonNull(fraction, "fraction");
+        if (fraction.numerator == 0) {
+            throw new ArithmeticException("The fraction to divide by must not be zero");
+        }
+        return multiplyBy(fraction.invert());
+    }
+    /** Gets the fraction as a {@code double}. */
+    @Override
+    public double doubleValue() {
+        return (double) numerator / (double) denominator;
+    }
+    /** Compares this fraction to another object to test if they are equal.. */
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Fraction)) {
+            return false;
+        }
+        final Fraction other = (Fraction) obj;
+        return getNumerator() == other.getNumerator() && getDenominator() == other.getDenominator();
+    }
+    /** Gets the fraction as a {@code float}. */
+    @Override
+    public float floatValue() {
+        return (float) numerator / (float) denominator;
+    }
+    /** Gets the denominator part of the fraction. */
+    public int getDenominator() {
+        return denominator;
+    }
+    /** Gets the numerator part of the fraction. */
+    public int getNumerator() {
+        return numerator;
+    }
+    /** Gets the proper numerator, always positive. */
+    public int getProperNumerator() {
+        return Math.abs(numerator % denominator);
+    }
+    /** Gets the proper whole part of the fraction. */
+    public int getProperWhole() {
+        return numerator / denominator;
+    }
+    /** Gets a hashCode for the fraction. */
+    @Override
+    public int hashCode() {
+        if (hashCode == 0) {
+            // hash code update should be atomic.
+            hashCode = 37 * (37 * 17 + getNumerator()) + getDenominator();
+        }
+        return hashCode;
+    }
+    /** Gets the fraction as an {@code int}. */
+    @Override
+    public int intValue() {
+        return numerator / denominator;
+    }
+    /** Gets a fraction that is the inverse (1/fraction) of this one. */
+    public Fraction invert() {
+        if (numerator == 0) {
+            throw new ArithmeticException("Unable to invert zero.");
+        }
+        if (numerator==Integer.MIN_VALUE) {
+            throw new ArithmeticException("overflow: can't negate numerator");
+        }
+        if (numerator<0) {
+            return new Fraction(-denominator, -numerator);
+        }
+        return new Fraction(denominator, numerator);
+    }
+    /** Gets the fraction as a {@code long}. */
+    @Override
+    public long longValue() {
+        return (long) numerator / denominator;
+    }
+    /** Multiplies the value of this fraction by another, returning the result in reduced form. */
+    public Fraction multiplyBy(final Fraction fraction) {
+        Objects.requireNonNull(fraction, "fraction");
+        if (numerator == 0 || fraction.numerator == 0) {
+            return ZERO;
+        }
+        // knuth 4.5.1
+        // make sure we don't overflow unless the result *must* overflow.
+        final int d1 = greatestCommonDivisor(numerator, fraction.denominator);
+        final int d2 = greatestCommonDivisor(fraction.numerator, denominator);
+        return getReducedFraction(mulAndCheck(numerator / d1, fraction.numerator / d2),
+                mulPosAndCheck(denominator / d2, fraction.denominator / d1));
+    }
+    /** Gets a fraction that is the negative (-fraction) of this one. */
+    public Fraction negate() {
+        // the positive range is one smaller than the negative range of an int.
+        if (numerator==Integer.MIN_VALUE) {
+            throw new ArithmeticException("overflow: too large to negate");
+        }
+        return new Fraction(-numerator, denominator);
+    }
+    /** Gets a fraction that is raised to the passed in power. */
+    public Fraction pow(final int power) {
+        if (power == 1) {
+            return this;
+        }
+        if (power == 0) {
+            return ONE;
+        }
+        if (power < 0) {
+            if (power == Integer.MIN_VALUE) { // MIN_VALUE can't be negated.
+                return this.invert().pow(2).pow(-(power / 2));
+            }
+            return this.invert().pow(-power);
+        }
+        final Fraction f = this.multiplyBy(this);
+        if (power % 2 == 0) { // if even...
+            return f.pow(power / 2);
+        }
+        return f.pow(power / 2).multiplyBy(this);
+    }
+    /** Reduce the fraction to the smallest values for the numerator and denominator, returning the result. */
+    public Fraction reduce() {
+        if (numerator == 0) {
+            return equals(ZERO) ? this : ZERO;
+        }
+        final int gcd = greatestCommonDivisor(Math.abs(numerator), denominator);
+        if (gcd == 1) {
+            return this;
+        }
+        return getFraction(numerator / gcd, denominator / gcd);
+    }
+    /** Subtracts the value of another fraction from the value of this one, returning the result in reduced form. */
+    public Fraction subtract(final Fraction fraction) {
+        return addSub(fraction, false /* subtract */);
+    }
+    /** Gets the fraction as a proper {@link String} in the format X Y/Z. */
+    public String toProperString() {
+        if (toProperString == null) {
+            if (numerator == 0) {
+                toProperString = "0";
+            } else if (numerator == denominator) {
+                toProperString = "1";
+            } else if (numerator == -1 * denominator) {
+                toProperString = "-1";
+            } else if ((numerator > 0 ? -numerator : numerator) < -denominator) {
+                // note that we do the magnitude comparison test above with
+                // NEGATIVE (not positive) numbers, since negative numbers
+                // have a larger range. otherwise numerator==Integer.MIN_VALUE
+                // is handled incorrectly.
+                final int properNumerator = getProperNumerator();
+                if (properNumerator == 0) {
+                    toProperString = Integer.toString(getProperWhole());
+                } else {
+                    toProperString = getProperWhole() + " " + properNumerator + "/" + getDenominator();
+                }
+            } else {
+                toProperString = getNumerator() + "/" + getDenominator();
+            }
+        }
+        return toProperString;
+    }
+    /** Gets the fraction as a {@link String}. */
+    @Override
+    public String toString() {
+        if (toString == null) {
+            toString = getNumerator() + "/" + getDenominator();
+        }
+        return toString;
+    }
+    // non-public helper methods (signatures only)
+    private static int greatestCommonDivisor(int u, int v);
+    private static int mulAndCheck(final int x, final int y);
+    private static int mulPosAndCheck(final int x, final int y);
+    private Fraction addSub(final Fraction fraction, final boolean isAdd);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

@@ -1,0 +1,29 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,98] cannot find symbol
+  symbol:   class InnerClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.TestClass
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[193,49] cannot find symbol
+  symbol:   class InnerClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.TestClass
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[235,20] reference to append is ambiguous
+  both method append(java.lang.String,java.lang.Object[],boolean) in org.apache.commons.lang3.builder.ToStringBuilder and method append(java.lang.String,short[],boolean) in org.apache.commons.lang3.builder.ToStringBuilder match
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[243,49] cannot find symbol
+  symbol: class Field
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[192,98] cannot find symbol
+[ERROR]   symbol:   class InnerClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.TestClass
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[193,49] cannot find symbol
+[ERROR]   symbol:   class InnerClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest.TestClass
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[235,20] reference to append is ambiguous
+[ERROR]   both method append(java.lang.String,java.lang.Object[],boolean) in org.apache.commons.lang3.builder.ToStringBuilder and method append(java.lang.String,short[],boolean) in org.apache.commons.lang3.builder.ToStringBuilder match
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[243,49] cannot find symbol
+[ERROR]   symbol: class Field
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

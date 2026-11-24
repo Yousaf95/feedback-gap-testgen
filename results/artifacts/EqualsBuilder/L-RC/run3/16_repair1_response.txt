@@ -1,0 +1,94 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+
+class EqualsBuilder_GenTest {
+
+    @Test
+    void testReflectionEqualsWithSameObject() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj, false));
+    }
+
+    @Test
+    void testReflectionEqualsWithNulls() {
+        assertTrue(EqualsBuilder.reflectionEquals(null, null, false));
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), null, false));
+        assertFalse(EqualsBuilder.reflectionEquals(null, new Object(), false));
+    }
+
+    @Test
+    void testReflectionEqualsWithDifferentObjects() {
+        assertFalse(EqualsBuilder.reflectionEquals(new Object(), new Object(), false));
+    }
+
+    @Test
+    void testAppendBooleanBranches() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(true, true).append(false, false);
+        assertTrue(builder.isEquals());
+
+        builder.append(true, false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendBooleanArrayBranches() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new boolean[]{true}, new boolean[]{true});
+        assertTrue(builder.isEquals());
+
+        builder.append((boolean[]) null, (boolean[]) null);
+        assertTrue(builder.isEquals());
+
+        builder.append(new boolean[]{true}, (boolean[]) null);
+        assertFalse(builder.isEquals());
+
+        builder.append((boolean[]) null, new boolean[]{true});
+        assertFalse(builder.isEquals());
+
+        builder.append(new boolean[]{true}, new boolean[]{false});
+        assertFalse(builder.isEquals());
+
+        builder.append(new boolean[]{true, true}, new boolean[]{true});
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendByteBranches() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append((byte) 1, (byte) 1);
+        assertTrue(builder.isEquals());
+
+        builder.append((byte) 1, (byte) 2);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendByteArrayBranches() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.append(new byte[]{1}, new byte[]{1});
+        assertTrue(builder.isEquals());
+
+        builder.append((byte[]) null, (byte[]) null);
+        assertTrue(builder.isEquals());
+
+        builder.append(new byte[]{1}, (byte[]) null);
+        assertFalse(builder.isEquals());
+
+        builder.append((byte[]) null, new byte[]{1});
+        assertFalse(builder.isEquals());
+
+        builder.append(new byte[]{1}, new byte[]{2});
+        assertFalse(builder.isEquals());
+
+        builder.append(new byte[]{1, 1}, new byte[]{1});
+        assertFalse(builder.isEquals());
+    }
+}
+```

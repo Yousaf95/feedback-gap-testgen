@@ -1,0 +1,99 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[95,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[96,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[97,26] method hashCode in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[97,42] method hashCode in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[102,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[103,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[104,29] method hashCode in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[104,45] method hashCode in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[109,34] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[110,68] method toString in class java.lang.Object cannot be applied to given types;
+  required: no arguments
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[120,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[127,25] method equals in class java.lang.Object cannot be applied to given types;
+  required: java.lang.Object
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation,java.lang.annotation.Annotation
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[132,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[133,25] method equals in class java.lang.Object cannot be applied to given types;
+  required: java.lang.Object
+  found:    <nulltype>,org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[138,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[139,25] method equals in class java.lang.Object cannot be applied to given types;
+  required: java.lang.Object
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[144,34] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[145,24] method equals in class java.lang.Object cannot be applied to given types;
+  required: java.lang.Object
+  found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation,org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+  reason: actual and formal argument lists differ in length
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[95,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[96,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[97,26] method hashCode in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[97,42] method hashCode in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[102,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[103,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[104,29] method hashCode in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[104,45] method hashCode in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[109,34] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[110,68] method toString in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[120,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[127,25] method equals in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: java.lang.Object
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation,java.lang.annotation.Annotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[132,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[133,25] method equals in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: java.lang.Object
+[ERROR]   found:    <nulltype>,org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[138,35] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[139,25] method equals in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: java.lang.Object
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[144,34] incompatible types: org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation is not a functional interface
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/AnnotationUtils_GenTest.java:[145,24] method equals in class java.lang.Object cannot be applied to given types;
+[ERROR]   required: java.lang.Object
+[ERROR]   found:    org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation,org.apache.commons.lang3.AnnotationUtils_GenTest.TestAnnotation
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,108 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    void testInterfacesEnum() {
+        assertEquals(ClassUtils.Interfaces.INCLUDE, ClassUtils.Interfaces.valueOf("INCLUDE"));
+        assertEquals(ClassUtils.Interfaces.EXCLUDE, ClassUtils.Interfaces.valueOf("EXCLUDE"));
+    }
+
+    @Test
+    void testGetAbbreviatedName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getAbbreviatedName((Class<?>) null, 10));
+    }
+
+    @Test
+    void testGetComponentType_withNullArrayClass() {
+        assertNull(ClassUtils.getComponentType(null));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetCanonicalNameForObject_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName((Object) null));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageCanonicalNameForObject_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageNameForObject_withNullObject() {
+        assertEquals("default", ClassUtils.getPackageName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetCanonicalName_withArrayClassName() {
+        assertEquals("[I", ClassUtils.getCanonicalName(int[].class));
+    }
+
+    @Test
+    void testGetCanonicalName_withInnerClass() throws ClassNotFoundException {
+        assertEquals("org.apache.commons.lang3.ClassUtils$Interfaces", 
+                     ClassUtils.getClass(ClassUtils.class.getClassLoader(), "org.apache.commons.lang3.ClassUtils.Interfaces").getCanonicalName());
+    }
+
+    @Test
+    void testGetAllSuperclasses_withObjectClass() {
+        List<Class<?>> superClasses = ClassUtils.getAllSuperclasses(Object.class);
+        assertEquals(0, superClasses.size());
+    }
+
+    @Test
+    void testGetAllInterfaces_withNull() {
+        assertNull(ClassUtils.getAllInterfaces(null));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveClass() {
+        assertEquals("int", ClassUtils.getCanonicalName(int.class));
+    }
+
+    @Test
+    void testGetAbbreviatedName_withLongClassNameAndShortHint() {
+        String longClassName = "org.apache.commons.lang3.ClassUtils";
+        assertEquals("o.a.c.ClassUtils", ClassUtils.getAbbreviatedName(longClassName, 10));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullString() {
+        assertNull(ClassUtils.getCanonicalName((String) null));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassName() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetPackageName_withArrayClassName() {
+        assertEquals("java.lang", ClassUtils.getPackageName("[Ljava.lang.String;"));
+    }
+}
+```

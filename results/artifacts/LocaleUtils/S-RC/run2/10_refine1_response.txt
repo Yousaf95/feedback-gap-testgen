@@ -1,0 +1,146 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testIsISO3166CountryCode_valid() {
+        assertTrue(LocaleUtils.isISO3166CountryCode("US"));
+    }
+
+    @Test
+    public void testIsISO3166CountryCode_invalidLength() {
+        assertFalse(LocaleUtils.isISO3166CountryCode("USA"));
+    }
+
+    @Test
+    public void testIsISO3166CountryCode_nonUpperCase() {
+        assertFalse(LocaleUtils.isISO3166CountryCode("us"));
+    }
+
+    @Test
+    public void testIsISO639LanguageCode_valid2Letter() {
+        assertTrue(LocaleUtils.isISO639LanguageCode("en"));
+    }
+
+    @Test
+    public void testIsISO639LanguageCode_valid3Letter() {
+        assertTrue(LocaleUtils.isISO639LanguageCode("spa"));
+    }
+
+    @Test
+    public void testIsISO639LanguageCode_invalidLength2() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("en-US"));
+    }
+
+    @Test
+    public void testIsISO639LanguageCode_invalidLength3() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("spa-ES"));
+    }
+
+    @Test
+    public void testIsISO639LanguageCode_nonLowerCase2() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("EN"));
+    }
+
+    @Test
+    public void testIsISO639LanguageCode_nonLowerCase3() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("spa-ES"));
+    }
+
+    @Test
+    public void testIsLanguageUndetermined_validLocale() {
+        assertTrue(LocaleUtils.isLanguageUndetermined(new Locale("en", "US")));
+    }
+
+    @Test
+    public void testIsLanguageUndetermined_nullLocale() {
+        assertTrue(LocaleUtils.isLanguageUndetermined(null));
+    }
+
+    @Test
+    public void testIsNumericAreaCode_valid() {
+        assertTrue(LocaleUtils.isNumericAreaCode("123"));
+    }
+
+    @Test
+    public void testIsNumericAreaCode_invalidLength() {
+        assertFalse(LocaleUtils.isNumericAreaCode("12"));
+    }
+
+    @Test
+    public void testLocaleLookupList_nullLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(null, new Locale("en", "US"));
+        assertEquals(1, result.size());
+        assertTrue(result.contains(new Locale("en", "US")));
+    }
+
+    @Test
+    public void testLocaleLookupList_nonNullLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(new Locale("fr", "FR"), new Locale("en", "US"));
+        assertEquals(4, result.size());
+        assertTrue(result.contains(new Locale("fr", "FR")));
+        assertTrue(result.contains(new Locale("fr", "")));
+        assertTrue(result.contains(new Locale("", "")));
+        assertTrue(result.contains(new Locale("en", "US")));
+    }
+
+    @Test
+    public void testParseLocale_valid2LetterLanguage() {
+        Locale result = LocaleUtils.parseLocale("en");
+        assertEquals(Locale.ENGLISH, result);
+    }
+
+    @Test
+    public void testParseLocale_valid3LetterLanguage() {
+        Locale result = LocaleUtils.parseLocale("spa");
+        assertEquals(new Locale("spa"), result);
+    }
+
+    @Test
+    public void testParseLocale_validCountryCode() {
+        Locale result = LocaleUtils.parseLocale("en-US");
+        assertEquals(Locale.US, result);
+    }
+
+    @Test
+    public void testParseLocale_validLanguageAndVariant() {
+        Locale result = LocaleUtils.parseLocale("en_US_12HourClock");
+        assertEquals(new Locale("en", "US", "12HourClock"), result);
+    }
+
+    @Test
+    public void testParseLocale_invalidFormat() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.parseLocale("invalid"));
+    }
+
+    @Test
+    public void testToLocale_validLocale() {
+        Locale result = LocaleUtils.toLocale(new Locale("en", "US"));
+        assertEquals(Locale.US, result);
+    }
+
+    @Test
+    public void testToLocale_nullInput() {
+        Locale result = LocaleUtils.toLocale(null);
+        assertEquals(Locale.getDefault(), result);
+    }
+
+    @Test
+    public void testToLocale_emptyString() {
+        Locale result = LocaleUtils.toLocale("");
+        assertEquals(new Locale("", ""), result);
+    }
+
+    @Test
+    public void testToLocale_invalidFormat() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en#US"));
+    }
+}
+```

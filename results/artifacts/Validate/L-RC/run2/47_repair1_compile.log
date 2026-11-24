@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[718,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[726,48] DEFAULT_IS_INSTANCE_OF_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[767,48] DEFAULT_NO_NULL_ELEMENTS_ARRAY_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[785,48] DEFAULT_NO_NULL_ELEMENTS_COLLECTION_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[793,34] DEFAULT_NOT_BLANK_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[801,34] DEFAULT_NOT_BLANK_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[810,34] DEFAULT_NOT_EMPTY_MAP_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[819,34] DEFAULT_NOT_EMPTY_COLLECTION_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[828,34] DEFAULT_NOT_EMPTY_ARRAY_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[718,48] DEFAULT_IS_ASSIGNABLE_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[726,48] DEFAULT_IS_INSTANCE_OF_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[767,48] DEFAULT_NO_NULL_ELEMENTS_ARRAY_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[785,48] DEFAULT_NO_NULL_ELEMENTS_COLLECTION_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[793,34] DEFAULT_NOT_BLANK_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[801,34] DEFAULT_NOT_BLANK_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[810,34] DEFAULT_NOT_EMPTY_MAP_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[819,34] DEFAULT_NOT_EMPTY_COLLECTION_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] /work/w8/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[828,34] DEFAULT_NOT_EMPTY_ARRAY_EX_MESSAGE has private access in org.apache.commons.lang3.Validate
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

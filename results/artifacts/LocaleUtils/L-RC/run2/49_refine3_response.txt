@@ -1,0 +1,92 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    void testSyncAvoidInitialization() {
+        // This test ensures that the SyncAvoid class is initialized
+        assertNotNull(LocaleUtils.availableLocaleList());
+    }
+
+    @Test
+    void testIsISO3166CountryCodeWithInvalidLength() {
+        assertFalse(LocaleUtils.isISO3166CountryCode("USA"));
+        assertFalse(LocaleUtils.isISO3166CountryCode("U"));
+    }
+
+    @Test
+    void testIsISO3166CountryCodeWithLowerCase() {
+        assertFalse(LocaleUtils.isISO3166CountryCode("us"));
+    }
+
+    @Test
+    void testIsISO639LanguageCodeWithInvalidLength() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("engg"));
+        assertFalse(LocaleUtils.isISO639LanguageCode("e"));
+    }
+
+    @Test
+    void testIsISO639LanguageCodeWithUpperCase() {
+        assertFalse(LocaleUtils.isISO639LanguageCode("EN"));
+    }
+
+    @Test
+    void testIsNumericAreaCodeWithValidCode() {
+        assertTrue(LocaleUtils.isNumericAreaCode("123"));
+    }
+
+    @Test
+    void testLocaleLookupListWithNullLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(null);
+        assertEquals(1, result.size());
+        assertEquals(Locale.getDefault(), result.get(0));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatTooShortUnderscorePrefixNonUpperCase() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_us"));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatDashPrefixNonUpperCase() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("-us"));
+    }
+
+    @Test
+    void testParseLocaleWithThreeLetterCountryAndVariant() {
+        assertEquals(new Locale("", "US", "POSIX"), LocaleUtils.toLocale("_US_POSIX"));
+    }
+
+    @Test
+    void testParseLocaleWithFourLetterCountryAndVariant() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US_ABCD"));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatTooShortUnderscorePrefixTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_U"));
+    }
+
+    @Test
+    void testParseLocaleWithInvalidFormatDashPrefixTooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("-U"));
+    }
+
+    @Test
+    void testParseLocaleWithEmptyString() {
+        assertEquals(new Locale("", ""), LocaleUtils.toLocale(""));
+    }
+
+    @Test
+    void testConstructorIsPrivate() {
+        assertNotNull(LocaleUtils.class.getDeclaredConstructor());
+        assertTrue(java.lang.reflect.Modifier.isPrivate(LocaleUtils.class.getDeclaredConstructor().getModifiers()));
+    }
+}
+```

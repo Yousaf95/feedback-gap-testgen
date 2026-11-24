@@ -1,0 +1,155 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.io.StringWriter;
+import java.util.Arrays;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testReadResolve() throws Exception {
+        ObjectUtils.Null nullInstance = new ObjectUtils.Null();
+        assertEquals(ObjectUtils.NULL, nullInstance);
+    }
+
+    @Test
+    void testAllNotNull_withNullArray() {
+        assertFalse(ObjectUtils.allNotNull((Object[]) null));
+    }
+
+    @Test
+    void testClone_primitiveArray() {
+        int[] original = {1, 2, 3};
+        int[] cloned = ObjectUtils.clone(original);
+        assertNotSame(original, cloned);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    void testClone_objectArray() {
+        String[] original = {"a", "b", "c"};
+        String[] cloned = ObjectUtils.clone(original);
+        assertNotSame(original, cloned);
+        assertArrayEquals(original, cloned);
+    }
+
+    @Test
+    void testClone_nonClonableObject() {
+        assertNull(ObjectUtils.clone(new Object()));
+    }
+
+    @Test
+    void testCompare_withNullGreaterTrue() {
+        assertEquals(1, ObjectUtils.compare(null, new Integer(5), true));
+        assertEquals(-1, ObjectUtils.compare(new Integer(5), null, true));
+    }
+
+    @Test
+    void testCONST_boolean() {
+        assertTrue(ObjectUtils.CONST(true));
+        assertFalse(ObjectUtils.CONST(false));
+    }
+
+    @Test
+    void testCONST_byte() {
+        assertEquals((byte) 10, ObjectUtils.CONST((byte) 10));
+    }
+
+    @Test
+    void testCONST_char() {
+        assertEquals('a', ObjectUtils.CONST('a'));
+    }
+
+    @Test
+    void testCONST_double() {
+        assertEquals(1.5, ObjectUtils.CONST(1.5), 0);
+    }
+
+    @Test
+    void testCONST_float() {
+        assertEquals(1.5f, ObjectUtils.CONST(1.5f), 0);
+    }
+
+    @Test
+    void testCONST_int() {
+        assertEquals(10, ObjectUtils.CONST(10));
+    }
+
+    @Test
+    void testCONST_long() {
+        assertEquals(10L, ObjectUtils.CONST(10L));
+    }
+
+    @Test
+    void testCONST_short() {
+        assertEquals((short) 10, ObjectUtils.CONST((short) 10));
+    }
+
+    @Test
+    void testCONST_generic() {
+        String value = "test";
+        assertSame(value, ObjectUtils.CONST(value));
+    }
+
+    @Test
+    void testCONST_BYTE_validValue() {
+        assertEquals((byte) 127, ObjectUtils.CONST_BYTE(127));
+    }
+
+    @Test
+    void testCONST_BYTE_invalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(128));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_BYTE(-129));
+    }
+
+    @Test
+    void testCONST_SHORT_validValue() {
+        assertEquals((short) 32767, ObjectUtils.CONST_SHORT(32767));
+    }
+
+    @Test
+    void testCONST_SHORT_invalidValue() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(32768));
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.CONST_SHORT(-32769));
+    }
+
+    @Test
+    void testGetFirstNonNull_withNullSuppliers() {
+        assertNull(ObjectUtils.getFirstNonNull((Supplier<Object>[]) null));
+    }
+
+    @Test
+    void testHashCodeMulti_withNullArray() {
+        assertEquals(1, ObjectUtils.hashCodeMulti((Object[]) null));
+    }
+
+    @Test
+    void testIdentityToString_appendable() throws IOException {
+        StringWriter writer = new StringWriter();
+        ObjectUtils.identityToString(writer, "test");
+        assertEquals("java.lang.String@".length() + 8, writer.toString().length()); // Assuming hash code length is 8
+    }
+
+    @Test
+    void testIdentityToString_withNullObject() {
+        assertNull(ObjectUtils.identityToString((Object) null));
+    }
+
+    @Test
+    void testIdentityToString_strBuilder() {
+        StrBuilder builder = new StrBuilder();
+        ObjectUtils.identityToString(builder, "test");
+        assertEquals("java.lang.String@".length() + 8, builder.length()); // Assuming hash code length is 8
+    }
+
+    @Test
+    void testIdentityToString_stringBuffer() {
+        StringBuffer buffer = new StringBuffer();
+        ObjectUtils.identityToString(buffer, "test");
+        assertEquals("java.lang.String@".length() + 8, buffer.length()); // Assuming hash code length is 8
+    }
+}
+```

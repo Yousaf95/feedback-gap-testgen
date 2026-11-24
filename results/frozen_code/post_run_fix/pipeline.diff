@@ -1,0 +1,18 @@
+171,172c171,174
+<     def green_stage(self, code, art, st):
+<         """Remove failing tests, then flaky ones (2 re-runs). Returns green code (may have 0 tests)."""
+---
+>     def green_stage(self, code, art, st, base_names=None):
+>         """Remove failing tests, then flaky ones (2 re-runs). Returns green code (may have 0 tests).
+>         base_names (Stage 5): if the test JVM produces no report, only the new methods are discarded
+>         (returns None so the caller keeps the previous green suite)."""
+176a179,183
+>         if status is None and base_names is not None:
+>             new = [n for n in names if n not in base_names]
+>             st["notes"].append("stage5: no surefire report; new methods discarded")
+>             st["removed_failing"] += len(new)
+>             return None
+244c251
+<             green = self.green_stage(comp, art, st)
+---
+>             green = self.green_stage(comp, art, st, base_names=base["names"])

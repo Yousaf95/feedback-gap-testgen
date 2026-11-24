@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Optional;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testCompare_withNullGreaterTrue() {
+        assertEquals(1, ObjectUtils.compare(null, "test", true));
+        assertEquals(-1, ObjectUtils.compare("test", null, true));
+    }
+
+    @Test
+    void testCompare_withNullGreaterFalse() {
+        assertEquals(-1, ObjectUtils.compare(null, "test", false));
+        assertEquals(1, ObjectUtils.compare("test", null, false));
+    }
+
+    @Test
+    void testMedian_withComparatorAndSingleItem() {
+        Comparator<Integer> comparator = Integer::compareTo;
+        assertEquals(Integer.valueOf(5), ObjectUtils.median(comparator, 5));
+    }
+
+    @Test
+    void testMedian_withSingleItem() {
+        assertEquals(Integer.valueOf(5), ObjectUtils.median(5));
+    }
+
+    @Test
+    void testMode_withNoDuplicates() {
+        assertNull(ObjectUtils.mode(1, 2, 3, 4, 5));
+    }
+
+    @Test
+    void testRequireNonEmpty_withNullObject() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(null));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyString() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(""));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyCollection() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(new ArrayList<>()));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyMap() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(new HashMap<>()));
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyOptional() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(Optional.empty()));
+    }
+
+    @Test
+    void testToString_withSupplierReturningNull() {
+        assertEquals("default", ObjectUtils.toString((Object) null, () -> "default"));
+    }
+
+    @Test
+    void testToString_withSupplierReturningNonNull() {
+        assertEquals("value", ObjectUtils.toString("value", () -> "default"));
+    }
+}
+```

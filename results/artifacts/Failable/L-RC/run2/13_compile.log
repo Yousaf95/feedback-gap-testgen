@@ -1,0 +1,119 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[157,21] reference to accept is ambiguous
+  both method <E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[162,21] reference to accept is ambiguous
+  both method <E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[180,13] cannot find symbol
+  symbol:   class BiConsumer
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[186,13] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[186,110] bad operand types for binary operator '+'
+  first type:  java.lang.Object
+  second type: java.lang.Object
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[192,13] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[230,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[237,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[244,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[251,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[258,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[265,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[272,26] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[279,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[287,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[294,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[302,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[317,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[157,21] reference to accept is ambiguous
+[ERROR]   both method <E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[162,21] reference to accept is ambiguous
+[ERROR]   both method <E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[180,13] cannot find symbol
+[ERROR]   symbol:   class BiConsumer
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[186,13] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[186,110] bad operand types for binary operator '+'
+[ERROR]   first type:  java.lang.Object
+[ERROR]   second type: java.lang.Object
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[192,13] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[230,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[237,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[244,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[251,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[258,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[265,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[272,26] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[279,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[287,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[294,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[302,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[309,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w6/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[317,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

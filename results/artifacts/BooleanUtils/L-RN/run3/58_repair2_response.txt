@@ -1,0 +1,97 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.Arrays;
+import java.util.List;
+
+class BooleanUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testToBooleanObjectWithCustomValuesIncludingNullsAndDefaultTrue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 1, 0, null));
+    }
+
+    @Test
+    void testToBooleanObjectWithCustomValuesIncludingNullsAndDefaultFalse() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, 1, 0, null));
+    }
+
+    @Test
+    void testToBooleanObjectWithCustomValuesIncludingNullsAndDefaultValueIsNull() {
+        assertNull(BooleanUtils.toBooleanObject(2, 1, 0, 2));
+    }
+
+    @Test
+    void testToIntegerWithCustomValuesTrueValue() {
+        assertEquals(5, BooleanUtils.toInteger(true, 5, 10));
+    }
+
+    @Test
+    void testToIntegerWithCustomValuesFalseValue() {
+        assertEquals(10, BooleanUtils.toInteger(false, 5, 10));
+    }
+
+    @Test
+    void testToIntegerObjectWithBooleanAndTrueValue() {
+        assertEquals(org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE, BooleanUtils.toIntegerObject(true, org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE, org.apache.commons.lang3.math.NumberUtils.INTEGER_ZERO));
+    }
+
+    @Test
+    void testToIntegerObjectWithBooleanAndFalseValue() {
+        assertEquals(org.apache.commons.lang3.math.NumberUtils.INTEGER_ZERO, BooleanUtils.toIntegerObject(false, org.apache.commons.lang3.math.NumberUtils.INTEGER_ONE, org.apache.commons.lang3.math.NumberUtils.INTEGER_ZERO));
+    }
+
+    @Test
+    void testToStringWithCustomValuesTrueString() {
+        assertEquals("Yes", BooleanUtils.toString(true, "Yes", "No"));
+    }
+
+    @Test
+    void testToStringWithCustomValuesFalseString() {
+        assertEquals("No", BooleanUtils.toString(false, "Yes", "No"));
+    }
+
+    @Test
+    void testForEachExecutesActionOnceForTrue() {
+        final boolean[] executed = {false};
+        BooleanUtils.forEach(b -> {
+            if (b) {
+                executed[0] = true;
+            }
+        });
+        assertTrue(executed[0]);
+    }
+
+    @Test
+    void testForEachExecutesActionOnceForFalse() {
+        final boolean[] executed = {false};
+        BooleanUtils.forEach(b -> {
+            if (!b) {
+                executed[0] = true;
+            }
+        });
+        assertTrue(executed[0]);
+    }
+
+    @Test
+    void testBooleanValuesContainsTrueAndFalse() {
+        Boolean[] values = BooleanUtils.booleanValues();
+        assertEquals(2, values.length);
+        assertTrue(Arrays.asList(values).contains(Boolean.TRUE));
+        assertTrue(Arrays.asList(values).contains(Boolean.FALSE));
+    }
+
+    @Test
+    void testPrimitiveValuesContainsTrueAndFalse() {
+        boolean[] values = BooleanUtils.primitiveValues();
+        assertEquals(2, values.length);
+        assertTrue(Arrays.stream(values).anyMatch(v -> v));
+        assertTrue(Arrays.stream(values).anyMatch(v -> !v));
+    }
+}
+```

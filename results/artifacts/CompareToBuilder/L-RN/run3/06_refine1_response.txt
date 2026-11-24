@@ -1,0 +1,129 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    void testAppendSuper() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(0, builder.toComparison());
+
+        builder.appendSuper(-1);
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.appendSuper(1);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendWithComparator() {
+        Comparator<String> lengthComparator = Comparator.comparingInt(String::length);
+
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append("short", "longer", lengthComparator);
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append("longer", "short", lengthComparator);
+        assertEquals(1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append("same", "size", lengthComparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    void testAppendWithNullComparator() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append("abc", "def");
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append("def", "abc");
+        assertEquals(1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append("abc", "abc");
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    void testAppendWithArrayComparator() {
+        Comparator<Object[]> arrayLengthComparator = (a, b) -> Integer.compare(a.length, b.length);
+
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new Object[]{1, 2}, new Object[]{1, 2, 3}, arrayLengthComparator);
+        assertEquals(-1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append(new Object[]{1, 2, 3}, new Object[]{1, 2}, arrayLengthComparator);
+        assertEquals(1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append(new Object[]{1, 2}, new Object[]{1, 2}, arrayLengthComparator);
+        assertEquals(0, builder.toComparison());
+    }
+
+    @Test
+    void testReflectionCompareWithReflectUpToClass() {
+        class Parent {
+            int parentField;
+            Parent(int parentField) { this.parentField = parentField; }
+        }
+        class Child extends Parent {
+            int childField;
+            Child(int parentField, int childField) { super(parentField); this.childField = childField; }
+        }
+
+        Child lhs = new Child(1, 2);
+        Child rhs = new Child(1, 3);
+
+        assertEquals(-1, CompareToBuilder.reflectionCompare(lhs, rhs, false, Parent.class));
+    }
+
+    @Test
+    void testReflectionCompareWithExcludeFieldsCollection() {
+        class TestClass {
+            int field1;
+            int field2;
+            TestClass(int field1, int field2) { this.field1 = field1; this.field2 = field2; }
+        }
+
+        TestClass lhs = new TestClass(1, 2);
+        TestClass rhs = new TestClass(1, 3);
+
+        assertEquals(0, CompareToBuilder.reflectionCompare(lhs, rhs, Collections.singleton("field2")));
+    }
+
+    @Test
+    void testAppendWithNullArrays() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((Object[]) null, (Object[]) null);
+        assertEquals(0, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append(new Object[]{1}, (Object[]) null);
+        assertEquals(1, builder.toComparison());
+
+        builder = new CompareToBuilder();
+        builder.append((Object[]) null, new Object[]{1});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendWithDifferentArrayTypes() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertThrows(ClassCastException.class, () -> builder.append(new int[]{1}, new String[]{"1"}));
+    }
+}
+```

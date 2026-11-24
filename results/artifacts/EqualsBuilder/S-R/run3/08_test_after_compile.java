@@ -1,0 +1,368 @@
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class EqualsBuilder_GenTest {
+
+    private EqualsBuilder builder;
+
+    @BeforeEach
+    public void setUp() {
+        builder = new EqualsBuilder();
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideBooleanData")
+    public void testAppendBoolean(boolean lhs, boolean rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideBooleanData() {
+        return Arrays.stream(new Object[][] {
+            { true, true },
+            { false, false },
+            { true, false }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideByteData")
+    public void testAppendByte(byte lhs, byte rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideByteData() {
+        return Arrays.stream(new Object[][] {
+            { (byte) 0, (byte) 0 },
+            { (byte) 1, (byte) 1 },
+            { (byte) -1, (byte) -1 }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCharData")
+    public void testAppendChar(char lhs, char rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideCharData() {
+        return Arrays.stream(new Object[][] {
+            { 'a', 'a' },
+            { 'b', 'b' },
+            { 'z', 'z' }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDoubleData")
+    public void testAppendDouble(double lhs, double rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideDoubleData() {
+        return Arrays.stream(new Object[][] {
+            { 0.0, 0.0 },
+            { 1.0, 1.0 },
+            { -1.0, -1.0 }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFloatData")
+    public void testAppendFloat(float lhs, float rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideFloatData() {
+        return Arrays.stream(new Object[][] {
+            { 0.0f, 0.0f },
+            { 1.0f, 1.0f },
+            { -1.0f, -1.0f }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIntData")
+    public void testAppendInt(int lhs, int rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideIntData() {
+        return Arrays.stream(new Object[][] {
+            { 0, 0 },
+            { 1, 1 },
+            { -1, -1 }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideLongData")
+    public void testAppendLong(long lhs, long rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideLongData() {
+        return Arrays.stream(new Object[][] {
+            { 0L, 0L },
+            { 1L, 1L },
+            { -1L, -1L }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideShortData")
+    public void testAppendShort(short lhs, short rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideShortData() {
+        return Arrays.stream(new Object[][] {
+            { (short) 0, (short) 0 },
+            { (short) 1, (short) 1 },
+            { (short) -1, (short) -1 }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideObjectData")
+    public void testAppendObject(Object lhs, Object rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideObjectData() {
+        return Arrays.stream(new Object[][] {
+            { "a", "a" },
+            { "b", "b" },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideArrayData")
+    public void testAppendArray(Object lhs, Object rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new int[] { 1, 2, 3 }, new int[] { 1, 2, 3 } },
+            { new String[] { "a", "b" }, new String[] { "a", "b" } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @Test
+    public void testAppendSuper() {
+        builder.appendSuper(true);
+        assertTrue(builder.isEquals());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideBooleanArrayData")
+    public void testAppendBooleanArray(boolean[] lhs, boolean[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideBooleanArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new boolean[] { true, false }, new boolean[] { true, false } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideByteArrayData")
+    public void testAppendByteArray(byte[] lhs, byte[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideByteArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new byte[] { 1, 2 }, new byte[] { 1, 2 } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideCharArrayData")
+    public void testAppendCharArray(char[] lhs, char[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideCharArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new char[] { 'a', 'b' }, new char[] { 'a', 'b' } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideDoubleArrayData")
+    public void testAppendDoubleArray(double[] lhs, double[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideDoubleArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new double[] { 1.0, 2.0 }, new double[] { 1.0, 2.0 } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideFloatArrayData")
+    public void testAppendFloatArray(float[] lhs, float[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideFloatArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new float[] { 1.0f, 2.0f }, new float[] { 1.0f, 2.0f } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIntArrayData")
+    public void testAppendIntArray(int[] lhs, int[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideIntArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new int[] { 1, 2 }, new int[] { 1, 2 } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideLongArrayData")
+    public void testAppendLongArray(long[] lhs, long[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideLongArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new long[] { 1L, 2L }, new long[] { 1L, 2L } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideShortArrayData")
+    public void testAppendShortArray(short[] lhs, short[] rhs) {
+        builder.append(lhs, rhs);
+        assertTrue(builder.isEquals());
+    }
+
+    private static Stream<Arguments> provideShortArrayData() {
+        return Arrays.stream(new Object[][] {
+            { new short[] { 1, 2 }, new short[] { 1, 2 } },
+            { null, null }
+        }).map(Arguments::arguments);
+    }
+
+    @Test
+    public void testReset() {
+        builder.append(true, false);
+        assertFalse(builder.isEquals());
+        builder.reset();
+        assertTrue(builder.isEquals());
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideBypassReflectionClassesData")
+    public void testSetBypassReflectionClasses(List<Class<?>> bypassReflectionClasses) {
+        builder.setBypassReflectionClasses(bypassReflectionClasses);
+        assertEquals(bypassReflectionClasses, builder.getBypassReflectionClasses());
+    }
+
+    private static Stream<Arguments> provideBypassReflectionClassesData() {
+        return Arrays.stream(new Object[][] {
+            { Collections.emptyList() },
+            { Collections.singletonList(String.class) }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideExcludeFieldsData")
+    public void testSetExcludeFields(String[] excludeFields) {
+        builder.setExcludeFields(excludeFields);
+        assertArrayEquals(excludeFields, builder.getExcludeFields());
+    }
+
+    private static Stream<Arguments> provideExcludeFieldsData() {
+        return Arrays.stream(new Object[][] {
+            { new String[0] },
+            { new String[] { "field1", "field2" } }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideReflectUpToClassData")
+    public void testSetReflectUpToClass(Class<?> reflectUpToClass) {
+        builder.setReflectUpToClass(reflectUpToClass);
+        assertEquals(reflectUpToClass, builder.getReflectUpToClass());
+    }
+
+    private static Stream<Arguments> provideReflectUpToClassData() {
+        return Arrays.stream(new Object[][] {
+            { null },
+            { String.class }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideTestRecursiveData")
+    public void testSetTestRecursive(boolean testRecursive) {
+        builder.setTestRecursive(testRecursive);
+        assertEquals(testRecursive, builder.isTestRecursive());
+    }
+
+    private static Stream<Arguments> provideTestRecursiveData() {
+        return Arrays.stream(new Object[][] {
+            { true },
+            { false }
+        }).map(Arguments::arguments);
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideTestTransientsData")
+    public void testSetTestTransients(boolean testTransients) {
+        builder.setTestTransients(testTransients);
+        assertEquals(testTransients, builder.isTestTransients());
+    }
+
+    private static Stream<Arguments> provideTestTransientsData() {
+        return Arrays.stream(new Object[][] {
+            { true },
+            { false }
+        }).map(Arguments::arguments);
+    }
+}

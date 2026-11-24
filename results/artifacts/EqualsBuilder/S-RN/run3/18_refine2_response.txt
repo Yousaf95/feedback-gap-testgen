@@ -1,0 +1,51 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    public void testAppendArrayWithDifferentTypes() {
+        Object[] lhs = {1, "test", 3.14};
+        Object[] rhs = {1, "test", 2.718};
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithDifferentOrder() {
+        Integer[] lhs = {1, 2, 3};
+        Integer[] rhs = {3, 2, 1};
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithNullAndNonEmpty() {
+        String[] lhs = {null, "test"};
+        String[] rhs = {"test", null};
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithAllNulls() {
+        Object[] lhs = {null, null, null};
+        Object[] rhs = {null, null, null};
+        assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithEmptyArrays() {
+        String[] lhs = {};
+        String[] rhs = {};
+        assertTrue(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayWithDifferentLengthsAndNulls() {
+        Integer[] lhs = {1, null};
+        Integer[] rhs = {null, 2};
+        assertFalse(new EqualsBuilder().append(lhs, rhs).isEquals());
+    }
+}
+```

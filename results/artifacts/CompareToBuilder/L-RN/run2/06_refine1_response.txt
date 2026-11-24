@@ -1,0 +1,146 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import org.junit.jupiter.api.Test;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    void testAppendBooleanArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new boolean[]{true, false}, new boolean[]{true, true});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendByteArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new byte[]{1, 2}, new byte[]{1, 3});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendCharArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new char[]{'a', 'b'}, new char[]{'a', 'c'});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendDoubleArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new double[]{1.0, 2.0}, new double[]{1.0, 3.0});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendFloatArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new float[]{1.0f, 2.0f}, new float[]{1.0f, 3.0f});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendIntArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new int[]{1, 2}, new int[]{1, 3});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendLongArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new long[]{1L, 2L}, new long[]{1L, 3L});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendShortArray() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new short[]{1, 2}, new short[]{1, 3});
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectArrayWithComparator() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(new String[]{"a", "b"}, new String[]{"a", "c"}, Collections.reverseOrder());
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendSuper() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.appendSuper(-1);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testReflectionCompareWithExcludeFields() {
+        TestClass obj1 = new TestClass(1, "a");
+        TestClass obj2 = new TestClass(1, "b");
+        int result = CompareToBuilder.reflectionCompare(obj1, obj2, Arrays.asList("field1"));
+        assertEquals(-1, result);
+    }
+
+    @Test
+    void testReflectionCompareWithReflectUpToClass() {
+        SubTestClass obj1 = new SubTestClass(1, 2);
+        SubTestClass obj2 = new SubTestClass(1, 3);
+        int result = CompareToBuilder.reflectionCompare(obj1, obj2, false, TestClass.class);
+        assertEquals(0, result);
+    }
+
+    @Test
+    void testReflectionCompareWithNullLhs() {
+        TestClass obj2 = new TestClass(1, "a");
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(null, obj2));
+    }
+
+    @Test
+    void testReflectionCompareWithNullRhs() {
+        TestClass obj1 = new TestClass(1, "a");
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(obj1, null));
+    }
+
+    @Test
+    void testReflectionCompareWithDifferentClasses() {
+        TestClass obj1 = new TestClass(1, "a");
+        SubTestClass obj2 = new SubTestClass(1, 2);
+        assertThrows(ClassCastException.class, () -> CompareToBuilder.reflectionCompare(obj1, obj2));
+    }
+
+    static class TestClass implements Comparable<TestClass> {
+        private int field1;
+        private String field2;
+
+        public TestClass(int field1, String field2) {
+            this.field1 = field1;
+            this.field2 = field2;
+        }
+
+        @Override
+        public int compareTo(TestClass other) {
+            return new CompareToBuilder()
+                .append(this.field1, other.field1)
+                .append(this.field2, other.field2)
+                .toComparison();
+        }
+    }
+
+    static class SubTestClass extends TestClass {
+        private int field3;
+
+        public SubTestClass(int field1, int field3) {
+            super(field1, "sub");
+            this.field3 = field3;
+        }
+    }
+}
+```

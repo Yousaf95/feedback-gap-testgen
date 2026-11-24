@@ -1,0 +1,203 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value() default "test";
+        int number() default 42;
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface AnotherTestAnnotation {
+        String name();
+    }
+
+    @Test
+    void testToString_nonNullAnnotation() {
+        TestAnnotation annotation = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        assertEquals("@TestAnnotation(value=test, number=42)", AnnotationUtils.toString(annotation));
+    }
+
+    @Test
+    void testHashCode_sameInstanceAnnotations() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        TestAnnotation annotation2 = annotation1;
+        assertEquals(AnnotationUtils.hashCode(annotation1), AnnotationUtils.hashCode(annotation2));
+    }
+
+    @Test
+    void testIsValidAnnotationMemberType_invalidTypes() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(new Object().getClass()));
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(Object[].class));
+    }
+
+    @Test
+    void testEquals_sameInstanceAnnotations() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        TestAnnotation annotation2 = annotation1;
+        assertTrue(AnnotationUtils.equals(annotation1, annotation2));
+    }
+
+    @Test
+    void testHashCode_differentAnnotationsWithSameValues() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        TestAnnotation annotation2 = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        assertEquals(AnnotationUtils.hashCode(annotation1), AnnotationUtils.hashCode(annotation2));
+    }
+
+    @Test
+    void testEquals_differentAnnotationsWithSameValues() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        TestAnnotation annotation2 = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        assertTrue(AnnotationUtils.equals(annotation1, annotation2));
+    }
+
+    @Test
+    void testEquals_annotationsWithDifferentTypes() {
+        TestAnnotation annotation1 = new TestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return TestAnnotation.class;
+            }
+
+            @Override
+            public String value() {
+                return "test";
+            }
+
+            @Override
+            public int number() {
+                return 42;
+            }
+        };
+        AnotherTestAnnotation annotation2 = new AnotherTestAnnotation() {
+            @Override
+            public Class<? extends Annotation> annotationType() {
+                return AnotherTestAnnotation.class;
+            }
+
+            @Override
+            public String name() {
+                return "test";
+            }
+        };
+        assertFalse(AnnotationUtils.equals(annotation1, annotation2));
+    }
+}
+```

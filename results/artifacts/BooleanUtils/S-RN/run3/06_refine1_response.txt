@@ -1,0 +1,24 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    public void testOneHot() {
+        assertTrue(BooleanUtils.oneHot(true, false));
+        assertFalse(BooleanUtils.oneHot(false, true));
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.oneHot(true, true, false));
+    }
+
+    @Test
+    public void testXor() {
+        assertTrue(BooleanUtils.xor(true, false));
+        assertFalse(BooleanUtils.xor(false, false));
+        assertTrue(BooleanUtils.xor(true, true, false));
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.xor());
+    }
+}
+```

@@ -1,0 +1,90 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+class LocaleUtils_GenTest {
+
+    @Test
+    void testSyncAvoidInitialization() {
+        assertNotNull(LocaleUtils.availableLocaleList());
+        assertNotNull(LocaleUtils.availableLocaleSet());
+    }
+
+    @Test
+    void testLocaleLookupList_withNullLocale() {
+        List<Locale> result = LocaleUtils.localeLookupList(null);
+        assertEquals(1, result.size());
+        assertEquals(Locale.getDefault(), result.get(0));
+    }
+
+    @Test
+    void testParseLocale_withLanguageOnly() {
+        Locale locale = LocaleUtils.toLocale("en");
+        assertEquals(new Locale("en"), locale);
+    }
+
+    @Test
+    void testParseLocale_withLanguageAndCountry() {
+        Locale locale = LocaleUtils.toLocale("en_US");
+        assertEquals(new Locale("en", "US"), locale);
+    }
+
+    @Test
+    void testParseLocale_withLanguageCountryAndVariant() {
+        Locale locale = LocaleUtils.toLocale("en_US_WIN");
+        assertEquals(new Locale("en", "US", "WIN"), locale);
+    }
+
+    @Test
+    void testParseLocale_withInvalidFormat() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US_"));
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US_WIN32"));
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("_US"));
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("-US"));
+    }
+
+    @Test
+    void testParseLocale_withEmptyString() {
+        assertEquals(new Locale("", ""), LocaleUtils.toLocale(""));
+    }
+
+    @Test
+    void testParseLocale_withHashCharacter() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US#WIN"));
+    }
+
+    @Test
+    void testParseLocale_withShortCountryCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_U"));
+    }
+
+    @Test
+    void testParseLocale_withInvalidSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en-US-WIN"));
+    }
+
+    @Test
+    void testToString_withHashCharacter() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_US#WIN"));
+    }
+
+    @Test
+    void testToString_withShortCountryCode() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en_U"));
+    }
+
+    @Test
+    void testToString_withInvalidSeparator() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en-US-WIN"));
+    }
+
+    @Test
+    void testLocaleConstructor() {
+        new LocaleUtils();
+    }
+}
+```

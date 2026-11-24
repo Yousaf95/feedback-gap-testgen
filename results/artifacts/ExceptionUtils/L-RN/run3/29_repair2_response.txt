@@ -1,0 +1,178 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.stream.Collectors;
+import java.util.ArrayList;
+
+class ExceptionUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testForEach_withNonNullThrowable() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable throwable = new IllegalStateException("Root", cause);
+        final List<String> messages = new ArrayList<>();
+        ExceptionUtils.forEach(throwable, t -> messages.add(t.getMessage()));
+        assertEquals(List.of("Root", "Cause"), messages);
+    }
+
+    @Test
+    void testGetCause_withNonNullThrowable() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable throwable = new IllegalStateException("Root", cause);
+        assertSame(cause, ExceptionUtils.getCause(throwable));
+    }
+
+    @Test
+    void testGetMessage_withEmptyMessage() {
+        final Throwable throwable = new IllegalStateException();
+        assertEquals("IllegalStateException: ", ExceptionUtils.getMessage(throwable));
+    }
+
+    @Test
+    void testGetRootCause_withNestedThrowables() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertSame(cause, ExceptionUtils.getRootCause(root));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withNestedThrowables() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertEquals("IllegalArgumentException: Cause", ExceptionUtils.getRootCauseMessage(root));
+    }
+
+    @Test
+    void testGetStackFrames_withEmptyStackTrace() {
+        final Throwable throwable = new Throwable();
+        assertTrue(ExceptionUtils.getStackFrames(throwable).length > 0); // At least one frame should be present
+    }
+
+    @Test
+    void testGetStackTrace_withEmptyStackTrace() {
+        final Throwable throwable = new Throwable();
+        assertFalse(ExceptionUtils.getStackTrace(throwable).isEmpty()); // Stack trace should not be empty
+    }
+
+    @Test
+    void testGetThrowableCount_withNestedThrowables() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertEquals(3, ExceptionUtils.getThrowableCount(root));
+    }
+
+    @Test
+    void testGetThrowableList_withNestedThrowables() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        final List<Throwable> list = ExceptionUtils.getThrowableList(root);
+        assertEquals(3, list.size());
+        assertSame(root, list.get(0));
+        assertSame(nested, list.get(1));
+        assertSame(cause, list.get(2));
+    }
+
+    @Test
+    void testHasCause_withMatchingType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable throwable = new IllegalStateException("Root", cause);
+        assertTrue(ExceptionUtils.hasCause(throwable, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testHasCause_withNonMatchingType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable throwable = new IllegalStateException("Root", cause);
+        assertFalse(ExceptionUtils.hasCause(throwable, RuntimeException.class));
+    }
+
+    @Test
+    void testIndexOfThrowable_withMatchingType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertEquals(2, ExceptionUtils.indexOfThrowable(root, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOfThrowable_withNonMatchingType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(root, RuntimeException.class));
+    }
+
+    @Test
+    void testIndexOfType_withMatchingSuperType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertEquals(2, ExceptionUtils.indexOfType(root, Exception.class));
+    }
+
+    @Test
+    void testIndexOfType_withNonMatchingSuperType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertEquals(-1, ExceptionUtils.indexOfType(root, Error.class));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withIdenticalStackTraces() {
+        final List<String> causeFrames = new ArrayList<>(List.of("frame1", "frame2"));
+        final List<String> wrapperFrames = new ArrayList<>(causeFrames);
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+    }
+
+    @Test
+    void testRemoveCommonFrames_withDifferentStackTraces() {
+        final List<String> causeFrames = new ArrayList<>(List.of("frame1", "frame2"));
+        final List<String> wrapperFrames = new ArrayList<>(List.of("frame3", "frame4"));
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(List.of("frame1", "frame2"), causeFrames);
+    }
+
+    @Test
+    void testStream_withNestedThrowables() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        final List<String> messages = ExceptionUtils.stream(root).map(Throwable::getMessage).toList();
+        assertEquals(List.of("Root", "Nested", "Cause"), messages);
+    }
+
+    @Test
+    void testThrowableOfThrowable_withMatchingType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertSame(cause, ExceptionUtils.throwableOfThrowable(root, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testThrowableOfThrowable_withNonMatchingType() {
+        final Throwable cause = new IllegalArgumentException("Cause");
+        final Throwable nested = new IllegalStateException("Nested", cause);
+        final Throwable root = new RuntimeException("Root", nested);
+        assertNull(ExceptionUtils.throwableOfThrowable(root, RuntimeException.class));
+    }
+
+    @Test
+    void testWrapAndThrow_withCheckedException_2() {
+        final Exception checkedException = new Exception("Checked");
+        assertThrows(UndeclaredThrowableException.class, () -> ExceptionUtils.wrapAndThrow(checkedException));
+    }
+}
+```

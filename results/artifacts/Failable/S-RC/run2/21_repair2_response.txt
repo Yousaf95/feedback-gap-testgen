@@ -1,0 +1,23 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
+class Failable_GenTest {
+
+    @Test
+    public void testApply_2() {
+        Function<String, Integer> function = (s) -> s.length();
+        assertEquals(4, Failable.apply(function, "test"));
+    }
+
+    @Test
+    public void testTest_2() {
+        Predicate<String> predicate = (s) -> s.length() > 0;
+        assertTrue(Failable.test(predicate, "test"));
+    }
+}
+```

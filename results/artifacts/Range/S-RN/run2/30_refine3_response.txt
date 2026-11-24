@@ -1,0 +1,96 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    public void testContainsRangeEqual_3() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        assertTrue(range1.containsRange(range2));
+    }
+
+    @Test
+    public void testIsOverlappedByNull_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isOverlappedBy(null));
+    }
+
+    @Test
+    public void testIsStartedByNull_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    public void testIsEndedByNull_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    public void testGetComparator_2() {
+        Comparator<String> comparator = (s1, s2) -> s1.length() - s2.length();
+        Range<String> range = Range.between("a", "abc", comparator);
+        assertSame(comparator, range.getComparator());
+    }
+
+    @Test
+    public void testHashCode_2() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        assertEquals(range1.hashCode(), range2.hashCode());
+    }
+
+    @Test
+    public void testToString_2() {
+        Range<String> range = Range.between("a", "abc");
+        assertEquals("[a..abc]", range.toString());
+    }
+
+    @Test
+    public void testToStringFormat_2() {
+        Range<String> range = Range.between("a", "abc");
+        assertEquals("Range[a, abc, java.util.Comparator@...]", range.toString("%s, %s, %s"));
+    }
+
+    @Test
+    public void testFitNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertThrows(NullPointerException.class, () -> range.fit(null));
+    }
+
+    @Test
+    public void testElementCompareToNull_2() {
+        Range<String> range = Range.between("a", "abc");
+        assertThrows(NullPointerException.class, () -> range.elementCompareTo(null));
+    }
+
+    @Test
+    public void testContainsRangeNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    public void testIsAfterNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isAfter(null));
+    }
+
+    @Test
+    public void testIsBeforeNull_2() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isBefore(null));
+    }
+
+    @Test
+    public void testIsOverlappedByNull_4() {
+        Range<Integer> range = Range.between(1, 5);
+        assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(null));
+    }
+}
+```

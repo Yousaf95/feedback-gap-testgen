@@ -1,0 +1,108 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.List;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetRootCauseWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        Throwable rootCause = ExceptionUtils.getRootCause(checked);
+        assertNull(rootCause, "Should return null for a checked exception with no cause");
+    }
+
+    @Test
+    public void testGetRootCauseMessageWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        String message = ExceptionUtils.getRootCauseMessage(checked);
+        assertEquals("Exception: Checked exception", message, "Should return the root cause message for a checked exception");
+    }
+
+    @Test
+    public void testGetRootCauseStackTraceWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        List<String> stackTrace = Arrays.asList(ExceptionUtils.getRootCauseStackTrace(checked));
+        assertTrue(stackTrace.isEmpty(), "Should return an empty list for a checked exception with no cause");
+    }
+
+    @Test
+    public void testGetThrowableCountWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        int count = ExceptionUtils.getThrowableCount(checked);
+        assertEquals(1, count, "Should return 1 for a checked exception with no cause");
+    }
+
+    @Test
+    public void testGetThrowableListWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        List<Throwable> list = ExceptionUtils.getThrowableList(checked);
+        assertEquals(1, list.size(), "Should return a list of size 1 for a checked exception with no cause");
+    }
+
+    @Test
+    public void testGetThrowablesWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        Throwable[] throwables = ExceptionUtils.getThrowables(checked);
+        assertEquals(1, throwables.length, "Should return an array of length 1 for a checked exception with no cause");
+    }
+
+    @Test
+    public void testHasCauseWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        boolean hasCause = ExceptionUtils.hasCause(checked, Exception.class);
+        assertTrue(hasCause, "Should return true for a checked exception with the specified type");
+    }
+
+    @Test
+    public void testIndexOfThrowableWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        int index = ExceptionUtils.indexOfThrowable(checked, Exception.class);
+        assertEquals(0, index, "Should return 0 for a checked exception with the specified type");
+    }
+
+    @Test
+    public void testIsCheckedWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        boolean isChecked = ExceptionUtils.isChecked(checked);
+        assertTrue(isChecked, "Should return true for a checked exception");
+    }
+
+    @Test
+    public void testIsUncheckedWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        boolean isUnchecked = ExceptionUtils.isUnchecked(checked);
+        assertFalse(isUnchecked, "Should return false for a checked exception");
+    }
+
+    @Test
+    public void testPrintRootCauseStackTraceWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        String expectedMessage = "Exception: Checked exception";
+        assertThrows(RuntimeException.class, () -> {
+            ExceptionUtils.printRootCauseStackTrace(checked);
+        }, "Should throw a RuntimeException for a checked exception");
+    }
+
+    @Test
+    public void testRemoveCommonFramesWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        List<String> causeFrames = Arrays.asList(ExceptionUtils.getRootCauseStackTrace(checked));
+        List<String> wrapperFrames = Arrays.asList(ExceptionUtils.getRootCauseStackTrace(checked));
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty(), "Should remove common frames for a checked exception with no cause");
+    }
+
+    @Test
+    public void testStreamWithCheckedException() {
+        Throwable checked = new Exception("Checked exception");
+        Stream<Throwable> stream = ExceptionUtils.stream(checked);
+        List<Throwable> list = stream.toList();
+        assertEquals(1, list.size(), "Should return a stream of size 1 for a checked exception with no cause");
+    }
+
+}
+```

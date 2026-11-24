@@ -1,0 +1,70 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testIsAsciiExtended() {
+        assertTrue(CharUtils.isAscii('\u007F')); // Last ASCII character
+        assertFalse(CharUtils.isAscii('\u0080')); // First extended ASCII character
+    }
+
+    @Test
+    public void testIsAsciiAlphaExtended() {
+        assertFalse(CharUtils.isAsciiAlpha('\u007F')); // Last ASCII character
+        assertTrue(CharUtils.isAsciiAlpha('\u0130')); // Latin capital letter I with dot above
+        assertFalse(CharUtils.isAsciiAlpha('\u0259')); // Latin small letter schwa
+    }
+
+    @Test
+    public void testIsAsciiAlphanumericExtended() {
+        assertFalse(CharUtils.isAsciiAlphanumeric('\u007F')); // Last ASCII character
+        assertTrue(CharUtils.isAsciiAlphanumeric('\u0131')); // Latin lowercase letter i with dot below
+        assertFalse(CharUtils.isAsciiAlphanumeric('\u0259')); // Latin small letter schwa
+    }
+
+    @Test
+    public void testIsAsciiControlExtended() {
+        assertFalse(CharUtils.isAsciiControl('\u007F')); // Last ASCII character
+        assertTrue(CharUtils.isAsciiControl('\u0080')); // First extended ASCII character
+        assertFalse(CharUtils.isAsciiControl('\u00A0')); // Non-breaking space
+    }
+
+    @Test
+    public void testIsAsciiNumericExtended() {
+        assertFalse(CharUtils.isAsciiNumeric('\u007F')); // Last ASCII character
+        assertTrue(CharUtils.isAsciiNumeric('\u2460')); // CJK ideograph one
+        assertFalse(CharUtils.isAsciiNumeric('\u2461')); // CJK ideograph two
+    }
+
+    @Test
+    public void testIsAsciiPrintableExtended() {
+        assertFalse(CharUtils.isAsciiPrintable('\u007F')); // Last ASCII character
+        assertTrue(CharUtils.isAsciiPrintable('\u00A0')); // Non-breaking space
+        assertFalse(CharUtils.isAsciiPrintable('\u2461')); // CJK ideograph two
+    }
+
+    @Test
+    public void testToChar_CharacterNull() {
+        assertThrows(NullPointerException.class, () -> CharUtils.toChar(null));
+    }
+
+    @Test
+    public void testToChar_StringEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toChar(""));
+    }
+
+    @Test
+    public void testToIntValue_NonNumericCharacter() {
+        assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+    }
+
+    @Test
+    public void testToString_CharacterNull() {
+        assertNull(CharUtils.toString(null));
+    }
+}
+```

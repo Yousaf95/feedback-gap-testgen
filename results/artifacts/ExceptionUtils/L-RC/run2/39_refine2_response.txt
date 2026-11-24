@@ -1,0 +1,117 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.lang.reflect.Method;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    void testAsRuntimeException() {
+        IllegalArgumentException exception = new IllegalArgumentException("test");
+        RuntimeException runtimeException = ExceptionUtils.asRuntimeException(exception);
+        assertEquals(IllegalArgumentException.class, runtimeException.getClass());
+        assertEquals("test", runtimeException.getMessage());
+    }
+
+    @Test
+    void testGetCauseUsingMethodName_withNullMethodName() {
+        Throwable throwable = new Exception();
+        assertNull(ExceptionUtils.getCauseUsingMethodName(throwable, null));
+    }
+
+    @Test
+    void testGetCauseUsingMethodName_withInvalidMethod() throws NoSuchMethodException {
+        Throwable throwable = new Exception();
+        Method invalidMethod = Exception.class.getMethod("getMessage");
+        String methodName = "invalidMethod";
+        assertNull(ExceptionUtils.getCauseUsingMethodName(throwable, methodName));
+    }
+
+    @Test
+    void testGetCauseUsingMethodName_withIllegalAccessException() throws NoSuchMethodException {
+        Throwable throwable = new Exception();
+        Method method = Exception.class.getDeclaredMethod("getStackTraceDepth");
+        method.setAccessible(false);
+        String methodName = "getStackTraceDepth";
+        assertNull(ExceptionUtils.getCauseUsingMethodName(throwable, methodName));
+    }
+
+    @Test
+    void testGetRootCauseStackTraceList_withNullThrowable() {
+        assertTrue(ExceptionUtils.getRootCauseStackTraceList(null).isEmpty());
+    }
+
+    @Test
+    void testGetStackFrameList_withNullThrowable() {
+        assertTrue(ExceptionUtils.getStackFrameList(null).isEmpty());
+    }
+
+    @Test
+    void testHasCause_withUndeclaredThrowableException() {
+        Throwable undeclared = new UndeclaredThrowableException(new IllegalArgumentException("test"));
+        assertTrue(ExceptionUtils.hasCause(undeclared, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOf_withNullThrowable() {
+        assertEquals(-1, ExceptionUtils.indexOf(null, NullPointerException.class, 0, false));
+    }
+
+    @Test
+    void testIndexOf_withNullType() {
+        Throwable throwable = new Exception();
+        assertEquals(-1, ExceptionUtils.indexOf(throwable, null, 0, false));
+    }
+
+    @Test
+    void testIndexOf_withNegativeFromIndex() {
+        Throwable throwable = new Exception();
+        int result = ExceptionUtils.indexOf(throwable, NullPointerException.class, -5, false);
+        assertEquals(0, result);
+    }
+
+    @Test
+    void testIndexOf_withLargeFromIndex() {
+        Throwable throwable = new Exception();
+        int result = ExceptionUtils.indexOf(throwable, NullPointerException.class, 10, false);
+        assertEquals(-1, result);
+    }
+
+    @Test
+    void testIndexOfThrowable_withNullThrowable() {
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(null, NullPointerException.class));
+    }
+
+    @Test
+    void testIndexOfType_withNullThrowable() {
+        assertEquals(-1, ExceptionUtils.indexOfType(null, NullPointerException.class));
+    }
+
+    @Test
+    void testIsChecked_withNullThrowable() {
+        assertFalse(ExceptionUtils.isChecked(null));
+    }
+
+    @Test
+    void testIsUnchecked_withNullThrowable() {
+        assertFalse(ExceptionUtils.isUnchecked(null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintStream() {
+        Throwable throwable = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullThrowableAndPrintWriter() {
+        ExceptionUtils.printRootCauseStackTrace(null, new PrintWriter(new ByteArrayOutputStream()));
+    }
+}
+```

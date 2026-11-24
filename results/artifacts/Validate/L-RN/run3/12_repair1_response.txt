@@ -1,0 +1,152 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashMap;
+
+class Validate_GenTest {
+
+    @Test
+    void testExclusiveBetweenComparableNormalCase() {
+        Validate.exclusiveBetween("a", "z", "m");
+    }
+
+    @Test
+    void testExclusiveBetweenComparableLowerBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween("a", "z", "a");
+        });
+        assertEquals(String.format(Validate.DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, "a", "a", "z"), exception.getMessage());
+    }
+
+    @Test
+    void testExclusiveBetweenComparableUpperBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.exclusiveBetween("a", "z", "z");
+        });
+        assertEquals(String.format(Validate.DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, "z", "a", "z"), exception.getMessage());
+    }
+
+    @Test
+    void testFiniteWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.finite(Double.NaN, "Value is not a number: %f", Double.NaN);
+        });
+        assertEquals("Value is not a number: NaN", exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenComparableNormalCase() {
+        Validate.inclusiveBetween("a", "z", "m");
+    }
+
+    @Test
+    void testInclusiveBetweenComparableBelowLowerBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween("a", "z", "`");
+        });
+        assertEquals(String.format(Validate.DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, "`", "a", "z"), exception.getMessage());
+    }
+
+    @Test
+    void testInclusiveBetweenComparableAboveUpperBound() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.inclusiveBetween("a", "z", "{");
+        });
+        assertEquals(String.format(Validate.DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, "{", "a", "z"), exception.getMessage());
+    }
+
+    @Test
+    void testIsAssignableFromWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isAssignableFrom(Number.class, String.class, "Cannot assign %s to %s", String.class.getName(), Number.class.getName());
+        });
+        assertEquals("Cannot assign java.lang.String to java.lang.Number", exception.getMessage());
+    }
+
+    @Test
+    void testIsInstanceWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isInstanceOf(String.class, 123, "Expected type: %s, actual: %s", String.class.getName(), Integer.class.getName());
+        });
+        assertEquals("Expected type: java.lang.String, actual: java.lang.Integer", exception.getMessage());
+    }
+
+    @Test
+    void testIsTrueWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.isTrue(false, "Condition failed with value %d", 42);
+        });
+        assertEquals("Condition failed with value 42", exception.getMessage());
+    }
+
+    @Test
+    void testMatchesPatternWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.matchesPattern("abc", "\\d+", "String %s does not match pattern %s", "abc", "\\d+");
+        });
+        assertEquals("String abc does not match pattern \\d+", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsArrayWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(new String[]{"a", null, "b"}, "Element at index %d is null", 1);
+        });
+        assertEquals("Element at index 1 is null", exception.getMessage());
+    }
+
+    @Test
+    void testNoNullElementsCollectionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.noNullElements(Arrays.asList("a", null, "b"), "Element at index %d is null", 1);
+        });
+        assertEquals("Element at index 1 is null", exception.getMessage());
+    }
+
+    @Test
+    void testNotBlankWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notBlank("", "String is blank: %s", "");
+        });
+        assertEquals("String is blank: ", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyArrayWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new String[]{}, "Array is empty");
+        });
+        assertEquals("Array is empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCollectionWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(Collections.emptyList(), "Collection is empty");
+        });
+        assertEquals("Collection is empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyMapWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty(new HashMap<>(), "Map is empty");
+        });
+        assertEquals("Map is empty", exception.getMessage());
+    }
+
+    @Test
+    void testNotEmptyCharSequenceWithCustomMessage() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Validate.notEmpty("", "String is empty: %s", "");
+        });
+        assertEquals("String is empty: ", exception.getMessage());
+    }
+}
+```

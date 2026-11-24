@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashSet;
+import java.util.Set;
+
+class EqualsBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testReflectionEqualsWithNullObjects() {
+        assertFalse(EqualsBuilder.reflectionEquals(null, null, true));
+    }
+
+    @Test
+    void testReflectionEqualsWithSameObjectReference() {
+        Object obj = new Object();
+        assertTrue(EqualsBuilder.reflectionEquals(obj, obj, false));
+    }
+
+    @Test
+    void testAppendBooleanWhenNotEquals() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setEquals(false);
+        assertEquals(builder, builder.append(true, false));
+    }
+
+    @Test
+    void testAppendByteArrayWithSameReferenceAndNulls() {
+        byte[] array = null;
+        assertTrue(new EqualsBuilder().append(array, array).isEquals());
+    }
+
+    @Test
+    void testAppendCharArrayWithSameReferenceAndNulls() {
+        char[] array = null;
+        assertTrue(new EqualsBuilder().append(array, array).isEquals());
+    }
+
+    @Test
+    void testAppendDoubleArrayWithSameReferenceAndNulls() {
+        double[] array = null;
+        assertTrue(new EqualsBuilder().append(array, array).isEquals());
+    }
+
+    @Test
+    void testAppendFloatArrayWithSameReferenceAndNulls() {
+        float[] array = null;
+        assertTrue(new EqualsBuilder().append(array, array).isEquals());
+    }
+
+    @Test
+    void testAppendIntArrayWithSameReferenceAndNulls() {
+        int[] array = null;
+        assertTrue(new EqualsBuilder().append(array, array).isEquals());
+    }
+
+    @Test
+    void testAppendLongArrayWithSameReferenceAndNulls() {
+        long[] array = null;
+        assertTrue(new EqualsBuilder().append(array, array).isEquals());
+    }
+
+    @Test
+    void testAppendShortArrayWithSameReferenceAndNulls() {
+        short[] array = null;
+        assertTrue(new EqualsBuilder().append(array, array).isEquals());
+    }
+}
+```

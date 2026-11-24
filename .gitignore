@@ -1,0 +1,31 @@
+# toolchains and environments (installed locally, see README)
+env/
+tools/
+# subject sources: fetch rel/commons-lang-3.14.0 (see README)
+commons-lang-src/
+harness/src/main/java/
+harness/target/
+# build output / caches
+**/target/
+__pycache__/
+*.pyc
+# cluster logs (hostnames, server logs)
+logs/
+# JaCoCo XML reports are full-project reports (~1.5 GB); archived separately
+results/artifacts/**/*jacoco.xml
+results/dev/**/*jacoco.xml
+# aborted dev runs (serving problem, see deviations.md item 18)
+results/dev/artifacts_dev1/
+results/dev/run2/
+# per-run worker job env files are kept; job outputs are not
+*.out
+icect_*.o[0-9]*
+# API keys
+.apikey
+*.key
+.env
+# paper drafts (add after acceptance)
+*.pdf
+!results/**/*.pdf
+paper/
+results/extra/developer_baseline/*/jacoco.xml

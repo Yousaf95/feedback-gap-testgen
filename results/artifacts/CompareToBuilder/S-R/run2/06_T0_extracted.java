@@ -1,0 +1,158 @@
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+
+public class CompareToBuilder_GenTest {
+
+    @Test
+    public void testReflectionCompare_nullObjects() {
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(null, new Object()));
+        assertThrows(NullPointerException.class, () -> CompareToBuilder.reflectionCompare(new Object(), null));
+    }
+
+    @Test
+    public void testReflectionCompare_sameObject() {
+        assertEquals(0, CompareToBuilder.reflectionCompare(new Object(), new Object()));
+    }
+
+    @Test
+    public void testReflectionCompare_differentObjects() {
+        class TestClass {
+            int value = 1;
+        }
+        TestClass lhs = new TestClass();
+        TestClass rhs = new TestClass();
+        rhs.value = 2;
+        assertEquals(-1, CompareToBuilder.reflectionCompare(lhs, rhs));
+    }
+
+    @Test
+    public void testReflectionCompare_compareTransients() {
+        class TestClass {
+            private int value = 1;
+            transient int transientValue = 2;
+        }
+        TestClass lhs = new TestClass();
+        TestClass rhs = new TestClass();
+        rhs.value = 1;
+        rhs.transientValue = 3;
+        assertEquals(0, CompareToBuilder.reflectionCompare(lhs, rhs, true));
+    }
+
+    @Test
+    public void testReflectionCompare_excludeFields() {
+        class TestClass {
+            int value = 1;
+            String name = "test";
+        }
+        TestClass lhs = new TestClass();
+        TestClass rhs = new TestClass();
+        rhs.value = 2;
+        assertEquals(0, CompareToBuilder.reflectionCompare(lhs, rhs, "name"));
+    }
+
+    @Test
+    public void testAppend_boolean() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(true, false);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_byte() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((byte) 2, (byte) 1);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_char() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append('b', 'a');
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_double() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(2.0, 1.0);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_float() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(2.0f, 1.0f);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_int() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(2, 1);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_long() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(2L, 1L);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_short() {
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append((short) 2, (short) 1);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Object() {
+        class TestClass {
+            int value;
+        }
+        TestClass lhs = new TestClass();
+        lhs.value = 1;
+        TestClass rhs = new TestClass();
+        rhs.value = 2;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppend_Object_array() {
+        class TestClass {
+            int[] values;
+        }
+        TestClass lhs = new TestClass();
+        lhs.values = new int[]{2, 3};
+        TestClass rhs = new TestClass();
+        rhs.values = new int[]{1, 3};
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.append(lhs, rhs);
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    public void testAppendSuper() {
+        class Parent {
+            int value;
+        }
+        class Child extends Parent {
+            int childValue;
+        }
+        Child lhs = new Child();
+        lhs.value = 1;
+        lhs.childValue = 2;
+        Child rhs = new Child();
+        rhs.value = 1;
+        rhs.childValue = 3;
+        CompareToBuilder builder = new CompareToBuilder();
+        builder.appendSuper(0);
+        assertEquals(-1, builder.toComparison());
+    }
+}

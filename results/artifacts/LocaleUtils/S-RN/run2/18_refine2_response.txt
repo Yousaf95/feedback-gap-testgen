@@ -1,0 +1,77 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.Locale;
+import org.junit.jupiter.api.Test;
+
+public class LocaleUtils_GenTest {
+
+    @Test
+    public void testCountriesByLanguage_emptyLanguageCode() {
+        List<Locale> countries = LocaleUtils.countriesByLanguage("");
+        assertTrue(countries.isEmpty());
+    }
+
+    @Test
+    public void testLanguagesByCountry_emptyCountryCode() {
+        List<Locale> languages = LocaleUtils.languagesByCountry("");
+        assertTrue(languages.isEmpty());
+    }
+
+    @Test
+    public void testToLocale_invalidFormat_withHash() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en#US"));
+    }
+
+    @Test
+    public void testToLocale_invalidFormat_tooShort() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("e"));
+    }
+
+    @Test
+    public void testToLocale_invalidFormat_missingCountry() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("en-"));
+    }
+
+    @Test
+    public void testToLocale_invalidFormat_missingLanguage() {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale("-US"));
+    }
+
+    @Test
+    public void testToLocale_validLocaleWithScriptExtensions() {
+        Locale locale = LocaleUtils.toLocale("zh-Hans-CN");
+        assertEquals("zh", locale.getLanguage());
+        assertEquals("CN", locale.getCountry());
+        assertEquals("Hans", locale.getScript());
+    }
+
+    @Test
+    public void testToLocale_validLocaleWithExtensions() {
+        Locale locale = LocaleUtils.toLocale("en-US-x-macosx");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+        assertTrue(locale.hasExtensions());
+        assertEquals("macosx", locale.getExtension('x'));
+    }
+
+    @Test
+    public void testToLocale_validLocaleWithScriptAndExtensions() {
+        Locale locale = LocaleUtils.toLocale("zh-Hans-CN-x-macosx");
+        assertEquals("zh", locale.getLanguage());
+        assertEquals("CN", locale.getCountry());
+        assertEquals("Hans", locale.getScript());
+        assertTrue(locale.hasExtensions());
+        assertEquals("macosx", locale.getExtension('x'));
+    }
+
+    @Test
+    public void testToLocale_validLocaleWithEmptyString() {
+        Locale locale = LocaleUtils.toLocale("");
+        assertNotNull(locale);
+        assertEquals(Locale.ROOT, locale);
+    }
+}
+```

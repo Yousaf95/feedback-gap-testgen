@@ -1,0 +1,89 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    void testToBooleanObject_intWithNullValue() {
+        assertEquals(null, BooleanUtils.toBooleanObject(2, 1, 0, 2));
+    }
+
+    @Test
+    void testToBooleanObject_IntegerWithTrueFalseValuesAndNull() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(Integer.valueOf(1), Integer.valueOf(1), Integer.valueOf(0), null));
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(Integer.valueOf(0), Integer.valueOf(1), Integer.valueOf(0), null));
+        assertEquals(null, BooleanUtils.toBooleanObject(null, Integer.valueOf(1), Integer.valueOf(0), null));
+    }
+
+    @Test
+    void testToInteger_booleanTrueWithCustomValues() {
+        assertEquals(5, BooleanUtils.toInteger(true, 5, 10));
+    }
+
+    @Test
+    void testToInteger_booleanFalseWithCustomValues() {
+        assertEquals(10, BooleanUtils.toInteger(false, 5, 10));
+    }
+
+    @Test
+    void testToIntegerObject_BooleanTrueWithCustomValues() {
+        assertEquals(Integer.valueOf(5), BooleanUtils.toIntegerObject(Boolean.TRUE, Integer.valueOf(5), Integer.valueOf(10)));
+    }
+
+    @Test
+    void testToIntegerObject_BooleanFalseWithCustomValues() {
+        assertEquals(Integer.valueOf(10), BooleanUtils.toIntegerObject(Boolean.FALSE, Integer.valueOf(5), Integer.valueOf(10)));
+    }
+
+    @Test
+    void testToIntegerObject_BooleanNullWithCustomValuesAndNullValue() {
+        assertEquals(null, BooleanUtils.toIntegerObject(null, Integer.valueOf(5), Integer.valueOf(10), null));
+    }
+
+    @Test
+    void testToString_booleanTrueWithCustomStrings() {
+        assertEquals("yes", BooleanUtils.toString(true, "yes", "no"));
+    }
+
+    @Test
+    void testToString_booleanFalseWithCustomStrings() {
+        assertEquals("no", BooleanUtils.toString(false, "yes", "no"));
+    }
+
+    @Test
+    void testToString_BooleanTrueWithCustomStringsAndNullString() {
+        assertEquals("yes", BooleanUtils.toString(Boolean.TRUE, "yes", "no", "unknown"));
+    }
+
+    @Test
+    void testToString_BooleanFalseWithCustomStringsAndNullString() {
+        assertEquals("no", BooleanUtils.toString(Boolean.FALSE, "yes", "no", "unknown"));
+    }
+
+    @Test
+    void testToString_BooleanNullWithCustomStringsAndNullString() {
+        assertEquals("unknown", BooleanUtils.toString(null, "yes", "no", "unknown"));
+    }
+
+    @Test
+    void testToBooleanObject_StringWithTrueFalseValuesAndNullString() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("true", "true", "false", null));
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("false", "true", "false", null));
+        assertEquals(null, BooleanUtils.toBooleanObject(null, "true", "false", null));
+    }
+
+    @Test
+    void testToBooleanObject_StringWithTrueFalseValuesAndNullString_MatchCaseInsensitive() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("TRUE", "true", "false", null));
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("FALSE", "true", "false", null));
+    }
+
+    @Test
+    void testToBooleanObject_StringWithTrueFalseValuesAndNullString_InvalidInput() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBooleanObject("unknown", "true", "false", null));
+    }
+}
+```

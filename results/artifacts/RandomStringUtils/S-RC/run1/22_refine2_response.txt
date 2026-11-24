@@ -1,0 +1,120 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RandomStringUtils_GenTest {
+
+    @Test
+    public void testStartEndZeroAndNullCharsArray() {
+        String result = RandomStringUtils.random(5, 0, 0, false, false, null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testStartEndZeroAndEmptyCharsArray() {
+        char[] chars = {};
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, 0, 0, false, false, chars)
+        );
+    }
+
+    @Test
+    public void testNegativeCountThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(-1)
+        );
+    }
+
+    @Test
+    public void testEmptyCharsArrayThrowsException() {
+        char[] chars = {};
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, chars)
+        );
+    }
+
+    @Test
+    public void testNullCharsArray() {
+        String result = RandomStringUtils.random(5, (char[]) null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testCountZeroAndCharsArray() {
+        char[] chars = {'a', 'b', 'c'};
+        String result = RandomStringUtils.random(0, chars);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testCountZeroAndNullCharsArray() {
+        String result = RandomStringUtils.random(0, (char[]) null);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testRandomWithCustomChars() {
+        char[] chars = {'a', 'b', 'c'};
+        String result = RandomStringUtils.random(5, chars);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+        for (char c : result.toCharArray()) {
+            assertTrue(c == 'a' || c == 'b' || c == 'c');
+        }
+    }
+
+    @Test
+    public void testRandomWithStartEndZeroAndNullCharsArray() {
+        String result = RandomStringUtils.random(5, 0, 0, false, false, null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomWithStartEndZeroAndEmptyCharsArray() {
+        char[] chars = {};
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, 0, 0, false, false, chars)
+        );
+    }
+
+    @Test
+    public void testRandomWithNegativeCountThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(-1)
+        );
+    }
+
+    @Test
+    public void testRandomWithEmptyCharsArrayThrowsException() {
+        char[] chars = {};
+        assertThrows(IllegalArgumentException.class, () -> 
+            RandomStringUtils.random(5, chars)
+        );
+    }
+
+    @Test
+    public void testRandomWithNullCharsArray() {
+        String result = RandomStringUtils.random(5, (char[]) null);
+        assertNotNull(result);
+        assertEquals(5, result.length());
+    }
+
+    @Test
+    public void testRandomWithCountZeroAndCharsArray() {
+        char[] chars = {'a', 'b', 'c'};
+        String result = RandomStringUtils.random(0, chars);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testRandomWithCountZeroAndNullCharsArray() {
+        String result = RandomStringUtils.random(0, (char[]) null);
+        assertTrue(result.isEmpty());
+    }
+}
+```

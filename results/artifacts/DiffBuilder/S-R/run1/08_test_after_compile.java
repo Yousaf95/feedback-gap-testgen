@@ -1,0 +1,197 @@
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.builder.DiffBuilder.*;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.junit.jupiter.api.Test;
+
+public class DiffBuilder_GenTest {
+
+    @Test
+    public void testAppendBoolean() {
+        DiffResult<Boolean> result = append("test", true, false).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertTrue(result.getDiffs().get(0).getLeft());
+        assertFalse(result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendBooleanArray() {
+        DiffResult<Boolean[]> result = append("test", new boolean[]{true, false}, new boolean[]{false, true}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Boolean[]{Boolean.TRUE, Boolean.FALSE}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Boolean[]{Boolean.FALSE, Boolean.TRUE}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendByte() {
+        DiffResult<Byte> result = append("test", (byte) 1, (byte) 2).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals((byte) 1, result.getDiffs().get(0).getLeft());
+        assertEquals((byte) 2, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendByteArray() {
+        DiffResult<Byte[]> result = append("test", new byte[]{1, 2}, new byte[]{2, 3}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Byte[]{Byte.valueOf((byte) 2), Byte.valueOf((byte) 3)}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendChar() {
+        DiffResult<Character> result = append("test", 'a', 'b').build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals('a', result.getDiffs().get(0).getLeft());
+        assertEquals('b', result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendCharArray() {
+        DiffResult<Character[]> result = append("test", new char[]{'a', 'b'}, new char[]{'b', 'c'}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Character[]{Character.valueOf('a'), Character.valueOf('b')}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Character[]{Character.valueOf('b'), Character.valueOf('c')}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendDouble() {
+        DiffResult<Double> result = append("test", 1.1, 2.2).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals(1.1, result.getDiffs().get(0).getLeft(), 0.001);
+        assertEquals(2.2, result.getDiffs().get(0).getRight(), 0.001);
+    }
+
+    @Test
+    public void testAppendDoubleArray() {
+        DiffResult<Double[]> result = append("test", new double[]{1.1, 2.2}, new double[]{2.2, 3.3}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Double[]{Double.valueOf(1.1), Double.valueOf(2.2)}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Double[]{Double.valueOf(2.2), Double.valueOf(3.3)}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendFloat() {
+        DiffResult<Float> result = append("test", 1.1f, 2.2f).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals(1.1f, result.getDiffs().get(0).getLeft(), 0.001);
+        assertEquals(2.2f, result.getDiffs().get(0).getRight(), 0.001);
+    }
+
+    @Test
+    public void testAppendFloatArray() {
+        DiffResult<Float[]> result = append("test", new float[]{1.1f, 2.2f}, new float[]{2.2f, 3.3f}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Float[]{Float.valueOf(1.1f), Float.valueOf(2.2f)}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Float[]{Float.valueOf(2.2f), Float.valueOf(3.3f)}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendInt() {
+        DiffResult<Integer> result = append("test", 1, 2).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals(1, result.getDiffs().get(0).getLeft());
+        assertEquals(2, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendIntArray() {
+        DiffResult<Integer[]> result = append("test", new int[]{1, 2}, new int[]{2, 3}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Integer[]{Integer.valueOf(1), Integer.valueOf(2)}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Integer[]{Integer.valueOf(2), Integer.valueOf(3)}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendLong() {
+        DiffResult<Long> result = append("test", 1L, 2L).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals(1L, result.getDiffs().get(0).getLeft());
+        assertEquals(2L, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendLongArray() {
+        DiffResult<Long[]> result = append("test", new long[]{1L, 2L}, new long[]{2L, 3L}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Long[]{Long.valueOf(1L), Long.valueOf(2L)}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Long[]{Long.valueOf(2L), Long.valueOf(3L)}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendObject() {
+        DiffResult<Object> result = append("test", "hello", "world").build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals("hello", result.getDiffs().get(0).getLeft());
+        assertEquals("world", result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendObjectArray() {
+        DiffResult<Object[]> result = append("test", new Object[]{"a", "b"}, new Object[]{"b", "c"}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Object[]{"a", "b"}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Object[]{"b", "c"}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendShort() {
+        DiffResult<Short> result = append("test", (short) 1, (short) 2).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertEquals((short) 1, result.getDiffs().get(0).getLeft());
+        assertEquals((short) 2, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendShortArray() {
+        DiffResult<Short[]> result = append("test", new short[]{1, 2}, new short[]{2, 3}).build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertArrayEquals(new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)}, result.getDiffs().get(0).getLeft());
+        assertArrayEquals(new Short[]{Short.valueOf((short) 2), Short.valueOf((short) 3)}, result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendNull() {
+        DiffResult<Object> result = append("test", null, "world").build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("test", result.getDiffs().get(0).getFieldName());
+        assertNull(result.getDiffs().get(0).getLeft());
+        assertEquals("world", result.getDiffs().get(0).getRight());
+    }
+
+    @Test
+    public void testAppendEmptyArray() {
+        DiffResult<Object[]> result = append("test", new Object[]{}, new Object[]{}).build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+
+    @Test
+    public void testAppendTriviallyEqualObjects() {
+        DiffResult<String> result = append("test", "hello", "hello").build();
+        assertTrue(result.getDiffs().isEmpty());
+    }
+}

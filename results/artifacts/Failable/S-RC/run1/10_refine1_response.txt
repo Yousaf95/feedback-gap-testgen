@@ -1,0 +1,441 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testAcceptWithConsumer() {
+        Consumer<String> consumer = s -> System.out.println(s);
+        Failable.accept(consumer, "test");
+    }
+
+    @Test
+    public void testAcceptWithNullConsumer() {
+        assertThrows(NullPointerException.class, () -> Failable.accept(null, "test"));
+    }
+
+    @Test
+    public void testApplyWithFunction() {
+        Function<String, Integer> function = s -> s.length();
+        assertEquals(4, Failable.apply(function, "test"));
+    }
+
+    @Test
+    public void testApplyWithNullFunction() {
+        assertThrows(NullPointerException.class, () -> Failable.apply(null, "test"));
+    }
+
+    @Test
+    public void testRunWithRunnable() {
+        Runnable runnable = () -> System.out.println("run");
+        Failable.run(runnable);
+    }
+
+    @Test
+    public void testRunWithNullRunnable() {
+        assertThrows(NullPointerException.class, () -> Failable.run(null));
+    }
+
+    @Test
+    public void testCallWithCallable() throws IOException {
+        Callable<String> callable = () -> "result";
+        assertEquals("result", Failable.call(callable));
+    }
+
+    @Test
+    public void testCallWithNullCallable() {
+        assertThrows(NullPointerException.class, () -> Failable.call(null));
+    }
+
+    @Test
+    public void testGetWithSupplier() {
+        Supplier<String> supplier = () -> "supplier";
+        assertEquals("supplier", Failable.get(supplier));
+    }
+
+    @Test
+    public void testGetWithNullSupplier() {
+        assertThrows(NullPointerException.class, () -> Failable.get(null));
+    }
+
+    @Test
+    public void testTestWithPredicate() {
+        Predicate<String> predicate = s -> s.length() > 0;
+        assertTrue(Failable.test(predicate, "test"));
+    }
+
+    @Test
+    public void testTestWithNullPredicate() {
+        assertThrows(NullPointerException.class, () -> Failable.test(null, "test"));
+    }
+
+    @Test
+    public void testAsBiConsumer() {
+        BiConsumer<String, String> biConsumer = (s1, s2) -> System.out.println(s1 + s2);
+        Failable.asBiConsumer(biConsumer).accept("test", "ing");
+    }
+
+    @Test
+    public void testAsBiFunction() {
+        BiFunction<String, String, Integer> biFunction = (s1, s2) -> s1.length() + s2.length();
+        assertEquals(8, Failable.asBiFunction(biFunction).apply("test", "ing"));
+    }
+
+    @Test
+    public void testAsBiPredicate() {
+        BiPredicate<String, String> biPredicate = (s1, s2) -> s1.equals(s2);
+        assertTrue(Failable.asBiPredicate(biPredicate).test("test", "test"));
+    }
+
+    @Test
+    public void testAsCallable() throws IOException {
+        Callable<String> callable = () -> "callable";
+        assertEquals("callable", Failable.asCallable(callable).call());
+    }
+
+    @Test
+    public void testAsConsumer() {
+        Consumer<String> consumer = s -> System.out.println(s);
+        Failable.asConsumer(consumer).accept("test");
+    }
+
+    @Test
+    public void testAsFunction() {
+        Function<String, Integer> function = s -> s.length();
+        assertEquals(4, Failable.asFunction(function).apply("test"));
+    }
+
+    @Test
+    public void testAsPredicate() {
+        Predicate<String> predicate = s -> s.length() > 0;
+        assertTrue(Failable.asPredicate(predicate).test("test"));
+    }
+
+    @Test
+    public void testAsRunnable() {
+        Runnable runnable = () -> System.out.println("runnable");
+        Failable.asRunnable(runnable).run();
+    }
+
+    @Test
+    public void testAsSupplier() {
+        Supplier<String> supplier = () -> "supplier";
+        assertEquals("supplier", Failable.asSupplier(supplier).get());
+    }
+
+    @Test
+    public void testGetAsBoolean() {
+        BooleanSupplier booleanSupplier = () -> true;
+        assertTrue(Failable.getAsBoolean(booleanSupplier));
+    }
+
+    @Test
+    public void testgetAsDouble() {
+        DoubleSupplier doubleSupplier = () -> 3.14;
+        assertEquals(3.14, Failable.getAsDouble(doubleSupplier), 0.001);
+    }
+
+    @Test
+    public void testGetAsInt() {
+        IntSupplier intSupplier = () -> 42;
+        assertEquals(42, Failable.getAsInt(intSupplier));
+    }
+
+    @Test
+    public void testGetAsLong() {
+        LongSupplier longSupplier = () -> 100L;
+        assertEquals(100L, Failable.getAsLong(longSupplier));
+    }
+
+    @Test
+    public void testgetAsShort() {
+        ShortSupplier shortSupplier = () -> (short) 255;
+        assertEquals((short) 255, Failable.getAsShort(shortSupplier));
+    }
+
+    @Test
+    public void testRethrow() {
+        Throwable throwable = new IOException("test");
+        assertThrows(UncheckedIOException.class, () -> Failable.rethrow(throwable));
+    }
+
+    @Test
+    public void testTryWithResources() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> System.out.println("action"), null,
+            () -> System.out.println(resources.get(0)),
+            () -> System.out.println(resources.get(1))
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorHandler() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> System.out.println("action"), t -> System.out.println("error: " + t.getMessage()),
+            () -> System.out.println(resources.get(0)),
+            () -> System.out.println(resources.get(1))
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithError() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> System.out.println("action"),
+            () -> System.out.println("error: error"),
+            () -> { throw new IOException("error"); },
+            () -> System.out.println(resources.get(1))
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResource() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> System.out.println("action"),
+            () -> System.out.println("error: error"),
+            () -> { throw new IOException("error"); },
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndAction() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            () -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandler() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: " + t.getMessage()),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithError() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResource() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndAction() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandler() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithError() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResource() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndAction() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandler() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithError() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResource() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndAction() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandler() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithError() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResource() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndAction() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandler() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithError() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResource() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndAction() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandler() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithError() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResource() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndAction() throws IOException {
+        List<String> resources = Arrays.asList("resource1", "resource2");
+        Failable.tryWithResources(() -> { throw new IOException("action error"); },
+            t -> System.out.println("error: error"),
+            () -> { throw new IOException("resource error"); }
+        );
+    }
+
+    @Test
+    public void testTryWithResourcesWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandlerWithErrorInResourceAndActionAndErrorHandler

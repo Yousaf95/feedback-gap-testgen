@@ -1,0 +1,64 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class EqualsBuilder_GenTest {
+
+    @Test
+    public void testAppendMapNullValues() {
+        assertEquals(true, new EqualsBuilder().append((Map<String, String>) null, (Map<String, String>) null).isEquals());
+    }
+
+    @Test
+    public void testAppendMapDifferentNullValues() {
+        assertNotEquals(true, new EqualsBuilder().append(null, new HashMap<>()).isEquals());
+    }
+
+    @Test
+    public void testAppendSetNullValues() {
+        assertEquals(true, new EqualsBuilder().append((Set<String>) null, (Set<String>) null).isEquals());
+    }
+
+    @Test
+    public void testAppendSetDifferentNullValues() {
+        assertNotEquals(true, new EqualsBuilder().append(null, new HashSet<>()).isEquals());
+    }
+
+    @Test
+    public void testAppendCollectionNullValues() {
+        assertEquals(true, new EqualsBuilder().append((Collection<String>) null, (Collection<String>) null).isEquals());
+    }
+
+    @Test
+    public void testAppendCollectionDifferentNullValues() {
+        assertNotEquals(true, new EqualsBuilder().append(null, new ArrayList<>()).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayEmpty() {
+        assertTrue(new EqualsBuilder().append(new int[0], new int[0]).isEquals());
+    }
+
+    @Test
+    public void testAppendArrayDifferentLengths() {
+        assertFalse(new EqualsBuilder().append(new int[]{1}, new int[]{1, 2}).isEquals());
+    }
+
+    @Test
+    public void testAppendMapEmpty() {
+        assertTrue(new EqualsBuilder().append(Collections.emptyMap(), Collections.emptyMap()).isEquals());
+    }
+
+    @Test
+    public void testAppendSetEmpty() {
+        assertTrue(new EqualsBuilder().append(Collections.emptySet(), Collections.emptySet()).isEquals());
+    }
+
+    @Test
+    public void testAppendCollectionEmpty() {
+        assertTrue(new EqualsBuilder().append(Collections.emptyList(), Collections.emptyList()).isEquals());
+    }
+}
+```

@@ -1,0 +1,204 @@
+[ERROR] Tests run: 28, Failures: 0, Errors: 17, Skipped: 0, Time elapsed: 0.235 s <<< FAILURE! -- in org.apache.commons.lang3.builder.DiffBuilder_GenTest
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullCharArray -- Time elapsed: 0.011 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullCharArray(DiffBuilder_GenTest.java:141)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyCharArray -- Time elapsed: 0.040 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Character; cannot be cast to class [C ([Ljava.lang.Character; and [C are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyCharArray(DiffBuilder_GenTest.java:165)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullByteArray -- Time elapsed: 0.004 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullByteArray(DiffBuilder_GenTest.java:111)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyDoubleArray -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Double; cannot be cast to class [D ([Ljava.lang.Double; and [D are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyDoubleArray(DiffBuilder_GenTest.java:195)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyByteArray -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Byte; cannot be cast to class [B ([Ljava.lang.Byte; and [B are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyByteArray(DiffBuilder_GenTest.java:135)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyShortArray -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Short; cannot be cast to class [S ([Ljava.lang.Short; and [S are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyShortArray(DiffBuilder_GenTest.java:315)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullIntArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullIntArray(DiffBuilder_GenTest.java:231)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullDoubleArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullDoubleArray(DiffBuilder_GenTest.java:171)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullShortArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullShortArray(DiffBuilder_GenTest.java:291)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLongArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullLongArray(DiffBuilder_GenTest.java:261)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyFloatArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Float; cannot be cast to class [F ([Ljava.lang.Float; and [F are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyFloatArray(DiffBuilder_GenTest.java:225)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyLongArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Long; cannot be cast to class [J ([Ljava.lang.Long; and [J are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyLongArray(DiffBuilder_GenTest.java:285)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyIntArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Integer; cannot be cast to class [I ([Ljava.lang.Integer; and [I are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyIntArray(DiffBuilder_GenTest.java:255)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullArray -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullArray(DiffBuilder_GenTest.java:51)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullFloatArray -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullFloatArray(DiffBuilder_GenTest.java:201)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullBooleanArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: rhs
+	at java.base/java.util.Objects.requireNonNull(Objects.java:235)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:139)
+	at org.apache.commons.lang3.builder.DiffBuilder.<init>(DiffBuilder.java:106)
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNullBooleanArray(DiffBuilder_GenTest.java:81)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyBooleanArray -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.ClassCastException: class [Ljava.lang.Boolean; cannot be cast to class [Z ([Ljava.lang.Boolean; and [Z are in module java.base of loader 'bootstrap')
+	at org.apache.commons.lang3.builder.DiffBuilder_GenTest.testAppendNonEmptyBooleanArray(DiffBuilder_GenTest.java:105)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Errors: 
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyBooleanArray:105 ClassCast class [Ljava.lang.Boolean; cannot be cast to class [Z ([Ljava.lang.Boolean; and [Z are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyByteArray:135 ClassCast class [Ljava.lang.Byte; cannot be cast to class [B ([Ljava.lang.Byte; and [B are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyCharArray:165 ClassCast class [Ljava.lang.Character; cannot be cast to class [C ([Ljava.lang.Character; and [C are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyDoubleArray:195 ClassCast class [Ljava.lang.Double; cannot be cast to class [D ([Ljava.lang.Double; and [D are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyFloatArray:225 ClassCast class [Ljava.lang.Float; cannot be cast to class [F ([Ljava.lang.Float; and [F are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyIntArray:255 ClassCast class [Ljava.lang.Integer; cannot be cast to class [I ([Ljava.lang.Integer; and [I are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyLongArray:285 ClassCast class [Ljava.lang.Long; cannot be cast to class [J ([Ljava.lang.Long; and [J are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNonEmptyShortArray:315 ClassCast class [Ljava.lang.Short; cannot be cast to class [S ([Ljava.lang.Short; and [S are in module java.base of loader 'bootstrap')
+[ERROR]   DiffBuilder_GenTest.testAppendNullArray:51 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullBooleanArray:81 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullByteArray:111 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullCharArray:141 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullDoubleArray:171 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullFloatArray:201 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullIntArray:231 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullLongArray:261 » NullPointer rhs
+[ERROR]   DiffBuilder_GenTest.testAppendNullShortArray:291 » NullPointer rhs
+[ERROR] Tests run: 28, Failures: 0, Errors: 17, Skipped: 0
+[ERROR] 
+
+Please refer to /work/w11/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

@@ -1,0 +1,84 @@
+```java
+package org.apache.commons.lang3;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    private @interface TestAnnotation {
+        String value();
+    }
+
+    private static class TestAnnotationImpl implements TestAnnotation {
+        private final String value;
+
+        public TestAnnotationImpl(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String value() {
+            return value;
+        }
+    }
+
+    @Test
+    public void testAppendDetail_withAnnotation() {
+        ToStringBuilder builder = new ToStringBuilder(new Object(), ToStringStyle.SHORT_PREFIX_STYLE);
+        AnnotationUtils.appendDetail(builder, "testField", new TestAnnotationImpl("testValue"));
+        assertEquals("@TestAnnotation(value=testValue)", builder.build());
+    }
+
+    @Test
+    public void testGetShortClassName_withAnnotation() {
+        String shortClassName = AnnotationUtils.getShortClassName(TestAnnotation.class);
+        assertEquals("@TestAnnotation", shortClassName);
+    }
+
+    @Test
+    public void testArrayMemberEquals_withAnnotations() {
+        TestAnnotation[] annotations1 = { new TestAnnotationImpl("testValue") };
+        TestAnnotation[] annotations2 = { new TestAnnotationImpl("testValue") };
+        assertTrue(AnnotationUtils.arrayMemberEquals(TestAnnotation.class, annotations1, annotations2));
+    }
+
+    @Test
+    public void testArrayMemberHash_withAnnotations() {
+        TestAnnotation[] annotations = { new TestAnnotationImpl("testValue") };
+        int hash = AnnotationUtils.arrayMemberHash(TestAnnotation.class, annotations);
+        assertEquals(annotations[0].hashCode(), hash);
+    }
+
+    @Test
+    public void testEquals_withEqualAnnotations_2() {
+        TestAnnotation a1 = new TestAnnotationImpl("testValue");
+        TestAnnotation a2 = new TestAnnotationImpl("testValue");
+        assertTrue(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    public void testHashCode_withEqualAnnotations_2() {
+        TestAnnotation a1 = new TestAnnotationImpl("testValue");
+        TestAnnotation a2 = new TestAnnotationImpl("testValue");
+        assertEquals(a1.hashCode(), a2.hashCode());
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_withValidTypes_2() {
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(String.class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(TestAnnotation.class));
+        assertTrue(AnnotationUtils.isValidAnnotationMemberType(boolean[].class));
+    }
+
+    @Test
+    public void testIsValidAnnotationMemberType_withInvalidTypes_2() {
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(Object.class));
+        assertFalse(AnnotationUtils.isValidAnnotationMemberType(void.class));
+    }
+}
+```

@@ -1,0 +1,207 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.List;
+import java.util.ArrayList;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    void testForEachWithAction() {
+        List<Boolean> results = new ArrayList<>();
+        BooleanUtils.forEach(results::add);
+        assertEquals(List.of(Boolean.FALSE, Boolean.TRUE), results);
+    }
+
+    @Test
+    void testIsFalseWithTrue() {
+        assertFalse(BooleanUtils.isFalse(Boolean.TRUE));
+    }
+
+    @Test
+    void testIsFalseWithFalse() {
+        assertTrue(BooleanUtils.isFalse(Boolean.FALSE));
+    }
+
+    @Test
+    void testIsFalseWithNull() {
+        assertFalse(BooleanUtils.isFalse(null));
+    }
+
+    @Test
+    void testIsNotFalseWithTrue() {
+        assertTrue(BooleanUtils.isNotFalse(Boolean.TRUE));
+    }
+
+    @Test
+    void testIsNotFalseWithFalse() {
+        assertFalse(BooleanUtils.isNotFalse(Boolean.FALSE));
+    }
+
+    @Test
+    void testIsNotFalseWithNull() {
+        assertTrue(BooleanUtils.isNotFalse(null));
+    }
+
+    @Test
+    void testIsNotTrueWithTrue() {
+        assertFalse(BooleanUtils.isNotTrue(Boolean.TRUE));
+    }
+
+    @Test
+    void testIsNotTrueWithFalse() {
+        assertTrue(BooleanUtils.isNotTrue(Boolean.FALSE));
+    }
+
+    @Test
+    void testIsNotTrueWithNull() {
+        assertTrue(BooleanUtils.isNotTrue(null));
+    }
+
+    @Test
+    void testIsTrueWithTrue() {
+        assertTrue(BooleanUtils.isTrue(Boolean.TRUE));
+    }
+
+    @Test
+    void testIsTrueWithFalse() {
+        assertFalse(BooleanUtils.isTrue(Boolean.FALSE));
+    }
+
+    @Test
+    void testIsTrueWithNull() {
+        assertFalse(BooleanUtils.isTrue(null));
+    }
+
+    @Test
+    void testOneHotWithBooleanArray() {
+        assertTrue(BooleanUtils.oneHot(true, false, false));
+        assertFalse(BooleanUtils.oneHot(true, true, false));
+        assertFalse(BooleanUtils.oneHot(false, false, false));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNullWithTrue() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(Boolean.TRUE, false));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNullWithFalse() {
+        assertFalse(BooleanUtils.toBooleanDefaultIfNull(Boolean.FALSE, true));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNullWithNull() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(null, true));
+    }
+
+    @Test
+    void testToBooleanWithIntValuesMatchingTrueValue() {
+        assertTrue(BooleanUtils.toBoolean(1, 1, 0));
+    }
+
+    @Test
+    void testToBooleanWithIntValuesMatchingFalseValue() {
+        assertFalse(BooleanUtils.toBoolean(0, 1, 0));
+    }
+
+    @Test
+    void testToBooleanWithIntValuesNotMatching() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(2, 1, 0));
+    }
+
+    @Test
+    void testToBooleanWithIntegerValuesTrueValueNull() {
+        assertFalse(BooleanUtils.toBoolean(0, null, 1));
+    }
+
+    @Test
+    void testToBooleanWithIntegerValuesFalseValueNull() {
+        assertTrue(BooleanUtils.toBoolean(1, 0, null));
+    }
+
+    @Test
+    void testToBooleanWithIntegerValuesMatchingTrueValue() {
+        assertTrue(BooleanUtils.toBoolean(1, 1, 0));
+    }
+
+    @Test
+    void testToBooleanWithIntegerValuesMatchingFalseValue() {
+        assertFalse(BooleanUtils.toBoolean(0, 1, 0));
+    }
+
+    @Test
+    void testToBooleanWithIntegerValuesNotMatching() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(2, 1, 0));
+    }
+
+    @Test
+    void testToBooleanWithStringValuesTrueValueNull() {
+        assertFalse(BooleanUtils.toBoolean("false", null, "true"));
+    }
+
+    @Test
+    void testToBooleanWithStringValuesFalseValueNull() {
+        assertTrue(BooleanUtils.toBoolean("true", "true", null));
+    }
+
+    @Test
+    void testToBooleanWithStringValuesMatchingTrueValue() {
+        assertTrue(BooleanUtils.toBoolean("true", "true", "false"));
+    }
+
+    @Test
+    void testToBooleanWithStringValuesMatchingFalseValue() {
+        assertFalse(BooleanUtils.toBoolean("false", "true", "false"));
+    }
+
+    @Test
+    void testToBooleanWithStringValuesNotMatching() {
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean("other", "true", "false"));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntTrueValue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 1, 0));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntFalseValue() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, 1, 0));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntNullValue() {
+        assertNull(BooleanUtils.toBooleanObject(2, 1, 0, 2));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerTrueValue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 1, 0));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerFalseValue() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, 1, 0));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerNullValue() {
+        assertNull(BooleanUtils.toBooleanObject(null, 1, 0, null));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerValuesTrueValueNull() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(0, null, 1, null));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerValuesFalseValueNull() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(1, 0, null, null));
+    }
+}
+```

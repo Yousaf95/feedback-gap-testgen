@@ -1,0 +1,95 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testInterfacesEnum() {
+        assertEquals(ClassUtils.Interfaces.INCLUDE, ClassUtils.Interfaces.valueOf("INCLUDE"));
+        assertEquals(ClassUtils.Interfaces.EXCLUDE, ClassUtils.Interfaces.valueOf("EXCLUDE"));
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithNull_2() {
+        assertNull(ClassUtils.convertClassesToClassNames(null));
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithNull_2() {
+        assertNull(ClassUtils.convertClassNamesToClasses(null));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithNegativeLengthHint() {
+        assertThrows(IllegalArgumentException.class, () -> ClassUtils.getAbbreviatedName("test", -1));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithNullClassName() {
+        assertEquals("", ClassUtils.getAbbreviatedName((Class<?>) null, 5));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithEmptyClassName() {
+        assertEquals("", ClassUtils.getAbbreviatedName("", 5));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithShortClassName() {
+        assertEquals("short", ClassUtils.getAbbreviatedName("short", 10));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithNullClass() {
+        assertNull(ClassUtils.getAllInterfaces(null));
+    }
+
+    @Test
+    public void testGetCanonicalNameWithNullClass() {
+        assertEquals("", ClassUtils.getCanonicalName((Class<?>) null, "default"));
+    }
+
+    @Test
+    public void testGetCanonicalNameWithNullObject() {
+        assertEquals("default", ClassUtils.getCanonicalName((Object) null, "default"));
+    }
+
+    @Test
+    public void testGetCanonicalNameWithEmptyClassName() {
+        assertNull(ClassUtils.getCanonicalName(""));
+    }
+
+    @Test
+    public void testGetCanonicalNameWithArrayClassName() {
+        assertEquals("[I", ClassUtils.getCanonicalName("int[]"));
+    }
+
+    @Test
+    public void testGetClassWithNullClassLoaderAndNullClassName() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass((ClassLoader) null, (String) null));
+    }
+
+    @Test
+    public void testGetClassWithNullClassLoaderAndNonNullClassName() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass((ClassLoader) null, "java.lang.String"));
+    }
+
+    @Test
+    public void testGetClassWithNonNullClassLoaderAndNullClassName() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass(ClassLoader.getSystemClassLoader(), (String) null));
+    }
+
+    @Test
+    public void testGetClassWithNonNullClassLoaderAndEmptyClassName() throws ClassNotFoundException {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass(ClassLoader.getSystemClassLoader(), ""));
+    }
+
+    @Test
+    public void testGetClassWithInnerClassName() throws ClassNotFoundException {
+        assertEquals(String.class, ClassUtils.getClass("java.lang.String$CaseInsensitiveComparator"));
+    }
+}
+```

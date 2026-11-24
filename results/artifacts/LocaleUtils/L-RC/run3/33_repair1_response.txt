@@ -1,0 +1,140 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.util.List;
+import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.*;
+
+class LocaleUtils_GenTest {
+
+    @Test
+    void testSyncAvoidInitialization_2() {
+        assertNotNull(LocaleUtils.availableLocaleList());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"US", "CA", "FR"})
+    void testIsISO3166CountryCodeWithValidCode(String code) {
+        assertTrue(code.length() == 2 && Character.isUpperCase(code.charAt(0)) && Character.isUpperCase(code.charAt(1)));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"USA", "CAN", "FRA"})
+    void testIsISO3166CountryCodeWithInvalidLength(String code) {
+        assertFalse(code.length() == 2);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"us", "ca", "fr"})
+    void testIsISO3166CountryCodeWithLowerCase(String code) {
+        assertFalse(Character.isUpperCase(code.charAt(0)) || Character.isUpperCase(code.charAt(1)));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"en", "fr", "de"})
+    void testIsISO639LanguageCodeWithTwoLetterCode(String code) {
+        assertTrue(code.length() == 2 && Character.isLowerCase(code.charAt(0)) && Character.isLowerCase(code.charAt(1)));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"eng", "fra", "deu"})
+    void testIsISO639LanguageCodeWithThreeLetterCode(String code) {
+        assertTrue(code.length() == 3 && Character.isLowerCase(code.charAt(0)) && Character.isLowerCase(code.charAt(1)) && Character.isLowerCase(code.charAt(2)));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"EN", "FR", "DE"})
+    void testIsISO639LanguageCodeWithUpperCase(String code) {
+        assertFalse(Character.isLowerCase(code.charAt(0)) || Character.isLowerCase(code.charAt(1)));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"engg", "fraa", "deuu"})
+    void testIsISO639LanguageCodeWithInvalidLength(String code) {
+        assertFalse(code.length() == 2 || code.length() == 3);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"123", "456", "789"})
+    void testIsNumericAreaCodeWithValidCode(String code) {
+        assertTrue(code.matches("\\d{3}"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"abc", "def", "ghi"})
+    void testIsNumericAreaCodeWithNonNumeric(String code) {
+        assertFalse(code.matches("\\d{3}"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"1234", "56789", "012345"})
+    void testIsNumericAreaCodeWithInvalidLength(String code) {
+        assertFalse(code.matches("\\d{3}"));
+    }
+
+    @Test
+    void testLocaleLookupListWithVariant() {
+        Locale locale = new Locale("en", "US", "POSIX");
+        List<Locale> result = LocaleUtils.localeLookupList(locale);
+        assertEquals(4, result.size());
+        assertTrue(result.contains(new Locale("en", "US")));
+    }
+
+    @Test
+    void testParseLocaleWithLanguageOnly() {
+        Locale locale = LocaleUtils.toLocale("en");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("", locale.getCountry());
+        assertEquals("", locale.getVariant());
+    }
+
+    @Test
+    void testParseLocaleWithLanguageAndCountry() {
+        Locale locale = LocaleUtils.toLocale("en_US");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+        assertEquals("", locale.getVariant());
+    }
+
+    @Test
+    void testParseLocaleWithLanguageCountryAndVariant() {
+        Locale locale = LocaleUtils.toLocale("en_US_POSIX");
+        assertEquals("en", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+        assertEquals("POSIX", locale.getVariant());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"_U", "-U"})
+    void testParseLocaleWithInvalidLength(String code) {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale(code));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"_us", "-us"})
+    void testParseLocaleWithLowerCaseCountryCode(String code) {
+        assertThrows(IllegalArgumentException.class, () -> LocaleUtils.toLocale(code));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"_US", "-US"})
+    void testParseLocaleWithValidLength(String code) {
+        Locale locale = LocaleUtils.toLocale(code);
+        assertEquals("", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+        assertEquals("", locale.getVariant());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"_US_POSIX", "-US_POSIX"})
+    void testParseLocaleWithPrefixAndVariant(String code) {
+        Locale locale = LocaleUtils.toLocale(code);
+        assertEquals("", locale.getLanguage());
+        assertEquals("US", locale.getCountry());
+        assertEquals("POSIX", locale.getVariant());
+    }
+}
+```

@@ -1,0 +1,567 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[200,21] reference to accept is ambiguous
+  both method <E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[205,21] reference to accept is ambiguous
+  both method <E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[221,13] cannot find symbol
+  symbol:   class BiConsumer
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[221,109] bad operand types for binary operator '+'
+  first type:  java.lang.Object
+  second type: java.lang.Object
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[228,13] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[228,108] bad operand types for binary operator '+'
+  first type:  java.lang.Object
+  second type: java.lang.Object
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[234,13] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[240,13] cannot find symbol
+  symbol:   class Callable
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[267,13] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[267,70] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,86] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[288,13] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[294,13] cannot find symbol
+  symbol:   class Stream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[294,37] cannot find symbol
+  symbol:   variable Stream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,13] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[200,21] reference to accept is ambiguous
+[ERROR]   both method <E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[205,21] reference to accept is ambiguous
+[ERROR]   both method <E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[221,13] cannot find symbol
+[ERROR]   symbol:   class BiConsumer
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[221,109] bad operand types for binary operator '+'
+[ERROR]   first type:  java.lang.Object
+[ERROR]   second type: java.lang.Object
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[228,13] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[228,108] bad operand types for binary operator '+'
+[ERROR]   first type:  java.lang.Object
+[ERROR]   second type: java.lang.Object
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[234,13] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[240,13] cannot find symbol
+[ERROR]   symbol:   class Callable
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[267,13] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[267,70] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,86] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[288,13] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[294,13] cannot find symbol
+[ERROR]   symbol:   class Stream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[294,37] cannot find symbol
+[ERROR]   symbol:   variable Stream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[295,13] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[285,20] package Streams does not exist
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,20] package Streams does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[285,20] package Streams does not exist
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,20] package Streams does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[285,21] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,21] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[285,21] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[292,21] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[238,44] method call in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+  required: org.apache.commons.lang3.function.FailableCallable<V,E>
+  found:    java.util.concurrent.Callable<java.lang.String>
+  reason: cannot infer type-variable(s) V,E
+    (argument mismatch; java.util.concurrent.Callable<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableCallable<V,E>)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[238,44] method call in class org.apache.commons.lang3.function.Failable cannot be applied to given types;
+[ERROR]   required: org.apache.commons.lang3.function.FailableCallable<V,E>
+[ERROR]   found:    java.util.concurrent.Callable<java.lang.String>
+[ERROR]   reason: cannot infer type-variable(s) V,E
+[ERROR]     (argument mismatch; java.util.concurrent.Callable<java.lang.String> cannot be converted to org.apache.commons.lang3.function.FailableCallable<V,E>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[320,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[326,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[332,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[338,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[344,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[350,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[356,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[362,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[362,67] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[369,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[398,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[320,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[326,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[332,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[338,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[344,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[350,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[356,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[362,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[362,67] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[369,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[398,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[399,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[406,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[413,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[420,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[440,48] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[447,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[455,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[463,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[471,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[399,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[406,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[413,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[420,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[427,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[434,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[440,48] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[447,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[455,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[463,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[471,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[397,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[404,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[411,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[418,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[425,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[432,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[438,48] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[445,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[453,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[461,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[469,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[397,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[404,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[411,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[418,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[425,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[432,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[438,48] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[445,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[453,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[461,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[469,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[397,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[404,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[411,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[418,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[425,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[432,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[438,48] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[445,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[453,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[461,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[469,48] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[397,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[404,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[411,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[418,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[425,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[432,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[438,48] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[445,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[453,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[461,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[469,48] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[397,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[404,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[411,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[418,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[425,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[432,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[445,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[453,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[461,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[469,82] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: package org.apache.commons.lang3.exception
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[397,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[404,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[411,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[418,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[425,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[432,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[445,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[453,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[461,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] /work/w15/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[469,82] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: package org.apache.commons.lang3.exception
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

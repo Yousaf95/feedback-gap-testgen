@@ -1,0 +1,151 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+class CompareToBuilder_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testAppendBooleanWithNonZeroComparison() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(true, false));
+        assertEquals(1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendBooleanArrayWithNonZeroComparison() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new boolean[]{true}, new boolean[]{false}));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendByteArrayWithNonZeroComparison() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new byte[]{1}, new byte[]{2}));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendCharArrayWithNonZeroComparison() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new char[]{'a'}, new char[]{'b'}));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendDoubleArrayWithNonZeroComparison() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new double[]{1.0}, new double[]{2.0}));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectWithNonZeroComparison() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append("a", "b"));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testAppendObjectArrayWithNonZeroComparison() {
+        CompareToBuilder builder = new CompareToBuilder();
+        assertEquals(builder, builder.append(new Object[]{"a"}, new Object[]{"b"}));
+        assertEquals(-1, builder.toComparison());
+    }
+
+    @Test
+    void testReflectionCompareExcludeFieldsWithTransientField() throws Exception {
+        class TestClass {
+            transient int transientField;
+            int nonTransientField;
+
+            public TestClass(int transientField, int nonTransientField) {
+                this.transientField = transientField;
+                this.nonTransientField = nonTransientField;
+            }
+        }
+
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(3, 4);
+
+        assertEquals(-2, CompareToBuilder.reflectionCompare(obj1, obj2, false, null, "transientField"));
+    }
+
+    @Test
+    void testReflectionCompareExcludeFieldsWithStaticField() throws Exception {
+        class TestClass {
+            static int staticField;
+            int nonStaticField;
+
+            public TestClass(int staticField, int nonStaticField) {
+                this.staticField = staticField;
+                this.nonStaticField = nonStaticField;
+            }
+        }
+
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(3, 4);
+
+        assertEquals(-2, CompareToBuilder.reflectionCompare(obj1, obj2, false, null, "staticField"));
+    }
+
+    @Test
+    void testReflectionCompareExcludeFieldsWithDollarField() throws Exception {
+        class TestClass {
+            int $dollarField;
+            int nonDollarField;
+
+            public TestClass(int dollarField, int nonDollarField) {
+                this.$dollarField = dollarField;
+                this.nonDollarField = nonDollarField;
+            }
+        }
+
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(3, 4);
+
+        assertEquals(-2, CompareToBuilder.reflectionCompare(obj1, obj2, false, null));
+    }
+
+    @Test
+    void testReflectionCompareExcludeFieldsWithExcludedField() throws Exception {
+        class TestClass {
+            int excludedField;
+            int nonExcludedField;
+
+            public TestClass(int excludedField, int nonExcludedField) {
+                this.excludedField = excludedField;
+                this.nonExcludedField = nonExcludedField;
+            }
+        }
+
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(3, 4);
+
+        assertEquals(-2, CompareToBuilder.reflectionCompare(obj1, obj2, false, null, "excludedField"));
+    }
+
+    @Test
+    void testReflectionCompareExcludeFieldsWithExcludedFieldCollection() throws Exception {
+        class TestClass {
+            int excludedField;
+            int nonExcludedField;
+
+            public TestClass(int excludedField, int nonExcludedField) {
+                this.excludedField = excludedField;
+                this.nonExcludedField = nonExcludedField;
+            }
+        }
+
+        TestClass obj1 = new TestClass(1, 2);
+        TestClass obj2 = new TestClass(3, 4);
+
+        assertEquals(-2, CompareToBuilder.reflectionCompare(obj1, obj2, false, null, Collections.singletonList("excludedField")));
+    }
+}
+```

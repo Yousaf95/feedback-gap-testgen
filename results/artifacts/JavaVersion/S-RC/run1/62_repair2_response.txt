@@ -1,0 +1,50 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.JavaVersion.*;
+
+class JavaVersion_GenTest {
+
+    @Test
+    public void testGetJava14_2() {
+        assertEquals(JAVA_14, get("14"));
+    }
+
+    @Test
+    public void testGetJava15_2() {
+        assertEquals(JAVA_15, get("15"));
+    }
+
+    @Test
+    public void testGetJava16_2() {
+        assertEquals(JAVA_16, get("16"));
+    }
+
+    @Test
+    public void testGetJava17_2() {
+        assertEquals(JAVA_17, get("17"));
+    }
+
+    @Test
+    public void testGetJava18_2() {
+        assertEquals(JAVA_18, get("18"));
+    }
+
+    @Test
+    public void testGetJava20_2() {
+        assertEquals(JAVA_20, get("20"));
+    }
+
+    @Test
+    public void testGetRecentVersionWithDecimal() {
+        assertEquals(JAVA_RECENT, get("21.5"));
+    }
+
+    @Test
+    public void testMaxVersionBranchTrue() {
+        assertThrows(NumberFormatException.class, () -> JavaVersion.valueOf(Float.toString(21)));
+    }
+}
+```

@@ -1,0 +1,161 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+class ClassUtils_GenTest {
+
+    @Test
+    public void testGetPackageNameEmptyString() {
+        assertEquals("", ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    public void testGetShortClassNameNullInput() {
+        assertNull(ClassUtils.getShortClassName((Class<?>) null));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperBooleanWrapper_3() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Boolean.class));
+    }
+
+    @Test
+    public void testPrimitivesToWrappersNullInput_2() {
+        assertThrows(NullPointerException.class, () -> ClassUtils.primitivesToWrappers((Class<?>[]) null));
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithNullElement_3() {
+        List<Class<?>> classes = Arrays.asList(String.class, null, Integer.class);
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertEquals(2, classNames.size());
+        assertEquals("java.lang.String", classNames.get(0));
+        assertNull(classNames.get(1));
+        assertEquals("java.lang.Integer", classNames.get(2));
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithInvalidClassName_3() {
+        List<String> classNames = Arrays.asList("java.lang.String", "invalid.class.name", "java.lang.Integer");
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertEquals(2, classes.size());
+        assertNotNull(classes.get(0));
+        assertNull(classes.get(1));
+        assertNotNull(classes.get(2));
+    }
+
+    @Test
+    public void testGetCanonicalNameNullObject_3() {
+        Object obj = null;
+        assertEquals("", ClassUtils.getCanonicalName(obj));
+    }
+
+    @Test
+    public void testIsPublicNonPublicClass_2() {
+        class NonPublicClass {}
+        assertFalse(ClassUtils.isPublic(NonPublicClass.class));
+    }
+
+    @Test
+    public void testGetAllInterfacesNullInput_2() {
+        assertNull(ClassUtils.getAllInterfaces((Class<?>) null));
+    }
+
+    @Test
+    public void testGetAllSuperclassesNullInput_2() {
+        assertNull(ClassUtils.getAllSuperclasses((Class<?>) null));
+    }
+
+    @Test
+    public void testGetNameNullObject_3() {
+        Object obj = null;
+        assertEquals("", ClassUtils.getName(obj));
+    }
+
+    @Test
+    public void testGetComponentTypeNullInput_2() {
+        assertNull(ClassUtils.getComponentType((Class<?>[]) null));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameEmptyClassName_2() {
+        assertThrows(IllegalArgumentException.class, () -> ClassUtils.getAbbreviatedName("", 10));
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperBooleanWrapper_4() {
+        assertTrue(ClassUtils.isPrimitiveOrWrapper(Boolean.TYPE));
+    }
+
+    @Test
+    public void testPrimitivesToWrappersEmptyInput_3() {
+        Class<?>[] result = ClassUtils.primitivesToWrappers();
+        assertEquals(0, result.length);
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithNullElement_4() {
+        List<Class<?>> classes = Arrays.asList(String.class, null, Integer.class, null);
+        List<String> classNames = ClassUtils.convertClassesToClassNames(classes);
+        assertEquals(3, classNames.size());
+        assertEquals("java.lang.String", classNames.get(0));
+        assertNull(classNames.get(1));
+        assertEquals("java.lang.Integer", classNames.get(2));
+        assertNull(classNames.get(3));
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithInvalidClassName_4() {
+        List<String> classNames = Arrays.asList("java.lang.String", "invalid.class.name", "java.lang.Integer", "another.invalid.class");
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertEquals(3, classes.size());
+        assertNotNull(classes.get(0));
+        assertNull(classes.get(1));
+        assertNotNull(classes.get(2));
+        assertNull(classes.get(3));
+    }
+
+    @Test
+    public void testGetCanonicalNameNullObject_4() {
+        Object obj = null;
+        assertEquals("", ClassUtils.getCanonicalName(obj, "default"));
+    }
+
+    @Test
+    public void testIsPublicNonPublicClass_3() {
+        class NonPublicClass {}
+        assertFalse(ClassUtils.isPublic(NonPublicClass.class));
+    }
+
+    @Test
+    public void testGetAllInterfacesNullInput_3() {
+        assertNull(ClassUtils.getAllInterfaces((Class<?>) null));
+    }
+
+    @Test
+    public void testGetAllSuperclassesNullInput_3() {
+        assertNull(ClassUtils.getAllSuperclasses((Class<?>) null));
+    }
+
+    @Test
+    public void testGetNameNullObject_4() {
+        Object obj = null;
+        assertEquals("", ClassUtils.getName(obj, "default"));
+    }
+
+    @Test
+    public void testGetComponentTypeNullInput_3() {
+        assertNull(ClassUtils.getComponentType((Class<?>[]) null));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameEmptyClassName_3() {
+        assertThrows(IllegalArgumentException.class, () -> ClassUtils.getAbbreviatedName("", 10));
+    }
+}
+```

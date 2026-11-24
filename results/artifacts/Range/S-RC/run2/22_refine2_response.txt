@@ -1,0 +1,74 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.Comparator;
+import java.util.Objects;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    private Range<Integer> range;
+    private Comparator<Integer> comparator;
+
+    @BeforeEach
+    public void setUp() {
+        comparator = Comparator.naturalOrder();
+        range = new Range<>(1, 5, comparator);
+    }
+
+    @Test
+    public void testContainsRange_NullOtherRange() {
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    public void testIsAfterRange_NullOtherRange() {
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    public void testIsBeforeRange_NullOtherRange() {
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    public void testIsEndedBy_NullElement() {
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    public void testIsStartedBy_NullElement() {
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    public void testToString_NullFormat() {
+        assertEquals("[1..5]", range.toString((String) null));
+    }
+
+    @Test
+    public void testContainsNullElement() {
+        assertFalse(range.contains(null));
+    }
+
+    @Test
+    public void testIsAfterNullElement() {
+        assertFalse(range.isAfter(null));
+    }
+
+    @Test
+    public void testIsBeforeNullElement() {
+        assertFalse(range.isBefore(null));
+    }
+
+    @Test
+    public void testFit_NullElement() {
+        assertEquals(1, (int) range.fit(null));
+    }
+}
+```

@@ -1,0 +1,242 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class Range_GenTest for Range already contains the test methods listed below.
+
+Existing test methods (do not duplicate them):
+testContains, testContainsNull, testContainsMinValue, testContainsMaxValue, testContainsValueInRange, testContainsValueOutOfRange, testContainsRangeNull, testContainsRangeEmpty, testContainsRangeSubset, testContainsRangeSuperset, testContainsRangeEqual, testElementCompareToNull, testElementCompareToMinValue, testElementCompareToMaxValue, testElementCompareToValueInRange, testFitNull, testFitMinValue, testFitMaxValue, testFitValueInRange, testGetComparator, testGetMaximum, testGetMinimum, testHashCode, testIntersectionWithNull, testIntersectionWithNonOverlappingRange, testIsAfterNull, testIsAfterValueInRange, testIsAfterValueOutOfRange, testIsBeforeNull, testIsBeforeValueInRange, testIsBeforeValueOutOfRange, testIsEndedByNull, testIsNaturalOrdering, testIsOverlappedByNull, testIsOverlappedByNonOverlappingRange, testIsOverlappedByOverlappingRange, testIsStartedByNull, testIsStartedByMinValue, testIsStartedByMaxValue
+
+Write ADDITIONAL test methods for Range that test behaviour not yet tested by the existing test methods.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class Range_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.Range):
+```java
+package org.apache.commons.lang3;
+import java.io.Serializable;
+import java.util.Comparator;
+import java.util.Objects;
+
+/** An immutable range of objects from a minimum to maximum point inclusive. */
+public class Range<T> implements Serializable {
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    private enum ComparableComparator implements Comparator { /* private nested type */ }
+    /** Serialization version. */
+    private static final long serialVersionUID = 1L;
+    /** Creates a range with the specified minimum and maximum values (both inclusive). */
+    @Deprecated
+    public static <T extends Comparable<? super T>> Range<T> between(final T fromInclusive, final T toInclusive) {
+        return of(fromInclusive, toInclusive, null);
+    }
+    /** Creates a range with the specified minimum and maximum values (both inclusive). */
+    @Deprecated
+    public static <T> Range<T> between(final T fromInclusive, final T toInclusive, final Comparator<T> comparator) {
+        return new Range<>(fromInclusive, toInclusive, comparator);
+    }
+    /** Creates a range using the specified element as both the minimum and maximum in this range. */
+    public static <T extends Comparable<? super T>> Range<T> is(final T element) {
+        return of(element, element, null);
+    }
+    /** Creates a range using the specified element as both the minimum and maximum in this range. */
+    public static <T> Range<T> is(final T element, final Comparator<T> comparator) {
+        return of(element, element, comparator);
+    }
+    /** Creates a range with the specified minimum and maximum values (both inclusive). */
+    public static <T extends Comparable<? super T>> Range<T> of(final T fromInclusive, final T toInclusive) {
+        return of(fromInclusive, toInclusive, null);
+    }
+    /** Creates a range with the specified minimum and maximum values (both inclusive). */
+    public static <T> Range<T> of(final T fromInclusive, final T toInclusive, final Comparator<T> comparator) {
+        return new Range<>(fromInclusive, toInclusive, comparator);
+    }
+    /** The ordering scheme used in this range. */
+    private final Comparator<T> comparator;
+    /** Cached output hashCode (class is immutable). */
+    private transient int hashCode;
+    /** The maximum value in this range (inclusive). */
+    private final T maximum;
+    /** The minimum value in this range (inclusive). */
+    private final T minimum;
+    /** Cached output toString (class is immutable). */
+    private transient String toString;
+    /** Creates an instance. */
+    @SuppressWarnings("unchecked")
+    Range(final T element1, final T element2, final Comparator<T> comp) {
+        Objects.requireNonNull(element1, "element1");
+        Objects.requireNonNull(element2, "element2");
+        if (comp == null) {
+            this.comparator = ComparableComparator.INSTANCE;
+        } else {
+            this.comparator = comp;
+        }
+        if (this.comparator.compare(element1, element2) < 1) {
+            this.minimum = element1;
+            this.maximum = element2;
+        } else {
+            this.minimum = element2;
+            this.maximum = element1;
+        }
+    }
+    /** Checks whether the specified element occurs within this range. */
+    public boolean contains(final T element) {
+        if (element == null) {
+            return false;
+        }
+        return comparator.compare(element, minimum) > -1 && comparator.compare(element, maximum) < 1;
+    }
+    /** Checks whether this range contains all the elements of the specified range. */
+    public boolean containsRange(final Range<T> otherRange) {
+        if (otherRange == null) {
+            return false;
+        }
+        return contains(otherRange.minimum)
+            && contains(otherRange.maximum);
+    }
+    /** Checks where the specified element occurs relative to this range. */
+    public int elementCompareTo(final T element) {
+        // Comparable API says throw NPE on null
+        Objects.requireNonNull(element, "element");
+        if (isAfter(element)) {
+            return -1;
+        }
+        if (isBefore(element)) {
+            return 1;
+        }
+        return 0;
+    }
+    /** Compares this range to another object to test if they are equal.. */
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != getClass()) {
+            return false;
+        }
+        @SuppressWarnings("unchecked") // OK because we checked the class above
+        final
+        Range<T> range = (Range<T>) obj;
+        return minimum.equals(range.minimum) &&
+               maximum.equals(range.maximum);
+    }
+    /** Fits the given element into this range by returning the given element or, if out of bounds, the range minimum if below, or the range maximum if above. */
+    public T fit(final T element) {
+        // Comparable API says throw NPE on null
+        Objects.requireNonNull(element, "element");
+        if (isAfter(element)) {
+            return minimum;
+        }
+        if (isBefore(element)) {
+            return maximum;
+        }
+        return element;
+    }
+    /** Gets the comparator being used to determine if objects are within the range. */
+    public Comparator<T> getComparator() {
+        return comparator;
+    }
+    /** Gets the maximum value in this range. */
+    public T getMaximum() {
+        return maximum;
+    }
+    /** Gets the minimum value in this range. */
+    public T getMinimum() {
+        return minimum;
+    }
+    /** Gets a suitable hash code for the range. */
+    @Override
+    public int hashCode() {
+        int result = hashCode;
+        if (hashCode == 0) {
+            result = 17;
+            result = 37 * result + getClass().hashCode();
+            result = 37 * result + minimum.hashCode();
+            result = 37 * result + maximum.hashCode();
+            hashCode = result;
+        }
+        return result;
+    }
+    /** Calculate the intersection of {@code this} and an overlapping Range. */
+    public Range<T> intersectionWith(final Range<T> other) {
+        if (!this.isOverlappedBy(other)) {
+            throw new IllegalArgumentException(String.format(
+                "Cannot calculate intersection with non-overlapping range %s", other));
+        }
+        if (this.equals(other)) {
+            return this;
+        }
+        final T min = getComparator().compare(minimum, other.minimum) < 0 ? other.minimum : minimum;
+        final T max = getComparator().compare(maximum, other.maximum) < 0 ? maximum : other.maximum;
+        return of(min, max, getComparator());
+    }
+    /** Checks whether this range is after the specified element. */
+    public boolean isAfter(final T element) {
+        if (element == null) {
+            return false;
+        }
+        return comparator.compare(element, minimum) < 0;
+    }
+    /** Checks whether this range is completely after the specified range. */
+    public boolean isAfterRange(final Range<T> otherRange) {
+        if (otherRange == null) {
+            return false;
+        }
+        return isAfter(otherRange.maximum);
+    }
+    /** Checks whether this range is before the specified element. */
+    public boolean isBefore(final T element) {
+        if (element == null) {
+            return false;
+        }
+        return comparator.compare(element, maximum) > 0;
+    }
+    /** Checks whether this range is completely before the specified range. */
+    public boolean isBeforeRange(final Range<T> otherRange) {
+        if (otherRange == null) {
+            return false;
+        }
+        return isBefore(otherRange.minimum);
+    }
+    /** Checks whether this range ends with the specified element. */
+    public boolean isEndedBy(final T element) {
+        if (element == null) {
+            return false;
+        }
+        return comparator.compare(element, maximum) == 0;
+    }
+    /** Whether or not the Range is using the natural ordering of the elements. */
+    public boolean isNaturalOrdering() {
+        return comparator == ComparableComparator.INSTANCE;
+    }
+    /** Checks whether this range is overlapped by the specified range. */
+    public boolean isOverlappedBy(final Range<T> otherRange) {
+        if (otherRange == null) {
+            return false;
+        }
+        return otherRange.contains(minimum)
+            || otherRange.contains(maximum)
+            || contains(otherRange.minimum);
+    }
+    /** Checks whether this range starts with the specified element. */
+    public boolean isStartedBy(final T element) {
+        if (element == null) {
+            return false;
+        }
+        return comparator.compare(element, minimum) == 0;
+    }
+    /** Gets the range as a {@link String}. */
+    @Override
+    public String toString() {
+        if (toString == null) {
+            toString = "[" + minimum + ".." + maximum + "]";
+        }
+        return toString;
+    }
+    /** Formats the receiver using the given format. */
+    public String toString(final String format) {
+        return String.format(format, minimum, maximum, comparator);
+    }
+}
+```

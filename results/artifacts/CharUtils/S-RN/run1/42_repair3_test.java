@@ -1,0 +1,220 @@
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.CharUtils.*;
+
+public class CharUtils_GenTest {
+
+    @Test
+    public void testCompare() {
+        assertEquals(0, compare('a', 'a'));
+        assertTrue(compare('a', 'b') < 0);
+        assertTrue(compare('b', 'a') > 0);
+    }
+
+    @Test
+    public void testIsAscii() {
+        assertTrue(isAscii('A'));
+        assertFalse(isAscii('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiAlpha() {
+        assertTrue(isAsciiAlpha('A'));
+        assertTrue(isAsciiAlpha('z'));
+        assertFalse(isAsciiAlpha('1'));
+        assertFalse(isAsciiAlpha(' '));
+    }
+
+    @Test
+    public void testIsAsciiAlphaLower() {
+        assertTrue(isAsciiAlphaLower('a'));
+        assertFalse(isAsciiAlphaLower('Z'));
+        assertFalse(isAsciiAlphaLower('1'));
+        assertFalse(isAsciiAlphaLower(' '));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumeric() {
+        assertTrue(isAsciiAlphanumeric('A'));
+        assertTrue(isAsciiAlphanumeric('z'));
+        assertTrue(isAsciiAlphanumeric('0'));
+        assertFalse(isAsciiAlphanumeric(' '));
+    }
+
+    @Test
+    public void testIsAsciiAlphaUpper() {
+        assertTrue(isAsciiAlphaUpper('A'));
+        assertFalse(isAsciiAlphaUpper('a'));
+        assertFalse(isAsciiAlphaUpper('1'));
+        assertFalse(isAsciiAlphaUpper(' '));
+    }
+
+    @Test
+    public void testIsAsciiControl() {
+        assertTrue(isAsciiControl('\0'));
+        assertTrue(isAsciiControl('\n'));
+        assertFalse(isAsciiControl('A'));
+    }
+
+    @Test
+    public void testIsAsciiNumeric() {
+        assertTrue(isAsciiNumeric('0'));
+        assertFalse(isAsciiNumeric('a'));
+    }
+
+    @Test
+    public void testIsAsciiPrintable() {
+        assertTrue(isAsciiPrintable('A'));
+        assertFalse(isAsciiPrintable('\0'));
+    }
+
+    @Test
+    public void testToChar_Character() {
+        assertEquals('A', toChar(Character.valueOf('A')));
+    }
+
+    
+    @Test
+    public void testToChar_String() {
+        assertEquals('A', toChar("AB"));
+    }
+
+    @Test
+    public void testToChar_StringDefaultValue() {
+        assertEquals('B', toChar("", 'B'));
+    }
+
+    @Test
+    public void testToCharacterObject_Character() {
+        assertNotNull(toCharacterObject(Character.valueOf('A')));
+    }
+
+    @Test
+    public void testToCharacterObject_String() {
+        assertNotNull(toCharacterObject("AB"));
+    }
+
+    @Test
+    public void testToIntValue_Character() {
+        assertEquals(0, toIntValue(Character.valueOf('0')));
+    }
+
+    @Test
+    public void testToIntValue_CharacterDefaultValue() {
+        assertEquals(1, toIntValue(Character.valueOf('A'), 1));
+    }
+
+    
+    
+    
+    @Test
+    public void testUnicodeEscaped_Character() {
+        assertEquals("\\u0041", unicodeEscaped(Character.valueOf('A')));
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+            public void testIsAsciiExtended() {
+                assertFalse(CharUtils.isAscii('\u0100'));
+            }
+
+    @Test
+            public void testIsAsciiAlphaExtended() {
+                assertFalse(CharUtils.isAsciiAlpha('\u0100'));
+            }
+
+    @Test
+            public void testIsAsciiAlphanumericExtended() {
+                assertFalse(CharUtils.isAsciiAlphanumeric('\u0100'));
+            }
+
+    @Test
+            public void testIsAsciiNumericExtended() {
+                assertFalse(CharUtils.isAsciiNumeric('\u0100'));
+            }
+
+    @Test
+            public void testIsAsciiPrintableExtended() {
+                assertTrue(CharUtils.isAsciiPrintable(' '));
+                assertFalse(CharUtils.isAsciiPrintable('\u0100'));
+            }
+
+    @Test
+            public void testToChar_CharacterNull() {
+            assertThrows(NullPointerException.class, () -> CharUtils.toChar((Character) null));
+        }
+
+    @Test
+            public void testToChar_StringEmpty() {
+                assertThrows(IllegalArgumentException.class, () -> CharUtils.toChar(""));
+            }
+
+    @Test
+            public void testToCharacterObject_StringEmpty() {
+                assertNull(CharUtils.toCharacterObject(""));
+            }
+
+    @Test
+            public void testToIntValue_CharacterNonNumeric() {
+                assertThrows(IllegalArgumentException.class, () -> CharUtils.toIntValue('a'));
+            }
+
+    @Test
+            public void testToIntValue_CharacterNonNumericDefaultValue() {
+                assertEquals(0, CharUtils.toIntValue('a', 0));
+            }
+
+    
+    @Test
+            public void testUnicodeEscaped_CharacterExtended() {
+                assertEquals("\\u0100", CharUtils.unicodeEscaped('\u0100'));
+            }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testIsAsciiExtended_2() {
+            assertTrue(isAscii('\u007F'));
+            assertFalse(isAscii('\u0080'));
+        }
+
+    @Test
+        public void testIsAsciiAlphaExtended_2() {
+            assertTrue(isAsciiAlpha('A'));
+            assertTrue(isAsciiAlpha('z'));
+            assertFalse(isAsciiAlpha('\u007F'));
+            assertFalse(isAsciiAlpha('\u0100'));
+        }
+
+    @Test
+        public void testIsAsciiAlphanumericExtended_2() {
+            assertTrue(isAsciiAlphanumeric('A'));
+            assertTrue(isAsciiAlphanumeric('z'));
+            assertTrue(isAsciiAlphanumeric('0'));
+            assertFalse(isAsciiAlphanumeric('\u007F'));
+            assertFalse(isAsciiAlphanumeric('\u0100'));
+        }
+
+    @Test
+        public void testIsAsciiNumericExtended_2() {
+            assertTrue(isAsciiNumeric('0'));
+            assertTrue(isAsciiNumeric('9'));
+            assertFalse(isAsciiNumeric('\u007F'));
+            assertFalse(isAsciiNumeric('\u0100'));
+        }
+
+    @Test
+        public void testIsAsciiPrintableExtended_2() {
+            assertTrue(isAsciiPrintable('A'));
+            assertTrue(isAsciiPrintable('z'));
+            assertTrue(isAsciiPrintable('0'));
+            assertTrue(isAsciiPrintable('\u007F'));
+            assertFalse(isAsciiPrintable('\u0100'));
+        }
+
+    @Test
+        public void testToChar_CharacterNull_2() {
+            assertThrows(NullPointerException.class, () -> toChar((Character) null));
+        }
+}

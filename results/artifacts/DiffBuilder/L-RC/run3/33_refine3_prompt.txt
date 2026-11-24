@@ -1,0 +1,819 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class DiffBuilder_GenTest for DiffBuilder currently achieves 63.8% line coverage and 66.0% branch coverage of DiffBuilder.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+  165:         validateFieldNameNotNull(fieldName);
+  166: 
+  167:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  168:             return this;  // <-- NOT COVERED
+  169:         }
+  170:         if (lhs != rhs) {
+    ...
+  174:                 @Override
+  175:                 public Boolean getLeft() {
+  176:                     return Boolean.valueOf(lhs);  // <-- NOT COVERED
+  177:                 }
+  178: 
+  179:                 @Override
+  180:                 public Boolean getRight() {
+  181:                     return Boolean.valueOf(rhs);  // <-- NOT COVERED
+  182:                 }
+  183:             });
+    ...
+  202:             final boolean[] rhs) {
+  203:         validateFieldNameNotNull(fieldName);
+  204:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  205:             return this;  // <-- NOT COVERED
+  206:         }
+  207:         if (!Arrays.equals(lhs, rhs)) {
+    ...
+  211:                 @Override
+  212:                 public Boolean[] getLeft() {
+  213:                     return ArrayUtils.toObject(lhs);  // <-- NOT COVERED
+  214:                 }
+  215: 
+  216:                 @Override
+  217:                 public Boolean[] getRight() {
+  218:                     return ArrayUtils.toObject(rhs);  // <-- NOT COVERED
+  219:                 }
+  220:             });
+    ...
+  239:             final byte rhs) {
+  240:         validateFieldNameNotNull(fieldName);
+  241:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  242:             return this;  // <-- NOT COVERED
+  243:         }
+  244:         if (lhs != rhs) {
+    ...
+  248:                 @Override
+  249:                 public Byte getLeft() {
+  250:                     return Byte.valueOf(lhs);  // <-- NOT COVERED
+  251:                 }
+  252: 
+  253:                 @Override
+  254:                 public Byte getRight() {
+  255:                     return Byte.valueOf(rhs);  // <-- NOT COVERED
+  256:                 }
+  257:             });
+    ...
+  277:         validateFieldNameNotNull(fieldName);
+  278: 
+  279:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  280:             return this;  // <-- NOT COVERED
+  281:         }
+  282:         if (!Arrays.equals(lhs, rhs)) {
+    ...
+  286:                 @Override
+  287:                 public Byte[] getLeft() {
+  288:                     return ArrayUtils.toObject(lhs);  // <-- NOT COVERED
+  289:                 }
+  290: 
+  291:                 @Override
+  292:                 public Byte[] getRight() {
+  293:                     return ArrayUtils.toObject(rhs);  // <-- NOT COVERED
+  294:                 }
+  295:             });
+    ...
+  315:         validateFieldNameNotNull(fieldName);
+  316: 
+  317:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  318:             return this;  // <-- NOT COVERED
+  319:         }
+  320:         if (lhs != rhs) {
+    ...
+  324:                 @Override
+  325:                 public Character getLeft() {
+  326:                     return Character.valueOf(lhs);  // <-- NOT COVERED
+  327:                 }
+  328: 
+  329:                 @Override
+  330:                 public Character getRight() {
+  331:                     return Character.valueOf(rhs);  // <-- NOT COVERED
+  332:                 }
+  333:             });
+    ...
+  353:         validateFieldNameNotNull(fieldName);
+  354: 
+  355:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  356:             return this;  // <-- NOT COVERED
+  357:         }
+  358:         if (!Arrays.equals(lhs, rhs)) {
+    ...
+  362:                 @Override
+  363:                 public Character[] getLeft() {
+  364:                     return ArrayUtils.toObject(lhs);  // <-- NOT COVERED
+  365:                 }
+  366: 
+  367:                 @Override
+  368:                 public Character[] getRight() {
+  369:                     return ArrayUtils.toObject(rhs);  // <-- NOT COVERED
+  370:                 }
+  371:             });
+    ...
+  410:         validateFieldNameNotNull(fieldName);
+  411:         Objects.requireNonNull(diffResult, "diffResult");
+  412:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  413:             return this;  // <-- NOT COVERED
+  414:         }
+  415:         diffResult.getDiffs().forEach(diff -> append(fieldName + "." + diff.getFieldName(), diff.getLeft(), diff.getRight()));
+    ...
+  434:         validateFieldNameNotNull(fieldName);
+  435: 
+  436:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  437:             return this;  // <-- NOT COVERED
+  438:         }
+  439:         if (Double.doubleToLongBits(lhs) != Double.doubleToLongBits(rhs)) {
+    ...
+  443:                 @Override
+  444:                 public Double getLeft() {
+  445:                     return Double.valueOf(lhs);  // <-- NOT COVERED
+  446:                 }
+  447: 
+  448:                 @Override
+  449:                 public Double getRight() {
+  450:                     return Double.valueOf(rhs);  // <-- NOT COVERED
+  451:                 }
+  452:             });
+    ...
+  472:         validateFieldNameNotNull(fieldName);
+  473: 
+  474:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  475:             return this;  // <-- NOT COVERED
+  476:         }
+  477:         if (!Arrays.equals(lhs, rhs)) {
+    ...
+  481:                 @Override
+  482:                 public Double[] getLeft() {
+  483:                     return ArrayUtils.toObject(lhs);  // <-- NOT COVERED
+  484:                 }
+  485: 
+  486:                 @Override
+  487:                 public Double[] getRight() {
+  488:                     return ArrayUtils.toObject(rhs);  // <-- NOT COVERED
+  489:                 }
+  490:             });
+    ...
+  510:         validateFieldNameNotNull(fieldName);
+  511: 
+  512:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  513:             return this;  // <-- NOT COVERED
+  514:         }
+  515:         if (Float.floatToIntBits(lhs) != Float.floatToIntBits(rhs)) {
+    ...
+  519:                 @Override
+  520:                 public Float getLeft() {
+  521:                     return Float.valueOf(lhs);  // <-- NOT COVERED
+  522:                 }
+  523: 
+  524:                 @Override
+  525:                 public Float getRight() {
+  526:                     return Float.valueOf(rhs);  // <-- NOT COVERED
+  527:                 }
+  528:             });
+    ...
+  548:         validateFieldNameNotNull(fieldName);
+  549: 
+  550:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  551:             return this;  // <-- NOT COVERED
+  552:         }
+  553:         if (!Arrays.equals(lhs, rhs)) {
+    ...
+  557:                 @Override
+  558:                 public Float[] getLeft() {
+  559:                     return ArrayUtils.toObject(lhs);  // <-- NOT COVERED
+  560:                 }
+  561: 
+  562:                 @Override
+  563:                 public Float[] getRight() {
+  564:                     return ArrayUtils.toObject(rhs);  // <-- NOT COVERED
+  565:                 }
+  566:             });
+    ...
+  624:         validateFieldNameNotNull(fieldName);
+  625: 
+  626:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  627:             return this;  // <-- NOT COVERED
+  628:         }
+  629:         if (!Arrays.equals(lhs, rhs)) {
+    ...
+  633:                 @Override
+  634:                 public Integer[] getLeft() {
+  635:                     return ArrayUtils.toObject(lhs);  // <-- NOT COVERED
+  636:                 }
+  637: 
+  638:                 @Override
+  639:                 public Integer[] getRight() {
+  640:                     return ArrayUtils.toObject(rhs);  // <-- NOT COVERED
+  641:                 }
+  642:             });
+    ...
+  662:         validateFieldNameNotNull(fieldName);
+  663: 
+  664:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  665:             return this;  // <-- NOT COVERED
+  666:         }
+  667:         if (lhs != rhs) {
+    ...
+  671:                 @Override
+  672:                 public Long getLeft() {
+  673:                     return Long.valueOf(lhs);  // <-- NOT COVERED
+  674:                 }
+  675: 
+  676:                 @Override
+  677:                 public Long getRight() {
+  678:                     return Long.valueOf(rhs);  // <-- NOT COVERED
+  679:                 }
+  680:             });
+    ...
+  700:         validateFieldNameNotNull(fieldName);
+  701: 
+  702:         if (objectsTriviallyEqual) {  // <-- PARTIAL (1 of 2 branches missed)
+  703:             return this;  // <-- NOT COVERED
+  704:         }
+  705:         if (!Arrays.equals(lhs, rhs)) {
+    ...
+  709:                 @Override
+  710:                 public Long[] getLeft() {
+  711:                     return ArrayUtils.toObject(lhs);  // <-- NOT COVERED
+  712:                 }
+  713: 
+  714:                 @Override
+  715:                 public Long[] getRight() {
+  716:                     return ArrayUtils.toObject(rhs);  // <-- NOT COVERED
+  717:                 }
+  718:             });
+    ...
+  752:         }
+  753: 
+  754:         if (ObjectUtils.isArray(objectToTest)) {  // <-- PARTIAL (1 of 2 branches missed)
+  755:             if (objectToTest instanceof boolean[]) {  // <-- NOT COVERED
+  756:                 return append(fieldName, (boolean[]) lhs, (boolean[]) rhs);  // <-- NOT COVERED
+  757:             }
+  758:             if (objectToTest instanceof byte[]) {  // <-- NOT COVERED
+  759:                 return append(fieldName, (byte[]) lhs, (byte[]) rhs);  // <-- NOT COVERED
+  760:             }
+  761:             if (objectToTest instanceof char[]) {  // <-- NOT COVERED
+  762:                 return append(fieldName, (char[]) lhs, (char[]) rhs);
+  763:             }
+
+Existing test methods (do not duplicate them):
+testConstructorWithNullLhs, testConstructorWithNullRhs, testAppendBooleanWithDifferentValues, testAppendBooleanWithSameValues, testAppendBooleanArrayWithDifferentValues, testAppendBooleanArrayWithSameValues, testAppendByteArrayWithDifferentValues, testAppendByteArrayWithSameValues, testAppendCharArrayWithDifferentValues, testAppendCharArrayWithSameValues, testAppendDoubleArrayWithDifferentValues, testAppendDoubleArrayWithSameValues, testAppendFloatArrayWithDifferentValues, testAppendFloatArrayWithSameValues, testAppendIntArrayWithDifferentValues, testAppendIntArrayWithSameValues, testAppendLongArrayWithDifferentValues, testAppendLongArrayWithSameValues, testAppendShortArrayWithDifferentValues, testAppendShortArrayWithSameValues, testAppendObjectArrayWithDifferentValues, testAppendObjectArrayWithSameValues, testAppendObjectWithDifferentValues, testAppendObjectWithSameValues, testAppendObjectWithNullValues, testAppendObjectWithSameNullValues, testAppendDiffResultWithDifferentValues, testAppendDiffResultWithSameValues, testAppendWithTriviallyEqualObjects, testAppendWithNonTriviallyEqualObjectsAndFalseFlag, testAppendBooleanWithTriviallyEqualObjects, testAppendBooleanArrayWithTriviallyEqualObjects, testAppendByteWithTriviallyEqualObjects, testAppendByteArrayWithTriviallyEqualObjects, testAppendCharWithTriviallyEqualObjects, testAppendCharArrayWithTriviallyEqualObjects, testAppendDiffResultWithTriviallyEqualObjects, testAppendDoubleWithTriviallyEqualObjects, testAppendDoubleArrayWithTriviallyEqualObjects, testAppendFloatWithTriviallyEqualObjects, testAppendFloatArrayWithTriviallyEqualObjects, testAppendObjectWithTriviallyEqualObjects, testAppendObjectArrayWithTriviallyEqualObjects, testAppendShortWithTriviallyEqualObjects, testAppendShortArrayWithTriviallyEqualObjects, testAppendBooleanWithTriviallyEqualObjects_2, testAppendBooleanArrayWithTriviallyEqualObjects_2, testAppendByteWithTriviallyEqualObjects_2, testAppendByteArrayWithTriviallyEqualObjects_2, testAppendCharWithTriviallyEqualObjects_2, testAppendCharArrayWithTriviallyEqualObjects_2, testAppendDoubleWithTriviallyEqualObjects_2, testAppendDoubleArrayWithTriviallyEqualObjects_2, testAppendFloatWithTriviallyEqualObjects_2, testAppendFloatArrayWithTriviallyEqualObjects_2, testAppendIntWithTriviallyEqualObjects, testAppendIntArrayWithTriviallyEqualObjects, testAppendLongWithTriviallyEqualObjects, testAppendLongArrayWithTriviallyEqualObjects, testAppendShortWithTriviallyEqualObjects_2, testAppendShortArrayWithTriviallyEqualObjects_2, testAppendObjectWithTriviallyEqualObjects_2, testAppendObjectArrayWithTriviallyEqualObjects_2, testAppendDiffResultWithTriviallyEqualObjects_2, testAppendBooleanWithDifferentValues_2, testAppendBooleanArrayWithDifferentValues_2, testAppendByteWithDifferentValues, testAppendByteArrayWithDifferentValues_2, testAppendCharWithDifferentValues, testAppendCharArrayWithDifferentValues_2, testAppendDoubleWithDifferentValues, testAppendDoubleArrayWithDifferentValues_2, testAppendFloatWithDifferentValues, testAppendFloatArrayWithDifferentValues_2, testAppendIntWithDifferentValues, testAppendIntArrayWithDifferentValues_2, testAppendLongWithDifferentValues, testAppendLongArrayWithDifferentValues_2, testAppendShortWithDifferentValues, testAppendShortArrayWithDifferentValues_2, testAppendObjectWithDifferentValues_2, testAppendObjectArrayWithDifferentValues_2, testAppendDiffResultWithDifferentValues_2, testAppendLongWithTriviallyEqualObjects_2, testAppendLongArrayWithTriviallyEqualObjects_2, testAppendLongWithDifferentValues_2, testAppendLongArrayWithDifferentValues_3
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class DiffBuilder_GenTest (package org.apache.commons.lang3.builder) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.builder.DiffBuilder):
+```java
+package org.apache.commons.lang3.builder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ObjectUtils;
+
+/** Assists in implementing {@link Diffable#diff(Object)} methods. */
+public class DiffBuilder<T> implements Builder<DiffResult<T>> {
+    private final List<Diff<?>> diffs;
+    private final boolean objectsTriviallyEqual;
+    private final T left;
+    private final T right;
+    private final ToStringStyle style;
+    /** Constructs a builder for the specified objects with the specified style. */
+    public DiffBuilder(final T lhs, final T rhs,
+            final ToStringStyle style) {
+
+            this(lhs, rhs, style, true);
+    }
+    /** Constructs a builder for the specified objects with the specified style. */
+    public DiffBuilder(final T lhs, final T rhs,
+            final ToStringStyle style, final boolean testTriviallyEqual) {
+
+        Objects.requireNonNull(lhs, "lhs");
+        Objects.requireNonNull(rhs, "rhs");
+
+        this.diffs = new ArrayList<>();
+        this.left = lhs;
+        this.right = rhs;
+        this.style = style;
+
+        // Don't compare any fields if objects equal
+        this.objectsTriviallyEqual = testTriviallyEqual && Objects.equals(lhs, rhs);
+    }
+    /** Test if two {@code boolean}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final boolean lhs,
+            final boolean rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Boolean>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Boolean getLeft() {
+                    return Boolean.valueOf(lhs);
+                }
+
+                @Override
+                public Boolean getRight() {
+                    return Boolean.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code boolean[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final boolean[] lhs,
+            final boolean[] rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Boolean[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Boolean[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Boolean[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code byte}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final byte lhs,
+            final byte rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Byte>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Byte getLeft() {
+                    return Byte.valueOf(lhs);
+                }
+
+                @Override
+                public Byte getRight() {
+                    return Byte.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code byte[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final byte[] lhs,
+            final byte[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Byte[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Byte[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Byte[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code char}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final char lhs,
+            final char rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Character>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Character getLeft() {
+                    return Character.valueOf(lhs);
+                }
+
+                @Override
+                public Character getRight() {
+                    return Character.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code char[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final char[] lhs,
+            final char[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Character[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Character[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Character[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Append diffs from another {@link DiffResult}. */
+    public DiffBuilder<T> append(final String fieldName, final DiffResult<T> diffResult) {
+        validateFieldNameNotNull(fieldName);
+        Objects.requireNonNull(diffResult, "diffResult");
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        diffResult.getDiffs().forEach(diff -> append(fieldName + "." + diff.getFieldName(), diff.getLeft(), diff.getRight()));
+        return this;
+    }
+    /** Test if two {@code double}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final double lhs,
+            final double rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (Double.doubleToLongBits(lhs) != Double.doubleToLongBits(rhs)) {
+            diffs.add(new Diff<Double>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Double getLeft() {
+                    return Double.valueOf(lhs);
+                }
+
+                @Override
+                public Double getRight() {
+                    return Double.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code double[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final double[] lhs,
+            final double[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Double[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Double[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Double[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code float}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final float lhs,
+            final float rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (Float.floatToIntBits(lhs) != Float.floatToIntBits(rhs)) {
+            diffs.add(new Diff<Float>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Float getLeft() {
+                    return Float.valueOf(lhs);
+                }
+
+                @Override
+                public Float getRight() {
+                    return Float.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code float[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final float[] lhs,
+            final float[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Float[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Float[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Float[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code int}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final int lhs,
+            final int rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Integer>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Integer getLeft() {
+                    return Integer.valueOf(lhs);
+                }
+
+                @Override
+                public Integer getRight() {
+                    return Integer.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code int[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final int[] lhs,
+            final int[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Integer[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Integer[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Integer[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code long}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final long lhs,
+            final long rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Long>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Long getLeft() {
+                    return Long.valueOf(lhs);
+                }
+
+                @Override
+                public Long getRight() {
+                    return Long.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code long[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final long[] lhs,
+            final long[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Long[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Long[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Long[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@link Objects}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final Object lhs,
+            final Object rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs == rhs) {
+            return this;
+        }
+
+        final Object objectToTest;
+        if (lhs != null) {
+            objectToTest = lhs;
+        } else {
+            // rhs cannot be null, as lhs != rhs
+            objectToTest = rhs;
+        }
+
+        if (ObjectUtils.isArray(objectToTest)) {
+            if (objectToTest instanceof boolean[]) {
+                return append(fieldName, (boolean[]) lhs, (boolean[]) rhs);
+            }
+            if (objectToTest instanceof byte[]) {
+                return append(fieldName, (byte[]) lhs, (byte[]) rhs);
+            }
+            if (objectToTest instanceof char[]) {
+                return append(fieldName, (char[]) lhs, (char[]) rhs);
+            }
+            if (objectToTest instanceof double[]) {
+                return append(fieldName, (double[]) lhs, (double[]) rhs);
+            }
+            if (objectToTest instanceof float[]) {
+                return append(fieldName, (float[]) lhs, (float[]) rhs);
+            }
+            if (objectToTest instanceof int[]) {
+                return append(fieldName, (int[]) lhs, (int[]) rhs);
+            }
+            if (objectToTest instanceof long[]) {
+                return append(fieldName, (long[]) lhs, (long[]) rhs);
+            }
+            if (objectToTest instanceof short[]) {
+                return append(fieldName, (short[]) lhs, (short[]) rhs);
+            }
+
+            return append(fieldName, (Object[]) lhs, (Object[]) rhs);
+        }
+
+        // Not array type
+        if (Objects.equals(lhs, rhs)) {
+            return this;
+        }
+
+        diffs.add(new Diff<Object>(fieldName) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public Object getLeft() {
+                return lhs;
+            }
+
+            @Override
+            public Object getRight() {
+                return rhs;
+            }
+        });
+
+        return this;
+    }
+    /** Test if two {@code Object[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final Object[] lhs,
+            final Object[] rhs) {
+        validateFieldNameNotNull(fieldName);
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Object[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Object[] getLeft() {
+                    return lhs;
+                }
+
+                @Override
+                public Object[] getRight() {
+                    return rhs;
+                }
+            });
+        }
+
+        return this;
+    }
+    /** Test if two {@code short}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final short lhs,
+            final short rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (lhs != rhs) {
+            diffs.add(new Diff<Short>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Short getLeft() {
+                    return Short.valueOf(lhs);
+                }
+
+                @Override
+                public Short getRight() {
+                    return Short.valueOf(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Test if two {@code short[]}s are equal. */
+    public DiffBuilder<T> append(final String fieldName, final short[] lhs,
+            final short[] rhs) {
+        validateFieldNameNotNull(fieldName);
+
+        if (objectsTriviallyEqual) {
+            return this;
+        }
+        if (!Arrays.equals(lhs, rhs)) {
+            diffs.add(new Diff<Short[]>(fieldName) {
+                private static final long serialVersionUID = 1L;
+
+                @Override
+                public Short[] getLeft() {
+                    return ArrayUtils.toObject(lhs);
+                }
+
+                @Override
+                public Short[] getRight() {
+                    return ArrayUtils.toObject(rhs);
+                }
+            });
+        }
+        return this;
+    }
+    /** Builds a {@link DiffResult} based on the differences appended to this builder. */
+    @Override
+    public DiffResult<T> build() {
+        return new DiffResult<>(left, right, diffs, style);
+    }
+    // non-public helper methods (signatures only)
+    private void validateFieldNameNotNull(final String fieldName);
+}
+```

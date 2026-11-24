@@ -1,0 +1,112 @@
+[ERROR] Tests run: 44, Failures: 4, Errors: 3, Skipped: 0, Time elapsed: 0.245 s <<< FAILURE! -- in org.apache.commons.lang3.CharSequenceUtils_GenTest
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testToCharArray_withStringBuilder -- Time elapsed: 0.021 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: [C@224703c7<[t, e, s, t]> but was: [C@dff0293<[t, e, s, t]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testToCharArray_withStringBuilder(CharSequenceUtils_GenTest.java:284)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndEmptyString -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: begin -1, end 0, length 0
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4606)
+	at java.base/java.lang.String.substring(String.java:2709)
+	at java.base/java.lang.String.subSequence(String.java:2747)
+	at org.apache.commons.lang3.CharSequenceUtils.subSequence(CharSequenceUtils.java:355)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndEmptyString(CharSequenceUtils_GenTest.java:303)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndNonEmptyString -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: begin -1, end 4, length 4
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4606)
+	at java.base/java.lang.String.substring(String.java:2709)
+	at java.base/java.lang.String.subSequence(String.java:2747)
+	at org.apache.commons.lang3.CharSequenceUtils.subSequence(CharSequenceUtils.java:355)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndNonEmptyString(CharSequenceUtils_GenTest.java:308)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withStartIndexGreaterThanLength -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: begin 5, end 4, length 4
+	at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4606)
+	at java.base/java.lang.String.substring(String.java:2709)
+	at java.base/java.lang.String.subSequence(String.java:2747)
+	at org.apache.commons.lang3.CharSequenceUtils.subSequence(CharSequenceUtils.java:355)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withStartIndexGreaterThanLength(CharSequenceUtils_GenTest.java:318)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndNullCharSequence -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndNullCharSequence(CharSequenceUtils_GenTest.java:277)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testToCharArray_withStringBuffer -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: [C@5882922f<[t, e, s, t]> but was: [C@5645674f<[t, e, s, t]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testToCharArray_withStringBuffer(CharSequenceUtils_GenTest.java:291)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.CharSequenceUtils_GenTest.testToCharArray_withCharBuffer -- Time elapsed: 0.001 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: [C@3d31b6f7<[t, e, s, t]> but was: [C@33f64f21<[t, e, s, t]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.apache.commons.lang3.CharSequenceUtils_GenTest.testToCharArray_withCharBuffer(CharSequenceUtils_GenTest.java:298)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndNullCharSequence:277 Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
+[ERROR]   CharSequenceUtils_GenTest.testToCharArray_withCharBuffer:298 expected: [C@3d31b6f7<[t, e, s, t]> but was: [C@33f64f21<[t, e, s, t]>
+[ERROR]   CharSequenceUtils_GenTest.testToCharArray_withStringBuffer:291 expected: [C@5882922f<[t, e, s, t]> but was: [C@5645674f<[t, e, s, t]>
+[ERROR]   CharSequenceUtils_GenTest.testToCharArray_withStringBuilder:284 expected: [C@224703c7<[t, e, s, t]> but was: [C@dff0293<[t, e, s, t]>
+[ERROR] Errors: 
+[ERROR]   CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndEmptyString:303 » StringIndexOutOfBounds begin -1, end 0, length 0
+[ERROR]   CharSequenceUtils_GenTest.testSubSequence_withNegativeStartIndexAndNonEmptyString:308 » StringIndexOutOfBounds begin -1, end 4, length 4
+[ERROR]   CharSequenceUtils_GenTest.testSubSequence_withStartIndexGreaterThanLength:318 » StringIndexOutOfBounds begin 5, end 4, length 4
+[ERROR] Tests run: 44, Failures: 4, Errors: 3, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w1/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

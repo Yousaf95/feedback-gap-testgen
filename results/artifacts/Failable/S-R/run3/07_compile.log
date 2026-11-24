@@ -1,0 +1,91 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[50,58] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[56,34] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[110,50] cannot find symbol
+  symbol:   class Supplier
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[148,24] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[149,24] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[155,24] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[156,24] cannot find symbol
+  symbol:   class Function
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[205,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->{ thro[...]"); }
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[211,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->42
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[212,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->{ thro[...]"); }
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[218,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->"test"
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[219,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+  required: java.lang.Object[]
+  found:    ()->null
+  reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[50,58] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[56,34] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[110,50] cannot find symbol
+[ERROR]   symbol:   class Supplier
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[148,24] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[149,24] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[155,24] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[156,24] cannot find symbol
+[ERROR]   symbol:   class Function
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[205,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->{ thro[...]"); }
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[211,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->42
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[212,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->{ thro[...]"); }
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[218,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->"test"
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] /work/w3/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[219,13] method arguments in interface org.junit.jupiter.params.provider.Arguments cannot be applied to given types;
+[ERROR]   required: java.lang.Object[]
+[ERROR]   found:    ()->null
+[ERROR]   reason: varargs mismatch; java.lang.Object is not a functional interface
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

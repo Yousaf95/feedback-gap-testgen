@@ -1,0 +1,175 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+public class ObjectUtils_GenTest {
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @Test
+    public void testFirstNonNull() {
+        assertEquals("a", ObjectUtils.firstNonNull("a", "b"));
+        assertEquals("b", ObjectUtils.firstNonNull(null, "b"));
+        assertNull(ObjectUtils.firstNonNull((String) null, (String) null));
+    }
+
+    
+    
+    @Test
+    public void testGetIfNull() {
+        assertEquals("a", ObjectUtils.getIfNull("a", () -> "b"));
+        assertEquals("b", ObjectUtils.getIfNull(null, () -> "b"));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideHashCodeValues")
+    public void testHashCode(Object object, int expectedHash) {
+        assertEquals(expectedHash, ObjectUtils.hashCode(object));
+    }
+
+    private static Stream<Arguments> provideHashCodeValues() {
+        return Stream.of(
+            arguments(null, 0),
+            arguments("a", "a".hashCode()),
+            arguments(123, 123)
+        );
+    }
+
+    
+    private static Stream<Arguments> provideIdentityToStringValues() {
+        return Stream.of(
+            arguments(null, null),
+            arguments("a", "java.lang.String@12345678"),
+            arguments(123, "int@12345678")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsArrayValues")
+    public void testIsArray(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isArray(object));
+    }
+
+    private static Stream<Arguments> provideIsArrayValues() {
+        return Stream.of(
+            arguments(null, false),
+            arguments(new int[]{1, 2, 3}, true),
+            arguments("a", false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsEmptyValues")
+    public void testIsEmpty(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsEmptyValues() {
+        return Stream.of(
+            arguments(null, true),
+            arguments("", true),
+            arguments(new int[]{}, true),
+            arguments(Collections.emptyList(), true),
+            arguments("a", false),
+            arguments(new int[]{1, 2, 3}, false),
+            arguments(Collections.singletonList("a"), false)
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideIsNotEmptyValues")
+    public void testIsNotEmpty(Object object, boolean expected) {
+        assertEquals(expected, ObjectUtils.isNotEmpty(object));
+    }
+
+    private static Stream<Arguments> provideIsNotEmptyValues() {
+        return Stream.of(
+            arguments(null, false),
+            arguments("", false),
+            arguments(new int[]{}, false),
+            arguments(Collections.emptyList(), false),
+            arguments("a", true),
+            arguments(new int[]{1, 2, 3}, true),
+            arguments(Collections.singletonList("a"), true)
+        );
+    }
+
+    
+    private static Stream<Arguments> provideMaxValues() {
+        return Stream.of(
+            arguments(1, 2, 3),
+            arguments("c", "a", "b"),
+            arguments(new Integer[]{3, 1, 4})
+        );
+    }
+
+    
+    
+    
+    private static Stream<Arguments> provideMinValues() {
+        return Stream.of(
+            arguments(1, 2, 3),
+            arguments("a", "b", "c"),
+            arguments(new Integer[]{3, 1, 4})
+        );
+    }
+
+    
+    private static Stream<Arguments> provideModeValues() {
+        return Stream.of(
+            arguments(1, 2, 3, 1),
+            arguments("a", "b", "c", "a"),
+            arguments(new Integer[]{1, 2, 2, 3})
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideToStringValues")
+    public void testToString(Object object, String expected) {
+        assertEquals(expected, ObjectUtils.toString(object));
+    }
+
+    private static Stream<Arguments> provideToStringValues() {
+        return Stream.of(
+            arguments(null, ""),
+            arguments("a", "a"),
+            arguments(123, "123")
+        );
+    }
+
+    
+    
+    
+    private static <T> T modeValue(T... items) {
+        Map<T, Integer> occurrences = new HashMap<>();
+        for (T item : items) {
+            occurrences.put(item, occurrences.getOrDefault(item, 0) + 1);
+        }
+        return occurrences.entrySet().stream()
+                          .max(Map.Entry.comparingByValue())
+                          .map(Map.Entry::getKey)
+                          .orElse(null);
+    }
+}

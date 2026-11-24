@@ -1,0 +1,80 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import java.util.Set;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    void testGetAbbreviatedName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getAbbreviatedName((Class<?>) null, 10));
+    }
+
+    @Test
+    void testGetAllInterfaces_withObjectClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(Object.class);
+        assertNotNull(interfaces);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    void testGetAllSuperclasses_withStringClass() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(String.class);
+        assertNotNull(superclasses);
+        assertEquals(1, superclasses.size());
+        assertEquals(Object.class, superclasses.get(0));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName((Object) null));
+    }
+
+    @Test
+    void testGetComponentType_withNullClass() {
+        assertNull(ClassUtils.getComponentType(null));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withNullObject() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Object) null, "default"));
+    }
+
+    @Test
+    void testGetPackageName_withNullClassName() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((String) null));
+    }
+
+    @Test
+    void testGetCanonicalName_withArrayClass() {
+        String canonicalName = ClassUtils.getCanonicalName(new int[0].getClass());
+        assertEquals("int[]", canonicalName);
+    }
+
+    @Test
+    void testGetClassName_withInnerClass() {
+        String className = ClassUtils.getName(ClassUtils_GenTest.class, "default");
+        assertTrue(className.contains("ClassUtils$"));
+    }
+
+    @Test
+    void testGetPackageName_withInnerClass() {
+        String packageName = ClassUtils.getPackageName(ClassUtils_GenTest.class);
+        assertEquals("org.apache.commons.lang3", packageName);
+    }
+
+    @Test
+    void testGetPublicMethod_withNonExistentMethod() {
+        assertThrows(NoSuchMethodException.class, () -> 
+            ClassUtils.getPublicMethod(String.class, "nonExistentMethod"));
+    }
+}
+```

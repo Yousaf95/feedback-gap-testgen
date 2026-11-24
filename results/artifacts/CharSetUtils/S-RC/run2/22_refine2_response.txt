@@ -1,0 +1,34 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_EmptySet() {
+        assertFalse(CharSetUtils.containsAny("test", new String[]{}));
+    }
+
+    @Test
+    public void testCount_EmptySet() {
+        assertEquals(0, CharSetUtils.count("test", new String[]{}));
+    }
+
+    @Test
+    public void testDelete_EmptySet() {
+        assertEquals("test", CharSetUtils.delete("test", new String[]{}));
+    }
+
+    @Test
+    public void testKeep_EmptySet() {
+        assertEquals("", CharSetUtils.keep("test", new String[]{}));
+    }
+
+    @Test
+    public void testSqueeze_EmptySet() {
+        assertEquals("test", CharSetUtils.squeeze("test", new String[]{}));
+    }
+}
+```

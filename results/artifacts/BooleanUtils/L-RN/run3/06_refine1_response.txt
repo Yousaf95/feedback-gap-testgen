@@ -1,0 +1,116 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    void testIsFalseWithNull() {
+        assertFalse(BooleanUtils.isFalse(null));
+    }
+
+    @Test
+    void testIsNotFalseWithTrue() {
+        assertTrue(BooleanUtils.isNotFalse(Boolean.TRUE));
+    }
+
+    @Test
+    void testIsNotFalseWithFalse() {
+        assertFalse(BooleanUtils.isNotFalse(Boolean.FALSE));
+    }
+
+    @Test
+    void testIsNotFalseWithNull() {
+        assertTrue(BooleanUtils.isNotFalse(null));
+    }
+
+    @Test
+    void testIsTrueWithNull() {
+        assertFalse(BooleanUtils.isTrue(null));
+    }
+
+    @Test
+    void testIsNotTrueWithTrue() {
+        assertFalse(BooleanUtils.isNotTrue(Boolean.TRUE));
+    }
+
+    @Test
+    void testIsNotTrueWithFalse() {
+        assertTrue(BooleanUtils.isNotTrue(Boolean.FALSE));
+    }
+
+    @Test
+    void testIsNotTrueWithNull() {
+        assertTrue(BooleanUtils.isNotTrue(null));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntAndCustomValues() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(10, 10, 20, 30));
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(20, 10, 20, 30));
+        assertNull(BooleanUtils.toBooleanObject(30, 10, 20, 30));
+    }
+
+    @Test
+    void testToBooleanObjectWithIntegerAndCustomValues() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject(Integer.valueOf(10), Integer.valueOf(10), Integer.valueOf(20), Integer.valueOf(30)));
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject(Integer.valueOf(20), Integer.valueOf(10), Integer.valueOf(20), Integer.valueOf(30)));
+        assertNull(BooleanUtils.toBooleanObject(Integer.valueOf(30), Integer.valueOf(10), Integer.valueOf(20), Integer.valueOf(30)));
+    }
+
+    @Test
+    void testToBooleanWithIntAndCustomValues() {
+        assertTrue(BooleanUtils.toBoolean(10, 10, 20));
+        assertFalse(BooleanUtils.toBoolean(20, 10, 20));
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(30, 10, 20));
+    }
+
+    @Test
+    void testToBooleanWithIntegerAndCustomValues() {
+        assertTrue(BooleanUtils.toBoolean(Integer.valueOf(10), Integer.valueOf(10), Integer.valueOf(20)));
+        assertFalse(BooleanUtils.toBoolean(Integer.valueOf(20), Integer.valueOf(10), Integer.valueOf(20)));
+        assertThrows(IllegalArgumentException.class, () -> BooleanUtils.toBoolean(Integer.valueOf(30), Integer.valueOf(10), Integer.valueOf(20)));
+    }
+
+    @Test
+    void testToIntegerWithCustomValues() {
+        assertEquals(10, BooleanUtils.toInteger(true, 10, 20));
+        assertEquals(20, BooleanUtils.toInteger(false, 10, 20));
+    }
+
+    @Test
+    void testToIntegerObjectWithBooleanAndCustomValues() {
+        assertEquals(Integer.valueOf(10), BooleanUtils.toIntegerObject(true, Integer.valueOf(10), Integer.valueOf(20)));
+        assertEquals(Integer.valueOf(20), BooleanUtils.toIntegerObject(false, Integer.valueOf(10), Integer.valueOf(20)));
+    }
+
+    @Test
+    void testToIntegerObjectWithBooleanAndNullValues() {
+        assertNull(BooleanUtils.toIntegerObject(null, Integer.valueOf(10), Integer.valueOf(20), null));
+        assertEquals(Integer.valueOf(10), BooleanUtils.toIntegerObject(true, Integer.valueOf(10), Integer.valueOf(20), null));
+        assertEquals(Integer.valueOf(20), BooleanUtils.toIntegerObject(false, Integer.valueOf(10), Integer.valueOf(20), null));
+    }
+
+    @Test
+    void testToStringWithCustomValues() {
+        assertEquals("yes", BooleanUtils.toString(true, "yes", "no"));
+        assertEquals("no", BooleanUtils.toString(false, "yes", "no"));
+    }
+
+    @Test
+    void testToStringWithNullBooleanAndCustomValues() {
+        assertEquals("maybe", BooleanUtils.toString(null, "yes", "no", "maybe"));
+        assertEquals("yes", BooleanUtils.toString(true, "yes", "no", "maybe"));
+        assertEquals("no", BooleanUtils.toString(false, "yes", "no", "maybe"));
+    }
+
+    @Test
+    void testForEachWithAction() {
+        final StringBuilder result = new StringBuilder();
+        BooleanUtils.forEach(b -> result.append(b));
+        assertEquals("falsetrue", result.toString());
+    }
+}
+```

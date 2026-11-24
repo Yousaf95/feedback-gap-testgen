@@ -1,0 +1,43 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class HashCodeBuilder_GenTest {
+
+    @Test
+    public void testIsRegisteredWithNullValue_2() {
+        assertFalse(HashCodeBuilder.isRegistered(null));
+    }
+
+    @Test
+    public void testIsRegisteredWithNonRegisteredValue_2() {
+        Object value = new Object();
+        assertFalse(HashCodeBuilder.isRegistered(value));
+    }
+
+    @Test
+    public void testReflectionAppendWithNullObject() {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append((Object) null);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testHashCodeBuilderWithOddInitialNumberAndMultiplier() {
+        HashCodeBuilder builder = new HashCodeBuilder(17, 37);
+        assertEquals(17 * 37, builder.toHashCode());
+    }
+
+    @Test
+    public void testHashCodeBuilderWithEvenInitialNumberThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(2, 37));
+    }
+
+    @Test
+    public void testHashCodeBuilderWithEvenMultiplierThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> new HashCodeBuilder(17, 4));
+    }
+}
+```

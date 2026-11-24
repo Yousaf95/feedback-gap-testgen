@@ -1,0 +1,47 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[360,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[360,52] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[367,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[374,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[381,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[388,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[420,13] cannot find symbol
+  symbol:   class StringWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[420,35] cannot find symbol
+  symbol:   class StringWriter
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[429,46] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[360,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[360,52] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[367,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[374,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[381,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[388,39] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[420,13] cannot find symbol
+[ERROR]   symbol:   class StringWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[420,35] cannot find symbol
+[ERROR]   symbol:   class StringWriter
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[429,46] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

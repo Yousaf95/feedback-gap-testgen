@@ -1,0 +1,78 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.io.IOException;
+
+import org.junit.jupiter.api.Test;
+
+public class Failable_GenTest {
+
+    @Test
+    public void testApplyAsDoubleNormalCase() {
+        double result = Failable.applyAsDouble((left, right) -> left + right, 2.5, 3.5);
+        assertEquals(6.0, result);
+    }
+
+    @Test
+    public void testApplyAsDoubleThrowsException() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.applyAsDouble((left, right) -> { throw new IOException("test"); }, 2.5, 3.5)
+        );
+    }
+
+    @Test
+    public void testGetAsBooleanNormalCase() {
+        boolean result = Failable.getAsBoolean(() -> true);
+        assertEquals(true, result);
+    }
+
+    @Test
+    public void testGetAsBooleanThrowsException() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.getAsBoolean(() -> { throw new IOException("test"); })
+        );
+    }
+
+    @Test
+    public void testGetAsIntNormalCase() {
+        int result = Failable.getAsInt(() -> 42);
+        assertEquals(42, result);
+    }
+
+    @Test
+    public void testGetAsIntThrowsException() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.getAsInt(() -> { throw new IOException("test"); })
+        );
+    }
+
+    @Test
+    public void testGetAsLongNormalCase() {
+        long result = Failable.getAsLong(() -> 123456789L);
+        assertEquals(123456789L, result);
+    }
+
+    @Test
+    public void testGetAsLongThrowsException() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.getAsLong(() -> { throw new IOException("test"); })
+        );
+    }
+
+    @Test
+    public void testGetAsShortNormalCase() {
+        short result = Failable.getAsShort(() -> (short) 123);
+        assertEquals(123, result);
+    }
+
+    @Test
+    public void testGetAsShortThrowsException() {
+        assertThrows(RuntimeException.class, () -> 
+            Failable.getAsShort(() -> { throw new IOException("test"); })
+        );
+    }
+}
+```

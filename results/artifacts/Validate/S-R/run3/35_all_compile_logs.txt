@@ -1,0 +1,998 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[177,23] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[250,23] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+  symbol:   method maps()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] reference to notEmpty is ambiguous
+  both method <T>notEmpty(T) in org.apache.commons.lang3.Validate and method <T>notEmpty(T[]) in org.apache.commons.lang3.Validate match
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] reference to validIndex is ambiguous
+  both method <T>validIndex(T,int) in org.apache.commons.lang3.Validate and method <T>validIndex(T[],int) in org.apache.commons.lang3.Validate match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[177,23] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[250,23] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+[ERROR]   symbol:   method maps()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] reference to notEmpty is ambiguous
+[ERROR]   both method <T>notEmpty(T) in org.apache.commons.lang3.Validate and method <T>notEmpty(T[]) in org.apache.commons.lang3.Validate match
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] reference to validIndex is ambiguous
+[ERROR]   both method <T>validIndex(T,int) in org.apache.commons.lang3.Validate and method <T>validIndex(T[],int) in org.apache.commons.lang3.Validate match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+  symbol:   method maps()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] no suitable method found for notEmpty(T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Collection<?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Map<?,?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.CharSequence
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] no suitable method found for validIndex(T,int)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Collection<?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.CharSequence
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T[],int) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T[],int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+[ERROR]   symbol:   method maps()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] no suitable method found for notEmpty(T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Collection<?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Map<?,?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.CharSequence
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] no suitable method found for validIndex(T,int)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Collection<?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.CharSequence
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T[],int) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T[],int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+  symbol:   method maps()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] no suitable method found for notEmpty(T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Collection<?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Map<?,?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.CharSequence
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] no suitable method found for validIndex(T,int)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Collection<?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.CharSequence
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T[],int) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T[],int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+[ERROR]   symbol:   method maps()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] no suitable method found for notEmpty(T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Collection<?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Map<?,?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.CharSequence
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] no suitable method found for validIndex(T,int)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Collection<?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.CharSequence
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T[],int) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T[],int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+  symbol:   method iterables()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+  symbol:   method maps()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+  symbol:   method objects()
+  location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to double)
+    method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to long)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+      (inference variable T has incompatible bounds
+        equality constraints: T
+        lower bounds: java.lang.String)
+    method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] no suitable method found for notEmpty(T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Collection<?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Map<?,?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.CharSequence
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+    method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+  symbol:   class Collection
+  location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] no suitable method found for validIndex(T,int)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.util.Collection<?>
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+      (inference variable T has incompatible bounds
+        lower bounds: java.lang.CharSequence
+        lower bounds: T)
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (actual and formal argument lists differ in length))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T[],int) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+    method org.apache.commons.lang3.Validate.<T>validIndex(T[],int,java.lang.String,java.lang.Object...) is not applicable
+      (cannot infer type-variable(s) T
+        (argument mismatch; T cannot be converted to T[]))
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[116,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[140,56] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[152,29] element value must be a constant expression
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,18] cannot find symbol
+[ERROR]   symbol:   method iterables()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[176,52] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,18] cannot find symbol
+[ERROR]   symbol:   method maps()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[189,46] expression not allowed as annotation value
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[236,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[286,18] cannot find symbol
+[ERROR]   symbol:   method objects()
+[ERROR]   location: @interface org.junit.jupiter.params.provider.ValueSource
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[43,42] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[49,68] no suitable method found for exclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.exclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>exclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[79,42] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[85,68] no suitable method found for inclusiveBetween(java.lang.String,java.lang.String,T)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(double,double,double) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to double)
+[ERROR]     method org.apache.commons.lang3.Validate.inclusiveBetween(long,long,long) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to long)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         equality constraints: T
+[ERROR]         lower bounds: java.lang.String)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>inclusiveBetween(T,T,java.lang.Comparable<T>,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[135,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[171,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[178,68] no suitable method found for notEmpty(T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Collection<?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Map<?,?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.CharSequence
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[]) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>notEmpty(T[],java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[244,9] cannot find symbol
+[ERROR]   symbol:   class Collection
+[ERROR]   location: class org.apache.commons.lang3.Validate_GenTest
+[ERROR] /work/w7/src/test/java/org/apache/commons/lang3/Validate_GenTest.java:[251,68] no suitable method found for validIndex(T,int)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.util.Collection<?>
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int) is not applicable
+[ERROR]       (inference variable T has incompatible bounds
+[ERROR]         lower bounds: java.lang.CharSequence
+[ERROR]         lower bounds: T)
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T,int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (actual and formal argument lists differ in length))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T[],int) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR]     method org.apache.commons.lang3.Validate.<T>validIndex(T[],int,java.lang.String,java.lang.Object...) is not applicable
+[ERROR]       (cannot infer type-variable(s) T
+[ERROR]         (argument mismatch; T cannot be converted to T[]))
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

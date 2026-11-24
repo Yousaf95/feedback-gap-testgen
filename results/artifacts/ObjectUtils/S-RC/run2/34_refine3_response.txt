@@ -1,0 +1,126 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.io.IOException;
+import java.util.function.Supplier;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testReadResolve() {
+        ObjectUtils.Null nullPlaceholder = new ObjectUtils.Null();
+        assertSame(nullPlaceholder, nullPlaceholder.readResolve());
+    }
+
+    @Test
+    void testAllNotNull() {
+        assertTrue(ObjectUtils.allNotNull(1, "test", 3.14));
+        assertFalse(ObjectUtils.allNotNull(1, null, 3.14));
+        assertTrue(ObjectUtils.allNotNull((Object[]) null));
+    }
+
+    @Test
+    void testAnyNull() {
+        assertFalse(ObjectUtils.anyNull(1, "test", 3.14));
+        assertTrue(ObjectUtils.anyNull(1, null, 3.14));
+        assertTrue(ObjectUtils.anyNull((Object[]) null));
+    }
+
+    @Test
+    void testClone() {
+        String original = "test";
+        String clone = ObjectUtils.clone(original);
+        assertSame(original, clone);
+
+        Integer[] array = {1, 2, 3};
+        Integer[] clonedArray = ObjectUtils.clone(array);
+        assertArrayEquals(array, clonedArray);
+
+        Object nonCloneable = new Object();
+        Object clonedNonCloneable = ObjectUtils.clone(nonCloneable);
+        assertNull(clonedNonCloneable);
+    }
+
+    @Test
+    void testCloneIfPossible() {
+        String original = "test";
+        String clone = ObjectUtils.cloneIfPossible(original);
+        assertSame(original, clone);
+
+        Integer[] array = {1, 2, 3};
+        Integer[] clonedArray = ObjectUtils.cloneIfPossible(array);
+        assertArrayEquals(array, clonedArray);
+
+        Object nonCloneable = new Object();
+        Object clonedNonCloneable = ObjectUtils.cloneIfPossible(nonCloneable);
+        assertNull(clonedNonCloneable);
+    }
+
+    @Test
+    void testCompare() {
+        assertEquals(0, ObjectUtils.compare(1, 1));
+        assertTrue(ObjectUtils.compare(2, 1) > 0);
+        assertTrue(ObjectUtils.compare(1, 2) < 0);
+
+        assertEquals(0, ObjectUtils.compare("a", "a"));
+        assertTrue(ObjectUtils.compare("b", "a") > 0);
+        assertTrue(ObjectUtils.compare("a", "b") < 0);
+
+        assertEquals(0, ObjectUtils.compare(null, null));
+        assertTrue(ObjectUtils.compare(null, "a") < 0);
+        assertTrue(ObjectUtils.compare("a", null) > 0);
+    }
+
+    @Test
+    void testCONST() {
+        assertTrue(ObjectUtils.CONST(true));
+        assertEquals((byte) 1, ObjectUtils.CONST_BYTE(1));
+        assertEquals((short) 2, ObjectUtils.CONST_SHORT(2));
+        assertEquals('3', ObjectUtils.CONST('3'));
+        assertEquals(4.0, ObjectUtils.CONST(4.0));
+        assertEquals(5.0f, ObjectUtils.CONST(5.0f));
+        assertEquals(6L, ObjectUtils.CONST(6L));
+        assertEquals((short) 7, ObjectUtils.CONST_SHORT(7));
+    }
+
+    @Test
+    void testGetFirstNonNull() {
+        Supplier<String> supplier1 = () -> null;
+        Supplier<String> supplier2 = () -> "test";
+        assertEquals("test", ObjectUtils.getFirstNonNull(supplier1, supplier2));
+
+        Supplier<Integer> supplier3 = () -> 1;
+        Supplier<Integer> supplier4 = () -> null;
+        assertEquals(1, ObjectUtils.getFirstNonNull(supplier3, supplier4));
+    }
+
+    @Test
+    void testHashCode() {
+        assertEquals(0, ObjectUtils.hashCode(null));
+        assertEquals("0", ObjectUtils.hashCodeHex(null));
+    }
+
+    @Test
+    void testIdentityToString() throws IOException {
+        String result = ObjectUtils.identityToString(new StringBuilder(), new Object());
+        assertTrue(result.contains("@"));
+
+        result = ObjectUtils.identityToString((Appendable) null);
+        assertNull(result);
+
+        result = ObjectUtils.identityToString((StrBuilder) null);
+        assertNull(result);
+
+        result = ObjectUtils.identityToString((StringBuffer) null);
+        assertNull(result);
+    }
+
+    @Test
+    void testIsArray() {
+        assertTrue(ObjectUtils.isArray(new int[0]));
+        assertFalse(ObjectUtils.isArray(null));
+        assertFalse(ObjectUtils.isArray("test"));
+    }
+}
+```

@@ -1,0 +1,80 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testToStringWithAllParameters() {
+        String result = ReflectionToStringBuilder.toString(
+                new Object(), ToStringStyle.DEFAULT_STYLE, true, true, false, Object.class);
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testConstructorWithObjectAndStyle() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertNotNull(builder);
+    }
+
+    @Test
+    public void testConstructorWithAllParameters() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(
+                new Object(), ToStringStyle.DEFAULT_STYLE, null, Object.class, true, true, false);
+        assertNotNull(builder);
+    }
+
+    @Test
+    public void testAcceptWithTransientFieldAndIncludeTransientsTrue() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setAppendTransients(true);
+        Field transientField = new TestClass().getClass().getDeclaredFields()[0];
+        assertTrue(builder.accept(transientField));
+    }
+
+    @Test
+    public void testAcceptWithStaticFieldAndIncludeStaticsTrue() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setAppendStatics(true);
+        Field staticField = new TestClass().getClass().getDeclaredFields()[1];
+        assertTrue(builder.accept(staticField));
+    }
+
+    @Test
+    public void testSetExcludeFieldNamesWithNull() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setExcludeFieldNames((String[]) null);
+        assertNull(builder.getExcludeFieldNames());
+    }
+
+    @Test
+    public void testSetIncludeFieldNamesWithNull() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object());
+        builder.setIncludeFieldNames((String[]) null);
+        assertNull(builder.getIncludeFieldNames());
+    }
+
+    @Test
+    public void testSetUpToClassWithInvalidClassThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> 
+            new ReflectionToStringBuilder(new Object()).setUpToClass(String.class)
+        );
+    }
+
+    @Test
+    public void testValidateWithIntersectingIncludeAndExcludeFieldNames() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(new Object())
+                .setIncludeFieldNames("field1")
+                .setExcludeFieldNames("field1");
+        assertThrows(IllegalStateException.class, builder::toString);
+    }
+
+    static class TestClass {
+        transient int transientField;
+        static int staticField;
+    }
+}
+```

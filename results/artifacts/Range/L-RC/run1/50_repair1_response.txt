@@ -1,0 +1,58 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Comparator;
+import static org.junit.jupiter.api.Assertions.*;
+
+class Range_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testConstructorWithComparatorSwapsElements() {
+        Comparator<Integer> reverseOrder = Comparator.reverseOrder();
+        Range<Integer> range = Range.of(1, 2, reverseOrder);
+        assertEquals(Integer.valueOf(1), range.getMaximum());
+        assertEquals(Integer.valueOf(2), range.getMinimum());
+    }
+
+    @Test
+    void testContainsRangeWithNull_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    void testHashCodeCalculation() {
+        Range<Integer> range = Range.between(1, 5);
+        int expectedHash = java.util.Objects.hash(Range.class, 1, 5);
+        assertEquals(expectedHash, range.hashCode());
+    }
+
+    @Test
+    void testIntersectionWithDifferentMinimumAndMaximum_2() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 7);
+        Range<Integer> intersection = range1.intersectionWith(range2);
+        assertEquals(Range.between(3, 5), intersection);
+    }
+
+    @Test
+    void testIsAfterRangeWithNull_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    void testIsBeforeRangeWithNull_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    void testIsOverlappedByWithNull_3() {
+        Range<Integer> range = Range.between(1, 5);
+        assertFalse(range.isOverlappedBy(null));
+    }
+}
+```

@@ -1,0 +1,61 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import static org.junit.jupiter.api.Assertions.*;
+import org.apache.commons.lang3.builder.DiffBuilder;
+import org.apache.commons.lang3.builder.DiffResult;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+class DiffBuilder_GenTest {
+
+    @Test
+    void testConstructorWithTriviallyEqualObjectsAndFalseFlag() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE, false);
+        assertEquals(0, diffBuilder.build().getDiffs().size());
+    }
+
+    @Test
+    void testAppendWithNullFieldNameThrowsNullPointerException() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(new Object(), new Object(), ToStringStyle.DEFAULT_STYLE);
+        assertThrows(NullPointerException.class, () -> diffBuilder.append(null, 1, 2));
+    }
+
+    @Test
+    void testBuildWithNoDifferences() {
+        Object lhs = new Object();
+        Object rhs = new Object();
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>(lhs, rhs, ToStringStyle.DEFAULT_STYLE);
+        DiffResult<Object> result = diffBuilder.build();
+        assertEquals(0, result.getDiffs().size());
+    }
+
+    @Test
+    void testBuildWithMultipleDifferences() {
+        DiffBuilder<Object> diffBuilder = new DiffBuilder<>("left", "right", ToStringStyle.DEFAULT_STYLE);
+        diffBuilder.append("field1", 1, 2);
+        diffBuilder.append("field2", 'a', 'b');
+        diffBuilder.append("field3", true, false);
+        DiffResult<Object> result = diffBuilder.build();
+        assertEquals(3, result.getDiffs().size());
+    }
+
+    @Test
+    void testAppendDiffResultWithNestedDifferences() {
+        DiffBuilder<String> innerDiffBuilder = new DiffBuilder<>("innerLeft", "innerRight", ToStringStyle.DEFAULT_STYLE);
+        innerDiffBuilder.append("nestedField", 10, 20);
+        DiffResult<String> innerDiffResult = innerDiffBuilder.build();
+
+        DiffBuilder<Object> outerDiffBuilder = new DiffBuilder<>("outerLeft", "outerRight", ToStringStyle.DEFAULT_STYLE);
+        outerDiffBuilder.append("field", (DiffResult<Object>) (Object) innerDiffResult);
+
+        DiffResult<Object> result = outerDiffBuilder.build();
+        assertEquals(1, result.getDiffs().size());
+        assertEquals("field.nestedField", result.getDiffs().get(0).getFieldName());
+    }
+}
+```

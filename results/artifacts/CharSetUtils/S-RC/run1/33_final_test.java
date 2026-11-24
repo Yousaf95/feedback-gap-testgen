@@ -1,0 +1,268 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.ArrayUtils.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import static org.apache.commons.lang3.CharSetUtils.*;
+
+public class CharSetUtils_GenTest {
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "b", "c"})
+    public void testContainsAny_withSingleCharSet(String set) {
+        assertTrue(CharSetUtils.containsAny("abc", set));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "b", "c"})
+    public void testContainsAny_withMultipleCharSets(String set) {
+        assertTrue(CharSetUtils.containsAny("abc", "d", set, "e"));
+    }
+
+    @Test
+    public void testContainsAny_withEmptyString() {
+        assertFalse(CharSetUtils.containsAny("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testContainsAny_withNullString() {
+        assertFalse(CharSetUtils.containsAny(null, "a", "b", "c"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"d", "e", "f"})
+    public void testContainsAny_withNoMatchingChars(String set) {
+        assertFalse(CharSetUtils.containsAny("abc", set));
+    }
+
+    
+    
+    @Test
+    public void testCount_withEmptyString() {
+        assertEquals(0, CharSetUtils.count("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testCount_withNullString() {
+        assertEquals(0, CharSetUtils.count(null, "a", "b", "c"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"d", "e", "f"})
+    public void testCount_withNoMatchingChars(String set) {
+        assertEquals(0, CharSetUtils.count("abc", set));
+    }
+
+    
+    
+    @Test
+    public void testDelete_withEmptyString() {
+        assertEquals("", CharSetUtils.delete("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testDelete_withNullString() {
+        assertNull(CharSetUtils.delete(null, "a", "b", "c"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"d", "e", "f"})
+    public void testDelete_withNoMatchingChars(String set) {
+        assertEquals("abc", CharSetUtils.delete("abc", set));
+    }
+
+    
+    
+    @Test
+    public void testKeep_withEmptyString() {
+        assertEquals("", CharSetUtils.keep("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testKeep_withNullString() {
+        assertNull(CharSetUtils.keep(null, "a", "b", "c"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"d", "e", "f"})
+    public void testKeep_withNoMatchingChars(String set) {
+        assertEquals("", CharSetUtils.keep("abc", set));
+    }
+
+    
+    
+    @Test
+    public void testSqueeze_withEmptyString() {
+        assertEquals("", CharSetUtils.squeeze("", "a", "b", "c"));
+    }
+
+    @Test
+    public void testSqueeze_withNullString() {
+        assertNull(CharSetUtils.squeeze(null, "a", "b", "c"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"d", "e", "f"})
+    public void testSqueeze_withNoMatchingChars(String set) {
+        assertEquals("aaabbcc", CharSetUtils.squeeze("aaabbcc", set));
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testContainsAny_withEmptyCharSet() {
+            assertFalse(containsAny("abc", ""));
+        }
+
+    @Test
+        public void testCount_withEmptyCharSet() {
+            assertEquals(0, count("abc", ""));
+        }
+
+    @Test
+        public void testDelete_withEmptyCharSet() {
+            assertEquals("abc", delete("abc", ""));
+        }
+
+    @Test
+        public void testKeep_withEmptyCharSet() {
+            assertEquals("", keep("abc", ""));
+        }
+
+    @Test
+        public void testSqueeze_withEmptyCharSet() {
+            assertEquals("abc", squeeze("abc", ""));
+        }
+
+    @Test
+        public void testContainsAny_withNullCharSet() {
+            assertFalse(containsAny("abc", (String[]) null));
+        }
+
+    @Test
+        public void testCount_withNullCharSet() {
+            assertEquals(0, count("abc", (String[]) null));
+        }
+
+    @Test
+        public void testDelete_withNullCharSet() {
+            assertEquals("abc", delete("abc", (String[]) null));
+        }
+
+    @Test
+        public void testKeep_withNullCharSet() {
+            assertEquals("", keep("abc", (String[]) null));
+        }
+
+    @Test
+        public void testSqueeze_withNullCharSet() {
+            assertEquals("abc", squeeze("abc", (String[]) null));
+        }
+
+    @Test
+        public void testContainsAny_withNoMatchingChars_2() {
+            assertFalse(containsAny("abc", "def"));
+        }
+
+    @Test
+        public void testCount_withNoMatchingChars_2() {
+            assertEquals(0, count("abc", "def"));
+        }
+
+    @Test
+        public void testDelete_withNoMatchingChars_2() {
+            assertEquals("abc", delete("abc", "def"));
+        }
+
+    
+    @Test
+        public void testSqueeze_withNoMatchingChars_2() {
+            assertEquals("abc", squeeze("abc", "def"));
+        }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testCount_withMatchingChars() {
+            assertEquals(2, count("abcde", "ae"));
+        }
+
+    @Test
+        public void testDelete_withMatchingChars() {
+            assertEquals("bcd", delete("abcde", "ae"));
+        }
+
+    
+    
+    @Test
+        public void testContainsAny_withSingleCharSet_matching() {
+            assertTrue(containsAny("abcde", "e"));
+        }
+
+    @Test
+        public void testCount_withEmptyCharSet_2() {
+            assertEquals(0, count("abcde", ""));
+        }
+
+    @Test
+        public void testDelete_withEmptyCharSet_2() {
+            assertEquals("abcde", delete("abcde", ""));
+        }
+
+    @Test
+        public void testKeep_withEmptyCharSet_2() {
+            assertEquals("", keep("abcde", ""));
+        }
+
+    @Test
+        public void testSqueeze_withEmptyCharSet_2() {
+            assertEquals("abcde", squeeze("abcde", ""));
+        }
+
+    @Test
+        public void testContainsAny_withNullCharSet_2() {
+            assertFalse(containsAny("abcde", (String[]) null));
+        }
+
+    @Test
+        public void testCount_withNullCharSet_2() {
+            assertEquals(0, count("abcde", (String[]) null));
+        }
+
+    @Test
+        public void testDelete_withNullCharSet_2() {
+            assertEquals("abcde", delete("abcde", (String[]) null));
+        }
+
+    @Test
+        public void testKeep_withNullCharSet_2() {
+            assertEquals("", keep("abcde", (String[]) null));
+        }
+
+    @Test
+        public void testSqueeze_withNullCharSet_2() {
+            assertEquals("abcde", squeeze("abcde", (String[]) null));
+        }
+
+    @Test
+        public void testContainsAny_withNoMatchingChars_2_2() {
+            assertFalse(containsAny("abcde", "fgh"));
+        }
+
+    @Test
+        public void testCount_withNoMatchingChars_2_2() {
+            assertEquals(0, count("abcde", "fgh"));
+        }
+
+    @Test
+        public void testDelete_withNoMatchingChars_2_2() {
+            assertEquals("abcde", delete("abcde", "fgh"));
+        }
+
+    
+    @Test
+        public void testSqueeze_withNoMatchingChars_2_2() {
+            assertEquals("abcde", squeeze("abcde", "fgh"));
+        }
+}

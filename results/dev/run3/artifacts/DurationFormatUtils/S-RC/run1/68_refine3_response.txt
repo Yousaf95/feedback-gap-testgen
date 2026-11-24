@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3.time;
+
+import org.junit.jupiter.api.Test;
+import java.util.TimeZone;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class DurationFormatUtils_GenTest {
+
+    @Test
+    public void testTokenEqualsDifferentClass() {
+        Token token1 = new Token("test", false, -1);
+        Object obj2 = new StringBuilder("test");
+        assertFalse(token1.equals(obj2));
+    }
+
+    @Test
+    public void testTokenHashCode() {
+        Token token = new Token("test", false, -1);
+        assertEquals("test".hashCode(), token.hashCode());
+    }
+
+    @Test
+    public void testFormatDurationWithOptionalToken() {
+        String result = DurationFormatUtils.formatDuration(3600000L, "H' hours 'm' minutes'");
+        assertEquals("1 hours 0 minutes", result);
+    }
+
+    @Test
+    public void testFormatDurationWithNumberValue() {
+        String result = DurationFormatUtils.formatDuration(3600000L, "'d' days 'H' hours 'm' minutes 's' seconds'");
+        assertEquals("0 days 1 hours 0 minutes 0 seconds", result);
+    }
+
+    @Test
+    public void testFormatDurationWithStringBuilderValue() {
+        String result = DurationFormatUtils.formatDuration(3600000L, "H' hours 'm' minutes 's' seconds'");
+        assertEquals("1 hours 0 minutes 0 seconds", result);
+    }
+
+    @Test
+    public void testFormatPeriodThrowsExceptionForStartAfterEnd() {
+        assertThrows(IllegalArgumentException.class, () -> DurationFormatUtils.formatPeriod(2000L, 1000L, "d' days 'H' hours 'm' minutes 's' seconds'"));
+    }
+
+    @Test
+    public void testFormatDurationWithNumberValueInTimeZone() {
+        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+        String result = DurationFormatUtils.formatDuration(3600000L, "'d' days 'H' hours 'm' minutes 's' seconds'", false, timeZone);
+        assertEquals("0 days 1 hours 0 minutes 0 seconds", result);
+    }
+
+    @Test
+    public void testFormatPeriodWithNumberValue() {
+        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+        String result = DurationFormatUtils.formatPeriod(2000L, 5000L, "d' days 'H' hours 'm' minutes 's' seconds'", false, timeZone);
+        assertEquals("0 days 0 hours 3 minutes 40 seconds", result);
+    }
+
+    @Test
+    public void testFormatPeriodWithStringBuilderValue() {
+        TimeZone timeZone = TimeZone.getTimeZone("UTC");
+        String result = DurationFormatUtils.formatPeriod(2000L, 5000L, "d' days 'H' hours 'm' minutes 's' seconds'", false, timeZone);
+        assertEquals("0 days 0 hours 3 minutes 40 seconds", result);
+    }
+
+    @Test
+    public void testFormatDurationThrowsExceptionForNegativeDuration() {
+        assertThrows(IllegalArgumentException.class, () -> DurationFormatUtils.formatDuration(-1L, "d' days 'H' hours 'm' minutes 's' seconds'"));
+    }
+}
+```

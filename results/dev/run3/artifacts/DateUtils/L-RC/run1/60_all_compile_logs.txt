@@ -1,0 +1,96 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[168,26] cannot find symbol
+  symbol:   class NoSuchElementException
+  location: class org.apache.commons.lang3.time.DateUtils_GenTest
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[318,21] no suitable method found for set(int,int,int,int,int,int,int)
+    method java.util.Calendar.set(int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method java.util.Calendar.set(int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method java.util.Calendar.set(int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method java.util.Calendar.set(int,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[326,21] no suitable method found for set(int,int,int,int,int,int,int)
+    method java.util.Calendar.set(int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method java.util.Calendar.set(int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method java.util.Calendar.set(int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+    method java.util.Calendar.set(int,int,int,int,int,int) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[168,26] cannot find symbol
+[ERROR]   symbol:   class NoSuchElementException
+[ERROR]   location: class org.apache.commons.lang3.time.DateUtils_GenTest
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[318,21] no suitable method found for set(int,int,int,int,int,int,int)
+[ERROR]     method java.util.Calendar.set(int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method java.util.Calendar.set(int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method java.util.Calendar.set(int,int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method java.util.Calendar.set(int,int,int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[326,21] no suitable method found for set(int,int,int,int,int,int,int)
+[ERROR]     method java.util.Calendar.set(int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method java.util.Calendar.set(int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method java.util.Calendar.set(int,int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     method java.util.Calendar.set(int,int,int,int,int,int) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+
+
+=====
+
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[447,51] no suitable method found for getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit)
+    method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) is not applicable
+      (getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) has private access in org.apache.commons.lang3.time.DateUtils)
+    method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Date,int,java.util.concurrent.TimeUnit) is not applicable
+      (argument mismatch; java.util.Calendar cannot be converted to java.util.Date)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[454,51] no suitable method found for getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit)
+    method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) is not applicable
+      (getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) has private access in org.apache.commons.lang3.time.DateUtils)
+    method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Date,int,java.util.concurrent.TimeUnit) is not applicable
+      (argument mismatch; java.util.Calendar cannot be converted to java.util.Date)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[447,51] no suitable method found for getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit)
+[ERROR]     method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) is not applicable
+[ERROR]       (getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) has private access in org.apache.commons.lang3.time.DateUtils)
+[ERROR]     method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Date,int,java.util.concurrent.TimeUnit) is not applicable
+[ERROR]       (argument mismatch; java.util.Calendar cannot be converted to java.util.Date)
+[ERROR] /work/w4/src/test/java/org/apache/commons/lang3/time/DateUtils_GenTest.java:[454,51] no suitable method found for getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit)
+[ERROR]     method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) is not applicable
+[ERROR]       (getFragment(java.util.Calendar,int,java.util.concurrent.TimeUnit) has private access in org.apache.commons.lang3.time.DateUtils)
+[ERROR]     method org.apache.commons.lang3.time.DateUtils.getFragment(java.util.Date,int,java.util.concurrent.TimeUnit) is not applicable
+[ERROR]       (argument mismatch; java.util.Calendar cannot be converted to java.util.Date)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

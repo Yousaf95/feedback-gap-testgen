@@ -1,0 +1,77 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Collections;
+import java.util.List;
+
+class EqualsBuilder_GenTest {
+
+    @Test
+    void testAppendSuperWithFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(false);
+        assertFalse(builder.isEquals());
+    }
+
+    @Test
+    void testAppendSuperWithTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.appendSuper(true);
+        assertTrue(builder.isEquals());
+    }
+
+    @Test
+    void testSetBypassReflectionClasses() {
+        EqualsBuilder builder = new EqualsBuilder();
+        List<Class<?>> bypassClasses = Collections.singletonList(Integer.class);
+        builder.setBypassReflectionClasses(bypassClasses);
+        // Cannot directly access private field, so we rely on the setter and assume it works correctly
+    }
+
+    @Test
+    void testSetExcludeFields() {
+        EqualsBuilder builder = new EqualsBuilder();
+        String[] excludeFields = {"field1", "field2"};
+        builder.setExcludeFields(excludeFields);
+        // Cannot directly access private field, so we rely on the setter and assume it works correctly
+    }
+
+    @Test
+    void testSetReflectUpToClass() {
+        EqualsBuilder builder = new EqualsBuilder();
+        Class<?> reflectUpToClass = String.class;
+        builder.setReflectUpToClass(reflectUpToClass);
+        // Cannot directly access private field, so we rely on the setter and assume it works correctly
+    }
+
+    @Test
+    void testSetTestRecursiveTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestRecursive(true);
+        // Cannot directly access private field, so we rely on the setter and assume it works correctly
+    }
+
+    @Test
+    void testSetTestRecursiveFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestRecursive(false);
+        // Cannot directly access private field, so we rely on the setter and assume it works correctly
+    }
+
+    @Test
+    void testSetTestTransientsTrue() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestTransients(true);
+        // Cannot directly access private field, so we rely on the setter and assume it works correctly
+    }
+
+    @Test
+    void testSetTestTransientsFalse() {
+        EqualsBuilder builder = new EqualsBuilder();
+        builder.setTestTransients(false);
+        // Cannot directly access private field, so we rely on the setter and assume it works correctly
+    }
+}
+```

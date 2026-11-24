@@ -1,0 +1,81 @@
+```java
+package org.apache.commons.lang3.builder;
+
+import org.junit.jupiter.api.Test;
+import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ReflectionToStringBuilder_GenTest {
+
+    @Test
+    public void testAppendTransients() {
+        class TestClassWithTransientField {
+            transient String transientField = "transientValue";
+        }
+        TestClassWithTransientField obj = new TestClassWithTransientField();
+        String result = ReflectionToStringBuilder.toString(obj, null, true, false);
+        assertTrue(result.contains("transientField"));
+    }
+
+    @Test
+    public void testExcludeTransients() {
+        class TestClassWithTransientField {
+            transient String transientField = "transientValue";
+        }
+        TestClassWithTransientField obj = new TestClassWithTransientField();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false);
+        assertFalse(result.contains("transientField"));
+    }
+
+    @Test
+    public void testAppendStatics() {
+        class TestClassWithStaticField {
+            static String staticField = "staticValue";
+        }
+        TestClassWithStaticField obj = new TestClassWithStaticField();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, true);
+        assertFalse(result.contains("staticField")); // Static fields are not instance-specific
+    }
+
+    @Test
+    public void testExcludeStatics() {
+        class TestClassWithStaticField {
+            static String staticField = "staticValue";
+        }
+        TestClassWithStaticField obj = new TestClassWithStaticField();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false);
+        assertFalse(result.contains("staticField")); // Static fields are not instance-specific
+    }
+
+    @Test
+    public void testExcludeNullValues() {
+        class TestClassWithNullableFields {
+            String nullField;
+            String nonNullField;
+
+            TestClassWithNullableFields(String nullField, String nonNullField) {
+                this.nullField = nullField;
+                this.nonNullField = nonNullField;
+            }
+        }
+        TestClassWithNullableFields obj = new TestClassWithNullableFields(null, "nonNull");
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, true, null);
+        assertFalse(result.contains("nullField"));
+        assertTrue(result.contains("nonNullField=nonNull"));
+    }
+
+    @Test
+    public void testReflectUpToClass() {
+        class SuperTestClass {
+            String superField = "superValue";
+        }
+        class SubTestClass extends SuperTestClass {
+            String subField = "subValue";
+        }
+        SubTestClass obj = new SubTestClass();
+        String result = ReflectionToStringBuilder.toString(obj, null, false, false, SuperTestClass.class);
+        assertFalse(result.contains("superField"));
+        assertTrue(result.contains("subField"));
+    }
+}
+```

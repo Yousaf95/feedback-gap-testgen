@@ -1,0 +1,169 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.function.Supplier;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Collections;
+import java.util.Optional;
+import java.time.Duration;
+
+class ObjectUtils_GenTest {
+
+    @Test
+    void testCONST_withBoolean() {
+        assertTrue(ObjectUtils.CONST(true));
+        assertFalse(ObjectUtils.CONST(false));
+    }
+
+    @Test
+    void testCONST_withByte() {
+        assertEquals((byte) 127, ObjectUtils.CONST((byte) 127));
+    }
+
+    @Test
+    void testCONST_withChar() {
+        assertEquals('a', ObjectUtils.CONST('a'));
+    }
+
+    @Test
+    void testCONST_withDouble() {
+        assertEquals(3.14, ObjectUtils.CONST(3.14), 0.0);
+    }
+
+    @Test
+    void testCONST_withFloat() {
+        assertEquals(2.71f, ObjectUtils.CONST(2.71f), 0.0);
+    }
+
+    @Test
+    void testCONST_withInt() {
+        assertEquals(42, ObjectUtils.CONST(42));
+    }
+
+    @Test
+    void testCONST_withLong() {
+        assertEquals(987654321L, ObjectUtils.CONST(987654321L));
+    }
+
+    @Test
+    void testCONST_withShort() {
+        assertEquals((short) 32767, ObjectUtils.CONST((short) 32767));
+    }
+
+    @Test
+    void testCONST_withObject() {
+        String testString = "test";
+        assertSame(testString, ObjectUtils.CONST(testString));
+    }
+
+    @Test
+    void testCONST_BYTE_withValidValue() {
+        assertEquals(Byte.MAX_VALUE, ObjectUtils.CONST_BYTE(127));
+    }
+
+    @Test
+    void testCONST_BYTE_withInvalidValue() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> ObjectUtils.CONST_BYTE(128));
+        assertTrue(exception.getMessage().contains("Supplied value must be a valid byte literal between -128 and 127"));
+    }
+
+    @Test
+    void testCONST_SHORT_withValidValue() {
+        assertEquals(Short.MAX_VALUE, ObjectUtils.CONST_SHORT(32767));
+    }
+
+    @Test
+    void testCONST_SHORT_withInvalidValue() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> ObjectUtils.CONST_SHORT(32768));
+        assertTrue(exception.getMessage().contains("Supplied value must be a valid byte literal between -32768 and 32767"));
+    }
+
+    @Test
+    void testGetClass_withArray() {
+        assertEquals(int[].class, ObjectUtils.getClass(new int[0]));
+    }
+
+    @Test
+    void testGetFirstNonNull_withAllNullSuppliers() {
+        assertNull(ObjectUtils.getFirstNonNull(() -> null, () -> null));
+    }
+
+    @Test
+    void testGetIfNull_withSupplierReturningNonNull() {
+        String result = ObjectUtils.getIfNull(null, () -> "default");
+        assertEquals("default", result);
+    }
+
+    @Test
+    void testHashCodeMulti_withMultipleObjects() {
+        int hash = ObjectUtils.hashCodeMulti("test", 123, new Object());
+        assertNotEquals(0, hash);
+    }
+
+    @Test
+    void testIsEmpty_withEmptyCollection() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    void testIsNotEmpty_withNonEmptyMap() {
+        assertTrue(ObjectUtils.isNotEmpty(Collections.singletonMap("key", "value")));
+    }
+
+    @Test
+    void testMax_withNoValues() {
+        assertNull(ObjectUtils.max());
+    }
+
+    @Test
+    void testMedian_withComparatorAndSingleItem() {
+        assertEquals(1, ObjectUtils.median(Comparator.naturalOrder(), 1));
+    }
+
+    @Test
+    void testMedian_withNaturalOrderAndSingleItem() {
+        assertEquals(1, ObjectUtils.median(1));
+    }
+
+    @Test
+    void testMin_withNoValues() {
+        assertNull(ObjectUtils.min());
+    }
+
+    @Test
+    void testMode_withAllDifferentItems() {
+        assertNull(ObjectUtils.mode("a", "b", "c"));
+    }
+
+    @Test
+    void testRequireNonEmpty_withNullObject() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> ObjectUtils.requireNonEmpty(null));
+        assertEquals("object", exception.getMessage());
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyString() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
+                () -> ObjectUtils.requireNonEmpty(""));
+        assertEquals("object", exception.getMessage());
+    }
+
+    @Test
+    void testToString_withSupplierReturningNull() {
+        assertEquals("default", ObjectUtils.toString(() -> null, () -> "default"));
+    }
+
+    @Test
+    void testWait_withNegativeDuration() {
+        assertThrows(IllegalArgumentException.class,
+                () -> ObjectUtils.wait(new Object(), Duration.ofSeconds(-1)));
+    }
+}
+```

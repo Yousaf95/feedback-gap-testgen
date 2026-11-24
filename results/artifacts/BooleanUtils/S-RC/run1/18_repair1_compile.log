@@ -1,0 +1,37 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[167,72] reference to and is ambiguous
+  both method and(boolean...) in org.apache.commons.lang3.BooleanUtils and method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[206,72] reference to or is ambiguous
+  both method or(boolean...) in org.apache.commons.lang3.BooleanUtils and method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[245,72] reference to oneHot is ambiguous
+  both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[283,36] reference to toBooleanObject is ambiguous
+  both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[294,30] cannot find symbol
+  symbol:   variable TRUE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[310,30] cannot find symbol
+  symbol:   variable FALSE
+  location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[167,72] reference to and is ambiguous
+[ERROR]   both method and(boolean...) in org.apache.commons.lang3.BooleanUtils and method and(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[206,72] reference to or is ambiguous
+[ERROR]   both method or(boolean...) in org.apache.commons.lang3.BooleanUtils and method or(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[245,72] reference to oneHot is ambiguous
+[ERROR]   both method oneHot(boolean...) in org.apache.commons.lang3.BooleanUtils and method oneHot(java.lang.Boolean...) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[283,36] reference to toBooleanObject is ambiguous
+[ERROR]   both method toBooleanObject(java.lang.Integer) in org.apache.commons.lang3.BooleanUtils and method toBooleanObject(java.lang.String) in org.apache.commons.lang3.BooleanUtils match
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[294,30] cannot find symbol
+[ERROR]   symbol:   variable TRUE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] /work/w12/src/test/java/org/apache/commons/lang3/BooleanUtils_GenTest.java:[310,30] cannot find symbol
+[ERROR]   symbol:   variable FALSE
+[ERROR]   location: class org.apache.commons.lang3.BooleanUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,39 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[82,13] cannot find symbol
+  symbol:   class Null
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[82,35] cannot find symbol
+  symbol:   class Null
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[88,83] cannot find symbol
+  symbol:   class CustomObject
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[89,40] cannot find symbol
+  symbol:   class CustomObject
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[90,88] cannot find symbol
+  symbol:   class CustomObject
+  location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[82,13] cannot find symbol
+[ERROR]   symbol:   class Null
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[82,35] cannot find symbol
+[ERROR]   symbol:   class Null
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[88,83] cannot find symbol
+[ERROR]   symbol:   class CustomObject
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[89,40] cannot find symbol
+[ERROR]   symbol:   class CustomObject
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] /work/w10/src/test/java/org/apache/commons/lang3/ObjectUtils_GenTest.java:[90,88] cannot find symbol
+[ERROR]   symbol:   class CustomObject
+[ERROR]   location: class org.apache.commons.lang3.ObjectUtils_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

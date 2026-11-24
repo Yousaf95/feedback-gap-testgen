@@ -1,0 +1,72 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+public class CharSetUtils_GenTest {
+
+    @Test
+    public void testContainsAny_withMatchingCharacters() {
+        assertTrue(CharSetUtils.containsAny("hello", "eo"));
+    }
+
+    @Test
+    public void testCount_withMatchingCharacters() {
+        assertEquals(2, CharSetUtils.count("hello", "l"));
+    }
+
+    @Test
+    public void testDelete_withMatchingCharacters() {
+        assertEquals("heo", CharSetUtils.delete("hello", "ll"));
+    }
+
+    @Test
+    public void testKeep_withMatchingCharacters() {
+        assertEquals("ell", CharSetUtils.keep("hello", "el"));
+    }
+
+    @Test
+    public void testSqueeze_withRepeatingCharactersInSet() {
+        assertEquals("helo", CharSetUtils.squeeze("heelloo", "eo"));
+    }
+
+    @Test
+    public void testContainsAny_withSingleCharacterMatch() {
+        assertTrue(CharSetUtils.containsAny("hello", "x", "e"));
+    }
+
+    @Test
+    public void testCount_withMultipleSets() {
+        assertEquals(3, CharSetUtils.count("hello", "l", "o"));
+    }
+
+    @Test
+    public void testDelete_withMultipleSets() {
+        assertEquals("he", CharSetUtils.delete("hello", "ll", "o"));
+    }
+
+    @Test
+    public void testKeep_withMultipleSets() {
+        assertEquals("ell", CharSetUtils.keep("hello", "e", "l"));
+    }
+
+    @Test
+    public void testSqueeze_withMultipleSets() {
+        assertEquals("helo", CharSetUtils.squeeze("heelloo", "e", "o"));
+    }
+
+    @Test
+    public void testKeep_withNullStringAndSet() {
+        assertNull(CharSetUtils.keep(null, (String[]) null));
+    }
+
+    @Test
+    public void testSqueeze_withNullStringAndSet() {
+        assertNull(CharSetUtils.squeeze(null, (String[]) null));
+    }
+}
+```

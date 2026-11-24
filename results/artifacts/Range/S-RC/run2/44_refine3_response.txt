@@ -1,0 +1,88 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import java.util.Comparator;
+import java.util.Objects;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    private Range<Integer> range;
+    private Comparator<Integer> comparator;
+
+    @BeforeEach
+    public void setUp() {
+        comparator = Comparator.naturalOrder();
+        range = new Range<>(1, 5, comparator);
+    }
+
+    @Test
+    public void testContainsRange_NullOtherRange() {
+        assertFalse(range.containsRange(null));
+    }
+
+    @Test
+    public void testIsAfterRange_NullOtherRange() {
+        assertFalse(range.isAfterRange(null));
+    }
+
+    @Test
+    public void testIsBeforeRange_NullOtherRange() {
+        assertFalse(range.isBeforeRange(null));
+    }
+
+    @Test
+    public void testIsEndedBy_NullElement() {
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    public void testIsStartedBy_NullElement() {
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    public void testToString_NullFormat() {
+        assertEquals("[1..5]", range.toString((String) null));
+    }
+
+    @Test
+    public void testHashCode_NotCached() {
+        int hashCode = range.hashCode();
+        assertNotEquals(0, hashCode);
+        assertEquals(hashCode, range.hashCode());
+    }
+
+    @Test
+    public void testToString_Cached() {
+        String toString = range.toString();
+        assertNotNull(toString);
+        assertEquals("[1..5]", toString);
+    }
+
+    @Test
+    public void testGetComparator_NaturalOrdering() {
+        assertTrue(range.isNaturalOrdering());
+    }
+
+    @Test
+    public void testFit_NullElement() {
+        assertThrows(NullPointerException.class, () -> range.fit(null));
+    }
+
+    @Test
+    public void testElementCompareTo_NullElement() {
+        assertThrows(NullPointerException.class, () -> range.elementCompareTo(null));
+    }
+
+    @Test
+    public void testContainsNullElement() {
+        assertFalse(range.contains((Integer) null));
+    }
+}
+```

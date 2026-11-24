@@ -1,0 +1,286 @@
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+import java.util.Comparator;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.function.Predicate;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @ParameterizedTest
+    @MethodSource("provideRangeData")
+    public <T extends Comparable<? super T>> void testContains(T element, Range<T> range, boolean expected) {
+        assertEquals(expected, range.contains(element));
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    private static Stream<Arguments> provideRangeData() {
+        return Stream.of(
+            arguments(5, Range.between(1, 10), true),
+            arguments(0, Range.between(1, 10), false),
+            arguments(10, Range.between(1, 10), true),
+            arguments(null, Range.between(1, 10), false),
+            arguments(5, Range.is(5), true),
+            arguments(4, Range.is(5), false),
+            arguments(6, Range.is(5), false),
+            arguments("a", Range.between("a", "z"), true),
+            arguments("b", Range.between("a", "z"), true),
+            arguments("A", Range.between("a", "z"), false),
+            arguments(null, Range.between("a", "z"), false)
+        );
+    }
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+        public void testContainsNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.contains(null));
+        }
+
+    @Test
+        public void testContainsMinValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.contains(1));
+        }
+
+    @Test
+        public void testContainsMaxValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.contains(10));
+        }
+
+    @Test
+        public void testContainsValueInRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.contains(5));
+        }
+
+    @Test
+        public void testContainsValueOutOfRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.contains(0));
+            assertFalse(range.contains(11));
+        }
+
+    @Test
+        public void testContainsRangeNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.containsRange(null));
+        }
+
+    @Test
+        public void testContainsRangeEmpty() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.containsRange(Range.is(5)));
+        }
+
+    @Test
+        public void testContainsRangeSubset() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.containsRange(Range.between(3, 7)));
+        }
+
+    @Test
+        public void testContainsRangeSuperset() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.containsRange(Range.between(-1, 12)));
+        }
+
+    @Test
+        public void testContainsRangeEqual() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.containsRange(Range.between(1, 10)));
+        }
+
+    @Test
+        public void testElementCompareToNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertThrows(NullPointerException.class, () -> range.elementCompareTo(null));
+        }
+
+    @Test
+        public void testElementCompareToMinValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(-1, range.elementCompareTo(0));
+        }
+
+    @Test
+        public void testElementCompareToMaxValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(1, range.elementCompareTo(11));
+        }
+
+    @Test
+        public void testElementCompareToValueInRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(0, range.elementCompareTo(5));
+        }
+
+    @Test
+        public void testFitNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertThrows(NullPointerException.class, () -> range.fit(null));
+        }
+
+    @Test
+        public void testFitMinValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(1, (int) range.fit(0));
+        }
+
+    @Test
+        public void testFitMaxValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(10, (int) range.fit(11));
+        }
+
+    @Test
+        public void testFitValueInRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(5, (int) range.fit(5));
+        }
+
+    @Test
+        public void testGetComparator() {
+            Range<Integer> range = Range.between(1, 10);
+            assertNotNull(range.getComparator());
+        }
+
+    @Test
+        public void testGetMaximum() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(10, (int) range.getMaximum());
+        }
+
+    @Test
+        public void testGetMinimum() {
+            Range<Integer> range = Range.between(1, 10);
+            assertEquals(1, (int) range.getMinimum());
+        }
+
+    @Test
+        public void testHashCode() {
+            Range<Integer> range1 = Range.between(1, 10);
+            Range<Integer> range2 = Range.between(1, 10);
+            assertEquals(range1.hashCode(), range2.hashCode());
+        }
+
+    @Test
+        public void testIntersectionWithNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(null));
+        }
+
+    @Test
+        public void testIntersectionWithNonOverlappingRange() {
+            Range<Integer> range = Range.between(1, 5);
+            assertThrows(IllegalArgumentException.class, () -> range.intersectionWith(Range.between(6, 10)));
+        }
+
+    
+    @Test
+        public void testIsAfterNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isAfter(null));
+        }
+
+    @Test
+        public void testIsAfterValueInRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.isAfter(0));
+        }
+
+    @Test
+        public void testIsAfterValueOutOfRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isAfter(11));
+        }
+
+    @Test
+        public void testIsBeforeNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isBefore(null));
+        }
+
+    @Test
+        public void testIsBeforeValueInRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.isBefore(11));
+        }
+
+    @Test
+        public void testIsBeforeValueOutOfRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isBefore(0));
+        }
+
+    @Test
+        public void testIsEndedByNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isEndedBy(null));
+        }
+
+    
+    
+    @Test
+        public void testIsNaturalOrdering() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.isNaturalOrdering());
+        }
+
+    @Test
+        public void testIsOverlappedByNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isOverlappedBy(null));
+        }
+
+    @Test
+        public void testIsOverlappedByNonOverlappingRange() {
+            Range<Integer> range = Range.between(1, 5);
+            assertFalse(range.isOverlappedBy(Range.between(6, 10)));
+        }
+
+    @Test
+        public void testIsOverlappedByOverlappingRange() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.isOverlappedBy(Range.between(2, 8)));
+        }
+
+    @Test
+        public void testIsStartedByNull() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isStartedBy(null));
+        }
+
+    @Test
+        public void testIsStartedByMinValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertTrue(range.isStartedBy(1));
+        }
+
+    @Test
+        public void testIsStartedByMaxValue() {
+            Range<Integer> range = Range.between(1, 10);
+            assertFalse(range.isStartedBy(10));
+        }
+}

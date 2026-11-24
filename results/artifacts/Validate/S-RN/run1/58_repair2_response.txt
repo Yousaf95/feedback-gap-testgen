@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.HashMap;
+import java.util.Map;
+
+class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenWithNonComparableValues() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween("a", "c", "b"));
+    }
+
+    @Test
+    public void testInclusiveBetweenWithNonComparableValues() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween("a", "c", "b"));
+    }
+
+    @Test
+    public void testNoNullElementsWithNullMap() {
+        Map<String, String> map = null;
+        assertThrows(NullPointerException.class, () -> Validate.noNullElements(map));
+    }
+
+    @Test
+    public void testNotEmptyWithEmptyMap() {
+        Map<String, String> map = Collections.emptyMap();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map));
+    }
+
+    @Test
+    public void testNotBlankWithNonStringType() {
+        Object obj = 123;
+        assertThrows(ClassCastException.class, () -> Validate.notBlank((CharSequence) obj));
+    }
+
+    @Test
+    public void testValidIndexWithNegativeArray() {
+        String[] array = new String[0];
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(array, -1));
+    }
+
+    @Test
+    public void testValidIndexWithTooLargeArray() {
+        String[] array = new String[5];
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(array, 5));
+    }
+
+    @Test
+    public void testValidStateWithFalseExpressionAndMessage() {
+        String message = "Invalid state";
+        assertThrows(IllegalArgumentException.class, () -> Validate.validState(false, message));
+    }
+
+    @Test
+    public void testIsAssignableFromWithNullTypes() {
+        Class<?> superType = null;
+        Class<?> type = null;
+        assertThrows(NullPointerException.class, () -> Validate.isAssignableFrom(superType, type));
+    }
+
+    @Test
+    public void testIsInstanceOfWithNullObject() {
+        Object obj = null;
+        assertThrows(NullPointerException.class, () -> Validate.isInstanceOf(String.class, obj));
+    }
+
+    @Test
+    public void testMatchesPatternWithNonStringInput() {
+        Object input = 123;
+        String pattern = "\\d+";
+        assertThrows(ClassCastException.class, () -> Validate.matchesPattern((CharSequence) input, pattern));
+    }
+}
+```

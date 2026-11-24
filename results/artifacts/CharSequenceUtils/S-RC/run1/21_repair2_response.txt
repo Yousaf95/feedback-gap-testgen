@@ -1,0 +1,19 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class CharSequenceUtils_GenTest {
+
+    @Test
+    public void testIndexOf_String() {
+        assertEquals(2, CharSequenceUtils.indexOf("hello world", "world"));
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        assertEquals(6, CharSequenceUtils.lastIndexOf("hello world", "world"));
+    }
+}
+```

@@ -1,0 +1,253 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+
+class AnnotationUtils_GenTest {
+
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TestAnnotation {
+        String value();
+    }
+
+    @Test
+    void testAppendDetail_withAnnotationValue() {
+        TestAnnotation annotation = () -> "test";
+        TestAnnotation anotherAnnotation = () -> "another";
+
+        ToStringBuilder builder = new ToStringBuilder(new Object(), AnnotationUtils.TO_STRING_STYLE);
+        builder.append("annotationField", annotation);
+
+        String result = builder.build();
+        assertTrue(result.contains("@org.apache.commons.lang3.AnnotationUtils_GenTest$TestAnnotation(value=test)"));
+    }
+
+    @Test
+    void testGetShortClassName_withAnnotationInterface() {
+        TestAnnotation annotation = () -> "test";
+        String shortClassName = AnnotationUtils.toString(annotation).split("\\(")[0];
+        assertEquals("@org.apache.commons.lang3.AnnotationUtils_GenTest$TestAnnotation", shortClassName);
+    }
+
+    @Test
+    void testAnnotationArrayMemberEquals_withDifferentLengths() {
+        TestAnnotation[] a1 = new TestAnnotation[2];
+        TestAnnotation[] a2 = new TestAnnotation[1];
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testAnnotationArrayMemberEquals_withDifferentAnnotations() {
+        TestAnnotation annotation1 = () -> "test";
+        TestAnnotation annotation2 = () -> "another";
+
+        TestAnnotation[] a1 = {annotation1};
+        TestAnnotation[] a2 = {annotation2};
+
+        assertFalse(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testAnnotationArrayMemberEquals_withSameAnnotations() {
+        TestAnnotation annotation1 = () -> "test";
+        TestAnnotation annotation2 = () -> "test";
+
+        TestAnnotation[] a1 = {annotation1};
+        TestAnnotation[] a2 = {annotation2};
+
+        assertTrue(AnnotationUtils.equals(a1, a2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withByteArrays() {
+        byte[] b1 = {1, 2, 3};
+        byte[] b2 = {1, 2, 4};
+
+        assertFalse(Arrays.equals(b1, b2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withShortArrays() {
+        short[] s1 = {1, 2, 3};
+        short[] s2 = {1, 2, 4};
+
+        assertFalse(Arrays.equals(s1, s2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withIntArrays() {
+        int[] i1 = {1, 2, 3};
+        int[] i2 = {1, 2, 4};
+
+        assertFalse(Arrays.equals(i1, i2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withCharArrays() {
+        char[] c1 = {'a', 'b', 'c'};
+        char[] c2 = {'a', 'b', 'd'};
+
+        assertFalse(Arrays.equals(c1, c2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withLongArrays() {
+        long[] l1 = {1L, 2L, 3L};
+        long[] l2 = {1L, 2L, 4L};
+
+        assertFalse(Arrays.equals(l1, l2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withFloatArrays() {
+        float[] f1 = {1.0f, 2.0f, 3.0f};
+        float[] f2 = {1.0f, 2.0f, 4.0f};
+
+        assertFalse(Arrays.equals(f1, f2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withDoubleArrays() {
+        double[] d1 = {1.0, 2.0, 3.0};
+        double[] d2 = {1.0, 2.0, 4.0};
+
+        assertFalse(Arrays.equals(d1, d2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withBooleanArrays() {
+        boolean[] bool1 = {true, false};
+        boolean[] bool2 = {false, true};
+
+        assertFalse(Arrays.equals(bool1, bool2));
+    }
+
+    @Test
+    void testArrayMemberEquals_withObjectArrays() {
+        Object[] o1 = {"test", 123};
+        Object[] o2 = {"another", 456};
+
+        assertFalse(Arrays.deepEquals(o1, o2));
+    }
+
+    @Test
+    void testArrayMemberHash_withByteArrays() {
+        byte[] b1 = {1, 2, 3};
+        int hash1 = Arrays.hashCode(b1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withShortArrays() {
+        short[] s1 = {1, 2, 3};
+        int hash1 = Arrays.hashCode(s1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withIntArrays() {
+        int[] i1 = {1, 2, 3};
+        int hash1 = Arrays.hashCode(i1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withCharArrays() {
+        char[] c1 = {'a', 'b', 'c'};
+        int hash1 = Arrays.hashCode(c1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withLongArrays() {
+        long[] l1 = {1L, 2L, 3L};
+        int hash1 = Arrays.hashCode(l1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withFloatArrays() {
+        float[] f1 = {1.0f, 2.0f, 3.0f};
+        int hash1 = Arrays.hashCode(f1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withDoubleArrays() {
+        double[] d1 = {1.0, 2.0, 3.0};
+        int hash1 = Arrays.hashCode(d1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withBooleanArrays() {
+        boolean[] bool1 = {true, false};
+        int hash1 = Arrays.hashCode(bool1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testArrayMemberHash_withObjectArrays() {
+        Object[] o1 = {"test", 123};
+        int hash1 = Arrays.deepHashCode(o1);
+        assertEquals(hash1, hash1);
+    }
+
+    @Test
+    void testEquals_sameAnnotationsWithSameValues() {
+        TestAnnotation annotation1 = () -> "test";
+        TestAnnotation annotation2 = () -> "test";
+
+        assertTrue(AnnotationUtils.equals(annotation1, annotation2));
+    }
+
+    @Test
+    void testEquals_withReflectiveOperationException() {
+        assertThrows(UncheckedException.class, () -> {
+            Annotation invalidAnnotation = new Annotation() {
+                @Override
+                public Class<? extends Annotation> annotationType() {
+                    return null;
+                }
+            };
+            AnnotationUtils.equals(invalidAnnotation, invalidAnnotation);
+        });
+    }
+
+    @Test
+    void testHashCode_withReflectiveOperationException() {
+        assertThrows(UncheckedException.class, () -> {
+            Annotation invalidAnnotation = new Annotation() {
+                @Override
+                public Class<? extends Annotation> annotationType() {
+                    return null;
+                }
+            };
+            AnnotationUtils.hashCode(invalidAnnotation);
+        });
+    }
+
+    @Test
+    void testHashCode_withNullValue() {
+        TestAnnotation annotation = () -> null;
+
+        assertThrows(IllegalStateException.class, () -> {
+            AnnotationUtils.hashCode(annotation);
+        });
+    }
+
+    @Test
+    void testHashMember_withArrayValue() {
+        int[] array = {1, 2, 3};
+        int hash = AnnotationUtils.hashMember("numbers", array);
+
+        assertEquals(("numbers".hashCode() * 127) ^ Arrays.hashCode(array), hash);
+    }
+}
+```

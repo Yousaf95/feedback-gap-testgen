@@ -1,0 +1,91 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDoubleThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 2.0, 3.0));
+    }
+
+    @Test
+    public void testExclusiveBetweenLongThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 2L, 3L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDoubleThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 2.0, 3.0));
+    }
+
+    @Test
+    public void testInclusiveBetweenLongThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 2L, 3L));
+    }
+
+    @Test
+    public void testIsAssignableFromThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOfThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(Integer.class, "string"));
+    }
+
+    @Test
+    public void testMatchesPatternThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("abc", "[0-9]"));
+    }
+
+    @Test
+    public void testNoNullElementsArrayThrowsException() {
+        Object[] array = {1, null, 3};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testNotEmptyMapThrowsException() {
+        Map<String, String> map = new HashMap<>();
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(map));
+    }
+
+    @Test
+    public void testNotEmptyStringThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(""));
+    }
+
+    @Test
+    public void testNotEmptyArrayThrowsException() {
+        Object[] array = {};
+        assertThrows(IllegalArgumentException.class, () -> Validate.notEmpty(array));
+    }
+
+    @Test
+    public void testNotNaNThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notNaN(Double.NaN));
+    }
+
+    @Test
+    public void testNotNullThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notNull(null));
+    }
+
+    @Test
+    public void testValidIndexStringThrowsException() {
+        String str = "abc";
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(str, 3));
+    }
+
+    @Test
+    public void testValidStateThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.validState(false));
+    }
+}
+```

@@ -1,0 +1,28 @@
+```java
+package org.apache.commons.lang3;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Collections;
+
+class ObjectUtils_GenTest {
+
+    @Test
+        public void testRequireNonEmptyWithNull() {
+            assertThrows(NullPointerException.class, () -> ObjectUtils.requireNonEmpty(null));
+        }
+
+    @Test
+        public void testRequireNonEmptyWithEmptyString() {
+            assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(""));
+        }
+
+    @Test
+        public void testRequireNonEmptyWithEmptyCollection() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(Collections.emptyList()));
+    }
+
+    @Test
+        public void testRequireNonEmptyWithEmptyMap() {
+            assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(new HashMap<>()));
+        }
+}
+```

@@ -1,0 +1,158 @@
+package org.apache.commons.lang3.builder;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class HashCodeBuilder_GenTest {
+
+    
+    
+    
+    
+    
+    @ParameterizedTest
+    @ValueSource(ints = {0, 2, 4, 6, 8, 10})
+    public void testAppendInt(int value) {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(value);
+        assertEquals(37 * 17 + value, builder.toHashCode());
+    }
+
+    @ParameterizedTest
+    @ValueSource(longs = {0L, 2L, 4L, 6L, 8L, 10L})
+    public void testAppendLong(long value) {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(value);
+        assertEquals(37 * 17 + (int) (value ^ value >> 32), builder.toHashCode());
+    }
+
+    @ParameterizedTest
+    @ValueSource(floats = {0.0f, 2.0f, 4.0f, 6.0f, 8.0f, 10.0f})
+    public void testAppendFloat(float value) {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(value);
+        assertEquals(37 * 17 + Float.floatToIntBits(value), builder.toHashCode());
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {0.0, 2.0, 4.0, 6.0, 8.0, 10.0})
+    public void testAppendDouble(double value) {
+        HashCodeBuilder builder = new HashCodeBuilder();
+        builder.append(value);
+        assertEquals(37 * 17 + (int) (Double.doubleToLongBits(value) ^ Double.doubleToLongBits(value) >> 32), builder.toHashCode());
+    }
+
+    
+    
+    
+    
+    // ---- added by coverage-guided refinement ----
+    @BeforeEach
+        public void setUp() {
+            // Clear the registry before each test to ensure a clean state
+            HashCodeBuilder.clearRegistry();
+        }
+
+    @Test
+        public void testGetRegistry() {
+            assertNotNull(HashCodeBuilder.getRegistry());
+        }
+
+    @Test
+        public void testIsRegistered() {
+            assertFalse(HashCodeBuilder.isRegistered(new Object()));
+        }
+
+    @Test
+        public void testRegisterAndUnregister() {
+            Object obj = new Object();
+            HashCodeBuilder.register(obj);
+            assertTrue(HashCodeBuilder.isRegistered(obj));
+            HashCodeBuilder.unregister(obj);
+            assertFalse(HashCodeBuilder.isRegistered(obj));
+        }
+
+    @Test
+        public void testReflectionAppendWithNullObject() {
+            HashCodeBuilder builder = new HashCodeBuilder();
+            HashCodeBuilder.reflectionAppend(null, Object.class, builder, false, null);
+            assertEquals(17, builder.toHashCode());
+        }
+
+    @Test
+        public void testReflectionAppendWithEmptyArray() {
+            HashCodeBuilder builder = new HashCodeBuilder();
+            HashCodeBuilder.reflectionAppend(new int[0], builder, false, null);
+            assertEquals(17, builder.toHashCode());
+        }
+
+    @Test
+        public void testReflectionAppendWithNonTransientField() {
+            NonTransientClass obj = new NonTransientClass();
+            HashCodeBuilder builder = new HashCodeBuilder();
+            HashCodeBuilder.reflectionAppend(obj, NonTransientClass.class, builder, false, null);
+            assertEquals(17 * 37 + 42, builder.toHashCode());
+        }
+
+    @Test
+        public void testReflectionAppendWithTransientField() {
+            TransientClass obj = new TransientClass();
+            HashCodeBuilder builder = new HashCodeBuilder();
+            HashCodeBuilder.reflectionAppend(obj, TransientClass.class, builder, true, null);
+            assertEquals(17 * 37 + 42, builder.toHashCode());
+        }
+
+    @Test
+        public void testReflectionAppendWithExcludeField() {
+            ExcludeClass obj = new ExcludeClass();
+            HashCodeBuilder builder = new HashCodeBuilder();
+            HashCodeBuilder.reflectionAppend(obj, ExcludeClass.class, builder, false, new String[]{"exclude"});
+            assertEquals(17 * 37 + 42, builder.toHashCode());
+        }
+
+    @Test
+        public void testReflectionAppendWithSuperclass() {
+            SubClass obj = new SubClass();
+            HashCodeBuilder builder = new HashCodeBuilder();
+            HashCodeBuilder.reflectionAppend(obj, SubClass.class, builder, false, null);
+            assertEquals(17 * 37 + 42 + 50, builder.toHashCode());
+        }
+
+    @Test
+        public void testReflectionHashCodeWithNullObject() {
+            assertThrows(NullPointerException.class, () -> HashCodeBuilder.reflectionHashCode(null));
+        }
+
+    @Test
+        public void testReflectionHashCodeWithEmptyExcludeFields() {
+            ExcludeClass obj = new ExcludeClass();
+            assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, (String[]) null));
+        }
+
+    @Test
+        public void testReflectionHashCodeWithNonTransientField() {
+            NonTransientClass obj = new NonTransientClass();
+            assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, false));
+        }
+
+    @Test
+        public void testReflectionHashCodeWithTransientField() {
+            TransientClass obj = new TransientClass();
+            assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, true));
+        }
+
+    @Test
+        public void testReflectionHashCodeWithExcludeField() {
+            ExcludeClass obj = new ExcludeClass();
+            assertEquals(17 * 37 + 42, HashCodeBuilder.reflectionHashCode(obj, new String[]{"exclude"}));
+        }
+
+    @Test
+        public void testReflectionHashCodeWithSuperclass() {
+            SubClass obj = new SubClass();
+            assertEquals(17 * 37 + 42 + 50, HashCodeBuilder.reflectionHashCode(obj, false));
+        }
+}

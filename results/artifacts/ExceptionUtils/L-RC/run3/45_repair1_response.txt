@@ -1,0 +1,106 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    void testAsRuntimeException_withCheckedException() {
+        Exception checkedException = new Exception("Checked Exception");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.asRuntimeException(checkedException));
+        assertEquals("Checked Exception", runtimeException.getMessage());
+    }
+
+    @Test
+    void testGetStackFrames_withNonNullThrowable() {
+        Throwable throwable = new Exception("Test Exception");
+        String[] stackFrames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(stackFrames.length > 0);
+    }
+
+    @Test
+    void testIndexOf_withNullThrowable() {
+        assertEquals(ExceptionUtils.NOT_FOUND, ExceptionUtils.indexOfThrowable(null, Exception.class));
+    }
+
+    @Test
+    void testIndexOf_withNullType() {
+        Throwable throwable = new Exception();
+        assertEquals(ExceptionUtils.NOT_FOUND, ExceptionUtils.indexOfThrowable(throwable, null));
+    }
+
+    @Test
+    void testIndexOf_withNegativeFromIndex() {
+        Throwable throwable = new Exception();
+        int result = ExceptionUtils.indexOfThrowable(throwable, Exception.class, -1);
+        assertEquals(0, result); // fromIndex should be adjusted to 0
+    }
+
+    @Test
+    void testIndexOf_withLargeFromIndex() {
+        Throwable throwable = new Exception();
+        int result = ExceptionUtils.indexOfThrowable(throwable, Exception.class, Integer.MAX_VALUE);
+        assertEquals(ExceptionUtils.NOT_FOUND, result); // fromIndex is larger than the number of throwables
+    }
+
+    @Test
+    void testIndexOf_withSubclassTrue() {
+        Throwable throwable = new RuntimeException("Test");
+        int result = ExceptionUtils.indexOfThrowable(throwable, Exception.class);
+        assertEquals(0, result); // RuntimeException is a subclass of Exception
+    }
+
+    @Test
+    void testIndexOf_withSubclassFalse() {
+        Throwable throwable = new RuntimeException("Test");
+        int result = ExceptionUtils.indexOfThrowable(throwable, Exception.class, 0, false);
+        assertEquals(ExceptionUtils.NOT_FOUND, result); // RuntimeException is not exactly Exception
+    }
+
+    @Test
+    void testHasCause_withUndeclaredThrowableException() {
+        Throwable chain = new UndeclaredThrowableException(new NullPointerException("Root Cause"));
+        assertTrue(ExceptionUtils.hasCause(chain, NullPointerException.class));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNonNullThrowableAndNullPrintStream() {
+        Exception exception = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(exception, (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNonNullThrowableAndNullPrintWriter() {
+        Exception exception = new Exception();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(exception, (PrintWriter) null));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withNonEmptyLists() {
+        List<String> causeFrames = new ArrayList<>();
+        causeFrames.add("Frame 1");
+        causeFrames.add("Frame 2");
+
+        List<String> wrapperFrames = new ArrayList<>();
+        wrapperFrames.add("Frame 1");
+        wrapperFrames.add("Frame 3");
+
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertEquals(List.of("Frame 2"), causeFrames);
+    }
+
+    @Test
+    void testRethrow_withCheckedException() {
+        Exception checkedException = new Exception("Checked Exception");
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> ExceptionUtils.rethrow(checkedException));
+        assertEquals("Checked Exception", runtimeException.getMessage());
+    }
+}
+```

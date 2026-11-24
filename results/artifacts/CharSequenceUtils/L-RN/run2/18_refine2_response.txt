@@ -1,0 +1,37 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+public class CharSequenceUtils_GenTest {
+
+    @Test
+    void testSubSequence_withStartIndexEqualToZero() {
+        CharSequence cs = "Hello";
+        assertEquals("Hello", CharSequenceUtils.subSequence(cs, 0));
+    }
+
+    @Test
+    void testSubSequence_withStartIndexGreaterThanLengthMinusOne() {
+        CharSequence cs = "Hello";
+        assertThrows(IndexOutOfBoundsException.class, () -> CharSequenceUtils.subSequence(cs, 5));
+    }
+
+    @Test
+    void testToCharArray_withNullCharSequenceReturnsEmptyArray() {
+        char[] result = CharSequenceUtils.toCharArray(null);
+        assertArrayEquals(new char[0], result);
+    }
+
+    @Test
+    void testToCharArray_withNonStringCharSequence() {
+        CharSequence cs = new StringBuilder("Hello");
+        char[] expected = {'H', 'e', 'l', 'l', 'o'};
+        assertArrayEquals(expected, CharSequenceUtils.toCharArray(cs));
+    }
+}
+```

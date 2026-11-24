@@ -1,0 +1,55 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[310,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[318,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[327,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[344,60] reference to getStackFrames is ambiguous
+  both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[349,44] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[355,43] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[361,44] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[367,13] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[367,59] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[383,44] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[384,46] cannot find symbol
+  symbol:   class ArrayList
+  location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[399,38] <T>throwableOf(java.lang.Throwable,java.lang.Class<T>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[405,51] <T>throwableOf(java.lang.Throwable,java.lang.Class<T>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[411,38] <T>throwableOf(java.lang.Throwable,java.lang.Class<T>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[310,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[318,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[327,38] getCauseUsingMethodName(java.lang.Throwable,java.lang.String) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[344,60] reference to getStackFrames is ambiguous
+[ERROR]   both method getStackFrames(java.lang.String) in org.apache.commons.lang3.exception.ExceptionUtils and method getStackFrames(java.lang.Throwable) in org.apache.commons.lang3.exception.ExceptionUtils match
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[349,44] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[355,43] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[361,44] indexOf(java.lang.Throwable,java.lang.Class<? extends java.lang.Throwable>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[367,13] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[367,59] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[383,44] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[384,46] cannot find symbol
+[ERROR]   symbol:   class ArrayList
+[ERROR]   location: class org.apache.commons.lang3.exception.ExceptionUtils_GenTest
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[399,38] <T>throwableOf(java.lang.Throwable,java.lang.Class<T>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[405,51] <T>throwableOf(java.lang.Throwable,java.lang.Class<T>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] /work/w11/src/test/java/org/apache/commons/lang3/exception/ExceptionUtils_GenTest.java:[411,38] <T>throwableOf(java.lang.Throwable,java.lang.Class<T>,int,boolean) has private access in org.apache.commons.lang3.exception.ExceptionUtils
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,113 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+
+public class ObjectUtils_GenTest {
+
+    @Test
+    void testClone_withNull() {
+        assertNull(ObjectUtils.clone(null));
+    }
+
+    @Test
+    void testCloneIfPossible_withNull() {
+        assertNull(ObjectUtils.cloneIfPossible(null));
+    }
+
+    @Test
+    void testCompare_withBothNonNullAndNaturalOrder() {
+        assertEquals(0, ObjectUtils.compare(1, 1));
+        assertTrue(ObjectUtils.compare(1, 2) < 0);
+        assertTrue(ObjectUtils.compare(2, 1) > 0);
+    }
+
+    @Test
+    void testDefaultIfNull_withBothValuesNonNull() {
+        assertEquals("value", ObjectUtils.defaultIfNull("value", "default"));
+    }
+
+    @Test
+    void testFirstNonNull_withAllNulls() {
+        assertNull(ObjectUtils.firstNonNull((String[]) null));
+        assertNull(ObjectUtils.firstNonNull(null, null, null));
+    }
+
+    @Test
+    void testGetClass_withArray() {
+        assertEquals(String[].class, ObjectUtils.getClass(new String[0]));
+    }
+
+    @Test
+    void testGetFirstNonNull_withAllNullSuppliers() {
+        assertNull(ObjectUtils.getFirstNonNull((Supplier<String>[]) null));
+        assertNull(ObjectUtils.getFirstNonNull(() -> null, () -> null, () -> null));
+    }
+
+    @Test
+    void testGetIfNull_withSupplierReturningNull() {
+        assertEquals("default", ObjectUtils.getIfNull(null, () -> "default"));
+    }
+
+    @Test
+    void testHashCodeMulti_withNoObjects() {
+        assertEquals(1, ObjectUtils.hashCodeMulti());
+    }
+
+    @Test
+    void testIsEmpty_withEmptyCollection() {
+        assertTrue(ObjectUtils.isEmpty(Collections.emptyList()));
+    }
+
+    @Test
+    void testIsNotEmpty_withNonEmptyMap() {
+        assertTrue(ObjectUtils.isNotEmpty(Collections.singletonMap("key", "value")));
+    }
+
+    @Test
+    void testMax_withNoValues() {
+        assertNull(ObjectUtils.max());
+    }
+
+    @Test
+    void testMedian_withComparatorAndSingleItem() {
+        assertEquals(1, ObjectUtils.median(Comparator.naturalOrder(), 1));
+    }
+
+    @Test
+    void testMedian_withNaturalOrderAndSingleItem() {
+        assertEquals(1, ObjectUtils.median(1));
+    }
+
+    @Test
+    void testMode_withAllDifferentItems() {
+        assertNull(ObjectUtils.mode(1, 2, 3));
+    }
+
+    @Test
+    void testMode_withNoValues() {
+        assertNull(ObjectUtils.mode());
+    }
+
+    @Test
+    void testRequireNonEmpty_withEmptyString() {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.requireNonEmpty(""));
+    }
+
+    @Test
+    void testToString_withSupplierReturningNull() {
+        assertEquals("default", ObjectUtils.toString((Supplier<Object>) null, () -> "default"));
+    }
+
+    @Test
+    void testWait_withNegativeDuration() throws InterruptedException {
+        assertThrows(IllegalArgumentException.class, () -> ObjectUtils.wait(new Object(), Duration.ofSeconds(-1)));
+    }
+}
+```

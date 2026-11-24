@@ -1,0 +1,48 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class JavaVersion_GenTest {
+
+    @Test
+    void testValueReturnsCorrectFloat() {
+        assertEquals(1.8f, JavaVersion.JAVA_1_8.value);
+        assertEquals(9.0f, JavaVersion.JAVA_9.value);
+        assertEquals(21.0f, JavaVersion.JAVA_21.value);
+    }
+
+    @Test
+    void testGetNameReturnsCorrectName() {
+        assertEquals("1.8", JavaVersion.JAVA_1_8.name);
+        assertEquals("9", JavaVersion.JAVA_9.name);
+        assertEquals("21", JavaVersion.JAVA_21.name);
+    }
+
+    @Test
+    void testJAVA_RECENTIsGreaterThanAllOtherVersions() {
+        for (JavaVersion version : JavaVersion.values()) {
+            if (!version.equals(JavaVersion.JAVA_RECENT)) {
+                assertTrue(JavaVersion.JAVA_RECENT.atLeast(version));
+            }
+        }
+    }
+
+    @Test
+    void testJAVA_RECENTIsEqualToItself() {
+        assertTrue(JavaVersion.JAVA_RECENT.atLeast(JavaVersion.JAVA_RECENT));
+        assertTrue(JavaVersion.JAVA_RECENT.atMost(JavaVersion.JAVA_RECENT));
+    }
+
+    @Test
+    void testAtLeastWithNullThrowsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> JavaVersion.JAVA_1_8.atLeast(null));
+    }
+
+    @Test
+    void testAtMostWithNullThrowsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> JavaVersion.JAVA_1_8.atMost(null));
+    }
+}
+```

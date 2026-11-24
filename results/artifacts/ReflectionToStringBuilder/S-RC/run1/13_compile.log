@@ -1,0 +1,15 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[10,26] package org.mockito does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[54,56] reference to toNoNullStringArray is ambiguous
+  both method toNoNullStringArray(java.util.Collection<java.lang.String>) in org.apache.commons.lang3.builder.ReflectionToStringBuilder and method toNoNullStringArray(java.lang.Object[]) in org.apache.commons.lang3.builder.ReflectionToStringBuilder match
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[10,26] package org.mockito does not exist
+[ERROR] /work/w9/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[54,56] reference to toNoNullStringArray is ambiguous
+[ERROR]   both method toNoNullStringArray(java.util.Collection<java.lang.String>) in org.apache.commons.lang3.builder.ReflectionToStringBuilder and method toNoNullStringArray(java.lang.Object[]) in org.apache.commons.lang3.builder.ReflectionToStringBuilder match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

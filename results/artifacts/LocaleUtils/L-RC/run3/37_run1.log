@@ -1,0 +1,35 @@
+[ERROR] Tests run: 69, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.263 s <<< FAILURE! -- in org.apache.commons.lang3.LocaleUtils_GenTest
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testLocaleLookupListWithVariant -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <4> but was: <3>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testLocaleLookupListWithVariant(LocaleUtils_GenTest.java:258)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] org.apache.commons.lang3.LocaleUtils_GenTest.testParseLocaleWithPrefixAndVariant(String)[2] -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.IllegalArgumentException: Invalid locale format: -US_POSIX
+	at org.apache.commons.lang3.LocaleUtils.toLocale(LocaleUtils.java:346)
+	at org.apache.commons.lang3.LocaleUtils_GenTest.testParseLocaleWithPrefixAndVariant(LocaleUtils_GenTest.java:310)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+[ERROR] Failures: 
+[ERROR]   LocaleUtils_GenTest.testLocaleLookupListWithVariant:258 expected: <4> but was: <3>
+[ERROR] Errors: 
+[ERROR]   LocaleUtils_GenTest.testParseLocaleWithPrefixAndVariant:310 » IllegalArgument Invalid locale format: -US_POSIX
+[ERROR] Tests run: 69, Failures: 1, Errors: 1, Skipped: 0
+[ERROR] There are test failures.
+
+Please refer to /work/w12/target/surefire-reports for the individual test results.
+Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.

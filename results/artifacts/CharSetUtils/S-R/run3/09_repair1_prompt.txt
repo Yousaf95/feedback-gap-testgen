@@ -1,0 +1,235 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSetUtils_GenTest below does not compile. Fix the compilation errors.
+
+Keep the test methods that are correct. Fix the broken ones, or delete a test method if it cannot be fixed using the public API of CharSetUtils shown below. Do not change the class name or the package. No mocks.
+
+Compiler errors (line: message):
+line 28: element value must be a constant expression
+    code: @ValueSource(strings = {"", null})
+line 49: element value must be a constant expression
+    code: @ValueSource(strings = {"", null})
+line 70: element value must be a constant expression
+    code: @ValueSource(strings = {"", null})
+line 91: element value must be a constant expression
+    code: @ValueSource(strings = {"", null})
+line 112: element value must be a constant expression
+    code: @ValueSource(strings = {"", null})
+
+Current test class (CharSetUtils_GenTest.java):
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CharSetUtils_GenTest {
+
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "b", "c"})
+    public void testContainsAny_normal(String charSet) {
+        assertTrue(CharSetUtils.containsAny("abc", charSet));
+    }
+
+    @Test
+    public void testContainsAny_emptyString() {
+        assertFalse(CharSetUtils.containsAny("", "a"));
+    }
+
+    @Test
+    public void testContainsAny_nullString() {
+        assertFalse(CharSetUtils.containsAny(null, "a"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", null})
+    public void testContainsAny_emptyOrNullCharSet(String charSet) {
+        assertFalse(CharSetUtils.containsAny("abc", charSet));
+    }
+
+    @Test
+    public void testCount_normal() {
+        assertEquals(2, CharSetUtils.count("abcde", "a", "c"));
+    }
+
+    @Test
+    public void testCount_emptyString() {
+        assertEquals(0, CharSetUtils.count("", "a"));
+    }
+
+    @Test
+    public void testCount_nullString() {
+        assertEquals(0, CharSetUtils.count(null, "a"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", null})
+    public void testCount_emptyOrNullCharSet(String charSet) {
+        assertEquals(0, CharSetUtils.count("abcde", charSet));
+    }
+
+    @Test
+    public void testDelete_normal() {
+        assertEquals("bcd", CharSetUtils.delete("abcde", "a"));
+    }
+
+    @Test
+    public void testDelete_emptyString() {
+        assertEquals("", CharSetUtils.delete("", "a"));
+    }
+
+    @Test
+    public void testDelete_nullString() {
+        assertNull(CharSetUtils.delete(null, "a"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", null})
+    public void testDelete_emptyOrNullCharSet(String charSet) {
+        assertEquals("abcde", CharSetUtils.delete("abcde", charSet));
+    }
+
+    @Test
+    public void testKeep_normal() {
+        assertEquals("ace", CharSetUtils.keep("abcde", "a", "c"));
+    }
+
+    @Test
+    public void testKeep_emptyString() {
+        assertEquals("", CharSetUtils.keep("", "a"));
+    }
+
+    @Test
+    public void testKeep_nullString() {
+        assertNull(CharSetUtils.keep(null, "a"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", null})
+    public void testKeep_emptyOrNullCharSet(String charSet) {
+        assertEquals("", CharSetUtils.keep("abcde", charSet));
+    }
+
+    @Test
+    public void testSqueeze_normal() {
+        assertEquals("abce", CharSetUtils.squeeze("aaabbccddeee"));
+    }
+
+    @Test
+    public void testSqueeze_emptyString() {
+        assertEquals("", CharSetUtils.squeeze("", "a"));
+    }
+
+    @Test
+    public void testSqueeze_nullString() {
+        assertNull(CharSetUtils.squeeze(null, "a"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"", null})
+    public void testSqueeze_emptyOrNullCharSet(String charSet) {
+        assertEquals("aaabbccddeee", CharSetUtils.squeeze("aaabbccddeee", charSet));
+    }
+}
+
+```
+
+Class under test (org.apache.commons.lang3.CharSetUtils):
+```java
+package org.apache.commons.lang3;
+import org.apache.commons.lang3.stream.Streams;
+
+/** Operations on {@link CharSet} instances. */
+public class CharSetUtils {
+    /** Takes an argument in set-syntax, see evaluateSet, and identifies whether any of the characters are present in the specified string. */
+    public static boolean containsAny(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return false;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and returns the number of characters present in the specified string. */
+    public static int count(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return 0;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        int count = 0;
+        for (final char c : str.toCharArray()) {
+            if (chars.contains(c)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and deletes any of characters present in the specified string. */
+    public static String delete(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        return modify(str, set, false);
+    }
+    /** Takes an argument in set-syntax, see evaluateSet, and keeps any of characters present in the specified string. */
+    public static String keep(final String str, final String... set) {
+        if (str == null) {
+            return null;
+        }
+        if (str.isEmpty() || deepEmpty(set)) {
+            return StringUtils.EMPTY;
+        }
+        return modify(str, set, true);
+    }
+    /** Squeezes any repetitions of a character that is mentioned in the supplied set. */
+    public static String squeeze(final String str, final String... set) {
+        if (StringUtils.isEmpty(str) || deepEmpty(set)) {
+            return str;
+        }
+        final CharSet chars = CharSet.getInstance(set);
+        final StringBuilder buffer = new StringBuilder(str.length());
+        final char[] chrs = str.toCharArray();
+        final int sz = chrs.length;
+        char lastChar = chrs[0];
+        char ch;
+        Character inChars = null;
+        Character notInChars = null;
+        buffer.append(lastChar);
+        for (int i = 1; i < sz; i++) {
+            ch = chrs[i];
+            if (ch == lastChar) {
+                if (inChars != null && ch == inChars) {
+                    continue;
+                }
+                if (notInChars == null || ch != notInChars) {
+                    if (chars.contains(ch)) {
+                        inChars = ch;
+                        continue;
+                    }
+                    notInChars = ch;
+                }
+            }
+            buffer.append(ch);
+            lastChar = ch;
+        }
+        return buffer.toString();
+    }
+    /** CharSetUtils instances should NOT be constructed in standard programming. */
+    public CharSetUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static boolean deepEmpty(final String[] strings);
+    private static String modify(final String str, final String[] set, final boolean expect);
+}
+```
+
+Output: a single ```java code block with the complete corrected test class. No explanations.

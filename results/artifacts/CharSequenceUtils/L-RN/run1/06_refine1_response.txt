@@ -1,0 +1,66 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class CharSequenceUtils_GenTest {
+
+    @Test
+    void testSubSequence_withNegativeStart() {
+        Exception exception = assertThrows(IndexOutOfBoundsException.class, () -> {
+            CharSequenceUtils.subSequence("test", -1);
+        });
+        assertEquals("start must be non-negative", exception.getMessage());
+    }
+
+    @Test
+    void testSubSequence_withEmptyCharSequence() {
+        CharSequence result = CharSequenceUtils.subSequence("", 0);
+        assertNotNull(result);
+        assertTrue(result instanceof String);
+        assertEquals("", result.toString());
+    }
+
+    @Test
+    void testToCharArray_withNullElementsInStringBuilder() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("test").append((char) 0).append("example");
+        char[] expectedArray = {'t', 'e', 's', 't', '\0', 'e', 'x', 'a', 'm', 'p', 'l', 'e'};
+        assertArrayEquals(expectedArray, CharSequenceUtils.toCharArray(sb));
+    }
+
+    @Test
+    void testToCharArray_withNonStringCharSequence() {
+        CharSequence cs = new CharSequence() {
+            @Override
+            public int length() {
+                return 3;
+            }
+            @Override
+            public char charAt(int index) {
+                switch (index) {
+                    case 0: return 'a';
+                    case 1: return 'b';
+                    case 2: return 'c';
+                    default: throw new IndexOutOfBoundsException();
+                }
+            }
+            @Override
+            public CharSequence subSequence(int start, int end) {
+                throw new UnsupportedOperationException();
+            }
+        };
+        char[] expectedArray = {'a', 'b', 'c'};
+        assertArrayEquals(expectedArray, CharSequenceUtils.toCharArray(cs));
+    }
+
+    @Test
+    void testSubSequence_withStartEqualToLength() {
+        CharSequence result = CharSequenceUtils.subSequence("test", 4);
+        assertNotNull(result);
+        assertTrue(result instanceof String);
+        assertEquals("", result.toString());
+    }
+}
+```

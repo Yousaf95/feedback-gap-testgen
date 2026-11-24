@@ -1,0 +1,56 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Validate_GenTest {
+
+    @Test
+    public void testExclusiveBetweenDoubleThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1.0, 2.0, 0.5));
+    }
+
+    @Test
+    public void testExclusiveBetweenLongThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.exclusiveBetween(1L, 2L, 0L));
+    }
+
+    @Test
+    public void testInclusiveBetweenDoubleThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1.0, 2.0, -1.0));
+    }
+
+    @Test
+    public void testInclusiveBetweenLongThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.inclusiveBetween(1L, 2L, -1L));
+    }
+
+    @Test
+    public void testIsAssignableFromThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isAssignableFrom(String.class, Integer.class));
+    }
+
+    @Test
+    public void testIsInstanceOfThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.isInstanceOf(Integer.class, "test"));
+    }
+
+    @Test
+    public void testMatchesPatternThrowsException() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.matchesPattern("abc", "[0-9]"));
+    }
+
+    @Test
+    public void testNoNullElementsArrayThrowsException() {
+        Object[] array = {1, null, 3};
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(array));
+    }
+
+    @Test
+    public void testValidIndexStringThrowsException() {
+        String str = "test";
+        assertThrows(IndexOutOfBoundsException.class, () -> Validate.validIndex(str, 5));
+    }
+}
+```

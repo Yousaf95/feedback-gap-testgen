@@ -1,0 +1,56 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.apache.commons.lang3.CharUtils.*;
+
+class CharUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    public void testIsAsciiExtended_2() {
+        assertTrue(isAsciiExtended('\u007F'));
+        assertFalse(isAsciiExtended('\u0080'));
+    }
+
+    @Test
+    public void testIsAsciiAlphaExtended_2() {
+        assertTrue(isAsciiAlphaExtended('A'));
+        assertTrue(isAsciiAlphaExtended('z'));
+        assertFalse(isAsciiAlphaExtended('\u007F'));
+        assertFalse(isAsciiAlphaExtended('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiAlphanumericExtended_2() {
+        assertTrue(isAsciiAlphanumericExtended('A'));
+        assertTrue(isAsciiAlphanumericExtended('z'));
+        assertTrue(isAsciiAlphanumericExtended('0'));
+        assertFalse(isAsciiAlphanumericExtended('\u007F'));
+        assertFalse(isAsciiAlphanumericExtended('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiNumericExtended_2() {
+        assertTrue(isAsciiNumericExtended('0'));
+        assertTrue(isAsciiNumericExtended('9'));
+        assertFalse(isAsciiNumericExtended('\u007F'));
+        assertFalse(isAsciiNumericExtended('\u0100'));
+    }
+
+    @Test
+    public void testIsAsciiPrintableExtended_2() {
+        assertTrue(isAsciiPrintableExtended('A'));
+        assertTrue(isAsciiPrintableExtended('z'));
+        assertTrue(isAsciiPrintableExtended('0'));
+        assertTrue(isAsciiPrintableExtended('\u007F'));
+        assertFalse(isAsciiPrintableExtended('\u0100'));
+    }
+
+    @Test
+    public void testToChar_CharacterNull_2() {
+        assertThrows(NullPointerException.class, () -> toChar(null));
+    }
+}
+```

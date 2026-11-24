@@ -1,0 +1,209 @@
+```java
+package org.apache.commons.lang3.function;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import java.io.IOException;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+public class Failable_GenTest {
+
+    @Test
+    void testAcceptConsumerNormalCase() {
+        // Arrange
+        FailableConsumer<String, IOException> consumer = s -> System.out.println(s);
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Failable.accept(consumer, "test"));
+    }
+
+    @Test
+    void testAcceptConsumerThrowsException() {
+        // Arrange
+        FailableConsumer<String, IOException> consumer = s -> { throw new IOException("Expected"); };
+
+        // Act & Assert
+        Exception exception = assertThrows(java.io.UncheckedIOException.class, () -> Failable.accept(consumer, "test"));
+        assertEquals("Expected", exception.getCause().getMessage());
+    }
+
+    @Test
+    void testApplyFunctionNormalCase() {
+        // Arrange
+        FailableFunction<String, Integer, IOException> function = s -> s.length();
+
+        // Act
+        int result = Failable.apply(function, "test");
+
+        // Assert
+        assertEquals(4, result);
+    }
+
+    @Test
+    void testApplyFunctionThrowsException() {
+        // Arrange
+        FailableFunction<String, Integer, IOException> function = s -> { throw new IOException("Expected"); };
+
+        // Act & Assert
+        Exception exception = assertThrows(java.io.UncheckedIOException.class, () -> Failable.apply(function, "test"));
+        assertEquals("Expected", exception.getCause().getMessage());
+    }
+
+    @Test
+    void testGetSupplierNormalCase() {
+        // Arrange
+        FailableSupplier<String, IOException> supplier = () -> "test";
+
+        // Act
+        String result = Failable.get(supplier);
+
+        // Assert
+        assertEquals("test", result);
+    }
+
+    @Test
+    void testGetSupplierThrowsException() {
+        // Arrange
+        FailableSupplier<String, IOException> supplier = () -> { throw new IOException("Expected"); };
+
+        // Act & Assert
+        Exception exception = assertThrows(java.io.UncheckedIOException.class, () -> Failable.get(supplier));
+        assertEquals("Expected", exception.getCause().getMessage());
+    }
+
+    @Test
+    void testRunRunnableNormalCase() {
+        // Arrange
+        FailableRunnable<IOException> runnable = () -> System.out.println("Running");
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Failable.run(runnable));
+    }
+
+    @Test
+    void testRunRunnableThrowsException() {
+        // Arrange
+        FailableRunnable<IOException> runnable = () -> { throw new IOException("Expected"); };
+
+        // Act & Assert
+        Exception exception = assertThrows(java.io.UncheckedIOException.class, () -> Failable.run(runnable));
+        assertEquals("Expected", exception.getCause().getMessage());
+    }
+
+    @Test
+    void testCallCallableNormalCase() {
+        // Arrange
+        FailableCallable<String, IOException> callable = () -> "test";
+
+        // Act
+        String result = Failable.call(callable);
+
+        // Assert
+        assertEquals("test", result);
+    }
+
+    @Test
+    void testCallCallableThrowsException() {
+        // Arrange
+        FailableCallable<String, IOException> callable = () -> { throw new IOException("Expected"); };
+
+        // Act & Assert
+        Exception exception = assertThrows(java.io.UncheckedIOException.class, () -> Failable.call(callable));
+        assertEquals("Expected", exception.getCause().getMessage());
+    }
+
+    @Test
+    void testAsConsumerNormalCase() {
+        // Arrange
+        FailableConsumer<String, IOException> failableConsumer = s -> System.out.println(s);
+        Consumer<String> consumer = Failable.asConsumer(failableConsumer);
+
+        // Act & Assert
+        assertDoesNotThrow(() -> consumer.accept("test"));
+    }
+
+    @Test
+    void testAsFunctionNormalCase() {
+        // Arrange
+        FailableFunction<String, Integer, IOException> failableFunction = s -> s.length();
+        Function<String, Integer> function = Failable.asFunction(failableFunction);
+
+        // Act
+        int result = function.apply("test");
+
+        // Assert
+        assertEquals(4, result);
+    }
+
+    @Test
+    void testAsPredicateNormalCase() {
+        // Arrange
+        FailablePredicate<String, IOException> failablePredicate = s -> s.length() > 0;
+        Predicate<String> predicate = Failable.asPredicate(failablePredicate);
+
+        // Act & Assert
+        assertTrue(predicate.test("test"));
+    }
+
+    @Test
+    void testAsRunnableNormalCase() {
+        // Arrange
+        FailableRunnable<IOException> failableRunnable = () -> System.out.println("Running");
+        Runnable runnable = Failable.asRunnable(failableRunnable);
+
+        // Act & Assert
+        assertDoesNotThrow(runnable::run);
+    }
+
+    @Test
+    void testAsSupplierNormalCase() {
+        // Arrange
+        FailableSupplier<String, IOException> failableSupplier = () -> "test";
+        Supplier<String> supplier = Failable.asSupplier(failableSupplier);
+
+        // Act
+        String result = supplier.get();
+
+        // Assert
+        assertEquals("test", result);
+    }
+
+    @Test
+    void testTryWithResourcesNormalCase() {
+        // Arrange
+        FailableRunnable<IOException> action = () -> System.out.println("Action");
+        FailableConsumer<Throwable, IOException> errorHandler = t -> System.out.println(t.getMessage());
+        FailableRunnable<IOException>[] resources = new FailableRunnable[]{ () -> System.out.println("Resource") };
+
+        // Act & Assert
+        assertDoesNotThrow(() -> Failable.tryWithResources(action, errorHandler, resources));
+    }
+
+    @Test
+    void testTryWithResourcesActionThrowsException() {
+        // Arrange
+        FailableRunnable<IOException> action = () -> { throw new IOException("Expected"); };
+        FailableConsumer<Throwable, IOException> errorHandler = t -> System.out.println(t.getMessage());
+        FailableRunnable<IOException>[] resources = new FailableRunnable[]{ () -> System.out.println("Resource") };
+
+        // Act & Assert
+        Exception exception = assertThrows(java.io.UncheckedIOException.class, () -> Failable.tryWithResources(action, errorHandler, resources));
+        assertEquals("Expected", exception.getCause().getMessage());
+    }
+
+    @Test
+    void testTryWithResourcesResourceThrowsException() {
+        // Arrange
+        FailableRunnable<IOException> action = () -> System.out.println("Action");
+        FailableConsumer<Throwable, IOException> errorHandler = t -> System.out.println(t.getMessage());
+        FailableRunnable<IOException>[] resources = new FailableRunnable[]{ () -> { throw new IOException("Expected"); } };
+
+        // Act & Assert
+        Exception exception = assertThrows(java.io.UncheckedIOException.class, () -> Failable.tryWithResources(action, errorHandler, resources));
+        assertEquals("Expected", exception.getCause().getMessage());
+    }
+}
+```

@@ -1,0 +1,156 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[234,21] reference to accept is ambiguous
+  both method <E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[239,21] reference to accept is ambiguous
+  both method <E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[256,13] cannot find symbol
+  symbol:   class BiConsumer
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,13] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,93] bad operand types for binary operator '+'
+  first type:  java.lang.Object
+  second type: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[268,13] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,13] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[282,13] cannot find symbol
+  symbol:   class FailableStream
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[353,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[360,26] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[234,21] reference to accept is ambiguous
+[ERROR]   both method <E>accept(org.apache.commons.lang3.function.FailableIntConsumer<E>,int) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[239,21] reference to accept is ambiguous
+[ERROR]   both method <E>accept(org.apache.commons.lang3.function.FailableDoubleConsumer<E>,double) in org.apache.commons.lang3.function.Failable and method <E>accept(org.apache.commons.lang3.function.FailableLongConsumer<E>,long) in org.apache.commons.lang3.function.Failable match
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[256,13] cannot find symbol
+[ERROR]   symbol:   class BiConsumer
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,13] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,93] bad operand types for binary operator '+'
+[ERROR]   first type:  java.lang.Object
+[ERROR]   second type: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[268,13] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,13] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[282,13] cannot find symbol
+[ERROR]   symbol:   class FailableStream
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[353,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[360,26] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[256,13] cannot find symbol
+  symbol:   class BiConsumer
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,13] cannot find symbol
+  symbol:   class BiFunction
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,93] bad operand types for binary operator '+'
+  first type:  java.lang.Object
+  second type: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[268,13] cannot find symbol
+  symbol:   class BiPredicate
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[282,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[353,26] cannot find symbol
+  symbol:   class UncheckedIOException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[360,26] cannot find symbol
+  symbol:   class UndeclaredThrowableException
+  location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[256,13] cannot find symbol
+[ERROR]   symbol:   class BiConsumer
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,13] cannot find symbol
+[ERROR]   symbol:   class BiFunction
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[262,93] bad operand types for binary operator '+'
+[ERROR]   first type:  java.lang.Object
+[ERROR]   second type: java.lang.Object
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[268,13] cannot find symbol
+[ERROR]   symbol:   class BiPredicate
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[282,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[353,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedIOException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[360,26] cannot find symbol
+[ERROR]   symbol:   class UndeclaredThrowableException
+[ERROR]   location: class org.apache.commons.lang3.function.Failable_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[282,20] package Streams does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[274,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[282,20] package Streams does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[273,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[281,20] package Streams does not exist
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[273,20] package Streams does not exist
+[ERROR] /work/w5/src/test/java/org/apache/commons/lang3/function/Failable_GenTest.java:[281,20] package Streams does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+=====
+

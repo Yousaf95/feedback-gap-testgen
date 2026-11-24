@@ -1,0 +1,115 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExceptionUtils_GenTest {
+
+    @Test
+    public void testGetCause_MethodNameFound() throws NoSuchMethodException {
+        Throwable throwable = new RuntimeException("test");
+        Method method = throwable.getClass().getMethod("getCause");
+        Throwable cause = ExceptionUtils.getCause(throwable, new String[] { "getCause" });
+        assertEquals(RuntimeException.class, cause.getClass());
+    }
+
+    @Test
+    public void testGetRootCause_ChainedThrowables() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        String message = ExceptionUtils.getRootCauseMessage(cause1);
+        assertEquals("NullPointerException: cause2", message);
+    }
+
+    @Test
+    public void testGetRootCauseStackTrace_ChainedThrowables() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        List<String> stackTrace = ExceptionUtils.getRootCauseStackTraceList(cause1);
+        assertEquals(Arrays.asList(
+            "java.lang.IllegalArgumentException: cause1",
+            "Wrapped by: java.lang.NullPointerException: cause2"
+        ), stackTrace);
+    }
+
+    @Test
+    public void testGetStackFrames_Null() {
+        String[] frames = ExceptionUtils.getStackFrames(null);
+        assertTrue(Arrays.equals(new String[0], frames));
+    }
+
+    @Test
+    public void testGetThrowableCount_ChainedThrowables() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        int count = ExceptionUtils.getThrowableCount(cause1);
+        assertEquals(3, count);
+    }
+
+    @Test
+    public void testGetThrowableList_ChainedThrowables() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        List<Throwable> list = ExceptionUtils.getThrowableList(cause1);
+        assertTrue(list.contains(cause1));
+        assertTrue(list.contains(cause2));
+    }
+
+    @Test
+    public void testGetThrowables_ChainedThrowables() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        Throwable[] throwables = ExceptionUtils.getThrowables(cause1);
+        assertTrue(Arrays.asList(throwables).contains(cause1));
+        assertTrue(Arrays.asList(throwables).contains(cause2));
+    }
+
+    @Test
+    public void testHasCause_CauseFound() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        boolean result = ExceptionUtils.hasCause(cause1, NullPointerException.class);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testIndexOf_Match() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        int index = ExceptionUtils.indexOfThrowable(cause1, NullPointerException.class);
+        assertEquals(2, index);
+    }
+
+    @Test
+    public void testIndexOfType_Match() {
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        int index = ExceptionUtils.indexOfType(cause1, NullPointerException.class);
+        assertEquals(2, index);
+    }
+
+    @Test
+    public void testPrintRootCauseStackTrace_ChainedThrowables() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(out);
+        Throwable cause1 = new IllegalArgumentException("cause1");
+        Throwable cause2 = new NullPointerException("cause2");
+        cause1.initCause(cause2);
+        ExceptionUtils.printRootCauseStackTrace(cause1, printStream);
+        assertTrue(out.toString().contains("java.lang.IllegalArgumentException: cause1"));
+        assertTrue(out.toString().contains("Wrapped by: java.lang.NullPointerException: cause2"));
+    }
+}
+```

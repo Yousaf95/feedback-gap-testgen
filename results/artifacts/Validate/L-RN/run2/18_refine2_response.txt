@@ -1,0 +1,76 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class Validate_GenTest {
+
+    @Test
+    void testNotBlankNormal() {
+        String input = "Hello";
+        assertTrue(Validate.notBlank(input) == input);
+    }
+
+    @Test
+    void testNotBlankEmptyString() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notBlank(""));
+    }
+
+    @Test
+    void testNotBlankWhitespaceOnly() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notBlank("   "));
+    }
+
+    @Test
+    void testNotBlankNull() {
+        assertThrows(IllegalArgumentException.class, () -> Validate.notBlank(null));
+    }
+
+    @Test
+    void testNoNullElementsCollectionWithNullElement() {
+        List<String> list = new ArrayList<>();
+        list.add("Hello");
+        list.add(null);
+        assertThrows(IllegalArgumentException.class, () -> Validate.noNullElements(list));
+    }
+
+    @Test
+    void testNotEmptyArrayCustomMessage() {
+        String[] array = {};
+        Exception exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.notEmpty(array, "Custom message for empty array"));
+        assertTrue(exception.getMessage().equals("Custom message for empty array"));
+    }
+
+    @Test
+    void testNoNullElementsArrayWithNullElementCustomMessage() {
+        String[] array = {"Hello", null};
+        Exception exception = assertThrows(IllegalArgumentException.class, 
+            () -> Validate.noNullElements(array, "Custom message for null element at index %d", 1));
+        assertTrue(exception.getMessage().equals("Custom message for null element at index 1"));
+    }
+
+    @Test
+    void testValidIndexArrayNormal() {
+        String[] array = {"Hello"};
+        assertTrue(Validate.validIndex(array, 0) == array);
+    }
+
+    @Test
+    void testValidIndexArrayNegativeIndex() {
+        String[] array = {"Hello"};
+        assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(array, -1));
+    }
+
+    @Test
+    void testValidIndexArrayTooLargeIndex() {
+        String[] array = {"Hello"};
+        assertThrows(IllegalArgumentException.class, () -> Validate.validIndex(array, 1));
+    }
+}
+```

@@ -1,0 +1,120 @@
+```java
+package org.apache.commons.lang3.exception;
+
+import org.junit.jupiter.api.Test;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ExceptionUtils_GenTest {
+
+    @Test
+    void testGetMessage_withNullThrowable() {
+        assertEquals("", ExceptionUtils.getMessage(null));
+    }
+
+    @Test
+    void testGetRootCause_withNoNestedThrowables() {
+        Throwable throwable = new RuntimeException("Test");
+        assertSame(throwable, ExceptionUtils.getRootCause(throwable));
+    }
+
+    @Test
+    void testGetRootCauseMessage_withNoNestedThrowables() {
+        Throwable throwable = new RuntimeException("Test");
+        assertEquals("RuntimeException: Test", ExceptionUtils.getRootCauseMessage(throwable));
+    }
+
+    @Test
+    void testGetStackFrames_withNonNullThrowable() {
+        Throwable throwable = new RuntimeException();
+        String[] stackFrames = ExceptionUtils.getStackFrames(throwable);
+        assertTrue(stackFrames.length > 0, "Expected at least one stack frame");
+    }
+
+    @Test
+    void testGetStackTrace_withNonNullThrowable() {
+        Throwable throwable = new RuntimeException();
+        String stackTrace = ExceptionUtils.getStackTrace(throwable);
+        assertFalse(stackTrace.isEmpty(), "Expected a non-empty stack trace");
+    }
+
+    @Test
+    void testGetThrowableCount_withNoNestedThrowables() {
+        Throwable throwable = new RuntimeException();
+        assertEquals(1, ExceptionUtils.getThrowableCount(throwable));
+    }
+
+    @Test
+    void testGetThrowableList_withNoNestedThrowables() {
+        Throwable throwable = new RuntimeException();
+        List<Throwable> list = ExceptionUtils.getThrowableList(throwable);
+        assertEquals(1, list.size());
+        assertSame(throwable, list.get(0));
+    }
+
+    @Test
+    void testHasCause_withMatchingType() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable throwable = new RuntimeException(cause);
+        assertTrue(ExceptionUtils.hasCause(throwable, IllegalArgumentException.class));
+    }
+
+    @Test
+    void testIndexOfThrowable_withNonMatchingType() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable throwable = new RuntimeException(cause);
+        assertEquals(-1, ExceptionUtils.indexOfThrowable(throwable, NullPointerException.class));
+    }
+
+    @Test
+    void testIndexOfType_withMatchingSuperType() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable throwable = new RuntimeException(cause);
+        assertEquals(0, ExceptionUtils.indexOfType(throwable, RuntimeException.class));
+    }
+
+    @Test
+    void testIsChecked_withError() {
+        assertFalse(ExceptionUtils.isChecked(new Error()));
+    }
+
+    @Test
+    void testIsUnchecked_withCheckedException() {
+        assertFalse(ExceptionUtils.isUnchecked(new Exception()));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintStream() {
+        Throwable throwable = new RuntimeException();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintStream) null));
+    }
+
+    @Test
+    void testPrintRootCauseStackTrace_withNullPrintWriter() {
+        Throwable throwable = new RuntimeException();
+        assertThrows(NullPointerException.class, () -> ExceptionUtils.printRootCauseStackTrace(throwable, (PrintWriter) null));
+    }
+
+    @Test
+    void testRemoveCommonFrames_withEmptyLists() {
+        List<String> causeFrames = Collections.emptyList();
+        List<String> wrapperFrames = Collections.emptyList();
+        ExceptionUtils.removeCommonFrames(causeFrames, wrapperFrames);
+        assertTrue(causeFrames.isEmpty());
+    }
+
+    @Test
+    void testStream_withNoNestedThrowables() {
+        Throwable throwable = new RuntimeException();
+        long count = ExceptionUtils.stream(throwable).count();
+        assertEquals(1, count);
+    }
+
+    @Test
+    void testThrowableOfThrowable_withNonMatchingType() {
+        Throwable cause = new IllegalArgumentException("Cause");
+        Throwable throwable = new RuntimeException(cause);
+        assertNull(ExceptionUtils.throwableOfThrowable(throwable, NullPointerException.class));
+    }
+}
+```

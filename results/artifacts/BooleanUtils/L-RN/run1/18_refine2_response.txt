@@ -1,0 +1,104 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class BooleanUtils_GenTest {
+
+    @Test
+    void testToBooleanDefaultIfNull_withTrue() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(Boolean.TRUE, false));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNull_withFalse() {
+        assertFalse(BooleanUtils.toBooleanDefaultIfNull(Boolean.FALSE, true));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNull_withNullAndDefaultValueTrue() {
+        assertTrue(BooleanUtils.toBooleanDefaultIfNull(null, true));
+    }
+
+    @Test
+    void testToBooleanDefaultIfNull_withNullAndDefaultValueFalse() {
+        assertFalse(BooleanUtils.toBooleanDefaultIfNull(null, false));
+    }
+
+    @Test
+    void testToIntegerObject_withCustomValues_null() {
+        assertEquals(Integer.valueOf(2), BooleanUtils.toIntegerObject(null, 1, 0, 2));
+    }
+
+    @Test
+    void testToIntegerObject_withCustomValues_true() {
+        assertEquals(Integer.valueOf(1), BooleanUtils.toIntegerObject(true, 1, 0, 2));
+    }
+
+    @Test
+    void testToIntegerObject_withCustomValues_false() {
+        assertEquals(Integer.valueOf(0), BooleanUtils.toIntegerObject(false, 1, 0, 2));
+    }
+
+    @Test
+    void testToString_withCustomStrings_true() {
+        assertEquals("yes", BooleanUtils.toString(true, "yes", "no"));
+    }
+
+    @Test
+    void testToString_withCustomStrings_false() {
+        assertEquals("no", BooleanUtils.toString(false, "yes", "no"));
+    }
+
+    @Test
+    void testToString_withCustomStrings_null() {
+        assertNull(BooleanUtils.toString(null, "yes", "no"));
+    }
+
+    @Test
+    void testToBooleanObject_withStringTrue() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("true"));
+    }
+
+    @Test
+    void testToBooleanObject_withStringFalse() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("false"));
+    }
+
+    @Test
+    void testToBooleanObject_withStringYes() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("yes"));
+    }
+
+    @Test
+    void testToBooleanObject_withStringNo() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("no"));
+    }
+
+    @Test
+    void testToBooleanObject_withStringOn() {
+        assertEquals(Boolean.TRUE, BooleanUtils.toBooleanObject("on"));
+    }
+
+    @Test
+    void testToBooleanObject_withStringOff() {
+        assertEquals(Boolean.FALSE, BooleanUtils.toBooleanObject("off"));
+    }
+
+    @Test
+    void testToBooleanObject_withStringInvalid() {
+        assertNull(BooleanUtils.toBooleanObject("invalid"));
+    }
+
+    @Test
+    void testToInteger_withCustomValues_true() {
+        assertEquals(10, BooleanUtils.toInteger(true, 10, 20));
+    }
+
+    @Test
+    void testToInteger_withCustomValues_false() {
+        assertEquals(20, BooleanUtils.toInteger(false, 10, 20));
+    }
+}
+```

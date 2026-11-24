@@ -1,0 +1,175 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class CharSequenceUtils_GenTest for CharSequenceUtils currently achieves 25.0% line coverage and 22.1% branch coverage of CharSequenceUtils.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+   31: 
+   32:     private static boolean checkLaterThan1(final CharSequence cs, final CharSequence searchChar, final int len2, final int start1) {
+   33:         for (int i = 1, j = len2 - 1; i <= j; i++, j--) {  // <-- NOT COVERED
+   34:             if (cs.charAt(start1 + i) != searchChar.charAt(i) || cs.charAt(start1 + j) != searchChar.charAt(j)) {  // <-- NOT COVERED
+   35:                 return false;  // <-- NOT COVERED
+   36:             }
+   37:         }
+   38:         return true;  // <-- NOT COVERED
+   39:     }
+   40: 
+    ...
+   54:             return ((StringBuilder) cs).indexOf(searchChar.toString(), start);
+   55:         }
+   56:         if (cs instanceof StringBuffer) {  // <-- PARTIAL (1 of 2 branches missed)
+   57:             return ((StringBuffer) cs).indexOf(searchChar.toString(), start);
+   58:         }
+   59:         return cs.toString().indexOf(searchChar.toString(), start);  // <-- NOT COVERED
+   60: //        if (cs instanceof String && searchChar instanceof String) {
+   61: //            // TODO: Do we assume searchChar is usually relatively small;
+    ...
+  115:         }
+  116:         final int sz = cs.length();
+  117:         if (start < 0) {  // <-- PARTIAL (1 of 2 branches missed)
+  118:             start = 0;  // <-- NOT COVERED
+  119:         }
+  120:         if (searchChar < Character.MIN_SUPPLEMENTARY_CODE_POINT) {  // <-- PARTIAL (1 of 2 branches missed)
+  121:             for (int i = start; i < sz; i++) {  // <-- PARTIAL (1 of 2 branches missed)
+  122:                 if (cs.charAt(i) == searchChar) {
+  123:                     return i;
+  124:                 }
+  125:             }
+  126:             return NOT_FOUND;  // <-- NOT COVERED
+  127:         }
+  128:         //supplementary characters (LANG1300)
+  129:         if (searchChar <= Character.MAX_CODE_POINT) {  // <-- NOT COVERED
+  130:             final char[] chars = Character.toChars(searchChar);  // <-- NOT COVERED
+  131:             for (int i = start; i < sz - 1; i++) {  // <-- NOT COVERED
+  132:                 final char high = cs.charAt(i);  // <-- NOT COVERED
+  133:                 final char low = cs.charAt(i + 1);  // <-- NOT COVERED
+  134:                 if (high == chars[0] && low == chars[1]) {  // <-- NOT COVERED
+  135:                     return i;  // <-- NOT COVERED
+  136:                 }
+  137:             }
+  138:         }
+  139:         return NOT_FOUND;  // <-- NOT COVERED
+  140:     }
+  141: 
+    ...
+  152:             return NOT_FOUND;
+  153:         }
+  154:         if (searchChar instanceof String) {  // <-- PARTIAL (1 of 2 branches missed)
+  155:             if (cs instanceof String) {  // <-- PARTIAL (1 of 2 branches missed)
+  156:                 return ((String) cs).lastIndexOf((String) searchChar, start);
+  157:             }
+  158:             if (cs instanceof StringBuilder) {  // <-- NOT COVERED
+  159:                 return ((StringBuilder) cs).lastIndexOf((String) searchChar, start);  // <-- NOT COVERED
+  160:             }
+  161:             if (cs instanceof StringBuffer) {  // <-- NOT COVERED
+  162:                 return ((StringBuffer) cs).lastIndexOf((String) searchChar, start);  // <-- NOT COVERED
+  163:             }
+  164:         }
+  165: 
+  166:         final int len1 = cs.length();  // <-- NOT COVERED
+  167:         final int len2 = searchChar.length();  // <-- NOT COVERED
+  168: 
+  169:         if (start > len1) {  // <-- NOT COVERED
+  170:             start = len1;  // <-- NOT COVERED
+  171:         }
+  172: 
+  173:         if (start < 0 || len2 > len1) {  // <-- NOT COVERED
+  174:             return NOT_FOUND;  // <-- NOT COVERED
+  175:         }
+  176: 
+  177:         if (len2 == 0) {  // <-- NOT COVERED
+  178:             return start;  // <-- NOT COVERED
+  179:         }
+  180: 
+  181:         if (len2 <= TO_STRING_LIMIT) {  // <-- NOT COVERED
+  182:             if (cs instanceof String) {  // <-- NOT COVERED
+  183:                 return ((String) cs).lastIndexOf(searchChar.toString(), start);  // <-- NOT COVERED
+  184:             }
+  185:             if (cs instanceof StringBuilder) {  // <-- NOT COVERED
+  186:                 return ((StringBuilder) cs).lastIndexOf(searchChar.toString(), start);  // <-- NOT COVERED
+  187:             }
+  188:             if (cs instanceof StringBuffer) {  // <-- NOT COVERED
+  189:                 return ((StringBuffer) cs).lastIndexOf(searchChar.toString(), start);  // <-- NOT COVERED
+  190:             }
+  191:         }
+  192: 
+  193:         if (start + len2 > len1) {  // <-- NOT COVERED
+  194:             start = len1 - len2;  // <-- NOT COVERED
+  195:         }
+  196: 
+  197:         final char char0 = searchChar.charAt(0);  // <-- NOT COVERED
+  198: 
+  199:         int i = start;  // <-- NOT COVERED
+  200:         while (true) {
+  201:             while (cs.charAt(i) != char0) {  // <-- NOT COVERED
+  202:                 i--;  // <-- NOT COVERED
+  203:                 if (i < 0) {  // <-- NOT COVERED
+  204:                     return NOT_FOUND;  // <-- NOT COVERED
+  205:                 }
+  206:             }
+  207:             if (checkLaterThan1(cs, searchChar, len2, i)) {  // <-- NOT COVERED
+  208:                 return i;  // <-- NOT COVERED
+  209:             }
+  210:             i--;  // <-- NOT COVERED
+  211:             if (i < 0) {  // <-- NOT COVERED
+  212:                 return NOT_FOUND;  // <-- NOT COVERED
+  213:             }
+  214:         }
+    ...
+  244:      */
+  245:     static int lastIndexOf(final CharSequence cs, final int searchChar, int start) {
+  246:         if (cs instanceof String) {  // <-- PARTIAL (1 of 2 branches missed)
+  247:             return ((String) cs).lastIndexOf(searchChar, start);
+  248:         }
+  249:         final int sz = cs.length();  // <-- NOT COVERED
+  250:         if (start < 0) {  // <-- NOT COVERED
+  251:             return NOT_FOUND;  // <-- NOT COVERED
+  252:         }
+  253:         if (start >= sz) {  // <-- NOT COVERED
+  254:             start = sz - 1;  // <-- NOT COVERED
+  255:         }
+  256:         if (searchChar < Character.MIN_SUPPLEMENTARY_CODE_POINT) {  // <-- NOT COVERED
+  257:             for (int i = start; i >= 0; --i) {
+  258:                 if (cs.charAt(i) == searchChar) {
+
+Existing test methods (do not duplicate them):
+testSubSequence_withNullCharSequence, testSubSequence_withStartGreaterThanLength, testSubSequence_withValidStart, testToCharArray_withNullCharSequence, testToCharArray_withEmptyCharSequence, testToCharArray_withString, testToCharArray_withStringBuilder, testIndexOf_withStringAndSearchChar, testIndexOf_withStringBuilderAndSearchChar, testIndexOf_withStringBufferAndSearchChar, testIndexOf_withSupplementaryCharacterFound, testIndexOf_withStringAndSearchSequence, testIndexOf_withStringBuilderAndSearchSequence, testIndexOf_withStringBufferAndSearchSequence, testLastIndexOf_withNullCharSequence, testLastIndexOf_withNullSearchSequence, testLastIndexOf_withStringAndSearchSequence, testLastIndexOf_withSupplementaryCharacterFound
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class CharSequenceUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.CharSequenceUtils):
+```java
+package org.apache.commons.lang3;
+
+/** Operations on {@link CharSequence} that are {@code null} safe. */
+public class CharSequenceUtils {
+    private static final int NOT_FOUND = -1;
+    static final int TO_STRING_LIMIT = 16;
+    /** Returns a new {@link CharSequence} that is a subsequence of this sequence starting with the {@code char} value at the specified index. */
+    public static CharSequence subSequence(final CharSequence cs, final int start) {
+        return cs == null ? null : cs.subSequence(start, cs.length());
+    }
+    /** Converts the given CharSequence to a char[]. */
+    public static char[] toCharArray(final CharSequence source) {
+        final int len = StringUtils.length(source);
+        if (len == 0) {
+            return ArrayUtils.EMPTY_CHAR_ARRAY;
+        }
+        if (source instanceof String) {
+            return ((String) source).toCharArray();
+        }
+        final char[] array = new char[len];
+        for (int i = 0; i < len; i++) {
+            array[i] = source.charAt(i);
+        }
+        return array;
+    }
+    /** {@link CharSequenceUtils} instances should NOT be constructed in standard programming. */
+    public CharSequenceUtils() {
+    }
+}
+```

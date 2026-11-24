@@ -1,0 +1,17 @@
+The JUnit 5 test class {test_class} for {simple_name} currently achieves {line_cov} line coverage and {branch_cov} branch coverage of {simple_name}.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+{snippets}
+
+Existing test methods (do not duplicate them):
+{existing}
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class {test_class} (package {package}) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test ({fqn}):
+```java
+{context}
+```

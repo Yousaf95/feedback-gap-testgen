@@ -1,0 +1,289 @@
+SYSTEM:
+You are an expert Java tester. You write correct, compilable JUnit 5 tests.
+
+USER:
+The JUnit 5 test class RandomStringUtils_GenTest for RandomStringUtils currently achieves 70.8% line coverage and 82.8% branch coverage of RandomStringUtils.java.
+
+The source lines below are not fully covered. Each line is marked: NOT COVERED (never executed) or PARTIAL (some branches missed). Unmarked lines are context.
+  101:      */
+  102:     public static String random(final int count, final char... chars) {
+  103:         if (chars == null) {  // <-- PARTIAL (1 of 2 branches missed)
+  104:             return random(count, 0, 0, false, false, null, random());  // <-- NOT COVERED
+  105:         }
+  106:         return random(count, 0, chars.length, false, false, chars, random());
+    ...
+  205:             if (chars != null) {
+  206:                 end = chars.length;
+  207:             } else if (!letters && !numbers) {  // <-- PARTIAL (1 of 4 branches missed)
+  208:                 end = Character.MAX_CODE_POINT;  // <-- NOT COVERED
+  209:             } else {
+  210:                 end = 'z' + 1;
+  211:                 start = ' ';
+  212:             }
+  213:         } else if (end <= start) {  // <-- PARTIAL (1 of 2 branches missed)
+  214:             throw new IllegalArgumentException("Parameter end (" + end + ") must be greater than start (" + start + ")");  // <-- NOT COVERED
+  215:         }
+  216: 
+    ...
+  218:         final int firstLetterAscii = 65;
+  219: 
+  220:         if (chars == null && (numbers && end <= zeroDigitAscii  // <-- PARTIAL (2 of 10 branches missed)
+  221:                 || letters && end <= firstLetterAscii)) {
+  222:             throw new IllegalArgumentException("Parameter end (" + end + ") must be greater then (" + zeroDigitAscii + ") for generating digits " +  // <-- NOT COVERED
+  223:                     "or greater then (" + firstLetterAscii + ") for generating letters.");
+  224:         }
+    ...
+  232:                 codePoint = random.nextInt(gap) + start;
+  233: 
+  234:                 switch (Character.getType(codePoint)) {  // <-- PARTIAL (1 of 2 branches missed)
+  235:                 case Character.UNASSIGNED:
+  236:                 case Character.PRIVATE_USE:
+  237:                 case Character.SURROGATE:
+  238:                     count++;  // <-- NOT COVERED
+  239:                     continue;
+  240:                 }
+    ...
+  245: 
+  246:             final int numberOfChars = Character.charCount(codePoint);
+  247:             if (count == 0 && numberOfChars > 1) {  // <-- PARTIAL (1 of 4 branches missed)
+  248:                 count++;  // <-- NOT COVERED
+  249:                 continue;  // <-- NOT COVERED
+  250:             }
+  251: 
+    ...
+  255:                 builder.appendCodePoint(codePoint);
+  256: 
+  257:                 if (numberOfChars == 2) {  // <-- PARTIAL (1 of 2 branches missed)
+  258:                     count--;  // <-- NOT COVERED
+  259:                 }
+  260: 
+    ...
+  281:      */
+  282:     public static String random(final int count, final String chars) {
+  283:         if (chars == null) {  // <-- NOT COVERED
+  284:             return random(count, 0, 0, false, false, null, random());  // <-- NOT COVERED
+  285:         }
+  286:         return random(count, chars.toCharArray());  // <-- NOT COVERED
+  287:     }
+  288: 
+    ...
+  314:      */
+  315:     public static String randomAlphabetic(final int minLengthInclusive, final int maxLengthExclusive) {
+  316:         return randomAlphabetic(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));  // <-- NOT COVERED
+  317:     }
+  318: 
+    ...
+  345:      */
+  346:     public static String randomAlphanumeric(final int minLengthInclusive, final int maxLengthExclusive) {
+  347:         return randomAlphanumeric(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));  // <-- NOT COVERED
+  348:     }
+  349: 
+    ...
+  376:      */
+  377:     public static String randomAscii(final int minLengthInclusive, final int maxLengthExclusive) {
+  378:         return randomAscii(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));  // <-- NOT COVERED
+  379:     }
+  380: 
+    ...
+  407:      */
+  408:     public static String randomGraph(final int minLengthInclusive, final int maxLengthExclusive) {
+  409:         return randomGraph(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));  // <-- NOT COVERED
+  410:     }
+  411: 
+    ...
+  437:      */
+  438:     public static String randomNumeric(final int minLengthInclusive, final int maxLengthExclusive) {
+  439:         return randomNumeric(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));  // <-- NOT COVERED
+  440:     }
+  441: 
+    ...
+  469:      */
+  470:     public static String randomPrint(final int minLengthInclusive, final int maxLengthExclusive) {
+  471:         return randomPrint(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));  // <-- NOT COVERED
+  472:     }
+  473: 
+    ...
+  480:      * to operate.</p>
+  481:      */
+  482:     public RandomStringUtils() {  // <-- NOT COVERED
+  483:     }  // <-- NOT COVERED
+  484: 
+  485: }
+
+Existing test methods (do not duplicate them):
+testRandomCountZero, testRandomNegativeCountThrowsException, testRandomEmptyCharsArrayThrowsException, testRandomAlphabetic, testRandomAlphanumeric, testRandomAscii, testRandomGraph, testRandomNumeric, testRandomPrint, testRandomEmptyCharsArrayThrowsException_2, testRandomStartEndZeroWithChars, testRandomCountZero_2, testRandomNegativeCountThrowsException_2, testRandomStartEndZeroWithChars_2, testRandomCountZero_2_2, testRandomNegativeCountThrowsException_2_2, testRandomEmptyCharsArrayThrowsException_2_2, testRandomEndGreaterThanZeroWithChars, testRandomCountZeroWithChars, testRandomNegativeCountThrowsException_3, testRandomEmptyCharsArrayThrowsException_3, testRandomEndGreaterThanZero, testRandomCountZero_3, testRandomNegativeCountThrowsException_3_2, testRandomEmptyCharsArrayThrowsException_3_2, testRandomEndGreaterThanZeroWithAlphabetic, testRandomCountZeroWithAlphabetic, testRandomNegativeCountThrowsException_4, testRandomEmptyCharsArrayThrowsException_4, testRandomEndGreaterThanZeroWithAlphanumeric, testRandomCountZeroWithAlphanumeric, testRandomNegativeCountThrowsException_5, testRandomEmptyCharsArrayThrowsException_5, testRandomEndGreaterThanZeroWithAscii, testRandomCountZeroWithAscii, testRandomNegativeCountThrowsException_6, testRandomEmptyCharsArrayThrowsException_6, testRandomEndGreaterThanZeroWithGraph, testRandomCountZeroWithGraph, testRandomNegativeCountThrowsException_7, testRandomEmptyCharsArrayThrowsException_7, testRandomEndGreaterThanZeroWithNumeric, testRandomCountZeroWithNumeric, testRandomNegativeCountThrowsException_8, testRandomEmptyCharsArrayThrowsException_8, testRandomEndGreaterThanZeroWithPrint, testRandomCountZeroWithPrint, testRandomNegativeCountThrowsException_9, testRandomEmptyCharsArrayThrowsException_9
+
+Write ADDITIONAL test methods that execute the uncovered lines and the missed branches.
+Constraints: use only the public API shown below; no reflection; no mocks; JUnit 5 only; one behaviour per test method; meaningful assertions on concrete expected values; use assertThrows for exceptions; must compile with Java 17.
+
+Output: a single ```java code block containing a class RandomStringUtils_GenTest (package org.apache.commons.lang3) with ONLY the new test methods and the imports they need. Do not repeat existing methods. No explanations.
+
+Class under test (org.apache.commons.lang3.RandomStringUtils):
+```java
+package org.apache.commons.lang3;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+/** Generates random {@link String}s. */
+public class RandomStringUtils {
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count) {
+        return random(count, false, false);
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final boolean letters, final boolean numbers) {
+        return random(count, 0, 0, letters, numbers);
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final char... chars) {
+        if (chars == null) {
+            return random(count, 0, 0, false, false, null, random());
+        }
+        return random(count, 0, chars.length, false, false, chars, random());
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final int start, final int end, final boolean letters, final boolean numbers) {
+        return random(count, start, end, letters, numbers, null, random());
+    }
+    /** Creates a random string based on a variety of options, using default source of randomness. */
+    public static String random(final int count, final int start, final int end, final boolean letters, final boolean numbers, final char... chars) {
+        return random(count, start, end, letters, numbers, chars, random());
+    }
+    /** Creates a random string based on a variety of options, using supplied source of randomness. */
+    public static String random(int count, int start, int end, final boolean letters, final boolean numbers,
+                                final char[] chars, final Random random) {
+        if (count == 0) {
+            return StringUtils.EMPTY;
+        }
+        if (count < 0) {
+            throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+        }
+        if (chars != null && chars.length == 0) {
+            throw new IllegalArgumentException("The chars array must not be empty");
+        }
+
+        if (start == 0 && end == 0) {
+            if (chars != null) {
+                end = chars.length;
+            } else if (!letters && !numbers) {
+                end = Character.MAX_CODE_POINT;
+            } else {
+                end = 'z' + 1;
+                start = ' ';
+            }
+        } else if (end <= start) {
+            throw new IllegalArgumentException("Parameter end (" + end + ") must be greater than start (" + start + ")");
+        }
+
+        final int zeroDigitAscii = 48;
+        final int firstLetterAscii = 65;
+
+        if (chars == null && (numbers && end <= zeroDigitAscii
+                || letters && end <= firstLetterAscii)) {
+            throw new IllegalArgumentException("Parameter end (" + end + ") must be greater then (" + zeroDigitAscii + ") for generating digits " +
+                    "or greater then (" + firstLetterAscii + ") for generating letters.");
+        }
+
+        final StringBuilder builder = new StringBuilder(count);
+        final int gap = end - start;
+
+        while (count-- != 0) {
+            final int codePoint;
+            if (chars == null) {
+                codePoint = random.nextInt(gap) + start;
+
+                switch (Character.getType(codePoint)) {
+                case Character.UNASSIGNED:
+                case Character.PRIVATE_USE:
+                case Character.SURROGATE:
+                    count++;
+                    continue;
+                }
+
+            } else {
+                codePoint = chars[random.nextInt(gap) + start];
+            }
+
+            final int numberOfChars = Character.charCount(codePoint);
+            if (count == 0 && numberOfChars > 1) {
+                count++;
+                continue;
+            }
+
+            if (letters && Character.isLetter(codePoint)
+                    || numbers && Character.isDigit(codePoint)
+                    || !letters && !numbers) {
+                builder.appendCodePoint(codePoint);
+
+                if (numberOfChars == 2) {
+                    count--;
+                }
+
+            } else {
+                count++;
+            }
+        }
+        return builder.toString();
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String random(final int count, final String chars) {
+        if (chars == null) {
+            return random(count, 0, 0, false, false, null, random());
+        }
+        return random(count, chars.toCharArray());
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomAlphabetic(final int count) {
+        return random(count, true, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomAlphabetic(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomAlphabetic(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomAlphanumeric(final int count) {
+        return random(count, true, true);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomAlphanumeric(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomAlphanumeric(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomAscii(final int count) {
+        return random(count, 32, 127, false, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomAscii(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomAscii(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomGraph(final int count) {
+        return random(count, 33, 126, false, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomGraph(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomGraph(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomNumeric(final int count) {
+        return random(count, false, true);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomNumeric(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomNumeric(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** Creates a random string whose length is the number of characters specified. */
+    public static String randomPrint(final int count) {
+        return random(count, 32, 126, false, false);
+    }
+    /** Creates a random string whose length is between the inclusive minimum and the exclusive maximum. */
+    public static String randomPrint(final int minLengthInclusive, final int maxLengthExclusive) {
+        return randomPrint(RandomUtils.nextInt(minLengthInclusive, maxLengthExclusive));
+    }
+    /** {@link RandomStringUtils} instances should NOT be constructed in standard programming. */
+    public RandomStringUtils() {
+    }
+    // non-public helper methods (signatures only)
+    private static ThreadLocalRandom random();
+}
+```

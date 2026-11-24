@@ -1,0 +1,73 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+public class ClassUtils_GenTest {
+
+    @Test
+    public void testGetPackageName() {
+        assertEquals("org.apache.commons", ClassUtils.getPackageName(ClassUtils.class));
+        assertNull(ClassUtils.getPackageName(null));
+    }
+
+    @Test
+    public void testIsPublic() {
+        assertTrue(ClassUtils.isPublic(String.class));
+        assertFalse(ClassUtils.isPublic(Object[].class));
+    }
+
+    @Test
+    public void testGetAllInterfacesWithEmptyClass() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(new Object(){}.getClass());
+        assertNotNull(interfaces);
+        assertTrue(interfaces.isEmpty());
+    }
+
+    @Test
+    public void testConvertClassesToClassNamesWithEmptyList() {
+        List<String> classNames = ClassUtils.convertClassesToClassNames(Collections.emptyList());
+        assertNotNull(classNames);
+        assertTrue(classNames.isEmpty());
+    }
+
+    @Test
+    public void testGetAllSuperclassesWithObjectClass() {
+        List<Class<?>> superclasses = ClassUtils.getAllSuperclasses(Object.class);
+        assertNotNull(superclasses);
+        assertEquals(0, superclasses.size());
+    }
+
+    @Test
+    public void testIsPrimitiveOrWrapperWithNull() {
+        assertThrows(NullPointerException.class, () -> ClassUtils.isPrimitiveOrWrapper(null));
+    }
+
+    @Test
+    public void testGetAbbreviatedNameWithEmptyClassName() {
+        assertEquals("", ClassUtils.getAbbreviatedName("", 10));
+    }
+
+    @Test
+    public void testConvertClassNamesToClassesWithInvalidClassName() {
+        List<String> classNames = Arrays.asList("java.lang.String", "com.example.NonExistentClass");
+        List<Class<?>> classes = ClassUtils.convertClassNamesToClasses(classNames);
+        assertNotNull(classes);
+        assertEquals(2, classes.size());
+        assertNull(classes.get(1));
+    }
+
+    @Test
+    public void testGetCanonicalNameWithNull() {
+        assertEquals("", ClassUtils.getCanonicalName(null));
+    }
+
+    @Test
+    public void testIsInnerClassWithNonInnerClass() {
+        assertFalse(ClassUtils.isInnerClass(String.class));
+    }
+}
+```

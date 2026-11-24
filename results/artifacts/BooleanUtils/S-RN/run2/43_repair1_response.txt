@@ -1,0 +1,116 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.function.Consumer;
+
+class BooleanUtils_GenTest {
+
+    @Test
+    public void testToBooleanObjectWithNullString() {
+        assertNull(BooleanUtils.toBooleanObject(null));
+    }
+
+    @Test
+    public void testToBooleanObjectWithEmptyString() {
+        assertFalse(BooleanUtils.toBooleanObject(""));
+    }
+
+    @Test
+    public void testToBooleanObjectWithTrueString() {
+        assertTrue(BooleanUtils.toBooleanObject("true"));
+    }
+
+    @Test
+    public void testToBooleanObjectWithFalseString() {
+        assertFalse(BooleanUtils.toBooleanObject("false"));
+    }
+
+    @Test
+    public void testToBooleanObjectWithYesString() {
+        assertTrue(BooleanUtils.toBooleanObject("yes"));
+    }
+
+    @Test
+    public void testToBooleanObjectWithNoString() {
+        assertFalse(BooleanUtils.toBooleanObject("no"));
+    }
+
+    @Test
+    public void testToBooleanObjectWithOnString() {
+        assertTrue(BooleanUtils.toBooleanObject("on"));
+    }
+
+    @Test
+    public void testToBooleanObjectWithOffString() {
+        assertFalse(BooleanUtils.toBooleanObject("off"));
+    }
+
+    @Test
+    public void testToBooleanObjectWithIntegerZero() {
+        assertFalse(BooleanUtils.toBooleanObject(0));
+    }
+
+    @Test
+    public void testToBooleanObjectWithIntegerOne() {
+        assertTrue(BooleanUtils.toBooleanObject(1));
+    }
+
+    @Test
+    public void testToBooleanObjectWithTrueIntegerValue() {
+        assertTrue(BooleanUtils.toBooleanObject(42, 42, 0));
+    }
+
+    @Test
+    public void testToBooleanObjectWithFalseIntegerValue() {
+        assertFalse(BooleanUtils.toBooleanObject(0, 1, 0));
+    }
+
+    @Test
+    public void testXorWithEmptyArray() {
+        assertTrue(BooleanUtils.xor(new boolean[0]));
+    }
+
+    @Test
+    public void testXorWithSingleTrueElement() {
+        assertTrue(BooleanUtils.xor(true));
+    }
+
+    @Test
+    public void testXorWithSingleFalseElement() {
+        assertFalse(BooleanUtils.xor(false));
+    }
+
+    @Test
+    public void testXorWithMultipleElements() {
+        assertTrue(BooleanUtils.xor(true, false, true));
+    }
+
+    @Test
+    public void testOneHotWithEmptyArray() {
+        assertFalse(BooleanUtils.oneHot(new boolean[0]));
+    }
+
+    @Test
+    public void testOneHotWithSingleTrueElement() {
+        assertTrue(BooleanUtils.oneHot(true));
+    }
+
+    @Test
+    public void testOneHotWithSingleFalseElement() {
+        assertFalse(BooleanUtils.oneHot(false));
+    }
+
+    @Test
+    public void testOneHotWithMultipleElements() {
+        assertTrue(BooleanUtils.oneHot(true, false, true));
+    }
+}
+```

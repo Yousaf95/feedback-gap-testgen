@@ -1,0 +1,124 @@
+```java
+package org.apache.commons.lang3;
+
+import org.junit.jupiter.api.Test;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class ClassUtils_GenTest {
+
+    // ---- added by coverage-guided refinement ----
+    @Test
+    void testGetAbbreviatedName_withNullClass_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getAbbreviatedName((Class<?>) null, 10));
+    }
+
+    @Test
+    void testGetAbbreviatedName_withValidClass() {
+        String abbreviated = ClassUtils.getAbbreviatedName(String.class, 5);
+        assertTrue(abbreviated.length() <= 5);
+    }
+
+    @Test
+    void testUseFullBranchesInGetAbbreviatedName() {
+        // This test indirectly tests the useFull method by providing a class name that triggers different branches
+        String abbreviated = ClassUtils.getAbbreviatedName("org.apache.commons.lang3.ClassUtils", 10);
+        assertTrue(abbreviated.length() <= 10);
+    }
+
+    @Test
+    void testGetAllInterfaces_withClassHavingNoInterfaces() {
+        List<Class<?>> interfaces = ClassUtils.getAllInterfaces(ClassUtils.class);
+        assertEquals(0, interfaces.size());
+    }
+
+    @Test
+    void testGetAllSuperclasses_withNull_2() {
+        assertNull(ClassUtils.getAllSuperclasses(null));
+    }
+
+    @Test
+    void testGetComponentType_withNullArrayClass_2() {
+        assertNull(ClassUtils.getComponentType((Class<String[]>) null));
+    }
+
+    @Test
+    void testGetCanonicalName_withNullClass_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName((Class<?>) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetCanonicalNameForObject_withNullObject_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getCanonicalName((Object) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetPackageCanonicalName_withNullClass_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageCanonicalName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageName_withNullClass_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Class<?>) null));
+    }
+
+    @Test
+    void testGetPackageNameForObject_withNullObject_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName((Object) null, StringUtils.EMPTY));
+    }
+
+    @Test
+    void testGetCanonicalName_withPrimitiveClass_2() {
+        assertEquals("int", ClassUtils.getCanonicalName(int.class));
+    }
+
+    @Test
+    void testGetPackageName_withEmptyClassName_2() {
+        assertEquals(StringUtils.EMPTY, ClassUtils.getPackageName(""));
+    }
+
+    @Test
+    void testGetPackageName_withArrayClassName_2() {
+        assertEquals("[Ljava.lang.String;", ClassUtils.getPackageName(String[].class.getName()));
+    }
+
+    @Test
+    void testGetCanonicalName_privateMethodBranches() {
+        assertEquals("java.lang.String", ClassUtils.getCanonicalName("java.lang.String"));
+        assertEquals("[I", ClassUtils.getCanonicalName("[I"));
+        assertEquals("[[Ljava.lang.String;", ClassUtils.getCanonicalName("[[Ljava.lang.String;"));
+    }
+
+    @Test
+    void testGetClass_withNullClassLoader() {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass((ClassLoader) null, "java.lang.String"));
+    }
+
+    @Test
+    void testGetClass_withInvalidClassName() {
+        assertThrows(ClassNotFoundException.class, () -> ClassUtils.getClass("invalid.ClassName"));
+    }
+
+    @Test
+    void testGetClass_withInnerClassSeparator() {
+        try {
+            Class<?> clazz = ClassUtils.getClass("java.util.Map$Entry");
+            assertEquals(java.util.Map.Entry.class, clazz);
+        } catch (ClassNotFoundException e) {
+            fail("Should not throw exception", e);
+        }
+    }
+
+    @Test
+    void testGetPackageName_privateMethodBranches() {
+        assertEquals("java.lang", ClassUtils.getPackageName("java.lang.String"));
+        assertEquals("", ClassUtils.getPackageName("[I"));
+        assertEquals("", ClassUtils.getPackageName("[[Ljava.lang.String;"));
+    }
+}
+```

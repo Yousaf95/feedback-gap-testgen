@@ -1,0 +1,101 @@
+```java
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class Range_GenTest {
+
+    @Test
+    void testFitElementWithinRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(3, range.fit(3));
+    }
+
+    @Test
+    void testFitElementBelowRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(1, range.fit(0));
+    }
+
+    @Test
+    void testFitElementAboveRange() {
+        Range<Integer> range = Range.between(1, 5);
+        assertEquals(5, range.fit(6));
+    }
+
+    @Test
+    void testIsStartedByWithNull() {
+        Range<String> range = Range.is("test");
+        assertFalse(range.isStartedBy(null));
+    }
+
+    @Test
+    void testIsEndedByWithNull() {
+        Range<String> range = Range.is("test");
+        assertFalse(range.isEndedBy(null));
+    }
+
+    @Test
+    void testIsAfterRangeNonOverlapping() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertFalse(range1.isAfterRange(range2));
+    }
+
+    @Test
+    void testIsBeforeRangeNonOverlapping() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertTrue(range1.isBeforeRange(range2));
+    }
+
+    @Test
+    void testIntersectionWithIdenticalRanges() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(1, 5);
+        assertEquals(range1, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIntersectionWithOverlappingStart() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(3, 7);
+        Range<Integer> expected = Range.between(3, 5);
+        assertEquals(expected, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIntersectionWithOverlappingEnd() {
+        Range<Integer> range1 = Range.between(3, 7);
+        Range<Integer> range2 = Range.between(1, 5);
+        Range<Integer> expected = Range.between(3, 5);
+        assertEquals(expected, range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testIntersectionWithNonOverlappingThrowsException() {
+        Range<Integer> range1 = Range.between(1, 5);
+        Range<Integer> range2 = Range.between(6, 10);
+        assertThrows(IllegalArgumentException.class, () -> range1.intersectionWith(range2));
+    }
+
+    @Test
+    void testElementCompareToBelowRange() {
+        Range<Integer> range = Range.between(3, 7);
+        assertEquals(1, range.elementCompareTo(2));
+    }
+
+    @Test
+    void testElementCompareToAboveRange() {
+        Range<Integer> range = Range.between(3, 7);
+        assertEquals(-1, range.elementCompareTo(8));
+    }
+
+    @Test
+    void testElementCompareToWithinRange() {
+        Range<Integer> range = Range.between(3, 7);
+        assertEquals(0, range.elementCompareTo(5));
+    }
+}
+```

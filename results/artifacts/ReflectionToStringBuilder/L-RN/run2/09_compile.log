@@ -1,0 +1,87 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[95,13] cannot find symbol
+  symbol:   class TestClassWithTransientField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[95,51] cannot find symbol
+  symbol:   class TestClassWithTransientField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[102,13] cannot find symbol
+  symbol:   class TestClassWithTransientField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[102,51] cannot find symbol
+  symbol:   class TestClassWithTransientField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[109,13] cannot find symbol
+  symbol:   class TestClassWithStaticField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[109,48] cannot find symbol
+  symbol:   class TestClassWithStaticField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[116,13] cannot find symbol
+  symbol:   class TestClassWithStaticField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[116,48] cannot find symbol
+  symbol:   class TestClassWithStaticField
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[123,13] cannot find symbol
+  symbol:   class TestClassWithNullableFields
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[123,51] cannot find symbol
+  symbol:   class TestClassWithNullableFields
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[131,13] cannot find symbol
+  symbol:   class SubTestClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[131,36] cannot find symbol
+  symbol:   class SubTestClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[132,89] cannot find symbol
+  symbol:   class SubTestClass
+  location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project harness: Compilation failure: Compilation failure: 
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[95,13] cannot find symbol
+[ERROR]   symbol:   class TestClassWithTransientField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[95,51] cannot find symbol
+[ERROR]   symbol:   class TestClassWithTransientField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[102,13] cannot find symbol
+[ERROR]   symbol:   class TestClassWithTransientField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[102,51] cannot find symbol
+[ERROR]   symbol:   class TestClassWithTransientField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[109,13] cannot find symbol
+[ERROR]   symbol:   class TestClassWithStaticField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[109,48] cannot find symbol
+[ERROR]   symbol:   class TestClassWithStaticField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[116,13] cannot find symbol
+[ERROR]   symbol:   class TestClassWithStaticField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[116,48] cannot find symbol
+[ERROR]   symbol:   class TestClassWithStaticField
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[123,13] cannot find symbol
+[ERROR]   symbol:   class TestClassWithNullableFields
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[123,51] cannot find symbol
+[ERROR]   symbol:   class TestClassWithNullableFields
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[131,13] cannot find symbol
+[ERROR]   symbol:   class SubTestClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[131,36] cannot find symbol
+[ERROR]   symbol:   class SubTestClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] /work/w13/src/test/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder_GenTest.java:[132,89] cannot find symbol
+[ERROR]   symbol:   class SubTestClass
+[ERROR]   location: class org.apache.commons.lang3.builder.ReflectionToStringBuilder_GenTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
